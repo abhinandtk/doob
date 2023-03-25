@@ -102,9 +102,11 @@ function Login({setActiveModal}) {
 
     }
   return (
-    <Modal show={shows} onhide={()=>setShows(false)} className='login'>
+    <Modal 
+    show={shows} 
+    onHide={()=>setShows(false)} 
+    className='login'>
 
-        <div>
         <Modal.Header closeButton>
          
         </Modal.Header>
@@ -165,7 +167,6 @@ function Login({setActiveModal}) {
       </Form.Group>
     </Form>
         </Modal.Body>
-        </div>
       </Modal>
   )
 }
