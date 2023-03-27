@@ -784,16 +784,9 @@ Arabic</Dropdown.Item>
                 
                 </div>
               </div>
-
-
-
-
-
-
-          
-          </div>
-            <section className="side-menu-section  ">
-          <div className="side-menu__suggestions-section">
+                    </div>
+            <section className="side-menu-section ">
+          <div className="side-menu__suggestions-section " > 
             <div className="side-menu__suggestions-headers">
               <h2>Notifications</h2>
               

@@ -315,11 +315,16 @@ Arabic</Dropdown.Item>
         <Form.Control type="password" placeholder="" style={{width:'360px'}} />
        
       </Form.Group>
+      <Form.Group className="mb-1"  style={{marginLeft:'180px'}} controlId="formBasicPassword">
+        <Form.Label>Email Address*</Form.Label>
+        <Form.Control type="password" placeholder="" style={{width:'360px'}} />
+       
+      </Form.Group>
       <Form.Label style={{marginLeft:'176px'}}>Phone Number*</Form.Label>
       <Form.Group className=" d-flex justify-content-between align-items-center "  style={{marginLeft:'180px'}} controlId="formBasicPassword">
       
-        <Form.Control type="Phone Number" placeholder="+965" className='dot ' style={{width:'80px'}} />
-        <Form.Control type="Phone Number" placeholder="" className='dot ' style={{width:'276px',marginRight:'173px'}} />
+        <Form.Control type="Phone Number" placeholder="+965" className='dot ' style={{width:'70px'}} />
+        <Form.Control type="Phone Number" placeholder="" className='dot ' style={{width:'286px',marginRight:'173px'}} />
       </Form.Group>
 
       <Form.Group className="mb-1"  style={{marginLeft:'180px'}} controlId="exampleForm.ControlInput1">

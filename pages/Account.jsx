@@ -1,6 +1,6 @@
 
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import {Container,Nav,Navbar,Dropdown,Tab,Tabs,CardImg} from 'react-bootstrap';
+import {Container,Nav,Navbar,Dropdown,Tab,Tabs,Card,Button} from 'react-bootstrap';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import React, { useState } from 'react';
 
@@ -293,120 +293,107 @@ Arabic</Dropdown.Item>
     </nav>
     </aside>
      
-    <form className="nosubmit ">
-  <input className="nosubmit" type="search" placeholder="Search"   />
-</form>
+    
+    <Card className='container ' style={{width:'910px',marginRight:'135px',marginTop:'33px'}}>
+      
+      <Card.Body>
+      <button class="btn profile-edit-btn">Rank</button>  <button class="btn profile-edit-btn1">Edit</button>
+       
+      <div class="profile">
+ 
+<div class="profile-image">
 
+  <img src="../images/accounts/group.png" alt=""></img>
+  
+
+</div>
+<div class="profile-image">
+
+  <img src="../images/accounts/camera.png" href='#' style={{width:'44px',height:'44px',marginRight:'503px',marginBottom:'-283px'}} alt=""></img><br></br>
+  
+
+</div>
+<div class="profile-user-settings">
+
+  <h1 class="profile-user-name">Muhammed Alsalah<span><img src='../images/accounts/stars.png' className='mx-1 mb-1'></img></span><span><img src='../images/accounts/iconoir_help-circles.png' className=' mb-1'></img></span></h1><br></br>
+  <h1 class="profile-user-names">@muhammed_alsalah</h1>
+</div>
+
+<div class="profile-stats">
+
+  <ul>
+    <li><span class="profile-stat-count">465</span> <span style={{color:'#959595'}}>posts</span></li>
+    <li><span class="profile-stat-count">123k</span>  <span style={{color:'#959595'}}>followers</span></li>
+    <li><span class="profile-stat-count">1.2K</span>  <span style={{color:'#959595'}}>following</span></li>
+    <br></br>
+    <li><span class="profile-stat-count " style={{color:'#959595'}}>Age</span>  <span >28</span></li>
+    <li><span class="profile-stat-count" style={{color:'#959595'}}>Gender</span>  <span > Male</span></li>
+    <br></br>
+    <li><span > <img src="../images/accounts/kuwait.png" alt="" ></img></span><span class="profile-stat-count mx-1">Kuwait,Hawally </span> <span style={{color:'#959595'}} className='mx-3'>+More</span></li>
+  </ul>
+
+</div>
+
+</div>
+        
+      </Card.Body>
+    </Card>
 
 <section id="tabs">
 	<div className="container">
-		
-	
-			<div className="col-md-9 ">
+			<div className="col-md-9  ">
       <Tabs  id="uncontrolled-tab-example" style={{display:'flex',justifyContent:'space-evenly'}} > 
   <Tab eventKey={1} title="Feeds">
   <hr style={{color:'#000',width:'900px'}} className='col-md-12 ' ></hr>
-    
-   
+    <div className='row box'>
+      <div className='col-md-2'>
+   <img src='../images/post1.jpg'></img>
+      </div>
+      <div className='col-md-2'>
+      <img src='../images/post2.jpg'></img>
+        </div>
+        <div className='col-md-2'>
+        <img src='../images/post3.jpg'></img>
+        </div>
+    </div>
+    <div className='row box'>
+      <div className='col-md-2'>
+   <img src='../images/post4.png'></img>
+      </div>
+      <div className='col-md-2'>
+      <img src='../images/post5.png'></img>
+        </div>
+        <div className='col-md-2'>
+        <img src='../images/post6.png'></img>
+        </div>
+    </div>
+    <div className='row box'>
+      <div className='col-md-2'>
+   <img src='../images/post7.png'></img>
+      </div>
+      <div className='col-md-2'>
+      <img src='../images/post8.png'></img>
+        </div>
+        <div className='col-md-2'>
+        <img src='../images/post 9.png'></img>
+        </div>
+    </div>
+    <div className='row box'>
+      <div className='col-md-2'>
+   <img src='../images/post10.png'></img>
+      </div>
+      <div className='col-md-2'>
+      <img src='../images/post11.png'></img>
+        </div>
+        <div className='col-md-2'>
+        <img src='../images/post12.png'></img>
+        </div>
+    </div>
   </Tab>
-  <Tab eventKey={2} title="Profiles">
+  <Tab eventKey={2} title="Activities">
+  
   <hr style={{color:'#000',width:'900px'}} className='col-md-12 ' ></hr>
-  <div className='d-flex flex-start mt-4 mx-2'>
-            <a   className='me-2' href=''>
-            <CardImg  className='rounded-circle shadow-1-strong ' src="../images/profile 1.png" style={{width:'44px',height:'44px'}} ></CardImg>
-            </a>
-            <div className="flex-grow-1 flex-shrink-1 " style={{marginBottom:'-24px'}}>
-                            <div>
-                              <div className="d-flex justify-content-between align-items-center">
-                                <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
-                                Sulthan{" "}
-                                  
-                                </p>
-                              </div>
-                            
-                              <p className='small ' style={{color:'#000',fontWeight:'500',fontSize:'14px',marginTop:'-5px'}}>
-                                 @sulthan_ali 
-                              </p>
-                            </div>
-                          </div>
-          </div>
-          <div className='d-flex flex-start mt-4 mx-2'>
-            <a   className='me-2' href=''>
-            <CardImg  className='rounded-circle shadow-1-strong ' src="../images/profile 2.png" style={{width:'44px',height:'44px'}} ></CardImg>
-            </a>
-            <div className="flex-grow-1 flex-shrink-1 " style={{marginBottom:'-24px'}}>
-                            <div>
-                              <div className="d-flex justify-content-between align-items-center">
-                                <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
-                                Sulthan Alhamad{" "}
-                                  
-                                </p>
-                              </div>
-                            
-                              <p className='small ' style={{color:'#000',fontWeight:'500',fontSize:'14px',marginTop:'-5px'}}>
-                                 @sulthan_alhamad
-                              </p>
-                            </div>
-                          </div>
-          </div>
 
-          <div className='d-flex flex-start mt-4 mx-2'>
-            <a   className='me-2' href=''>
-            <CardImg  className='rounded-circle shadow-1-strong ' src="../images/profile 3.png" style={{width:'44px',height:'44px'}} ></CardImg>
-            </a>
-            <div className="flex-grow-1 flex-shrink-1 " style={{marginBottom:'-24px'}}>
-                            <div>
-                              <div className="d-flex justify-content-between align-items-center">
-                                <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
-                                Sulthan Khalid{" "}
-                                  
-                                </p>
-                              </div>
-                            
-                              <p className='small ' style={{color:'#000',fontWeight:'500',fontSize:'14px',marginTop:'-5px'}}>
-                                 @sulthan_khalid
-                              </p>
-                            </div>
-                          </div>
-          </div>
-          <div className='d-flex flex-start mt-4 mx-2'>
-            <a   className='me-2' href=''>
-            <CardImg  className='rounded-circle shadow-1-strong ' src="../images/profile 4.png" style={{width:'44px',height:'44px'}} ></CardImg>
-            </a>
-            <div className="flex-grow-1 flex-shrink-1 " style={{marginBottom:'-24px'}}>
-                            <div>
-                              <div className="d-flex justify-content-between align-items-center">
-                                <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
-                                Sulthan Almubarakd{" "}
-                                  
-                                </p>
-                              </div>
-                            
-                              <p className='small ' style={{color:'#000',fontWeight:'500',fontSize:'14px',marginTop:'-5px'}}>
-                                 @sulthan_almubarakd
-                              </p>
-                            </div>
-                          </div>
-          </div>
-          <div className='d-flex flex-start mt-4 mx-2'>
-            <a   className='me-2' href=''>
-            <CardImg  className='rounded-circle shadow-1-strong ' src="../images/profile 5.png" style={{width:'44px',height:'44px'}} ></CardImg>
-            </a>
-            <div className="flex-grow-1 flex-shrink-1 " style={{marginBottom:'-24px'}}>
-                            <div>
-                              <div className="d-flex justify-content-between align-items-center">
-                                <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
-                                Sulthan Sameer{" "}
-                                  
-                                </p>
-                              </div>
-                            
-                              <p className='small ' style={{color:'#000',fontWeight:'500',fontSize:'14px',marginTop:'-5px'}}>
-                                 @sulthan_sameer
-                              </p>
-                            </div>
-                          </div>
-          </div>
   </Tab>
 </Tabs>;
 		</div>
