@@ -294,7 +294,7 @@ Arabic</Dropdown.Item>
     </aside>
      
     
-    <Card className='container ' style={{width:'910px',marginRight:'135px',marginTop:'33px'}}>
+    <Card className='container ' style={{width:'910px',marginRight:'135px',marginTop:'33px',height:'290px'}}>
       
       <Card.Body>
       <button class="btn profile-edit-btn">Rank</button>  <button class="btn profile-edit-btn1">Edit</button>
