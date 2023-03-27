@@ -26,6 +26,11 @@ body{
   justify-content: center;
   align-items: center;
 }
+.nav_head_svg:hover{
+  
+        stroke:#17A803;
+        filter: invert(0.5);
+}
  .sidebar {
   position: fixed;
   top: 40;
@@ -66,18 +71,12 @@ body{
   line-height: 1;
 }
 
-.sidebar a:hover > span {
-  background:#17a803;
-  
+.sidebar a span:hover  {
+  color:#17a803;
+  transition: 0.1s;
+ 
 }
 
-.sidebar a:hover > span :is(i, img) {
-  scale: 1.0;
-}
-
-.sidebar a > span > span {
-  transition: 0.3s;
-}
 
 .sidebar a i {
   position: relative;
@@ -130,7 +129,9 @@ body{
   font-family: 'Inter', sans-serif;
 }
 
-
+.navbar__button{
+  display: none;
+}
 
 
 .side-menu__footer {
@@ -1238,7 +1239,10 @@ body{
   .text_followers {
     margin-left: 4px;
   }
- 
+ .navbar__button{
+  display: block;
+  margin-left: 34px;
+}
   
 }
 
