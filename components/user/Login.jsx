@@ -110,10 +110,10 @@ function Login({setActiveModal}) {
         <Modal.Header closeButton>
          
         </Modal.Header>
-        <Modal.Title style={{fontWeight:'700',fontSize:'16px',marginLeft:'195px'}}>Login</Modal.Title>
+        <Modal.Title className='title' >Login</Modal.Title>
         <Modal.Body>
           <Form onSubmit={(e)=>loginSubmitHandler(e)}>
-          <Form.Group className="mb-1" style={{marginLeft:'180px'}} >
+          <Form.Group className="mb-1 pop " >
         <Form.Label>Email Address</Form.Label>
         <Form.Control 
         type="text" 
@@ -124,7 +124,7 @@ function Login({setActiveModal}) {
         aria-describedby="passwordHelpBlock"   />
       </Form.Group>
          
-      <Form.Group className="mb-3 " style={{marginLeft:'180px'}} controlId="formBasicPassword">
+      <Form.Group className="mb-3 pop1"  controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control 
         type="password" 

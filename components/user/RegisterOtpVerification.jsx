@@ -56,11 +56,11 @@ function RegisterOtpVerification({setActiveModal}) {
     <Modal.Header closeButton>
     
     </Modal.Header>
-    <Modal.Title  style={{marginLeft:'340px',marginTop:'10px'}}><img src='../images/1.png' style={{width:'64px',height:'64px'}} ></img></Modal.Title>
+    <Modal.Title  className='circle'><img src='../images/1.png' className='circle'></img></Modal.Title>
   
-    <Modal.Title style={{fontWeight:'700',fontSize:'16px',marginLeft:'300px',marginTop:'24px'}}>Confirm Your Email</Modal.Title>
-    <Modal.Title  style={{fontSize:'15px',marginLeft:'180px',marginTop:'24px'}}>To verify your email , we’ve sent a One Time Password(OTP) to             </Modal.Title>
-    <Modal.Title  style={{fontSize:'15px',marginLeft:'260px'}}>{typeof localStorage !== 'undefined' ? localStorage.getItem('otp-email'):null}</Modal.Title>
+    <Modal.Title className='title2' >Confirm Your Email</Modal.Title>
+    <Modal.Title className='lorum'  >To verify your email , we’ve sent a One Time Password(OTP) to             </Modal.Title>
+    <Modal.Title  className='email' >{typeof localStorage !== 'undefined' ? localStorage.getItem('otp-email'):null}</Modal.Title>
     <Modal.Body>
       <Form onSubmit={(e)=>submitVerify(e)}>
       <Form.Group className="" controlId="exampleForm.ControlInput1">

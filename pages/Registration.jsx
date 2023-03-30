@@ -299,10 +299,10 @@ Arabic</Dropdown.Item>
         
         </Modal.Header>
      
-        <Modal.Title style={{fontWeight:'700',fontSize:'16px',marginLeft:'195px'}}>Registration</Modal.Title>
+        <Modal.Title  >Registration</Modal.Title>
         <Modal.Body>
           <Form >
-          <Form.Group className="mb-1"  style={{marginLeft:'180px'}} controlId="formBasicEmail">
+          <Form.Group className="mb-1 white "   controlId="formBasicEmail">
         <Form.Label>Name*</Form.Label>
         <Form.Control type="email" placeholder="" style={{width:'360px'}} />
         <Form.Text className="text-muted">
@@ -310,24 +310,24 @@ Arabic</Dropdown.Item>
         </Form.Text>
       </Form.Group>
          
-      <Form.Group className="mb-1"  style={{marginLeft:'180px'}} controlId="formBasicPassword">
+      <Form.Group className="mb-1 white"   controlId="formBasicPassword">
         <Form.Label>Username*</Form.Label>
         <Form.Control type="password" placeholder="" style={{width:'360px'}} />
        
       </Form.Group>
-      <Form.Group className="mb-1"  style={{marginLeft:'180px'}} controlId="formBasicPassword">
+      <Form.Group className="mb-1 white"   controlId="formBasicPassword">
         <Form.Label>Email Address*</Form.Label>
         <Form.Control type="password" placeholder="" style={{width:'360px'}} />
        
       </Form.Group>
-      <Form.Label style={{marginLeft:'176px'}}>Phone Number*</Form.Label>
+      <Form.Label  className='white'>Phone Number*</Form.Label>
       <Form.Group className=" d-flex justify-content-between align-items-center "  style={{marginLeft:'180px'}} controlId="formBasicPassword">
-      
-        <Form.Control type="Phone Number" placeholder="+965" className='dot ' style={{width:'70px'}} />
-        <Form.Control type="Phone Number" placeholder="" className='dot ' style={{width:'286px',marginRight:'173px'}} />
+           
+        <Form.Control type="Phone Number" placeholder="+965" className='dot' />
+        <Form.Control type="Phone Number" placeholder="" className='dot1 '  />
       </Form.Group>
 
-      <Form.Group className="mb-1"  style={{marginLeft:'180px'}} controlId="exampleForm.ControlInput1">
+      <Form.Group className="mb-1 white"  controlId="exampleForm.ControlInput1">
             <Form.Label>Gender</Form.Label>
             <Form.Select aria-label="Default select example" style={{width:'360px'}}>
       <option></option>
@@ -336,7 +336,7 @@ Arabic</Dropdown.Item>
     </Form.Select>
     
             </Form.Group>
-            <Form.Group className="mb-1"  style={{marginLeft:'180px'}} controlId="exampleForm.ControlInput1">
+            <Form.Group className="mb-1 white"   controlId="exampleForm.ControlInput1">
             <Form.Label>Nationality</Form.Label>
             <Form.Select aria-label="Default select example" style={{width:'360px'}}>
       <option></option>
@@ -346,18 +346,18 @@ Arabic</Dropdown.Item>
             </Form.Group>
      
 
-            <Form.Group className="mb-1"  style={{marginLeft:'180px'}} controlId="formBasicPassword">
+            <Form.Group className="mb-1 white"  controlId="formBasicPassword">
         <Form.Label>Date of Birth</Form.Label>
         <Form.Control type="Phone Number" placeholder="" style={{width:'360px'}} />
        
       </Form.Group>
 
-            <Form.Group className="mb-1"  style={{marginLeft:'180px'}} controlId="formBasicPassword">
+            <Form.Group className="mb-1 white" controlId="formBasicPassword">
         <Form.Label>Password*</Form.Label>
         <Form.Control type="Phone Number" placeholder="" style={{width:'360px'}}  />
        
       </Form.Group>
-      <Form.Group className="mb-1"  style={{marginLeft:'180px'}} controlId="formBasicPassword">
+      <Form.Group className="mb-1 white"   controlId="formBasicPassword">
         <Form.Label>Confirm Password*</Form.Label>
         <Form.Control type="Phone Number" placeholder="" style={{width:'360px'}}  />
        

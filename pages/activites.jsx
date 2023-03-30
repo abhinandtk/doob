@@ -294,7 +294,7 @@ Arabic</Dropdown.Item>
     </aside>
      
     
-    <Card className='container ' style={{width:'910px',marginRight:'135px',marginTop:'33px',height:'290px'}}>
+    <Card className='container-fluid ' style={{width:'910px',marginRight:'135px',marginTop:'23px',height:'290px'}}>
       
       <Card.Body>
       <button class="btn profile-edit-btn">Rank</button>  <button class="btn profile-edit-btn1">Edit</button>
@@ -390,168 +390,10 @@ Arabic</Dropdown.Item>
         </div>
     </div>
   </Tab>
-  <Tab eventKey={2} title="Profiles" >
+  <Tab eventKey={2} title="Activities" >
    
   <hr style={{color:'#000',width:'900px'}} className='col-md-12 ' ></hr>
-  <Card style={{width:'900px',height:'910px'}}>
-  <h6 style={{color:'#000',fontWeight:'600',fontSize:'18px',marginLeft:'43px',marginTop:'44px'}}>Tue.Feb 12</h6>
-  <div className='d-flex flex-start mt-3 mx-5' >
-    
-            <a   className='me-2' href=''>
-            <CardImg   src="../images/accounts/stadium.png" style={{width:'64px',height:'64px',borderRadius:'0px'}} ></CardImg>
-            </a>
-            <div className="flex-grow-1 flex-shrink-1 mx-2 mt-2 " style={{marginBottom:'-24px'}}>
-                            <div>
-                              <div className="d-flex justify-content-between align-items-center">
-                                <p className="mb-0" style={{fontWeight:'500',color:'#000',fontSize:'15px'}}>
-                                Booked<span className='mx-1' style={{fontWeight:'600',fontSize:'15px'}}>Mohammed Al-Hamad Stadium </span></p> 
-                                  
-                              </div>
-                            
-                              <p className='small ' style={{color:'#000',fontWeight:'500',fontSize:'14px',marginTop:'-5px'}}>
-                          10:30 
 
-
-                              </p>
-                            </div>
-                          </div>
-          </div>
-          <hr style={{color:'#000',width:'800px'}} className='col-md-11 mx-5' ></hr>
-          <div className='d-flex flex-start mt-3 mx-5' >
-    
-    <a   className='me-2' href=''>
-    <CardImg   src="../images/accounts/stadium.png" style={{width:'64px',height:'64px',borderRadius:'0px'}} ></CardImg>
-    </a>
-    <div className="flex-grow-1 flex-shrink-1 mx-2 mt-2 " style={{marginBottom:'-24px'}}>
-                    <div>
-                      <div className="d-flex justify-content-between align-items-center">
-                        <p className="mb-0" style={{fontWeight:'500',color:'#000',fontSize:'15px'}}>
-                        Booked<span className='mx-1' style={{fontWeight:'600',fontSize:'15px'}}>Mohammed Al-Hamad Stadium </span></p> 
-                          
-                      </div>
-                    
-                      <p className='small ' style={{color:'#000',fontWeight:'500',fontSize:'14px',marginTop:'-5px'}}>
-                  10:30 
-
-
-                      </p>
-                    </div>
-                  </div>
-  </div>
-  <hr style={{color:'#000',width:'800px'}} className='col-md-11 mx-5' ></hr>
-  <div className='d-flex flex-start mt-3 mx-5' >
-    
-            <a   className='me-2' href=''>
-            <CardImg   src="../images/accounts/stadium.png" style={{width:'64px',height:'64px',borderRadius:'0px'}} ></CardImg>
-            </a>
-            <div className="flex-grow-1 flex-shrink-1 mx-2 mt-2 " style={{marginBottom:'-24px'}}>
-                            <div>
-                              <div className="d-flex justify-content-between align-items-center">
-                                <p className="mb-0" style={{fontWeight:'500',color:'#000',fontSize:'15px'}}>
-                                Booked<span className='mx-1' style={{fontWeight:'600',fontSize:'15px'}}>Mohammed Al-Hamad Stadium </span></p> 
-                                  
-                              </div>
-                            
-                              <p className='small ' style={{color:'#000',fontWeight:'500',fontSize:'14px',marginTop:'-5px'}}>
-                          10:30 
-
-
-                              </p>
-                            </div>
-                          </div>
-          </div>
-          <hr style={{color:'#000',width:'800px'}} className='col-md-11 mx-5' ></hr>
-
-          <div className='d-flex flex-start mt-3 mx-5' >
-    
-    <a   className='me-2' href=''>
-    <CardImg   src="../images/accounts/stadium.png" style={{width:'64px',height:'64px',borderRadius:'0px'}} ></CardImg>
-    </a>
-    <div className="flex-grow-1 flex-shrink-1 mx-2 mt-2 " style={{marginBottom:'-24px'}}>
-                    <div>
-                      <div className="d-flex justify-content-between align-items-center">
-                        <p className="mb-0" style={{fontWeight:'500',color:'#000',fontSize:'15px'}}>
-                        Booked<span className='mx-1' style={{fontWeight:'600',fontSize:'15px'}}>Mohammed Al-Hamad Stadium </span></p> 
-                          
-                      </div>
-                    
-                      <p className='small ' style={{color:'#000',fontWeight:'500',fontSize:'14px',marginTop:'-5px'}}>
-                  10:30 
-
-
-                      </p>
-                    </div>
-                  </div>
-  </div>
-  <hr style={{color:'#000',width:'800px'}} className='col-md-11 mx-5' ></hr>
-  <h6 style={{color:'#000',fontWeight:'600',fontSize:'18px',marginLeft:'43px',marginTop:'4px'}}>Mon.Feb 20</h6>
-  <div className='d-flex flex-start mt-3 mx-5' >
-    
-    <a   className='me-2' href=''>
-    <CardImg   src="../images/accounts/stadium.png" style={{width:'64px',height:'64px',borderRadius:'0px'}} ></CardImg>
-    </a>
-    <div className="flex-grow-1 flex-shrink-1 mx-2 mt-2 " style={{marginBottom:'-24px'}}>
-                    <div>
-                      <div className="d-flex justify-content-between align-items-center">
-                        <p className="mb-0" style={{fontWeight:'500',color:'#000',fontSize:'15px'}}>
-                        Booked<span className='mx-1' style={{fontWeight:'600',fontSize:'15px'}}>Mohammed Al-Hamad Stadium </span></p> 
-                          
-                      </div>
-                    
-                      <p className='small ' style={{color:'#000',fontWeight:'500',fontSize:'14px',marginTop:'-5px'}}>
-                  10:30 
-
-
-                      </p>
-                    </div>
-                  </div>
-  </div>
-  <hr style={{color:'#000',width:'800px'}} className='col-md-11 mx-5' ></hr>
-  <div className='d-flex flex-start mt-3 mx-5' >
-    
-    <a   className='me-2' href=''>
-    <CardImg   src="../images/accounts/stadium.png" style={{width:'64px',height:'64px',borderRadius:'0px'}} ></CardImg>
-    </a>
-    <div className="flex-grow-1 flex-shrink-1 mx-2 mt-2 " style={{marginBottom:'-24px'}}>
-                    <div>
-                      <div className="d-flex justify-content-between align-items-center">
-                        <p className="mb-0" style={{fontWeight:'500',color:'#000',fontSize:'15px'}}>
-                        Booked<span className='mx-1' style={{fontWeight:'600',fontSize:'15px'}}>Mohammed Al-Hamad Stadium </span></p> 
-                          
-                      </div>
-                    
-                      <p className='small ' style={{color:'#000',fontWeight:'500',fontSize:'14px',marginTop:'-5px'}}>
-                  10:30 
-
-
-                      </p>
-                    </div>
-                  </div>
-  </div>
-  <hr style={{color:'#000',width:'800px'}} className='col-md-11 mx-5' ></hr>
-  <div className='d-flex flex-start mt-3 mx-5' >
-    
-    <a   className='me-2' href=''>
-    <CardImg   src="../images/accounts/stadium.png" style={{width:'64px',height:'64px',borderRadius:'0px'}} ></CardImg>
-    </a>
-    <div className="flex-grow-1 flex-shrink-1 mx-2 mt-2 " style={{marginBottom:'-24px'}}>
-                    <div>
-                      <div className="d-flex justify-content-between align-items-center">
-                        <p className="mb-0" style={{fontWeight:'500',color:'#000',fontSize:'15px'}}>
-                        Booked<span className='mx-1' style={{fontWeight:'600',fontSize:'15px'}}>Mohammed Al-Hamad Stadium </span></p> 
-                          
-                      </div>
-                    
-                      <p className='small ' style={{color:'#000',fontWeight:'500',fontSize:'14px',marginTop:'-5px'}}>
-                  10:30 
-
-
-                      </p>
-                    </div>
-                  </div>
-  </div>
-
-          </Card>
   </Tab>
 </Tabs>;
 		</div>

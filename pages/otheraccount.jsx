@@ -307,7 +307,7 @@ Arabic</Dropdown.Item>
         </Modal>
         
     
-    <Card className='container ' style={{width:'910px',  height:'283px', marginRight:'135px',marginTop:'33px'}}>
+        <Card className='container-fluid ' style={{width:'910px',marginRight:'135px',marginTop:'23px',height:'290px'}}>
       
       <Card.Body >
       <button class="btn profile-edit-btn">Rank</button>  
@@ -358,52 +358,28 @@ Arabic</Dropdown.Item>
       <Tabs  id="uncontrolled-tab-example" style={{display:'flex',justifyContent:'space-evenly'}} > 
   <Tab eventKey={1} title="Feeds">
   <hr style={{color:'#000',width:'900px'}} className='col-md-12 ' ></hr>
-    <div className='row box'>
-      <div className='col-md-2'>
-   <img src='../images/post1.jpg'></img>
-      </div>
-      <div className='col-md-2'>
-      <img src='../images/post2.jpg'></img>
-        </div>
-        <div className='col-md-2'>
-        <img src='../images/post3.jpg'></img>
-        </div>
-    </div>
-    <div className='row box'>
-      <div className='col-md-2'>
-   <img src='../images/post4.png'></img>
-      </div>
-      <div className='col-md-2'>
-      <img src='../images/post5.png'></img>
-        </div>
-        <div className='col-md-2'>
-        <img src='../images/post6.png'></img>
-        </div>
-    </div>
-    <div className='row box'>
-      <div className='col-md-2'>
-   <img src='../images/post7.png'></img>
-      </div>
-      <div className='col-md-2'>
-      <img src='../images/post8.png'></img>
-        </div>
-        <div className='col-md-2'>
-        <img src='../images/post 9.png'></img>
-        </div>
-    </div>
-    <div className='row box'>
-      <div className='col-md-2'>
-   <img src='../images/post10.png'></img>
-      </div>
-      <div className='col-md-2'>
-      <img src='../images/post11.png'></img>
-        </div>
-        <div className='col-md-2'>
-        <img src='../images/post12.png'></img>
-        </div>
-    </div>
+  <div className="gallery">
+
+  <div className="gallery-item" tabindex="0">
+
+    <img src="../images/post1.jpg" className="gallery-image" alt=""/>
+  </div>
+
+  <div className="gallery-item" tabindex="0">
+
+    <img src=" ../images/post2.jpg " className="gallery-image" alt=""/>
+
+  </div>
+
+  <div className="gallery-item" tabindex="0">
+
+    <img src="../images/post3.jpg"  className="gallery-image" alt=""/>
+  </div>
+
+</div>
+
   </Tab>
-  <Tab eventKey={2} title="Activities">
+  <Tab eventKey={2} title="Activities"> 
   
   <hr style={{color:'#000',width:'900px'}} className='col-md-12 ' ></hr>
 
