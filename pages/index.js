@@ -55,7 +55,6 @@ function HomePage ()  {
 
   return (
     <Fragment>
-
       <MainHeader />
       <MainSidebarFixed />
       {constants.token_id === null ? (

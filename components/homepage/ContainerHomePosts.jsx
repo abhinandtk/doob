@@ -1,6 +1,29 @@
 import React, { Fragment } from 'react'
-
+import { useState } from 'react'
+import Axios from'axios'
+import apis from '@/public/data/my-constants/Apis'
+import constants from '@/public/data/my-constants/Constants'
 function ContainerHomePosts() {
+  const [liked,setLiked] = useState(false)
+  const [totalLike,setTotalLike] = useState()
+  const likeHandler =(e)=>{
+    e.preventDefault()
+    Axios.post(apis.likepost,{
+      post_id:10,
+    },{
+      headers:{
+        'Authorization':`Token ${constants.token_id}`
+      }
+    }).then((res)=>{
+      setLiked(!liked)
+      if (res.data.status===1){
+        console.log('success',liked)
+      }
+      setTotalLike(res.data.data.total_like)
+      console.log('this is result',res)
+    })
+    console.log('like')
+  }
   return (
     <Fragment>
     <div className="text_followers">My Followers</div>
@@ -45,9 +68,9 @@ function ContainerHomePosts() {
 
         <div className="post__footer">
           <div className="post__buttons">
-            <button className="post__button ">
+            <button onClick={likeHandler} className="post__button ">
             <svg width="30"
-                height="30" viewBox="0 0 34 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                height="30" viewBox="0 0 34 32" stroke='black' fill={`${liked ?'white':'red'}`} xmlns="http://www.w3.org/2000/svg">
                 <path d="M17.0002 26.6668C17.0002 26.6668 4.25024 19.9834 4.25024 11.9633C4.25024 3.94313 14.1669 3.27478 17.0002 9.54977C19.8336 3.27478 29.7502 3.94313 29.7502 11.9633C29.7502 19.9834 17.0002 26.6668 17.0002 26.6668Z" stroke="black" stroke-width="1.50701" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             </button>
@@ -75,7 +98,7 @@ function ContainerHomePosts() {
             <div className="post__likes">
           
 
-              <h6 style={{fontWeight:'600'}}>450 likes</h6>
+              <h6 style={{fontWeight:'600'}}>{totalLike} likes</h6>
             </div>
             <div className="comments">There are many variations of passages of Lorem Ipsum available</div>
             
