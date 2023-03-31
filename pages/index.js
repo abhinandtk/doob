@@ -115,7 +115,7 @@ function HomePage ()  {
       ):<></>}
 
       
-      <Login setActiveModal={setActiveModal}/>
+      {/* <Login setActiveModal={setActiveModal}/> */}
       {activemodal === 'register' && <Register countries={countryData} setActiveModal={setActiveModal}/>}
       {activemodal === 'registerotp' && <RegisterOtpVerification setActiveModal={setActiveModal}/>} 
     

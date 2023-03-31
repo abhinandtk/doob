@@ -19,6 +19,8 @@ const apis = {
 
     'posts':`${constants.port}/social/Api/posts/`,
     'likepost':`${constants.port}/social/Api/post_like`,
+    'postcomment':`${constants.port}/social/Api/comment_api`,
+    'commentlist':`${constants.port}/social/Api/comment_list`,
 }
 
 export default apis

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { useState } from 'react'
+import { useState ,useEffect} from 'react'
 import Axios from'axios'
 import apis from '@/public/data/my-constants/Apis'
 import constants from '@/public/data/my-constants/Constants'
@@ -10,18 +10,37 @@ function ContainerHomePosts() {
   const [liked,setLiked] = useState(false)
   const [totalLike,setTotalLike] = useState()
 
-  const likeHandler =(e)=>{
-    e.preventDefault()
+  const [postsData,setPostsData] = useState([])
+  const [postId,setPostId] = useState(null)
+  const [slug,setSlug] = useState(null)
+  useEffect(()=>{
+  Axios.get(apis.posts,{
+    headers:{
+      'Authorization':`Token ${constants.token_id}`
+    }
+  }).then((res)=>{
+    setPostsData(res.data.data.posts)
+    setPostId(res.data.data.posts.post_id)
+    console.log('POsts result=-----------------------',res.data.data.posts.post_id)
+  })
+  },[])
+
+  const likeHandler =(postId)=>{
+    console.log('iiiiiiiiiiiiii',postId)
+    // e.preventDefault()
     Axios.post(apis.likepost,{
-      post_id:10,
+      post_id:postId,
     },{
       headers:{
         'Authorization':`Token ${constants.token_id}`
       }
     }).then((res)=>{
-      setLiked(!liked)
-      if (res.data.status===1){
+      
+      if (res.data.data.status===1){
         console.log('success',liked)
+        setLiked(true)
+      }else{
+        setLiked(false)
       }
       setTotalLike(res.data.data.total_like)
       console.log('this is result',res)
@@ -29,13 +48,17 @@ function ContainerHomePosts() {
     console.log('like')
   }
 
-  const commentClick = () =>{
+  const commentClick = (post_id,slug) =>{
     setVisibleComment(true)
+    setPostId(post_id)
+    setSlug(slug)
 
   }
   return (
     <Fragment>
     <div className="text_followers">My Followers</div>
+    {postsData.map((item)=>(
+
     <div className="posts">
       <article className="post">
         <div className="post__header">
@@ -48,9 +71,9 @@ function ContainerHomePosts() {
             </div>
             <div className="users">
               <div className="post__likes">
-                <a href="" className="post__user">Ahmad Albedaiwi<span><img src='../images/star.png' className='mx-1 mb-1'></img></span></a>
+                <a  className="post__user">{item.user_detail.name}<span><img src='../images/star.png' className='mx-1 mb-1'></img></span></a>
               </div>
-              <div className="time">2 hours ago</div>
+              <div className="time">{Math.floor(Math.abs((new Date(item.posted)- new Date())) / (1000 * 60 * 60))}</div>
             </div>    
           </div>
           <button className="post__more-options">
@@ -63,7 +86,7 @@ function ContainerHomePosts() {
           <div className="post__medias">
            <img
               className="post__media"
-              src="../images/soccer-players-action-professional-stadium 2.png"
+              src={`${item.image}`}
               alt="Post Content"
             /> 
             <img
@@ -76,9 +99,9 @@ function ContainerHomePosts() {
 
         <div className="post__footer">
           <div className="post__buttons">
-            <button onClick={likeHandler} className="post__button ">
+            <button onClick={()=>likeHandler(item.post_id)} className="post__button ">
             <svg width="30"
-                height="30" viewBox="0 0 34 32" stroke='black' fill={`${liked ?'white':'red'}`} xmlns="http://www.w3.org/2000/svg">
+                height="30" viewBox="0 0 34 32" stroke='black' fill={`${liked ?'red':'white'}`} xmlns="http://www.w3.org/2000/svg">
                 <path d="M17.0002 26.6668C17.0002 26.6668 4.25024 19.9834 4.25024 11.9633C4.25024 3.94313 14.1669 3.27478 17.0002 9.54977C19.8336 3.27478 29.7502 3.94313 29.7502 11.9633C29.7502 19.9834 17.0002 26.6668 17.0002 26.6668Z" stroke="black" stroke-width="1.50701" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             </button>
@@ -91,14 +114,10 @@ function ContainerHomePosts() {
             </svg>
 
             </button>
-        
 
-            
-
-            <button onClick={commentClick} className="post__button post__button--align-right">
-              4 comments
+            <button onClick={()=>{commentClick(item.post_id,item.slug)}} className="post__button post__button--align-right">
+              {item.comment_count} comments
             </button>
-            {visibleComment && <Comments setVisibleComment={setVisibleComment}/>}
           </div>
 
         
@@ -108,15 +127,18 @@ function ContainerHomePosts() {
 
               <h6 style={{fontWeight:'600'}}>{totalLike} likes</h6>
             </div>
-            <div className="comments">There are many variations of passages of Lorem Ipsum available</div>
+            <div className="comments">{item.caption}</div>
             
           </div>
         </div>
       </article>   
   
     </div>
-  
-    <div className="posts">
+      ))}
+      {visibleComment && <Comments postId={postId} slug={slug} setVisibleComment={setVisibleComment}/>}
+
+
+    {/* <div className="posts">
       <article className="post">
         <div className="post__header">
           <div className="post__profile">
@@ -246,7 +268,7 @@ function ContainerHomePosts() {
           </div>
         </div>
       </article>
-    </div>
+    </div> */}
     <div className="posts">
       <article className="post">
         <div className="post__header">
