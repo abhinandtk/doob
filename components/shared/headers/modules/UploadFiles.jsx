@@ -23,7 +23,7 @@ function UploadFiles({setUploadShow}) {
     const uploadSubmitHandler =(e)=>{
         e.preventDefault()
         setShowModal2(false)
-        Axios.post(apis.uploadpost,{
+        Axios.post(apis.posts,{
             caption:caption,
             image:file
         },{
@@ -48,8 +48,10 @@ function UploadFiles({setUploadShow}) {
     <Fragment>
         <Modal 
         show={show}
-        
-        onHide={()=>setShow(false)}
+        onHide={()=>{
+            setShow(false) 
+            setUploadShow(false)
+        }}
         className='upload_file'
         centered>
             <Modal.Header closeButton style={{textAlign:'center'}}>

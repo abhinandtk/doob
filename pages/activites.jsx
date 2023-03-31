@@ -1,8 +1,10 @@
+
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import {Container,Nav,Navbar,Dropdown,Modal,Button} from 'react-bootstrap';
+import {Container,Nav,Navbar,Dropdown,Tab,Tabs,Card,CardImg} from 'react-bootstrap';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import React, { useState } from 'react';
-import Form from 'react-bootstrap/Form';
+
+  
 
 
 function HomePage ()  {
@@ -23,7 +25,7 @@ function HomePage ()  {
       <Dropdown.Toggle   variant="success" id="dropdown-basic"  style={{fontFamily:'Inter, sans-serif;', backgroundColor:'#17A803' }}>
         Create <i className="bi bi-chevron-down "></i>
       </Dropdown.Toggle>
-
+    
       <Dropdown.Menu align="end" style={{backgroundColor:'#17A803', borderRadius:'0px'}} >
         <Dropdown.Item href="#" className='text-white ' style={{backgroundColor:'#17A803'}}><svg width="24" height="20" viewBox="0 0 24 25" fill="none" className='mx-2' xmlns="http://www.w3.org/2000/svg">
 <path d="M0.210938 0.851562V23.8943H23.2537V0.851562H0.210938ZM22.1015 7.76438H16.3409V2.0037H22.1015V7.76438ZM15.1887 2.0037V7.76438H8.27589V2.0037H15.1887ZM1.36307 8.91652H7.12376V15.8293H1.36307V8.91652ZM8.27589 8.91652H15.1887V15.8293H8.27589V8.91652ZM7.12376 2.0037V7.76438H1.36307V2.0037H7.12376ZM1.36307 22.7422V16.9815H7.12376V22.7422H1.36307ZM8.27589 16.9815H15.1887V22.7422H8.27589V16.9815ZM22.1015 22.7422H16.3409V16.9815H22.1015V22.7422ZM16.3409 15.8293V8.91652H22.1015V15.8293H16.3409Z" fill="white" stroke="white" stroke-width="0.303194"/>
@@ -290,92 +292,119 @@ Arabic</Dropdown.Item>
           </div>
     </nav>
     </aside>
+     
+    
+    <Card className='container-fluid ' style={{width:'910px',marginRight:'135px',marginTop:'23px',height:'290px'}}>
+      
+      <Card.Body>
+      <button class="btn profile-edit-btn">Rank</button>  <button class="btn profile-edit-btn1">Edit</button>
+       
+      <div class="profile">
+ 
+<div class="profile-image">
+
+  <img src="../images/accounts/group.png" alt=""></img>
+  
+
+</div>
+<div class="profile-image">
+
+  <img src="../images/accounts/camera.png" href='#' style={{width:'44px',height:'44px',marginRight:'503px',marginBottom:'-283px'}} alt=""></img><br></br>
+  
+
+</div>
+<div class="profile-user-settings">
+
+  <h1 class="profile-user-name">Muhammed Alsalah<span><img src='../images/accounts/stars.png' className='mx-1 mb-1'></img></span><span><img src='../images/accounts/iconoir_help-circles.png' className=' mb-1'></img></span></h1><br></br>
+  <h1 class="profile-user-names">@muhammed_alsalah</h1>
+</div>
+
+<div class="profile-stats">
+
+  <ul>
+    <li><span class="profile-stat-count">465</span> <span style={{color:'#959595'}}>posts</span></li>
+    <li><span class="profile-stat-count">123k</span>  <span style={{color:'#959595'}}>followers</span></li>
+    <li><span class="profile-stat-count">1.2K</span>  <span style={{color:'#959595'}}>following</span></li>
+    <br></br>
+    <li><span class="profile-stat-count " style={{color:'#959595'}}>Age</span>  <span >28</span></li>
+    <li><span class="profile-stat-count" style={{color:'#959595'}}>Gender</span>  <span > Male</span></li>
+    <br></br>
+    <li><span > <img src="../images/accounts/kuwait.png" alt="" ></img></span><span class="profile-stat-count mx-1">Kuwait,Hawally </span> <span style={{color:'#959595'}} className='mx-3'>+More</span></li>
+  </ul>
+
+</div>
+
+</div>
+        
+      </Card.Body>
+    </Card>
+
+<section id="tabs" >
+	<div className="container">
+			<div className="col-md-9  ">
+      <Tabs  id="uncontrolled-tab-example" style={{display:'flex',justifyContent:'space-evenly'}} > 
+  <Tab eventKey={1} title="Feeds">
+  <hr style={{color:'#000',width:'900px'}} className='col-md-12 ' ></hr>
+    <div className='row box'>
+      <div className='col-md-2'>
+   <img src='../images/post1.jpg'></img>
+      </div>
+      <div className='col-md-2'>
+      <img src='../images/post2.jpg'></img>
+        </div>
+        <div className='col-md-2'>
+        <img src='../images/post3.jpg'></img>
+        </div>
+    </div>
+    <div className='row box'>
+      <div className='col-md-2'>
+   <img src='../images/post4.png'></img>
+      </div>
+      <div className='col-md-2'>
+      <img src='../images/post5.png'></img>
+        </div>
+        <div className='col-md-2'>
+        <img src='../images/post6.png'></img>
+        </div>
+    </div>
+    <div className='row box'>
+      <div className='col-md-2'>
+   <img src='../images/post7.png'></img>
+      </div>
+      <div className='col-md-2'>
+      <img src='../images/post8.png'></img>
+        </div>
+        <div className='col-md-2'>
+        <img src='../images/post 9.png'></img>
+        </div>
+    </div>
+    <div className='row box'>
+      <div className='col-md-2'>
+   <img src='../images/post10.png'></img>
+      </div>
+      <div className='col-md-2'>
+      <img src='../images/post11.png'></img>
+        </div>
+        <div className='col-md-2'>
+        <img src='../images/post12.png'></img>
+        </div>
+    </div>
+  </Tab>
+  <Tab eventKey={2} title="Activities" >
    
+  <hr style={{color:'#000',width:'900px'}} className='col-md-12 ' ></hr>
+
+  </Tab>
+</Tabs>;
+		</div>
+	</div>
+</section>
+
+</div>
   
      
-      <Modal show={show} onHide={handleClose} className='Register' >
-      <div className='modal-contents'>
-        <Modal.Header closeButton >
-        
-        </Modal.Header>
-     
-        <Modal.Title style={{fontWeight:'700',fontSize:'16px',marginLeft:'195px'}}>Registration</Modal.Title>
-        <Modal.Body>
-          <Form >
-          <Form.Group className="mb-1"  style={{marginLeft:'180px'}} controlId="formBasicEmail">
-        <Form.Label>Name*</Form.Label>
-        <Form.Control type="email" placeholder="" style={{width:'360px'}} />
-        <Form.Text className="text-muted">
-       
-        </Form.Text>
-      </Form.Group>
-         
-      <Form.Group className="mb-1"  style={{marginLeft:'180px'}} controlId="formBasicPassword">
-        <Form.Label>Username*</Form.Label>
-        <Form.Control type="password" placeholder="" style={{width:'360px'}} />
-       
-      </Form.Group>
-      <Form.Group className="mb-1"  style={{marginLeft:'180px'}} controlId="formBasicPassword">
-        <Form.Label>Email Address*</Form.Label>
-        <Form.Control type="password" placeholder="" style={{width:'360px'}} />
-       
-      </Form.Group>
-      <Form.Label style={{marginLeft:'176px'}}>Phone Number*</Form.Label>
-      <Form.Group className=" d-flex justify-content-between align-items-center "  style={{marginLeft:'180px'}} controlId="formBasicPassword">
       
-        <Form.Control type="Phone Number" placeholder="+965" className='dot ' style={{width:'70px'}} />
-        <Form.Control type="Phone Number" placeholder="" className='dot ' style={{width:'286px',marginRight:'173px'}} />
-      </Form.Group>
-
-      <Form.Group className="mb-1"  style={{marginLeft:'180px'}} controlId="exampleForm.ControlInput1">
-            <Form.Label>Gender</Form.Label>
-            <Form.Select aria-label="Default select example" style={{width:'360px'}}>
-      <option></option>
-    
-     
-    </Form.Select>
-    
-            </Form.Group>
-            <Form.Group className="mb-1"  style={{marginLeft:'180px'}} controlId="exampleForm.ControlInput1">
-            <Form.Label>Nationality</Form.Label>
-            <Form.Select aria-label="Default select example" style={{width:'360px'}}>
-      <option></option>
-     
-     
-    </Form.Select>
-            </Form.Group>
-     
-
-            <Form.Group className="mb-1"  style={{marginLeft:'180px'}} controlId="formBasicPassword">
-        <Form.Label>Date of Birth</Form.Label>
-        <Form.Control type="Phone Number" placeholder="" style={{width:'360px'}} />
-       
-      </Form.Group>
-
-            <Form.Group className="mb-1"  style={{marginLeft:'180px'}} controlId="formBasicPassword">
-        <Form.Label>Password*</Form.Label>
-        <Form.Control type="Phone Number" placeholder="" style={{width:'360px'}}  />
-       
-      </Form.Group>
-      <Form.Group className="mb-1"  style={{marginLeft:'180px'}} controlId="formBasicPassword">
-        <Form.Label>Confirm Password*</Form.Label>
-        <Form.Control type="Phone Number" placeholder="" style={{width:'360px'}}  />
-       
-      </Form.Group>
-
-      <Modal.Footer >
-          <Button variant="" className='mx-auto text-white  ' style={{backgroundColor:'#17A803',fontWeight:'600',width:'360px'}} onClick={handleClose}>
-            Submit
-          </Button>
-      
-        </Modal.Footer>
-    </Form>
-        </Modal.Body>
-        </div>
-      </Modal>
-
-     
-    </div>
+  
 
 
   )
@@ -383,4 +412,3 @@ Arabic</Dropdown.Item>
 
 
 export default HomePage
-

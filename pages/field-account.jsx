@@ -295,8 +295,7 @@ Arabic</Dropdown.Item>
 
    
         
-    
-    <Card className='container ' style={{width:'910px',  height:'283px', marginRight:'135px',marginTop:'33px'}}>
+    <Card className='container-fluid ' style={{width:'910px',marginRight:'135px',marginTop:'23px',height:'290px'}}>
       
       <Card.Body >
     

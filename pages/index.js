@@ -67,12 +67,12 @@ function HomePage ()  {
      
         </Modal.Header>
         <Modal.Body>
-          <Modal.Title style={{fontWeight:'700',fontSize:'16px',marginLeft:'180px',marginTop:'30px'}}>Please Choose Your location</Modal.Title>
+          <Modal.Title className='title1' >Please Choose Your location</Modal.Title>
           <Form 
           style={{marginTop:'34px'}}
           onSubmit={countrySubmitHandler}>
          
-            <Form.Group className="mb-1 " style={{marginLeft:'180px',width:'360px'}} >
+            <Form.Group className="mb-1 country "  >
               <Form.Label>Select Country</Form.Label>
               <Form.Select 
               aria-label="Default select example"
@@ -88,7 +88,7 @@ function HomePage ()  {
             </Form.Group>
          
 
-            <Form.Group className="mb-3" style={{marginLeft:'180px',width:'360px'}} >
+            <Form.Group className="mb-3 location" >
               <Form.Label>Select Location</Form.Label>
               <Form.Select 
               aria-label="Default select example"
@@ -117,7 +117,8 @@ function HomePage ()  {
       
       <Login setActiveModal={setActiveModal}/>
       {activemodal === 'register' && <Register countries={countryData} setActiveModal={setActiveModal}/>}
-      {activemodal === 'registerotp' && <RegisterOtpVerification setActiveModal={setActiveModal}/>}
+      {activemodal === 'registerotp' && <RegisterOtpVerification setActiveModal={setActiveModal}/>} 
+    
       {activemodal === 'forgetemail' && <ForgetEmail setActiveModal={setActiveModal}/>}
       {activemodal === 'forgetotp' && <ForgetOtp setActiveModal={setActiveModal}/>}
       {activemodal === 'passwordchange' && <PasswordChange setActiveModal={setActiveModal}/>}

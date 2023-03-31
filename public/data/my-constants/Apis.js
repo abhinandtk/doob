@@ -17,7 +17,7 @@ const apis = {
 
     // social module
 
-    'uploadpost':`${constants.port}/social/Api/posts/`,
+    'posts':`${constants.port}/social/Api/posts/`,
     'likepost':`${constants.port}/social/Api/post_like`,
 }
 

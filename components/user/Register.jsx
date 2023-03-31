@@ -75,12 +75,12 @@ function Register({setActiveModal,countries}) {
         </Modal.Header>
         <p style={{color:'red',textAlign:'center'}}>{errorMsg}</p>
      
-        <Modal.Title style={{fontWeight:'700',fontSize:'16px',marginLeft:'195px'}}>Registration</Modal.Title>
+        <Modal.Title className='register'>Registration</Modal.Title>
         <Modal.Body>
           <Form onSubmit={(e)=>registerSubmit(e)}>
         <Form.Group 
-        className="mb-1"  
-        style={{marginLeft:'180px'}} 
+        className="mb-1 white"  
+        
         controlId="formBasicEmail"
         
         >
@@ -98,7 +98,7 @@ function Register({setActiveModal,countries}) {
         </Form.Text>
       </Form.Group>
          
-      <Form.Group className="mb-1"  style={{marginLeft:'180px'}} >
+      <Form.Group className="mb-1 white"   >
         <Form.Label>Username*</Form.Label>
         <Form.Control
         id="username"
@@ -111,7 +111,7 @@ function Register({setActiveModal,countries}) {
        
       </Form.Group>
 
-      <Form.Group className="mb-1"  style={{marginLeft:'180px'}} >
+      <Form.Group className="mb-1 white"   >
         <Form.Label>Email*</Form.Label>
         <Form.Control
         id="email"
@@ -124,13 +124,13 @@ function Register({setActiveModal,countries}) {
        
       </Form.Group>
 
-      <Form.Label style={{marginLeft:'176px'}}>Phone Number*</Form.Label>
+      <Form.Label className='white'>Phone Number*</Form.Label>
       <Form.Group className=" d-flex justify-content-between align-items-center "  style={{marginLeft:'180px'}} >
       
         <Form.Select 
         id="code" 
         className='dot'
-        style={{width:'90px'}} 
+        
         onChange={(e)=>{handleInputChange(e)}}
         value={registerFormData.code}
         required>
@@ -144,14 +144,13 @@ function Register({setActiveModal,countries}) {
         type="text" 
         maxLength='10'
         placeholder="" 
-        // className='dot ' 
-        style={{width:'276px',marginRight:'173px'}}
+        className='dot1'
         onChange={(e)=>{handleInputChange(e)}}
         value={registerFormData.phone}
         required/>
       </Form.Group>
 
-      <Form.Group className="mb-1"  style={{marginLeft:'180px'}} >
+      <Form.Group className="mb-1 white"  >
 
         <Form.Label>Gender*</Form.Label>
         <Form.Select 
@@ -170,7 +169,7 @@ function Register({setActiveModal,countries}) {
         </Form.Select>
 
       </Form.Group>
-      <Form.Group className="mb-1"  style={{marginLeft:'180px'}} >
+      <Form.Group className="mb-1 white" >
         <Form.Label>Nationality*</Form.Label>
         <Form.Select 
         id="nationality"
@@ -191,7 +190,7 @@ function Register({setActiveModal,countries}) {
       </Form.Group>
      
 
-            <Form.Group className="mb-1"  style={{marginLeft:'180px'}} >
+            <Form.Group className="mb-1 white"  >
         <Form.Label>Date of Birth*</Form.Label>
         <Form.Control 
         id="dob"
@@ -205,7 +204,7 @@ function Register({setActiveModal,countries}) {
        
       </Form.Group>
 
-            <Form.Group className="mb-1"  style={{marginLeft:'180px'}} >
+            <Form.Group className="mb-1 white"  >
         <Form.Label>Password*</Form.Label>
         <Form.Control 
         id="password"
@@ -218,7 +217,7 @@ function Register({setActiveModal,countries}) {
         />
        
       </Form.Group>
-      <Form.Group className="mb-1"  style={{marginLeft:'180px'}} >
+      <Form.Group className="mb-1 white"  >
         <Form.Label>Confirm Password*</Form.Label>
         <Form.Control 
         id="confirmpsw"

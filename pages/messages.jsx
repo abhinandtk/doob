@@ -466,10 +466,7 @@ Arabic</Dropdown.Item>
             <div  className="sent" >Send Message</div> 
             
             </div>  
-                                                                                                    
-          
-            
-            
+                                                                                                   
         </div>
     </div>
 

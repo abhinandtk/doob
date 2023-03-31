@@ -3,9 +3,13 @@ import { useState } from 'react'
 import Axios from'axios'
 import apis from '@/public/data/my-constants/Apis'
 import constants from '@/public/data/my-constants/Constants'
+import Comments from './social/Comments'
 function ContainerHomePosts() {
+
+  const [visibleComment,setVisibleComment]=useState(false)
   const [liked,setLiked] = useState(false)
   const [totalLike,setTotalLike] = useState()
+
   const likeHandler =(e)=>{
     e.preventDefault()
     Axios.post(apis.likepost,{
@@ -24,6 +28,11 @@ function ContainerHomePosts() {
     })
     console.log('like')
   }
+
+  const commentClick = () =>{
+    setVisibleComment(true)
+
+  }
   return (
     <Fragment>
     <div className="text_followers">My Followers</div>
@@ -31,13 +40,12 @@ function ContainerHomePosts() {
       <article className="post">
         <div className="post__header">
           <div className="post__profile">
-            <a
-              href="#"
+            <div
               className="post__avatar"
             >
                <img src="../images/profile img.png" alt="User Picture" />
               
-            </a>
+            </div>
             <div className="users">
               <div className="post__likes">
                 <a href="" className="post__user">Ahmad Albedaiwi<span><img src='../images/star.png' className='mx-1 mb-1'></img></span></a>
@@ -87,10 +95,10 @@ function ContainerHomePosts() {
 
             
 
-            <button className="post__button post__button--align-right">
-              <a>4 comments</a>
-               
+            <button onClick={commentClick} className="post__button post__button--align-right">
+              4 comments
             </button>
+            {visibleComment && <Comments setVisibleComment={setVisibleComment}/>}
           </div>
 
         
@@ -112,13 +120,12 @@ function ContainerHomePosts() {
       <article className="post">
         <div className="post__header">
           <div className="post__profile">
-            <a
-              href="#"
+            <div
               className="post__avatar"
             >
                <img src="../images/sulthan.png" alt="User Picture" />
               
-            </a>
+            </div>
             <div className="users">
               <div className="post__likes">
                 <a href="" className="post__user">Sulthan<span className='mx-1' style={{color:'#616661'}}>Shared</span>  SHAKU Ath05 Football</a>
@@ -179,13 +186,13 @@ function ContainerHomePosts() {
         <div className="post__header">
           <div className="post__profile">
 
-            <a
-              href="#"
+            <div
+              
               className="post__avatar"
             >
                <img src="../images/Mask group.png" alt="User Picture" />
               
-            </a>
+            </div>
             <div className="users">
               <div className="post__likes">
                 <a href="" className="post__user">Musaid</a>
@@ -227,7 +234,7 @@ function ContainerHomePosts() {
 
        </button>
             <button className="post__button post__button--align-right">
-              <a>4 comments</a> 
+              4 comments
             </button>
           </div>
           <div className="post__infos">
@@ -245,13 +252,12 @@ function ContainerHomePosts() {
         <div className="post__header">
           <div className="post__profile">
         
-            <a
-              href="#"
+            <div
               className="post__avatar"
             >
                <img src="../images/Rec.png" alt="User Picture" />
               
-            </a>
+            </div>
            
             <div className="users">
               <div className="post__likes">
@@ -294,7 +300,7 @@ function ContainerHomePosts() {
 
             </button>
             <button className="post__button post__button--align-right">
-              <a>4 comments</a> 
+              4 comments
             </button>
           </div>
           <div className="post__infos">
