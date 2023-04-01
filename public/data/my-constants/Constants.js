@@ -11,7 +11,7 @@ if (typeof window !== 'undefined') {
 const constants ={
 
     
-    port : "https://5f89-202-164-150-83.in.ngrok.io",
+    port : "http://127.0.0.1:8000",
     // port : "https://1385-202-164-150-83.in.ngrok.io",
 
     'token_id':token_id,
