@@ -21,6 +21,8 @@ const apis = {
     'likepost':`${constants.port}/social/Api/post_like`,
     'postcomment':`${constants.port}/social/Api/comment_api`,
     'commentlist':`${constants.port}/social/Api/comment_list`,
+    'sharedpost':`${constants.port}/social/Api/shared/`,
+    'reportpost':`${constants.port}/social/Api/report_posts`,
 }
 
 export default apis

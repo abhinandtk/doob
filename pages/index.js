@@ -19,6 +19,7 @@ import ForgetOtp from '@/components/user/ForgetOtp';
 import PasswordChange from '@/components/user/PasswordChange';
 import SsoRegister from '@/components/user/SsoRegister';
 import MobileHeader from '@/components/MobileHeader';
+import SharedConfirmation from '@/components/homepage/social/SharedConfirmation';
 function HomePage ()  {
 
   const [countryModalShow, setCountryModalShow] = useState(true);
