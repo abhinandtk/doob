@@ -102,12 +102,13 @@ function Login({setActiveModal}) {
 
     }
   return (
+    <div className='modal-content'>
     <Modal 
     show={shows} 
     onHide={()=>setShows(false)} 
-    className='login'>
-
-        <Modal.Header closeButton>
+     >
+      
+        <Modal.Header  closeButton>
          
         </Modal.Header>
         <Modal.Title className='title' >Login</Modal.Title>
@@ -119,7 +120,7 @@ function Login({setActiveModal}) {
         type="text" 
         id="email" 
         placeholder='Email'
-        style={{width:'360px'}}
+       
         onChange={(e)=>setEmail(e.target.value)}
         aria-describedby="passwordHelpBlock"   />
       </Form.Group>
@@ -129,14 +130,14 @@ function Login({setActiveModal}) {
         <Form.Control 
         type="password" 
         placeholder="Password" 
-        style={{width:'360px'}} 
+         
         onChange={(e)=>setPassword(e.target.value)}/>
-       <div style={{marginLeft:'240px',cursor:"pointer"}} onClick={handleforgetpsw}> <a  style={{textDecoration:'none',color:'black'}}>Forget Password</a></div>
+       <div className='forget' onClick={handleforgetpsw}> Forget Password</div>
       </Form.Group>
       <Modal.Footer >
           <Button type="submit" 
-          className='mx-auto text-white ' 
-          style={{backgroundColor:'#17A803',fontWeight:'700',width:'360px'}}>
+          className='mx-auto text-white submits ' 
+        >
             Login
           </Button>
       
@@ -167,7 +168,9 @@ function Login({setActiveModal}) {
       </Form.Group>
     </Form>
         </Modal.Body>
+       
       </Modal>
+      </div> 
   )
 }
 

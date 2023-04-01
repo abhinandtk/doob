@@ -357,25 +357,19 @@ Arabic</Dropdown.Item>
 			<div className="col-md-9  ">
       <Tabs  id="uncontrolled-tab-example" style={{display:'flex',justifyContent:'space-evenly'}} > 
   <Tab eventKey={1} title="Feeds">
-  <hr style={{color:'#000',width:'900px'}} className='col-md-12 ' ></hr>
-  <div className="gallery">
+  <hr  className='col-md-12 line' ></hr>
 
-  <div className="gallery-item" tabindex="0">
+<div className="row images">
 
-    <img src="../images/post1.jpg" className="gallery-image" alt=""/>
+  <div className="col-md-4" tabindex="0">
+    <img src="../images/post1.jpg" className="image" alt=""/>
   </div>
-
-  <div className="gallery-item" tabindex="0">
-
-    <img src=" ../images/post2.jpg " className="gallery-image" alt=""/>
-
+  <div className="col-md-4" tabindex="0">
+    <img src=" ../images/post2.jpg " className="image" alt=""/>
   </div>
-
-  <div className="gallery-item" tabindex="0">
-
-    <img src="../images/post3.jpg"  className="gallery-image" alt=""/>
+  <div className="col-md-4" tabindex="0">
+    <img src="../images/post3.jpg"  className="image" alt=""/>
   </div>
-
 </div>
 
   </Tab>

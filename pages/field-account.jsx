@@ -342,18 +342,20 @@ Arabic</Dropdown.Item>
   </Tab>
   <Tab eventKey={2} title="Activities">
   
-  <hr style={{color:'#000',width:'900px'}} className='col-md-12 ' ></hr>
-  <div className='row box'>
-      <div className='col-md-2'>
-   <img src='../images/post1.jpg'></img>
-      </div>
-      <div className='col-md-2'>
-      <img src='../images/post2.jpg'></img>
-        </div>
-        <div className='col-md-2'>
-        <img src='../images/post3.jpg'></img>
-        </div>
-    </div>
+  <hr  className='col-md-12 line' ></hr>
+
+<div className="row images">
+
+  <div className="col-md-4" tabindex="0">
+    <img src="../images/post1.jpg" className="image" alt=""/>
+  </div>
+  <div className="col-md-4" tabindex="0">
+    <img src=" ../images/post2.jpg " className="image" alt=""/>
+  </div>
+  <div className="col-md-4" tabindex="0">
+    <img src="../images/post3.jpg"  className="image" alt=""/>
+  </div>
+</div>
   </Tab>
 </Tabs>;
 		</div>

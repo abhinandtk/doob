@@ -210,7 +210,7 @@ Arabic</Dropdown.Item>
         <a>
           <span>
           <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="9.31323" cy="5.55051" r="4" stroke="black" stroke-width="1.4"/>
+              <circle cx="9.31323" cy="5.55051" r="4" stroke="black"   stroke-width="1.4"/>
               <path d="M1.31323 15.964C1.31323 15.2316 1.65946 14.5412 2.30781 14.2005C3.57611 13.534 6.00758 12.5505 9.31323 12.5505C12.6189 12.5505 15.0504 13.534 16.3187 14.2005C16.967 14.5412 17.3132 15.2316 17.3132 15.964V15.964C17.3132 16.7916 16.8697 17.5552 16.0983 17.855C14.7796 18.3676 12.4366 19.0505 9.31323 19.0505C6.18983 19.0505 3.84688 18.3676 2.52815 17.855C1.75676 17.5552 1.31323 16.7916 1.31323 15.964V15.964Z" stroke="black" stroke-width="1.4"/>
               </svg>
             <i className="uil uil-profile">
@@ -299,7 +299,7 @@ Arabic</Dropdown.Item>
 
 
 <section id="tabs">
-	<div className="container">
+	
 		
 	
 			<div className="col-md-9  ">
@@ -307,17 +307,18 @@ Arabic</Dropdown.Item>
   <Tab eventKey={1} title="Feeds">
   <hr  className='col-md-12 line' ></hr>
 
-<div className="gallery">
+<div className="row images">
 
-  <div className="gallery-item" tabindex="0">
-    <img src="../images/post1.jpg" className="gallery-image" alt=""/>
+  <div className="col-md-4" tabindex="0">
+    <img src="../images/post1.jpg" className="image" alt=""/>
   </div>
-  <div className="gallery-item" tabindex="0">
-    <img src=" ../images/post2.jpg " className="gallery-image" alt=""/>
+  <div className="col-md-4" tabindex="0">
+    <img src=" ../images/post2.jpg " className="image" alt=""/>
   </div>
-  <div className="gallery-item" tabindex="0">
-    <img src="../images/post3.jpg"  className="gallery-image" alt=""/>
+  <div className="col-md-4" tabindex="0">
+    <img src="../images/post3.jpg"  className="image" alt=""/>
   </div>
+  
 </div>
 
   </Tab>
@@ -422,7 +423,7 @@ Arabic</Dropdown.Item>
   </Tab>
 </Tabs>
 		</div>
-	</div>
+	
 </section>
 <nav class="navbar" >
       <a href="#" class="navbar__button">
