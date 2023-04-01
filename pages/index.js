@@ -59,7 +59,7 @@ function HomePage ()  {
       <MainHeader />
       <MobileHeader/>
       <MainSidebarFixed />
-      {constants.token_id === null ? (
+      {/* {constants.token_id === null ? (
       <Modal 
       show={countryModalShow} 
       // onHide={() => setCountryModalShow(false)} 
@@ -114,7 +114,7 @@ function HomePage ()  {
           </Form>
         </Modal.Body>
       </Modal>
-      ):<></>}
+      ):<></>} */}
 
       
       {/* <Login setActiveModal={setActiveModal}/> */}

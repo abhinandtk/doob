@@ -235,7 +235,7 @@ body{
   border-radius: var(--bs-modal-border-radius);
   outline: 0;
   margin-left: -164px;
-  
+  height: 470px;
   
 }
 .register{
@@ -1216,7 +1216,7 @@ body{
 .profile-image img {
  width: 190px;
  height: 190px; 
-  margin-top: -48px;
+  margin-top: -28px;
 }
 
 .profile-user-settings,
@@ -1227,7 +1227,7 @@ body{
 }
 
 .profile-user-settings {
-  margin-top: -22px;
+  margin-top: -42px;
 }
 
 
@@ -1280,7 +1280,7 @@ body{
 }
 
 .profile-stats {
-  margin-top: -114px;
+  margin-top: -128px;
   margin-left: 283px;
   font-weight: 400;
 }
@@ -1854,7 +1854,7 @@ position: absolute;
   border-radius: var(--bs-modal-border-radius);
   outline: 0;
   margin-left: 4px;
-  height: 450px;
+  height: 100%;
   margin-top: 23px;
 }
 
