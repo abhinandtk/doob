@@ -288,7 +288,12 @@ function ContainerHomePosts() {
                   </div>    
                 </div>
                 <button className="post__more-options">
-                  <img src="../images/More_Vertical.png" ></img>
+                  <img src="../images/More_Vertical.png"  >
+                    
+                  </img>
+                   
+                
+  
                 </button>
                 
               </div>
@@ -327,7 +332,9 @@ function ContainerHomePosts() {
                   </button>
         
                   
-
+                  <button className="post__button post__button--align-right">
+                    <a>4 comments</a> 
+                  </button>
                 </div>
 
               
