@@ -3,13 +3,16 @@ import {Container,Nav,Navbar,Dropdown,Modal,Button} from 'react-bootstrap';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Axios from 'axios';
 import apis from '@/public/data/my-constants/Apis';
+import UploadFiles from './modules/UploadFiles';
 
 function MainHeader() {
 
     const [show,setShow] = useState(false)
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true)
+
+    const [uploadShow,setUploadShow] = useState(false)
+
 
     const logoutHandle =(e)=>{
         e.preventDefault()
@@ -32,7 +35,9 @@ function MainHeader() {
     
 
   return (
+    <>
 
+    <div onClick={()=>setUploadShow(true)}>sdcdfvs svd78</div>
     <Navbar collapseOnSelect expand="lg" bg="light" variant="dark" sticky='top'className='web-nav' >
         <Container fluid >
             <Navbar.Brand href="#" >
@@ -56,7 +61,7 @@ function MainHeader() {
                                     </svg>
                                     Live 
                                 </Dropdown.Item>
-                                <Dropdown.Item href="#" className='text-white' style={{backgroundColor:'#17A803'}}><svg width="24" height="20" viewBox="0 0 24 24" fill="none" className='mx-2' xmlns="http://www.w3.org/2000/svg">
+                                <Dropdown.Item onClick={()=>console.log('87548754874587554458745545')} className='text-white' style={{backgroundColor:'#17A803'}}><svg width="24" height="20" viewBox="0 0 24 24" fill="none" className='mx-2' xmlns="http://www.w3.org/2000/svg">
                                     <path d="M12.1298 22.8954C18.158 22.8954 23.0448 18.0086 23.0448 11.9804C23.0448 5.95223 18.158 1.06543 12.1298 1.06543C6.10165 1.06543 1.21484 5.95223 1.21484 11.9804C1.21484 18.0086 6.10165 22.8954 12.1298 22.8954Z" stroke="white" stroke-width="1.69789" stroke-linecap="round" stroke-linejoin="round"/>
                                     <path d="M4.41406 4.26343C6.46031 6.31029 7.60982 9.08606 7.60982 11.9803C7.60982 14.8746 6.46031 17.6503 4.41406 19.6972" stroke="white" stroke-width="1.69789" stroke-linecap="round" stroke-linejoin="round"/>
                                     <path d="M19.8461 19.6972C17.7999 17.6503 16.6504 14.8746 16.6504 11.9803C16.6504 9.08606 17.7999 6.31029 19.8461 4.26343" stroke="white" stroke-width="1.69789" stroke-linecap="round" stroke-linejoin="round"/>
@@ -174,6 +179,9 @@ function MainHeader() {
             </Navbar>
         </Container>
     </Navbar>
+    
+    {uploadShow && <UploadFiles setUploadShow={setUploadShow}/>}
+    </>
     
 
 

@@ -1,6 +1,8 @@
 import constants from "./Constants";
 
 const apis = {
+
+    // user module
     "country" : `${constants.port}/API/country-api`,
     "register" : `${constants.port}/API/register_api`,
     "verifyotp" : `${constants.port}/API/verify-otp`,
@@ -12,6 +14,13 @@ const apis = {
     "ssoregister" : `${constants.port}/API/sso-register-api`,
     "ssologin" : `${constants.port}/API/sso-login-api`,
     "logout" : `${constants.port}/API/logout_api`,
+
+    // social module
+
+    'posts':`${constants.port}/social/Api/posts/`,
+    'likepost':`${constants.port}/social/Api/post_like`,
+    'postcomment':`${constants.port}/social/Api/comment_api`,
+    'commentlist':`${constants.port}/social/Api/comment_list`,
 }
 
 export default apis
