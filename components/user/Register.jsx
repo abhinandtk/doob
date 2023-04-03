@@ -66,10 +66,10 @@ function Register({setActiveModal,countries}) {
 
   }
   return (
-    <Modal 
+    <Modal  
       show={show} 
       onHide={()=>setShow(false)} 
-      className='Register' >
+    >
       <div className='modal-contents'>
         <Modal.Header closeButton >
         </Modal.Header>
@@ -89,7 +89,7 @@ function Register({setActiveModal,countries}) {
         id="name"
         type="text" 
         placeholder="" 
-        style={{width:'360px'}} 
+        
         onChange={(e)=>{handleInputChange(e)}}
         value={registerFormData.name}
         required/>
@@ -104,7 +104,7 @@ function Register({setActiveModal,countries}) {
         id="username"
         type="text" 
         placeholder="" 
-        style={{width:'360px'}}
+        
         onChange={(e)=>{handleInputChange(e)}}
         value={registerFormData.username}
         required/>
@@ -117,7 +117,7 @@ function Register({setActiveModal,countries}) {
         id="email"
         type="email" 
         placeholder="" 
-        style={{width:'360px'}}
+  
         onChange={(e)=>{handleInputChange(e)}}
         value={registerFormData.email}
         required/>
@@ -156,7 +156,7 @@ function Register({setActiveModal,countries}) {
         <Form.Select 
         id="gender"
         aria-label="Default select example" 
-        style={{width:'360px'}}
+        
         onChange={(e)=>{handleInputChange(e)}}
         value={registerFormData.gender}
         required
@@ -174,7 +174,7 @@ function Register({setActiveModal,countries}) {
         <Form.Select 
         id="nationality"
         aria-label="Default select example" 
-        style={{width:'360px'}}
+        
         onChange={(e)=>{handleInputChange(e)}}
         value={registerFormData.nationality}
         required
@@ -196,7 +196,7 @@ function Register({setActiveModal,countries}) {
         id="dob"
         type="date" 
         placeholder="" 
-        style={{width:'360px'}} 
+      
         onChange={(e)=>{handleInputChange(e)}}
         value={registerFormData.dob}
         required
@@ -210,7 +210,7 @@ function Register({setActiveModal,countries}) {
         id="password"
         type="text" 
         placeholder="" 
-        style={{width:'360px'}} 
+       
         onChange={(e)=>{handleInputChange(e)}}
         value={registerFormData.password}
         required
@@ -223,7 +223,7 @@ function Register({setActiveModal,countries}) {
         id="confirmpsw"
         type="text" 
         placeholder="" 
-        style={{width:'360px'}} 
+     
         onChange={(e)=>{handleInputChange(e)}}
         value={registerFormData.confirmpsw}
         required
@@ -233,9 +233,9 @@ function Register({setActiveModal,countries}) {
 
       <Modal.Footer >
           <Button 
-          type="submit" 
-          className='mx-auto text-white  ' 
-          style={{backgroundColor:'#17A803',fontWeight:'600',width:'360px'}} >
+          type="submit"  
+          className='mx-auto text-white submit1 ' 
+          >
             Submit
           </Button>
       
@@ -243,6 +243,7 @@ function Register({setActiveModal,countries}) {
     </Form>
         </Modal.Body>
         </div>
+       
       </Modal>
   )
 }

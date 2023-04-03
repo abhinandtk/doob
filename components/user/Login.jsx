@@ -102,12 +102,12 @@ function Login({setActiveModal}) {
 
     }
   return (
-    <div className='modal-content'>
-    <Modal 
+
+    <Modal  
     show={shows} 
     onHide={()=>setShows(false)} 
      >
-      
+         
         <Modal.Header  closeButton>
          
         </Modal.Header>
@@ -136,7 +136,7 @@ function Login({setActiveModal}) {
       </Form.Group>
       <Modal.Footer >
           <Button type="submit" 
-          className='mx-auto text-white submits ' 
+          className='mx-auto text-white submit1 ' 
         >
             Login
           </Button>
@@ -168,9 +168,10 @@ function Login({setActiveModal}) {
       </Form.Group>
     </Form>
         </Modal.Body>
+        
        
       </Modal>
-      </div> 
+ 
   )
 }
 

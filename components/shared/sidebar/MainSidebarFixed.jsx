@@ -23,7 +23,7 @@ function MainSidebarFixed() {
                     <i className="uil uil-explore" />
                     <span  className="nav_head">Bookings</span>
                 </span>
-            </a>
+            </a> 
             <a>
                 <span>
                     <svg width="19" height="19" viewBox="0 0 19 19" className='nav_head_svg'  fill="none" xmlns="http://www.w3.org/2000/svg">

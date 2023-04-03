@@ -306,52 +306,48 @@ Arabic</Dropdown.Item>
         
         </Modal>
         
-    
-        <Card className='container-fluid ' style={{width:'910px',marginRight:'135px',marginTop:'23px',height:'290px'}}>
-      
-      <Card.Body >
-      <button class="btn profile-edit-btn">Rank</button>  
-       
-      <div class="profile2">
- 
-<div class="profile-image">
+        <Card className='container' style={{width:'910px',marginLeft:'395px',marginTop:'23px',height:'290px'}}>
+            <Card.Body>
+             <div className='row'>
+                <div className='col-md-6'>
+                <button class="btn profile-edit-btn">Rank</button> 
+                <div class="profile-images" >
+                    <img src="../images/accounts/picture.png" alt=""></img>
+                </div>
+                <div class="profile-cam2" >
+                    <img src="../images/accounts/camera.png" href='#'  alt=""></img>
+                </div>
+                </div>
+                <div className='col-md-6'>
+                    
+              
 
-  <img src="../images/accounts/picture.png" alt=""></img>
+                <div class="profile-stats">
+                    <ul>
+                    <h1 class="profile-user-name">Muhammed Alsalah<span><img src='../images/accounts/stars.png' className='mx-1 mb-1'></img></span><span><img src='../images/accounts/iconoir_help-circles.png' className=' mb-1'></img></span></h1><br></br>
+                    <h1 class="profile-user-names">@muhammed_alsalah</h1>
+                    <br></br>
+                    <li><span class="profile-stat-count">465</span> <span style={{color:'#959595'}}>posts</span></li>
+                    <li><span class="profile-stat-count">123k</span>  <span style={{color:'#959595'}}>followers</span></li>
+                    <li><span class="profile-stat-count">1.2K</span>  <span style={{color:'#959595'}}>following</span></li>
+                    <br></br>
+                    <li><span class="profile-stat-count " style={{color:'#959595'}}>Age:</span>  <span >28</span></li>
+                    <li><span class="profile-stat-count" style={{color:'#959595'}}>Gender:</span>  <span > Male</span></li>
+                    <br></br>
+                    <li><span > <img src="../images/accounts/kuwait.png" alt="" ></img></span><span class="profile-stat-count mx-1">Kuwait,Hawally </span> <span style={{color:'#959595'}} className='mx-3'>+More</span></li>
+                    </ul>
+                    <button className="side-menu__suggestion-buttons ">Following <i className="bi bi-chevron-down "></i></button>   <button className="side-menu__suggestion-button3 ">Message</button>
+                </div>
+                </div>
+             </div>
+              
+                    
+               
+                
+            
+            </Card.Body>
+        </Card>
   
-
-</div>
-<div class="profile-image">
-
-  <img src="../images/accounts/camera.png" href='#' style={{width:'44px',height:'44px',marginRight:'503px',marginBottom:'-283px'}} alt=""></img><br></br>
-  
-
-</div>
-<div class="profile-user-settings">
-
-  <h1 class="profile-user-name">Ahmed</h1><br></br>
-  <h1 class="profile-user-names">@ahmed_al_tourah</h1>
-</div>
-
-<div class="profile-stats">
-
-  <ul>
-    <li><span class="profile-stat-count">465</span> <span style={{color:'#959595'}}>posts</span></li>
-    <li><span class="profile-stat-count">123k</span>  <span style={{color:'#959595'}}>followers</span></li>
-    <li><span class="profile-stat-count">1.2K</span>  <span style={{color:'#959595'}}>following</span></li>
-    <br></br>
-    <li><span class="profile-stat-count " style={{color:'#959595'}}>Age</span>  <span >28</span></li>
-    <li><span class="profile-stat-count" style={{color:'#959595'}}>Gender</span>  <span > Male</span></li>
-    <br></br>
-    <li><span > <img src="../images/accounts/kuwait.png" alt="" ></img></span><span class="profile-stat-count mx-1">Kuwait,Hawally </span> <span style={{color:'#959595'}} className='mx-3'>+More</span></li>
-  </ul>
-  <button className="side-menu__suggestion-buttons ">Following <i className="bi bi-chevron-down "></i></button>   <button className="side-menu__suggestion-button3 ">Message</button>
-</div>
-
-</div>
-        
-      </Card.Body>
-    </Card>
-
 <section id="tabs">
 	<div className="container">
 			<div className="col-md-9  ">

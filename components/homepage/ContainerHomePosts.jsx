@@ -279,20 +279,20 @@ function ContainerHomePosts() {
                   >
                      <img src="../images/profile img.png" alt="User Picture" />
                     
-                  </a>
+                  </a> 
                   <div className="users">
                     <div className="post__likes">
                       <a href="" className="post__user">Ahmad Albedaiwi<span><img src='../images/star.png' className='mx-1 mb-1'></img></span></a>
                     </div>
                     <div className="time">2 hours ago</div>
                   </div>    
-                </div>
+                </div> 
                 <button className="post__more-options">
                   <img src="../images/More_Vertical.png"  >
                     
-                  </img>
-                   
-                
+                  </img>  
+                    
+                                                             
   
                 </button>
                 

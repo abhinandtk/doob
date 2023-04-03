@@ -294,42 +294,40 @@ Arabic</Dropdown.Item>
     </aside>
 
    
-        
-    <Card className='container-fluid ' style={{width:'910px',marginRight:'135px',marginTop:'23px',height:'290px'}}>
-      
-      <Card.Body >
-    
-       
-      <div class="profile3">
- 
-<div class="profile-image">
+    <Card className='container' style={{width:'910px',marginLeft:'395px',marginTop:'23px',height:'290px'}}>
+            <Card.Body>
+             <div className='row'>
+                <div className='col-md-6'>
+                <div class="profile-stadium">
+                    <img src="../images/accounts/fa.png" alt=""></img>
+                </div>
+                
+                </div>
+                <div className='col-md-6'>
+                    
+              
 
-  <img src="../images/accounts/fa.png" alt=""></img>
-  
-
-</div>
-
-<div class="profile-user-settings">
-
-  <h1 class="profile-user-name">Mohammed Al-Hamad Stadium</h1><br></br>
-  <h1 class="profile-user-names">@mohammer_al_hamad</h1>
-</div>
-
-<div class="profile-stats">
-
-  <ul>
-    <li><span class="profile-stat-count">465</span> <span style={{color:'#959595'}}>posts</span></li>
+                <div class="profile-stats">
+                    <ul>
+                    <h1 class="profile-user-name">Mohammed Al-Hamad Stadium</h1><br></br>
+                    <h1 class="profile-user-names">@mohammer_al_hamad</h1>
+                    <br></br>
+         <li><span class="profile-stat-count">465</span> <span style={{color:'#959595'}}>posts</span></li>
     <li><span class="profile-stat-count">123k</span>  <span style={{color:'#959595'}}>followers</span></li>
     <li><span class="profile-stat-count">1.2K</span>  <span style={{color:'#959595'}}>following</span></li>
-  
-  </ul>
-   <button className="side-menu__suggestion-buttons " style={{backgroundColor:'#8A8A8A'}}>Message</button>  <button className="side-menu__suggestion-buttons " style={{marginLeft:'4px',backgroundColor:'#8A8A8A'}}>Following </button>  <button className="side-menu__suggestion-buttons " style={{marginLeft:'4px'}}>Book Now </button>
-</div>
+                    </ul>
+                    <button className="side-menu__suggestion-buttons " style={{backgroundColor:'#8A8A8A'}}>Message</button>  <button className="side-menu__suggestion-buttons " style={{marginLeft:'4px',backgroundColor:'#8A8A8A'}}>Following </button>  <button className="side-menu__suggestion-buttons " style={{marginLeft:'4px'}}>Shop Now </button>
+                </div>
+                </div>
+             </div>
+              
+                    
+               
+                
+            
+            </Card.Body>
+        </Card>
 
-</div>
-        
-      </Card.Body>
-    </Card>
 
 <section id="tabs">
 	<div className="container">

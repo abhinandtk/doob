@@ -290,7 +290,7 @@ Arabic</Dropdown.Item>
    </aside>
 
    <div class="container">
-        <div class="leftSide">
+        <div class="leftSides">
             <div class="header">
                 <div class="text">
                     <h6  style={{fontWeight:'600',fontSize:'17px',marginLeft:'3px'}}>Messages</h6>
@@ -469,7 +469,7 @@ Arabic</Dropdown.Item>
              
             </div>
         </div>
-        <div class="rightSide">
+        <div class="rightSide1">
             <div class="header">
               
                 <div class="imgText">
@@ -523,6 +523,84 @@ Arabic</Dropdown.Item>
                 <div class="message friend_msg">
                     <p>Hope you like it</p>
                     <div className='minutes'>09:35AM</div>
+                </div>
+                <div class="message friend_msg">
+                    <p>Have a great day</p>
+                    <div className='minutes'>09:35AM</div>
+                </div>
+                <div class="message my_msg" >
+                    <p>Hello! Ahmed Al Tourah</p>
+                 
+                    <div className='minute'>09:35AM</div>
+                </div>
+                <div class="message my_msg">
+                    <p>Hello! Ahmed Al Tourah</p>
+                    <div className='minute'>09:35AM</div>
+                </div>
+                <div class="message friend_msg">
+                    <p>Have a great day</p>
+                    <div className='minutes'>09:35AM</div>
+                </div>
+                <div class="message my_msg" >
+                    <p>Hello! Ahmed Al Tourah</p>
+                 
+                    <div className='minute'>09:35AM</div>
+                </div>
+                <div class="message my_msg">
+                    <p>Hello! Ahmed Al Tourah</p>
+                    <div className='minute'>09:35AM</div>
+                </div>
+                <div class="message friend_msg">
+                    <p>Have a great day</p>
+                    <div className='minutes'>09:35AM</div>
+                </div>
+                <div class="message my_msg" >
+                    <p>Hello! Ahmed Al Tourah</p>
+                 
+                    <div className='minute'>09:35AM</div>
+                </div>
+                <div class="message my_msg">
+                    <p>Hello! Ahmed Al Tourah</p>
+                    <div className='minute'>09:35AM</div>
+                </div>
+                <div class="message friend_msg">
+                    <p>Have a great day</p>
+                    <div className='minutes'>09:35AM</div>
+                </div>
+                <div class="message my_msg" >
+                    <p>Hello! Ahmed Al Tourah</p>
+                 
+                    <div className='minute'>09:35AM</div>
+                </div>
+                <div class="message my_msg">
+                    <p>Hello! Ahmed Al Tourah</p>
+                    <div className='minute'>09:35AM</div>
+                </div>
+                <div class="message friend_msg">
+                    <p>Have a great day</p>
+                    <div className='minutes'>09:35AM</div>
+                </div>
+                <div class="message my_msg" >
+                    <p>Hello! Ahmed Al Tourah</p>
+                 
+                    <div className='minute'>09:35AM</div>
+                </div>
+                <div class="message my_msg">
+                    <p>Hello! Ahmed Al Tourah</p>
+                    <div className='minute'>09:35AM</div>
+                </div>
+                <div class="message friend_msg">
+                    <p>Have a great day</p>
+                    <div className='minutes'>09:35AM</div>
+                </div>
+                <div class="message my_msg" >
+                    <p>Hello! Ahmed Al Tourah</p>
+                 
+                    <div className='minute'>09:35AM</div>
+                </div>
+                <div class="message my_msg">
+                    <p>Hello! Ahmed Al Tourah</p>
+                    <div className='minute'>09:35AM</div>
                 </div>
                 <div class="message friend_msg">
                     <p>Have a great day</p>

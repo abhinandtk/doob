@@ -59,7 +59,7 @@ function RegisterOtpVerification({setActiveModal}) {
     <Modal.Title  className='circle'><img src='../images/1.png' className='circle'></img></Modal.Title>
   
     <Modal.Title className='title2' >Confirm Your Email</Modal.Title>
-    <Modal.Title className='lorum'  >To verify your email , we’ve sent a One Time Password(OTP) to             </Modal.Title>
+    <Modal.Title className='lorum '  >To verify your email , we’ve sent a One Time Password(OTP) to             </Modal.Title>
     <Modal.Title  className='email' >{typeof localStorage !== 'undefined' ? localStorage.getItem('otp-email'):null}</Modal.Title>
     <Modal.Body>
       <Form onSubmit={(e)=>submitVerify(e)}>
