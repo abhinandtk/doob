@@ -86,6 +86,7 @@ function Login({setActiveModal}) {
       if (res.data.status === 1){
         setErrorMsg('')
         localStorage.setItem('user-login-token',res.data.data.token)
+        localStorage.setItem('login-userId',res.data.data.user_id)
         toast.success('successinfo')
       }else if(res.data.status === 0){
 

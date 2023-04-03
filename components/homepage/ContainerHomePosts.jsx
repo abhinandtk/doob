@@ -4,9 +4,13 @@ import Axios from'axios'
 import apis from '@/public/data/my-constants/Apis'
 import constants from '@/public/data/my-constants/Constants'
 import Comments from './social/Comments'
+import PostActions from './social/PostActions'
+import SharedConfirmation from './social/SharedConfirmation'
+import moment from 'moment'
 function ContainerHomePosts() {
 
   const [visibleComment,setVisibleComment]=useState(false)
+  const [visibleShared,setVisibleShared]=useState(false)
   const [liked,setLiked] = useState(false)
   const [totalLike,setTotalLike] = useState()
 
@@ -54,6 +58,16 @@ function ContainerHomePosts() {
     setSlug(slug)
 
   }
+  const sharedClick =(id)=>{
+    setPostId(id)
+    setVisibleShared(true)
+  }
+
+  function timeSincePost(posted) {
+    const timeDiff = moment.duration(moment().diff(moment(posted)))
+    const timeString = timeDiff.humanize() + ' ago';
+    return timeString;
+  }
   return (
     <Fragment>
     <div className="text_followers">My Followers</div>
@@ -62,22 +76,42 @@ function ContainerHomePosts() {
     <div className="posts">
       <article className="post">
         <div className="post__header">
+
+          {item.owner_user_detail === null ? (
           <div className="post__profile">
-            <div
-              className="post__avatar"
-            >
+            <div className="post__avatar">
                <img src="../images/profile img.png" alt="User Picture" />
-              
             </div>
+             
             <div className="users">
               <div className="post__likes">
                 <a  className="post__user">{item.user_detail.name}<span><img src='../images/star.png' className='mx-1 mb-1'></img></span></a>
               </div>
-              <div className="time">{Math.floor(Math.abs((new Date(item.posted)- new Date())) / (1000 * 60 * 60))}</div>
+              <div className="time">{timeSincePost(item.posted)}</div>
             </div>    
           </div>
+          ):(
+
+          <div className="post__profile">
+            <div className="post__avatar">
+               <img src="../images/profile 5.png" alt="User Picture" />
+            </div>
+            <div className="post__avatar1">            
+               <img src="../images/Rec.png"  alt="User Picture" />
+            </div>
+             
+            <div className="users">
+              <div className="post__likes">
+              <a href="" className="post__user">{item.user_detail.name}<span className='mx-1' style={{color:'#616661'}}>Shared</span>{item.owner_user_detail.user_detail.name} Post</a>
+              </div>
+              <div className="time">{timeSincePost(item.posted)}</div>
+            </div>     
+          </div>
+          )}
+
           <button className="post__more-options">
-            <img src="../images/More_Vertical.png" ></img>
+            {/* <img src="../images/More_Vertical.png" ></img> */}
+            <PostActions postId={item.post_id} user={item.user_detail.id}/>
           </button>
           
         </div>
@@ -106,7 +140,7 @@ function ContainerHomePosts() {
             </svg>
             </button>
            
-            <button className="post__button"  style={{marginLeft:'-11px'}}>
+            <button onClick={()=>{sharedClick(item.post_id)}}className="post__button"  style={{marginLeft:'-11px'}}>
             <svg width="30"
                 height="30" viewBox="0 0 30 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12.8848 15.9742L18.9425 10.3203" stroke="black" stroke-width="1.50701" stroke-linecap="round" stroke-linejoin="round"/>
@@ -136,6 +170,7 @@ function ContainerHomePosts() {
     </div>
       ))}
       {visibleComment && <Comments postId={postId} slug={slug} setVisibleComment={setVisibleComment}/>}
+      {visibleShared && <SharedConfirmation postId={postId}/>}
 
 
     {/* <div className="posts">
