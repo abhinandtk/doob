@@ -1,59 +1,109 @@
 import React, { useState } from 'react'
-import {Modal,Button,Dropdown, CardImg, Form} from 'react-bootstrap';
-
-export default function PostActions() {
+import {Dropdown, CardImg, } from 'react-bootstrap';
+import { Modal, Form, Input, Button } from 'antd';
+import Axios from 'axios'
+import apis from '@/public/data/my-constants/Apis';
+import constants from '@/public/data/my-constants/Constants';
+export default function PostActions({postId,user}) {
     const [show,setShow] = useState(false)
+    const [visible,setVisible] = useState(false)
+    const [reason,setReason] = useState('')
+    console.log('eeeeeeeeeeeeeeee',user)
+    const postReportHandler =(e)=>{
+      console.log('ppppppppppp',postId)
+      e.preventDefault()
+      Axios.post(apis.reportpost,{
+        post:postId,
+        reason:reason
+      },
+      {
+        headers:{
+          'Authorization':`Token ${constants.token_id}`
+        }
+      }).then((res)=>{
+        setShow(false)
+        console.log('*/*/*/*/*/*/*/*/*/*/*/*/**',res)
+      })
+
+    }
+
+    const deletePostHandler =()=>{
+      Axios.post(apis.deletepost,{
+        post_id:postId
+      },
+      {
+        headers:{
+          'Authorization':`Token ${constants.token_id}`
+        }
+      }).then((res)=>{
+        console.log('result',res)
+      })
+    }
 
   return (
     <>
 
-    <Modal show={show} onHide={()=>setShow(false)} className='post-repor'>
-    
-    <Modal.Header closeButton>
-    
-    <Modal.Title style={{fontWeight:'700',fontSize:'16px',marginLeft:'300px',marginTop:'24px'}}>Report</Modal.Title>
-    </Modal.Header>
-  
-    <Modal.Title  style={{fontSize:'15px',marginLeft:'180px',marginTop:'24px'}}>        Why are you reporting this post           </Modal.Title>
-    <Modal.Body>
-      <Form >
-    <Form.Group className="" controlId="exampleForm.ControlInput1">
-    <Form.Label></Form.Label>
-    <Form.Control   
-    type='textarea'
-    className='mx-auto dot'   
-    placeholder="Password" 
-    style={{width:'359px',marginTop:'-29px'}}
-    required
-    />
-    </Form.Group>
-    <br></br>
+  <Modal
+        title="Why are you reporting this post ??"
+        visible={show}
+        centered
+        closable
+        maskClosable
+        footer={null}
+        onCancel={()=>setShow(false)}
+      >
+       <Form onSubmitCapture={(e)=>postReportHandler(e)}>
+          <Form.Item >
+            <Input.TextArea
+              placeholder="Please enter your reason for reporting"
+              autoSize={{ minRows: 5}}
+              // value={reason}
+              onChange={(e) => setReason(e.target.value)}
+              required
+            />
+          </Form.Item>
 
-     
-  <Modal.Footer  >
+          <Form.Item>
+            <Button 
+            type="primary" 
+            htmlType="submit"
+            >
+              Confirm
+            </Button>
+          </Form.Item>
+        </Form>
 
-      <Button 
-      type="submit" 
-      className='text-white mx-auto mt-2 ' 
-      style={{backgroundColor:'#17A803',fontWeight:'600',width:'363px'}}>
-     Confirm
-      </Button>
-  
-    </Modal.Footer>
-</Form>
-    </Modal.Body>
- 
-    
-  </Modal>
+
+        
+      </Modal>
+  <Modal
+        title="Are you sure to delete this post??"
+        visible={visible}
+        centered
+        closable
+        maskClosable
+        onCancel={()=>setVisible(false)}
+        footer={[
+          <Button key="back" onClick={()=>setVisible(false)}>
+            Cancel
+          </Button>,
+          <Button key="submit" type="primary" onClick={deletePostHandler}>
+            Submit
+          </Button>,
+        ]}
+      >
+        
+      </Modal>
 
     <Dropdown className='Drop' >
         <Dropdown.Toggle    variant="" id="dropdown-basic"  style={{ color:'black',borderColor:'transparent'}}>
         <i className='bi bi-three-dots-vertical'></i>
         </Dropdown.Toggle>
 
-        <Dropdown.Menu  align="center" className='Menu'   >
-            <Dropdown.Item href="#">Report</Dropdown.Item>
-            <Dropdown.Item href="#">Delete</Dropdown.Item>
+        <Dropdown.Menu  align="center" className='Menu' >
+          {constants.user_id !== user ? 
+            <Dropdown.Item onClick={()=>setShow(true)}>Report</Dropdown.Item>
+            :<Dropdown.Item onClick={()=>setVisible(true)}>Delete</Dropdown.Item>}
         </Dropdown.Menu>
     </Dropdown> 
     </> 

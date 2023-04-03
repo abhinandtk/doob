@@ -1,7 +1,8 @@
 import React from 'react'
 import { Fragment } from 'react';
 import { useState,useEffect,useRef } from 'react'
-import {Modal,Button,Dropdown, CardImg} from 'react-bootstrap';
+import {Button,Dropdown, CardImg} from 'react-bootstrap';
+import {Modal} from 'antd'
 import Form from 'react-bootstrap/Form';
 import Axios from 'axios'
 import constants from '@/public/data/my-constants/Constants';
@@ -29,7 +30,7 @@ function Comments({setVisibleComment,postId,slug}) {
 
             console.log(res.data.data.comments)
         })
-    })
+    },[showComments])
     const onHideHandler =()=>{
         setShow(false)
         setVisibleComment(false)
@@ -64,13 +65,15 @@ function Comments({setVisibleComment,postId,slug}) {
        
     
   return (
-    <Fragment>
-    <Modal show={show} onHide={onHideHandler} className='index' >
-        <Modal.Header closeButton>
-     
-        </Modal.Header>
-        <Modal.Body style={{overflowY:'scroll'}}>
-        <Modal.Title style={{fontWeight:'700',fontSize:'16px',marginTop:'-43px'}}>Comments</Modal.Title>
+    <div style={{ position: 'relative' }}>
+    <Modal 
+    visible={show}  
+    className='index' 
+    closable 
+    maskClosable 
+    onCancel={onHideHandler}
+    footer={[]}
+    >
         {showComments.map((item)=>(
 
         <div className='d-flex flex-start mt-4 mx-2'>
@@ -94,7 +97,7 @@ function Comments({setVisibleComment,postId,slug}) {
                             <a onClick={() => handleReply(item.id)}>Reply</a>
                         </span>
                         <span className='ms-3'>
-                            <CommentActions />
+                            <CommentActions user={item.user.id} commentId={item.id}/>
                         </span>
                     </div>
 
@@ -123,7 +126,6 @@ function Comments({setVisibleComment,postId,slug}) {
         ))}
 
        
-        </Modal.Body>
         <div className='d-flex flex-start mt-5 mx-2' style={{position:'sticky',bottom:'0'}}>
             <div   className='me-2' href=''>
                 <CardImg  className='rounded-circle shadow-1-strong ' src="../images/c8.png" style={{width:'44px',height:'44px'}} ></CardImg>
@@ -153,7 +155,7 @@ function Comments({setVisibleComment,postId,slug}) {
         </div>
 
     </Modal>
-    </Fragment>
+    </div>
   )
 }
 

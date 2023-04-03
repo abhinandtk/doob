@@ -23,6 +23,9 @@ const apis = {
     'commentlist':`${constants.port}/social/Api/comment_list`,
     'sharedpost':`${constants.port}/social/Api/shared/`,
     'reportpost':`${constants.port}/social/Api/report_posts`,
+    'deletepost':`${constants.port}/social/Api/delete_post`,
+    'reportcomment':`${constants.port}/social/Api/report_comments`,
+    'deletecomment':`${constants.port}/social/Api/delete_comment`,
 }
 
 export default apis

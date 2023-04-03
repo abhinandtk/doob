@@ -77,7 +77,7 @@ function ContainerHomePosts() {
       <article className="post">
         <div className="post__header">
 
-          {item.shared_user_detail === null ? (
+          {item.owner_user_detail === null ? (
           <div className="post__profile">
             <div className="post__avatar">
                <img src="../images/profile img.png" alt="User Picture" />
@@ -102,7 +102,7 @@ function ContainerHomePosts() {
              
             <div className="users">
               <div className="post__likes">
-              <a href="" className="post__user">{item.user_detail.name}<span className='mx-1' style={{color:'#616661'}}>Shared</span> Post</a>
+              <a href="" className="post__user">{item.user_detail.name}<span className='mx-1' style={{color:'#616661'}}>Shared</span>{item.owner_user_detail.user_detail.name} Post</a>
               </div>
               <div className="time">{timeSincePost(item.posted)}</div>
             </div>     
@@ -111,7 +111,7 @@ function ContainerHomePosts() {
 
           <button className="post__more-options">
             {/* <img src="../images/More_Vertical.png" ></img> */}
-            <PostActions />
+            <PostActions postId={item.post_id} user={item.user_detail.id}/>
           </button>
           
         </div>
