@@ -8,6 +8,7 @@ import Axios from 'axios'
 import constants from '@/public/data/my-constants/Constants';
 import apis from '@/public/data/my-constants/Apis';
 import CommentActions from './CommentActions';
+import moment from 'moment';
 
 function Comments({setVisibleComment,postId,slug}) {
     const [show,setShow] = useState(true)
@@ -60,6 +61,11 @@ function Comments({setVisibleComment,postId,slug}) {
         setReplayTo(commentId)
         inputRef.current.focus()
       }
+    const timeSinceComment =(time)=>{
+        const timeDiff =moment.duration(moment().diff(moment(time)))
+        const timeString = timeDiff.humanize() + ' ago'
+        return timeString
+    }
     
             
        
@@ -75,17 +81,17 @@ function Comments({setVisibleComment,postId,slug}) {
     footer={[]}
     >
         {showComments.map((item)=>(
-
-        <div className='d-flex flex-start mt-4 mx-2'>
+            
+            <div className='d-flex flex-start mt-4 mx-2'>
             <div className='me-2' href=''>
-                <CardImg  className='rounded-circle shadow-1-strong ' src="../images/c1.png" style={{width:'44px',height:'44px'}} ></CardImg>
+                <CardImg  className='rounded-circle shadow-1-strong ' src={`${constants.port}/media/${item.user.image}`} style={{width:'44px',height:'44px'}} ></CardImg>
             </div>
             <div className="flex-grow-1 flex-shrink-1 " style={{marginBottom:'-24px'}}>
                 <div>
                     <div className="d-flex justify-content-between align-items-center">
                         <p className="mb-0" style={{fontWeight:'600'}}>
                             {item.user.username}{" "}
-                            <span className="small" style={{color:'#959595',fontWeight:'500',fontSize:'13px'}}>4 hrs</span>
+                            <span className="small" style={{color:'#959595',fontWeight:'500',fontSize:'13px'}}>{timeSinceComment(item.created_at)}</span>
                         </p>
                     </div>
                     <p className="small mb-0">
@@ -104,20 +110,26 @@ function Comments({setVisibleComment,postId,slug}) {
                     
                     {item.replies !== null && item.replies.length > 0 ?
                         item.replies.map((reply) => (
-                            <div className='ms-5 mt-2'>
-                            <div className="d-flex justify-content-between align-items-center">
+                            <div className='ms-auto mt-2 d-flex align-items-center'>
+                            <CardImg  className='rounded-circle shadow-1-strong' src={`${constants.port}/media/${item.user.image}`} style={{width:'44px',height:'44px'}}></CardImg>
+
+                            <div className="d-flex flex-column justify-content-between ms-3">
+                                <div>
                                 <p className="mb-0" style={{ fontWeight: '600' }}>
-                                {/* {reply.user.username}{" "} */}
-                                <span className="small" style={{ color: '#959595', fontWeight: '500', fontSize: '13px' }}>4 hrs</span>
+                                    {reply.user_details.name}{" "}
+                                    <span className="small" style={{ color: '#959595', fontWeight: '500', fontSize: '13px' }}>{timeSinceComment(reply.created_at)}</span>
                                 </p>
+                                </div>
+                                <div>
+                                <p className="small mb-0">
+                                    {reply.content}
+                                </p>
+                                </div>
                             </div>
-                            <p className="small mb-0">
-                                {reply.content}
-                            </p>
                             </div>
-                        ))
-                        :
-                        ''
+ 
+
+                        )):''
 }
 
                 </div>

@@ -4,6 +4,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import Axios from 'axios';
 import apis from '@/public/data/my-constants/Apis';
 import UploadFiles from './modules/UploadFiles';
+import Notifications from './modules/Notifications';
 
 function MainHeader() {
 
@@ -36,11 +37,12 @@ function MainHeader() {
 
   return (
     <>
+    <Notifications />
 
     <div onClick={()=>setUploadShow(true)}>sdcdfvs svd78</div>
     <Navbar collapseOnSelect expand="lg" bg="light" variant="dark" sticky='top'className='web-nav' >
         <Container fluid >
-            <Navbar.Brand href="#" >
+            <Navbar.Brand href="/" >
                 <img src='../images/Contract Doob before sign 13-40-2 (1).png' style={{width:'120px', height:'43px'}}></img>
             </Navbar.Brand>
             <Navbar id="responsive-navbar-nav">
@@ -83,7 +85,7 @@ function MainHeader() {
                             </Dropdown.Menu>
                         </Dropdown>
                     </Nav.Link>
-                    <Nav.Link  >
+                    <Nav.Link href='/search' >
                         <svg width="24" height="20" className='search' viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0.643603 10.9395C0.99762 16.1773 5.5729 20.1733 10.8112 19.8192C13.0968 19.6648 15.1372 18.7137 16.6662 17.2709L20.6823 20.7785C21.089 21.1337 21.6604 21.0951 22.0157 20.6884C22.2407 20.4818 22.3199 20.2373 22.3038 19.9991C22.2878 19.7611 22.1765 19.5293 21.9731 19.3518L17.9569 15.8442C19.1777 14.0875 19.8455 11.9377 19.691 9.65218C19.337 4.41433 14.7617 0.41837 9.52389 0.772387C4.28563 1.12627 0.289677 5.70171 0.643694 10.9396L0.643603 10.9395ZM17.7861 9.78085C18.0693 13.9714 14.8725 17.6316 10.682 17.9148C6.4919 18.1979 2.83168 15.0011 2.54846 10.8107C2.26523 6.62021 5.462 2.95999 9.65252 2.67676C13.8426 2.39356 17.5029 5.59033 17.7861 9.78085Z" fill="black"/>
                         </svg>

@@ -17,7 +17,7 @@ const apis = {
 
     // social module
 
-    'posts':`${constants.port}/social/Api/posts/`,
+    'homepageapi':`${constants.port}/social/Api/home_page_api/`,
     'likepost':`${constants.port}/social/Api/post_like`,
     'postcomment':`${constants.port}/social/Api/comment_api`,
     'commentlist':`${constants.port}/social/Api/comment_list`,
@@ -26,6 +26,17 @@ const apis = {
     'deletepost':`${constants.port}/social/Api/delete_post`,
     'reportcomment':`${constants.port}/social/Api/report_comments`,
     'deletecomment':`${constants.port}/social/Api/delete_comment`,
+    'profilepage':`${constants.port}/social/Api/upload_profile_image`,
+    'usersearch':`${constants.port}/social/Api/users_search`,
+    'postsearch':`${constants.port}/social/Api/post_search`,
+    'otheruser':`${constants.port}/social/Api/other_user`,
+    'follow':`${constants.port}/social/Api/follow_unfollow`,
+    'followerslist':`${constants.port}/social/Api/follower_list`,
+    'followinglist':`${constants.port}/social/Api/following_list`,
+    'removefollower':`${constants.port}/social/Api/remove_follower`,
+    'notification':`${constants.port}/social/Api/notification`,
+
+    
 }
 
 export default apis

@@ -1,82 +1,61 @@
 import React, { Fragment } from 'react'
 import { useState } from 'react'
 import { Card,Tab,Tabs,CardImg } from 'react-bootstrap'
-
+import ProfileHeaderDetails from './ProfileHeaderDetails'
+import Axios from 'axios'
+import { useEffect } from 'react'
+import apis from '@/public/data/my-constants/Apis'
+import constants from '@/public/data/my-constants/Constants'
 function ProfileDetails() {
 
-    const [key,SetKey] = useState('feeds')
+    const [key,SetKey] = useState(1)
+    const [userDetials,setUserDetails]=useState([])
+    const [postDetails,setPostDetails]=useState([])
+    useEffect(()=>{
+        Axios.get(apis.profilepage,{
+            headers:{
+            'Authorization':`Token ${constants.token_id}`
+            }
+        }).then((res)=>{
+            setUserDetails(res.data.data.user_details)
+            setPostDetails(res.data.data.post_details)
+            console.log('POsts result=-----------------------',res.data.data.post_details)
+        })
+    },[])
+
+    // const handleTabChange=()=>{
+
+    // }
+
   return (
     <Fragment>
-        <Card className='container' style={{width:'910px',marginLeft:'395px',marginTop:'23px',height:'290px'}}>
-            <Card.Body>
-             <div className='row'>
-                <div className='col-md-6'>
-                <button class="btn profile-edit-btn">Rank</button> <span> <button class="btn profile-edit-btn1">Edit</button></span>
-                <div class="profile-image">
-                    <img src="../images/accounts/group.png" alt=""></img>
-                </div>
-                <div class="profile-cam1">
-                    <img src="../images/accounts/camera.png" href='#'  alt=""></img>
-                </div>
-                </div>
-                <div className='col-md-6'>
-                    
-              
-
-                <div class="profile-stats">
-                    <ul>
-                    <h1 class="profile-user-name">Muhammed Alsalah<span><img src='../images/accounts/stars.png' className='mx-1 mb-1'></img></span><span><img src='../images/accounts/iconoir_help-circles.png' className=' mb-1'></img></span></h1><br></br>
-                    <h1 class="profile-user-names">@muhammed_alsalah</h1>
-                    <br></br>
-                    <li><span class="profile-stat-count">465</span> <span style={{color:'#959595'}}>posts</span></li>
-                    <li><span class="profile-stat-count">123k</span>  <span style={{color:'#959595'}}>followers</span></li>
-                    <li><span class="profile-stat-count">1.2K</span>  <span style={{color:'#959595'}}>following</span></li>
-                    <br></br>
-                    <li><span class="profile-stat-count " style={{color:'#959595'}}>Age:</span>  <span >28</span></li>
-                    <li><span class="profile-stat-count" style={{color:'#959595'}}>Gender:</span>  <span > Male</span></li>
-                    <br></br>
-                    <li><span > <img src="../images/accounts/kuwait.png" alt="" ></img></span><span class="profile-stat-count mx-1">Kuwait,Hawally </span> <span style={{color:'#959595'}} className='mx-3'>+More</span></li>
-                    </ul>
-
-                </div>
-                </div>
-             </div>
-              
-                    
-               
-                
-            
-            </Card.Body>
-        </Card>
-
+        
+        <ProfileHeaderDetails data={userDetials}/>
         <section id="tabs">
             <div className="container">
                 <div className="col-md-9  ">
                     <Tabs  
                     // id="uncontrolled-tab-example" 
                     style={{display:'flex',justifyContent:'space-evenly'}} 
-                    defaultActiveKey='feeds'
+                    // defaultActiveKey='feeds'
                     activeKey={key}
-                    onSelect={(k)=>SetKey(k)}
+                    onSelect={(e)=>SetKey(e)}
                     > 
                        <Tab eventKey={1} title="Feeds">
-  <hr  className='col-md-12 line' ></hr>
+                            <hr  className='col-md-12 line' ></hr>
 
-<div className="row images">
+                            <div className="row images">
 
-  <div className="col-md-4" tabindex="0">
-    <img src="../images/post1.jpg" className="image" alt=""/>
-  </div>
-  <div className="col-md-4" tabindex="0">
-    <img src=" ../images/post2.jpg " className="image" alt=""/>
-  </div>
-  <div className="col-md-4" tabindex="0">
-    <img src="../images/post3.jpg"  className="image" alt=""/>
-  </div>
-</div>
-   
-  </Tab>
-                        <Tab eventKey='activities' title="Activities" >
+                            {postDetails.map((item)=>{
+                                return(
+                                    <div className="col-md-4" tabindex="0">
+                                        <img src={`${constants.port}${item.image}`} className="image" alt=""/>
+                                    </div>
+                            )})}
+                            </div>
+                            
+                        </Tab>
+                        <Tab eventKey={2} title="Activities" >
                             <hr style={{color:'#000',width:'900px'}} className='col-md-12 ' ></hr>
                             <Card style={{width:'900px',height:'850px'}}>
                                 <h6 style={{color:'#000',fontWeight:'600',fontSize:'18px',marginLeft:'43px',marginTop:'44px'}}>Tue.Feb 12</h6>

@@ -1,0 +1,120 @@
+import {Container,Nav,Navbar,Dropdown} from 'react-bootstrap';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import React, { useState } from 'react';
+import Form from 'react-bootstrap/Form';
+import { Modal } from 'antd';
+import Axios from 'axios'
+import constants from '@/public/data/my-constants/Constants';
+import apis from '@/public/data/my-constants/Apis';
+function Notifications() {
+    const [show,setShow]=useState(true)
+    const [notificationData,setNotificationData]=useState([])
+
+    Axios.get(apis.notification,{
+        headers:{
+            'Authorization':`Token ${constants.token_id}`,
+        }
+    }).then((res)=>{
+        console.log('reerererrererererr',res)
+        setNotificationData(res.data.data)
+    })
+
+    
+  return (
+
+    <Modal
+    open={show}
+    onCancel={()=>setShow(false)}
+    closable
+    maskClosable
+    style={{right:0}}
+    >
+      {/* {notificationData.map((item)=>( */}
+        <section className="side-menu-section ">
+        <div className="side-menu__suggestions-section " > 
+          <div className="side-menu__suggestions-headers">
+            <h2>Notifications</h2>
+            
+          </div>    
+          <div className="side-menu__suggestions-contents">
+            <div className="side-menu__suggestion">
+              <a href="#" className="side-menu__suggestion-avatar">
+                <img src="../images/c1.png" alt="User Picture" />
+              </a>
+              <div className="side-menu__suggestion-info">
+              <a href="#"> Musaid
+                <span className='ms-1 text-black' style={{fontSize:'12px'}}>Started Following <br></br>you.<span></span>2h</span></a>
+              </div>
+              <button className="side-menu__suggestion-button2">Follow</button>
+            </div>
+            <div className="side-menu__suggestion">
+              <a href="#" className="side-menu__suggestion-avatar">
+              <img src="../images/c1.png" alt="User Picture" />
+              </a>
+              <div className="side-menu__suggestion-info">
+              <a href="#"> Musaid
+                <span className='ms-1 text-black' style={{fontSize:'12px'}}>Liked your photo.<span></span>2h</span></a>
+              </div>
+              <button className="side-menu__suggestion-button1">   <img src="../images/post img.png" style={{marginTop:'25px'}} /></button>
+            </div>
+            <div className="side-menu__suggestion">
+              <a href="#" className="side-menu__suggestion-avatar">
+                <img src="../images/profile 5.png" alt="User Picture" />
+              </a>
+              <div className="side-menu__suggestion-info">
+              <a href="#"> Sulthan Almubarakd
+                <span className='ms-1 text-black' style={{fontSize:'12px'}}>Started <br></br> Following you.<span></span>2d</span></a>
+              </div>
+              <button className="side-menu__suggestion-button1">Following</button>
+            </div>
+            <div className="side-menu__suggestion">
+              <a href="#" className="side-menu__suggestion-avatar">
+                <img src="../images/profile 5.png" alt="User Picture" />
+              </a>
+              <div className="side-menu__suggestion-info">
+              <a href="#"> Sulthan Almubarakd
+                <span className='ms-1 text-black' style={{fontSize:'12px'}}>Liked  <br></br>your  photo.<span></span>2d</span></a>
+              </div>
+              <button className="side-menu__suggestion-button1">   <img src="../images/post img.png" style={{marginTop:'5px'}} /></button>
+            </div>
+            <div className="side-menu__suggestion">
+              <a href="#" className="side-menu__suggestion-avatar">
+                <img src="../images/profile 5.png" alt="User Picture" />
+              </a>
+              <div className="side-menu__suggestion-info">
+              <a href="#"> Sulthan Almubarakd
+                <span className='ms-1 text-black ' style={{fontSize:'12px'}}>Liked  <br></br>your  photo.<span></span>2d</span></a>
+              </div>
+              <button className="side-menu__suggestion-button1">   <img src="../images/Bg.png" style={{marginTop:'5px'}} /></button>
+            </div>
+            <div className="side-menu__suggestion">
+              <a href="#" className="side-menu__suggestion-avatar">
+                <img src="../images/c2.png" alt="User Picture" />
+              </a>
+              <div className="side-menu__suggestion-info">
+              <a href="#"> Faisal
+                <span className='ms-1 text-black ' style={{fontSize:'12px'}}>Started Following you.<span></span>3w</span></a>
+              </div>
+              <button className="side-menu__suggestion-button1" style={{marginTop:'-2px'}}> Following</button>
+            </div>
+            <div className="side-menu__suggestion">
+              <a href="#" className="side-menu__suggestion-avatar">
+                <img src="../images/c2.png" alt="User Picture" />
+              </a>
+              <div className="side-menu__suggestion-info">
+              <a href="#"> Faisal
+                <span className='ms-1 text-black ' style={{fontSize:'12px'}}>Started Following you.<span></span>3w</span></a>
+              </div>
+              <button className="side-menu__suggestion-button1">   <img src="../images/post img.png" style={{marginTop:'25px'}} /></button>
+            </div>
+          </div>
+        
+        </div>
+      </section>
+      </Modal>
+         
+
+  )
+}
+
+export default Notifications

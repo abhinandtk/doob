@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Poppins:wght@300&display=swap');
 
 body{
-  background:#EEEEEE;
+  background:#F1F2F6;
 }
 .dropdown-toggle::after {
     display: none !important; 
@@ -37,7 +37,7 @@ body{
   width: 230px;
   height: 100%;
   padding: 40px 10px 30px 10px;
-  background: #eeeeee;
+  background: #F1F2F6;
   border-right: 0px solid #dbdbdb;
   transition: 0.3s;
   margin-top:-23px;
@@ -341,7 +341,7 @@ body{
      margin-top: 35px;
      border-radius: 5px;
     
-     background-color: #EEEEEE;
+     background-color: #eeebeb;
     }
  
     input.nosubmits {
@@ -1010,9 +1010,9 @@ body{
   flex-shrink: 0;
   margin-left: 2px;
   margin-top: -23px;
-  background-color:#8A8A8A;
+  background-color:#EFEFEF;
   border: none;
-  color: rgb(255, 255, 255);
+  color: #000000;
   padding: 0px 22px;
   text-align: center;
   text-decoration: none;
