@@ -23,9 +23,11 @@ function ProfileDetails() {
         })
     },[])
 
-    // const handleTabChange=()=>{
-
-    // }
+    // Axios.get(apis.activity,{
+    //     headers:{
+    //         'Authorization'
+    //     }
+    // })
 
   return (
     <Fragment>

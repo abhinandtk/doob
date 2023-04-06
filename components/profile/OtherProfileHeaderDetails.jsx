@@ -7,16 +7,14 @@ import { Button, Modal } from 'antd';
 function OtherProfileHeaderDetails({data,id}) {
 
     const [show,setShow]=useState(false)
-    // console.log('343434344343434',data.is_following)
-    // console.log('iiiiiiiiiiiiidddddddddddddddd',id)
+    
     const followHandler=()=>{
-        console.log('9888889989898989898989',data.is_following)
         Axios.post(apis.follow,{
             user_id:id
         },
         {
             headers:{
-                'Authorization':`Token ${constants.token_id}`
+                'Authorization':`Token ${constants.token_id}`,
             }
         }).then((res)=>{
             console.log('reeeeeeesul',res)
@@ -80,7 +78,7 @@ function OtherProfileHeaderDetails({data,id}) {
                     <div className='col-md-6'>
                     <button class="btn profile-edit-btn">Rank</button> 
                     <div class="profile-images" >
-                        <img src={`${constants.port}/media/${data.user_image}`} alt=""></img>
+                        <img src={`${constants.port}/media/${data.user_image}`} alt="" style={{borderRadius:'50%',objectFit:'cover'}}></img>
                     </div>
                     </div>
                     <div className='col-md-6'>

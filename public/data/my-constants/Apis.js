@@ -35,6 +35,7 @@ const apis = {
     'followinglist':`${constants.port}/social/Api/following_list`,
     'removefollower':`${constants.port}/social/Api/remove_follower`,
     'notification':`${constants.port}/social/Api/notification`,
+    'activity':`${constants.port}/social/Api/activity`,
 
     
 }

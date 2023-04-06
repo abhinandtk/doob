@@ -46,8 +46,8 @@ function ContainerHomePosts() {
         setLiked(true)
       }else{
         setLiked(false)
+        setTotalLike(res.data.data.total_like)
       }
-      setTotalLike(res.data.data.total_like)
       console.log('this is result',res)
     })
     console.log('like')
@@ -79,10 +79,10 @@ function ContainerHomePosts() {
         <div className="post__header">
 
           {item.owner_user_detail === null ? (
-          <Link href={`/userprofile/${item.user_detail.id}`}>
+          <Link href={`/userprofile/${item.user_detail.id}`} style={{textDecoration:'none'}}>
           <div className="post__profile">
             <div className="post__avatar">
-               <img src="../images/profile img.png" alt="User Picture" />
+               <img src={`${constants.port}/media/${item.user_detail.image}`} alt="User Picture" />
             </div>
              
             <div className="users">

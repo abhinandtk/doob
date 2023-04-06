@@ -42,7 +42,7 @@ function MainSidebarFixed() {
                     <span className="nav_head">Stores</span>
                 </span>
             </a>
-            <Link href="/profile">
+            <Link href="/profile" style={{textDecoration:'none'}}>
                 <span>
                     <svg width="19" height="20" viewBox="0 0 19 20" fill="none" className='nav_head_svg' xmlns="http://www.w3.org/2000/svg">
                         <circle cx="9.31323" cy="5.55051" r="4" stroke="black" stroke-width="1.4"/>

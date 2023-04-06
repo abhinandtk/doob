@@ -13,7 +13,7 @@ function MainHeader() {
     const handleShow = () => setShow(true)
 
     const [uploadShow,setUploadShow] = useState(false)
-
+    const [notificationShow,setNotificationShow]=useState(false)
 
     const logoutHandle =(e)=>{
         e.preventDefault()
@@ -37,9 +37,7 @@ function MainHeader() {
 
   return (
     <>
-    <Notifications />
 
-    <div onClick={()=>setUploadShow(true)}>sdcdfvs svd78</div>
     <Navbar collapseOnSelect expand="lg" bg="light" variant="dark" sticky='top'className='web-nav' >
         <Container fluid >
             <Navbar.Brand href="/" >
@@ -54,7 +52,7 @@ function MainHeader() {
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu align="end" style={{backgroundColor:'#17A803', borderRadius:'0px'}} >
-                                <Dropdown.Item href="#" className='text-white ' style={{backgroundColor:'#17A803'}}><svg width="24" height="20" viewBox="0 0 24 25" fill="none" className='mx-2' xmlns="http://www.w3.org/2000/svg">
+                                <Dropdown.Item onClick={()=>setUploadShow(true)} className='text-white ' style={{backgroundColor:'#17A803'}}><svg width="24" height="20" viewBox="0 0 24 25" fill="none" className='mx-2' xmlns="http://www.w3.org/2000/svg">
                                     <path d="M0.210938 0.851562V23.8943H23.2537V0.851562H0.210938ZM22.1015 7.76438H16.3409V2.0037H22.1015V7.76438ZM15.1887 2.0037V7.76438H8.27589V2.0037H15.1887ZM1.36307 8.91652H7.12376V15.8293H1.36307V8.91652ZM8.27589 8.91652H15.1887V15.8293H8.27589V8.91652ZM7.12376 2.0037V7.76438H1.36307V2.0037H7.12376ZM1.36307 22.7422V16.9815H7.12376V22.7422H1.36307ZM8.27589 16.9815H15.1887V22.7422H8.27589V16.9815ZM22.1015 22.7422H16.3409V16.9815H22.1015V22.7422ZM16.3409 15.8293V8.91652H22.1015V15.8293H16.3409Z" fill="white" stroke="white" stroke-width="0.303194"/> </svg>
                                 Post
                                 </Dropdown.Item>
@@ -107,7 +105,7 @@ function MainHeader() {
 
                     </Nav.Link>
                     <Nav.Link>
-                        <svg width="24" height="31" className='bell' viewBox="0 0 24 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg onClick={()=>setNotificationShow(!notificationShow)}width="24" height="31" className='bell' viewBox="0 0 24 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M9.23529 26.4706C14.6989 26.4706 17.2265 25.7187 17.4706 22.7009C17.4706 19.6851 15.7084 19.879 15.7084 16.1788C15.7084 13.2885 13.1545 10 9.23529 10C5.31604 10 2.76221 13.2885 2.76221 16.1788C2.76221 19.879 1 19.6851 1 22.7009C1.24507 25.7301 3.77265 26.4706 9.23529 26.4706Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M11.588 28.8235C10.5992 30.3829 9.05681 30.4013 8.05859 28.8235" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
                         <circle cx="17" cy="7" r="7" fill="#17A803"/>
@@ -183,6 +181,7 @@ function MainHeader() {
     </Navbar>
     
     {uploadShow && <UploadFiles setUploadShow={setUploadShow}/>}
+    {notificationShow && <Notifications setNotificationShow={setNotificationShow}/>}
     </>
     
 

@@ -22,7 +22,7 @@ function FollowersList({setFollowersListShow}) {
     const removeAccount = (id) => {
         Axios.delete(apis.removefollower, {
           data: { user_id: id },
-          headers: { Authorization: `Token ${constants.token_id}` },
+          headers: { Authorization: `Token ${constants.token_id}`},
         })
           .then((response) => {
             console.log('response:', response);
