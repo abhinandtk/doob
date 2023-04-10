@@ -30,10 +30,10 @@ function ForgetEmail({setActiveModal}) {
     <Modal.Header closeButton>
     
     </Modal.Header>
-    <Modal.Title  style={{marginLeft:'340px',marginTop:'10px'}}><img src='../images/1.png' style={{width:'64px',height:'64px'}} ></img></Modal.Title>
+    <Modal.Title  style={{display:'flex',justifyContent:'center',marginTop:'10px'}}><img src='../images/1.png' style={{width:'64px',height:'64px'}} ></img></Modal.Title>
   
-    <Modal.Title style={{fontWeight:'700',fontSize:'16px',marginLeft:'300px',marginTop:'24px'}}>Confirm Your Email</Modal.Title>
-    <Modal.Title  style={{fontSize:'15px',marginLeft:'180px',marginTop:'24px'}}>To reset your password , Please Enter a Email            </Modal.Title>
+    <Modal.Title style={{fontWeight:'700',fontSize:'16px',display:'flex',justifyContent:'center',marginTop:'24px'}}>Confirm Your Email</Modal.Title>
+    <Modal.Title  style={{fontSize:'15px',display:'flex',justifyContent:'center',marginTop:'24px'}}>To reset your password , Please Enter a Email            </Modal.Title>
     <Modal.Body>
       <Form onSubmit={(e)=>submitForgotEmail(e)}>
       <Form.Group className="" controlId="exampleForm.ControlInput1">
@@ -42,7 +42,7 @@ function ForgetEmail({setActiveModal}) {
     type='email'
     className='mx-auto dot'   
     placeholder="Email" 
-    style={{width:'359px',marginTop:'-29px'}}
+    style={{width:'100%',marginTop:'-29px'}}
     onChange={(e)=>setEmail(e.target.value)}
     required
     />

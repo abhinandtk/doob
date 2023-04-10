@@ -42,9 +42,9 @@ function ForgetOtp({setActiveModal}) {
     <Form.Label></Form.Label>
     <Form.Control   
     type='text'
-    className='mx-auto dot'   
+    className='mx-auto '   
     placeholder="OTP" 
-    style={{width:'359px',marginTop:'-29px'}}
+    style={{width:'50%',marginTop:'-29px'}}
     onChange={(e)=>setFotp(e.target.value)}
     maxLength='6'
     required

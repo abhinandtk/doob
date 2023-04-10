@@ -125,7 +125,7 @@ function Register({setActiveModal,countries}) {
       </Form.Group>
 
       <Form.Label className='white'>Phone Number*</Form.Label>
-      <Form.Group className=" d-flex justify-content-between align-items-center "  style={{marginLeft:'180px'}} >
+      <Form.Group className=" d-flex justify-content-between align-items-center white "  >
       
         <Form.Select 
         id="code" 

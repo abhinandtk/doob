@@ -507,7 +507,7 @@ Arabic</Dropdown.Item>
             <div class="chatbox">
             <div  className="today" >Today</div> 
                 <div class="message my_msg">
-                    <p>Hello! Ahmed Al Tourah</p>
+                    <p>Hello! Ahmed Al Tourah </p>
                     <div className='minute'>09:35AM</div>
                 </div>
             
@@ -517,7 +517,7 @@ Arabic</Dropdown.Item>
                 </div>
                
                 <div class="message my_msg">
-                    <p>I'm doing really well, thank you.. </p>
+                    <p>I'm doing really well, thank you. </p>
                     <div className='minutes'>09:35AM</div>
                 </div>
                 <div class="message friend_msg">

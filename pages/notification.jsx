@@ -858,7 +858,7 @@ Arabic</Dropdown.Item>
                 </a>
                 <div className="side-menu__suggestion-info">
                 <a href="#"> Faisal
-                  <span className='ms-1 text-black ' style={{fontSize:'12px'}}>Started Following you.<span></span>3w</span></a>
+                  <span className='ms-1 text-black ' style={{fontSize:'12px'}}>Started Following you  .<span></span>3w</span></a>
                 </div>
                 <button className="side-menu__suggestion-button1">   <img src="../images/post img.png" style={{marginTop:'25px'}} /></button>
               </div>
