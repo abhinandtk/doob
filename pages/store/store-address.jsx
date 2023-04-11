@@ -1,6 +1,6 @@
 
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import {Container,Nav,Navbar,Dropdown,Carousel,Card} from 'react-bootstrap';
+import {Container,Nav,Navbar,Dropdown,Carousel,Card,Button, Form,CardImg} from 'react-bootstrap';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import React, { useState } from 'react';
 
@@ -295,223 +295,194 @@ Arabic</Dropdown.Item>
    
 
 <div className="container2">
-    
-   
-  
-    <form className="nosubmit ">
-  <input className="nosubmit" type="search" placeholder="Search"   /><input className="icon" type="search" placeholder="Search"   />
-</form>
-<br></br>
-<Carousel className='mx-2' >
-  
-      <Carousel.Item interval={1000}>
-        <img
-          className="d-block w-100 "
-          src="https://i.pinimg.com/originals/e7/f7/1c/e7f71ce97c56ea47bc78e294a5ab3f3c.jpg" 
-          alt="First slide"
-        />
-      
-      </Carousel.Item>
-      <Carousel.Item interval={500}>
-        <img
-          className="d-block w-100"
-          src="https://i.pinimg.com/originals/e7/f7/1c/e7f71ce97c56ea47bc78e294a5ab3f3c.jpg"
-          alt="Second slide"
-        />
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://i.pinimg.com/originals/e7/f7/1c/e7f71ce97c56ea47bc78e294a5ab3f3c.jpg"
-          alt="Third slide"
-        />
-   
-      </Carousel.Item>
-    </Carousel>
-    </div>
- <section className='rot-container'>
-  <div className='row store'>
-    <h5>Store</h5>
-    <div className='col-md-2'>
-<img src='../images/s1.png'  ></img>
-    </div>
-    <div className='col-md-2'>
-    <img src='../images/s1.png'  ></img>
-      </div>
-      <div className='col-md-2'>
-      <img src='../images/s1.png'  ></img>
-      </div>
-      <div className='col-md-2'>
-      <img src='../images/s1.png' ></img>
-      </div>
-      <div className='col-md-2'>
-      <img src='../images/s1.png' ></img>
-      </div>
-      <div className='col-md-2'>
-<img src='../images/s1.png'  ></img>
-    </div>
-    <div className='col-md-2'>
-    <img src='../images/s1.png'  ></img>
-      </div>
-      <div className='col-md-2'>
-      <img src='../images/s1.png'  ></img>
-      </div>
-      <div className='col-md-2'>
-      <img src='../images/s1.png' ></img>
-      </div>
+    <h5 fw-bold>My Cart</h5>
+    <p className='mt-3 ' >Shipping Address</p>
+</div>
+<section class="h-100 h-custom">
+  <div class="container2 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card bg-transparent">
+          <div class="card-body  ">
 
-      <div className='col-md-2'>
-      <img src='../images/s1.png' ></img>
+            <div class="row">
+
+              <div class="col-lg-7">
+                <h5 class="mb-3"><a href="#!" class="text-body"></a></h5>
+
+                <div class="card mb-3">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div class="d-flex flex-row align-items-center">
+                        <div>
+                          <img
+                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
+                            class="img-fluid rounded-3" alt="Shopping item" style={{width: '65px'}}/>
+                        </div>
+                        <div class="ms-3">
+                          <h6>LEGEND 9 CLUB TF Football Shoes </h6>
+                          <p class="small mb-0">25.000 KD</p>
+                        </div>
+                      </div>
+                      <div class="d-flex flex-row align-items-center">
+                        <div style={{width: '50px'}}>
+                          <h5 class="fw-normal mb-0">2</h5>
+                        </div>
+                        <div style={{width: '80px'}}>
+                          <h5 class="mb-0">$900</h5>
+                        </div>
+                        <a href="#!" style={{color:'#cecece'}}><i class="fas fa-trash-alt"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card mb-3">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div class="d-flex flex-row align-items-center">
+                        <div>
+                          <img
+                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img2.webp"
+                            class="img-fluid rounded-3" alt="Shopping item" style={{width: '65px'}}/>
+                        </div>
+                        <div class="ms-3">
+                          <h5>Samsung galaxy Note 10 </h5>
+                          <p class="small mb-0">256GB, Navy Blue</p>
+                        </div>
+                      </div>
+                      <div class="d-flex flex-row align-items-center">
+                        <div style={{width: '50px'}}>
+                          <h5 class="fw-normal mb-0">2</h5>
+                        </div>
+                        <div style={{width: '80px'}}>
+                          <h5 class="mb-0">$900</h5>
+                        </div>
+                        <a href="#!" style={{color:'#cecece'}}><i class="fas fa-trash-alt"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card mb-3">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div class="d-flex flex-row align-items-center">
+                        <div>
+                          <img
+                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img3.webp"
+                            class="img-fluid rounded-3" alt="Shopping item" style={{width: '65px'}}/>
+                        </div>
+                        <div class="ms-3">
+                          <h5>Canon EOS M50</h5>
+                          <p class="small mb-0">Onyx Black</p>
+                        </div>
+                      </div>
+                      <div class="d-flex flex-row align-items-center">
+                        <div style={{width: '50px'}}>
+                          <h5 class="fw-normal mb-0">1</h5>
+                        </div>
+                        <div style={{width: '80px'}}>
+                          <h5 class="mb-0">$1199</h5>
+                        </div>
+                        <a href="#!" style={{color:'#cecece'}}><i class="fas fa-trash-alt"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+         
+
+              </div>
+              <div class="col-lg-5">
+
+                <div class="card bg-primary text-white rounded-3">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                      <h5 class="mb-0">Card details</h5>
+                      <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp"
+                        class="img-fluid rounded-3" style={{width: '45px'}} alt="Avatar"/>
+                    </div>
+
+                    <p class="small mb-2">Card type</p>
+                    <a href="#!" type="submit" class="text-white"><i
+                        class="fab fa-cc-mastercard fa-2x me-2"></i></a>
+                    <a href="#!" type="submit" class="text-white"><i
+                        class="fab fa-cc-visa fa-2x me-2"></i></a>
+                    <a href="#!" type="submit" class="text-white"><i
+                        class="fab fa-cc-amex fa-2x me-2"></i></a>
+                    <a href="#!" type="submit" class="text-white"><i class="fab fa-cc-paypal fa-2x"></i></a>
+
+                    <form class="mt-4">
+                      <div class="form-outline form-white mb-4">
+                        <input type="text" id="typeName" class="form-control form-control-lg" siez="17"
+                          placeholder="Cardholder's Name" />
+                        <label class="form-label" for="typeName">Cardholder's Name</label>
+                      </div>
+
+                      <div class="form-outline form-white mb-4">
+                        <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
+                          placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" />
+                        <label class="form-label" for="typeText">Card Number</label>
+                      </div>
+
+                      <div class="row mb-4">
+                        <div class="col-md-6">
+                          <div class="form-outline form-white">
+                            <input type="text" id="typeExp" class="form-control form-control-lg"
+                              placeholder="MM/YYYY" size="7"  minlength="7" maxlength="7" />
+                            <label class="form-label" for="typeExp">Expiration</label>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-outline form-white">
+                            <input type="password" id="typeText" class="form-control form-control-lg"
+                              placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
+                            <label class="form-label" for="typeText">Cvv</label>
+                          </div>
+                        </div>
+                      </div>
+
+                    </form>
+
+                    <hr class="my-4"></hr>
+
+                    <div class="d-flex justify-content-between">
+                      <p class="mb-2">Subtotal</p>
+                      <p class="mb-2">$4798.00</p>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                      <p class="mb-2">Shipping</p>
+                      <p class="mb-2">$20.00</p>
+                    </div>
+
+                    <div class="d-flex justify-content-between mb-4">
+                      <p class="mb-2">Total(Incl. taxes)</p>
+                      <p class="mb-2">$4818.00</p>
+                    </div>
+
+                    <button type="button" class="btn btn-info btn-block btn-lg">
+                      <div class="d-flex justify-content-between">
+                        <span>$4818.00</span>
+                        <span>Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
+                      </div>
+                    </button>
+
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
       </div>
-      </div>
- </section>
-  
-  <section className='rot-container'>
-  <div className='row banner'>
-       <div className='col-md-4  '>
-      <img src='../images/card2.png' ></img>
-      </div>
-      <div className='col-md-3 '>
-      <img src='../images/card1.png' ></img>
-      </div>
- 
     </div>
-    </section>
-    <section className='rot-container'>
-    <h5>Favourite Product<span className='view' >View All</span></h5>
-  <div className='row shop '>
-       <div className='col-md-3  '>
-      <img src='../images/s1.png' className='img' ></img>
-      </div>
-      <div className='col-md-3 '>
-      <img src='../images/s1.png' className='img' ></img>
-      </div>
-      <div className='col-md-3  '>
-      <img src='../images/s1.png' className='img' ></img>
-      </div>
-      <div className='col-md-3 '>
-      <img src='../images/s1.png' className='img' ></img>
-      </div>
-      
-    </div>
-    </section>
-    
-    <section className='rot-container'>
-    <h5>Popular<span className='view' >View All</span></h5>
-  <div className='row product '>
-       <div className='col-md-3  '>
-       <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
-      <Card.Body>
-        
-        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
-          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
-        </Card.Text>
-       
-      </Card.Body>
-    </Card>
-      </div>
-      <div className='col-md-3 '>
-      <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
-      <Card.Body>
-        
-        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
-          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
-        </Card.Text>
-       
-      </Card.Body>
-    </Card>
-      </div>
-      <div className='col-md-3  '>
-      <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
-      <Card.Body>
-        
-        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
-          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
-        </Card.Text>
-       
-      </Card.Body>
-    </Card>
-      </div>
-      <div className='col-md-3 '>
-      <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
-      <Card.Body>
-        
-        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
-          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
-        </Card.Text>
-       
-      </Card.Body>
-    </Card>
-      </div>
-      
-    </div>
-    </section>
-    <section className='rot-container'>
-    <h5>Favourite Products<span className='view' >View All</span></h5>
-  <div className='row product '>
-       <div className='col-md-3  '>
-       <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
-      <Card.Body>
-        
-        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
-          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
-        </Card.Text>
-       
-      </Card.Body>
-    </Card>
-      </div>
-      <div className='col-md-3 '>
-      <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
-      <Card.Body>
-        
-        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
-          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
-        </Card.Text>
-       
-      </Card.Body>
-    </Card>
-      </div>
-      <div className='col-md-3  '>
-      <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
-      <Card.Body>
-        
-        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
-          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
-        </Card.Text>
-       
-      </Card.Body>
-    </Card>
-      </div>
-      <div className='col-md-3 '>
-      <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
-      <Card.Body>
-        
-        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
-          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
-        </Card.Text>
-       
-      </Card.Body>
-    </Card>
-      </div>
-      
-    </div>
-    </section>
+  </div>
+</section>
+   
 </div>
   
      

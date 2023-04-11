@@ -47,7 +47,7 @@ function CommentActions({user,commentId}) {
     <Modal
         zIndex={1100}
         title="Why are you reporting this comment ??"
-        visible={show}
+        open={show}
         centered
         closable
         maskClosable
@@ -81,7 +81,7 @@ function CommentActions({user,commentId}) {
   <Modal
         zIndex={1100}
         title="Are you sure to delete this post??"
-        visible={visible}
+        open={visible}
         centered
         closable
         maskClosable

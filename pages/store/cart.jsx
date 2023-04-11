@@ -1,6 +1,6 @@
 
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import {Container,Nav,Navbar,Dropdown,Carousel,Card} from 'react-bootstrap';
+import {Container,Nav,Navbar,Dropdown,Carousel,Card,Button} from 'react-bootstrap';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import React, { useState } from 'react';
 
@@ -297,221 +297,109 @@ Arabic</Dropdown.Item>
 <div className="container2">
     
    
-  
-    <form className="nosubmit ">
-  <input className="nosubmit" type="search" placeholder="Search"   /><input className="icon" type="search" placeholder="Search"   />
+<form className="nosubmit ">
+  <input className="Nosubmit" type="search" placeholder="Search"   /><input className="icons" type="search" placeholder="Search"   />
 </form>
-<br></br>
-<Carousel className='mx-2' >
-  
-      <Carousel.Item interval={1000}>
-        <img
-          className="d-block w-100 "
-          src="https://i.pinimg.com/originals/e7/f7/1c/e7f71ce97c56ea47bc78e294a5ab3f3c.jpg" 
-          alt="First slide"
-        />
-      
-      </Carousel.Item>
-      <Carousel.Item interval={500}>
-        <img
-          className="d-block w-100"
-          src="https://i.pinimg.com/originals/e7/f7/1c/e7f71ce97c56ea47bc78e294a5ab3f3c.jpg"
-          alt="Second slide"
-        />
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://i.pinimg.com/originals/e7/f7/1c/e7f71ce97c56ea47bc78e294a5ab3f3c.jpg"
-          alt="Third slide"
-        />
-   
-      </Carousel.Item>
-    </Carousel>
-    </div>
- <section className='rot-container'>
-  <div className='row store'>
-    <h5>Store</h5>
-    <div className='col-md-2'>
-<img src='../images/s1.png'  ></img>
-    </div>
-    <div className='col-md-2'>
-    <img src='../images/s1.png'  ></img>
-      </div>
-      <div className='col-md-2'>
-      <img src='../images/s1.png'  ></img>
-      </div>
-      <div className='col-md-2'>
-      <img src='../images/s1.png' ></img>
-      </div>
-      <div className='col-md-2'>
-      <img src='../images/s1.png' ></img>
-      </div>
-      <div className='col-md-2'>
-<img src='../images/s1.png'  ></img>
-    </div>
-    <div className='col-md-2'>
-    <img src='../images/s1.png'  ></img>
-      </div>
-      <div className='col-md-2'>
-      <img src='../images/s1.png'  ></img>
-      </div>
-      <div className='col-md-2'>
-      <img src='../images/s1.png' ></img>
-      </div>
 
-      <div className='col-md-2'>
-      <img src='../images/s1.png' ></img>
-      </div>
-      </div>
- </section>
+    </div>
+
   
-  <section className='rot-container'>
-  <div className='row banner'>
-       <div className='col-md-4  '>
-      <img src='../images/card2.png' ></img>
+    
+   
+  <section class="rot-container  h-75">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card" >
+          <div class="card-body p-4">
+
+            <div class="row " >
+
+              <div class="col-md-7">
+              
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                  <div>
+                   <img src='../images/shoe background.jpg'></img>
+                  </div>
+
+                </div>
+
+
+                <div class="  col-lg-8">
+                  
+                <div className='row shoe  '>
+       <div className='col-md-2  '>
+      <img src='../images/red.png' ></img>
       </div>
-      <div className='col-md-3 '>
-      <img src='../images/card1.png' ></img>
+      <div className='col-md-2'>
+      <img src='../images/purple.png' ></img>
+      </div>
+      <div className='col-md-2 '>
+      <img src='../images/violet.png'  ></img>
       </div>
  
     </div>
-    </section>
-    <section className='rot-container'>
-    <h5>Favourite Product<span className='view' >View All</span></h5>
-  <div className='row shop '>
-       <div className='col-md-3  '>
-      <img src='../images/s1.png' className='img' ></img>
-      </div>
-      <div className='col-md-3 '>
-      <img src='../images/s1.png' className='img' ></img>
-      </div>
-      <div className='col-md-3  '>
-      <img src='../images/s1.png' className='img' ></img>
-      </div>
-      <div className='col-md-3 '>
-      <img src='../images/s1.png' className='img' ></img>
-      </div>
-      
-    </div>
-    </section>
+                  
+                </div>
+                
+              </div>
+              <div class="col-md-5">
+              <div class=" justify-content-between align-items-center mb-1 ">
+              <h5 >COPA SENSE.4 FxG Football Shoes For Men</h5>
+                      <p className='mx-1'><i class="bi bi-star-fill"style={{color:'yellow'}}></i>4.5 <span style={{color:'grey'}}>(203 reviews)</span></p>
+                      <p style={{fontSize:'14px'}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis tellus, est lacus arcu ut ac in fermentum. Sit eget proin nunc felis quam rutrum metus. Et lacus, maecenas vel et arcu ut adipiscing morbi eget. </p>
+                       <h6 >Color<br>
+                       </br><i class="bi bi-circle-fill" style={{color:'#ED4B4B'}}></i><span><i class="bi bi-circle-fill mx-2" style={{color:'purple'}}></i><i class="bi bi-circle-fill " style={{color:'violet'}}></i></span></h6>
+                        
+                      <h6>Choose size</h6>
+                      <div class="btn-group  " role="group" aria-label="Second group">
+    <button type="button" class="btn btn-secondary" >34</button>
     
-    <section className='rot-container'>
-    <h5>Popular<span className='view' >View All</span></h5>
-  <div className='row product '>
-       <div className='col-md-3  '>
-       <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
-      <Card.Body>
-        
-        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
-          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
-        </Card.Text>
-       
-      </Card.Body>
-    </Card>
-      </div>
-      <div className='col-md-3 '>
-      <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
-      <Card.Body>
-        
-        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
-          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
-        </Card.Text>
-       
-      </Card.Body>
-    </Card>
-      </div>
-      <div className='col-md-3  '>
-      <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
-      <Card.Body>
-        
-        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
-          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
-        </Card.Text>
-       
-      </Card.Body>
-    </Card>
-      </div>
-      <div className='col-md-3 '>
-      <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
-      <Card.Body>
-        
-        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
-          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
-        </Card.Text>
-       
-      </Card.Body>
-    </Card>
-      </div>
+  </div>
+  <div class="btn-group " role="group" aria-label="Second group">
+    <button type="button" class="btn btn-outline-secondary">35</button>
+    
+  </div>
+  <div class="btn-group " role="group" aria-label="Second group">
+    <button type="button" class="btn btn-secondary" >34</button>
+    
+  </div>
+  <div class="btn-group " role="group" aria-label="Second group">
+    <button type="button" class="btn btn-outline-secondary">35</button>
+    
+  </div> 
+  <br></br>
+  <p style={{color:'gray',fontWeight:'400'}}><s>15.000 KD</s><span className='mx-2' style={{fontSize:'20px',fontWeight:'500',color:'#17a803'}}>13.000 KD</span><span></span></p>
+  <div class="qty">
+                        <div class="minus " style={{backgroundColor:'#656565'}}>-</div>
+                        <input type="number" class="count" name="qty" value="1"/>
+                        <div  class="plus " style={{backgroundColor:'#656565'}}>+</div>
+                    </div>
+  <Button 
+      type="submit" 
+      className='add-cart-btn ' 
+     >
+     Add to Cart
+      </Button>
       
-    </div>
-    </section>
-    <section className='rot-container'>
-    <h5>Favourite Products<span className='view' >View All</span></h5>
-  <div className='row product '>
-       <div className='col-md-3  '>
-       <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
-      <Card.Body>
-        
-        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
-          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
-        </Card.Text>
-       
-      </Card.Body>
-    </Card>
-      </div>
-      <div className='col-md-3 '>
-      <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
-      <Card.Body>
-        
-        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
-          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
-        </Card.Text>
-       
-      </Card.Body>
-    </Card>
-      </div>
-      <div className='col-md-3  '>
-      <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
-      <Card.Body>
-        
-        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
-          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
-        </Card.Text>
-       
-      </Card.Body>
-    </Card>
-      </div>
-      <div className='col-md-3 '>
-      <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
-      <Card.Body>
-        
-        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
-          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
-        </Card.Text>
-       
-      </Card.Body>
-    </Card>
-      </div>
-      
-    </div>
-    </section>
+                  </div>
+                  
+                    
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+     
+
+</section>
+
+  
+  
+ 
+     
 </div>
   
      

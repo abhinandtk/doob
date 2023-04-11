@@ -1,6 +1,6 @@
 
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import {Container,Nav,Navbar,Dropdown,Carousel,Card} from 'react-bootstrap';
+import {Container,Nav,Navbar,Dropdown,Carousel,Card,Button, Form,CardImg} from 'react-bootstrap';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import React, { useState } from 'react';
 
@@ -295,223 +295,141 @@ Arabic</Dropdown.Item>
    
 
 <div className="container2">
-    
-   
-  
-    <form className="nosubmit ">
-  <input className="nosubmit" type="search" placeholder="Search"   /><input className="icon" type="search" placeholder="Search"   />
-</form>
-<br></br>
-<Carousel className='mx-2' >
-  
-      <Carousel.Item interval={1000}>
-        <img
-          className="d-block w-100 "
-          src="https://i.pinimg.com/originals/e7/f7/1c/e7f71ce97c56ea47bc78e294a5ab3f3c.jpg" 
-          alt="First slide"
-        />
-      
-      </Carousel.Item>
-      <Carousel.Item interval={500}>
-        <img
-          className="d-block w-100"
-          src="https://i.pinimg.com/originals/e7/f7/1c/e7f71ce97c56ea47bc78e294a5ab3f3c.jpg"
-          alt="Second slide"
-        />
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://i.pinimg.com/originals/e7/f7/1c/e7f71ce97c56ea47bc78e294a5ab3f3c.jpg"
-          alt="Third slide"
-        />
-   
-      </Carousel.Item>
-    </Carousel>
-    </div>
- <section className='rot-container'>
-  <div className='row store'>
-    <h5>Store</h5>
-    <div className='col-md-2'>
-<img src='../images/s1.png'  ></img>
-    </div>
-    <div className='col-md-2'>
-    <img src='../images/s1.png'  ></img>
-      </div>
-      <div className='col-md-2'>
-      <img src='../images/s1.png'  ></img>
-      </div>
-      <div className='col-md-2'>
-      <img src='../images/s1.png' ></img>
-      </div>
-      <div className='col-md-2'>
-      <img src='../images/s1.png' ></img>
-      </div>
-      <div className='col-md-2'>
-<img src='../images/s1.png'  ></img>
-    </div>
-    <div className='col-md-2'>
-    <img src='../images/s1.png'  ></img>
-      </div>
-      <div className='col-md-2'>
-      <img src='../images/s1.png'  ></img>
-      </div>
-      <div className='col-md-2'>
-      <img src='../images/s1.png' ></img>
-      </div>
+    <h5>Reviews</h5>
+</div>
+<section class="h-100 h-custom" >
+  <div class="review-container ">
+    <div class="row d-flex justify-content-center align-items-center h-100 ">
+      <div class="col ">
+        <div class="card ">
+          <div class="card-body p-4 ">
 
-      <div className='col-md-2'>
-      <img src='../images/s1.png' ></img>
+            <div class="row">
+
+              <div class="col-lg-12">
+              <h5 class="mb-3"><a href="#!" class="text-body"><img src='../images/c8.png'></img><span className='mx-2'><i class="bi bi-star"></i><span className='mx-1'><i class="bi bi-star "></i></span><span className='mx-1'><i class="bi bi-star"></i></span><span className='mx-1'><i class="bi bi-star"></i></span><span className='mx-1'><i class="bi bi-star"></i></span></span></a></h5>
+              <Form>
+              <div class="form-group">
+   
+    <textarea class="form-control op p-4  "   style={{backgroundColor:'#EEEEEE',border:'0px'}} placeholder='Share your Review ' id="exampleFormControlTextarea1" rows="3"></textarea>
+    <br></br>
+    <input type="email" class="form-control op p-3 "  style={{backgroundColor:'#EEEEEE',border:'0px'}} id="exampleFormControlInput1" placeholder="Upload Media"/>
+  </div>
+              </Form>
+              <Button 
+      type="submit" 
+      className='submit-cart-btn ' 
+     >
+     Submit
+      </Button>
+
+                
+     
+
+              </div>
+              <div className='d-flex flex-start mt-4 mx-2'>
+            <a   className='me-2' href=''>
+            <CardImg  className='rounded-circle shadow-1-strong ' src="../images/profile 3.png" style={{width:'44px',height:'44px'}} ></CardImg>
+            </a>
+            <div className="flex-grow-1 flex-shrink-1 " style={{marginBottom:'-24px'}}>
+                            <div>
+                              <div className="d-flex justify-content-between align-items-center">
+                                <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
+                                Musaid{" "} <br></br> <span><i class="bi bi-star-fill"style={{color:'yellow'}}></i><span><i class="bi bi-star-fill mx-1"style={{color:'yellow'}}></i></span><span><i class="bi bi-star-fill "style={{color:'yellow'}}></i></span><span><i class="bi bi-star mx-1"style={{color:'grey'}}></i></span></span>
+                                  
+                                </p>
+                              
+                              </div>
+                               
+                              <p className='col-md-7' style={{color:'#000',fontWeight:'400',fontSize:'14px',float:'left'}}>
+                            
+                               Nice, Lorem Ipsum is simply dummy text of the printing<br>
+                               </br><img src='../images/unsplash.png' className='mt-2'></img>
+                               
+                              </p>
+                              
+                            </div>
+                          </div>
+          </div>
+          <div className='d-flex flex-start mt-4 mx-2'>
+            <a   className='me-2' href=''>
+            <CardImg  className='rounded-circle shadow-1-strong ' src="../images/profile 3.png" style={{width:'44px',height:'44px'}} ></CardImg>
+            </a>
+            <div className="flex-grow-1 flex-shrink-1 " style={{marginBottom:'-24px'}}>
+                            <div>
+                              <div className="d-flex justify-content-between align-items-center">
+                                <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
+                                Musaid{" "} <br></br> <span><i class="bi bi-star-fill"style={{color:'yellow'}}></i><span><i class="bi bi-star-fill mx-1"style={{color:'yellow'}}></i></span><span><i class="bi bi-star-fill "style={{color:'yellow'}}></i></span><span><i class="bi bi-star mx-1"style={{color:'grey'}}></i></span></span>
+                                  
+                                </p>
+                              
+                              </div>
+                               
+                              <p className='col-md-7' style={{color:'#000',fontWeight:'400',fontSize:'14px',float:'left'}}>
+                            
+                               Nice, Lorem Ipsum is simply dummy text of the printing
+                             
+                              </p>
+                              
+                            </div>
+                          </div>
+          </div>
+          <div className='d-flex flex-start mt-4 mx-2'>
+            <a   className='me-2' href=''>
+            <CardImg  className='rounded-circle shadow-1-strong ' src="../images/profile 3.png" style={{width:'44px',height:'44px'}} ></CardImg>
+            </a>
+            <div className="flex-grow-1 flex-shrink-1 " style={{marginBottom:'-24px'}}>
+                            <div>
+                              <div className="d-flex justify-content-between align-items-center">
+                                <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
+                                Musaid{" "} <br></br> <span><i class="bi bi-star-fill"style={{color:'yellow'}}></i><span><i class="bi bi-star-fill mx-1"style={{color:'yellow'}}></i></span><span><i class="bi bi-star-fill "style={{color:'yellow'}}></i></span><span><i class="bi bi-star mx-1"style={{color:'grey'}}></i></span></span>
+                                  
+                                </p>
+                              
+                              </div>
+                               
+                              <p className='col-md-7' style={{color:'#000',fontWeight:'400',fontSize:'14px',float:'left'}}>
+                            
+                               Nice, Lorem Ipsum is simply dummy text of the printing
+                             
+                              </p>
+                              
+                            </div>
+                          </div>
+          </div>
+          <div className='d-flex flex-start mt-4 mx-2'>
+            <a   className='me-2' href=''>
+            <CardImg  className='rounded-circle shadow-1-strong ' src="../images/profile 3.png" style={{width:'44px',height:'44px'}} ></CardImg>
+            </a>
+            <div className="flex-grow-1 flex-shrink-1 " style={{marginBottom:'-24px'}}>
+                            <div>
+                              <div className="d-flex justify-content-between align-items-center">
+                                <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
+                                Musaid{" "} <br></br> <span><i class="bi bi-star-fill"style={{color:'yellow'}}></i><span><i class="bi bi-star-fill mx-1"style={{color:'yellow'}}></i></span><span><i class="bi bi-star-fill "style={{color:'yellow'}}></i></span><span><i class="bi bi-star mx-1"style={{color:'grey'}}></i></span></span>
+                                  
+                                </p>
+                              
+                              </div>
+                               
+                              <p className='col-md-7' style={{color:'#000',fontWeight:'400',fontSize:'14px',float:'left'}}>
+                            
+                               Nice, Lorem Ipsum is simply dummy text of the printing
+                             
+                              </p>
+                              
+                            </div>
+                          </div>
+          </div>
+
+            </div>
+
+          </div>
+        </div>
       </div>
-      </div>
- </section>
-  
-  <section className='rot-container'>
-  <div className='row banner'>
-       <div className='col-md-4  '>
-      <img src='../images/card2.png' ></img>
-      </div>
-      <div className='col-md-3 '>
-      <img src='../images/card1.png' ></img>
-      </div>
- 
     </div>
-    </section>
-    <section className='rot-container'>
-    <h5>Favourite Product<span className='view' >View All</span></h5>
-  <div className='row shop '>
-       <div className='col-md-3  '>
-      <img src='../images/s1.png' className='img' ></img>
-      </div>
-      <div className='col-md-3 '>
-      <img src='../images/s1.png' className='img' ></img>
-      </div>
-      <div className='col-md-3  '>
-      <img src='../images/s1.png' className='img' ></img>
-      </div>
-      <div className='col-md-3 '>
-      <img src='../images/s1.png' className='img' ></img>
-      </div>
-      
-    </div>
-    </section>
-    
-    <section className='rot-container'>
-    <h5>Popular<span className='view' >View All</span></h5>
-  <div className='row product '>
-       <div className='col-md-3  '>
-       <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
-      <Card.Body>
-        
-        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
-          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
-        </Card.Text>
-       
-      </Card.Body>
-    </Card>
-      </div>
-      <div className='col-md-3 '>
-      <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
-      <Card.Body>
-        
-        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
-          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
-        </Card.Text>
-       
-      </Card.Body>
-    </Card>
-      </div>
-      <div className='col-md-3  '>
-      <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
-      <Card.Body>
-        
-        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
-          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
-        </Card.Text>
-       
-      </Card.Body>
-    </Card>
-      </div>
-      <div className='col-md-3 '>
-      <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
-      <Card.Body>
-        
-        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
-          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
-        </Card.Text>
-       
-      </Card.Body>
-    </Card>
-      </div>
-      
-    </div>
-    </section>
-    <section className='rot-container'>
-    <h5>Favourite Products<span className='view' >View All</span></h5>
-  <div className='row product '>
-       <div className='col-md-3  '>
-       <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
-      <Card.Body>
-        
-        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
-          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
-        </Card.Text>
-       
-      </Card.Body>
-    </Card>
-      </div>
-      <div className='col-md-3 '>
-      <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
-      <Card.Body>
-        
-        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
-          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
-        </Card.Text>
-       
-      </Card.Body>
-    </Card>
-      </div>
-      <div className='col-md-3  '>
-      <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
-      <Card.Body>
-        
-        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
-          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
-        </Card.Text>
-       
-      </Card.Body>
-    </Card>
-      </div>
-      <div className='col-md-3 '>
-      <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
-      <Card.Body>
-        
-        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
-          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
-        </Card.Text>
-       
-      </Card.Body>
-    </Card>
-      </div>
-      
-    </div>
-    </section>
+  </div>
+</section>
+   
 </div>
   
      

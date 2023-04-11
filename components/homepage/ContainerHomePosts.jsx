@@ -7,6 +7,7 @@ import Comments from './social/Comments'
 import PostActions from './social/PostActions'
 import SharedConfirmation from './social/SharedConfirmation'
 import moment from 'moment'
+import Link from 'next/link'
 function ContainerHomePosts() {
 
   const [visibleComment,setVisibleComment]=useState(false)
@@ -18,7 +19,7 @@ function ContainerHomePosts() {
   const [postId,setPostId] = useState(null)
   const [slug,setSlug] = useState(null)
   useEffect(()=>{
-  Axios.get(apis.posts,{
+  Axios.get(apis.homepageapi,{
     headers:{
       'Authorization':`Token ${constants.token_id}`
     }
@@ -45,8 +46,8 @@ function ContainerHomePosts() {
         setLiked(true)
       }else{
         setLiked(false)
+        setTotalLike(res.data.data.total_like)
       }
-      setTotalLike(res.data.data.total_like)
       console.log('this is result',res)
     })
     console.log('like')
@@ -78,9 +79,10 @@ function ContainerHomePosts() {
         <div className="post__header">
 
           {item.owner_user_detail === null ? (
+          <Link href={`/userprofile/${item.user_detail.id}`} style={{textDecoration:'none'}}>
           <div className="post__profile">
             <div className="post__avatar">
-               <img src="../images/profile img.png" alt="User Picture" />
+               <img src={`${constants.port}/media/${item.user_detail.image}`} alt="User Picture" />
             </div>
              
             <div className="users">
@@ -90,6 +92,7 @@ function ContainerHomePosts() {
               <div className="time">{timeSincePost(item.posted)}</div>
             </div>    
           </div>
+          </Link>
           ):(
 
           <div className="post__profile">

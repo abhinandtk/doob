@@ -23,7 +23,7 @@ function UploadFiles({setUploadShow}) {
     const uploadSubmitHandler =(e)=>{
         e.preventDefault()
         setShowModal2(false)
-        Axios.post(apis.posts,{
+        Axios.post(apis.homepageapi,{
             caption:caption,
             image:file
         },{
