@@ -11,6 +11,7 @@ function ProfileDetails() {
     const [key,SetKey] = useState(1)
     const [userDetials,setUserDetails]=useState([])
     const [postDetails,setPostDetails]=useState([])
+    const [activityData,setActivityData]=useState([])
     useEffect(()=>{
         Axios.get(apis.profilepage,{
             headers:{
@@ -23,11 +24,14 @@ function ProfileDetails() {
         })
     },[])
 
-    // Axios.get(apis.activity,{
-    //     headers:{
-    //         'Authorization'
-    //     }
-    // })
+    Axios.get(apis.activity,{
+        headers:{
+            'Authorization':`Token ${constants.token_id}`
+        }
+    }).then((res)=>{
+        setActivityData(res.data.data)
+        console.log('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^',res)
+    })
 
   return (
     <Fragment>
@@ -80,7 +84,7 @@ function ProfileDetails() {
                                     </div>
                                 </div>
                                 <hr style={{color:'#000',width:'800px'}} className='col-md-11 mx-5' ></hr>
-                                <div className='d-flex flex-start mt-3 mx-5' >
+                                {/* <div className='d-flex flex-start mt-3 mx-5' >
                                     <a   className='me-2' href=''>
                                         <CardImg   src="../images/accounts/stadium.png" style={{width:'64px',height:'64px',borderRadius:'0px'}} ></CardImg>
                                     </a>
@@ -97,8 +101,8 @@ function ProfileDetails() {
                                             </p>
                                         </div>
                                     </div>
-                                </div>
-                                <hr style={{color:'#000',width:'800px'}} className='col-md-11 mx-5' ></hr>
+                                </div> */}
+                                {/* <hr style={{color:'#000',width:'800px'}} className='col-md-11 mx-5' ></hr>
                                 <div className='d-flex flex-start mt-3 mx-5' >
                                     <a   className='me-2' href=''>
                                         <CardImg   src="../images/accounts/stadium.png" style={{width:'64px',height:'64px',borderRadius:'0px'}} ></CardImg>
@@ -159,9 +163,9 @@ function ProfileDetails() {
                                         </div>
                                     </div>
                                 </div>
-                                <hr style={{color:'#000',width:'800px'}} className='col-md-11 mx-5' ></hr>
+                                <hr style={{color:'#000',width:'800px'}} className='col-md-11 mx-5' ></hr> */}
                                 
-                                <div className='d-flex flex-start mt-3 mx-5' >
+                                {/* <div className='d-flex flex-start mt-3 mx-5' >
                                     <a   className='me-2' href=''>
                                         <CardImg   src="../images/accounts/stadium.png" style={{width:'64px',height:'64px',borderRadius:'0px'}} ></CardImg>
                                     </a>
@@ -178,7 +182,7 @@ function ProfileDetails() {
                                             </p>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
                       
                             </Card>
                         </Tab>

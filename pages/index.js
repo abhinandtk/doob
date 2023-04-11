@@ -44,6 +44,7 @@ function HomePage ()  {
     e.preventDefault()
 
     setCountryModalShow(false)
+    setActiveModal('login')
 
   }
 
@@ -63,7 +64,7 @@ function HomePage ()  {
       {constants.token_id === null ? (
       <Modal 
       show={countryModalShow} 
-      onHide={() => setCountryModalShow(false)} 
+      // onHide={() => setCountryModalShow(false)} 
       className='country_select'
       >
         <Modal.Header closeButton>
@@ -118,7 +119,8 @@ function HomePage ()  {
       ):<></>}
 
       
-      <Login setActiveModal={setActiveModal}/>
+      
+      {activemodal === 'login' && <Login setActiveModal={setActiveModal}/>}
       {activemodal === 'register' && <Register countries={countryData} setActiveModal={setActiveModal}/>}
       {activemodal === 'registerotp' && <RegisterOtpVerification setActiveModal={setActiveModal}/>} 
     
