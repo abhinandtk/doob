@@ -298,42 +298,83 @@ Arabic</Dropdown.Item>
     <h5 fw-bold>My Cart</h5>
     <p className='mt-3 ' >Shipping Address</p>
 </div>
-<section class="h-100 h-custom">
+<section class="h-100 ">
   <div class="container2 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col">
-        <div class="card bg-transparent">
-          <div class="card-body  ">
-
             <div class="row">
-
-              <div class="col-lg-7">
-                <h5 class="mb-3"><a href="#!" class="text-body"></a></h5>
-
+              <div class="col-lg-6">
+              <div class="card mb-3">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div class="d-flex flex-row align-items-center">
+                        <div>
+                          <img
+                            src="../images/v.png"
+                            class="img-fluid rounded-3" alt="Shopping item" style={{width: '85px'}}/>
+                        </div>
+                        <div class="ms-1">
+                          <h6>Home </h6>
+                          <p class=" mb-0">26, Street 2,Naeem, Al Mutla City, 03200, Kuwait</p>
+                        </div>
+                      </div>
+                      <div class="trash " > 
+                        <div >
+                        <span><img src='../images/trash.png'></img></span>
+                        </div>
+                      </div>
+                      
+                    </div>
+                    
+                  </div>
+                </div>
+              <h5 style={{fontSize:'17px'}}>Order List<span className='view' >Total 3 items</span></h5>
                 <div class="card mb-3">
                   <div class="card-body">
                     <div class="d-flex justify-content-between">
                       <div class="d-flex flex-row align-items-center">
                         <div>
                           <img
-                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
-                            class="img-fluid rounded-3" alt="Shopping item" style={{width: '65px'}}/>
+                            src="../images/v.png"
+                            class="img-fluid rounded-3" alt="Shopping item" style={{width: '85px'}}/>
                         </div>
-                        <div class="ms-3">
+                        <div class="ms-1">
                           <h6>LEGEND 9 CLUB TF Football Shoes </h6>
-                          <p class="small mb-0">25.000 KD</p>
+                          <p class=" mb-0">25.000 KD</p>
                         </div>
                       </div>
-                      <div class="d-flex flex-row align-items-center">
-                        <div style={{width: '50px'}}>
-                          <h5 class="fw-normal mb-0">2</h5>
+                      <div class="trash " > 
+                        <div >
+                        <span><img src='../images/trash.png'></img></span>
                         </div>
-                        <div style={{width: '80px'}}>
-                          <h5 class="mb-0">$900</h5>
-                        </div>
-                        <a href="#!" style={{color:'#cecece'}}><i class="fas fa-trash-alt"></i></a>
                       </div>
+                      
                     </div>
+                    
+                  </div>
+                </div>
+                <div class="card mb-3">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div class="d-flex flex-row align-items-center">
+                        <div>
+                          <img
+                            src="../images/v.png"
+                            class="img-fluid rounded-3" alt="Shopping item" style={{width: '85px'}}/>
+                        </div>
+                        <div class="ms-1">
+                          <h6>LEGEND 9 CLUB TF Football Shoes </h6>
+                          <p class=" mb-0">25.000 KD</p>
+                        </div>
+                      </div>
+                      <div class="trash " > 
+                        <div >
+                        <span><img src='../images/trash.png'></img></span>
+                        </div>
+                      </div>
+                      
+                    </div>
+                    
                   </div>
                 </div>
 
@@ -343,58 +384,27 @@ Arabic</Dropdown.Item>
                       <div class="d-flex flex-row align-items-center">
                         <div>
                           <img
-                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img2.webp"
-                            class="img-fluid rounded-3" alt="Shopping item" style={{width: '65px'}}/>
+                            src="../images/v.png"
+                            class="img-fluid rounded-3" alt="Shopping item" style={{width: '85px'}}/>
                         </div>
-                        <div class="ms-3">
-                          <h5>Samsung galaxy Note 10 </h5>
-                          <p class="small mb-0">256GB, Navy Blue</p>
+                        <div class="ms-1">
+                          <h6>LEGEND 9 CLUB TF Football Shoes </h6>
+                          <p class=" mb-0">25.000 KD</p>
                         </div>
                       </div>
-                      <div class="d-flex flex-row align-items-center">
-                        <div style={{width: '50px'}}>
-                          <h5 class="fw-normal mb-0">2</h5>
-                        </div>
-                        <div style={{width: '80px'}}>
-                          <h5 class="mb-0">$900</h5>
-                        </div>
-                        <a href="#!" style={{color:'#cecece'}}><i class="fas fa-trash-alt"></i></a>
+                      <div class="trash " > 
+                        <span><img src='../images/trash.png'></img></span>
                       </div>
+                      
                     </div>
-                  </div>
-                </div>
-
-                <div class="card mb-3">
-                  <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                      <div class="d-flex flex-row align-items-center">
-                        <div>
-                          <img
-                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img3.webp"
-                            class="img-fluid rounded-3" alt="Shopping item" style={{width: '65px'}}/>
-                        </div>
-                        <div class="ms-3">
-                          <h5>Canon EOS M50</h5>
-                          <p class="small mb-0">Onyx Black</p>
-                        </div>
-                      </div>
-                      <div class="d-flex flex-row align-items-center">
-                        <div style={{width: '50px'}}>
-                          <h5 class="fw-normal mb-0">1</h5>
-                        </div>
-                        <div style={{width: '80px'}}>
-                          <h5 class="mb-0">$1199</h5>
-                        </div>
-                        <a href="#!" style={{color:'#cecece'}}><i class="fas fa-trash-alt"></i></a>
-                      </div>
-                    </div>
+                    
                   </div>
                 </div>
 
          
 
               </div>
-              <div class="col-lg-5">
+              <div class="col-lg-6">
 
                 <div class="card bg-primary text-white rounded-3">
                   <div class="card-body">
@@ -479,10 +489,7 @@ Arabic</Dropdown.Item>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-   
+</section>  
 </div>
   
      

@@ -6,7 +6,7 @@ function MainSidebarFixed() {
   return (
     <aside className="sidebar">
         <nav>
-            <a>
+            <Link href='/' style={{textDecoration:'none'}}>
                 <span>
                     <svg width="18" height="19" viewBox="0 0 18 19" fill="none" className='nav_head_svg'  xmlns="http://www.w3.org/2000/svg">
                     <path d="M16.6585 7.37338L9.6585 1.24746C9.28148 0.917513 8.71852 0.917513 8.3415 1.24746L1.3415 7.37338C1.12448 7.5633 1 7.83767 1 8.12607V16.9998C1 17.5522 1.44772 18 2 18H6C6.55228 18 7 17.5522 7 16.9998V12.9992C7 12.4469 7.44772 11.9991 8 11.9991H10C10.5523 11.9991 11 12.4469 11 12.9992V16.9998C11 17.5522 11.4477 18 12 18H16C16.5523 18 17 17.5522 17 16.9998V8.12607C17 7.83767 16.8755 7.5633 16.6585 7.37338Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
@@ -14,7 +14,7 @@ function MainSidebarFixed() {
                     <i className="uil uil-home"/>
                     <span className="nav_head">Home</span>
                 </span>
-            </a>
+            </Link>
             <a>
                 <span>
                     <svg width="19" height="20" viewBox="0 0 19 19" className='nav_head_svg' fill="none" xmlns="http://www.w3.org/2000/svg">

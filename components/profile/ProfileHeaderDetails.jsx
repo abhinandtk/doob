@@ -93,7 +93,6 @@ function ProfileHeaderDetails({data}) {
           
         </Upload>
       </Modal>
-      {/* {user_details.name} */}
     <Card className='container' style={{width:'910px',marginLeft:'395px',marginTop:'23px',height:'290px'}}>
             <Card.Body>
              <div className='row'>

@@ -38,7 +38,7 @@ function MainHeader() {
   return (
     <>
 
-    <Navbar collapseOnSelect expand="lg" bg="light" variant="dark" sticky='top'className='web-nav' >
+    <Navbar collapseOnSelect expand="lg" bg="light" variant="dark" sticky='top'className='web-nav' style={{ zIndex: 100 }}>
         <Container fluid >
             <Navbar.Brand href="/" >
                 <img src='../images/Contract Doob before sign 13-40-2 (1).png' style={{width:'120px', height:'43px'}}></img>

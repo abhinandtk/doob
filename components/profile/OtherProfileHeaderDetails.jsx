@@ -7,6 +7,7 @@ import { Button, Modal } from 'antd';
 function OtherProfileHeaderDetails({data,id}) {
 
     const [show,setShow]=useState(false)
+    const [showRank,setShowRank]=useState(false)
     
     const followHandler=()=>{
         Axios.post(apis.follow,{
@@ -72,11 +73,25 @@ function OtherProfileHeaderDetails({data,id}) {
             </div>
 
         </Modal>
+         <Modal 
+         title=' '
+         open={showRank}
+         onCancel={()=>setShowRank(false)}
+         closable
+         maskClosable
+         centered
+         footer={null}
+         >
+        <div style={{fontWeight:'600',fontSize:'16px'}}>Game<span style={{fontWeight:'600',fontSize:'16px',marginLeft:'310px'}}>Rank</span></div>
+        <div style={{fontWeight:'400',fontSize:'16px'}}>Football<span style={{fontWeight:'600',fontSize:'16px',marginLeft:'300px'}}>#200</span></div>
+        <div style={{fontWeight:'400',fontSize:'16px'}}>Basketball<span style={{fontWeight:'600',fontSize:'16px',marginLeft:'285px'}}>#1200</span></div>
+         </Modal>
+
         <Card className='container' style={{width:'910px',marginLeft:'395px',marginTop:'23px',height:'290px'}}>
             <Card.Body>
                 <div className='row'>
                     <div className='col-md-6'>
-                    <button class="btn profile-edit-btn">Rank</button> 
+                    <button onClick={()=>setShowRank(true)} class="btn profile-edit-btn">Rank</button> 
                     <div class="profile-images" >
                         <img src={`${constants.port}/media/${data.user_image}`} alt="" style={{borderRadius:'50%',objectFit:'cover'}}></img>
                     </div>
