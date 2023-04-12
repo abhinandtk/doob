@@ -39,10 +39,10 @@ function StorePage ()  {
   <section>
   <div className='row '>
        <div className='col-lg-5 col-md-5  '>
-      <img src='../images/card2.png' ></img>
+      <img src='../images/store/card2.png' ></img>
       </div>
       <div className='col-lg-5 col-md-5 '>
-      <img src='../images/card1.png' ></img>
+      <img src='../images/store/card1.png' ></img>
       </div>
  
     </div>
@@ -52,16 +52,16 @@ function StorePage ()  {
     <h5>Favourite Store<span className='view' >View All</span></h5>
   <div className='row  store '>
        <div className='col-lg-3 col-md-4  '>
-      <img src='../images/s1.png' className='img' ></img>
+      <img src='../images/store/s1.png' className='img' ></img>
       </div>
       <div className='col-lg-3 col-md-4 '>
-      <img src='../images/s1.png' className='img' ></img>
+      <img src='../images/store/s1.png' className='img' ></img>
       </div>
       <div className='col-lg-3 col-md-4  '>
-      <img src='../images/s1.png' className='img' ></img>
+      <img src='../images/store/s1.png' className='img' ></img>
       </div>
       <div className='col-lg-3 col-md-4'>
-      <img src='../images/s1.png' className='img' ></img>
+      <img src='../images/store/s1.png' className='img' ></img>
       </div>
       
     </div>
@@ -74,7 +74,7 @@ function StorePage ()  {
   <div className='row store '>
        <div className='col-md-3  '>
        <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
+      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/store/shoes.jpg"  />
       <Card.Body>
         
         <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
@@ -87,7 +87,7 @@ function StorePage ()  {
       </div>
       <div className='col-md-3 '>
       <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
+      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/store/shoes.jpg"  />
       <Card.Body>
         
         <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
@@ -100,7 +100,7 @@ function StorePage ()  {
       </div>
       <div className='col-md-3  '>
       <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
+      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/store/shoes.jpg"  />
       <Card.Body>
         
         <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
@@ -113,7 +113,7 @@ function StorePage ()  {
       </div>
       <div className='col-md-3 '>
       <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
+      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/store/shoes.jpg"  />
       <Card.Body>
         
         <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >

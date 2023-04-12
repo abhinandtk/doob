@@ -300,9 +300,9 @@ Arabic</Dropdown.Item>
 <form className="nosubmit ">
   <input className="nosubmit" type="search" placeholder="Search"   />
 </form>
-
-    </div>
-    <div className='img-container'>
+<br></br>
+   
+    
    
     <img src='../images/mall.jpg' className='img-fluid'></img>
     <span className='span-icon'><svg width="25" height="22" viewBox="0 0 25 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -319,8 +319,8 @@ Arabic</Dropdown.Item>
 </span>
     <img src='../images/foot.png' className='foot-png'></img>
     
-</div>
- <div className='store-container'>
+
+ <div className=''>
 <div className='row'>
     <div className='col-md-6'>
 <h5>Foot Locker Sportswear shop</h5>
@@ -364,7 +364,7 @@ Arabic</Dropdown.Item>
  
     </div>
     </section>
-    <section className='store-container'>
+    <section >
     <h5>Category</h5>
     <div class="btn-group me-2" role="group" aria-label="Second group">
     <button type="button" class="btn btn-outline-secondary" style={{padding:'5px 34px'}}>All</button>
@@ -458,7 +458,7 @@ Arabic</Dropdown.Item>
       
     </div>
     </section>
-   
+    </div>
 </div>
   
      
