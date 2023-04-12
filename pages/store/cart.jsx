@@ -344,7 +344,7 @@ Arabic</Dropdown.Item>
               </div>
               <div class="col-md-5">
               <div class=" justify-content-between align-items-center mb-1 ">
-              <h5 >COPA SENSE.4 FxG Football Shoes For Men</h5>
+              <h5 className='col-md-9' >COPA SENSE.4 FxG Football Shoes For Men</h5>
                       <p className='mx-1'><i class="bi bi-star-fill"style={{color:'yellow'}}></i>4.5 <span style={{color:'grey'}}>(203 reviews)</span></p>
                       <p style={{fontSize:'14px'}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis tellus, est lacus arcu ut ac in fermentum. Sit eget proin nunc felis quam rutrum metus. Et lacus, maecenas vel et arcu ut adipiscing morbi eget. </p>
                        <h6 >Color<br>
@@ -370,9 +370,9 @@ Arabic</Dropdown.Item>
   <br></br>
   <p style={{color:'gray',fontWeight:'400'}}><s>15.000 KD</s><span className='mx-2' style={{fontSize:'20px',fontWeight:'500',color:'#17a803'}}>13.000 KD</span><span></span></p>
   <div class="qty">
-                        <div class="minus " style={{backgroundColor:'#656565'}}>-</div>
+                        <div class="minus " style={{backgroundColor:'#aba4a4'}}>-</div>
                         <input type="number" class="count" name="qty" value="1"/>
-                        <div  class="plus " style={{backgroundColor:'#656565'}}>+</div>
+                        <div  class="plus " style={{backgroundColor:'#aba4a4'}}>+</div>
                     </div>
   <Button 
       type="submit" 

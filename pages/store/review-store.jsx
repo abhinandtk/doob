@@ -294,13 +294,13 @@ Arabic</Dropdown.Item>
     </aside>
    
 
-<div className="container2">
-    <h5>Reviews</h5>
-</div>
+
 <section class="h-100 h-custom" >
   <div class="review-container ">
     <div class="row d-flex justify-content-center align-items-center h-100 ">
+    <h5>Reviews</h5>
       <div class="col ">
+      
         <div class="card ">
           <div class="card-body p-4 ">
 

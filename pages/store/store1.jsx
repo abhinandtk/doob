@@ -294,11 +294,11 @@ Arabic</Dropdown.Item>
     </aside>
    
 
-<div className="container2">
+<div className="store-container">
     
    
 <form className="nosubmit ">
-  <input className="nosubmit" type="search" placeholder="Search"   /><input className="icon" type="search" placeholder="Search"   />
+  <input className="nosubmit" type="search" placeholder="Search"   />
 </form>
 
     </div>
@@ -320,7 +320,7 @@ Arabic</Dropdown.Item>
     <img src='../images/foot.png' className='foot-png'></img>
     
 </div>
- <div className='details-container'>
+ <div className='store-container'>
 <div className='row'>
     <div className='col-md-6'>
 <h5>Foot Locker Sportswear shop</h5>
@@ -345,7 +345,7 @@ Arabic</Dropdown.Item>
     </div>
 </div>
  </div>
-<div className='rot-container'>
+<div >
 <hr className='line '></hr>
     <div className='description'>
     <h5>Description</h5>
@@ -353,7 +353,7 @@ Arabic</Dropdown.Item>
     </div>
 </div>
   
-  <section className='rot-container'>
+  <section >
   <div className='row ads'>
        <div className='col-md-6  '>
       <img src='../images/image 17.png' ></img>
@@ -364,7 +364,7 @@ Arabic</Dropdown.Item>
  
     </div>
     </section>
-    <section className='rot-container'>
+    <section className='store-container'>
     <h5>Category</h5>
     <div class="btn-group me-2" role="group" aria-label="Second group">
     <button type="button" class="btn btn-outline-secondary" style={{padding:'5px 34px'}}>All</button>
@@ -400,7 +400,7 @@ Arabic</Dropdown.Item>
   
     </section>
     
-    <section className='rot-container'>
+    <section >
     <h5>Hot Deals<span className='view' >View All</span></h5>
   <div className='row product '>
        <div className='col-md-3  '>

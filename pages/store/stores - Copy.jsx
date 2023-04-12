@@ -1,6 +1,6 @@
 
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import {Container,Nav,Navbar,Dropdown,Carousel,Card,Button, Form,CardImg} from 'react-bootstrap';
+import {Container,Nav,Navbar,Dropdown,Carousel,Card} from 'react-bootstrap';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import React, { useState } from 'react';
 
@@ -294,169 +294,220 @@ Arabic</Dropdown.Item>
     </aside>
    
 
-
-<section class="h-100 ">
+<div className="store-container">
     
-  <div class="container2 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col">
-         <h5 fw-bold>My Cart</h5>
-    <p className='mt-3 ' >Shipping Address</p>
-            <div class="row">
-              <div class="col-lg-7">
-              <div class="card mb-2  p-1">
-                  <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                      <div class="d-flex flex-row align-items-center">
-                        <div>
-                       <img src='../images/Location icon.png' className='mb-5 me-3' ></img>
-                        </div>
-                        <div class="ms-1 mb-0">
-                          <h6 >Home </h6>
-                          <p>26, Street 2,Naeem, Al Mutla City, 03200, Kuwait</p>
-                        </div>
-                      </div>
-                      <div class="trash " > 
-                        <div >
-                        <span><img src='../images/edit.png'></img></span>
-                        </div>
-                        
-                      </div>
-                      
-                    </div>
-                    
-                  </div>
-                  
-                </div>
-              <h5 style={{fontSize:'17px'}}>Order List<span className='view' >Total 3 items</span></h5>
-                <div class="card mb-2  ">
-                  <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                      <div class="d-flex flex-row align-items-center">
-                        <div >
-                          <img
-                            src="../images/v.png"
-                            class="img-fluid rounded-3" alt="Shopping item" style={{width: '75px'}}/>
-                        </div>
-                        <div class="ms-1 mb-0">
-                          <h6>LEGEND 9 CLUB TF Football Shoes </h6>
-                          <p class=" mb-0">25.000 KD</p>
-                        </div>
-                      </div>
-                      <div class="trash " > 
-                        <div >
-                        <span><img src='../images/trash.png'></img></span>
-                        </div>
-                      </div>
-                      
-                    </div>
-                    <div class="qty1">
-                    <div  class="plus ">+</div>
-                        <input type="number" class="count" name="qty1" value="1"/>
-                        <div class="minus " >-</div>
-                    </div>
-                  </div>
-                  
-                </div>
-                <div class="card mb-2">
-                  <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                      <div class="d-flex flex-row align-items-center">
-                        <div>
-                          <img
-                            src="../images/b.png"
-                            class="img-fluid rounded-3" alt="Shopping item" style={{width: '75px'}}/>
-                        </div>
-                        <div class="ms-1 mb-0">
-                          <h6>LEGEND 9 CLUB TF Football Shoes </h6>
-                          <p class=" mb-0">25.000 KD</p>
-                        </div>
-                      </div>
-                      <div class="trash " > 
-                        <div >
-                        <span><img src='../images/trash.png'></img></span>
-                        </div>
-                      </div>
-                      
-                    </div>
-                    <div class="qty1">
-                    <div  class="plus ">+</div>
-                        <input type="number" class="count" name="qty1" value="1"/>
-                        <div class="minus " >-</div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="card mb-2 ">
-                  <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                      <div class="d-flex flex-row align-items-center">
-                        <div>
-                          <img
-                            src="../images/f.png"
-                            class="img-fluid rounded-3" alt="Shopping item" style={{width: '75px'}}/>
-                        </div>
-                        <div class="ms-1">
-                          <h6>LEGEND 9 CLUB TF Football Shoes </h6>
-                          <p class=" mb-0">25.000 KD</p>
-                        </div>
-                      </div>
-                      <div class="trash " > 
-                        <span><img src='../images/trash.png'></img></span>
-                      </div>
-                      
-                    </div>
-                    <div class="qty1">
-                    <div  class="plus ">+</div>
-                        <input type="number" class="count" name="qty1" value="1"/>
-                        <div class="minus " >-</div>
-                    </div>
-                    
-                  </div>
-                </div>
-
-         
-
-              </div>
-              <div class="col-lg-5">
-
-                <div class="card bg-white   ">
-                  <div class="card-body p-4 ">
-                   
-                    <div class="d-flex justify-content-between">
-                      <p class="mb-2">Sub total(3 items)</p>
-                      <p class="mb-2" style={{fontWeight:'600'}}>$4798.00</p>
-                    </div>
-
-                    <div class="d-flex justify-content-between">
-                      <p class="mb-2">Delivery Charge</p>
-                      <p class="mb-2" style={{fontWeight:'600'}}>$20.00</p>
-                    </div>
-                    <hr className='hr'></hr>
-                    <div class="d-flex justify-content-between mb-4">
-                      <p class="mb-2" style={{fontWeight:'700'}}>Total Price</p>
-                      <p class="mb-2" style={{fontWeight:'600'}}>80.000 KD</p>
-                    </div>
-
-                    <Button 
-      type="submit" 
-      className='cart-btn ' 
-     >
-     Check out
-      </Button>
-
-
-                  </div>
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-        </div>
+   
+  
+    <form className="nosubmit ">
+  <input className="nosubmit" type="search" placeholder="Search"   />
+</form>
+<br></br>
+<Carousel className='mx-2' >
+  
+      <Carousel.Item interval={1000}>
+        <img
+          className=" w-100 "
+          src="../images/banner1.jpg"   style={{width:'100%'}}
+          alt="First slide"
+        />
+      
+      </Carousel.Item>
+      <Carousel.Item interval={500}>
+        <img
+          className=" w-100"
+          src="../images/banner1.jpg" style={{width:'100%'}}
+          alt="Second slide"
+        />
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className=" w-100"
+          src="../images/banner1.jpg"  style={{width:'100%'}}
+          alt="Third slide"
+        />
+   
+      </Carousel.Item>
+    </Carousel>
+    <br></br>
+  <div className='row store'>
+    <h5>Store</h5>
+    <div className='col-lg-3 col-md-4'>
+<img src='../images/s1.png'  style={{width:'100%'}} ></img>
+    </div>
+    <div className='col-lg-3 col-md-4'>
+    <img src='../images/s1.png' style={{width:'100%'}} ></img>
       </div>
-</section>  
+      <div className='col-lg-3 col-md-4'>
+      <img src='../images/s1.png'  style={{width:'100%'}} ></img>
+      </div>
+      <div className='col-lg-3 col-md-4'>
+      <img src='../images/s1.png' style={{width:'100%'}} ></img>
+      </div>
+      <div className='col-lg-3 col-md-4'>
+      <img src='../images/s1.png' style={{width:'100%'}} ></img>
+      </div>
+      <div className='col-lg-3 col-md-4'>
+<img src='../images/s1.png'  style={{width:'100%'}} ></img>
+    </div>
+    <div className='col-lg-3 col-md-4'>
+    <img src='../images/s1.png' style={{width:'100%'}} ></img>
+      </div>
+      <div className='col-lg-3 col-md-4'>
+    <img src='../images/s1.png' style={{width:'100%'}} ></img>
+      </div>
+ 
+      </div>
+<br></br>
+  
+  <section>
+  <div className='row '>
+       <div className='col-lg-5 col-md-5  '>
+      <img src='../images/card2.png' ></img>
+      </div>
+      <div className='col-lg-5 col-md-5 '>
+      <img src='../images/card1.png' ></img>
+      </div>
+ 
+    </div>
+    </section>
+    <br></br>
+    
+    <h5>Favourite Product<span className='view' >View All</span></h5>
+  <div className='row  store '>
+       <div className='col-lg-3 col-md-4  '>
+      <img src='../images/s1.png' className='img' ></img>
+      </div>
+      <div className='col-lg-3 col-md-4 '>
+      <img src='../images/s1.png' className='img' ></img>
+      </div>
+      <div className='col-lg-3 col-md-4  '>
+      <img src='../images/s1.png' className='img' ></img>
+      </div>
+      <div className='col-lg-3 col-md-4'>
+      <img src='../images/s1.png' className='img' ></img>
+      </div>
+      
+    </div>
+    <br></br>
+    
+    
+    <h5>Popular<span className='view' >View All</span></h5>
+  <div className='row store '>
+       <div className='col-md-3  '>
+       <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
+      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
+      <Card.Body>
+        
+        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
+        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
+          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
+        </Card.Text>
+       
+      </Card.Body> 
+    </Card>
+      </div>
+      <div className='col-md-3 '>
+      <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
+      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
+      <Card.Body>
+        
+        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
+        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
+          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
+        </Card.Text>
+       
+      </Card.Body>
+    </Card>
+      </div>
+      <div className='col-md-3  '>
+      <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
+      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
+      <Card.Body>
+        
+        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
+        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
+          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
+        </Card.Text>
+       
+      </Card.Body>
+    </Card>
+      </div>
+      <div className='col-md-3 '>
+      <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
+      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
+      <Card.Body>
+        
+        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
+        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
+          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
+        </Card.Text>
+       
+      </Card.Body>
+    </Card>
+      </div>
+      
+    </div>
+    <br></br>
+    
+
+    <h5>Favourite Products<span className='view' >View All</span></h5>
+  <div className='row store '>
+       <div className='col-md-3  '>
+       <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
+      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
+      <Card.Body>
+        
+        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
+        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
+          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
+        </Card.Text>
+       
+      </Card.Body>
+    </Card>
+      </div>
+      <div className='col-md-3 '>
+      <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
+      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
+      <Card.Body>
+        
+        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
+        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
+          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
+        </Card.Text>
+       
+      </Card.Body>
+    </Card>
+      </div>
+      <div className='col-md-3  '>
+      <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
+      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
+      <Card.Body>
+        
+        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
+        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
+          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
+        </Card.Text>
+       
+      </Card.Body>
+    </Card>
+      </div>
+      <div className='col-md-3 '>
+      <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
+      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
+      <Card.Body>
+        
+        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
+        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
+          <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
+        </Card.Text>
+       
+      </Card.Body>
+    </Card>
+      </div>
+      
+    </div>
+ 
+    </div>
 </div>
   
      
