@@ -295,19 +295,20 @@ Arabic</Dropdown.Item>
    
 
 
-<section class="h-100 ">
+
     
-  <div class="container2 h-100">
+  <div class="store-container h-100">
+  <section class="h-100 my-3 ">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col">
          <h5 fw-bold>My Cart</h5>
     <p className='mt-3 ' >Shipping Address</p>
             <div class="row">
               <div class="col-lg-7">
-              <div class="card mb-2  p-1">
+              <div class="card mb-2 ">
                   <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                      <div class="d-flex flex-row align-items-center">
+                    <div class="d-flex justify-content-between ">
+                      <div class="d-flex flex-row align-items-center p-1">
                         <div>
                        <img src='../images/Location icon.png' className='mb-5 me-3' ></img>
                         </div>
@@ -332,11 +333,11 @@ Arabic</Dropdown.Item>
                 <div class="card mb-2  ">
                   <div class="card-body">
                     <div class="d-flex justify-content-between">
-                      <div class="d-flex flex-row align-items-center">
+                      <div class="d-flex flex-row align-items-center mb-2 " >
                         <div >
                           <img
                             src="../images/v.png"
-                            class="img-fluid rounded-3" alt="Shopping item" style={{width: '75px'}}/>
+                            class="img-fluid " alt="Shopping item" style={{width: '75px'}}/>
                         </div>
                         <div class="ms-1 mb-0">
                           <h6>LEGEND 9 CLUB TF Football Shoes </h6>
@@ -348,7 +349,6 @@ Arabic</Dropdown.Item>
                         <span><img src='../images/trash.png'></img></span>
                         </div>
                       </div>
-                      
                     </div>
                     <div class="qty1">
                     <div  class="plus ">+</div>
@@ -356,13 +356,12 @@ Arabic</Dropdown.Item>
                         <div class="minus " >-</div>
                     </div>
                   </div>
-                  
                 </div>
-                <div class="card mb-2">
-                  <div class="card-body">
+                <div class="card mb-2 ">
+                  <div class="card-body ">
                     <div class="d-flex justify-content-between">
-                      <div class="d-flex flex-row align-items-center">
-                        <div>
+                      <div class="d-flex flex-row align-items-center mb-2   ">
+                        <div >
                           <img
                             src="../images/b.png"
                             class="img-fluid rounded-3" alt="Shopping item" style={{width: '75px'}}/>
@@ -377,20 +376,21 @@ Arabic</Dropdown.Item>
                         <span><img src='../images/trash.png'></img></span>
                         </div>
                       </div>
+
                       
                     </div>
                     <div class="qty1">
                     <div  class="plus ">+</div>
                         <input type="number" class="count" name="qty1" value="1"/>
                         <div class="minus " >-</div>
-                    </div>
+                    </div> 
                   </div>
                 </div>
 
                 <div class="card mb-2 ">
                   <div class="card-body">
                     <div class="d-flex justify-content-between">
-                      <div class="d-flex flex-row align-items-center">
+                      <div class="d-flex flex-row align-items-center mb-2 ">
                         <div>
                           <img
                             src="../images/f.png"
@@ -404,14 +404,12 @@ Arabic</Dropdown.Item>
                       <div class="trash " > 
                         <span><img src='../images/trash.png'></img></span>
                       </div>
-                      
                     </div>
                     <div class="qty1">
                     <div  class="plus ">+</div>
                         <input type="number" class="count" name="qty1" value="1"/>
                         <div class="minus " >-</div>
                     </div>
-                    
                   </div>
                 </div>
 
@@ -419,15 +417,12 @@ Arabic</Dropdown.Item>
 
               </div>
               <div class="col-lg-5">
-
                 <div class="card bg-white   ">
                   <div class="card-body p-4 ">
-                   
                     <div class="d-flex justify-content-between">
                       <p class="mb-2">Sub total(3 items)</p>
                       <p class="mb-2" style={{fontWeight:'600'}}>$4798.00</p>
                     </div>
-
                     <div class="d-flex justify-content-between">
                       <p class="mb-2">Delivery Charge</p>
                       <p class="mb-2" style={{fontWeight:'600'}}>$20.00</p>
@@ -437,26 +432,16 @@ Arabic</Dropdown.Item>
                       <p class="mb-2" style={{fontWeight:'700'}}>Total Price</p>
                       <p class="mb-2" style={{fontWeight:'600'}}>80.000 KD</p>
                     </div>
-
-                    <Button 
-      type="submit" 
-      className='cart-btn ' 
-     >
-     Check out
-      </Button>
-
-
+                    <Button type="submit" className='cart-btn ' > Check out  </Button>
                   </div>
                 </div>
-
               </div>
-
             </div>
-
           </div>
         </div>
+        </section>  
       </div>
-</section>  
+
 </div>
   
      

@@ -296,18 +296,18 @@ Arabic</Dropdown.Item>
 
 
 <section class="h-100 h-custom" >
-  <div class="review-container ">
+  <div class="store-container  my-2">
     <div class="row d-flex justify-content-center align-items-center h-100 ">
     <h5>Reviews</h5>
       <div class="col ">
       
-        <div class="card ">
+        <div class="card "> 
           <div class="card-body p-4 ">
 
             <div class="row">
 
               <div class="col-lg-12">
-              <h5 class="mb-3"><a href="#!" class="text-body"><img src='../images/c8.png'></img><span className='mx-2'><i class="bi bi-star"></i><span className='mx-1'><i class="bi bi-star "></i></span><span className='mx-1'><i class="bi bi-star"></i></span><span className='mx-1'><i class="bi bi-star"></i></span><span className='mx-1'><i class="bi bi-star"></i></span></span></a></h5>
+              <h5 class="mb-3"><a href="#!" class="text-body"><img src='../images/store/c8.png'></img><span className='mx-2'><i class="bi bi-star"></i><span className='mx-1'><i class="bi bi-star "></i></span><span className='mx-1'><i class="bi bi-star"></i></span><span className='mx-1'><i class="bi bi-star"></i></span><span className='mx-1'><i class="bi bi-star"></i></span></span></a></h5>
               <Form>
               <div class="form-group">
    
@@ -329,7 +329,7 @@ Arabic</Dropdown.Item>
               </div>
               <div className='d-flex flex-start mt-4 mx-2'>
             <a   className='me-2' href=''>
-            <CardImg  className='rounded-circle shadow-1-strong ' src="../images/profile 3.png" style={{width:'44px',height:'44px'}} ></CardImg>
+            <CardImg  className='rounded-circle shadow-1-strong ' src="../images/store/Rec copy.png" style={{width:'44px',height:'44px'}} ></CardImg>
             </a>
             <div className="flex-grow-1 flex-shrink-1 " style={{marginBottom:'-24px'}}>
                             <div>
@@ -344,7 +344,7 @@ Arabic</Dropdown.Item>
                               <p className='col-md-7' style={{color:'#000',fontWeight:'400',fontSize:'14px',float:'left'}}>
                             
                                Nice, Lorem Ipsum is simply dummy text of the printing<br>
-                               </br><img src='../images/unsplash.png' className='mt-2'></img>
+                               </br><img src='../images/store/unsplash.png' className='mt-2'></img>
                                
                               </p>
                               
@@ -353,7 +353,7 @@ Arabic</Dropdown.Item>
           </div>
           <div className='d-flex flex-start mt-4 mx-2'>
             <a   className='me-2' href=''>
-            <CardImg  className='rounded-circle shadow-1-strong ' src="../images/profile 3.png" style={{width:'44px',height:'44px'}} ></CardImg>
+            <CardImg  className='rounded-circle shadow-1-strong ' src="../images/store/Rec copy.png" style={{width:'44px',height:'44px'}} ></CardImg>
             </a>
             <div className="flex-grow-1 flex-shrink-1 " style={{marginBottom:'-24px'}}>
                             <div>
@@ -376,7 +376,7 @@ Arabic</Dropdown.Item>
           </div>
           <div className='d-flex flex-start mt-4 mx-2'>
             <a   className='me-2' href=''>
-            <CardImg  className='rounded-circle shadow-1-strong ' src="../images/profile 3.png" style={{width:'44px',height:'44px'}} ></CardImg>
+            <CardImg  className='rounded-circle shadow-1-strong ' src="../images/store/Rec copy.png" style={{width:'44px',height:'44px'}} ></CardImg>
             </a>
             <div className="flex-grow-1 flex-shrink-1 " style={{marginBottom:'-24px'}}>
                             <div>
@@ -399,7 +399,7 @@ Arabic</Dropdown.Item>
           </div>
           <div className='d-flex flex-start mt-4 mx-2'>
             <a   className='me-2' href=''>
-            <CardImg  className='rounded-circle shadow-1-strong ' src="../images/profile 3.png" style={{width:'44px',height:'44px'}} ></CardImg>
+            <CardImg  className='rounded-circle shadow-1-strong ' src="../images/store/Rec copy.png" style={{width:'44px',height:'44px'}} ></CardImg>
             </a>
             <div className="flex-grow-1 flex-shrink-1 " style={{marginBottom:'-24px'}}>
                             <div>

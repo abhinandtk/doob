@@ -294,19 +294,17 @@ Arabic</Dropdown.Item>
     </aside>
    
 
-<div className="container2">
+    <div className="store-container">
     
    
-<form className="nosubmit ">
-  <input className="Nosubmit" type="search" placeholder="Search"   /><input className="icons" type="search" placeholder="Search"   />
-</form>
-
-    </div>
+    <form className="nosubmit ">
+      <input className="nosubmit" type="search" placeholder="Search"   />
+    </form>
 
   
     
    
-  <section class="rot-container  h-75">
+  <section class=" my-3 h-75">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col">
         <div class="card" >
@@ -318,7 +316,7 @@ Arabic</Dropdown.Item>
               
                 <div class="d-flex justify-content-between align-items-center mb-4">
                   <div>
-                   <img src='../images/shoe background.jpg'></img>
+                   <img src='../images/store/shoe background.jpg'></img>
                   </div>
 
                 </div>
@@ -326,15 +324,15 @@ Arabic</Dropdown.Item>
 
                 <div class="  col-lg-8">
                   
-                <div className='row shoe  '>
+                <div className='row  '>
        <div className='col-md-2  '>
-      <img src='../images/red.png' ></img>
+      <img src='../images/store/red.png' ></img>
       </div>
       <div className='col-md-2'>
-      <img src='../images/purple.png' ></img>
+      <img src='../images/store/purple.png' ></img>
       </div>
       <div className='col-md-2 '>
-      <img src='../images/violet.png'  ></img>
+      <img src='../images/store/violet.png'  ></img>
       </div>
  
     </div>
@@ -343,8 +341,8 @@ Arabic</Dropdown.Item>
                 
               </div>
               <div class="col-md-5">
-              <div class=" justify-content-between align-items-center mb-1 ">
-              <h5 className='col-md-9' >COPA SENSE.4 FxG Football Shoes For Men</h5>
+              <div class=" justify-content-between align-items-center  ">
+              <h5 className='col-md-9' >COPA SENSE.4 FxG Football Shoes   For Men</h5>
                       <p className='mx-1'><i class="bi bi-star-fill"style={{color:'yellow'}}></i>4.5 <span style={{color:'grey'}}>(203 reviews)</span></p>
                       <p style={{fontSize:'14px'}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis tellus, est lacus arcu ut ac in fermentum. Sit eget proin nunc felis quam rutrum metus. Et lacus, maecenas vel et arcu ut adipiscing morbi eget. </p>
                        <h6 >Color<br>
@@ -374,32 +372,19 @@ Arabic</Dropdown.Item>
                         <input type="number" class="count" name="qty" value="1"/>
                         <div  class="plus " style={{backgroundColor:'#aba4a4'}}>+</div>
                     </div>
-  <Button 
-      type="submit" 
-      className='add-cart-btn ' 
-     >
-     Add to Cart
-      </Button>
+                 <Button 
+                   type="submit" 
+               className='add-cart-btn ' > Add to Cart  </Button>
       
+                  </div>  
                   </div>
-                  
-                    
-                  </div>
-                  
                 </div>
               </div>
             </div>
-
           </div>
         </div>
-     
-
 </section>
-
-  
-  
- 
-     
+  </div> 
 </div>
   
      
