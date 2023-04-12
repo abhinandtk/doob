@@ -58,7 +58,7 @@ function HomePage ()  {
 
   return (
     <Fragment>
-      <MainHeader />
+      <MainHeader title='Doob'/>
       <MobileHeader/>
       <MainSidebarFixed />
       {constants.token_id === null ? (

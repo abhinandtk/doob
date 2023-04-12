@@ -330,7 +330,7 @@ Arabic</Dropdown.Item>
     </Carousel>
     <br></br>
   <div className='row store'>
-    <h5>Store</h5>
+    <h5 >Store</h5>
     <div className='col-lg-3 col-md-4'>
 <img src='../images/s1.png'  style={{width:'100%'}} ></img>
     </div>
@@ -393,9 +393,9 @@ Arabic</Dropdown.Item>
     
     <h5>Popular<span className='view' >View All</span></h5>
   <div className='row store '>
-       <div className='col-md-3  '>
+       <div className='col-lg-4 col-md-3  '>
        <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
+      <Card.Img  style={{borderRadius:'0px 0px 0px 0px',width:'100%'}} src="../images/shoes.jpg"  />
       <Card.Body>
         
         <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
@@ -406,9 +406,9 @@ Arabic</Dropdown.Item>
       </Card.Body> 
     </Card>
       </div>
-      <div className='col-md-3 '>
+      <div className='col-lg-4 col-md-3 '>
       <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
+      <Card.Img  style={{borderRadius:'0px 0px 0px 0px',width:'100%'}} src="../images/shoes.jpg"  />
       <Card.Body>
         
         <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
@@ -419,9 +419,9 @@ Arabic</Dropdown.Item>
       </Card.Body>
     </Card>
       </div>
-      <div className='col-md-3  '>
+      <div className='col-lg-4 col-md-3 '>
       <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
+      <Card.Img  style={{borderRadius:'0px 0px 0px 0px',width:'100%'}} src="../images/shoes.jpg"  />
       <Card.Body>
         
         <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
@@ -432,9 +432,9 @@ Arabic</Dropdown.Item>
       </Card.Body>
     </Card>
       </div>
-      <div className='col-md-3 '>
+      <div className='col-lg-4 col-md-3 '>
       <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
+      <Card.Img  style={{borderRadius:'0px 0px 0px 0px',width:'100%'}} src="../images/shoes.jpg"  />
       <Card.Body>
         
         <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
@@ -452,9 +452,9 @@ Arabic</Dropdown.Item>
 
     <h5>Favourite Products<span className='view' >View All</span></h5>
   <div className='row store '>
-       <div className='col-md-3  '>
+       <div className='col-lg-4 col-md-3 '>
        <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
+      <Card.Img  style={{borderRadius:'0px 0px 0px 0px',width:'100%'}} src="../images/shoes.jpg"  />
       <Card.Body>
         
         <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
@@ -465,9 +465,9 @@ Arabic</Dropdown.Item>
       </Card.Body>
     </Card>
       </div>
-      <div className='col-md-3 '>
+      <div className='col-lg-4 col-md-3 '>
       <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
+      <Card.Img  style={{borderRadius:'0px 0px 0px 0px',width:'100%'}} src="../images/shoes.jpg"  />
       <Card.Body>
         
         <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
@@ -478,9 +478,9 @@ Arabic</Dropdown.Item>
       </Card.Body>
     </Card>
       </div>
-      <div className='col-md-3  '>
+      <div className='col-lg-4 col-md-3  '>
       <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
+      <Card.Img  style={{borderRadius:'0px 0px 0px 0px',width:'100%'}} src="../images/shoes.jpg"  />
       <Card.Body>
         
         <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
@@ -491,9 +491,9 @@ Arabic</Dropdown.Item>
       </Card.Body>
     </Card>
       </div>
-      <div className='col-md-3 '>
+      <div className='col-lg-4 col-md-3'>
       <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/shoes.jpg"  />
+      <Card.Img  style={{borderRadius:'0px 0px 0px 0px',width:'100%'}} src="../images/shoes.jpg"  />
       <Card.Body>
         
         <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >

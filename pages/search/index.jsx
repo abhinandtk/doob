@@ -58,7 +58,7 @@ function SearchPage() {
 
   return (
     <Fragment>
-        <MainHeader />
+        <MainHeader title='Doob'/>
         <MainSidebarFixed />
         <form className="nosubmit ">
             <input 

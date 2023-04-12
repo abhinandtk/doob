@@ -5,8 +5,9 @@ import Axios from 'axios';
 import apis from '@/public/data/my-constants/Apis';
 import UploadFiles from './modules/UploadFiles';
 import Notifications from './modules/Notifications';
+import Head from 'next/head';
 
-function MainHeader() {
+function MainHeader({title}) {
 
     const [show,setShow] = useState(false)
     const handleClose = () => setShow(false);
@@ -37,6 +38,10 @@ function MainHeader() {
 
   return (
     <>
+    <Head>
+        <title>{title}</title>
+        <link rel="icon" href="/favicon.ico" />
+    </Head>
 
     <Navbar collapseOnSelect expand="lg" bg="light" variant="dark" sticky='top'className='web-nav' style={{ zIndex: 100 }}>
         <Container fluid >
