@@ -1,72 +1,10 @@
-
-import 'bootstrap-icons/font/bootstrap-icons.css';
+import React from 'react'
 import {Container,Nav,Navbar,Dropdown,Carousel,Card} from 'react-bootstrap';
-import Offcanvas from 'react-bootstrap/Offcanvas';
-import React, { useState } from 'react';
-import MainHeader from '@/components/shared/headers/MainHeader';
-import MainSidebarFixed from '@/components/shared/sidebar/MainSidebarFixed';
-import StoreMainBanner from '@/components/stores/StoreMainBanner';
-import Stores from '@/components/stores/Stores';
-import Axios  from 'axios';
-import apis from '@/public/data/my-constants/Apis';
-import StoreProductsCard from '@/components/stores/StoreProductsCard';
 
-function StorePage ()  {
-  const [storeData, setStoreData] = useState([]);
-
-  Axios.get(apis.stores)
-  .then((res)=>{
-    setStoreData(res.data.data.stores)
-    console.log('rtrtrtrtrtrtrtrtrtrtrtrt',res)
-  })
+function StoreProductsCard() {
   return (
-    <div>
-      <MainHeader title='Doob'/>
-      <MainSidebarFixed />
-      <div className="container2">
-  
-        <form className="nosubmit ">
-          <input className="nosubmit" type="search" placeholder="Search"   /><input className="icon" type="search" placeholder="Search"   />
-        </form>
-        <br></br>
-        <StoreMainBanner />
-      </div>
-
-      <Stores storeData={storeData}/>
-  
-  <section className='rot-container'>
-  <div className='row banner'>
-       <div className='col-md-4  '>
-      <img src='../images/card2.png' ></img>
-      </div>
-      <div className='col-md-3 '>
-      <img src='../images/card1.png' ></img>
-      </div>
- 
-    </div>
-    </section>
     <section className='rot-container'>
-    <h5>Favourite Product<span className='view' >View All</span></h5>
-  <div className='row shop '>
-       <div className='col-md-3  '>
-      <img src='../images/s1.png' className='img' ></img>
-      </div>
-      <div className='col-md-3 '>
-      <img src='../images/s1.png' className='img' ></img>
-      </div>
-      <div className='col-md-3  '>
-      <img src='../images/s1.png' className='img' ></img>
-      </div>
-      <div className='col-md-3 '>
-      <img src='../images/s1.png' className='img' ></img>
-      </div>
-      
-    </div>
-    </section>
-    
-    <StoreProductsCard />
-    <section className='rot-container'>
-    <h5>Favourite Products<span className='view' >View All</span></h5>
+    <h5>Popular<span className='view' >View All</span></h5>
   <div className='row product '>
        <div className='col-md-3  '>
        <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
@@ -123,15 +61,7 @@ function StorePage ()  {
       
     </div>
     </section>
-</div>
-  
-     
-      
-  
-
-
   )
 }
 
-
-export default StorePage
+export default StoreProductsCard
