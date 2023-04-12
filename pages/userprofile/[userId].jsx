@@ -38,7 +38,7 @@ function OtherUserAccount() {
   return (
 
     <Fragment>
-        <MainHeader />
+        <MainHeader title='Doob'/>
         <MainSidebarFixed />
     
         <OtherProfileHeaderDetails data={profileDetails} id={userId}/>

@@ -37,6 +37,12 @@ const apis = {
     'notification':`${constants.port}/social/Api/notification`,
     'activity':`${constants.port}/social/Api/activity`,
 
+    //store module
+
+    'stores':`${constants.port}/store/api/stores`,
+
+
+
     
 }
 

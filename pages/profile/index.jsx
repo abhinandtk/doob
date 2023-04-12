@@ -6,7 +6,7 @@ import MobileHeader from '@/components/MobileHeader'
 function Profile() {
   return (
     <Fragment>
-      <MainHeader/>
+      <MainHeader title='Doob'/>
       <MobileHeader/>
       <MainSidebarFixed />
       <ProfileDetails />
