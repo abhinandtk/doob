@@ -9,7 +9,7 @@ function StoreProductsCard() {
   <div className='row store '>
        <div className='col-lg-3 col-md-4  '>
        <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px',width:'100%'}} src="../images/shoes.jpg"  />
+      <Card.Img  style={{borderRadius:'0px 0px 0px 0px',width:'100%'}} src="../images/store/shoes.jpg"  />
       <Card.Body>
         
         <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
@@ -22,7 +22,7 @@ function StoreProductsCard() {
       </div>
       <div className='col-lg-3 col-md-4 '>
       <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px',width:'100%'}} src="../images/shoes.jpg"  />
+      <Card.Img  style={{borderRadius:'0px 0px 0px 0px',width:'100%'}} src="../images/store/shoes.jpg"  />
       <Card.Body>
         
         <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
@@ -35,7 +35,7 @@ function StoreProductsCard() {
       </div>
       <div className='col-lg-3 col-md-4 '>
       <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px',width:'100%'}} src="../images/shoes.jpg"  />
+      <Card.Img  style={{borderRadius:'0px 0px 0px 0px',width:'100%'}} src="../images/store/shoes.jpg"  />
       <Card.Body>
         
         <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
@@ -48,7 +48,7 @@ function StoreProductsCard() {
       </div>
       <div className='col-lg-3 col-md-4 '>
       <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'0px 0px 0px 0px',width:'100%'}} src="../images/shoes.jpg"  />
+      <Card.Img  style={{borderRadius:'0px 0px 0px 0px',width:'100%'}} src="../images/store/shoes.jpg"  />
       <Card.Body>
         
         <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
