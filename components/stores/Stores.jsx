@@ -17,31 +17,23 @@ function Stores({storeData}) {
     // </section>
    
     <div className='row store'>
-      <h5 className='mx-2'>Store</h5>
-      <div className='col-lg-3 col-md-4'>
-  <img src='../images/s1.png'  style={{width:'100%'}} ></img>
-      </div>
-      <div className='col-lg-3 col-md-4'>
-      <img src='../images/s1.png' style={{width:'100%'}} ></img>
+
+        <h5 className='mx-2'>Store</h5>
+        {storeData.map((item,index)=>(
+        <div key={index} className='col-lg-3 col-md-4'>
+            <img src={`${constants.port}${item.logo}`}  style={{width:'100%'}} ></img>
+        </div>
+        ))}
+        <div className='col-lg-3 col-md-4'>
+            <img src='../images/store/s1.png'  style={{width:'100%'}} ></img>
         </div>
         <div className='col-lg-3 col-md-4'>
-        <img src='../images/s1.png'  style={{width:'100%'}} ></img>
+            <img src='../images/store/s1.png'  style={{width:'100%'}} ></img>
         </div>
         <div className='col-lg-3 col-md-4'>
-        <img src='../images/s1.png' style={{width:'100%'}} ></img>
+            <img src='../images/store/s1.png'  style={{width:'100%'}} ></img>
         </div>
-        <div className='col-lg-3 col-md-4'>
-        <img src='../images/s1.png' style={{width:'100%'}} ></img>
-        </div>
-        <div className='col-lg-3 col-md-4'>
-  <img src='../images/s1.png'  style={{width:'100%'}} ></img>
-      </div>
-      <div className='col-lg-3 col-md-4'>
-      <img src='../images/s1.png' style={{width:'100%'}} ></img>
-        </div>
-        <div className='col-lg-3 col-md-4'>
-      <img src='../images/s1.png' style={{width:'100%'}} ></img>
-        </div>
+      
    
         </div>
   )
