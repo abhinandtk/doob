@@ -299,7 +299,7 @@ Arabic</Dropdown.Item>
     <input className="nosubmit" type="search" placeholder="Search"   />
   </form>
   <div className='banner my-3'>
-    <img src='../images/store/mall.jpg' className='img-fluid'></img>
+  <img src='../images/store/mall.jpg' className='img-fluid'></img>
     <span className='span-icon'><svg width="25" height="22" viewBox="0 0 25 22" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M12.2133 20.8391C12.2133 20.8391 1 14.5938 1 7.09945C1 -0.394922 9.72146 -1.01945 12.2133 4.84416C14.7052 -1.01945 23.4266 -0.394922 23.4266 7.09945C23.4266 14.5938 12.2133 20.8391 12.2133 20.8391Z" stroke="white" stroke-width="1.35919" stroke-linecap="round" stroke-linejoin="round"/>
       </svg><svg width="30" height="28" viewBox="0 0 30 28" className='ms-3' fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -311,6 +311,7 @@ Arabic</Dropdown.Item>
       <path d="M15.9854 8.30686C15.9854 7.54223 16.6322 6.92236 17.43 6.92236C18.2279 6.92236 18.8747 7.54223 18.8747 8.30686C18.8747 9.0715 18.2279 9.69136 17.43 9.69136C16.6322 9.69136 15.9854 9.0715 15.9854 8.30686Z" stroke="white" stroke-width="1.4447" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </span>
+   
     <img src='../images/store/foot.png' className='foot-png'></img>
   </div>
 

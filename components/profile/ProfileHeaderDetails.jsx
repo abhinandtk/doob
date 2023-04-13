@@ -93,7 +93,7 @@ function ProfileHeaderDetails({data}) {
           
         </Upload>
       </Modal>
-    <Card className='container' style={{width:'910px',marginLeft:'395px',marginTop:'23px',height:'290px'}}>
+    {/* <Card className='container' style={{width:'910px',marginLeft:'395px',marginTop:'23px',height:'290px'}}>
             <Card.Body>
              <div className='row'>
                 <div className='col-md-6'>
@@ -135,7 +135,86 @@ function ProfileHeaderDetails({data}) {
                 
             
             </Card.Body>
+        </Card> */}
+            
+       <div className="container2">
+        <Card className='cord'>
+            <Card.Body>
+             <div className='row'>
+                <div className='col-md-6'>
+                <button class="btn profile-edit-btn">Rank</button>
+                <div class="profile-image">
+                    <img src="../images/accounts/group.png" alt=""></img>
+                </div>
+                <div class="profile-cam1">
+                    <img src="../images/accounts/camera.png" href='#'  alt=""></img>
+                </div>
+                </div>
+                <div className='col-md-6'>
+                <div class="profile-stats">
+                    <ul>
+                    <h1 class="profile-user-name">Muhammed Alsalah<span><img src='../images/accounts/stars.png' className='mx-1 mb-1'></img></span><span><img src='../images/accounts/iconoir_help-circles.png' className=' mb-1'></img></span></h1><br></br>
+                    <h1 class="profile-user-names">@muhammed_alsalah</h1>
+                    <br></br>
+                    <li><span class="profile-stat-count">465</span> <span style={{color:'#959595'}}>posts</span></li>
+                    <li><span class="profile-stat-count">123k</span>  <span style={{color:'#959595'}}>followers</span></li>
+                    <li><span class="profile-stat-count">1.2K</span>  <span style={{color:'#959595'}}>following</span></li>
+                    <br></br>
+                    <li><span class="profile-stat-count " style={{color:'#959595'}}>Age:</span>  <span >28</span></li>
+                    <li><span class="profile-stat-count" style={{color:'#959595'}}>Gender:</span>  <span > Male</span></li>
+                    <br></br>
+                    <li><span > <img src="../images/accounts/kuwait.png" alt="" ></img></span><span class="profile-stat-count mx-1">Kuwait,Hawally </span> <span style={{color:'#959595'}} className='mx-3'>+More</span></li>
+                    </ul>
+
+                </div>
+                <button class="btn profile-edit-btn1">Edit</button>
+                </div>
+             </div>
+              
+                    
+               
+                
+            
+            </Card.Body>
         </Card>
+        
+        <Card className='ceed'>
+            <Card.Body>
+             <div className='row'>
+                <div className='col-md-6'>
+                <button class="btn profile-edits-btn">Rank</button>
+                <button class="btn profile-edit-btn2">Edit</button>
+                <div class="profile-img">
+                    <img src="../images/accounts/group.png" alt=""></img>
+                </div>
+                <div class="profile-camera1">
+                    <img src="../images/accounts/camera.png" href='#'  alt=""></img>
+                </div>
+                </div>
+                <div className='col-md-6'>
+                <h1 class="profile-users-name">Muhammed Alsalah</h1><br></br>
+                    <h1 class="profile-users-names">@muhammed_alsalah</h1>
+                                     
+                <div class="profile-stat">
+             <ul>
+             <li><span class="profile-stat-counts">465</span> <span style={{color:'#959595'}}>posts</span></li>
+             <li><span class="profile-stat-counts">123k</span>  <span style={{color:'#959595'}}>followers</span></li>
+             <li><span class="profile-stat-counts">1.2K</span>  <span style={{color:'#959595'}}>following</span></li>
+             </ul>
+
+         </div>
+                    <p className='profiles-stat-count'>Age:<span style={{color:'#959595'}} className='mx-1'>28yrs</span><span className='mx-2'>Gender:<span className='mx-1'>Male</span></span></p>
+    
+                    <p className='profile-status-count'><span > <img src="../images/accounts/kuwait.png" alt="" ></img></span><span class=" mx-1">Kuwait,Hawally </span> <span style={{color:'#959595'}} className='mx-1'>+More</span></p>
+                </div>
+             </div>
+              
+          
+              
+            
+            </Card.Body>
+        </Card>
+        </div>
         </Fragment>
   )
 }

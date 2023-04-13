@@ -332,7 +332,7 @@ Arabic</Dropdown.Item>
               <h5 style={{fontSize:'17px'}}>Order List<span className='view' >Total 3 items</span></h5>
                 <div class="card mb-2  ">
                   <div class="card-body">
-                    <div class="d-flex justify-content-between">
+                    <div class="d-flex justify-content-between ">
                       <div class="d-flex flex-row align-items-center mb-2 " >
                         <div >
                           <img
@@ -341,7 +341,7 @@ Arabic</Dropdown.Item>
                         </div>
                         <div class="ms-1 mb-0">
                           <h6>LEGEND 9 CLUB TF Football Shoes </h6>
-                          <p class=" mb-0">25.000 KD</p>
+                          <p class=" mb-0" style={{fontWeight:'700'}}>25.000 KD</p>
                         </div>
                       </div>
                       <div class="trash " > 
@@ -368,7 +368,7 @@ Arabic</Dropdown.Item>
                         </div>
                         <div class="ms-1 mb-0">
                           <h6>LEGEND 9 CLUB TF Football Shoes </h6>
-                          <p class=" mb-0">25.000 KD</p>
+                          <p class=" mb-0" style={{fontWeight:'700'}}>25.000 KD</p>
                         </div>
                       </div>
                       <div class="trash " > 
@@ -398,7 +398,7 @@ Arabic</Dropdown.Item>
                         </div>
                         <div class="ms-1">
                           <h6>LEGEND 9 CLUB TF Football Shoes </h6>
-                          <p class=" mb-0">25.000 KD</p>
+                          <p class=" mb-0" style={{fontWeight:'700'}}>25.000 KD</p>
                         </div>
                       </div>
                       <div class="trash " > 

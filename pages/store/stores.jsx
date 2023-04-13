@@ -29,7 +29,7 @@ function StorePage ()  {
      
       <div className="store-container">
         <form className="nosubmit ">
-          <input className="nosubmit" type="search" placeholder="Search"   />
+          <input className="nosubmit1" type="search" placeholder="Search"   />
         </form>
         <br></br>
        

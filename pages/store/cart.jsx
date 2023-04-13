@@ -292,78 +292,71 @@ Arabic</Dropdown.Item>
           </div>
     </nav>
     </aside>
-   
 
     <div className="store-container">
-    
-   
     <form className="nosubmit ">
-      <input className="nosubmit" type="search" placeholder="Search"   />
+    <input className="nosubmit1" type="search" placeholder="Search"   />
     </form>
 
-  
-    
-   
   <section class=" my-3 h-75">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col">
-        <div class="card" >
-          <div class="card-body p-4">
-
-            <div class="row " >
-
-              <div class="col-md-7">
-              
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                  <div>
-                   <img src='../images/store/shoe background.jpg'></img>
-                  </div>
-
-                </div>
-
-
-                <div class="  col-lg-8">
-                  
-                <div className='row  '>
-       <div className='col-md-2  '>
-      <img src='../images/store/red.png' ></img>
-      </div>
-      <div className='col-md-2'>
-      <img src='../images/store/purple.png' ></img>
-      </div>
-      <div className='col-md-2 '>
-      <img src='../images/store/violet.png'  ></img>
-      </div>
- 
-    </div>
-                  
-                </div>
+  <div class="row d-flex justify-content-center align-items-center h-100">
+  <div class="col">
+  <div class="card" >
+  <div class="card-body p-4">
+  <div class="row " >
+  <div class="col-lg-7">
+  <div class="d-flex justify-content-between align-items-center mb-4"><div>
+    <img src='../images/store/shoe background.jpg'></img>
+  </div>
+  </div>
+ <div class="  col-lg-8">                
+<div className='row  '>
+<div className='col-md-2  '>
+<img src='../images/store/red.png' ></img>
+</div>
+<div className='col-md-2'>
+<img src='../images/store/purple.png' ></img>
+</div>
+<div className='col-md-2 '>
+<img src='../images/store/violet.png'  ></img>
+</div>
+</div> </div>
                 
               </div>
-              <div class="col-md-5">
-              <div class=" justify-content-between align-items-center  ">
-              <h5 className='col-md-9' >COPA SENSE.4 FxG Football Shoes   For Men</h5>
+              <div class="col-md-5 ">
+              <div class=" justify-content-between align-items-center   " >
+             < span className='float' ><svg width="18" height="17" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.5 18C9.5 18 0 12.3609 0 5.59388C0 -1.17312 7.38889 -1.73704 9.5 3.55748C11.6111 -1.73704 19 -1.17312 19 5.59388C19 12.3609 9.5 18 9.5 18Z" fill="black"/>
+</svg> <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.58936 11.41L12.6278 7.37158" stroke="black" stroke-width="0.814796" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M2.69367 8.55832C2.02124 8.2221 2.10272 7.23757 2.82127 7.01648L15.9955 2.96286C16.6349 2.76612 17.2338 3.36502 17.0371 4.00441L12.9835 17.1787C12.7624 17.8972 11.7778 17.9787 11.4416 17.3063L8.64987 11.7228C8.56923 11.5615 8.43846 11.4307 8.27719 11.3501L2.69367 8.55832Z" stroke="black" stroke-width="0.814796" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.3735 14.9998C10.3735 14.5396 10.7629 14.1665 11.2431 14.1665C11.7233 14.1665 12.1127 14.5396 12.1127 14.9998C12.1127 15.4601 11.7233 15.8332 11.2431 15.8332C10.7629 15.8332 10.3735 15.4601 10.3735 14.9998Z" stroke="black" stroke-width="0.814796" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10.3735 10.0003C10.3735 9.54009 10.7629 9.16699 11.2431 9.16699C11.7233 9.16699 12.1127 9.54009 12.1127 10.0003C12.1127 10.4606 11.7233 10.8337 11.2431 10.8337C10.7629 10.8337 10.3735 10.4606 10.3735 10.0003Z" stroke="black" stroke-width="0.814796" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10.3735 4.99984C10.3735 4.5396 10.7629 4.1665 11.2431 4.1665C11.7233 4.1665 12.1127 4.5396 12.1127 4.99984C12.1127 5.46007 11.7233 5.83317 11.2431 5.83317C10.7629 5.83317 10.3735 5.46007 10.3735 4.99984Z" stroke="black" stroke-width="0.814796" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+</span>
+              <h5 className='col-md-9'  >COPA SENSE.4 FxG Football  Shoes    For Men</h5> 
                       <p className='mx-1'><i class="bi bi-star-fill"style={{color:'yellow'}}></i>4.5 <span style={{color:'grey'}}>(203 reviews)</span></p>
-                      <p style={{fontSize:'14px'}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis tellus, est lacus arcu ut ac in fermentum. Sit eget proin nunc felis quam rutrum metus. Et lacus, maecenas vel et arcu ut adipiscing morbi eget. </p>
+                      <p style={{fontSize:'14px',fontWeight:'400'}} >Lorem z ipsum dolor sit amet, consectetur adipiscing elit. Facilisis tellus, est lacus arcu ut ac in fermentum. Sit eget proin nunc felis quam rutrum metus. Et lacus, maecenas vel et arcu ut adipiscing morbi eget. </p>
+                 
                        <h6 >Color<br>
                        </br><i class="bi bi-circle-fill" style={{color:'#ED4B4B'}}></i><span><i class="bi bi-circle-fill mx-2" style={{color:'purple'}}></i><i class="bi bi-circle-fill " style={{color:'violet'}}></i></span></h6>
                         
                       <h6>Choose size</h6>
                       <div class="btn-group  " role="group" aria-label="Second group">
     <button type="button" class="btn btn-secondary" >34</button>
-    
   </div>
   <div class="btn-group " role="group" aria-label="Second group">
     <button type="button" class="btn btn-outline-secondary">35</button>
-    
   </div>
   <div class="btn-group " role="group" aria-label="Second group">
     <button type="button" class="btn btn-secondary" >34</button>
-    
   </div>
   <div class="btn-group " role="group" aria-label="Second group">
     <button type="button" class="btn btn-outline-secondary">35</button>
-    
   </div> 
   <br></br>
   <p style={{color:'gray',fontWeight:'400'}}><s>15.000 KD</s><span className='mx-2' style={{fontSize:'20px',fontWeight:'500',color:'#17a803'}}>13.000 KD</span><span></span></p>
@@ -372,6 +365,7 @@ Arabic</Dropdown.Item>
                         <input type="number" class="count" name="qty" value="1"/>
                         <div  class="plus " style={{backgroundColor:'#aba4a4'}}>+</div>
                     </div>
+                   
                  <Button 
                    type="submit" 
                className='add-cart-btn ' > Add to Cart  </Button>

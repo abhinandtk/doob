@@ -296,7 +296,7 @@ Arabic</Dropdown.Item>
 
 
 <section class="h-100 h-custom" >
-  <div class="store-container  my-2">
+  <div class="store-container  my-4">
     <div class="row d-flex justify-content-center align-items-center h-100 ">
     <h5>Reviews</h5>
       <div class="col ">
