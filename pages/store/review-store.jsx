@@ -295,25 +295,25 @@ Arabic</Dropdown.Item>
    
 
 
-<section class="h-100 h-custom" >
-  <div class="store-container  my-4">
-    <div class="row d-flex justify-content-center align-items-center h-100 ">
+<section className="h-100 h-custom" >
+  <div className="store-container  my-4">
+    <div className="row d-flex justify-content-center align-items-center h-100 ">
     <h5>Reviews</h5>
-      <div class="col ">
+      <div className="col ">
       
-        <div class="card "> 
-          <div class="card-body p-4 ">
+        <div className="card "> 
+          <div className="card-body p-4 ">
 
-            <div class="row">
+            <div className="row">
 
-              <div class="col-lg-12">
-              <h5 class="mb-3"><a href="#!" class="text-body"><img src='../images/store/c8.png'></img><span className='mx-2'><i class="bi bi-star"></i><span className='mx-1'><i class="bi bi-star "></i></span><span className='mx-1'><i class="bi bi-star"></i></span><span className='mx-1'><i class="bi bi-star"></i></span><span className='mx-1'><i class="bi bi-star"></i></span></span></a></h5>
+              <div className="col-lg-12">
+              <h5 className="mb-3"><a href="#!" className="text-body"><img src='../images/store/c8.png'></img><span className='mx-2'><i className="bi bi-star"></i><span className='mx-1'><i className="bi bi-star "></i></span><span className='mx-1'><i className="bi bi-star"></i></span><span className='mx-1'><i className="bi bi-star"></i></span><span className='mx-1'><i className="bi bi-star"></i></span></span></a></h5>
               <Form>
-              <div class="form-group">
+              <div className="form-group">
    
-    <textarea class="form-control op p-4  "   style={{backgroundColor:'#EEEEEE',border:'0px'}} placeholder='Share your Review ' id="exampleFormControlTextarea1" rows="3"></textarea>
+    <textarea className="form-control op p-4  "   style={{backgroundColor:'#EEEEEE',border:'0px'}} placeholder='Share your Review ' id="exampleFormControlTextarea1" rows="3"></textarea>
     <br></br>
-    <input type="email" class="form-control op p-3 "  style={{backgroundColor:'#EEEEEE',border:'0px'}} id="exampleFormControlInput1" placeholder="Upload Media"/>
+    <input type="email" className="form-control op p-3 "  style={{backgroundColor:'#EEEEEE',border:'0px'}} id="exampleFormControlInput1" placeholder="Upload Media"/>
   </div>
               </Form>
               <Button 
@@ -335,7 +335,7 @@ Arabic</Dropdown.Item>
                             <div>
                               <div className="d-flex justify-content-between align-items-center">
                                 <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
-                                Musaid{" "} <br></br> <span><i class="bi bi-star-fill"style={{color:'yellow'}}></i><span><i class="bi bi-star-fill mx-1"style={{color:'yellow'}}></i></span><span><i class="bi bi-star-fill "style={{color:'yellow'}}></i></span><span><i class="bi bi-star mx-1"style={{color:'grey'}}></i></span></span>
+                                Musaid{" "} <br></br> <span><i className="bi bi-star-fill"style={{color:'yellow'}}></i><span><i className="bi bi-star-fill mx-1"style={{color:'yellow'}}></i></span><span><i className="bi bi-star-fill "style={{color:'yellow'}}></i></span><span><i className="bi bi-star mx-1"style={{color:'grey'}}></i></span></span>
                                   
                                 </p>
                               
@@ -359,7 +359,7 @@ Arabic</Dropdown.Item>
                             <div>
                               <div className="d-flex justify-content-between align-items-center">
                                 <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
-                                Musaid{" "} <br></br> <span><i class="bi bi-star-fill"style={{color:'yellow'}}></i><span><i class="bi bi-star-fill mx-1"style={{color:'yellow'}}></i></span><span><i class="bi bi-star-fill "style={{color:'yellow'}}></i></span><span><i class="bi bi-star mx-1"style={{color:'grey'}}></i></span></span>
+                                Musaid{" "} <br></br> <span><i className="bi bi-star-fill"style={{color:'yellow'}}></i><span><i className="bi bi-star-fill mx-1"style={{color:'yellow'}}></i></span><span><i className="bi bi-star-fill "style={{color:'yellow'}}></i></span><span><i className="bi bi-star mx-1"style={{color:'grey'}}></i></span></span>
                                   
                                 </p>
                               
@@ -382,7 +382,7 @@ Arabic</Dropdown.Item>
                             <div>
                               <div className="d-flex justify-content-between align-items-center">
                                 <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
-                                Musaid{" "} <br></br> <span><i class="bi bi-star-fill"style={{color:'yellow'}}></i><span><i class="bi bi-star-fill mx-1"style={{color:'yellow'}}></i></span><span><i class="bi bi-star-fill "style={{color:'yellow'}}></i></span><span><i class="bi bi-star mx-1"style={{color:'grey'}}></i></span></span>
+                                Musaid{" "} <br></br> <span><i className="bi bi-star-fill"style={{color:'yellow'}}></i><span><i className="bi bi-star-fill mx-1"style={{color:'yellow'}}></i></span><span><i className="bi bi-star-fill "style={{color:'yellow'}}></i></span><span><i className="bi bi-star mx-1"style={{color:'grey'}}></i></span></span>
                                   
                                 </p>
                               
@@ -405,7 +405,7 @@ Arabic</Dropdown.Item>
                             <div>
                               <div className="d-flex justify-content-between align-items-center">
                                 <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
-                                Musaid{" "} <br></br> <span><i class="bi bi-star-fill"style={{color:'yellow'}}></i><span><i class="bi bi-star-fill mx-1"style={{color:'yellow'}}></i></span><span><i class="bi bi-star-fill "style={{color:'yellow'}}></i></span><span><i class="bi bi-star mx-1"style={{color:'grey'}}></i></span></span>
+                                Musaid{" "} <br></br> <span><i className="bi bi-star-fill"style={{color:'yellow'}}></i><span><i className="bi bi-star-fill mx-1"style={{color:'yellow'}}></i></span><span><i className="bi bi-star-fill "style={{color:'yellow'}}></i></span><span><i className="bi bi-star mx-1"style={{color:'grey'}}></i></span></span>
                                   
                                 </p>
                               

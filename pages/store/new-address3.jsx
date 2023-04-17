@@ -296,17 +296,17 @@ Arabic</Dropdown.Item>
 
 
 
-  <div class="store-container  my-5">
+  <div className="store-container  my-5">
   <h5 fw-bold>Add a New Address</h5>
-             <div class="card "> 
-          <div class="card-body p-5  ">
+             <div className="card "> 
+          <div className="card-body p-5  ">
 
           
 <h6>Address Type</h6>
-<input type="email" class="form-control op" style={{border:'0px',background:'#eeeeee'}} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name"/>
-<div class="form-group my-2">
+<input type="email" className="form-control op" style={{border:'0px',background:'#eeeeee'}} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name"/>
+<div className="form-group my-2">
     <label for="exampleFormControlSelect1" >Select Area*</label>
-    <select class="form-control" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlSelect1">
+    <select className="form-control" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlSelect1">
       <option>1</option>
       <option>2</option>
       <option>3</option>
@@ -314,39 +314,39 @@ Arabic</Dropdown.Item>
       <option>5</option>
     </select>
   </div>
-  <div class="form-group my-2">
+  <div className="form-group my-2">
     <label for="exampleFormControlInput1">Block*</label>
-    <input type="email" class="form-control " style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlInput1" />
+    <input type="email" className="form-control " style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlInput1" />
   </div>
-  <div class="form-group my-2">
+  <div className="form-group my-2">
     <label for="exampleFormControlInput1">Street*</label>
-    <input type="email" class="form-control" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlInput1" />
+    <input type="email" className="form-control" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlInput1" />
   </div>
-  <div class="form-group my-2">
+  <div className="form-group my-2">
     <label for="exampleFormControlInput1">Avenue</label>
-    <input type="email" class="form-control" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlInput1" />
+    <input type="email" className="form-control" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlInput1" />
   </div>
-  <div class="form-group my-2">
+  <div className="form-group my-2">
     <label for="exampleFormControlInput1">Building*</label>
-    <input type="email" class="form-control" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlInput1" />
+    <input type="email" className="form-control" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlInput1" />
   </div>
-  <div class="form-group my-2">
+  <div className="form-group my-2">
     <label for="exampleFormControlInput1">Floor*</label>
-    <input type="email" class="form-control" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlInput1" />
+    <input type="email" className="form-control" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlInput1" />
   </div>
-  <div class="form-group my-2">
+  <div className="form-group my-2">
     <label for="exampleFormControlInput1">Flat No</label>
-    <input type="email" class="form-control" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlInput1" />
+    <input type="email" className="form-control" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlInput1" />
   </div>
-  <div class="form-group  " >
+  <div className="form-group  " >
   <label for="exampleFormControlInput1"></label>
-    <input type="email" class="form-control op" style={{border:'0px',background:'#eeeeee',marginTop:'-10px'}} id="exampleFormControlInput1" placeholder='+965 9054642541' />
+    <input type="email" className="form-control op" style={{border:'0px',background:'#eeeeee',marginTop:'-10px'}} id="exampleFormControlInput1" placeholder='+965 9054642541' />
   </div>
-  <div class="form-group my-2 ">
+  <div className="form-group my-2 ">
     <label for="exampleFormControlInput1">Remark</label>
-    <input type="email" class="form-control" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlInput1" />
+    <input type="email" className="form-control" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlInput1" />
   </div>
- <span> <i class="bi bi-square"></i><label className='mx-2'>Make this as the default address</label></span>
+ <span> <i className="bi bi-square"></i><label className='mx-2'>Make this as the default address</label></span>
                   <Button type="submit" className='submit-cart-btn ' > Save  </Button>
           </div>
         </div>
