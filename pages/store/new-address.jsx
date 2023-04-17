@@ -299,7 +299,7 @@ Arabic</Dropdown.Item>
   <div class="store-container  my-5">
   <h5 fw-bold>Add a New Address</h5>
              <div class="card  " style={{width:'85%'}}> 
-          <div class="card-body p-4  ">
+          <div class="card-body p-5  ">
 
           
 <h6>Address Type</h6>

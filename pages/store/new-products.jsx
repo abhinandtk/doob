@@ -343,17 +343,21 @@ Arabic</Dropdown.Item>
 
 <div class="content-topic  ">
   <div className='bottom'>
-  <h6 className=' ms-4' style={{color:'#17a803',fontWeight:'700'}}>All Order</h6>
-  <p className='ms-4 ' style={{fontWeight:'500'}}>#12454<span  style={{float:'right'}}> <Button type="submit" className='order-btn ' > update Status </Button></span></p>
- <hr className='mx-auto' style={{width:'90%'}}></hr>
+ 
+  <h6 className=' ms-4' style={{color:'#17a803',fontWeight:'700'}}>Products</h6>
+  <Button type="submit" className='order1-btn ' > Add  Products </Button>
+
+
  <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-          <span style={{color:'#959595'}}>Order Date</span>
-          <span >20 Jan, 2023</span>
+          <p style={{fontWeight:'500'}}>Nike-20 Men’s Sport shoe</p>
+          <button class="profile-edit-btn mb-2">Edit</button>
         </div>
- <div class="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
-          <span style={{color:'#959595'}}>Price</span>
-          <span>13.000 KD</span>
+        <hr className='mx-auto ' style={{width:'90%',marginTop:'-2px'}}></hr>
+        <div class=" imx  d-flex justify-content-between align-items-center" >
+         <img src='../images/store/v copy.png'></img>
+         
         </div>
+
         <div class="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
           <span style={{color:'#959595'}}>Payment Mode</span>
           <span >Cash on Delivery</span>
@@ -368,35 +372,33 @@ Arabic</Dropdown.Item>
           <span style={{color:'#959595'}}>Other Status</span>
           <span style={{color:'#FF640D'}}>Pending</span>
         </div>
-        <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
- 
-    <select class="form-control" style={{border:'0px',background:'#eeeeee',color:'#959595'}} id="exampleFormControlSelect1">
-      <option>Items</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
+      
   
   <div class="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-          <div className='row '>
+          <div className='row store '>
            
-           <div className='col-lg-5 col-md-4'>
-        
+           <div className='col-lg-4 col-md-4'>
+          
            </div>
-           <div className='col-lg-5 col-md-4'>
-       
+           <div className='col-lg-4 col-md-4'>
+            
            </div>
           </div>
         </div>
-  <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-  <p className='mx-2'  style={{borderBottom:'1px solid black'}}>Download Invoice</p>
-  </div>
-<br></br>
 
-<p className='ms-5 ' style={{fontWeight:'500'}}>#12454<span  style={{float:'right'}}> <Button type="submit" className='order-btn ' > update Status </Button></span></p>
- <hr className='mx-auto' style={{width:'90%'}}></hr>
+
+
+
+
+        <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
+          <p style={{fontWeight:'500'}}>Nike-20 Men’s Sport shoe</p>
+          <button class="profile-edit-btn mb-2">Edit</button>
+        </div>
+        <hr className='mx-auto ' style={{width:'90%',marginTop:'-2px'}}></hr>
+        <div class="  d-flex justify-content-between align-items-center imx" >
+         <img src='../images/store/b.png' ></img>
+         
+        </div>
  <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
           <span style={{color:'#959595'}}>Order Date</span>
           <span >20 Jan, 2023</span>
@@ -419,20 +421,8 @@ Arabic</Dropdown.Item>
           <span style={{color:'#959595'}}>Other Status</span>
           <span style={{color:'#17A803'}}>Delivered</span>
         </div>
-        <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
+      
  
-    <select class="form-control" style={{border:'0px',background:'#eeeeee',color:'#959595'}} id="exampleFormControlSelect1">
-      <option>Items</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
-  <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-    <p className='mx-2'  style={{borderBottom:'1px solid black'}}>Download Invoice</p>
-  </div>
-  <br></br>
 </div>
 </div>
 </div>

@@ -1025,25 +1025,36 @@ body{
   height: 32px;
 }
 
-.today {
- 
+.btn-success {
   cursor: pointer;
   font-size: 13px;
-  flex-shrink: 0;
-  margin-left: 312px;
-  margin-top: 3px;
   background-color:#343C42;
-  border: none;
-  color: rgb(255, 255, 255);
-  padding: 2px 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
   border-radius: 5px;
-  cursor: pointer;
-  
-  
+  margin: 0 auto;
+  align-items: center;
+  text-align: center;
+  display: flex;
 }
+
+
+// .today {
+ 
+//   cursor: pointer;
+//   font-size: 13px;
+//   margin-left: 312px;
+//   margin-top: 3px;
+//   background-color:#343C42;
+//   border: none;
+//   color: rgb(255, 255, 255);
+//   padding: 2px 15px;
+//   text-align: center;
+//   text-decoration: none;
+//   display: inline-block;
+//   border-radius: 5px;
+//   cursor: pointer;
+  
+  
+// }
 
 
 .side-menu__footer {
@@ -1642,63 +1653,154 @@ body{
   color: #555;
 }
 
-
+///sajin___chatbox///
 .chatbox {
   position: relative;
   width: 100%;
-  height: calc(100% - 120px);
-  padding: 25px;
   overflow-y: auto;
-  background: transparent;
-  margin-top: 3px;
+  padding: 50px;
+  height: calc(100% - 120px);
 }
+
 .message {
   position: relative;
   display: flex;
   width: 100%;
-  margin: 13px 0;
- 
+  word-break: break-all;
+  clear: both;
 }
-
 .message p {
   position: relative;
   right: 0;
   text-align: right;
   max-width: 65%;
-  padding: 10px;
+  padding: 12px;
   background: #17A803;
+  color: #fff;
   border-radius: 10px;
-  font-size: 14px;
-  color: #ffffff;
-  border-radius: 10px 0px 10px 10px;
+  font-size: 0.9em;
 }
-
-
-
-.message p span {
-  display: block;
- 
-  font-size: 14px;
+.message p::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -12px;
+  width: 20px;
+  height:20px;
+  background: linear-gradient(135deg,#17A803 0%,#17A803 50%,transparent 50%,transparent);
+}
+.frnd_chatam {
+  color: #959595;
+  font-size: 0.85em;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 12px;
+}
+.frnd_message.chatam {
   opacity: 0.5;
-  color:'#FFFFFF';
-  height: 20px;
+ color: #959595;
+ justify-content: flex-end;
+}
+.my_chatam {
+  color: #959595;
+  font-size: 0.85em;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
 }
 
-.my_msg {
+// .message p span{
+//   display: block;
+//   margin-top: 5px;
+//   font-size: 0.85em;
+//   opacity: 0.5;
+// }
+.my_message {
   justify-content: flex-end;
 }
-
-.friend_msg {
+.frnd_message {
   justify-content: flex-start;
-
 }
-
-.friend_msg p {
+.frnd_message p {
   background: #343C42;
-  text-align: left;
-  color: #ffffff;
-  border-radius: 0px 10px 10px 10px;
+  text-align: right;
+  color: #fff;
+  margin-bottom: 8px;
 }
+.message.frnd_message p::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -12px;
+  width: 20px;
+  height:20px;
+  background: linear-gradient(225deg,#343C42 0%,#343C42 50%,transparent 50%,transparent);
+}
+///sajin chatbox end///
+
+
+// .chatbox {
+//   position: relative;
+//   width: 100%;
+//   height: calc(100% - 120px);
+//   padding: 25px;
+//   overflow-y: auto;
+//   background: transparent;
+//   margin-top: 3px;
+// }
+// .message {
+//   position: relative;
+//   display: flex;
+//   width: 100%;
+//   margin: 13px 0;
+//   clear: both;
+//   color: #212121;
+//   float: left;
+//   font-size: 13px;
+//   padding: 8px 16px;
+//   position: relative;
+//   word-break: break-all;
+// }
+
+// .message p {
+//   position: relative;
+//   right: 0;
+//   text-align: right;
+//   max-width: 65%;
+//   padding: 10px;
+//   background: #17A803;
+//   border-radius: 10px;
+//   font-size: 14px;
+//   color: #ffffff;
+//   border-radius: 10px 0px 10px 10px;
+// }
+
+
+
+// .message p span {
+//   display: block;
+ 
+//   font-size: 14px;
+//   opacity: 0.5;
+//   color:'#FFFFFF';
+//   height: 20px;
+// }
+
+// .my_msg {
+//   justify-content: flex-end;
+// }
+
+// .friend_msg {
+//   justify-content: flex-start;
+
+// }
+
+// .friend_msg p {
+//   background: #343C42;
+//   text-align: left;
+//   color: #ffffff;
+//   border-radius: 0px 10px 10px 10px;
+// }
 
 
 .chat_input {
@@ -1819,6 +1921,130 @@ position: absolute;
   display: none;
 }
 
+
+.side-container{
+  margin-left: 250px;
+  margin-top: 50px;
+  
+}
+.side {
+  height: 78%;
+  width: 240px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  overflow-x: hidden;
+  margin-left: 256px;
+  margin-top: 143px;
+}
+
+.side a {
+  padding: 7px 10px 5px 20px;
+  text-decoration: none;
+  font-size: 17px;
+  color: #000000;
+  display: block;
+  margin-top: 16px;
+}
+
+.side a:hover {
+  color:#17A803;
+}
+.svg:hover {
+  path:hover{stroke:#17A803;}
+}
+.content-page {
+  margin-left: 260px; /* Same as the width of the sidenav */
+  padding: 0px 5px;
+  margin-top: 58px;
+  background-color: white;
+  width: 650px;
+  height: 540px;
+}
+.content-pages {
+  margin-left: 260px; /* Same as the width of the sidenav */
+  padding: 0px 5px;
+  margin-top: 58px;
+  background-color: white;
+  width: 650px;
+  height:100%;
+}
+.field{
+font-size:15px;
+font-weight:500;
+margin-left: 13px;
+margin-bottom: -12px;
+}
+.head{
+  font-size:18px;
+  font-weight:500;
+   margin-left: 12px;
+}
+.wallet{
+  margin-top: 12px;
+  width: 620px;
+  margin-left: 12px;
+  background: #17A803;
+}
+.side-menus__suggestions-btns {
+ 
+  cursor: pointer;
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-right: 62px;
+  float:right; 
+  margin-top: -3px;
+  background-color:#17a803;
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 0px 19px;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 32px;
+}
+.favouite-cards{
+  background-color:#EEEEEE;
+  border-radius:12px 12px 12px 12px;
+  border: 0px;
+
+  
+ }
+ .top-p{
+   font-size:14px;
+   color:#959595;
+   font-weight:400;
+   margin-top: -12px;
+   
+ }
+ .down-p{
+   color:#17A803;
+   font-size:16px;
+   font-weight:600;
+   margin-top: -14px;
+ }
+ .wraps{
+  font-size:15px;
+  color:rgb(0, 0, 0);
+  font-weight:400;
+  text-overflow:ellipsis;
+  white-space:pre;
+  overflow:hidden;
+  width: 100%;
+}
+.store{
+ 
+  row-gap: 12px;
+}
+.store-card{
+  background-color:#EEEEEE;
+  border-radius:7%;
+  border:0px;
+  width:170px;
+}
 @media(max-width:1360px){
   .content {
    
@@ -1868,6 +2094,17 @@ position: absolute;
   .leftSides{
     display: none;
   }
+
+  //sajin favourite product //
+
+  .content-pages {
+    margin-left: 210px;
+    width: 630px;
+  }
+
+.side {
+  margin-left: 210px;
+}
 }
 
 @media(max-width:1100px){
@@ -1890,6 +2127,18 @@ position: absolute;
   .rightSide1{
     display:block;
   }
+
+  //sajin feedback start //
+
+  .content-page {
+    margin-left: 260px;
+    padding: 0px 5px;
+    margin-top: 58px;
+    background-color: white;
+    width: 62%;
+  }
+  
+    //sajin feedback end //
 }
 
 @media(max-width:1025px){
@@ -1908,6 +2157,8 @@ position: absolute;
   .rightSide1{
     display:block;
   }
+ 
+ 
 }
 
 @media(max-width:936px){
@@ -1926,6 +2177,16 @@ position: absolute;
   .rightSide1{
     display:block;
   }
+  //sajin feedback start //
+
+  .content-page {
+    margin-left: 223px;
+  }
+
+  .side {
+    margin-left: 225px;
+  }
+  //sajibn feedback end //
 }
 
 @media(max-width:769px){
@@ -2027,6 +2288,38 @@ position: absolute;
     margin-left:6px;
     width: 100%;
   }
+
+  // sajin favourite-product start//
+  .sidebar {
+    display: none;
+  }
+
+  .side {
+    height: 100%;
+    width: 240px;
+    margin-left: 0px;
+    margin-top: 86px;
+  }
+
+  .side-container {
+    margin-left: 250px;
+    margin-top: 0px;
+}
+
+.content-pages {
+   margin-left: 0px;
+   padding: 0px 0px;
+  margin-top: 0px; 
+  width: 650px;
+}
+
+.content-page {
+  margin-left: 0;
+  padding: 0px;
+  margin-top: 0px;
+  width: 100%;
+}
+// sajin favourite-product end//
 }
 
 @media(max-width:700px){
@@ -2730,88 +3023,4 @@ margin-left:6px;
   margin-left:6px;
   width: 100%;
 }
-}
-.side-container{
-  margin-left: 250px;
-  margin-top: 50px;
-  
-}
-.side {
-  height: 78%;
-  width: 240px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #ffffff;
-  overflow-x: hidden;
-  margin-left: 256px;
-  margin-top: 143px;
-}
-
-.side a {
-  padding: 7px 10px 5px 20px;
-  text-decoration: none;
-  font-size: 17px;
-  color: #000000;
-  display: block;
-  margin-top: 16px;
-}
-
-.side a:hover {
-  color:#17A803;
-}
-.svg:hover {
-  path:hover{stroke:#17A803;}
-}
-.content-page {
-  margin-left: 260px; /* Same as the width of the sidenav */
-  padding: 0px 5px;
-  margin-top: 58px;
-  background-color: white;
-  width: 650px;
-  height: 540px;
-}
-.content-pages {
-  margin-left: 260px; /* Same as the width of the sidenav */
-  padding: 0px 5px;
-  margin-top: 58px;
-  background-color: white;
-  width: 650px;
-  height:100%;
-}
-.field{
-font-size:15px;
-font-weight:500;
-margin-left: 13px;
-margin-bottom: -12px;
-}
-.head{
-  font-size:18px;
-  font-weight:500;
-   margin-left: 12px;
-}
-.wallet{
-  margin-top: 12px;
-  width: 620px;
-  margin-left: 12px;
-  background: #17A803;
-}
-.side-menu__suggestion-btn {
- 
-  cursor: pointer;
-  font-size: 14px;
-  flex-shrink: 0;
-  margin-right: 152px;
-  float:right; 
-  margin-top: -3px;
-  background-color:#17a803;
-  border: none;
-  color: rgb(255, 255, 255);
-  padding: 0px 19px;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 5px;
-  cursor: pointer;
-  height: 32px;
 }

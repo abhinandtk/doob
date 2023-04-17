@@ -333,7 +333,7 @@ Arabic</Dropdown.Item>
         <Card.Subtitle style={{float:'right',fontWeight:'500',fontSize:'19px'}} className="mb-2   ">3</Card.Subtitle>
         
         <Card.Text  className='mt-4' style={{float:'right',fontSize:'14px'}}>
-        <h4  className='ml-5'>Processing Orders</h4> 
+        <h4 style={{float:'right'}}>Processing Orders</h4> 
         </Card.Text>
        
       </Card.Body>
@@ -350,7 +350,7 @@ Arabic</Dropdown.Item>
         <Card.Subtitle style={{float:'right',fontWeight:'500',fontSize:'19px'}} className="mb-2   ">2</Card.Subtitle>
         
         <Card.Text  className='mt-4' style={{float:'right',fontSize:'14px'}}>
-        <h4 >Dispatched Orders</h4> 
+        <h4  style={{float:'right'}}>Dispatched Orders</h4> 
         </Card.Text>
        
       </Card.Body>
@@ -392,13 +392,6 @@ Arabic</Dropdown.Item>
 <p>Products</p>
 </div>
 </div>
-
-
-
-
-
-
-
 
 
 <div className='row  store mt-5 justify-content-lg-center ' >

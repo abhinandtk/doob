@@ -33,8 +33,8 @@ function StoreProductsCard({products,title}) {
      <h5>{title}<span className='view' >View All</span></h5>
   <div className='row store '>
         {products.map((item,index)=>(
-       <div className='col-lg-3 col-md-4  '>
-        <Card key={index} style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
+       <div className='col-md-4 col-lg-3  '>
+        <Card key={index} style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} className='favouite-card' >
           <Card.Img  style={{borderRadius:'0px 0px 0px 0px',width:'100%'}} src={`${constants.port}${item.image}`}  />
           <Card.Body>
             
@@ -54,8 +54,11 @@ function StoreProductsCard({products,title}) {
           
           </Card.Body> 
         </Card>
+
       </div>
         ))}
+        
+
         
        {/* <div className='col-lg-3 col-md-4  '>
         <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >

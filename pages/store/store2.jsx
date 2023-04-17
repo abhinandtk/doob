@@ -297,7 +297,7 @@ Arabic</Dropdown.Item>
     <div className="store-container">
     
    
-    <form className="nosubmit ">
+    <form className="nosubmit2">
       <input className="nosubmit1" type="search" placeholder="Search"   />
     </form>
     

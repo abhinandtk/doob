@@ -343,96 +343,71 @@ Arabic</Dropdown.Item>
 
 <div class="content-topic  ">
   <div className='bottom'>
-  <h6 className=' ms-4' style={{color:'#17a803',fontWeight:'700'}}>All Order</h6>
-  <p className='ms-4 ' style={{fontWeight:'500'}}>#12454<span  style={{float:'right'}}> <Button type="submit" className='order-btn ' > update Status </Button></span></p>
- <hr className='mx-auto' style={{width:'90%'}}></hr>
- <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-          <span style={{color:'#959595'}}>Order Date</span>
-          <span >20 Jan, 2023</span>
-        </div>
- <div class="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
-          <span style={{color:'#959595'}}>Price</span>
-          <span>13.000 KD</span>
-        </div>
-        <div class="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-          <span style={{color:'#959595'}}>Payment Mode</span>
-          <span >Cash on Delivery</span>
-        </div>
-        <div class="p-2  mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
-          <span style={{color:'#959595'}}>Payment Status</span>
-          <span style={{color:'#FF640D'}}>Pending</span>
-        </div>
-       
-       
-        <div class="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-          <span style={{color:'#959595'}}>Other Status</span>
-          <span style={{color:'#FF640D'}}>Pending</span>
-        </div>
-        <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
  
-    <select class="form-control" style={{border:'0px',background:'#eeeeee',color:'#959595'}} id="exampleFormControlSelect1">
-      <option>Items</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
-  
-  <div class="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-          <div className='row '>
-           
-           <div className='col-lg-5 col-md-4'>
-        
-           </div>
-           <div className='col-lg-5 col-md-4'>
-       
-           </div>
-          </div>
-        </div>
-  <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-  <p className='mx-2'  style={{borderBottom:'1px solid black'}}>Download Invoice</p>
-  </div>
-<br></br>
+  <h6 className=' ms-4' style={{color:'#17a803',fontWeight:'700'}}>Add Products</h6>
 
-<p className='ms-5 ' style={{fontWeight:'500'}}>#12454<span  style={{float:'right'}}> <Button type="submit" className='order-btn ' > update Status </Button></span></p>
- <hr className='mx-auto' style={{width:'90%'}}></hr>
- <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-          <span style={{color:'#959595'}}>Order Date</span>
-          <span >20 Jan, 2023</span>
-        </div>
- <div class="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
-          <span style={{color:'#959595'}}>Price</span>
-          <span>13.000 KD</span>
-        </div>
-        <div class="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-          <span style={{color:'#959595'}}>Payment Mode</span>
-          <span >Cash on Delivery</span>
-        </div>
-        <div class="p-2  mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
-          <span style={{color:'#959595'}}>Payment Status</span>
-          <span style={{color:'#17A803'}}>Payment Recevied</span>
-        </div>
-       
-       
-        <div class="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-          <span style={{color:'#959595'}}>Other Status</span>
-          <span style={{color:'#17A803'}}>Delivered</span>
-        </div>
-        <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
- 
-    <select class="form-control" style={{border:'0px',background:'#eeeeee',color:'#959595'}} id="exampleFormControlSelect1">
-      <option>Items</option>
+  
+  <div className='my-4 mx-4 '>
+    
+  <h6 >Basic Details</h6>
+<input type="email" class="form-control op p-2" style={{border:'0px',background:'#eeeeee'}} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name"/>
+
+  <div class="form-group my-2 ">
+    <label for="exampleFormControlInput1">Name</label>
+    <input type="email" class="form-control p-2" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlInput1" />
+  </div>
+  <div class="form-group my-2">
+    <label for="exampleFormControlInput1">Name in Arabic</label>
+    <input type="email" class="form-control p-2" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlInput1" />
+  </div>
+  <div class="form-group my-2">
+    <label for="exampleFormControlInput1">Brand</label>
+    <input type="email" class="form-control p-2" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlInput1" />
+  </div>
+  <div class="form-group my-2">
+    <label for="exampleFormControlSelect1" >Category</label>
+    <select class="form-control" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlSelect1">
+      <option>1</option>
       <option>2</option>
       <option>3</option>
       <option>4</option>
       <option>5</option>
     </select>
   </div>
-  <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-    <p className='mx-2'  style={{borderBottom:'1px solid black'}}>Download Invoice</p>
+  <div class="form-group my-2">
+    <label for="exampleFormControlSelect1" >Sub Category</label>
+    <select class="form-control" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlSelect">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
   </div>
-  <br></br>
+  <div class="form-group my-2">
+    <label for="exampleFormControlSelect1" >Tag</label>
+    <select class="form-control" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlSelect1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group  " >
+  <label for="exampleFormControlInput1"></label>
+    <input type="email" class="form-control p-2 op" style={{border:'0px',background:'#eeeeee',marginTop:'-10px'}} id="exampleFormControlInput1" placeholder='+965 9054642541' />
+  </div>
+
+  <div class="form-group my-2 ">
+    <label for="exampleFormControlInput1">Remark</label>
+    <input type="email" class="form-control p-2" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlInput1" />
+  </div>
+ <span> <i class="bi bi-square"></i><label className='mx-2'>Make this as the default address</label></span>
+ <Button type="submit" className='sub-cart-btn ' > Cancel  </Button>      <Button type="submit" className='submit-cart-btn mx-2 ' > Save </Button> 
+                  
+                  </div>
+                  
 </div>
 </div>
 </div>
