@@ -295,31 +295,31 @@ Arabic</Dropdown.Item>
       <h5 className='mt-4 ms-5'>Order History</h5>
   <p className='ms-5 ' style={{fontWeight:'500'}}>#12454</p>
  <hr className='mx-auto' style={{width:'90%'}}></hr>
- <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
+ <div className="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
           <span style={{color:'#959595'}}>Order Date</span>
           <span >20 Jan, 2023</span>
         </div>
- <div class="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
+ <div className="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
           <span style={{color:'#959595'}}>Price</span>
           <span>13.000 KD</span>
         </div>
-        <div class="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
+        <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
           <span style={{color:'#959595'}}>Payment Mode</span>
           <span >Cash on Delivery</span>
         </div>
-        <div class="p-2  mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
+        <div className="p-2  mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
           <span style={{color:'#959595'}}>Payment Status</span>
           <span style={{color:'#FF640D'}}>Pending</span>
         </div>
        
        
-        <div class="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
+        <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
           <span style={{color:'#959595'}}>Other Status</span>
           <span style={{color:'#FF640D'}}>Pending</span>
         </div>
-        <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
+        <div className="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
  
-    <select class="form-control" style={{border:'0px',background:'#eeeeee',color:'#959595'}} id="exampleFormControlSelect1">
+    <select className="form-control" style={{border:'0px',background:'#eeeeee',color:'#959595'}} id="exampleFormControlSelect1">
       <option>Items</option>
       <option>2</option>
       <option>3</option>
@@ -327,38 +327,38 @@ Arabic</Dropdown.Item>
       <option>5</option>
     </select>
   </div>
-  <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
+  <div className="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
   <p className='mx-2'  style={{borderBottom:'1px solid black'}}>Download Invoice</p>
   </div>
 <br></br>
 
   <p className='ms-5 ' style={{fontWeight:'500'}}>#12454</p>
  <hr className='mx-auto' style={{width:'90%'}}></hr>
- <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
+ <div className="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
           <span style={{color:'#959595'}}>Order Date</span>
           <span >20 Jan, 2023</span>
         </div>
- <div class="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
+ <div className="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
           <span style={{color:'#959595'}}>Price</span>
           <span>13.000 KD</span>
         </div>
-        <div class="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
+        <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
           <span style={{color:'#959595'}}>Payment Mode</span>
           <span >Cash on Delivery</span>
         </div>
-        <div class="p-2  mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
+        <div className="p-2  mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
           <span style={{color:'#959595'}}>Payment Status</span>
           <span style={{color:'#17A803'}}>Payment Recevied</span>
         </div>
        
        
-        <div class="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
+        <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
           <span style={{color:'#959595'}}>Other Status</span>
           <span style={{color:'#17A803'}}>Delivered</span>
         </div>
-        <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
+        <div className="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
  
-    <select class="form-control" style={{border:'0px',background:'#eeeeee',color:'#959595'}} id="exampleFormControlSelect1">
+    <select className="form-control" style={{border:'0px',background:'#eeeeee',color:'#959595'}} id="exampleFormControlSelect1">
       <option>Items</option>
       <option>2</option>
       <option>3</option>
@@ -366,7 +366,7 @@ Arabic</Dropdown.Item>
       <option>5</option>
     </select>
   </div>
-  <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
+  <div className="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
     <p className='mx-2'  style={{borderBottom:'1px solid black'}}>Download Invoice</p>
   </div>
 

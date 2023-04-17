@@ -296,41 +296,41 @@ Arabic</Dropdown.Item>
 
 
 
-  <div class="store-container  my-5">
-             <div class="card "> 
-          <div class="card-body p-5 ">
+  <div className="store-container  my-5">
+             <div className="card "> 
+          <div className="card-body p-5 ">
 
           <h5 fw-bold>Payment Details</h5>
 <p>Select the payment method you want to use</p>
-<div class="rounded border-0 d-flex w-100 p-2 align-items-center" style={{background:'#eeeeee'}}>
-                    <p class="mb-1 mx-2">
+<div className="rounded border-0 d-flex w-100 p-2 align-items-center" style={{background:'#eeeeee'}}>
+                    <p className="mb-1 mx-2">
                      <img src='../images/store/icon.png'></img> Knet
                     </p>
-                    <div class="ms-auto"><i class="bi bi-circle fa-1x text-dark mx-4"></i></div>
+                    <div className="ms-auto"><i className="bi bi-circle fa-1x text-dark mx-4"></i></div>
                   </div>
-                  <div class="rounded border-0 d-flex w-100 p-2 align-items-center my-4" style={{background:'#eeeeee'}}>
-                    <p class="mb-1 mx-2">
+                  <div className="rounded border-0 d-flex w-100 p-2 align-items-center my-4" style={{background:'#eeeeee'}}>
+                    <p className="mb-1 mx-2">
                      <img src='../images/store/pp.png'></img> Paypal 
                     </p>
-                    <div class="ms-auto"><i class="bi bi-circle fa-1x text-dark mx-4"></i></div>
+                    <div className="ms-auto"><i className="bi bi-circle fa-1x text-dark mx-4"></i></div>
                   </div>
-                  <div class="rounded border-0 d-flex w-100 p-2 align-items-center my-4" style={{background:'#eeeeee'}}>
-                    <p class="mb-1 mx-2">
+                  <div className="rounded border-0 d-flex w-100 p-2 align-items-center my-4" style={{background:'#eeeeee'}}>
+                    <p className="mb-1 mx-2">
                      <img src='../images/store/apple.png'></img> Apple
                     </p>
-                    <div class="ms-auto"><i class="bi bi-circle fa-1x text-dark mx-4"></i></div>
+                    <div className="ms-auto"><i className="bi bi-circle fa-1x text-dark mx-4"></i></div>
                   </div>
-                  <div class="rounded border-0 d-flex w-100 p-2 align-items-center my-4" style={{background:'#eeeeee'}}>
-                    <p class="mb-1 mx-2">
+                  <div className="rounded border-0 d-flex w-100 p-2 align-items-center my-4" style={{background:'#eeeeee'}}>
+                    <p className="mb-1 mx-2">
                      <img src='../images/store/c.png'></img> Credit Card
                     </p>
-                    <div class="ms-auto"><i class="bi bi-circle fa-1x text-dark mx-4"></i></div>
+                    <div className="ms-auto"><i className="bi bi-circle fa-1x text-dark mx-4"></i></div>
                   </div>
-                  <div class="rounded border-0 d-flex w-100 p-2 align-items-center my-4" style={{background:'#eeeeee'}}>
-                    <p class="mb-1 mx-2">
+                  <div className="rounded border-0 d-flex w-100 p-2 align-items-center my-4" style={{background:'#eeeeee'}}>
+                    <p className="mb-1 mx-2">
                      <img src='../images/store/cd.png'></img> Cash on Delivery
                     </p>
-                    <div class="ms-auto"><i class="bi bi-circle fa-1x text-dark mx-4"></i></div>
+                    <div className="ms-auto"><i className="bi bi-circle fa-1x text-dark mx-4"></i></div>
                   </div>
                   <Button type="submit" className='submit-cart-btn ' > Place Order  </Button>
           </div>

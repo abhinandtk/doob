@@ -341,40 +341,40 @@ Arabic</Dropdown.Item>
  <span className='mx-2'>Category</span> </a>
  </div>
 
-<div class="content-topic  ">
+<div className="content-topic  ">
   <div className='bottom'>
  
   <h6 className=' ms-4' style={{color:'#17a803',fontWeight:'700'}}>Products</h6>
   <Button type="submit" className='order1-btn ' > Add  Products </Button>
 
 
- <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
+ <div className="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
           <p style={{fontWeight:'500'}}>Nike-20 Men’s Sport shoe</p>
-          <button class="profile-edit-btn mb-2">Edit</button>
+          <button className="profile-edit-btn mb-2">Edit</button>
         </div>
         <hr className='mx-auto ' style={{width:'90%',marginTop:'-2px'}}></hr>
-        <div class=" imx  d-flex justify-content-between align-items-center" >
+        <div className=" imx  d-flex justify-content-between align-items-center" >
          <img src='../images/store/v copy.png'></img>
          
         </div>
 
-        <div class="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
+        <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
           <span style={{color:'#959595'}}>Payment Mode</span>
           <span >Cash on Delivery</span>
         </div>
-        <div class="p-2  mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
+        <div className="p-2  mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
           <span style={{color:'#959595'}}>Payment Status</span>
           <span style={{color:'#FF640D'}}>Pending</span>
         </div>
        
        
-        <div class="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
+        <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
           <span style={{color:'#959595'}}>Other Status</span>
           <span style={{color:'#FF640D'}}>Pending</span>
         </div>
       
   
-  <div class="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
+  <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
           <div className='row store '>
            
            <div className='col-lg-4 col-md-4'>
@@ -390,34 +390,34 @@ Arabic</Dropdown.Item>
 
 
 
-        <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
+        <div className="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
           <p style={{fontWeight:'500'}}>Nike-20 Men’s Sport shoe</p>
-          <button class="profile-edit-btn mb-2">Edit</button>
+          <button className="profile-edit-btn mb-2">Edit</button>
         </div>
         <hr className='mx-auto ' style={{width:'90%',marginTop:'-2px'}}></hr>
-        <div class="  d-flex justify-content-between align-items-center imx" >
+        <div className="  d-flex justify-content-between align-items-center imx" >
          <img src='../images/store/b.png' ></img>
          
         </div>
- <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
+ <div className="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
           <span style={{color:'#959595'}}>Order Date</span>
           <span >20 Jan, 2023</span>
         </div>
- <div class="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
+ <div className="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
           <span style={{color:'#959595'}}>Price</span>
           <span>13.000 KD</span>
         </div>
-        <div class="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
+        <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
           <span style={{color:'#959595'}}>Payment Mode</span>
           <span >Cash on Delivery</span>
         </div>
-        <div class="p-2  mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
+        <div className="p-2  mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
           <span style={{color:'#959595'}}>Payment Status</span>
           <span style={{color:'#17A803'}}>Payment Recevied</span>
         </div>
        
        
-        <div class="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
+        <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
           <span style={{color:'#959595'}}>Other Status</span>
           <span style={{color:'#17A803'}}>Delivered</span>
         </div>

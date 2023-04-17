@@ -236,7 +236,7 @@ Arabic</Dropdown.Item>
               </li>
               <li className="side-menu__footer-item">
               <a className='side-menu__footer-link'><img src='../images/fila.png' style={{width:'31px', height:'16px'}}></img></a>
-              </li>
+              </li>j
               <li className="side-menu__footer-item">
               <a className='side-menu__footer-link  '><img src='../images/551064.png' style={{width:'54px', height:'38px'}}></img></a>
               </li>
