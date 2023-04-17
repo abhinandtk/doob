@@ -27,7 +27,7 @@ function StoreTopDetails({data}) {
   console.log('6666666666666666',data.title)
   const headerContent =(
     <span>
-        More <i className="bi bi-chevron-down "></i>
+        More 
         <hr className='line '></hr>
     </span> 
     )
@@ -82,7 +82,7 @@ function StoreTopDetails({data}) {
               </div>
             </div> */}
             <Collapse bordered={false} >
-                <Panel  showArrow={false} header={headerContent} key="1" 
+                <Panel  showArrow={true} header={headerContent} key="1" 
                 >
                     <div className='text' >
                         <div className='description'>
