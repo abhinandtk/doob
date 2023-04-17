@@ -333,7 +333,7 @@ Arabic</Dropdown.Item>
       <Card.Body>
         
         <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill"></i> 4.5<span style={{float:'right'}}><i class="bi bi-suit-heart-fill "></i></span><br></br>Edge Identity Running Shoes For Men<br>
+        <i className="bi bi-star-fill"></i> 4.5<span style={{float:'right'}}><i className="bi bi-suit-heart-fill "></i></span><br></br>Edge Identity Running Shoes For Men<br>
           </br><p style={{color:'#000',fontSize:'16px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
         </Card.Text>
        
@@ -346,7 +346,7 @@ Arabic</Dropdown.Item>
       <Card.Body>
         
         <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill"></i> 4.5<span style={{float:'right'}}><i class="bi bi-suit-heart-fill "></i></span><br></br>Edge Identity Running Shoes For Men<br>
+        <i className="bi bi-star-fill"></i> 4.5<span style={{float:'right'}}><i className="bi bi-suit-heart-fill "></i></span><br></br>Edge Identity Running Shoes For Men<br>
           </br><p style={{color:'#000',fontSize:'16px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
         </Card.Text>
        
@@ -359,7 +359,7 @@ Arabic</Dropdown.Item>
       <Card.Body>
         
         <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill"></i> 4.5<span style={{float:'right'}}><i class="bi bi-suit-heart-fill "></i></span><br></br>Edge Identity Running Shoes For Men<br>
+        <i className="bi bi-star-fill"></i> 4.5<span style={{float:'right'}}><i className="bi bi-suit-heart-fill "></i></span><br></br>Edge Identity Running Shoes For Men<br>
           </br><p style={{color:'#000',fontSize:'16px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
         </Card.Text>
        
@@ -372,7 +372,7 @@ Arabic</Dropdown.Item>
       <Card.Body>
         
         <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill"></i> 4.5<span style={{float:'right'}}><i class="bi bi-suit-heart-fill "></i></span><br></br>Edge Identity Running Shoes For Men<br>
+        <i className="bi bi-star-fill"></i> 4.5<span style={{float:'right'}}><i className="bi bi-suit-heart-fill "></i></span><br></br>Edge Identity Running Shoes For Men<br>
           </br><p style={{color:'#000',fontSize:'16px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
         </Card.Text>
        
@@ -386,7 +386,7 @@ Arabic</Dropdown.Item>
       <Card.Body>
         
         <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill"></i> 4.5<span style={{float:'right'}}><i class="bi bi-suit-heart-fill "></i></span><br></br>Edge Identity Running Shoes For Men<br>
+        <i className="bi bi-star-fill"></i> 4.5<span style={{float:'right'}}><i className="bi bi-suit-heart-fill "></i></span><br></br>Edge Identity Running Shoes For Men<br>
           </br><p style={{color:'#000',fontSize:'16px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
         </Card.Text>
        
@@ -399,7 +399,7 @@ Arabic</Dropdown.Item>
       <Card.Body>
         
         <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill"></i> 4.5<span style={{float:'right'}}><i class="bi bi-suit-heart-fill "></i></span><br></br>Edge Identity Running Shoes For Men<br>
+        <i className="bi bi-star-fill"></i> 4.5<span style={{float:'right'}}><i className="bi bi-suit-heart-fill "></i></span><br></br>Edge Identity Running Shoes For Men<br>
           </br><p style={{color:'#000',fontSize:'16px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
         </Card.Text>
        

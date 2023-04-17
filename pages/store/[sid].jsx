@@ -61,33 +61,33 @@ function StoreDetailPage ()  {
 
     <section className='my-2' >
     <h5>Category</h5>
-    <div class="btn-group me-2" role="group" aria-label="Second group">
-    <button type="button" class="btn btn-outline-secondary" style={{padding:'5px 34px'}}>All</button>
+    <div className="btn-group me-2" role="group" aria-label="Second group">
+    <button type="button" className="btn btn-outline-secondary" style={{padding:'5px 34px'}}>All</button>
     
   </div>
   
-    <div class="btn-group me-2" role="group" aria-label="Second group">
-    <button type="button" class="btn btn-secondary" >Football</button>
+    <div className="btn-group me-2" role="group" aria-label="Second group">
+    <button type="button" className="btn btn-secondary" >Football</button>
     
   </div>
-  <div class="btn-group me-2" role="group" aria-label="Second group">
-    <button type="button" class="btn btn-secondary">Tennis</button>
+  <div className="btn-group me-2" role="group" aria-label="Second group">
+    <button type="button" className="btn btn-secondary">Tennis</button>
     
   </div>
-  <div class="btn-group me-2" role="group" aria-label="Second group">
-    <button type="button" class="btn btn-secondary">Volleyball</button>
+  <div className="btn-group me-2" role="group" aria-label="Second group">
+    <button type="button" className="btn btn-secondary">Volleyball</button>
     
   </div>
-  <div class="btn-group me-2" role="group" aria-label="Second group">
-    <button type="button" class="btn btn-secondary">Basketball</button>
+  <div className="btn-group me-2" role="group" aria-label="Second group">
+    <button type="button" className="btn btn-secondary">Basketball</button>
     
   </div>
-  <div class="btn-group me-2" role="group" aria-label="Second group">
-    <button type="button" class="btn btn-secondary">Biliard</button>
+  <div className="btn-group me-2" role="group" aria-label="Second group">
+    <button type="button" className="btn btn-secondary">Biliard</button>
     
   </div>
-  <div class="btn-group me-2" role="group" aria-label="Second group">
-    <button type="button" class="btn btn-secondary">Squash</button>
+  <div className="btn-group me-2" role="group" aria-label="Second group">
+    <button type="button" className="btn btn-secondary">Squash</button>
     
   </div>
   
@@ -104,7 +104,7 @@ function StoreDetailPage ()  {
       <Card.Body>
         
         <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
+        <i className="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i className="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
           <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
         </Card.Text>
        
@@ -117,7 +117,7 @@ function StoreDetailPage ()  {
       <Card.Body>
         
         <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
+        <i className="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i className="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
           <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
         </Card.Text>
        
@@ -130,7 +130,7 @@ function StoreDetailPage ()  {
       <Card.Body>
         
         <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
+        <i className="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i className="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
           <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
         </Card.Text>
        
@@ -143,7 +143,7 @@ function StoreDetailPage ()  {
       <Card.Body>
         
         <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-        <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
+        <i className="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i className="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
           <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
         </Card.Text>
        

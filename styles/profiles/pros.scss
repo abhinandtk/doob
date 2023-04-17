@@ -219,11 +219,10 @@ height:100%;
   margin-right: 2px;
 }
 #tabs{
-  background:transparent;
-    color: #eee;
-    // margin-left: 385px;
-    text-align: center;
-    display: inline;
+  background: transparent;
+  color: #eee;
+  text-align: -webkit-center;
+  margin-left: 0;
 }
 
   .nav-tabs {
@@ -366,6 +365,16 @@ height:100%;
   cursor: pointer;
   height: 32px;
 }
+
+
+// tabs container start//
+
+.tab-container {
+  width: 807px;
+  margin-top: 23px;
+  height: 100%;
+}
+
 
 @media(max-width:1360px){
   

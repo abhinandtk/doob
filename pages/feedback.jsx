@@ -339,7 +339,7 @@ Arabic</Dropdown.Item>
       </Form.Group>
       <Form.Group className="mb-3 " controlId="formBasicEmail">
         
-      <textarea class="form-control w-75 mx-2 dot"  id="exampleFormControlTextarea1" rows="3"  placeholder='Description'  ></textarea>
+      <textarea className="form-control w-75 mx-2 dot"  id="exampleFormControlTextarea1" rows="3"  placeholder='Description'  ></textarea>
        
       </Form.Group>
       </Form>

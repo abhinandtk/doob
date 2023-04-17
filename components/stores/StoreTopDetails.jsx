@@ -57,8 +57,8 @@ function StoreTopDetails({data}) {
             <div className='col-md-6'>
               <h5>{data.title}</h5>
               <p style={{fontSize:'13px',color:'gray'}}>{data.address}</p>
-              <span><p className='mx-1'><i class="bi bi-star-fill"style={{color:'yellow'}}></i>4.5 <span style={{color:'grey'}}>(12.30 reviews)</span></p></span>
-              <p><i class="bi bi-clock"></i><span className='mx-2'> {data.start_time}-{data.end_time}</span></p>
+              <span><p className='mx-1'><i className="bi bi-star-fill"style={{color:'yellow'}}></i>4.5 <span style={{color:'grey'}}>(12.30 reviews)</span></p></span>
+              <p><i className="bi bi-clock"></i><span className='mx-2'> {data.start_time}-{data.end_time}</span></p>
             </div>
             {/* <div className='col-md-6'>
             ddd

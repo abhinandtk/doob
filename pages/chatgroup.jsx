@@ -290,17 +290,17 @@ Arabic</Dropdown.Item>
    </aside>
    
 
-   <div class="container">
-        <div class="leftSide">
-        <div class="header">
-                <div class="text">
+   <div className="container">
+        <div className="leftSide">
+        <div className="header">
+                <div className="text">
                   <h6  style={{fontWeight:'600',fontSize:'17px',marginLeft:'11px'}}> <svg width="15" height="14" style={{marginRight:'4px'}} viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M5.84842 12.8221C6.0442 13.0178 6.28878 13.1156 6.53357 13.1156C6.77834 13.1156 7.02292 13.0178 7.21872 12.8221C7.61028 12.4305 7.61028 11.8188 7.21872 11.4272L3.35251 7.53656H14.0213C14.5596 7.53656 15 7.0962 15 6.55787C15 6.01953 14.5596 5.57916 14.0213 5.57916H3.35251L7.24315 1.68853C7.6347 1.29697 7.6347 0.685225 7.24315 0.293666C6.85159 -0.0978886 6.23985 -0.0978886 5.84829 0.293666L0.293666 5.87276C-0.0978886 6.26431 -0.0978886 6.87606 0.293666 7.26762L5.84842 12.8221Z" fill="black"/>
 </svg>Start New Message</h6>
                 </div>
              
             </div>
-            <div class="search_chat">
+            <div className="search_chat">
          
                 <div>
               
@@ -310,7 +310,7 @@ Arabic</Dropdown.Item>
                     
                 </div>                
             </div>
-            <div class="chatlist">
+            <div className="chatlist">
            
               <div className='block active'>
               <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -319,135 +319,135 @@ Arabic</Dropdown.Item>
 </svg> <span>    <h6  style={{fontWeight:'600',fontSize:'17px',marginLeft:'13px'}}>All new group</h6></span>
 
               </div>
-                <div class="block active">
-                    <div class="imgBox">
-                        <img src="../images/Rec.png" class="cover" alt=""/>
+                <div className="block active">
+                    <div className="imgBox">
+                        <img src="../images/Rec.png" className="cover" alt=""/>
                         <svg width="10" height="10" style={{marginLeft:'30px',marginTop:'35px',position:'absolute'}} viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 <ellipse cx="4.82459" cy="5.16357" rx="4.66443" ry="4.83643" fill="#17A803"/>
 </svg>
                     </div>
-                    <div class="details">
-                        <div class="listHead">
+                    <div className="details">
+                        <div className="listHead">
                             <p>Ayman Alruwaished<span><img src='../images/star.png' className=' mb-1' style={{width:'10px',height:'10px',marginLeft:'1px'}}></img></span></p>
                            
                            
                         </div>
-                        <div class="message_p">
+                        <div className="message_p">
                         <p className='note'>@ayman_alruwaished</p>
                             
                         </div>
                     </div>
                 </div>
-                <div class="block active">
-                    <div class="imgBox">
-                        <img src="../images/Rec.png" class="cover" alt=""/>
+                <div className="block active">
+                    <div className="imgBox">
+                        <img src="../images/Rec.png" className="cover" alt=""/>
                         <svg width="10" height="10" style={{marginLeft:'30px',marginTop:'35px',position:'absolute'}} viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 <ellipse cx="4.82459" cy="5.16357" rx="4.66443" ry="4.83643" fill="#17A803"/>
 </svg>
                     </div>
-                    <div class="details">
-                        <div class="listHead">
+                    <div className="details">
+                        <div className="listHead">
                             <p>Ayman Alruwaished<span><img src='../images/star.png' className=' mb-1' style={{width:'10px',height:'10px',marginLeft:'1px'}}></img></span></p>
                            
                            
                         </div>
-                        <div class="message_p">
+                        <div className="message_p">
                         <p className='note'>@ayman_alruwaished</p>
                             
                         </div>
                     </div>
                 </div>
-                <div class="block active">
-                    <div class="imgBox">
-                        <img src="../images/Rec.png" class="cover" alt=""/>
+                <div className="block active">
+                    <div className="imgBox">
+                        <img src="../images/Rec.png" className="cover" alt=""/>
                         <svg width="10" height="10" style={{marginLeft:'30px',marginTop:'35px',position:'absolute'}} viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 <ellipse cx="4.82459" cy="5.16357" rx="4.66443" ry="4.83643" fill="#17A803"/>
 </svg>
                     </div>
-                    <div class="details">
-                        <div class="listHead">
+                    <div className="details">
+                        <div className="listHead">
                             <p>Ayman Alruwaished<span><img src='../images/star.png' className=' mb-1' style={{width:'10px',height:'10px',marginLeft:'1px'}}></img></span></p>
                            
                            
                         </div>
-                        <div class="message_p">
+                        <div className="message_p">
                         <p className='note'>@ayman_alruwaished</p>
                             
                         </div>
                     </div>
                 </div>
-                <div class="block active">
-                    <div class="imgBox">
-                        <img src="../images/Rec.png" class="cover" alt=""/>
+                <div className="block active">
+                    <div className="imgBox">
+                        <img src="../images/Rec.png" className="cover" alt=""/>
                         <svg width="10" height="10" style={{marginLeft:'30px',marginTop:'35px',position:'absolute'}} viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 <ellipse cx="4.82459" cy="5.16357" rx="4.66443" ry="4.83643" fill="#17A803"/>
 </svg>
                     </div>
-                    <div class="details">
-                        <div class="listHead">
+                    <div className="details">
+                        <div className="listHead">
                             <p>Ayman Alruwaished<span><img src='../images/star.png' className=' mb-1' style={{width:'10px',height:'10px',marginLeft:'1px'}}></img></span></p>
                            
                            
                         </div>
-                        <div class="message_p">
+                        <div className="message_p">
                         <p className='note'>@ayman_alruwaished</p>
                             
                         </div>
                     </div>
                 </div>
-                <div class="block active">
-                    <div class="imgBox">
-                        <img src="../images/Rec.png" class="cover" alt=""/>
+                <div className="block active">
+                    <div className="imgBox">
+                        <img src="../images/Rec.png" className="cover" alt=""/>
                         <svg width="10" height="10" style={{marginLeft:'30px',marginTop:'35px',position:'absolute'}} viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 <ellipse cx="4.82459" cy="5.16357" rx="4.66443" ry="4.83643" fill="#17A803"/>
 </svg>
                     </div>
-                    <div class="details">
-                        <div class="listHead">
+                    <div className="details">
+                        <div className="listHead">
                             <p>Ayman Alruwaished</p>
                            
                            
                         </div>
-                        <div class="message_p">
+                        <div className="message_p">
                         <p className='note'>@ayman_alruwaished</p>
                             
                         </div>
                     </div>
                 </div>
               
-                <div class="block active">
-                    <div class="imgBox">
-                        <img src="../images/Rec.png" class="cover" alt=""/>
+                <div className="block active">
+                    <div className="imgBox">
+                        <img src="../images/Rec.png" className="cover" alt=""/>
                         <svg width="10" height="10" style={{marginLeft:'30px',marginTop:'35px',position:'absolute'}} viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 <ellipse cx="4.82459" cy="5.16357" rx="4.66443" ry="4.83643" fill="#17A803"/>
 </svg>
                     </div>
-                    <div class="details">
-                        <div class="listHead">
+                    <div className="details">
+                        <div className="listHead">
                             <p>Ayman Alruwaished</p>
                        
                            
                         </div>
-                        <div class="message_p">
+                        <div className="message_p">
                         <p className='note'>@ayman_alruwaished</p>
                            
                         </div>
                     </div>
                 </div>
-                <div class="block active">
-                    <div class="imgBox">
-                        <img src="../images/Rec.png" class="cover" alt=""/>
+                <div className="block active">
+                    <div className="imgBox">
+                        <img src="../images/Rec.png" className="cover" alt=""/>
                         <svg width="10" height="10" style={{marginLeft:'30px',marginTop:'35px',position:'absolute'}} viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 <ellipse cx="4.82459" cy="5.16357" rx="4.66443" ry="4.83643" fill="#17A803"/>
 </svg>
                     </div>
-                    <div class="details">
-                        <div class="listHead">
+                    <div className="details">
+                        <div className="listHead">
                             <p>Ayman Alruwaished</p>
                            
                            
                         </div>
-                        <div class="message_p">
+                        <div className="message_p">
                         <p className='note'>@ayman_alruwaished</p>
                            
                         </div>
@@ -457,11 +457,11 @@ Arabic</Dropdown.Item>
                 
             </div>
         </div>
-        <div class="rightSides">
+        <div className="rightSides">
           
            
           
-            <div class="chatbox">
+            <div className="chatbox">
                 <div className='tex-message'>
                     <img src='../images/share.png' style={{width:'35px',height:'35px',marginLeft:'115px',marginTop:'-5px'}}></img>
                 <h2 style={{marginLeft:'82px',fontSize:'16px',fontWeight:'600'}}>Send Messages</h2>

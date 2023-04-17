@@ -36,7 +36,7 @@ function favoriteStores() {
                             <Card.Img  style={{borderRadius:'12px 12px 0px 0px'}} src={`${item.store.cover_photo}`}  />
                             <Card.Body>
                                 <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-                                    {item.store.title}<span style={{float:'right'}}><i class="bi bi-suit-heart-fill"></i></span>
+                                    {item.store.title}<span style={{float:'right'}}><i className="bi bi-suit-heart-fill"></i></span>
                                 </Card.Text>
                             </Card.Body>
                         </Card>
@@ -47,7 +47,7 @@ function favoriteStores() {
                             <Card.Img  style={{borderRadius:'12px 12px 0px 0px'}} src="../images/1027 4.jpg"  />
                             <Card.Body>
                                 <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-                                    Sports Check<span style={{float:'right'}}><i class="bi bi-suit-heart-fill"></i></span>
+                                    Sports Check<span style={{float:'right'}}><i className="bi bi-suit-heart-fill"></i></span>
                                 </Card.Text>
                             </Card.Body>
                         </Card>

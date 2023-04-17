@@ -60,7 +60,7 @@ function SearchPage() {
     <Fragment>
         <MainHeader title='Doob'/>
         <MainSidebarFixed />
-        <form className="nosubmit ">
+        {/* <form className="nosubmit ">
             <input 
             className="nosubmit" 
             type="search" 
@@ -123,8 +123,155 @@ function SearchPage() {
             </Tabs>
         </div>
 	
-</section>
+</section> */}
 
+<div className="container2">
+    
+   
+  
+    <form className="nosubmit ">
+  <input className="nosubmit" type="search" placeholder="Search"   />
+</form>
+   
+    <section id="tabs">
+     
+         
+                <Tabs  
+             
+                > 
+                   <Tab eventKey={1} title="Feeds">
+<hr  className='col-md-12 line' ></hr>
+
+<div className="row images">
+
+<div className="col-lg-4 col-md-6 col-sm-4 col-xs-3" tabindex="0">
+<img src="../images/post1.jpg" className="image" alt=""/>
+</div>
+<div className="col-lg-4 col-md-6 col-sm-4 col-xs-3" tabindex="0">
+<img src=" ../images/post2.jpg " className="image" alt=""/>
+</div>
+<div className="col-lg-4 col-md-6 col-sm-4 col-xs-3" tabindex="0">
+<img src="../images/post3.jpg"  className="image" alt=""/>
+</div>
+<div className="col-lg-4 col-md-6 col-sm-4 col-xs-3" tabindex="0">
+<img src="../images/post1.jpg" className="image" alt=""/>
+</div>
+<div className="col-lg-4 col-md-6 col-sm-4 col-xs-2" tabindex="0">
+<img src=" ../images/post2.jpg " className="image" alt=""/>
+</div>
+<div className="col-lg-4 col-md-6 col-sm-4 col-xs-2" tabindex="0">
+<img src="../images/post3.jpg"  className="image" alt=""/>
+</div>
+
+</div>
+
+</Tab>
+                    <Tab eventKey='activities' title="Activities" >
+                        <hr  className=' line' ></hr>
+                      
+                        
+
+
+<div className='d-flex flex-start mt-4 mx-2'>
+            <a   className='me-2' href=''>
+            <CardImg  className='rounded-circle shadow-1-strong ' src="../images/profile 1.png" style={{width:'44px',height:'44px'}} ></CardImg>
+            </a>
+            <div className="flex-grow-1 flex-shrink-1 " style={{marginBottom:'-24px'}}>
+                            <div>
+                              <div className="d-flex justify-content-between align-items-center">
+                                <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
+                                Sulthan{" "}
+                                  
+                                </p>
+                              </div>
+                            
+                              <p className='small ' style={{color:'#000',fontWeight:'400',fontSize:'14px',marginTop:'-3px',float:'left'}}>
+                                 @sulthan_ali 
+                              </p>
+                            </div>
+                          </div>
+          </div>
+          <div className='d-flex flex-start mt-4 mx-2'>
+            <a   className='me-2' href=''>
+            <CardImg  className='rounded-circle shadow-1-strong ' src="../images/profile 2.png" style={{width:'44px',height:'44px'}} ></CardImg>
+            </a>
+            <div className="flex-grow-1 flex-shrink-1 " style={{marginBottom:'-24px'}}>
+                            <div>
+                              <div className="d-flex justify-content-between align-items-center">
+                                <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
+                                Sulthan Alhamad{" "}
+                                  
+                                </p>
+                              </div>
+                              <p className='small ' style={{color:'#000',fontWeight:'400',fontSize:'14px',marginTop:'-3px',float:'left'}}>
+                                 @sulthan_alhamad
+                              </p>
+                            </div>
+                          </div>
+          </div>
+
+          <div className='d-flex flex-start mt-4 mx-2'>
+            <a   className='me-2' href=''>
+            <CardImg  className='rounded-circle shadow-1-strong ' src="../images/profile 3.png" style={{width:'44px',height:'44px'}} ></CardImg>
+            </a>
+            <div className="flex-grow-1 flex-shrink-1 " style={{marginBottom:'-24px'}}>
+                            <div>
+                              <div className="d-flex justify-content-between align-items-center">
+                                <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
+                                Sulthan Khalid{" "}
+                                  
+                                </p>
+                              </div>
+                              <p className='small ' style={{color:'#000',fontWeight:'400',fontSize:'14px',marginTop:'-3px',float:'left'}}>
+                                 @sulthan_khalid
+                              </p>
+                            </div>
+                          </div>
+          </div>
+          <div className='d-flex flex-start mt-4 mx-2'>
+            <a   className='me-2' href=''>
+            <CardImg  className='rounded-circle shadow-1-strong ' src="../images/profile 4.png" style={{width:'44px',height:'44px'}} ></CardImg>
+            </a>
+            <div className="flex-grow-1 flex-shrink-1 " style={{marginBottom:'-24px'}}>
+                            <div>
+                              <div className="d-flex justify-content-between align-items-center">
+                                <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
+                                Sulthan Almubarakd{" "}
+                                  
+                                </p>
+                              </div>
+                            
+                              <p className='small ' style={{color:'#000',fontWeight:'400',fontSize:'14px',marginTop:'-3px',float:'left'}}>
+                                 @sulthan_almubarakd
+                              </p>
+                            </div>
+                          </div>
+          </div>
+          <div className='d-flex flex-start mt-4 mx-2'>
+            <a   className='me-2' href=''>
+            <CardImg  className='rounded-circle shadow-1-strong ' src="../images/profile 5.png" style={{width:'44px',height:'44px'}} ></CardImg>
+            </a>
+            <div className="flex-grow-1 flex-shrink-1 " style={{marginBottom:'-24px'}}>
+                            <div>
+                              <div className="d-flex justify-content-between align-items-center">
+                                <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
+                                Sulthan Sameer{" "}
+                                  
+                                </p>
+                              </div>
+                            
+                              <p className='small ' style={{color:'#000',fontWeight:'400',fontSize:'14px',marginTop:'-3px',float:'left'}}>
+                                 @sulthan_sameer
+                              </p>
+                            </div>
+                          </div>
+          </div>
+                    </Tab>
+                </Tabs>
+       
+      
+    </section>
+    </div>
     </Fragment>
   )
 }

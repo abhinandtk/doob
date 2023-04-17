@@ -37,8 +37,9 @@ function ProfileDetails() {
     <Fragment>
         
         <ProfileHeaderDetails data={userDetials}/>
+        
         <section id="tabs">
-         
+        <div className='tab-container'>
              
                     <Tabs  
                     // id="uncontrolled-tab-example" 
@@ -64,7 +65,7 @@ function ProfileDetails() {
                         <Tab eventKey={2} title="Activities" >
                             <hr style={{color:'#000',width:'900px'}} className='col-md-12 ' ></hr>
                             <Card style={{width:'900px',height:'850px'}}>
-                                <h6 style={{color:'#000',fontWeight:'600',fontSize:'18px',marginLeft:'43px',marginTop:'44px'}}>Tue.Feb 12</h6>
+                                <h6 style={{color:'#000',fontWeight:'600',fontSize:'18px',marginLeft:'43px',marginTop:'44px',textAlign:'left'}}>Tue.Feb 12</h6>
                                 <div className='d-flex flex-start mt-3 mx-5' >
                                     <a   className='me-2' href=''>
                                         <CardImg   src="../images/accounts/stadium.png" style={{width:'64px',height:'64px',borderRadius:'0px'}} ></CardImg>
@@ -119,7 +120,7 @@ function ProfileDetails() {
                                                 10:30 
                                             </p>
                                         </div>
-                                    </div>
+                                    </div> 
                                 </div>
                                 <hr  className=' line1 mx-5'  ></hr>
 
@@ -188,9 +189,9 @@ function ProfileDetails() {
                         </Tab>
                     </Tabs>
            
-          
+                    </div>
         </section>
-
+       
        
 
        

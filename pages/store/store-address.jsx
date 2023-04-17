@@ -297,27 +297,27 @@ Arabic</Dropdown.Item>
 
 
     
-  <div class="store-container h-100">
-  <section class="h-100 my-3 ">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col">
+  <div className="store-container h-100">
+  <section className="h-100 my-3 ">
+    <div className="row d-flex justify-content-center align-items-center h-100">
+      <div className="col">
          <h5 fw-bold>My Cart</h5>
     <p className='mt-3 ' >Shipping Address</p>
-            <div class="row">
-              <div class="col-lg-7">
-              <div class="card mb-2 ">
-                  <div class="card-body">
-                    <div class="d-flex justify-content-between ">
-                      <div class="d-flex flex-row align-items-center p-1">
+            <div className="row">
+              <div className="col-lg-7">
+              <div className="card mb-2 ">
+                  <div className="card-body">
+                    <div className="d-flex justify-content-between ">
+                      <div className="d-flex flex-row align-items-center p-1">
                         <div>
                        <img src='../images/Location icon.png' className='mb-5 me-3' ></img>
                         </div>
-                        <div class="ms-1 mb-0">
+                        <div className="ms-1 mb-0">
                           <h6 >Home </h6>
                           <p>26, Street 2,Naeem, Al Mutla City, 03200, Kuwait</p>
                         </div>
                       </div>
-                      <div class="trash " > 
+                      <div className="trash " > 
                         <div >
                         <span><img src='../images/edit.png'></img></span>
                         </div>
@@ -330,48 +330,48 @@ Arabic</Dropdown.Item>
                   
                 </div>
               <h5 style={{fontSize:'17px'}}>Order List<span className='view' >Total 3 items</span></h5>
-                <div class="card mb-2  ">
-                  <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                      <div class="d-flex flex-row align-items-center mb-2 " >
+                <div className="card mb-2  ">
+                  <div className="card-body">
+                    <div className="d-flex justify-content-between ">
+                      <div className="d-flex flex-row align-items-center mb-2 " >
                         <div >
                           <img
                             src="../images/v.png"
-                            class="img-fluid " alt="Shopping item" style={{width: '75px'}}/>
+                            className="img-fluid " alt="Shopping item" style={{width: '75px'}}/>
                         </div>
-                        <div class="ms-1 mb-0">
+                        <div className="ms-1 mb-0">
                           <h6>LEGEND 9 CLUB TF Football Shoes </h6>
-                          <p class=" mb-0">25.000 KD</p>
+                          <p className=" mb-0" style={{fontWeight:'700'}}>25.000 KD</p>
                         </div>
                       </div>
-                      <div class="trash " > 
+                      <div className="trash " > 
                         <div >
                         <span><img src='../images/trash.png'></img></span>
                         </div>
                       </div>
                     </div>
-                    <div class="qty1">
-                    <div  class="plus ">+</div>
-                        <input type="number" class="count" name="qty1" value="1"/>
-                        <div class="minus " >-</div>
+                    <div className="qty1">
+                    <div  className="plus ">+</div>
+                        <input type="number" className="count" name="qty1" value="1"/>
+                        <div className="minus " >-</div>
                     </div>
                   </div>
                 </div>
-                <div class="card mb-2 ">
-                  <div class="card-body ">
-                    <div class="d-flex justify-content-between">
-                      <div class="d-flex flex-row align-items-center mb-2   ">
+                <div className="card mb-2 ">
+                  <div className="card-body ">
+                    <div className="d-flex justify-content-between">
+                      <div className="d-flex flex-row align-items-center mb-2   ">
                         <div >
                           <img
                             src="../images/b.png"
-                            class="img-fluid rounded-3" alt="Shopping item" style={{width: '75px'}}/>
+                            className="img-fluid rounded-3" alt="Shopping item" style={{width: '75px'}}/>
                         </div>
-                        <div class="ms-1 mb-0">
+                        <div className="ms-1 mb-0">
                           <h6>LEGEND 9 CLUB TF Football Shoes </h6>
-                          <p class=" mb-0">25.000 KD</p>
+                          <p className=" mb-0" style={{fontWeight:'700'}}>25.000 KD</p>
                         </div>
                       </div>
-                      <div class="trash " > 
+                      <div className="trash " > 
                         <div >
                         <span><img src='../images/trash.png'></img></span>
                         </div>
@@ -379,36 +379,36 @@ Arabic</Dropdown.Item>
 
                       
                     </div>
-                    <div class="qty1">
-                    <div  class="plus ">+</div>
-                        <input type="number" class="count" name="qty1" value="1"/>
-                        <div class="minus " >-</div>
+                    <div className="qty1">
+                    <div  className="plus ">+</div>
+                        <input type="number" className="count" name="qty1" value="1"/>
+                        <div className="minus " >-</div>
                     </div> 
                   </div>
                 </div>
 
-                <div class="card mb-2 ">
-                  <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                      <div class="d-flex flex-row align-items-center mb-2 ">
+                <div className="card mb-2 ">
+                  <div className="card-body">
+                    <div className="d-flex justify-content-between">
+                      <div className="d-flex flex-row align-items-center mb-2 ">
                         <div>
                           <img
                             src="../images/f.png"
-                            class="img-fluid rounded-3" alt="Shopping item" style={{width: '75px'}}/>
+                            className="img-fluid rounded-3" alt="Shopping item" style={{width: '75px'}}/>
                         </div>
-                        <div class="ms-1">
+                        <div className="ms-1">
                           <h6>LEGEND 9 CLUB TF Football Shoes </h6>
-                          <p class=" mb-0">25.000 KD</p>
+                          <p className=" mb-0" style={{fontWeight:'700'}}>25.000 KD</p>
                         </div>
                       </div>
-                      <div class="trash " > 
+                      <div className="trash " > 
                         <span><img src='../images/trash.png'></img></span>
                       </div>
                     </div>
-                    <div class="qty1">
-                    <div  class="plus ">+</div>
-                        <input type="number" class="count" name="qty1" value="1"/>
-                        <div class="minus " >-</div>
+                    <div className="qty1">
+                    <div  className="plus ">+</div>
+                        <input type="number" className="count" name="qty1" value="1"/>
+                        <div className="minus " >-</div>
                     </div>
                   </div>
                 </div>
@@ -416,21 +416,21 @@ Arabic</Dropdown.Item>
          
 
               </div>
-              <div class="col-lg-5">
-                <div class="card bg-white   ">
-                  <div class="card-body p-4 ">
-                    <div class="d-flex justify-content-between">
-                      <p class="mb-2">Sub total(3 items)</p>
-                      <p class="mb-2" style={{fontWeight:'600'}}>$4798.00</p>
+              <div className="col-lg-5">
+                <div className="card bg-white   ">
+                  <div className="card-body p-4 ">
+                    <div className="d-flex justify-content-between">
+                      <p className="mb-2">Sub total(3 items)</p>
+                      <p className="mb-2" style={{fontWeight:'600'}}>$4798.00</p>
                     </div>
-                    <div class="d-flex justify-content-between">
-                      <p class="mb-2">Delivery Charge</p>
-                      <p class="mb-2" style={{fontWeight:'600'}}>$20.00</p>
+                    <div className="d-flex justify-content-between">
+                      <p className="mb-2">Delivery Charge</p>
+                      <p className="mb-2" style={{fontWeight:'600'}}>$20.00</p>
                     </div>
                     <hr className='hr'></hr>
-                    <div class="d-flex justify-content-between mb-4">
-                      <p class="mb-2" style={{fontWeight:'700'}}>Total Price</p>
-                      <p class="mb-2" style={{fontWeight:'600'}}>80.000 KD</p>
+                    <div className="d-flex justify-content-between mb-4">
+                      <p className="mb-2" style={{fontWeight:'700'}}>Total Price</p>
+                      <p className="mb-2" style={{fontWeight:'600'}}>80.000 KD</p>
                     </div>
                     <Button type="submit" className='cart-btn ' > Check out  </Button>
                   </div>
