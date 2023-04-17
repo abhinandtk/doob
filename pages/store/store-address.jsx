@@ -305,21 +305,21 @@ Arabic</Dropdown.Item>
     <p className='mt-3 ' >Shipping Address</p>
             <div class="row">
               <div class="col-lg-7">
-              <div class="card mb-2 ">
+              <div class="card mb-2 " >
                   <div class="card-body">
                     <div class="d-flex justify-content-between ">
-                      <div class="d-flex flex-row align-items-center p-1">
+                      <div class="d-flex flex-row align-items-center ">
                         <div>
-                       <img src='../images/Location icon.png' className='mb-5 me-3' ></img>
+                       <img src='../images/Location icon.png' className='me-4 mb-3' ></img>
                         </div>
-                        <div class="ms-1 mb-0">
-                          <h6 >Home </h6>
-                          <p>26, Street 2,Naeem, Al Mutla City, 03200, Kuwait</p>
+                        <div class="ms-1 mt-3">
+                          <h6 >Home  </h6>
+                          <p className='address-card'>26,  Street 2,Naeem, Al Mutla City, 03200, Kuwait</p>
                         </div>
                       </div>
-                      <div class="trash " > 
+                      <div  > 
                         <div >
-                        <span><img src='../images/edit.png'></img></span>
+                        <span><img src='../images/edit.png' class="trash "></img></span>
                         </div>
                         
                       </div>
@@ -330,94 +330,101 @@ Arabic</Dropdown.Item>
                   
                 </div>
               <h5 style={{fontSize:'17px'}}>Order List<span className='view' >Total 3 items</span></h5>
-                <div class="card mb-2  ">
+                
+               
+               <div class="card mb-2 " >
                   <div class="card-body">
                     <div class="d-flex justify-content-between ">
-                      <div class="d-flex flex-row align-items-center mb-2 " >
+                      <div class="d-flex flex-row align-items-center ">
                         <div >
-                          <img
-                            src="../images/v.png"
-                            class="img-fluid " alt="Shopping item" style={{width: '75px'}}/>
+                       <img src='../images/store/v copy.png' className='pixels-png' ></img>
                         </div>
-                        <div class="ms-1 mb-0">
-                          <h6>LEGEND 9 CLUB TF Football Shoes </h6>
-                          <p class=" mb-0" style={{fontWeight:'700'}}>25.000 KD</p>
+                        <div class=" add-left">
+                          <h6 >LEGEND 9 CLUB TF Football Shoes  </h6>
+                          <p className='address-card-price'>26.000 KD</p>
                         </div>
                       </div>
                       <div class="trash " > 
                         <div >
-                        <span><img src='../images/trash.png'></img></span>
+                        <span><img src='../images/store/trash.png'></img></span>
                         </div>
+                        
                       </div>
-                    </div>
-                    <div class="qty1">
-                    <div  class="plus ">+</div>
-                        <input type="number" class="count" name="qty1" value="1"/>
-                        <div class="minus " >-</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card mb-2 ">
-                  <div class="card-body ">
-                    <div class="d-flex justify-content-between">
-                      <div class="d-flex flex-row align-items-center mb-2   ">
-                        <div >
-                          <img
-                            src="../images/b.png"
-                            class="img-fluid rounded-3" alt="Shopping item" style={{width: '75px'}}/>
-                        </div>
-                        <div class="ms-1 mb-0">
-                          <h6>LEGEND 9 CLUB TF Football Shoes </h6>
-                          <p class=" mb-0" style={{fontWeight:'700'}}>25.000 KD</p>
-                        </div>
-                      </div>
-                      <div class="trash " > 
-                        <div >
-                        <span><img src='../images/trash.png'></img></span>
-                        </div>
-                      </div>
-
                       
                     </div>
-                    <div class="qty1">
+                        <div class="qty1">
                     <div  class="plus ">+</div>
                         <input type="number" class="count" name="qty1" value="1"/>
                         <div class="minus " >-</div>
                     </div> 
+               
                   </div>
+                  
                 </div>
-
-                <div class="card mb-2 ">
+                  
+               <div class="card mb-2 " >
                   <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                      <div class="d-flex flex-row align-items-center mb-2 ">
-                        <div>
-                          <img
-                            src="../images/f.png"
-                            class="img-fluid rounded-3" alt="Shopping item" style={{width: '75px'}}/>
+                    <div class="d-flex justify-content-between ">
+                      <div class="d-flex flex-row align-items-center ">
+                        <div  >
+                       <img src='../images/store/male-soccer-football-player-training-action-isolated-gradient-studio-neon-light copy.jpg' className='pixels-png' ></img>
                         </div>
-                        <div class="ms-1">
-                          <h6>LEGEND 9 CLUB TF Football Shoes </h6>
-                          <p class=" mb-0" style={{fontWeight:'700'}}>25.000 KD</p>
+                        <div class=" add-left">
+                          <h6 >LEGEND 9 CLUB TF Football Shoes  </h6>
+                          <p className='address-card-price'>26.000 KD</p>
                         </div>
                       </div>
                       <div class="trash " > 
-                        <span><img src='../images/trash.png'></img></span>
+                        <div >
+                        <span><img src='../images/store/trash.png'></img></span>
+                        </div>
+                        
                       </div>
+                      
                     </div>
-                    <div class="qty1">
+                        <div class="qty1">
                     <div  class="plus ">+</div>
                         <input type="number" class="count" name="qty1" value="1"/>
                         <div class="minus " >-</div>
-                    </div>
+                    </div> 
+               
                   </div>
+                  
                 </div>
-
-         
+                 
+               <div class="card mb-2 " >
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between ">
+                      <div class="d-flex flex-row align-items-center ">
+                        <div >
+                       <img src='../images/store/v copy.png' className='pixels-png' ></img>
+                        </div>
+                        <div class=" add-left">
+                          <h6 >LEGEND 9 CLUB TF Football Shoes iiiiiiiiiiiiiiiiiiiiii ooooooooo </h6>
+                          <p className='address-card-price'>26.000 KD</p>
+                        </div>
+                      </div>
+                      <div class="trash " > 
+                        <div >
+                        <span><img src='../images/store/trash.png'></img></span>
+                        </div>
+                        
+                      </div>
+                      
+                    </div>
+                        <div class="qty1">
+                    <div  class="plus ">+</div>
+                        <input type="number" class="count" name="qty1" value="1"/>
+                        <div class="minus " >-</div>
+                    </div> 
+               
+                  </div>
+                  
+                </div>
 
               </div>
               <div class="col-lg-5">
-                <div class="card bg-white   ">
+                <div class="card bg-white   " style={{width:'397px'}}>
                   <div class="card-body p-4 ">
                     <div class="d-flex justify-content-between">
                       <p class="mb-2">Sub total(3 items)</p>

@@ -502,17 +502,18 @@ Arabic</Dropdown.Item>
 
                 </ul>
             </div>
-            <hr style={{color:'grey',width:'680px'}} className='col-md-7 mx-3' ></hr>
+            <hr style={{color:'grey',width:'95%'}} className='col-md-7 mx-3' ></hr>
           
-            <div class="chatbox">
-            <div  className="today" >Today</div> 
-                <div class="message my_msg">
+            {/* <div class="chatbox">
+            <button type="button" class="btn btn-success btn-sm">Today</button> */}
+            {/* <div  className="today" >Today</div>  */}
+                {/* <div class="message my_msg">
                     <p>Hello! Ahmed Al Tourah </p>
                     <div className='minute'>09:35AM</div>
                 </div>
             
                 <div class="message friend_msg">
-                    <p>Hello ! Muhammad How are you?</p>
+                    <p>Hello ! Muhammad How are youfsjfgkaggh gel;hhlhhnkyhbiiyhrhekhgkkhryhirhkrhkdrhl rlhhlyhryhyrihyhlfghfghffffffffffffffffffffffffff?</p>
                     <div className='minute1'>09:35AM</div>
                 </div>
                
@@ -616,9 +617,55 @@ Arabic</Dropdown.Item>
                     <div className='minute'>09:35AM</div>
                 </div>
                 <div className='missed-call  '>You have a missed call at 9.46 AM</div>   
-            </div>  
-                                                                                                    
-          
+            </div>   */}
+
+
+            {/* sajin chat  */}
+          <button type="button" class="btn btn-success btn-sm">Today</button>                                                                       
+          <div className="chatbox">
+            
+            <div className="message my_message">
+                <p>hi<br></br></p>
+            </div>
+            <div className='my_chatam'>12:15 AM</div>
+            
+            <div className="message frnd_message">
+                <p>helloke fkekeshkskgsek kg kgkhs kgsgkksgghe ekhts hfsgfAJBS kgfa agwfa ug fkagksfhsvfs jwvfjgg bjj gg  fawa wbdad geuuerykwfh kgf'ashd fsv jav<br></br></p>
+            </div>
+            <div className='frnd_chatam'>12:15 AM</div>
+
+            <div className="message my_message">
+                <p>j,dbvjdz,vbkbsggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggdhvdh<br></br></p>
+            </div>
+            <div className='my_chatam'>12:15 AM</div>
+
+            <div className="message frnd_message">
+                <p>ertyuiodfghjhjk<br></br></p>
+            </div>
+            <div className='frnd_chatam'>12:15 AM</div>
+
+            <div className="message my_message">
+                <p>fhgjlhjbjhkj<br></br></p>
+            </div>
+            <div className='my_chatam'>12:15 AM</div>
+
+            <div className="message frnd_message">
+                <p>yydtfyggh<br></br></p>
+            </div>
+            <div className='frnd_chatam'>12:15 AM</div>
+
+            <div className="message my_message">
+                <p>h0okjfghjlki<br></br></p>
+            </div>
+            <div className='my_chatam'>12:15 AM</div>
+
+            <div className="message frnd_message">
+                <p>helsishj8+lo<br></br></p>
+            </div>
+            <div className='frnd_chatam'>12:15 AM</div>
+          </div>
+            
+            {/* sajin chat end  */}
             
             <div class="chat_input">
                 
@@ -640,6 +687,11 @@ Arabic</Dropdown.Item>
 </svg>
 
             </div>
+
+
+
+
+
         </div>
     </div>
 

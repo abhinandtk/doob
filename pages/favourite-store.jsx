@@ -305,7 +305,7 @@ Arabic</Dropdown.Item>
 </svg><span className='mx-2'>Favourite Products</span></a>
   <a href="#contact"><svg width="22" height="21" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M19.1654 2.98868V3.10854H19.2853H19.8156C21.0185 3.10988 21.9934 4.08484 21.9947 5.28779V19.4337C21.9941 20.6366 21.0185 21.6122 19.8157 21.6129H2.83997C1.63712 21.6115 0.66221 20.6366 0.660869 19.4336L0.660869 5.28772C0.662245 4.0848 1.63714 3.10988 2.83997 3.10854H3.37033H3.49019V2.98868V1.0434C3.49019 0.621496 3.83264 0.279033 4.2545 0.279033C4.67635 0.279033 5.01881 0.621496 5.01881 1.0434V2.98868V3.10854H5.13866H17.5169H17.6368V2.98868V1.0434C17.6368 0.621496 17.9792 0.279033 18.4011 0.279033C18.823 0.279033 19.1654 0.621496 19.1654 1.0434V2.98868ZM2.83984 4.63727L2.83955 4.63727C2.48074 4.63814 2.19035 4.92855 2.18949 5.28737V5.28766V7.23294V7.35279H2.30934H20.3463H20.4661V7.23294V5.28766C20.4661 4.92862 20.1748 4.63727 19.8158 4.63727L2.83984 4.63727ZM2.30934 8.88153H2.18949V9.00138V19.4338C2.18949 19.7928 2.4808 20.0842 2.83984 20.0842H19.8158C20.1748 20.0842 20.4661 19.7928 20.4661 19.4338V9.00138V8.88153H20.3463H2.30934Z" fill="black" stroke="black" stroke-width="0.239706"/>
-</svg> <span className='mx-2'>Booking</span> </a>
+</svg> <span className='mx-'>Booking</span> </a>
   <a href="#home"><svg width="22" height="22" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M18.8769 5.84048H16.1802C16.1802 4.3306 15.6119 2.88256 14.6005 1.81491C13.589 0.74726 12.2172 0.147461 10.7868 0.147461C9.35636 0.147461 7.98453 0.74726 6.97308 1.81491C5.96162 2.88256 5.39339 4.3306 5.39339 5.84048H2.69669C1.98149 5.84048 1.29557 6.14038 0.789844 6.67421C0.284115 7.20803 0 7.93205 0 8.68699L0 18.1754C0.00142732 19.4331 0.475411 20.639 1.31798 21.5283C2.16055 22.4177 3.30292 22.918 4.49449 22.9196H17.0791C18.2706 22.918 19.413 22.4177 20.2556 21.5283C21.0981 20.639 21.5721 19.4331 21.5736 18.1754V8.68699C21.5736 7.93205 21.2894 7.20803 20.7837 6.67421C20.278 6.14038 19.5921 5.84048 18.8769 5.84048ZM10.7868 2.04514C11.7404 2.04514 12.6549 2.445 13.3292 3.15677C14.0036 3.86853 14.3824 4.83389 14.3824 5.84048H7.19119C7.19119 4.83389 7.57001 3.86853 8.24431 3.15677C8.91862 2.445 9.83317 2.04514 10.7868 2.04514V2.04514ZM19.7758 18.1754C19.7758 18.9303 19.4916 19.6543 18.9859 20.1882C18.4802 20.722 17.7943 21.0219 17.0791 21.0219H4.49449C3.77928 21.0219 3.09337 20.722 2.58764 20.1882C2.08191 19.6543 1.7978 18.9303 1.7978 18.1754V8.68699C1.7978 8.43535 1.8925 8.19401 2.06108 8.01607C2.22965 7.83812 2.45829 7.73816 2.69669 7.73816H5.39339V9.63583C5.39339 9.88748 5.4881 10.1288 5.65667 10.3068C5.82525 10.4847 6.05389 10.5847 6.29229 10.5847C6.53069 10.5847 6.75933 10.4847 6.92791 10.3068C7.09648 10.1288 7.19119 9.88748 7.19119 9.63583V7.73816H14.3824V9.63583C14.3824 9.88748 14.4771 10.1288 14.6457 10.3068C14.8142 10.4847 15.0429 10.5847 15.2813 10.5847C15.5197 10.5847 15.7483 10.4847 15.9169 10.3068C16.0855 10.1288 16.1802 9.88748 16.1802 9.63583V7.73816H18.8769C19.1153 7.73816 19.3439 7.83812 19.5125 8.01607C19.6811 8.19401 19.7758 8.43535 19.7758 8.68699V18.1754Z" fill="black"/>
 </svg><span className='mx-2'>My Orders</span></a>
@@ -322,13 +322,13 @@ Arabic</Dropdown.Item>
 <span className='mx-2'>Logout</span> </a>
 </div>
 
-<div className="content-pages">
+<div className="content-page">
   <br></br>
 <div className='head'>Favourite Store</div>
-     <div className='container'>
-        <div className='row'>
-            <div className='col-sm-4'>
-            <Card   style={{backgroundColor:'#EEEEEE',borderRadius:'7%',border:'0px'}} >
+     
+        <div className='row store mx-1 my-2 '>
+            <div className='col-lg-4 col-md-4'>
+            <Card  className='store-card'   >
       <Card.Img  style={{borderRadius:'12px 12px 0px 0px'}} src="../images/1027 4.jpg"  />
       <Card.Body>
         
@@ -338,8 +338,8 @@ Arabic</Dropdown.Item>
       </Card.Body>
     </Card>
             </div>
-            <div className='col-sm-4'>
-            <Card   style={{backgroundColor:'#EEEEEE',borderRadius:'7%',border:'0px'}} >
+            <div className='col-lg-4 col-md-4'>
+            <Card  className='store-card'   >
       <Card.Img  style={{borderRadius:'12px 12px 0px 0px'}} src="../images/Mgroup.jpg" />
       <Card.Body>
         
@@ -350,8 +350,8 @@ Arabic</Dropdown.Item>
     </Card>
             </div>
             
-            <div className='col-sm-4' >
-            <Card   style={{backgroundColor:'#EEEEEE',borderRadius:'7%',border:'0px'}} >
+            <div className='col-lg-4 col-md-4' >
+            <Card  className='store-card'   >
       <Card.Img  style={{borderRadius:'12px 12px 0px 0px'}} src="../images/2image .jpg" />
       <Card.Body>
         
@@ -361,9 +361,9 @@ Arabic</Dropdown.Item>
       </Card.Body>
     </Card>
             </div>
-            <div className='col-sm-4'>
-            <Card   style={{backgroundColor:'#EEEEEE',borderRadius:'7%',border:'0px'}} >
-      <Card.Img  style={{borderRadius:'12px 12px 0px 0px'}} src="../images/Mgroup.jpg" />
+            <div className='col-lg-4 col-md-4'>
+            <Card  className='store-card'   >
+      <Card.Img  style={{borderRadius:'12px 12px 0px 0px'}} src="../images/1027 4.jpg"  />
       <Card.Body>
         
         <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
@@ -372,10 +372,30 @@ Arabic</Dropdown.Item>
       </Card.Body>
     </Card>
             </div>
-           
-            
+            <div className='col-lg-4 col-md-4'>
+            <Card  className='store-card'   >
+      <Card.Img  style={{borderRadius:'12px 12px 0px 0px'}} src="../images/1027 4.jpg"  />
+      <Card.Body>
+        
+        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
+          Sports Check<span style={{float:'right'}}><i class="bi bi-suit-heart-fill"></i></span>
+        </Card.Text>
+      </Card.Body>
+    </Card>
+            </div>
+            <div className='col-lg-4 col-md-4'>
+            <Card  className='store-card'   >
+      <Card.Img  style={{borderRadius:'12px 12px 0px 0px'}} src="../images/1027 4.jpg"  />
+      <Card.Body>
+        
+        <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
+          Sports Check<span style={{float:'right'}}><i class="bi bi-suit-heart-fill"></i></span>
+        </Card.Text>
+      </Card.Body>
+    </Card>
+            </div>
         </div>
-     </div>
+     
 </div>
     </div>
     </div>
