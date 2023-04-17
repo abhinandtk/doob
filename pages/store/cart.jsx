@@ -309,7 +309,7 @@ Arabic</Dropdown.Item>
     <img src='../images/store/shoe background.jpg' style={{width:'450px',height:'auto'}}></img>
   </div>
   </div>
- <div class="  col-lg-8">                
+ <div className="  col-lg-8">                
 <div className='row  '>
 <div className='col-md-2  '>
 <img src='../images/store/red.png'style={{width:'50px',height:'50px'}} ></img>
@@ -323,8 +323,8 @@ Arabic</Dropdown.Item>
 </div> </div>
                 
               </div>
-              <div class="col-md-5 ">
-              <div class=" justify-content-between align-items-center   " >
+              <div className="col-md-5 ">
+              <div className=" justify-content-between align-items-center   " >
              < span className='float' ><svg width="18" height="17" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M9.5 18C9.5 18 0 12.3609 0 5.59388C0 -1.17312 7.38889 -1.73704 9.5 3.55748C11.6111 -1.73704 19 -1.17312 19 5.59388C19 12.3609 9.5 18 9.5 18Z" fill="black"/>
 </svg> <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -339,31 +339,31 @@ Arabic</Dropdown.Item>
 
 </span>
               <h5 className='col-md-9'  >COPA SENSE.4 FxG Football  Shoes    For Men</h5> 
-                      <p className='mx-1'><i class="bi bi-star-fill"style={{color:'yellow'}}></i>4.5 <span style={{color:'grey'}}>(203 reviews)</span></p>
+                      <p className='mx-1'><i className="bi bi-star-fill"style={{color:'yellow'}}></i>4.5 <span style={{color:'grey'}}>(203 reviews)</span></p>
                       <p style={{fontSize:'14px',fontWeight:'400'}} >Lorem z ipsum dolor sit amet, consectetur adipiscing elit. Facilisis tellus, est lacus arcu ut ac in fermentum. Sit eget proin nunc felis quam rutrum metus. Et lacus, maecenas vel et arcu ut adipiscing morbi eget. </p>
                  
                        <h6 >Color<br>
-                       </br><i class="bi bi-circle-fill" style={{color:'#ED4B4B'}}></i><span><i class="bi bi-circle-fill mx-2" style={{color:'purple'}}></i><i class="bi bi-circle-fill " style={{color:'violet'}}></i></span></h6>
+                       </br><i className="bi bi-circle-fill" style={{color:'#ED4B4B'}}></i><span><i className="bi bi-circle-fill mx-2" style={{color:'purple'}}></i><i className="bi bi-circle-fill " style={{color:'violet'}}></i></span></h6>
                         
                       <h6>Choose size</h6>
-                      <div class="btn-group  " role="group" aria-label="Second group">
-    <button type="button" class="btn btn-secondary" >34</button>
+                      <div className="btn-group  " role="group" aria-label="Second group">
+    <button type="button" className="btn btn-secondary" >34</button>
   </div>
-  <div class="btn-group " role="group" aria-label="Second group">
-    <button type="button" class="btn btn-outline-secondary">35</button>
+  <div className="btn-group " role="group" aria-label="Second group">
+    <button type="button" className="btn btn-outline-secondary">35</button>
   </div>
-  <div class="btn-group " role="group" aria-label="Second group">
-    <button type="button" class="btn btn-secondary" >34</button>
+  <div className="btn-group " role="group" aria-label="Second group">
+    <button type="button" className="btn btn-secondary" >34</button>
   </div>
-  <div class="btn-group " role="group" aria-label="Second group">
-    <button type="button" class="btn btn-outline-secondary">35</button>
+  <div className="btn-group " role="group" aria-label="Second group">
+    <button type="button" className="btn btn-outline-secondary">35</button>
   </div> 
   <br></br>
   <p style={{color:'gray',fontWeight:'400'}}><s>15.000 KD</s><span className='mx-2' style={{fontSize:'20px',fontWeight:'500',color:'#17a803'}}>13.000 KD</span><span></span></p>
-  <div class="qty">
-                        <div class="minus " style={{backgroundColor:'#aba4a4'}}>-</div>
-                        <input type="number" class="count" name="qty" value="1"/>
-                        <div  class="plus " style={{backgroundColor:'#aba4a4'}}>+</div>
+  <div className="qty">
+                        <div className="minus " style={{backgroundColor:'#aba4a4'}}>-</div>
+                        <input type="number" className="count" name="qty" value="1"/>
+                        <div  className="plus " style={{backgroundColor:'#aba4a4'}}>+</div>
                     </div>
                    
                  <Button 

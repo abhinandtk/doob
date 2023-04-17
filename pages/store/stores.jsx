@@ -66,7 +66,7 @@ function StorePage ()  {
           
           <h5>Favourite Products<span className='view' >View All</span></h5>
           <div className='row store '>
-            {/* <div className='col-lg-3 col-md-4 '>
+            {/* <div className='col-md-6 col-lg-3 '>
             <Card className='favouite-card'  >
             <Card.Img  style={{borderRadius:'0px 0px 0px 0px',width:'100%'}} src="../images/store/shoes.jpg"  />
             <Card.Body>
@@ -80,7 +80,7 @@ function StorePage ()  {
             </Card.Body>
             </Card>
             </div>
-            <div className='col-lg-3 col-md-4  '>
+            <div className='col-md-6 col-lg-3 '>
             <Card className='favouite-card'  >
             <Card.Img  style={{borderRadius:'0px 0px 0px 0px',width:'100%'}} src="../images/store/shoes.jpg"  />
             <Card.Body>
@@ -94,7 +94,7 @@ function StorePage ()  {
             </Card.Body>
             </Card>
             </div>
-            <div className='col-lg-3 col-md-4  '>
+            <div className='col-md-6 col-lg-3 '>
             <Card className='favouite-card'  >
             <Card.Img  style={{borderRadius:'0px 0px 0px 0px',width:'100%'}} src="../images/store/shoes.jpg"  />
             <Card.Body>
@@ -108,7 +108,7 @@ function StorePage ()  {
             </Card.Body>
             </Card>
             </div>
-            <div className='col-lg-3 col-md-4  '>
+            <div className='col-md-6 col-lg-3'>
             <Card className='favouite-card'  >
             <Card.Img  style={{borderRadius:'0px 0px 0px 0px',width:'100%'}} src="../images/store/shoes.jpg"  />
             <Card.Body>
@@ -122,7 +122,7 @@ function StorePage ()  {
             </Card.Body>
             </Card>
             </div>
-            <div className='col-lg-3 col-md-4  '>
+            <div className='col-md-6 col-lg-3 '>
             <Card className='favouite-card'  >
             <Card.Img  style={{borderRadius:'0px 0px 0px 0px',width:'100%'}} src="../images/store/shoes.jpg"  />
             <Card.Body>
@@ -140,7 +140,7 @@ function StorePage ()  {
 
 {/* card start */}
 
-
+{/* 
           <div className="col-md-6 col-lg-3">
                 <div className="card">
                   <img className="card-img" src="../images/store/shoes.jpg" alt="Vans"/>
@@ -219,7 +219,7 @@ function StorePage ()  {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
                       {/* card end */}
           </div>

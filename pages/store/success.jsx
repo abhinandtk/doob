@@ -296,10 +296,10 @@ Arabic</Dropdown.Item>
 
 
 
-  <div class="store-container  my-5">
+  <div className="store-container  my-5">
 
-             <div class="card "> 
-          <div class="card-body p-5  ">
+             <div className="card "> 
+          <div className="card-body p-5  ">
            <div className='success ' style={{textAlign:'center'}}>
             <img src='../images/store/success.png' className='greenlogo'>
            

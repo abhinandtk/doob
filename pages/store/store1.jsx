@@ -320,8 +320,8 @@ Arabic</Dropdown.Item>
     <div className='col-md-6'>
       <h5>Foot Locker Sportswear shop</h5>
       <p style={{fontSize:'13px',color:'gray'}}>Hawally,Kuwait</p>
-      <span><p className='mx-1'><i class="bi bi-star-fill"style={{color:'yellow'}}></i>4.5 <span style={{color:'grey'}}>(12.30 reviews)</span></p></span>
-      <p><i class="bi bi-clock"></i><span className='mx-2'> 9:00 AM-12:00 PM</span></p>
+      <span><p className='mx-1'><i className="bi bi-star-fill"style={{color:'yellow'}}></i>4.5 <span style={{color:'grey'}}>(12.30 reviews)</span></p></span>
+      <p><i className="bi bi-clock"></i><span className='mx-2'> 9:00 AM-12:00 PM</span></p>
     </div>
     <div className='col-md-6'>
     
@@ -365,33 +365,33 @@ Arabic</Dropdown.Item>
 
     <section className='my-2' >
     <h5>Category</h5>
-    <div class="btn-group me-2" role="group" aria-label="Second group">
-    <button type="button" class="btn btn-outline-secondary" style={{padding:'5px 34px'}}>All</button>
+    <div className="btn-group me-2" role="group" aria-label="Second group">
+    <button type="button" className="btn btn-outline-secondary" style={{padding:'5px 34px'}}>All</button>
     
   </div>
   
-    <div class="btn-group me-2" role="group" aria-label="Second group">
-    <button type="button" class="btn btn-secondary" >Football</button>
+    <div className="btn-group me-2" role="group" aria-label="Second group">
+    <button type="button" className="btn btn-secondary" >Football</button>
     
   </div>
-  <div class="btn-group me-2" role="group" aria-label="Second group">
-    <button type="button" class="btn btn-secondary">Tennis</button>
+  <div className="btn-group me-2" role="group" aria-label="Second group">
+    <button type="button" className="btn btn-secondary">Tennis</button>
     
   </div>
-  <div class="btn-group me-2" role="group" aria-label="Second group">
-    <button type="button" class="btn btn-secondary">Volleyball</button>
+  <div className="btn-group me-2" role="group" aria-label="Second group">
+    <button type="button" className="btn btn-secondary">Volleyball</button>
     
   </div>
-  <div class="btn-group me-2" role="group" aria-label="Second group">
-    <button type="button" class="btn btn-secondary">Basketball</button>
+  <div className="btn-group me-2" role="group" aria-label="Second group">
+    <button type="button" className="btn btn-secondary">Basketball</button>
     
   </div>
-  <div class="btn-group me-2" role="group" aria-label="Second group">
-    <button type="button" class="btn btn-secondary">Biliard</button>
+  <div className="btn-group me-2" role="group" aria-label="Second group">
+    <button type="button" className="btn btn-secondary">Biliard</button>
     
   </div>
-  <div class="btn-group me-2" role="group" aria-label="Second group">
-    <button type="button" class="btn btn-secondary">Squash</button>
+  <div className="btn-group me-2" role="group" aria-label="Second group">
+    <button type="button" className="btn btn-secondary">Squash</button>
     
   </div>
   

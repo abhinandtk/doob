@@ -97,11 +97,11 @@ function ProfileHeaderDetails({data}) {
             <Card.Body>
              <div className='row'>
                 <div className='col-md-6'>
-                <button class="btn profile-edit-btn">Rank</button> <span> <button class="btn profile-edit-btn1">Edit</button></span>
-                <div class="profile-image">
+                <button className="btn profile-edit-btn">Rank</button> <span> <button className="btn profile-edit-btn1">Edit</button></span>
+                <div className="profile-image">
                     <img style={{borderRadius:'50%'}} src={`${constants.port}${data.user_image}`} alt=""></img>
                 </div>
-                <div class="profile-cam1" onClick={uploadShowHandler}>
+                <div className="profile-cam1" onClick={uploadShowHandler}>
                     <img src="../images/accounts/camera.png" href='#'  alt=""></img>
                 </div>
                 </div>
@@ -109,19 +109,19 @@ function ProfileHeaderDetails({data}) {
               
               
 
-                <div class="profile-stats">
+                <div className="profile-stats">
                     <ul>
-                    <h1 class="profile-user-name">{data.name}<span><img src='../images/accounts/stars.png' className='mx-1 mb-1'></img></span><span><img src='../images/accounts/iconoir_help-circles.png' className=' mb-1'></img></span></h1><br></br>
-                    <h1 class="profile-user-names">{data.username}</h1>
+                    <h1 className="profile-user-name">{data.name}<span><img src='../images/accounts/stars.png' className='mx-1 mb-1'></img></span><span><img src='../images/accounts/iconoir_help-circles.png' className=' mb-1'></img></span></h1><br></br>
+                    <h1 className="profile-user-names">{data.username}</h1>
                     <br></br>
-                    <li><span class="profile-stat-count">{data.post_count}</span> <span style={{color:'#959595'}}>posts</span></li>
-                    <li onClick={()=>setFollowersListShow(true)}><span class="profile-stat-count" >{data.followers_count}</span>  <span style={{color:'#959595'}}>followers</span></li>
-                    <li onClick={()=>setFollowingListShow(true)}><span class="profile-stat-count">{data.following_count}</span>  <span style={{color:'#959595'}}>following</span></li>
+                    <li><span className="profile-stat-count">{data.post_count}</span> <span style={{color:'#959595'}}>posts</span></li>
+                    <li onClick={()=>setFollowersListShow(true)}><span className="profile-stat-count" >{data.followers_count}</span>  <span style={{color:'#959595'}}>followers</span></li>
+                    <li onClick={()=>setFollowingListShow(true)}><span className="profile-stat-count">{data.following_count}</span>  <span style={{color:'#959595'}}>following</span></li>
                     <br></br>
-                    <li><span class="profile-stat-count " style={{color:'#959595'}}>Age:</span>  <span >{data.age}</span></li>
-                    <li><span class="profile-stat-count" style={{color:'#959595'}}>Gender:</span>  <span > {data.gender}</span></li>
+                    <li><span className="profile-stat-count " style={{color:'#959595'}}>Age:</span>  <span >{data.age}</span></li>
+                    <li><span className="profile-stat-count" style={{color:'#959595'}}>Gender:</span>  <span > {data.gender}</span></li>
                     <br></br>
-                    <li><span > <img src={`${constants.port}/media/${data.country_image}`} width={'30p'} alt="" ></img></span><span class="profile-stat-count mx-1">{data.country}</span> <span style={{color:'#959595'}} className='mx-3'>+More</span></li>
+                    <li><span > <img src={`${constants.port}/media/${data.country_image}`} width={'30p'} alt="" ></img></span><span className="profile-stat-count mx-1">{data.country}</span> <span style={{color:'#959595'}} className='mx-3'>+More</span></li>
                     </ul>
 
                 </div>
@@ -142,32 +142,32 @@ function ProfileHeaderDetails({data}) {
             <Card.Body>
              <div className='row'>
                 <div className='col-md-6'>
-                <button class="btn profile-edit-btn">Rank</button>
-                <div class="profile-image">
-                    <img src="../images/accounts/group.png" alt=""></img>
+                <button className="btn profile-edit-btn">Rank</button>
+                <div className="profile-image">
+                    <img style={{borderRadius:'50%'}} src={`${constants.port}${data.user_image}`} alt=""></img>
                 </div>
-                <div class="profile-cam1">
+                <div className="profile-cam1" onClick={uploadShowHandler}>
                     <img src="../images/accounts/camera.png" href='#'  alt=""></img>
                 </div>
                 </div>
                 <div className='col-md-6'>
-                <div class="profile-stats">
+                <div className="profile-stats">
                     <ul>
-                    <h1 class="profile-user-name">Muhammed Alsalah<span><img src='../images/accounts/stars.png' className='mx-1 mb-1'></img></span><span><img src='../images/accounts/iconoir_help-circles.png' className=' mb-1'></img></span></h1><br></br>
-                    <h1 class="profile-user-names">@muhammed_alsalah</h1>
+                    <h1 className="profile-user-name">{data.name}<span><img src='../images/accounts/stars.png' className='mx-1 mb-1'></img></span><span><img src='../images/accounts/iconoir_help-circles.png' className=' mb-1'></img></span></h1><br></br>
+                    <h1 className="profile-user-names">{data.username}</h1>
                     <br></br>
-                    <li><span class="profile-stat-count">465</span> <span style={{color:'#959595'}}>posts</span></li>
-                    <li><span class="profile-stat-count">123k</span>  <span style={{color:'#959595'}}>followers</span></li>
-                    <li><span class="profile-stat-count">1.2K</span>  <span style={{color:'#959595'}}>following</span></li>
+                    <li><span className="profile-stat-count">{data.post_count}</span> <span style={{color:'#959595'}}>posts</span></li>
+                    <li><span onClick={()=>setFollowersListShow(true)} className="profile-stat-count">{data.followers_count}</span>  <span style={{color:'#959595'}}>followers</span></li>
+                    <li><span onClick={()=>setFollowingListShow(true)} className="profile-stat-count">{data.following_count}</span>  <span style={{color:'#959595'}}>following</span></li>
                     <br></br>
-                    <li><span class="profile-stat-count " style={{color:'#959595'}}>Age:</span>  <span >28</span></li>
-                    <li><span class="profile-stat-count" style={{color:'#959595'}}>Gender:</span>  <span > Male</span></li>
+                    <li><span className="profile-stat-count " style={{color:'#959595'}}>Age:</span>  <span >{data.age}</span></li>
+                    <li><span className="profile-stat-count" style={{color:'#959595'}}>Gender:</span>  <span > {data.gender}</span></li>
                     <br></br>
-                    <li><span > <img src="../images/accounts/kuwait.png" alt="" ></img></span><span class="profile-stat-count mx-1">Kuwait,Hawally </span> <span style={{color:'#959595'}} className='mx-3'>+More</span></li>
+                    <li><span > <img src={`${constants.port}/media/${data.country_image}`} width={'30px'} alt="" ></img></span><span className="profile-stat-count mx-1">{data.country} </span> <span style={{color:'#959595'}} className='mx-3'>+More</span></li>
                     </ul>
 
                 </div>
-                <button class="btn profile-edit-btn1">Edit</button>
+                <button className="btn profile-edit-btn1">Edit</button>
                 </div>
              </div>
               
@@ -182,36 +182,36 @@ function ProfileHeaderDetails({data}) {
             <Card.Body>
              <div className='row'>
                 <div className='col-md-6'>
-                <button class="btn profile-edits-btn">Rank</button>
-                <button class="btn profile-edit-btn2">Edit</button>
-                <div class="profile-img">
+                <button className="btn profile-edits-btn">Rank</button>
+                <button className="btn profile-edit-btn2">Edit</button>
+                <div className="profile-img">
                     <img src="../images/accounts/group.png" alt=""></img>
                 </div>
-                <div class="profile-camera1">
+                <div className="profile-camera1">
                     <img src="../images/accounts/camera.png" href='#'  alt=""></img>
                 </div>
                 </div>
                 <div className='col-md-6'>
-                <h1 class="profile-users-name">Muhammed Alsalah</h1><br></br>
-                    <h1 class="profile-users-names">@muhammed_alsalah</h1>
+                <h1 className="profile-users-name">Muhammed Alsalah</h1><br></br>
+                    <h1 className="profile-users-names">@muhammed_alsalah</h1>
                                      
-                <div class="profile-stat">
+                <div className="profile-stat">
              <ul>
-             <li><span class="profile-stat-counts">465</span> <span style={{color:'#959595'}}>posts</span></li>
-             <li><span class="profile-stat-counts">123k</span>  <span style={{color:'#959595'}}>followers</span></li>
-             <li><span class="profile-stat-counts">1.2K</span>  <span style={{color:'#959595'}}>following</span></li>
+             <li><span className="profile-stat-counts">465</span> <span style={{color:'#959595'}}>posts</span></li>
+             <li><span className="profile-stat-counts">123k</span>  <span style={{color:'#959595'}}>followers</span></li>
+             <li><span className="profile-stat-counts">1.2K</span>  <span style={{color:'#959595'}}>following</span></li>
              </ul>
 
          </div>
                     <p className='profiles-stat-count'>Age:<span style={{color:'#959595'}} className='mx-1'>28yrs</span><span className='mx-2'>Gender:<span className='mx-1'>Male</span></span></p>
     
-                    <p className='profile-status-count'><span > <img src="../images/accounts/kuwait.png" alt="" ></img></span><span class=" mx-1">Kuwait,Hawally </span> <span style={{color:'#959595'}} className='mx-1'>+More</span></p>
+                    <p className='profile-status-count'><span > <img src="../images/accounts/kuwait.png" alt="" ></img></span><span className=" mx-1">Kuwait,Hawally </span> <span style={{color:'#959595'}} className='mx-1'>+More</span></p>
                 </div>
              </div>
+
+             {followersListShow && <FollowersList setFollowersListShow={setFollowersListShow}/>}
+             {followingListShow && <FollowingList setFollowingListShow={setFollowingListShow}/>}
               
-          
-              
-            
             </Card.Body>
         </Card>
         </div>

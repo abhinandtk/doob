@@ -1,7 +1,6 @@
 import constants from "./Constants";
 
 const apis = {
-
     // user module
     "country" : `${constants.port}/API/country-api`,
     "register" : `${constants.port}/API/register_api`,
@@ -40,6 +39,15 @@ const apis = {
     //store module
 
     'stores':`${constants.port}/store/api/stores`,
+    'storeview':`${constants.port}/store/api/store_view`,
+
+    'viewwishlist':`${constants.port}/store/api/view_wishlist_product`,
+    'addwishlist':`${constants.port}/store/api/create_product_wishlist`,
+    'removewishlist':`${constants.port}/store/api/remove_product_wishlist`,
+
+    'addstorewishlist':`${constants.port}/store/api/add_store_wishlist`,
+    'removestorewishlist':`${constants.port}/store/api/remove_store_wishlist`,
+    'viewstorewishlist':`${constants.port}/store/api/view_wishlist_store`,
 
 
 

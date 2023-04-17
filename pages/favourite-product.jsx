@@ -384,7 +384,7 @@ Arabic</Dropdown.Item>
             </Card.Body>
             </Card>
          </div>
-         <div className='col-lg-4 col-md-5'>
+         <div className='col-lg-4 col-md-4'>
         <Card className='favouite-cards'  >
             <Card.Img  style={{borderRadius:'12px 12px 0px 0px',width:'100%'}} src="../images/shoes copy.jpg"  />
             <Card.Body>
@@ -398,7 +398,7 @@ Arabic</Dropdown.Item>
             </Card.Body>
             </Card>
          </div>
-         <div className='col-lg-4 col-md-5'>
+         <div className='col-lg-4 col-md-4'>
         <Card className='favouite-cards'  >
             <Card.Img  style={{borderRadius:'12px 12px 0px 0px',width:'100%'}} src="../images/shoes copy.jpg"  />
             <Card.Body>

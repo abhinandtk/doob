@@ -289,15 +289,15 @@ Arabic</Dropdown.Item>
     </nav>
    </aside>
 
-   <div class="container">
-        <div class="leftSides">
-            <div class="header">
-                <div class="text">
+   <div className="container">
+        <div className="leftSides">
+            <div className="header">
+                <div className="text">
                     <h6  style={{fontWeight:'600',fontSize:'17px',marginLeft:'3px'}}>Messages</h6>
                 </div>
                 <h6  style={{fontWeight:'600',color:'#17a803',fontSize:'15px',marginRight:'8px'}}>New Message</h6>
             </div>
-            <div class="search_chat">
+            <div className="search_chat">
          
                 <div>
               
@@ -307,156 +307,156 @@ Arabic</Dropdown.Item>
                     
                 </div>                
             </div>
-            <div class="chatlist">
-                <div class="block active">
-                    <div class="imgBox">
-                        <img src="../images/Rec.png" class="cover" alt=""/>
+            <div className="chatlist">
+                <div className="block active">
+                    <div className="imgBox">
+                        <img src="../images/Rec.png" className="cover" alt=""/>
                         <svg width="10" height="10" style={{marginLeft:'30px',marginTop:'35px',position:'absolute'}} viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 <ellipse cx="4.82459" cy="5.16357" rx="4.66443" ry="4.83643" fill="#17A803"/>
 </svg>
                     </div>
-                    <div class="details">
-                        <div class="listHead">
+                    <div className="details">
+                        <div className="listHead">
                             <p>Ayman Alruwaished<span><img src='../images/star.png' className=' mb-1' style={{width:'10px',height:'10px',marginLeft:'1px'}}></img></span></p>
                             <b>1</b>
                            
                         </div>
-                        <div class="message_p">
+                        <div className="message_p">
                             <p>Can't wait to try it out!</p>
-                            <p class="time">12:34</p>
+                            <p className="time">12:34</p>
                         </div>
                     </div>
                 </div>
-                <div class="block active">
-                    <div class="imgBox">
-                        <img src="../images/Rec.png" class="cover" alt=""/>
+                <div className="block active">
+                    <div className="imgBox">
+                        <img src="../images/Rec.png" className="cover" alt=""/>
                         <svg width="10" height="10" style={{marginLeft:'30px',marginTop:'35px',position:'absolute'}} viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 <ellipse cx="4.82459" cy="5.16357" rx="4.66443" ry="4.83643" fill="#17A803"/>
 </svg>
                     </div>
-                    <div class="details">
-                        <div class="listHead">
+                    <div className="details">
+                        <div className="listHead">
                             <p>Ayman Alruwaished</p>
                             <b>1</b>
                            
                         </div>
-                        <div class="message_p">
+                        <div className="message_p">
                             <p>Can't wait to try it out!</p>
-                            <p class="time">12:34</p>
+                            <p className="time">12:34</p>
                         </div>
                     </div>
                 </div>
-                <div class="block active">
-                    <div class="imgBox">
-                        <img src="../images/Rec.png" class="cover" alt=""/>
+                <div className="block active">
+                    <div className="imgBox">
+                        <img src="../images/Rec.png" className="cover" alt=""/>
                         <svg width="10" height="10" style={{marginLeft:'30px',marginTop:'35px',position:'absolute'}} viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 <ellipse cx="4.82459" cy="5.16357" rx="4.66443" ry="4.83643" fill="#17A803"/>
 </svg>
                     </div>
-                    <div class="details">
-                        <div class="listHead">
+                    <div className="details">
+                        <div className="listHead">
                             <p>Ayman Alruwaished</p>
                             <b>1</b>
                            
                         </div>
-                        <div class="message_p">
+                        <div className="message_p">
                             <p>Can't wait to try it out!</p>
-                            <p class="time">12:34</p>
+                            <p className="time">12:34</p>
                         </div>
                     </div>
                 </div>
-                <div class="block active">
-                    <div class="imgBox">
-                        <img src="../images/Rec.png" class="cover" alt=""/>
+                <div className="block active">
+                    <div className="imgBox">
+                        <img src="../images/Rec.png" className="cover" alt=""/>
                         <svg width="10" height="10" style={{marginLeft:'30px',marginTop:'35px',position:'absolute'}} viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 <ellipse cx="4.82459" cy="5.16357" rx="4.66443" ry="4.83643" fill="#17A803"/>
 </svg>
                     </div>
-                    <div class="details">
-                        <div class="listHead">
+                    <div className="details">
+                        <div className="listHead">
                             <p>Ayman Alruwaished</p>
                             <b>1</b>
                            
                         </div>
-                        <div class="message_p">
+                        <div className="message_p">
                             <p>Can't wait to try it out!</p>
-                            <p class="time">12:34</p>
+                            <p className="time">12:34</p>
                         </div>
                     </div>
                 </div>
-                 <div class="block active">
-                    <div class="imgBox">
-                        <img src="../images/Rec.png" class="cover" alt=""/>
+                 <div className="block active">
+                    <div className="imgBox">
+                        <img src="../images/Rec.png" className="cover" alt=""/>
                         <svg width="10" height="10" style={{marginLeft:'30px',marginTop:'35px',position:'absolute'}} viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 <ellipse cx="4.82459" cy="5.16357" rx="4.66443" ry="4.83643" fill="#17A803"/>
 </svg>
                     </div>
-                    <div class="details">
-                        <div class="listHead">
+                    <div className="details">
+                        <div className="listHead">
                             <p>Ayman Alruwaished</p>
                             <b>1</b>
                            
                         </div>
-                        <div class="message_p">
+                        <div className="message_p">
                             <p>Can't wait to try it out!</p>
-                            <p class="time">12:34</p>
+                            <p className="time">12:34</p>
                         </div>
                     </div>
                 </div>
-                <div class="block active">
-                    <div class="imgBox">
-                        <img src="../images/Rec.png" class="cover" alt=""/>
+                <div className="block active">
+                    <div className="imgBox">
+                        <img src="../images/Rec.png" className="cover" alt=""/>
                         <svg width="10" height="10" style={{marginLeft:'30px',marginTop:'35px',position:'absolute'}} viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 <ellipse cx="4.82459" cy="5.16357" rx="4.66443" ry="4.83643" fill="#17A803"/>
 </svg>
                     </div>
-                    <div class="details">
-                        <div class="listHead">
+                    <div className="details">
+                        <div className="listHead">
                             <p>Ayman Alruwaished</p>
                             <b>1</b>
                            
                         </div>
-                        <div class="message_p">
+                        <div className="message_p">
                             <p>Can't wait to try it out!</p>
-                            <p class="time">12:34</p>
+                            <p className="time">12:34</p>
                         </div>
                     </div>
                 </div>
-                <div class="block active">
-                    <div class="imgBox">
-                        <img src="../images/Rec.png" class="cover" alt=""/>
+                <div className="block active">
+                    <div className="imgBox">
+                        <img src="../images/Rec.png" className="cover" alt=""/>
                         <svg width="10" height="10" style={{marginLeft:'30px',marginTop:'35px',position:'absolute'}} viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 <ellipse cx="4.82459" cy="5.16357" rx="4.66443" ry="4.83643" fill="#17A803"/>
 </svg>
                     </div>
-                    <div class="details">
-                        <div class="listHead">
+                    <div className="details">
+                        <div className="listHead">
                             <p>Ayman Alruwaished</p>
                             <b>1</b>
                            
                         </div>
-                        <div class="message_p">
+                        <div className="message_p">
                             <p>Can't wait to try it out!</p>
-                            <p class="time">12:34</p>
+                            <p className="time">12:34</p>
                         </div>
                     </div>
                 </div>
-                 <div class="block active">
-                    <div class="imgBox">
-                        <img src="../images/Rec.png" class="cover" alt=""/>
+                 <div className="block active">
+                    <div className="imgBox">
+                        <img src="../images/Rec.png" className="cover" alt=""/>
                         <svg width="10" height="10" style={{marginLeft:'30px',marginTop:'35px',position:'absolute'}} viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 <ellipse cx="4.82459" cy="5.16357" rx="4.66443" ry="4.83643" fill="#17A803"/>
 </svg>
                     </div>
-                    <div class="details">
-                        <div class="listHead">
+                    <div className="details">
+                        <div className="listHead">
                             <p>Ayman Alruwaished</p>
                            
                            
                         </div>
-                        <div class="message_p">
+                        <div className="message_p">
                             <p>Can't wait to try it out!</p>
-                            <p class="time" >12:34</p>
+                            <p className="time" >12:34</p>
                         </div>
                     </div>
                 </div>
@@ -469,14 +469,14 @@ Arabic</Dropdown.Item>
              
             </div>
         </div>
-        <div class="rightSide1">
-            <div class="header">
+        <div className="rightSide1">
+            <div className="header">
               
-                <div class="imgText">
+                <div className="imgText">
     
-                    <div class="userimg">
+                    <div className="userimg">
                        
-                        <img src="../images/Rec.png"  alt="" class="pic"></img>
+                        <img src="../images/Rec.png"  alt="" className="pic"></img>
                         
                         <p style={{marginLeft:'90px',marginTop:'36px',fontWeight:'600',fontSize:'14px'}}>Ayman Alruwaished<br></br><span style={{fontWeight:'400',fontSize:'13px',color:'#797C7B'}}>Active Now</span></p>
                         
@@ -487,7 +487,7 @@ Arabic</Dropdown.Item>
 
                 </div>
            
-                <ul class="nav_icons" style={{marginTop:'35px'}}  >
+                <ul className="nav_icons" style={{marginTop:'35px'}}  >
                 <svg width="23" height="25" className='mt-1 ms-2 ' viewBox="0 0 23 25" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M20.125 19.8421V18.2066C20.125 17.3939 19.6478 16.6632 18.9202 16.3614L16.9708 15.5529C16.0452 15.169 14.9904 15.5848 14.5446 16.5093L14.375 16.8611C14.375 16.8611 11.9792 16.3642 10.0625 14.3769C8.14583 12.3896 7.66667 9.90538 7.66667 9.90538L8.00593 9.72949C8.89753 9.26725 9.29857 8.17355 8.92835 7.21388L8.1486 5.19262C7.85753 4.43811 7.15275 3.94336 6.36902 3.94336H4.79167C3.73312 3.94336 2.875 4.83312 2.875 5.9307C2.875 14.7113 9.73997 21.8294 18.2083 21.8294C19.2669 21.8294 20.125 20.9397 20.125 19.8421Z" stroke="black" stroke-width="1.12994" stroke-linejoin="round"/>
 </svg>
@@ -517,102 +517,102 @@ Arabic</Dropdown.Item>
                     <div className='minute1'>09:35AM</div>
                 </div>
                
-                <div class="message my_msg">
+                <div className="message my_msg">
                     <p>I'm doing really well, thank you. </p>
                     <div className='minutes'>09:35AM</div>
                 </div>
-                <div class="message friend_msg">
+                <div className="message friend_msg">
                     <p>Hope you like it</p>
                     <div className='minutes'>09:35AM</div>
                 </div>
-                <div class="message friend_msg">
+                <div className="message friend_msg">
                     <p>Have a great day</p>
                     <div className='minutes'>09:35AM</div>
                 </div>
-                <div class="message my_msg" >
+                <div className="message my_msg" >
                     <p>Hello! Ahmed Al Tourah</p>
                  
                     <div className='minute'>09:35AM</div>
                 </div>
-                <div class="message my_msg">
+                <div className="message my_msg">
                     <p>Hello! Ahmed Al Tourah</p>
                     <div className='minute'>09:35AM</div>
                 </div>
-                <div class="message friend_msg">
+                <div className="message friend_msg">
                     <p>Have a great day</p>
                     <div className='minutes'>09:35AM</div>
                 </div>
-                <div class="message my_msg" >
+                <div className="message my_msg" >
                     <p>Hello! Ahmed Al Tourah</p>
                  
                     <div className='minute'>09:35AM</div>
                 </div>
-                <div class="message my_msg">
+                <div className="message my_msg">
                     <p>Hello! Ahmed Al Tourah</p>
                     <div className='minute'>09:35AM</div>
                 </div>
-                <div class="message friend_msg">
+                <div className="message friend_msg">
                     <p>Have a great day</p>
                     <div className='minutes'>09:35AM</div>
                 </div>
-                <div class="message my_msg" >
+                <div className="message my_msg" >
                     <p>Hello! Ahmed Al Tourah</p>
                  
                     <div className='minute'>09:35AM</div>
                 </div>
-                <div class="message my_msg">
+                <div className="message my_msg">
                     <p>Hello! Ahmed Al Tourah</p>
                     <div className='minute'>09:35AM</div>
                 </div>
-                <div class="message friend_msg">
+                <div className="message friend_msg">
                     <p>Have a great day</p>
                     <div className='minutes'>09:35AM</div>
                 </div>
-                <div class="message my_msg" >
+                <div className="message my_msg" >
                     <p>Hello! Ahmed Al Tourah</p>
                  
                     <div className='minute'>09:35AM</div>
                 </div>
-                <div class="message my_msg">
+                <div className="message my_msg">
                     <p>Hello! Ahmed Al Tourah</p>
                     <div className='minute'>09:35AM</div>
                 </div>
-                <div class="message friend_msg">
+                <div className="message friend_msg">
                     <p>Have a great day</p>
                     <div className='minutes'>09:35AM</div>
                 </div>
-                <div class="message my_msg" >
+                <div className="message my_msg" >
                     <p>Hello! Ahmed Al Tourah</p>
                  
                     <div className='minute'>09:35AM</div>
                 </div>
-                <div class="message my_msg">
+                <div className="message my_msg">
                     <p>Hello! Ahmed Al Tourah</p>
                     <div className='minute'>09:35AM</div>
                 </div>
-                <div class="message friend_msg">
+                <div className="message friend_msg">
                     <p>Have a great day</p>
                     <div className='minutes'>09:35AM</div>
                 </div>
-                <div class="message my_msg" >
+                <div className="message my_msg" >
                     <p>Hello! Ahmed Al Tourah</p>
                  
                     <div className='minute'>09:35AM</div>
                 </div>
-                <div class="message my_msg">
+                <div className="message my_msg">
                     <p>Hello! Ahmed Al Tourah</p>
                     <div className='minute'>09:35AM</div>
                 </div>
-                <div class="message friend_msg">
+                <div className="message friend_msg">
                     <p>Have a great day</p>
                     <div className='minutes'>09:35AM</div>
                 </div>
-                <div class="message my_msg" >
+                <div className="message my_msg" >
                     <p>Hello! Ahmed Al Tourah</p>
                  
                     <div className='minute'>09:35AM</div>
                 </div>
-                <div class="message my_msg">
+                <div className="message my_msg">
                     <p>Hello! Ahmed Al Tourah</p>
                     <div className='minute'>09:35AM</div>
                 </div>
@@ -667,7 +667,7 @@ Arabic</Dropdown.Item>
             
             {/* sajin chat end  */}
             
-            <div class="chat_input">
+            <div className="chat_input">
                 
                 <input type="text" placeholder="Write your message"/>
                 <svg width="28" height="26" viewBox="0 0 28 26" className='mx-1' fill="none" xmlns="http://www.w3.org/2000/svg">

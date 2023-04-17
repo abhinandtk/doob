@@ -333,7 +333,7 @@ Arabic</Dropdown.Item>
       <Card.Body>
         
         <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-          Sports Check<span style={{float:'right'}}><i class="bi bi-suit-heart-fill"></i></span>
+          Sports Check<span style={{float:'right'}}><i className="bi bi-suit-heart-fill"></i></span>
         </Card.Text>
       </Card.Body>
     </Card>
@@ -344,7 +344,7 @@ Arabic</Dropdown.Item>
       <Card.Body>
         
         <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-          Sports Check<span style={{float:'right'}}><i class="bi bi-suit-heart-fill"></i></span>
+          Sports Check<span style={{float:'right'}}><i className="bi bi-suit-heart-fill"></i></span>
         </Card.Text>
       </Card.Body>
     </Card>
@@ -356,7 +356,7 @@ Arabic</Dropdown.Item>
       <Card.Body>
         
         <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-          Sports Check<span style={{float:'right'}}><i class="bi bi-suit-heart-fill"></i></span>
+          Sports Check<span style={{float:'right'}}><i className="bi bi-suit-heart-fill"></i></span>
         </Card.Text>
       </Card.Body>
     </Card>
@@ -389,7 +389,7 @@ Arabic</Dropdown.Item>
       <Card.Body>
         
         <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
-          Sports Check<span style={{float:'right'}}><i class="bi bi-suit-heart-fill"></i></span>
+          Sports Check<span style={{float:'right'}}><i className="bi bi-suit-heart-fill"></i></span>
         </Card.Text>
       </Card.Body>
     </Card>
