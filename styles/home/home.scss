@@ -914,13 +914,16 @@ body{
    
 }
 .side-menu__suggestion-avatars {
-  width: 42px;
-  height: 42px;
+  
   border-radius: 50%;
   margin-right: 12px;
   flex-shrink: 0;
   overflow: hidden;
   position: relative;
+  img{
+    width: 42px;
+    height: 42px;
+  }
 }
 .side-menu__suggestion-avatars::after {
   content: '';
