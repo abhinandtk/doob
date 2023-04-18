@@ -335,9 +335,9 @@ Arabic</Dropdown.Item>
                <div className="card mb-2 " >
                   <div className="card-body">
                     <div className="d-flex justify-content-between ">
-                      <div className="d-flex flex-row align-items-center mb-2 " >
+                      <div className="d-flex flex-row align-items-center  " >
                         <div >
-                       <img src='../images/store/v copy.png' className='pixels-png' ></img>
+                        <img src='../images/store/male-soccer-football-player-training-action-isolated-gradient-studio-neon-light copy.jpg' className='pixels-png' ></img>
                         </div>
                         <div className=" add-left">
                           <h6 >LEGEND 9 CLUB TF Football Shoes  </h6>
@@ -396,8 +396,8 @@ Arabic</Dropdown.Item>
                   <div className="card-body">
                     <div className="d-flex justify-content-between ">
                       <div className="d-flex flex-row align-items-center ">
-                        <div className='img-png'>
-                       <img src='../images/store/v copy.png' ></img>
+                        <div >
+                        <img src='../images/store/male-soccer-football-player-training-action-isolated-gradient-studio-neon-light copy.jpg' className='pixels-png' ></img>
                         </div>
                         <div className=" add-left">
                           <h6 >LEGEND 9 CLUB TF Football Shoes iiiiiiiiiiiiiiiiiiiiii ooooooooo </h6>

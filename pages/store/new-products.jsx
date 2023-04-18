@@ -354,7 +354,7 @@ Arabic</Dropdown.Item>
         </div>
         <hr className='mx-auto ' style={{width:'90%',marginTop:'-2px'}}></hr>
         <div className=" imx  d-flex justify-content-between align-items-center" >
-         <img src='../images/store/v copy.png'></img>
+         <img src='../images/store/v copy.png' style={{width:'82px',height:'82px'}}></img>
          
         </div>
 
@@ -366,26 +366,15 @@ Arabic</Dropdown.Item>
           <span style={{color:'#959595'}}>Payment Status</span>
           <span style={{color:'#FF640D'}}>Pending</span>
         </div>
-       
-       
         <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
           <span style={{color:'#959595'}}>Other Status</span>
           <span style={{color:'#FF640D'}}>Pending</span>
         </div>
-      
-  
-  <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-          <div className='row store '>
-           
-           <div className='col-lg-4 col-md-4'>
-          
-           </div>
-           <div className='col-lg-4 col-md-4'>
-            
-           </div>
-          </div>
+        <div className="p-2  mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
+          <span style={{color:'#959595'}}>Payment Status</span>
+          <span style={{color:'#FF640D'}}>Pending</span>
         </div>
-
+      <br></br>
 
 
 
@@ -396,7 +385,7 @@ Arabic</Dropdown.Item>
         </div>
         <hr className='mx-auto ' style={{width:'90%',marginTop:'-2px'}}></hr>
         <div className="  d-flex justify-content-between align-items-center imx" >
-         <img src='../images/store/b.png' ></img>
+         <img src='../images/store/b.png' style={{width:'82px',height:'82px'}} ></img>
          
         </div>
  <div className="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
@@ -417,11 +406,7 @@ Arabic</Dropdown.Item>
         </div>
        
        
-        <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-          <span style={{color:'#959595'}}>Other Status</span>
-          <span style={{color:'#17A803'}}>Delivered</span>
-        </div>
-      
+      <br></br>
  
 </div>
 </div>

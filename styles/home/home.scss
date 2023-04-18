@@ -1672,7 +1672,7 @@ body{
 .message p {
   position: relative;
   right: 0;
-  text-align: right;
+  text-align: left;
   max-width: 65%;
   padding: 12px;
   background: #17A803;
@@ -1723,7 +1723,7 @@ body{
 }
 .frnd_message p {
   background: #343C42;
-  text-align: right;
+  text-align: left;
   color: #fff;
   margin-bottom: 8px;
 }
