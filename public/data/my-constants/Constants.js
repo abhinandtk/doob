@@ -15,7 +15,7 @@ const constants ={
 
     
     // port : "http://127.0.0.1:8000",
-    port : "http://64.227.146.95",add
+    port : "http://64.227.146.95",
 
     'token_id':token_id,
     'user_id':user_id,
