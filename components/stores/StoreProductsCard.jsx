@@ -4,6 +4,7 @@ import {Container,Nav,Navbar,Dropdown,Carousel,Card} from 'react-bootstrap';
 import Axios from 'axios'
 import apis from '@/public/data/my-constants/Apis';
 import { useState } from 'react';
+import Link from 'next/link';
 function StoreProductsCard({products,title}) {
 
   const [wishList,setWishList]=useState(true)
@@ -34,6 +35,7 @@ function StoreProductsCard({products,title}) {
   <div className='row store '>
         {products.map((item,index)=>(
        <div className='col-md-4 col-lg-3  '>
+        <Link href={`/store/product/${item.id}`} style={{textDecoration:'none'}}>
         <Card key={index} style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} className='favouite-card' >
           <Card.Img  style={{borderRadius:'0px 0px 0px 0px',width:'100%'}} src={`${constants.port}${item.image}`}  />
           <Card.Body>
@@ -54,6 +56,7 @@ function StoreProductsCard({products,title}) {
           
           </Card.Body> 
         </Card>
+        </Link>
 
       </div>
         ))}

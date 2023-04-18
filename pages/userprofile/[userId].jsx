@@ -40,7 +40,7 @@ function OtherUserAccount() {
     <Fragment>
         <MainHeader title='Doob'/>
         <MainSidebarFixed />
-    
+        <div className="container2">
         <OtherProfileHeaderDetails data={profileDetails} id={userId}/>
     <section id="tabs">
         <div className="container">
@@ -67,6 +67,8 @@ function OtherUserAccount() {
             </div>
         </div>
     </section>
+    </div>
+
 
     </Fragment>
   )

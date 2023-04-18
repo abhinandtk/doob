@@ -298,14 +298,14 @@ Arabic</Dropdown.Item>
     <input className="nosubmit2" type="search" placeholder="Search"   />
     </form>
 
-  <section class=" my-3 h-75">
-  <div class="row d-flex justify-content-center align-items-center h-100">
-  <div class="col">
-  <div class="card" >
-  <div class="card-body p-4">
-  <div class="row " >
-  <div class="col-lg-7">
-  <div class="d-flex justify-content-between align-items-center mb-4"><div>
+  <section className=" my-3 h-75">
+  <div className="row d-flex justify-content-center align-items-center h-100">
+  <div className="col">
+  <div className="card" >
+  <div className="card-body p-4">
+  <div className="row " >
+  <div className="col-lg-7">
+  <div className="d-flex justify-content-between align-items-center mb-4"><div>
     <img src='../images/store/shoe background.jpg' style={{width:'450px',height:'auto'}}></img>
   </div>
   </div>
