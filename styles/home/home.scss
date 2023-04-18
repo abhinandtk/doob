@@ -363,7 +363,7 @@ body{
       margin-left: 390px;
        
   }
-  
+
   .max{
     width:44px;
     height:44px;
@@ -849,6 +849,8 @@ body{
   margin-left: -323px;
   margin-top: 23px;
 }
+
+
 .side-menu__suggestions-header {
   display: flex;
   justify-content: space-between;
@@ -884,17 +886,123 @@ body{
   margin: 16px 0 24px;
   padding-left: 4px;
 }
+
+
+
+
+//
+.side-menu__suggestions-sections {
+  display: flex;
+  flex-direction: column;
+  margin-left: -393px;
+  margin-top: 3px;
+}
 .side-menu__suggestions-contents {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin: 16px -7px 0px;
+  margin: 16px 1px 0px;
   padding-left: 4px;
 }
+.side-menu__suggestions {
+  display: flex;
+  align-items: center;
+}
+.side-menu-sections {
+     
+  margin-left: 390px;
+   
+}
+.side-menu__suggestion-avatars {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  margin-right: 12px;
+  flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
+}
+.side-menu__suggestion-avatars::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  border: 1px solid var(--img-border);
+  border-radius: 50%;
+}
+.side-menu__suggestion-infos {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  flex: 1;
+  gap: 1px;
+  text-decoration: none;
+}
+.side-menu__suggestion-infos a {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-decoration: none;
+  max-width: 200px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.side-menu__suggestion-infos a:hover {
+  text-decoration: underline;
+}
+.side-menu__suggestion-infos span {
+  font-size: 13px;
+  font-weight: 400;
+  color: #959595;
+
+  max-width:200px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+ line-height: 14px;
+}
+.side-suggestion-button1 {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  
+  flex-shrink: 0;
+  margin-right: 25px;
+  margin-top: -23px;
+}
+.side-suggestion-button2 {
+ 
+  cursor: pointer;
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-right: 25px;
+  margin-top: -23px;
+  background-color:#17a803;
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 0px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 26px;
+}
+//
+
+
+
+
 .side-menu__suggestion {
   display: flex;
   align-items: center;
 }
+
 .side-menu__suggestion-avatar {
   width: 42px;
   height: 42px;
@@ -966,7 +1074,7 @@ body{
   font-weight: 500;
   
   flex-shrink: 0;
-  margin-right: -39px;
+  margin-right: -9px;
   margin-top: -23px;
 }
 .side-menu__suggestion-button2 {
