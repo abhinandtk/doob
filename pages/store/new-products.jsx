@@ -350,7 +350,7 @@ Arabic</Dropdown.Item>
 
  <div className="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
           <p style={{fontWeight:'500'}}>Nike-20 Men’s Sport shoe</p>
-          <button className="profile-edit-btn mb-2">Edit</button>
+          <button className="edit-btn mb-2">Edit</button>
         </div>
         <hr className='mx-auto ' style={{width:'90%',marginTop:'-2px'}}></hr>
         <div className=" imx  d-flex justify-content-between align-items-center" >
@@ -381,7 +381,7 @@ Arabic</Dropdown.Item>
 
         <div className="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
           <p style={{fontWeight:'500'}}>Nike-20 Men’s Sport shoe</p>
-          <button className="profile-edit-btn mb-2">Edit</button>
+          <button className="edit-btn mb-2">Edit</button>
         </div>
         <hr className='mx-auto ' style={{width:'90%',marginTop:'-2px'}}></hr>
         <div className="  d-flex justify-content-between align-items-center imx" >

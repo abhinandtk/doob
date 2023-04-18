@@ -388,7 +388,7 @@ Arabic</Dropdown.Item>
         
         </Card.Body>
     </Card>
-    <Dropdown className='create-btns  '   >
+    {/* <Dropdown className='create-btns  '   >
                         <Dropdown.Toggle  style={{background:'transparent',border:'0'}}    >
                         <img src='../images/Group 453.png' id="dropdown-basic"  ></img>
                         </Dropdown.Toggle>
@@ -411,7 +411,7 @@ Arabic</Dropdown.Item>
                                 Create Game
                             </Dropdown.Item>
                         </Dropdown.Menu>
-                    </Dropdown> 
+                    </Dropdown>  */}
     <section id="tabs">
      
          

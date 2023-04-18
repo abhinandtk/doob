@@ -185,28 +185,32 @@ function ProfileHeaderDetails({data}) {
                 <button className="btn profile-edits-btn">Rank</button>
                 <button className="btn profile-edit-btn2">Edit</button>
                 <div className="profile-img">
-                    <img src="../images/accounts/group.png" alt=""></img>
+                <img style={{borderRadius:'50%'}} src={`${constants.port}${data.user_image}`} alt=""></img>
                 </div>
-                <div className="profile-camera1">
+                <div className="profile-camera1" onClick={uploadShowHandler}>
                     <img src="../images/accounts/camera.png" href='#'  alt=""></img>
                 </div>
                 </div>
                 <div className='col-md-6'>
-                <h1 className="profile-users-name">Muhammed Alsalah</h1><br></br>
-                    <h1 className="profile-users-names">@muhammed_alsalah</h1>
+                
                                      
                 <div className="profile-stat">
+                  
              <ul>
-             <li><span className="profile-stat-counts">465</span> <span style={{color:'#959595'}}>posts</span></li>
-             <li><span className="profile-stat-counts">123k</span>  <span style={{color:'#959595'}}>followers</span></li>
-             <li><span className="profile-stat-counts">1.2K</span>  <span style={{color:'#959595'}}>following</span></li>
+              <li><span className="profile-users-name ">{data.name}<span><img src='../images/accounts/stars.png' className='mx-1 mb-1'></img></span><span><img src='../images/accounts/iconoir_help-circles.png' className=' mb-1'></img></span></span></li>
+              <li><span className="profile-users-names">{data.username}</span></li>
+             <li><span className="profile-stat-counts">{data.post_count}</span> <span style={{color:'#959595'}}>posts</span></li>
+             <li><span onClick={()=>setFollowersListShow(true)} className="profile-stat-counts">{data.followers_count}</span>  <span style={{color:'#959595'}}>followers</span></li>
+                    <li><span onClick={()=>setFollowingListShow(true)} className="profile-stat-counts">{data.following_count}</span>  <span style={{color:'#959595'}}>following</span></li>
              </ul>
 
          </div>
-                    <p className='profiles-stat-count'>Age:<span style={{color:'#959595'}} className='mx-1'>28yrs</span><span className='mx-2'>Gender:<span className='mx-1'>Male</span></span></p>
-    
-                    <p className='profile-status-count'><span > <img src="../images/accounts/kuwait.png" alt="" ></img></span><span className=" mx-1">Kuwait,Hawally </span> <span style={{color:'#959595'}} className='mx-1'>+More</span></p>
+         
                 </div>
+                
+                <p className='profiles-stat-count'>Age:<span >{data.age}</span><span className='mx-2'>Gender:<span className='mx-1'><span > {data.gender}</span></span></span></p>
+    
+                 <p className='profile-status-count'><span > <img src= {`${constants.port}/media/${data.country_image}`} width={'30px'} alt="" ></img></span><span className=" mx-1">{data.country} </span> <span style={{color:'#959595'}} className='mx-1'>+More</span></p>
              </div>
 
              {followersListShow && <FollowersList setFollowersListShow={setFollowersListShow}/>}
