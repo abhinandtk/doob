@@ -356,7 +356,7 @@ Arabic</Dropdown.Item>
             <CardImg  className='rounded-circle shadow-1-strong ' src="../images/store/Rec copy.png" style={{width:'44px',height:'44px'}} ></CardImg>
             </a>
             <div className="flex-grow-1 flex-shrink-1 " style={{marginBottom:'-24px'}}>
-                            <div>
+                           
                               <div className="d-flex justify-content-between align-items-center">
                                 <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
                                 Musaid{" "} <br></br> <span><i className="bi bi-star-fill"style={{color:'yellow'}}></i><span><i className="bi bi-star-fill mx-1"style={{color:'yellow'}}></i></span><span><i className="bi bi-star-fill "style={{color:'yellow'}}></i></span><span><i className="bi bi-star mx-1"style={{color:'grey'}}></i></span></span>
@@ -371,7 +371,7 @@ Arabic</Dropdown.Item>
                              
                               </p>
                               
-                            </div>
+                          
                           </div>
           </div>
           <div className='d-flex flex-start mt-4 mx-2'>

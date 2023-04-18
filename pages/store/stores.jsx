@@ -72,7 +72,7 @@ function StorePage ()  {
             <Card.Body>
               
            
-              <i className="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i className="bi bi-heart-fill    " style={{color:'white'}}></i></span>
+              <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-heart-fill    " style={{color:'white'}}></i></span>
               <p className='wrap'>Edge Identity Running Shoes For Men</p>
 
                 <p className='top-p' ><s>14.450 KD</s></p>
@@ -86,7 +86,7 @@ function StorePage ()  {
             <Card.Body>
               
            
-              <i className="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i className="bi bi-heart-fill    " style={{color:'white'}}></i></span>
+              <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-heart-fill    " style={{color:'white'}}></i></span>
               <p className='wrap'>Edge Identity Running Shoes For Men</p>
 
                 <p className='top-p' ><s>14.450 KD</s></p>
@@ -100,7 +100,7 @@ function StorePage ()  {
             <Card.Body>
               
            
-              <i className="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i className="bi bi-heart-fill    " style={{color:'white'}}></i></span>
+              <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-heart-fill    " style={{color:'white'}}></i></span>
               <p className='wrap'>Edge Identity Running Shoes For Men</p>
 
                 <p className='top-p' ><s>14.450 KD</s></p>
@@ -113,12 +113,11 @@ function StorePage ()  {
             <Card.Img  style={{borderRadius:'0px 0px 0px 0px',width:'100%'}} src="../images/store/shoes.jpg"  />
             <Card.Body>
               
-           
-              <i className="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i className="bi bi-heart-fill    " style={{color:'white'}}></i></span>
-              <p className='wrap'>Edge Identity Running Shoes For Men </p>
-
-                <p className='top-p' ><s>14.450 KD</s></p>
-            <p className='down-p'>13.000 KD</p>
+              <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
+              <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-suit-heart  " style={{color:'white'}}></i></span><br></br><p style={{fontSize:'12px',color:'white',fontWeight:'400;'}}>Edge Identity Running Shoes For Men</p>
+                <p style={{color:'#fff',fontSize:'15px'}}><s>13.000 KD</s><span><p style={{fontSize:'16px',color:'#17A803',fontWeight:'700'}}>14.450 KD</p></span></p>
+              </Card.Text>
+            
             </Card.Body>
             </Card>
             </div>
@@ -128,7 +127,7 @@ function StorePage ()  {
             <Card.Body>
               
            
-              <i className="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i className="bi bi-heart-fill    " style={{color:'white'}}></i></span>
+              <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-heart-fill    " style={{color:'white'}}></i></span>
               <p className='wrap'>Edge Identity Running Shoes For Men</p>
 
                 <p className='top-p' ><s>14.450 KD</s></p>
@@ -146,7 +145,7 @@ function StorePage ()  {
                   <img className="card-img" src="../images/store/shoes.jpg" alt="Vans"/>
                   
                   <div className="card-body" style={{background:'#343C42'}}>
-                  <i className="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i className="bi bi-heart-fill    " style={{color:'white'}}></i></span>
+                  <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-heart-fill    " style={{color:'white'}}></i></span>
                     <p className="card-title" style={{color:'#fff'}}>Edge Identity Running Shoes For Men</p>
                     <div className="buy">
                       <p style={{color:'#959595',fontSize:'14px'}}><s>14.450 KD</s></p>
@@ -162,7 +161,7 @@ function StorePage ()  {
                   <img className="card-img" src="../images/store/shoes.jpg" alt="Vans"/>
                   
                   <div className="card-body" style={{background:'#343C42'}}>
-                  <i className="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i className="bi bi-heart-fill    " style={{color:'white'}}></i></span>
+                  <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-heart-fill    " style={{color:'white'}}></i></span>
                     <p className="card-title" style={{color:'#fff'}}>Edge Identity Running Shoes For Men</p>            
                     <div className="buy">
                       <p style={{color:'#959595',fontSize:'14px'}}><s>14.450 KD</s></p>
@@ -178,7 +177,7 @@ function StorePage ()  {
                   <img className="card-img" src="../images/store/shoes.jpg" alt="Vans"/>
                   
                   <div className="card-body" style={{background:'#343C42'}}>
-                  <i className="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i className="bi bi-heart-fill    " style={{color:'white'}}></i></span>
+                  <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-heart-fill    " style={{color:'white'}}></i></span>
                     <p className="card-title" style={{color:'#fff'}}>Edge Identity Running Shoes For Men</p>
                     <div className="buy">
                       <p style={{color:'#959595',fontSize:'14px'}}><s>14.450 KD</s></p>
@@ -194,7 +193,7 @@ function StorePage ()  {
                   <img className="card-img" src="../images/store/shoes.jpg" alt="Vans"/>
                   
                   <div className="card-body" style={{background:'#343C42'}}>
-                  <i className="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i className="bi bi-heart-fill    " style={{color:'white'}}></i></span>
+                  <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-heart-fill    " style={{color:'white'}}></i></span>
                     <p className="card-title" style={{color:'#fff'}}>Edge Identity Running Shoes For Men</p>
                     <div className="buy">
                       <p style={{color:'#959595',fontSize:'14px'}}><s>14.450 KD</s></p>
@@ -210,7 +209,7 @@ function StorePage ()  {
                   <img className="card-img" src="../images/store/shoes.jpg" alt="Vans"/>
                   
                   <div className="card-body" style={{background:'#343C42'}}>
-                  <i className="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i className="bi bi-heart-fill    " style={{color:'white'}}></i></span>
+                  <i class="bi bi-star-fill" style={{color:'yellow'}}></i> <span style={{color:'white'}}>4.5</span><span style={{float:'right'}}><i class="bi bi-heart-fill    " style={{color:'white'}}></i></span>
                     <p className="card-title" style={{color:'#fff'}}>Edge Identity Running Shoes For Men</p>
                     <div className="buy">
                       <p style={{color:'#959595',fontSize:'14px'}}><s>14.450 KD</s></p>
