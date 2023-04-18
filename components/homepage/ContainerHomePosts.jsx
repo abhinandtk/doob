@@ -18,13 +18,13 @@ function ContainerHomePosts() {
   const [postsData,setPostsData] = useState([])
   const [postId,setPostId] = useState(null)
   const [slug,setSlug] = useState(null)
+  const [onSuccess,setOnSuccess]= useState(true)
   useEffect(()=>{
   Axios.get(apis.homepageapi,{
     headers:{
       'Authorization':`Token ${constants.token_id}`
     }
   }).then((res)=>{
-    // setPostsData(res.data.data.posts)
     setPostId(res.data.data.posts.post_id)
     const updatedPosts = res.data.data.posts.map((post) => ({
       ...post,
@@ -35,7 +35,7 @@ function ContainerHomePosts() {
   }).catch((error)=>{
     console.error(error)
   })
-  },[])
+  },[onSuccess])
 
   const likeHandler =(postId,index)=>{
     console.log('iiiiiiiiiiiiii',postId)
@@ -155,7 +155,11 @@ function ContainerHomePosts() {
           )}
 
           <button className="post__more-options">
-            <PostActions postId={item.post_id} user={item.user_detail.id}/>
+            <PostActions
+              postId={item.post_id} 
+              user={item.user_detail.id}
+              setOnSuccess={setOnSuccess}
+            />
           </button>
           
         </div>
@@ -214,7 +218,7 @@ function ContainerHomePosts() {
     </div>
       ))}
       {visibleComment && <Comments postId={postId} slug={slug} setVisibleComment={setVisibleComment}/>}
-      {visibleShared && <SharedConfirmation postId={postId}/>}
+      {visibleShared && <SharedConfirmation postId={postId} setVisibleShared={setVisibleShared} setOnSuccess={setOnSuccess} />}
 
 
     

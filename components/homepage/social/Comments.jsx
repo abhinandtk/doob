@@ -73,7 +73,8 @@ function Comments({setVisibleComment,postId,slug}) {
   return (
     <div style={{ position: 'relative' }}>
     <Modal 
-    visible={show}  
+    title='Comments'
+    open={show}  
     className='index' 
     closable 
     maskClosable 
@@ -110,23 +111,27 @@ function Comments({setVisibleComment,postId,slug}) {
                     
                     {item.replies !== null && item.replies.length > 0 ?
                         item.replies.map((reply) => (
-                            <div className='ms-auto mt-2 d-flex align-items-center'>
-                            <CardImg  className='rounded-circle shadow-1-strong' src={`${constants.port}/media/${item.user.image}`} style={{width:'44px',height:'44px'}}></CardImg>
+                            <div className='ms-auto mt-2 d-flex align-items-start'>
+                                <CardImg className='rounded-circle shadow-1-strong me-3' src={`${constants.port}/media/${item.user.image}`} style={{width:'44px',height:'44px'}}></CardImg>
+                                <div className="d-flex flex-column justify-content-between">
+                                    <div className="mb-0">
+                                    <p className="mb-0" style={{ fontWeight: '600' }}>
+                                        {reply.user_details.name}{" "}
+                                        <span className="small" style={{ color: '#959595', fontWeight: '500', fontSize: '13px' }}>{timeSinceComment(reply.created_at)}</span>
+                                    </p>
+                                    <p className="small mb-0">
+                                        {reply.content}
+                                    </p>
+                                    </div>
+                                    <div className='small d-flex align-items-center' style={{color:'#959595',fontWeight:'500',fontSize:'13px'}}>
+                                    
+                                    <span>
+                                        <CommentActions user={reply.user_details.id} commentId={reply.id}/>
+                                    </span>
+                                    </div>
+                                </div>
+                            </div>
 
-                            <div className="d-flex flex-column justify-content-between ms-3">
-                                <div>
-                                <p className="mb-0" style={{ fontWeight: '600' }}>
-                                    {reply.user_details.name}{" "}
-                                    <span className="small" style={{ color: '#959595', fontWeight: '500', fontSize: '13px' }}>{timeSinceComment(reply.created_at)}</span>
-                                </p>
-                                </div>
-                                <div>
-                                <p className="small mb-0">
-                                    {reply.content}
-                                </p>
-                                </div>
-                            </div>
-                            </div>
  
 
                         )):''
@@ -140,7 +145,7 @@ function Comments({setVisibleComment,postId,slug}) {
        
         <div className='d-flex flex-start mt-5 mx-2' style={{position:'sticky',bottom:'0'}}>
             <div   className='me-2' href=''>
-                <CardImg  className='rounded-circle shadow-1-strong ' src="../images/c8.png" style={{width:'44px',height:'44px'}} ></CardImg>
+                <CardImg  className='rounded-circle shadow-1-strong ' src="../images/accounts/user_default.png" style={{width:'44px',height:'44px'}} ></CardImg>
             </div>
             <div className="flex-grow-1 flex-shrink-1 " style={{marginBottom:'-24px'}}>
                 <div>

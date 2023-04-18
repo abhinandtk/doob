@@ -1,13 +1,16 @@
 import React from 'react'
 import { useState } from 'react';
-import {Container,Nav,Navbar,Dropdown,Modal,Button, Form} from 'react-bootstrap';
+import {Modal,message,Button} from 'antd'
 import Axios from 'axios'
 import apis from '@/public/data/my-constants/Apis';
 import constants from '@/public/data/my-constants/Constants';
 
-function SharedConfirmation({postId}) {
+function SharedConfirmation({postId,setVisibleShared,setOnSuccess}) {
     const [show,setShow] = useState(true)
-    const handleClose = () => setShow(false);
+    const handleClose = () => {
+        setVisibleShared(false)
+        setShow(false);
+    }
     const sharedPostHandler =()=>{
         Axios.post(apis.sharedpost,{
             parent_id:postId,
@@ -19,31 +22,29 @@ function SharedConfirmation({postId}) {
                 'Authorization':`Token ${constants.token_id}`
             }
         }).then((res)=>{
+            setVisibleShared(false)
+            if(res.data.status === 1){
+                message.success('Post shared Successfully')
+                setOnSuccess(prev => !prev)
+
+            }
             console.log(res)
         })
     }
 
   return (
     <Modal 
-    show={show} 
-    onHide={handleClose} 
-    dialogClassName='shared-confirm-modal'>
-        <Modal.Header closeButton>
-        </Modal.Header>
+    open={show} 
+    onCancel={handleClose} 
+    ClassName='shared-confirm-modal'
+    centered
+    footer={[
+        <Button type='secondary' onClick={handleClose}>Cancel</Button>,
+        <Button type='primary' onClick={sharedPostHandler}>Ok</Button>
+    ]}>
+        <p>Are you sure to share this post</p>
 
-        <Modal.Body>
-        <Modal.Title style={{fontWeight:'700',fontSize:'16px',marginLeft:'300px',marginTop:'24px'}}>confirm</Modal.Title>
-        <Modal.Title  style={{fontSize:'15px',marginLeft:'180px',marginTop:'24px'}}>Are you sure to continue           </Modal.Title>
-        </Modal.Body>
-        <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-            Cancel
-            </Button>
-            <Button variant="primary" onClick={sharedPostHandler}>
-            Submit
-            </Button>
-            </Modal.Footer>
-        </Modal>
+    </Modal>
 
 
   )

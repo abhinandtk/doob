@@ -4,7 +4,7 @@ import { Modal, Form, Input, Button } from 'antd';
 import Axios from 'axios'
 import apis from '@/public/data/my-constants/Apis';
 import constants from '@/public/data/my-constants/Constants';
-export default function PostActions({postId,user}) {
+export default function PostActions({postId,user,setOnSuccess}) {
     const [show,setShow] = useState(false)
     const [visible,setVisible] = useState(false)
     const [reason,setReason] = useState('')
@@ -36,8 +36,10 @@ export default function PostActions({postId,user}) {
           'Authorization':`Token ${constants.token_id}`
         }
       }).then((res)=>{
+        setOnSuccess(prev => !prev)
         console.log('result',res)
       })
+      setVisible(false)
     }
 
   return (
@@ -45,7 +47,7 @@ export default function PostActions({postId,user}) {
 
   <Modal
         title="Why are you reporting this post ??"
-        visible={show}
+        open={show}
         centered
         closable
         maskClosable
@@ -78,7 +80,7 @@ export default function PostActions({postId,user}) {
       </Modal>
   <Modal
         title="Are you sure to delete this post??"
-        visible={visible}
+        open={visible}
         centered
         closable
         maskClosable
