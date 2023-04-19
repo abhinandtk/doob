@@ -394,17 +394,20 @@ Arabic</Dropdown.Item>
       <option>5</option>
     </select>
   </div>
-  <div class="form-group  " >
-  <label for="exampleFormControlInput1"></label>
-    <input type="email" class="form-control p-2 op" style={{border:'0px',background:'#eeeeee',marginTop:'-10px'}} id="exampleFormControlInput1" placeholder='+965 9054642541' />
-  </div>
-
   <div class="form-group my-2 ">
-    <label for="exampleFormControlInput1">Remark</label>
-    <input type="email" class="form-control p-2" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlInput1" />
+  <label for="exampleFormControlTextarea1">Description</label>
+    <textarea class="form-control" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlTextarea1" rows="3"></textarea>
   </div>
- <span> <i class="bi bi-square"></i><label className='mx-2'>Make this as the default address</label></span>
- <Button type="submit" className='sub-cart-btn ' > Cancel  </Button>      <Button type="submit" className='submit-cart-btn mx-2 ' > Save </Button> 
+  <div class="form-group my-2 ">
+  <label for="exampleFormControlTextarea1">Description in Arabic</label>
+    <textarea class="form-control" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+   
+  <p className='order-code ' style={{fontWeight:'500'}}>Variants<span  style={{float:'right'}}> <Button type="submit" className='edit-btn  ' > Add </Button></span></p>
+  {/* <div class="  my-2 ">
+  <Button type="submit" className='sub-cart-btn ' > Cancel  </Button>      <Button type="submit" className='submit-cart-btn mx-2 ' > Save </Button> 
+  </div> */}
+
                   
                   </div>
                   

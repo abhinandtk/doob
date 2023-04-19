@@ -67,8 +67,10 @@ function store ()  {
 
   <div className="content-topic  ">
   <div className='bottom'>
-  <h6 className=' ms-4' style={{color:'#17a803',fontWeight:'700'}}>All Order</h6>
-  <p className='ms-4 ' style={{fontWeight:'500'}}>#12454<span  style={{float:'right'}}> <Button type="submit" className='order-btn ' > update Status </Button></span></p>
+    
+  <h6 className='All-order' style={{color:'#17a803',fontWeight:'700'}}>All Order</h6>
+  <p className='order-code ' style={{fontWeight:'500'}}>#12454<span  style={{float:'right'}}> <Button type="submit" className='order-btn ' > update Status </Button></span></p>
+  
   <hr className='mx-auto' style={{width:'90%'}}></hr>
   <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
   <span style={{color:'#959595'}}>Order Date</span>
@@ -102,21 +104,31 @@ function store ()  {
   </select>
   </div>
   
-   <div className="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-   <div className='row mt-3'>
-   <div className='col-lg-6 col-md-3'>
+   <div className=" mt-2  mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
+   <div class="clearfix">
+      <img src='../images/store/male-soccer-football-player-training-action-isolated-gradient-studio-neon-light copy.jpg'className='pictures'  ></img>
+
+    <div className='shop-content'>
+      <p >LEGEND 9 CLUB TF Football Shoes   </p>
       
+    </div>
+    </div>
+    <div class="clearfix">
+   
+      <img src='../images/store/v copy.png' className='pictures' ></img>
+    
+    <div className='shop-content'>
+      
+      <p >LEGEND 9 CLUB TF Football Shoes  </p>
+  
+    </div>
+    </div>
    </div>
-   <div className='col-lg-6 col-md-3'>
-        
-   </div>
-   </div>
-   </div>
-   <div className="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
+   <div className=" mx-auto d-flex justify-content-between align-items-center " style={{width:'90%'}}>
    <p className='mx-2'  style={{borderBottom:'1px solid black'}}>Download Invoice</p>
    </div>
-   <br></br>
-  <p className='ms-4 ' style={{fontWeight:'500'}}>#12454<span  style={{float:'right'}}> <Button type="submit" className='order-btn ' > update Status </Button></span></p>
+  
+   <p className='order-code ' style={{fontWeight:'500'}}>#12454<span  style={{float:'right'}}> <Button type="submit" className='order-btn ' > update Status </Button></span></p>
   <hr className='mx-auto' style={{width:'90%'}}></hr>
   <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
   <span style={{color:'#959595'}}>Order Date</span>
@@ -147,10 +159,9 @@ function store ()  {
   <option>5</option>
   </select>
   </div>
-  <div className="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
+  <div className=" mt-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
   <p className='mx-2'  style={{borderBottom:'1px solid black'}}>Download Invoice</p>
   </div>
-  <br></br>
   </div>
   </div>
   </div>

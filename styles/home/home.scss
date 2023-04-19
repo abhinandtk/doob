@@ -2029,9 +2029,11 @@ position: absolute;
 
 
 .side-container{
-  margin-left: 250px;
+  margin-left: 320px;
   margin-top: 50px;
+  width:800px;
   
+  justify-content: center;
 }
 .side {
   height: 78%;
@@ -2084,9 +2086,9 @@ margin-left: 13px;
 margin-bottom: -12px;
 }
 .head{
-  font-size:18px;
+  font-size:20px;
   font-weight:500;
-   margin-left: 12px;
+   margin-left: 14px;
 }
 .wallet{
   margin-top: 12px;
@@ -2116,7 +2118,7 @@ margin-bottom: -12px;
   background-color:#EEEEEE;
   border-radius:12px 12px 12px 12px;
   border: 0px;
-
+  
   
  }
  .top-p{

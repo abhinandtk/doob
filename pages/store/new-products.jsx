@@ -378,7 +378,7 @@ Arabic</Dropdown.Item>
 
 
 
-
+         <div className='my-5'>
         <div className="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
           <p style={{fontWeight:'500'}}>Nike-20 Men’s Sport shoe</p>
           <button className="edit-btn mb-2">Edit</button>
@@ -404,7 +404,7 @@ Arabic</Dropdown.Item>
           <span style={{color:'#959595'}}>Payment Status</span>
           <span style={{color:'#17A803'}}>Payment Recevied</span>
         </div>
-       
+        </div>
        
       <br></br>
  

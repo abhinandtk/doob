@@ -331,7 +331,7 @@ form.nosubmit {
   color:white;
   padding: 4px 13px;
  margin-right: 33px;
- margin-top: -5px;
+ margin-top: -12px;
  float: right;
 }
 
@@ -477,7 +477,7 @@ input:disabled{
   width: 230px;
   background-color: #ffffff;
   position: fixed;
-  height: 80%;
+  height: 100%;
 
   
 }
@@ -620,6 +620,41 @@ input:disabled{
 .document{
   margin-right: 12px;
 }
+
+.order-code{
+  margin-left:32px;
+  margin-bottom:-13px;
+  
+}
+.All-order{
+  margin-left:32px;
+  margin-bottom:5px; 
+}
+.clearfix{
+  display: block;
+  margin-left:-9px;
+ 
+}
+
+.pictures{
+  float: left;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding-left: 3%;
+  height: 78px;
+  width: 82px;
+  object-fit: cover;
+  
+}
+.shop-content {
+  margin-top: 10px;
+  margin-left: 90px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
 
 // sajin stores //
 
