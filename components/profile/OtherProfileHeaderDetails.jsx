@@ -156,7 +156,7 @@ function OtherProfileHeaderDetails({data,id}) {
                 <br></br>
                 {data.is_following===1 ?
                         <button onClick={()=>setShow(true)} className="side-menu__suggestion-buttons " style={{backgroundColor:'#EFEFEF',color:'#000000'}}>Following <i className="bi bi-chevron-down "></i></button>  
-                        :<button onClick={followHandler} className="side-menu__suggestion-buttons ">Follow <i className="bi bi-chevron-down "></i></button>  }
+                        :<button onClick={followHandler} className="side-menu__suggestion-buttons ">Follow </button>  }
                 <button className="side-menu__suggestion-button3 ">Message</button>
                 </ul>
 

@@ -39,8 +39,8 @@ function SharedConfirmation({postId,setVisibleShared,setOnSuccess}) {
     ClassName='shared-confirm-modal'
     centered
     footer={[
-        <Button type='secondary' onClick={handleClose}>Cancel</Button>,
-        <Button type='primary' onClick={sharedPostHandler}>Ok</Button>
+        <Button key='cancel' type='secondary' onClick={handleClose}>Cancel</Button>,
+        <Button key='submit' type='primary' onClick={sharedPostHandler}>Ok</Button>
     ]}>
         <p>Are you sure to share this post</p>
 

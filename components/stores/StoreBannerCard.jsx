@@ -8,7 +8,7 @@ function StoreBannerCard({banners}) {
         <div className='row '>
             {banners.map((item,index)=>(
 
-                <div className='col-lg-5 col-md-5  '>
+                <div key={index} className='col-lg-5 col-md-5  '>
                 <img src={`${constants.port}${item.image}`} ></img>
                 </div>
             ))}

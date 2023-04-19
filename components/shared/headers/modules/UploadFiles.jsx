@@ -35,10 +35,10 @@ function UploadFiles({setUploadShow}) {
         ).then((res)=>{
             if (res.data.status === 1){
                 console.log('sucesss')
-                message.success('Post uploaded successfully!');
+                message.success('Post uploaded successfully');
                 notification.success({
-                    message: 'Notification Title',
-                    description: 'This is the content of the notification.',
+                    message: 'Success',
+                    description: 'Post created Successfully',
                   });
             }else{
                 console.log('failed')

@@ -28,7 +28,6 @@ function StoreDetailPage ()  {
     }).then((res)=>{
       setStoreDetails(res.data.data.store[0])
 
-      console.log('storeeeeeeeeeeeeeeeeeeeeeeeee',res)
     })
   })
 

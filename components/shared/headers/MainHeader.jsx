@@ -30,6 +30,7 @@ function MainHeader({title}) {
           ).then((res)=>{
             if (res.data.status === 1){
                 localStorage.removeItem('user-login-token')
+                window.location.reload(false);
             }else{
                 print('error loadin')
             }
@@ -87,7 +88,7 @@ function MainHeader({title}) {
 
                             <Dropdown.Menu  align="center" className='Menu'   >
                                 <Dropdown.Item href="#">English</Dropdown.Item>
-                                <Dropdown.Item href="#">Arabic</Dropdown.Item>
+                                {/* <Dropdown.Item href="#">Arabic</Dropdown.Item> */}
                             </Dropdown.Menu>
                         </Dropdown>
                     </Nav.Link>

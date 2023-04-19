@@ -8,7 +8,6 @@ export default function PostActions({postId,user,setOnSuccess}) {
     const [show,setShow] = useState(false)
     const [visible,setVisible] = useState(false)
     const [reason,setReason] = useState('')
-    console.log('eeeeeeeeeeeeeeee',user)
     const postReportHandler =(e)=>{
       console.log('ppppppppppp',postId)
       e.preventDefault()

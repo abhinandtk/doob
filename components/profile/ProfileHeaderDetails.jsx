@@ -15,6 +15,8 @@ function ProfileHeaderDetails({data}) {
     const [followersListShow,setFollowersListShow]=useState(false)
     const [followingListShow,setFollowingListShow]=useState(false)
 
+    const [showRank,setShowRank]=useState(false)
+
     const uploadButton = (
         <div>
           <PlusOutlined />
@@ -55,6 +57,20 @@ function ProfileHeaderDetails({data}) {
   return (
 
     <Fragment>
+      <Modal 
+         title=''
+         open={showRank}
+         onCancel={()=>setShowRank(false)}
+         closable
+         maskClosable
+         centered
+         footer={null}
+         >
+        <div style={{fontWeight:'600',fontSize:'16px'}}>Game<span style={{fontWeight:'600',fontSize:'16px',marginLeft:'310px'}}>Rank</span></div>
+        <div style={{fontWeight:'400',fontSize:'16px'}}>Football<span style={{fontWeight:'600',fontSize:'16px',marginLeft:'300px'}}>#200</span></div>
+        <div style={{fontWeight:'400',fontSize:'16px'}}>Basketball<span style={{fontWeight:'600',fontSize:'16px',marginLeft:'285px'}}>#1200</span></div>
+         </Modal>
+
         <Modal
         title="Upload or Delete Profile Picture"
         open={visible}
@@ -142,7 +158,7 @@ function ProfileHeaderDetails({data}) {
             <Card.Body>
              <div className='row'>
                 <div className='col-md-6'>
-                <button className="btn profile-edit-btn">Rank</button>
+                <button onClick={()=>setShowRank(true)} className="btn profile-edit-btn">Rank</button>
                 <div className="profile-image">
                     <img style={{borderRadius:'50%'}} src={`${constants.port}${data.user_image}`} alt=""></img>
                 </div>
@@ -167,18 +183,19 @@ function ProfileHeaderDetails({data}) {
                     </ul>
 
                 </div>
-                <button className="btn profile-edit-btn1">Edit</button>
+                {/* <button className="btn profile-edit-btn1">Edit</button> */}
                 </div>
              </div>
               
                     
                
-                
+             {followersListShow && <FollowersList setFollowersListShow={setFollowersListShow}/>}
+             {followingListShow && <FollowingList setFollowingListShow={setFollowingListShow}/>}
             
             </Card.Body>
         </Card>
         
-        <Card className='ceed'>
+        {/* <Card className='ceed'>
             <Card.Body>
              <div className='row'>
                 <div className='col-md-6'>
@@ -217,7 +234,7 @@ function ProfileHeaderDetails({data}) {
              {followingListShow && <FollowingList setFollowingListShow={setFollowingListShow}/>}
               
             </Card.Body>
-        </Card>
+        </Card> */}
         </div>
         </Fragment>
   )

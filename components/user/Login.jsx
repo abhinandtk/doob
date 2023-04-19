@@ -5,59 +5,59 @@ import Form from 'react-bootstrap/Form';
 import apis from '@/public/data/my-constants/Apis';
 import Axios from 'axios';
 import { toast } from 'react-toastify';
-import {auth} from "../../pages/firebase"
-import {signInWithPopup,GoogleAuthProvider,FacebookAuthProvider} from "firebase/auth"
-import {useAuthState} from 'react-firebase-hooks/auth'
-
+// import {auth} from "../../pages/firebase"
+// import {signInWithPopup,GoogleAuthProvider,FacebookAuthProvider} from "firebase/auth"
+// import {useAuthState} from 'react-firebase-hooks/auth'
+import { message, notification } from 'antd';
 
 function Login({setActiveModal}) {
 
   const [error,setError] = useState('')
 
-  const [user,setUser] = useAuthState(auth);
-  const googleAuth = new GoogleAuthProvider();
-  const facebookAuthProvider = new FacebookAuthProvider();
+  // const [user,setUser] = useAuthState(auth);
+  // const googleAuth = new GoogleAuthProvider();
+  // const facebookAuthProvider = new FacebookAuthProvider();
 
-  const ssoLoginApi = (authProvider,id) =>{
-    Axios.post(apis.ssologin,{
-      social_authId:id,
-      platform:"0",
-      fcm_token:"fromweb"
-    }).then((res)=>{
-      if (res.data.status===0){
-        setActiveModal('ssoregister')
+  // const ssoLoginApi = (authProvider,id) =>{
+  //   Axios.post(apis.ssologin,{
+  //     social_authId:id,
+  //     platform:"0",
+  //     fcm_token:"fromweb"
+  //   }).then((res)=>{
+  //     if (res.data.status===0){
+  //       setActiveModal('ssoregister')
         
-      }else{
-        localStorage.setItem('user-login-token',res.data.data.token)
-        console.log('successssssssssssssssssssssssss')
-      }
-    })
-  }
+  //     }else{
+  //       localStorage.setItem('user-login-token',res.data.data.token)
+  //       console.log('successssssssssssssssssssssssss')
+  //     }
+  //   })
+  // }
  
-  const facebookLogin = () => {
-    signInWithPopup(auth, facebookAuthProvider)
-      .then((result) => {
-        localStorage.setItem('sso-user-id',result.user.uid)
-        ssoLoginApi("facebook",result.user.uid)
-      })
-      .catch((error) => {
-        // Handle sign-in error
-        if (error.code === "auth/cancelled-popup-request") {
-          setError("Sign-in cancelled. Please try again.");
-        } else {
-          setError(error.message);
-        }
-      });
+  // const facebookLogin = () => {
+  //   signInWithPopup(auth, facebookAuthProvider)
+  //     .then((result) => {
+  //       localStorage.setItem('sso-user-id',result.user.uid)
+  //       ssoLoginApi("facebook",result.user.uid)
+  //     })
+  //     .catch((error) => {
+  //       // Handle sign-in error
+  //       if (error.code === "auth/cancelled-popup-request") {
+  //         setError("Sign-in cancelled. Please try again.");
+  //       } else {
+  //         setError(error.message);
+  //       }
+  //     });
      
-  };
+  // };
 
-  const googleLogin=async()=>{
-    // await auth.signOut();
-    const result=await signInWithPopup(auth,googleAuth);
-    localStorage.setItem('sso-user-id',user.uid)
-    ssoLoginApi("google",user.uid)
+  // const googleLogin=async()=>{
+  //   // await auth.signOut();
+  //   const result=await signInWithPopup(auth,googleAuth);
+  //   localStorage.setItem('sso-user-id',user.uid)
+  //   ssoLoginApi("google",user.uid)
     
-  }
+  // }
   
 
     const handleClick =()=>{
@@ -84,9 +84,14 @@ function Login({setActiveModal}) {
         fcm_token:'fromweb'
     }).then((res)=>{
       if (res.data.status === 1){
+        notification.success({
+          message: ' Success',
+          description: 'Login Successfully',
+        });
         setErrorMsg('')
         localStorage.setItem('user-login-token',res.data.data.token)
         localStorage.setItem('login-userId',res.data.data.user_id)
+        window.location.reload(false)
         setActiveModal('')
         console.log('login success ')
         toast.success('successinfo')
@@ -150,7 +155,7 @@ function Login({setActiveModal}) {
         <Form.Label >Or Login with</Form.Label>
     
       </Form.Group>
-      <Form.Group className=" text-center" controlId="formBasicPassword">
+      {/* <Form.Group className=" text-center" controlId="formBasicPassword">
         <Form.Label >
           <span>
             <a onClick={googleLogin}><img src='../images/Google__G__Logo.svg.png'  className='mb-1' style={{width:'20px',height:'20px'}}></img></a>
@@ -159,14 +164,14 @@ function Login({setActiveModal}) {
           </span>
         </Form.Label>
     
-      </Form.Group>
+      </Form.Group> */}
 
       <Form.Group className="mb-1 text-center"  controlId="formBasicPassword">
         <Form.Label 
         style={{color:'#17A803'}}
          onClick={handleClick}
          >
-          Don’t have an account? Register</Form.Label>
+          Don&apos;t have an account? Register</Form.Label>
     
       </Form.Group>
     </Form>

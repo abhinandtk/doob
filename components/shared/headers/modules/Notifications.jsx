@@ -74,9 +74,9 @@ function Notifications({setNotificationShow}) {
       
           <section className="side-menu-sections ">
           <div className="side-menu__suggestions-sections " > 
-          {notificationData.map((item)=>{
+          {notificationData.map((item,index)=>{
                 return(
-            <div className="side-menu__suggestions-contents">
+            <div key={index} className="side-menu__suggestions-contents">
               {item.type==='Follow'?(
               <div className="side-menu__suggestions">
                 <a href="#" className="side-menu__suggestion-avatars">

@@ -50,9 +50,9 @@ function OtherUserAccount() {
                         <hr  className='col-md-12 line' ></hr>
 
                         <div className="row images">
-                        {postDetails.map((item)=>(
-                        <div className="col-md-4" tabindex="0">
-                            <img src={`${constants.port}${item.image}`} className="image" alt=""/>
+                        {postDetails.map((item,index)=>(
+                        <div key={index} className="col-md-4" tabindex="0">
+                            <img src={`${constants.port}${item.image}`} style={{objectFit:'cover'}} className="image" alt=""/>
                         </div>
                         ))}
                         </div>

@@ -51,9 +51,9 @@ function FollowersList({setFollowersListShow}) {
     >
      
       <div style={{ padding: '16px' }}>
-        {followers.map((item)=>(
+        {followers.map((item,index)=>(
 
-        <div className="side-menu__suggestion">
+        <div key={index} className="side-menu__suggestion">
             <div className="side-menu__suggestion-avatar">
             <CardImg  className='rounded-circle shadow-1-strong ' src={`${constants.port}${item.image}`} style={{width:'46px',height:'46px'}} ></CardImg>
             </div>
