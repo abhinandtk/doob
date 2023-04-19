@@ -120,7 +120,7 @@ function HomePage ()  {
 
       
       
-       <Login setActiveModal={setActiveModal}/>
+      {activemodal === 'login' && <Login setActiveModal={setActiveModal}/>}
       {activemodal === 'register' && <Register countries={countryData} setActiveModal={setActiveModal}/>}
       {activemodal === 'registerotp' && <RegisterOtpVerification setActiveModal={setActiveModal}/>} 
     

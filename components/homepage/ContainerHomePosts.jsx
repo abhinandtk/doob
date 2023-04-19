@@ -35,10 +35,9 @@ function ContainerHomePosts() {
   }).catch((error)=>{
     console.error(error)
   })
-  },[onSuccess])
+  })
 
   const likeHandler =(postId,index)=>{
-    console.log('iiiiiiiiiiiiii',postId)
     // e.preventDefault()
     const updatedPosts = [...postsData];
     Axios.post(apis.likepost,{
@@ -83,7 +82,7 @@ function ContainerHomePosts() {
     <div className="text_followers">My Followers</div>
     {postsData.map((item,index)=>(
 
-    <div className="posts">
+    <div key={index} className="posts">
       <article className="post">
         <div className="post__header">
 

@@ -20,8 +20,7 @@ function FavoriteProducts() {
         console.log('vvvvvvvvvvvvvvvvvvvvvvvvvvview',favLists)
     })
     const favoriteHandler =(id,favorite)=>{
-        console.log('weeeeeeeeeeeeeeeeeeeeee',favorite)
-        console.log('w444eeeeeeeeeeeeeeeeeeeeee',!favorite)
+        
         const api = favorite ?apis.removewishlist :apis.addwishlist
         Axios.post(api,{
           product_id:id

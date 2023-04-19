@@ -8,7 +8,7 @@ import Axios from 'axios'
 import apis from '@/public/data/my-constants/Apis';
 import constants from '@/public/data/my-constants/Constants';
 
-function favoriteStores() {
+function FavoriteStores() {
     const [storeFavList,setStoreFavList]=useState([])
 
     Axios.get(apis.viewstorewishlist,{
@@ -61,4 +61,4 @@ function favoriteStores() {
   )
 }
 
-export default favoriteStores
+export default FavoriteStores

@@ -6,6 +6,7 @@ import {Container,Nav,Navbar,Dropdown,Tab,Tabs,CardImg,Card} from 'react-bootstr
 import Axios from 'axios'
 import apis from '@/public/data/my-constants/Apis';
 import constants from '@/public/data/my-constants/Constants';
+import Link from 'next/link';
 
 function SearchPage() {
 
@@ -60,7 +61,9 @@ function SearchPage() {
     <Fragment>
         <MainHeader title='Doob'/>
         <MainSidebarFixed />
-        {/* <form className="nosubmit ">
+        <div className="container2">
+
+        <form className="nosubmit ">
             <input 
             className="nosubmit" 
             type="search" 
@@ -70,7 +73,7 @@ function SearchPage() {
 
         <section id="tabs">
 	
-        <div className="col-md-9  ">
+        {/* <div className="col-md-9  "> */}
             <Tabs  
             id="uncontrolled-tab-example"  
             style={{display:'flex',justifyContent:'space-evenly'}} 
@@ -83,9 +86,9 @@ function SearchPage() {
                     {error ?(
                         <p style={{color:'#A2A2A2'}}>No results found...</p>
                     ):(    
-                    feedResult.map((item)=>(
-                    <div className="col-md-4" tabindex="0">
-                    <img src={`${constants.port}${item.image}`} className="image" alt=""/>
+                    feedResult.map((item,index)=>(
+                    <div key={index} className="col-md-4" tabindex="0">
+                    <img src={`${constants.port}${item.image}`} className="image" style={{objectFit:'cover'}} alt=""/>
                     </div>
                     )))}
                     
@@ -99,33 +102,36 @@ function SearchPage() {
                     {error ?(
                         <p style={{color:'#A2A2A2'}}>No results found...</p>
                     ):(
-                    searchResult.map((item)=>(
-                    <div className='d-flex flex-start mt-4 mx-2'>
-                        <a   className='me-2' href=''>
-                        <CardImg  className='rounded-circle shadow-1-strong ' src={`${constants.port}/media/${item.image}`} style={{width:'44px',height:'44px'}} ></CardImg>
+                    searchResult.map((item,index)=>(
+                      <Link key={index} href={`/userprofile/${item.id}`} style={{textDecoration:'none'}}>
+                      <div className='d-flex flex-start mt-4 mx-2'>
+                        <a className='me-2' href=''>
+                          <CardImg  className='rounded-circle shadow-1-strong ' src={`${constants.port}/media/${item.image}`} style={{width:'44px',height:'44px',objectFit:'cover'}} ></CardImg>
                         </a>
                         <div className="flex-grow-1 flex-shrink-1 " style={{marginBottom:'-24px'}}>
                             <div>
-                                <div className="d-flex justify-content-between align-items-center">
-                                    <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
-                                    {item.name}{" "}
-                                    </p>
-                                </div>
-
-                                <p className='small ' style={{color:'#000',fontWeight:'500',fontSize:'14px',marginTop:'-5px'}}>
-                                    @{item.username} 
+                              <div className="d-flex justify-content-between align-items-center">
+                                <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
+                                {item.name}{" "}
+                                  
                                 </p>
+                              </div>
+                            
+                              <p className='small ' style={{color:'#000',fontWeight:'400',fontSize:'14px',marginTop:'-3px',float:'left'}}>
+                              @{item.username}
+                              </p>
                             </div>
-                        </div>
-                    </div>
+                          </div>
+                      </div>
+                      </Link>
                     )))}
                 </Tab>
             </Tabs>
-        </div>
+        {/* </div> */}
 	
-</section> */}
+</section></div>
 
-<div className="container2">
+{/* <div className="container2">
     
    
   
@@ -271,7 +277,7 @@ function SearchPage() {
        
       
     </section>
-    </div>
+    </div> */}
     </Fragment>
   )
 }

@@ -28,10 +28,8 @@ function Comments({setVisibleComment,postId,slug}) {
             }
         }).then((res)=>{
             setShowComments(res.data.data.comments)
-
-            console.log(res.data.data.comments)
         })
-    },[showComments])
+    })
     const onHideHandler =()=>{
         setShow(false)
         setVisibleComment(false)
@@ -81,9 +79,9 @@ function Comments({setVisibleComment,postId,slug}) {
     onCancel={onHideHandler}
     footer={[]}
     >
-        {showComments.map((item)=>(
+        {showComments.map((item,index)=>(
             
-            <div className='d-flex flex-start mt-4 mx-2'>
+            <div key={index} className='d-flex flex-start mt-4 mx-2'>
             <div className='me-2' href=''>
                 <CardImg  className='rounded-circle shadow-1-strong ' src={`${constants.port}/media/${item.user.image}`} style={{width:'44px',height:'44px'}} ></CardImg>
             </div>
@@ -110,8 +108,8 @@ function Comments({setVisibleComment,postId,slug}) {
 
                     
                     {item.replies !== null && item.replies.length > 0 ?
-                        item.replies.map((reply) => (
-                            <div className='ms-auto mt-2 d-flex align-items-start'>
+                        item.replies.map((reply,index) => (
+                            <div key={index} className='ms-auto mt-2 d-flex align-items-start'>
                                 <CardImg className='rounded-circle shadow-1-strong me-3' src={`${constants.port}/media/${item.user.image}`} style={{width:'44px',height:'44px'}}></CardImg>
                                 <div className="d-flex flex-column justify-content-between">
                                     <div className="mb-0">

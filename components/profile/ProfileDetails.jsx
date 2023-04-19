@@ -22,7 +22,7 @@ function ProfileDetails() {
             setPostDetails(res.data.data.post_details)
             console.log('POsts result=-----------------------',res.data.data.post_details)
         })
-    },[])
+    })
 
     Axios.get(apis.activity,{
         headers:{
@@ -53,10 +53,10 @@ function ProfileDetails() {
 
                             <div className="row images">
 
-                            {postDetails.map((item)=>{
+                            {postDetails.map((item,index)=>{
                                 return(
-                                    <div className="col-lg-4 col-md-6 col-sm-4 col-xs-2" tabindex="0">
-                                        <img src={`${constants.port}${item.image}`} className="image" alt=""/>
+                                    <div key={index} className="col-lg-4 col-md-6 col-sm-4 col-xs-2" tabindex="0">
+                                        <img src={`${constants.port}${item.image}`} className="image" alt="" style={{objectFit:'cover'}}/>
                                     </div>
                             )})}
 

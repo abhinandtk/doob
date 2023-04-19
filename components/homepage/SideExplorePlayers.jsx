@@ -6,7 +6,7 @@ function SideExplorePlayers() {
     <section className="side-menu-section ">
         <div className="side-menu__suggestions-section">
         <div className="side-menu__suggestions-header">
-            <h2>Explore New Player's</h2>
+            <h2>Explore New Player&apos;s</h2>
             
         </div>    
         <div className="side-menu__suggestions-content">
