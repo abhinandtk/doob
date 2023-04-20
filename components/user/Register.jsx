@@ -125,7 +125,7 @@ function Register({setActiveModal,countries}) {
       </Form.Group>
 
       <Form.Label className='white'>Phone Number*</Form.Label>
-      <Form.Group className=" d-flex justify-content-between align-items-center white "  >
+      <Form.Group className="mb-2 d-flex justify-content-between align-items-center white "  >
       
         <Form.Select 
         id="code" 
@@ -150,7 +150,7 @@ function Register({setActiveModal,countries}) {
         required/>
       </Form.Group>
 
-      <Form.Group className="mb-1 white"  >
+      <Form.Group className="mb-2 white"  >
 
         <Form.Label>Gender*</Form.Label>
         <Form.Select 
@@ -169,7 +169,7 @@ function Register({setActiveModal,countries}) {
         </Form.Select>
 
       </Form.Group>
-      <Form.Group className="mb-1 white" >
+      <Form.Group className="mb-2 white" >
         <Form.Label>Nationality*</Form.Label>
         <Form.Select 
         id="nationality"
@@ -190,7 +190,7 @@ function Register({setActiveModal,countries}) {
       </Form.Group>
      
 
-            <Form.Group className="mb-1 white"  >
+            <Form.Group className="mb-2 white"  >
         <Form.Label>Date of Birth*</Form.Label>
         <Form.Control 
         id="dob"

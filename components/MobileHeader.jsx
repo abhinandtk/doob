@@ -1,13 +1,47 @@
 import React, { useState } from 'react'
-import {Container,Nav,Navbar,Dropdown,Modal,Button} from 'react-bootstrap';
+import {Container,Nav,Navbar,Dropdown} from 'react-bootstrap';
+import {Modal,Button} from 'antd'
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Axios from 'axios';
 import apis from '@/public/data/my-constants/Apis';
+// import Head from 'next/head';
+// import Link from 'next/link';
+import { notification } from 'antd';
+import UploadFiles from './shared/headers/modules/UploadFiles';
+import Notifications from './shared/headers/modules/Notifications';
 function MobileHeader() {
     const [show,setShow] = useState(false)
+    const [confirmLogout,setConfirmLogout]=useState(false)
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true)
+    const [uploadShow,setUploadShow] = useState(false)
+    const [notificationShow,setNotificationShow]=useState(false)
+
+    const logoutHandle =(e)=>{
+        e.preventDefault()
+        Axios.post(
+            apis.logout,{},
+            {
+              headers: {
+                'Authorization': `Token ${localStorage.getItem('user-login-token')}`,
+                'Content-Type': 'application/json',
+              }
+            }
+          ).then((res)=>{
+            if (res.data.status === 1){
+                localStorage.removeItem('user-login-token')
+                notification.success({
+                    message: ' Success',
+                    description: 'Logout Successfully',
+                  });
+                window.location.reload(false);
+            }else{
+                print('error loadin')
+            }
+          });
+        
+          setConfirmLogout(false) 
+    }
+    
   return (
     <div>
           <Navbar collapseOnSelect expand="lg" bg="light" variant="dark" sticky='top' className='mobile-nav' >
@@ -26,11 +60,11 @@ function MobileHeader() {
 
                             <Dropdown.Menu  align="center" className='Menu'   >
                                 <Dropdown.Item href="#">English</Dropdown.Item>
-                                <Dropdown.Item href="#">Arabic</Dropdown.Item>
+                                {/* <Dropdown.Item href="#">Arabic</Dropdown.Item> */}
                             </Dropdown.Menu>
                         </Dropdown>
                     </Nav.Link>
-                    <Nav.Link  >
+                    <Nav.Link href='/search'>
                         <svg width="24" height="20" className='search' viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0.643603 10.9395C0.99762 16.1773 5.5729 20.1733 10.8112 19.8192C13.0968 19.6648 15.1372 18.7137 16.6662 17.2709L20.6823 20.7785C21.089 21.1337 21.6604 21.0951 22.0157 20.6884C22.2407 20.4818 22.3199 20.2373 22.3038 19.9991C22.2878 19.7611 22.1765 19.5293 21.9731 19.3518L17.9569 15.8442C19.1777 14.0875 19.8455 11.9377 19.691 9.65218C19.337 4.41433 14.7617 0.41837 9.52389 0.772387C4.28563 1.12627 0.289677 5.70171 0.643694 10.9396L0.643603 10.9395ZM17.7861 9.78085C18.0693 13.9714 14.8725 17.6316 10.682 17.9148C6.4919 18.1979 2.83168 15.0011 2.54846 10.8107C2.26523 6.62021 5.462 2.95999 9.65252 2.67676C13.8426 2.39356 17.5029 5.59033 17.7861 9.78085Z" fill="black"/>
                         </svg>
@@ -39,25 +73,25 @@ function MobileHeader() {
                     <Nav.Link>
                         <svg width="30" height="30" viewBox="0 0 29 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M11.4918 19.5125V19.5244M6.8288 19.5125V19.5244M16.1549 19.5125V19.5244M1 29L2.51549 24.3748C1.20569 22.4041 0.731868 20.0704 1.18211 17.8075C1.63236 15.5446 2.97604 13.5065 4.96331 12.0722C6.95059 10.638 9.44623 9.90509 11.9862 10.0099C14.5262 10.1146 16.9377 11.0499 18.7723 12.6418C20.607 14.2338 21.7399 16.374 21.9604 18.6645C22.181 20.9551 21.4742 23.2402 19.9714 25.0949C18.4687 26.9495 16.2722 28.2477 13.7905 28.7478C11.3087 29.248 8.71057 28.9162 6.47907 27.8141L1 29Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="22" cy="7" r="7" fill="#17A803"/>
+                        {/* <circle cx="22" cy="7" r="7" fill="#17A803"/> */}
                         <path d="M19.5202 8.66786V8.02082L22.3748 3.50422H22.8442V4.5065H22.527L20.3702 7.91932V7.97007H24.2144V8.66786H19.5202ZM22.5778 10V8.47121V8.16989V3.50422H23.3263V10H22.5778Z" fill="white"/>
                         </svg>
 
                     </Nav.Link>
                     <Nav.Link>
-                        <svg width="24" height="31" className='bell' viewBox="0 0 24 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg onClick={()=>setNotificationShow(!notificationShow)} width="24" height="31" className='bell' viewBox="0 0 24 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M9.23529 26.4706C14.6989 26.4706 17.2265 25.7187 17.4706 22.7009C17.4706 19.6851 15.7084 19.879 15.7084 16.1788C15.7084 13.2885 13.1545 10 9.23529 10C5.31604 10 2.76221 13.2885 2.76221 16.1788C2.76221 19.879 1 19.6851 1 22.7009C1.24507 25.7301 3.77265 26.4706 9.23529 26.4706Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M11.588 28.8235C10.5992 30.3829 9.05681 30.4013 8.05859 28.8235" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="17" cy="7" r="7" fill="#17A803"/>
+                        {/* <circle cx="17" cy="7" r="7" fill="#17A803"/> */}
                         <path d="M17.9561 3.50422V10H17.1695V4.32888H17.1314L15.5455 5.38191V4.58262L17.1695 3.50422H17.9561Z" fill="white"/>
                         </svg>
                     </Nav.Link>
                     <Nav.Link>
-                        <svg width="22" height="18" className='menu' onClick={handleShow}   viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="22" height="18" className='menu' onClick={()=>setShow(true)}   viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 1H21M1 9H21M1 17H21" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
        
-                        <Offcanvas placement='end' show={show} onHide={handleClose}>
+                        <Offcanvas placement='end' show={show} onHide={()=>setShow(false)}>
                             <Offcanvas.Header closeButton>
                                 <Offcanvas.Title></Offcanvas.Title>
                             </Offcanvas.Header>
@@ -106,7 +140,10 @@ function MobileHeader() {
                                     <span className='mx-3'>Feedback</span> 
                                 </div>
 
-                                <div className='my-4'>
+                                <div onClick={()=>{
+                                    setShow(false)
+                                    setConfirmLogout(true)
+                                    }} className='my-4' style={{cursor:'pointer'}}>
                                     <svg width="22" height="24" viewBox="0 0 21 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M15.0844 4.40723C15.0065 4.36444 14.9135 4.33891 14.8145 4.33891C14.5015 4.33891 14.2475 4.59114 14.2475 4.90192C14.2475 5.11437 14.3662 5.29978 14.5416 5.39512L14.5446 5.39662C17.3343 6.9205 19.1933 9.82037 19.1933 13.1504C19.1933 18.0215 15.216 21.9709 10.3102 21.9709C5.40453 21.9709 1.4272 18.0215 1.4272 13.1504C1.4272 9.83163 3.2726 6.94152 6.00026 5.43566L6.04562 5.41239C6.22102 5.3148 6.3382 5.13088 6.3382 4.91994C6.3382 4.60916 6.08418 4.35693 5.77119 4.35693C5.67216 4.35693 5.57841 4.38245 5.49752 4.42674L5.50054 4.42524C2.37447 6.1488 0.293945 9.40825 0.293945 13.1496C0.293945 18.6424 4.77856 23.0954 10.3102 23.0954C15.8419 23.0954 20.3265 18.6424 20.3265 13.1496C20.3265 9.39399 18.2301 6.12478 15.1366 4.432L15.0852 4.40573L15.0844 4.40723ZM10.2717 11.11C10.5847 11.11 10.8387 10.8578 10.8387 10.547V1.51711C10.8387 1.20633 10.5847 0.954102 10.2717 0.954102C9.9587 0.954102 9.70468 1.20633 9.70468 1.51711V10.547C9.70468 10.8578 9.9587 11.11 10.2717 11.11Z" fill="#080808"/>
                                     </svg>
@@ -119,6 +156,27 @@ function MobileHeader() {
             </Navbar>
         </Container>
     </Navbar>
+            
+    <Modal
+    title='Logout'
+    open={confirmLogout}
+    onCancel={()=>setConfirmLogout(false)}
+    centered
+    closable
+    maskClosable
+    footer={[
+        <Button className="no-hover-effect" onClick={()=>{
+            setConfirmLogout(false)
+        }}
+         key='cancel' type='secondary' >Cancel</Button>,
+        <Button className="no-hover-effect" onClick={logoutHandle} key='submit' style={{backgroundColor:'#17A803',color:'black'}}>Logout</Button>
+    ]}>
+        <p>Are you sure to logout</p>
+
+    </Modal>
+
+    {uploadShow && <UploadFiles setUploadShow={setUploadShow}/>}
+    {notificationShow && <Notifications setNotificationShow={setNotificationShow}/>}
     
     </div>
   )

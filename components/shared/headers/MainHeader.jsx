@@ -1,23 +1,24 @@
 import React, { useState } from 'react'
-import {Container,Nav,Navbar,Dropdown,Modal,Button} from 'react-bootstrap';
+import {Container,Nav,Navbar,Dropdown} from 'react-bootstrap';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Axios from 'axios';
-import apis from '@/public/data/my-constants/Apis';
-import UploadFiles from './modules/UploadFiles';
-import Notifications from './modules/Notifications';
 import Head from 'next/head';
 import Link from 'next/link';
+import { Button, Modal, notification } from 'antd';
+import UploadFiles from './modules/UploadFiles';
+import Notifications from './modules/Notifications';
+import apis from '@/public/data/my-constants/Apis';
 
 function MainHeader({title}) {
 
     const [show,setShow] = useState(false)
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true)
+    const [confirmLogout,setConfirmLogout]=useState(false)
 
     const [uploadShow,setUploadShow] = useState(false)
     const [notificationShow,setNotificationShow]=useState(false)
 
     const logoutHandle =(e)=>{
+        setConfirmLogout(false)
         e.preventDefault()
         Axios.post(
             apis.logout,{},
@@ -30,6 +31,10 @@ function MainHeader({title}) {
           ).then((res)=>{
             if (res.data.status === 1){
                 localStorage.removeItem('user-login-token')
+                notification.success({
+                    message: ' Success',
+                    description: 'Logout Successfully',
+                  });
                 window.location.reload(false);
             }else{
                 print('error loadin')
@@ -100,7 +105,7 @@ function MainHeader({title}) {
                     <Nav.Link>
                         <svg width="26" height="35"  className='shop' viewBox="0 0 26 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M13.7345 9.74039C13.7345 9.13137 13.4973 8.5473 13.0751 8.11666C12.6528 7.68602 12.0802 7.44409 11.483 7.44409C10.8859 7.44409 10.3132 7.68602 9.89101 8.11666C9.46878 8.5473 9.23157 9.13137 9.23157 9.74039M8.09683 21.2219H11.474M14.8512 21.2219H11.474M11.474 21.2219V17.7774M11.474 21.2219V24.6663M19.6559 15.1321L21.215 25.4654C21.2643 25.7925 21.2438 26.1265 21.1547 26.4447C21.0657 26.7629 20.9102 27.0577 20.6991 27.3089C20.4879 27.5602 20.2261 27.7619 19.9314 27.9003C19.6367 28.0387 19.3161 28.1105 18.9917 28.1108H3.97439C3.64977 28.1108 3.32897 28.0392 3.034 27.901C2.73903 27.7627 2.47686 27.5611 2.26547 27.3098C2.05407 27.0585 1.89845 26.7636 1.80928 26.4453C1.7201 26.1269 1.69947 25.7927 1.74882 25.4654L3.30796 15.1321C3.38974 14.5897 3.65928 14.0951 4.06775 13.7379C4.47621 13.3807 4.9966 13.1845 5.53466 13.1848H17.4314C17.9693 13.1848 18.4894 13.3811 18.8976 13.7383C19.3059 14.0955 19.5752 14.5899 19.657 15.1321H19.6559Z" stroke="black" stroke-width="1.60741" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="19" cy="7" r="7" fill="#17A803"/>
+                        {/* <circle cx="19" cy="7" r="7" fill="#17A803"/> */}
                         <path d="M18.8673 10.0888C18.4486 10.0888 18.0754 10.0169 17.7476 9.87313C17.422 9.72934 17.163 9.52952 16.9706 9.27367C16.7803 9.0157 16.6766 8.71649 16.6597 8.37606H17.459C17.4759 8.58539 17.5478 8.76618 17.6747 8.91843C17.8016 9.06856 17.9676 9.18486 18.1727 9.26732C18.3778 9.34979 18.6051 9.39102 18.8546 9.39102C19.1337 9.39102 19.3811 9.34239 19.5968 9.24512C19.8125 9.14785 19.9816 9.01252 20.1043 8.83913C20.2269 8.66574 20.2882 8.46487 20.2882 8.2365C20.2882 7.99756 20.229 7.78716 20.1106 7.60532C19.9922 7.42135 19.8188 7.27757 19.5904 7.17396C19.3621 7.07035 19.083 7.01854 18.7531 7.01854H18.2329V6.32075H18.7531C19.0111 6.32075 19.2373 6.27423 19.4319 6.18119C19.6285 6.08816 19.7818 5.95706 19.8918 5.78789C20.0038 5.61873 20.0599 5.41997 20.0599 5.1916C20.0599 4.97169 20.0112 4.78033 19.914 4.61751C19.8167 4.4547 19.6792 4.32783 19.5016 4.2369C19.3261 4.14598 19.1189 4.10052 18.88 4.10052C18.6558 4.10052 18.4444 4.14175 18.2456 4.22421C18.049 4.30457 17.8883 4.42192 17.7635 4.57628C17.6387 4.72853 17.5711 4.91249 17.5605 5.12817H16.7993C16.812 4.78773 16.9145 4.48959 17.1069 4.23373C17.2994 3.97576 17.551 3.77488 17.8618 3.63109C18.1748 3.48731 18.5184 3.41541 18.8927 3.41541C19.2944 3.41541 19.6391 3.49682 19.9266 3.65964C20.2142 3.82034 20.4352 4.03285 20.5895 4.29717C20.7439 4.56148 20.8211 4.84694 20.8211 5.15354C20.8211 5.51935 20.7249 5.83124 20.5325 6.08921C20.3421 6.34718 20.0831 6.52586 19.7554 6.62524V6.67599C20.1656 6.74365 20.4859 6.9181 20.7164 7.19933C20.9469 7.47845 21.0621 7.82417 21.0621 8.2365C21.0621 8.58962 20.9659 8.9068 20.7735 9.18803C20.5832 9.46714 20.3231 9.68705 19.9933 9.84776C19.6634 10.0085 19.2881 10.0888 18.8673 10.0888Z" fill="white"/>
                         </svg>
 
@@ -108,7 +113,7 @@ function MainHeader({title}) {
                     <Nav.Link>
                         <svg width="30" height="30" viewBox="0 0 29 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M11.4918 19.5125V19.5244M6.8288 19.5125V19.5244M16.1549 19.5125V19.5244M1 29L2.51549 24.3748C1.20569 22.4041 0.731868 20.0704 1.18211 17.8075C1.63236 15.5446 2.97604 13.5065 4.96331 12.0722C6.95059 10.638 9.44623 9.90509 11.9862 10.0099C14.5262 10.1146 16.9377 11.0499 18.7723 12.6418C20.607 14.2338 21.7399 16.374 21.9604 18.6645C22.181 20.9551 21.4742 23.2402 19.9714 25.0949C18.4687 26.9495 16.2722 28.2477 13.7905 28.7478C11.3087 29.248 8.71057 28.9162 6.47907 27.8141L1 29Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="22" cy="7" r="7" fill="#17A803"/>
+                        {/* <circle cx="22" cy="7" r="7" fill="#17A803"/> */}
                         <path d="M19.5202 8.66786V8.02082L22.3748 3.50422H22.8442V4.5065H22.527L20.3702 7.91932V7.97007H24.2144V8.66786H19.5202ZM22.5778 10V8.47121V8.16989V3.50422H23.3263V10H22.5778Z" fill="white"/>
                         </svg>
 
@@ -117,16 +122,16 @@ function MainHeader({title}) {
                         <svg onClick={()=>setNotificationShow(!notificationShow)}width="24" height="31" className='bell' viewBox="0 0 24 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M9.23529 26.4706C14.6989 26.4706 17.2265 25.7187 17.4706 22.7009C17.4706 19.6851 15.7084 19.879 15.7084 16.1788C15.7084 13.2885 13.1545 10 9.23529 10C5.31604 10 2.76221 13.2885 2.76221 16.1788C2.76221 19.879 1 19.6851 1 22.7009C1.24507 25.7301 3.77265 26.4706 9.23529 26.4706Z" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M11.588 28.8235C10.5992 30.3829 9.05681 30.4013 8.05859 28.8235" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="17" cy="7" r="7" fill="#17A803"/>
+                        {/* <circle cx="17" cy="7" r="7" fill="#17A803"/> */}
                         <path d="M17.9561 3.50422V10H17.1695V4.32888H17.1314L15.5455 5.38191V4.58262L17.1695 3.50422H17.9561Z" fill="white"/>
                         </svg>
                     </Nav.Link>
                     <Nav.Link>
-                        <svg width="22" height="18" className='menu' onClick={handleShow}   viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="22" height="18" className='menu' onClick={()=>setShow(true)}   viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 1H21M1 9H21M1 17H21" stroke="black" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
        
-                        <Offcanvas placement='end' show={show} onHide={handleClose}>
+                        <Offcanvas placement='end' show={show} onHide={()=>setShow(false)}>
                             <Offcanvas.Header closeButton>
                                 <Offcanvas.Title></Offcanvas.Title>
                             </Offcanvas.Header>
@@ -179,7 +184,11 @@ function MainHeader({title}) {
                                     <span className='mx-3'>Feedback</span> 
                                 </div>
 
-                                <div onClick={logoutHandle} className='my-4' style={{cursor:'pointer'}}>
+                                <div onClick={()=>{
+                                    setShow(false)
+                                    setConfirmLogout(true)
+                                    }} 
+                                    className='my-4' style={{cursor:'pointer'}}>
                                     <svg width="22" height="24" viewBox="0 0 21 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M15.0844 4.40723C15.0065 4.36444 14.9135 4.33891 14.8145 4.33891C14.5015 4.33891 14.2475 4.59114 14.2475 4.90192C14.2475 5.11437 14.3662 5.29978 14.5416 5.39512L14.5446 5.39662C17.3343 6.9205 19.1933 9.82037 19.1933 13.1504C19.1933 18.0215 15.216 21.9709 10.3102 21.9709C5.40453 21.9709 1.4272 18.0215 1.4272 13.1504C1.4272 9.83163 3.2726 6.94152 6.00026 5.43566L6.04562 5.41239C6.22102 5.3148 6.3382 5.13088 6.3382 4.91994C6.3382 4.60916 6.08418 4.35693 5.77119 4.35693C5.67216 4.35693 5.57841 4.38245 5.49752 4.42674L5.50054 4.42524C2.37447 6.1488 0.293945 9.40825 0.293945 13.1496C0.293945 18.6424 4.77856 23.0954 10.3102 23.0954C15.8419 23.0954 20.3265 18.6424 20.3265 13.1496C20.3265 9.39399 18.2301 6.12478 15.1366 4.432L15.0852 4.40573L15.0844 4.40723ZM10.2717 11.11C10.5847 11.11 10.8387 10.8578 10.8387 10.547V1.51711C10.8387 1.20633 10.5847 0.954102 10.2717 0.954102C9.9587 0.954102 9.70468 1.20633 9.70468 1.51711V10.547C9.70468 10.8578 9.9587 11.11 10.2717 11.11Z" fill="#080808"/>
                                     </svg>
@@ -192,6 +201,24 @@ function MainHeader({title}) {
             </Navbar>
         </Container>
     </Navbar>
+
+    <Modal
+    title='Logout'
+    open={confirmLogout}
+    onCancel={()=>setConfirmLogout(false)}
+    centered
+    closable
+    maskClosable
+    footer={[
+        <Button className="no-hover-effect" onClick={()=>{
+            setConfirmLogout(false)
+        }}
+         key='cancel' type='secondary' >Cancel</Button>,
+        <Button className="no-hover-effect" onClick={logoutHandle} key='submit' style={{backgroundColor:'#17A803',color:'black'}}>Logout</Button>
+    ]}>
+        <p>Are you sure to logout</p>
+
+    </Modal>
     
     {uploadShow && <UploadFiles setUploadShow={setUploadShow}/>}
     {notificationShow && <Notifications setNotificationShow={setNotificationShow}/>}

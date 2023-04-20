@@ -1,6 +1,32 @@
-import React from 'react'
-
+import {React,useState} from 'react'
+import Axios from 'axios'
+import apis from '@/public/data/my-constants/Apis'
+import constants from '@/public/data/my-constants/Constants'
+import Link from 'next/link'
 function SideExplorePlayers() {
+
+    const [exploreData,setExploreData]=useState([])
+
+    Axios.get(apis.explorepage,{
+        headers:{
+            'Authorization':`Token ${constants.token_id}`,
+        }
+    }).then((res)=>{
+        setExploreData(res.data.data)
+        console.log(res)
+    })
+    
+    const exploreFollowHandler=(id)=>{
+        Axios.post(apis.follow,{
+            user_id:id
+        },{
+            headers:{
+                'Authorization':`Token ${constants.token_id}`
+            }
+        }).then((res)=>{
+            // if(re)
+        })
+    }
   return (
     
     <section className="side-menu-section ">
@@ -10,59 +36,22 @@ function SideExplorePlayers() {
             
         </div>    
         <div className="side-menu__suggestions-content">
-            <div className="side-menu__suggestion">
-            <a href="#" className="side-menu__suggestion-avatar">
-                <img src="../images/unsplash_Zrh274DQA6s.png" alt="User Picture" />
-            </a>
-            <div className="side-menu__suggestion-info">
-                <a href="#"> David Maxwell</a>
-                <span>Followed by Muhammhad Alsalah and 12 more</span>
-            </div>
-            <button className="side-menu__suggestion-button">Follow</button>
-            </div>
-            <div className="side-menu__suggestion">
-            <a href="#" className="side-menu__suggestion-avatar">
-                <img src="../images/unsplash_EqOTqiGQAdk.png" alt="User Picture" />
-            </a>
-            <div className="side-menu__suggestion-info">
-                <a href="#"> Ajmal Ashraf</a>
-                <span>Followed by David Maxwell and 9 more</span>
-            </div>
-            <button className="side-menu__suggestion-button">Follow</button>
-            </div>
-            <div className="side-menu__suggestion">
-            <a href="#" className="side-menu__suggestion-avatar">
-                <img src="../images/unsplash_u6eu4uF4JIo.png" alt="User Picture" />
-            </a>
-            <div className="side-menu__suggestion-info">
-                <a href="#">Al Kazim bin Abdulla</a>
-                <span>Followed by Ajmal Ashraf and 12 more</span>
-            </div>
-            <button className="side-menu__suggestion-button">Follow</button>
-            </div>
-            <div className="side-menu__suggestion">
-            <a href="#" className="side-menu__suggestion-avatar">
-                <img src="../images/unsplash_r-krWscXjvQ.png" alt="User Picture" />
-            </a>
-            <div className="side-menu__suggestion-info">
-                <a href="#">
-                Dilshad Muhammad</a>
-                <span>Followed by Ajmal Ashraf and 12 more</span>
-            </div>
-            <button className="side-menu__suggestion-button">Follow</button>
-            </div>
-            <div className="side-menu__suggestion">
-            <a href="#" className="side-menu__suggestion-avatar">
-                <img src="../images/unsplash_bXUydgWzpnQ.png" alt="User Picture" />
-            </a>
-            <div className="side-menu__suggestion-info">
-                <a href="#">
-                Al Marvan bin Hussain</a>
-                <span>Followed by David Maxwell and 12 more
-                </span>
-            </div>
-            <button className="side-menu__suggestion-button">Follow</button>
-            </div>
+            {exploreData.slice(0,5).map((item,index)=>(
+
+                <div key={index} className="side-menu__suggestion">
+                    <div href="#" className="side-menu__suggestion-avatar">
+                        <img src={`${constants.port}${item.image}`} style={{objectFit:'cover',width:'44px'}} alt="User Picture" />
+                    </div>
+                <Link href={`/userprofile/${item.id}`} style={{textDecoration:'none',color:'black'}}>
+                    <div className="side-menu__suggestion-info">
+                        <a> {item.name}</a>
+                        <span>Followed by Muhammhad Alsalah and 12 more</span>
+                    </div>
+                </Link>
+                <button onClick={()=>exploreFollowHandler(item.id)} className="side-menu__suggestion-button">Follow</button>
+                </div>
+            ))}
+            
         </div>
         <img src="../images/Group 1000003423.png"></img>
         </div>

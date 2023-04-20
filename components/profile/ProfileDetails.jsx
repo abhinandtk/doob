@@ -20,7 +20,7 @@ function ProfileDetails() {
         }).then((res)=>{
             setUserDetails(res.data.data.user_details)
             setPostDetails(res.data.data.post_details)
-            console.log('POsts result=-----------------------',res.data.data.post_details)
+            console.log('POsts result=-----------------------',res.data.data.user_details)
         })
     })
 
@@ -30,7 +30,6 @@ function ProfileDetails() {
         }
     }).then((res)=>{
         setActivityData(res.data.data)
-        console.log('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^',res)
     })
 
   return (

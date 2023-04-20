@@ -16,6 +16,8 @@ function Comments({setVisibleComment,postId,slug}) {
     const [showComments,setShowComments]= useState([])
     const [replayTo,setReplayTo] = useState(null)
 
+    const [loginUserImg,setLoginUser]=useState([])
+
     const inputRef = useRef()
     useEffect(()=>{
 
@@ -27,6 +29,8 @@ function Comments({setVisibleComment,postId,slug}) {
                 'Authorization':`Token ${constants.token_id}`
             }
         }).then((res)=>{
+            console.log('titiitititiitititititiiti',res)
+            setLoginUser(res.data.data.login_user)
             setShowComments(res.data.data.comments)
         })
     })
@@ -79,11 +83,15 @@ function Comments({setVisibleComment,postId,slug}) {
     onCancel={onHideHandler}
     footer={[]}
     >
-        {showComments.map((item,index)=>(
+        { showComments && showComments.map((item,index)=>(
             
             <div key={index} className='d-flex flex-start mt-4 mx-2'>
             <div className='me-2' href=''>
-                <CardImg  className='rounded-circle shadow-1-strong ' src={`${constants.port}/media/${item.user.image}`} style={{width:'44px',height:'44px'}} ></CardImg>
+                {item.user.image ?(
+                    <CardImg  className='rounded-circle shadow-1-strong ' src={`${constants.port}/media/${item.user.image}`} style={{width:'44px',height:'44px'}} ></CardImg>
+                ):(
+                    <CardImg  className='rounded-circle shadow-1-strong ' src="../images/accounts/user_default.png" style={{width:'44px',height:'44px'}} ></CardImg>
+                )}
             </div>
             <div className="flex-grow-1 flex-shrink-1 " style={{marginBottom:'-24px'}}>
                 <div>
@@ -110,7 +118,11 @@ function Comments({setVisibleComment,postId,slug}) {
                     {item.replies !== null && item.replies.length > 0 ?
                         item.replies.map((reply,index) => (
                             <div key={index} className='ms-auto mt-2 d-flex align-items-start'>
+                                {item.user.image ?(
                                 <CardImg className='rounded-circle shadow-1-strong me-3' src={`${constants.port}/media/${item.user.image}`} style={{width:'44px',height:'44px'}}></CardImg>
+                                ):(
+                                <CardImg className='rounded-circle shadow-1-strong me-3' src="../images/accounts/user_default.png" style={{width:'44px',height:'44px'}}></CardImg>
+                                )}
                                 <div className="d-flex flex-column justify-content-between">
                                     <div className="mb-0">
                                     <p className="mb-0" style={{ fontWeight: '600' }}>
@@ -143,8 +155,12 @@ function Comments({setVisibleComment,postId,slug}) {
        
         <div className='d-flex flex-start mt-5 mx-2' style={{position:'sticky',bottom:'0'}}>
             <div   className='me-2' href=''>
+                {loginUserImg ?(
+                <CardImg  className='rounded-circle shadow-1-strong ' src={`${constants.port}${loginUserImg}`} style={{width:'44px',height:'44px'}} ></CardImg>
+                ):(
                 <CardImg  className='rounded-circle shadow-1-strong ' src="../images/accounts/user_default.png" style={{width:'44px',height:'44px'}} ></CardImg>
-            </div>
+                )}
+                </div>
             <div className="flex-grow-1 flex-shrink-1 " style={{marginBottom:'-24px'}}>
                 <div>
                         <Form >

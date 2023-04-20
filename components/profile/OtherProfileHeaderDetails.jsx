@@ -47,7 +47,7 @@ function OtherProfileHeaderDetails({data,id}) {
             <Button key='back' type='secondary' onClick={()=>setShow(false)}>
                 cancel
             </Button>,
-            <Button key='submit' type='primary' onClick={handleUnfollow}>
+            <Button style={{backgroundColor:'#17A803'}} key='submit' type='primary' onClick={handleUnfollow}>
             Confirm
             </Button>
             
@@ -87,56 +87,17 @@ function OtherProfileHeaderDetails({data,id}) {
         <div style={{fontWeight:'400',fontSize:'16px'}}>Basketball<span style={{fontWeight:'600',fontSize:'16px',marginLeft:'285px'}}>#1200</span></div>
          </Modal>
 
-        {/* <Card className='cord' >
-            <Card.Body>
-                <div className='row'>
-                    <div className='col-md-6'>
-                    <button onClick={()=>setShowRank(true)} className="btn profile-edit-btn">Rank</button> 
-                    <div className="profile-image" >
-                        <img src={`${constants.port}/media/${data.user_image}`} alt="" style={{borderRadius:'50%',objectFit:'cover'}}></img>
-                    </div>
-                    </div>
-                    <div className='col-md-6'>
-                        
-                
-
-                    <div className="profile-stats">
-                        <ul>
-                        <h1 className="profile-user-name">{data.name}<span><img src='../images/accounts/stars.png' className='mx-1 mb-1'></img></span><span><img src='../images/accounts/iconoir_help-circles.png' className=' mb-1'></img></span></h1><br></br>
-                        <h1 className="profile-user-names">@{data.username}</h1>
-                        <br></br>
-                        <li><span className="profile-stat-count">{data.post_count}</span> <span style={{color:'#959595'}}>posts</span></li>
-                        <li><span className="profile-stat-count">{data.followers_count}</span>  <span style={{color:'#959595'}}>followers</span></li>
-                        <li><span className="profile-stat-count">{data.following_count}</span>  <span style={{color:'#959595'}}>following</span></li>
-                        <br></br>
-                        <li><span className="profile-stat-count " style={{color:'#959595'}}>Age:</span>  <span >{data.age}</span></li>
-                        <li><span className="profile-stat-count" style={{color:'#959595'}}>Gender:</span>  <span >{data.gender}</span></li>
-                        <br></br>
-                        <li><span > <img src="../images/accounts/kuwait.png" alt="" ></img></span><span className="profile-stat-count mx-1">{data.country} </span> <span style={{color:'#959595'}} className='mx-3'>+More</span></li>
-                        </ul>
-                        {data.is_following===1 ?
-                        <button onClick={()=>setShow(true)} className="side-menu__suggestion-buttons " style={{backgroundColor:'#EFEFEF',color:'#000000'}}>Following <i className="bi bi-chevron-down "></i></button>  
-                        :<button onClick={followHandler} className="side-menu__suggestion-buttons ">Follow <i className="bi bi-chevron-down "></i></button>  }
-                        
-                        <button className="side-menu__suggestion-button3 ">Message</button>
-                    </div>
-                    </div>
-                </div>
-                
-                </Card.Body>
-            </Card> */}
+      
 
 <Card className='cord'>
         <Card.Body>
          <div className='row'>
             <div className='col-md-6'>
-            <button onClick={()=>setShowRank(true)} className="btn profile-edit-btn">Rank</button>
+            {/* <button onClick={()=>setShowRank(true)} className="btn profile-edit-btn">Rank</button> */}
             <div className="profile-image">
                 <img src={`${constants.port}/media/${data.user_image}`} alt="image" style={{borderRadius:'50%',objectFit:'cover'}}></img>
             </div>
-            <div className="profile-cam1">
-                <img src="../images/accounts/camera.png" href='#'  alt=""></img>
-            </div>
+            
             </div>
             <div className='col-md-6'>
             <div className="profile-stats">
@@ -151,13 +112,15 @@ function OtherProfileHeaderDetails({data,id}) {
                 <li><span className="profile-stat-count " style={{color:'#959595'}}>Age:</span>  <span >{data.age}</span></li>
                 <li><span className="profile-stat-count" style={{color:'#959595'}}>Gender:</span>  <span > {data.gender}</span></li>
                 <br></br>
-                <li><span > <img src="../images/accounts/kuwait.png" alt="" ></img></span><span className="profile-stat-count mx-1">{data.country} </span> <span style={{color:'#959595'}} className='mx-3'>+More</span></li>
+                <li><span > <img src="../images/accounts/kuwait.png" alt="" ></img></span><span className="profile-stat-count mx-1">{data.country} </span> 
+                {/* <span style={{color:'#959595'}} className='mx-3'>+More</span> */}
+                </li>
           
                 <br></br>
                 {data.is_following===1 ?
                         <button onClick={()=>setShow(true)} className="side-menu__suggestion-buttons " style={{backgroundColor:'#EFEFEF',color:'#000000'}}>Following <i className="bi bi-chevron-down "></i></button>  
                         :<button onClick={followHandler} className="side-menu__suggestion-buttons ">Follow </button>  }
-                <button className="side-menu__suggestion-button3 ">Message</button>
+                {/* <button className="side-menu__suggestion-button3 ">Message</button> */}
                 </ul>
 
             </div>
