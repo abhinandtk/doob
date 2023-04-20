@@ -402,8 +402,17 @@ Arabic</Dropdown.Item>
   <label for="exampleFormControlTextarea1">Description in Arabic</label>
     <textarea class="form-control" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlTextarea1" rows="3"></textarea>
   </div>
-   
-  <p className='order-code ' style={{fontWeight:'500'}}>Variants<span  style={{float:'right'}}> <Button type="submit" className='edit-btn  ' > Add </Button></span></p>
+   <div className='clearfix'>
+  <p className='order-code ' style={{fontWeight:'500'}}>Variants</p> <Button type="submit" className='edit-btn' > Add </Button>
+  </div>
+  <div class="form-group my-2">
+    <label for="exampleFormControlInput1">SKU</label>
+    <input type="email" class="form-control p-2" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlInput1" />
+  </div>
+  <div class="form-group my-2">
+    <label for="exampleFormControlInput1">Quantity</label>
+    <input type="email" class="form-control p-2" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlInput1" />
+  </div>
   {/* <div class="  my-2 ">
   <Button type="submit" className='sub-cart-btn ' > Cancel  </Button>      <Button type="submit" className='submit-cart-btn mx-2 ' > Save </Button> 
   </div> */}

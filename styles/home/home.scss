@@ -317,7 +317,12 @@ body{
    
     
   }
- 
+  .btn:hover {
+    background-color: #17A803; 
+  }
+  .btn:active{
+    background-color: #17A803;
+  }
   
   
   button[type="submit"]:focus,

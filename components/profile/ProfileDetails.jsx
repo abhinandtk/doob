@@ -49,7 +49,7 @@ function ProfileDetails() {
                     onSelect={(e)=>SetKey(e)}
                     > 
                        <Tab eventKey={1} title="Feeds">
-                            <hr  className='col-md-12 line' ></hr>
+                            <hr  className=' line' ></hr>
 
                             <div className="row images">
 
@@ -64,7 +64,7 @@ function ProfileDetails() {
                             
                         </Tab>
                         <Tab eventKey={2} title="Activities" >
-                            <hr  className='col-md-12 line ' ></hr>
+                            <hr  className=' line ' ></hr>
                             <Card className='card-tab'>
                             <h6 style={{color:'#000',fontWeight:'600',fontSize:'18px',marginLeft:'43px',marginTop:'44px',textAlign:'left'}}>Tue.Feb 12</h6>
                             <div className='d-flex flex-start mt-3 mx-5' >
@@ -72,14 +72,14 @@ function ProfileDetails() {
                                     <CardImg   src="../images/accounts/stadium.png" style={{width:'64px',height:'64px',borderRadius:'0px'}} ></CardImg>
                                 </a>
                                 <div className="flex-grow-1 flex-shrink-1 mx-2 mt-2 " style={{marginBottom:'-24px'}}>
-                                    <div>
+                                   <div>
                                         <div className="d-flex justify-content-between align-items-center">
-                                            <p className="mb-0" style={{fontWeight:'500',color:'#000',fontSize:'15px'}}>
-                                                Booked<span className='mx-1' style={{fontWeight:'600',fontSize:'15px'}}>
-                                                Mohammed Al-Hamad Stadium </span>
-                                            </p>                                         
+                                        <p className=" book" >
+                                                
+                                              Booked  Mohammed Al-Hamad Stadium 
+                                            </p>                                          
                                         </div>
-                                        <p className='small ' style={{color:'#000',fontWeight:'500',fontSize:'14px',marginTop:'-5px',textAlign:'left'}}>
+                                        <p className='small-time ' >
                                             10:30 
                                         </p>
                                     </div>
@@ -93,18 +93,37 @@ function ProfileDetails() {
                                 <div className="flex-grow-1 flex-shrink-1 mx-2 mt-2 " style={{marginBottom:'-24px'}}>
                                     <div>
                                         <div className="d-flex justify-content-between align-items-center">
-                                            <p className="mb-0" style={{fontWeight:'500',color:'#000',fontSize:'15px'}}>
-                                                Booked<span className='mx-1' style={{fontWeight:'600',fontSize:'15px'}}>
-                                                Mohammed Al-Hamad Stadium </span>
+                                        <p className=" book" >
+                                                
+                                              Booked  Mohammed Al-Hamad Stadium 
                                             </p>                                         
                                         </div>
-                                        <p className='small ' style={{color:'#000',fontWeight:'500',fontSize:'14px',marginTop:'-5px',textAlign:'left'}}>
+                                        <p className='small-time ' >
                                             10:30 
                                         </p>
                                     </div>
                                 </div>
                             </div>   
-                                
+                            <hr  className=' line1 mx-5'  ></hr>
+                            <div className='d-flex flex-start mt-3 mx-5' >
+                                <a   className='me-2' href=''>
+                                    <CardImg   src="../images/accounts/stadium.png" style={{width:'64px',height:'64px',borderRadius:'0px'}} ></CardImg>
+                                </a>
+                                <div className="flex-grow-1 flex-shrink-1 mx-2 mt-2 " style={{marginBottom:'-24px'}}>
+                                    <div>
+                                        <div className="d-flex justify-content-between align-items-center">
+                                        <p className=" book" >
+                                                
+                                                Booked  Mohammed Al-Hamad Stadium 
+                                              </p>                                         
+                                        </div>
+                                        <p className='small-time ' >
+                                            10:30 
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>  
+                                <br></br>
                       
                             </Card>
                             
