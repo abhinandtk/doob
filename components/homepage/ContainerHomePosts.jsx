@@ -95,7 +95,11 @@ function ContainerHomePosts() {
 
           <div className="post__profile">
             <div className="post__avatar">
+              {item.user_detail.image ?(
                <img src={`${constants.port}/media/${item.user_detail.image}`} alt="User Picture" style={{objectFit:'cover',width:'100%',height:'100%'}}/>
+               ):(
+               <img src="../images/accounts/user_default.png" alt="User Picture" style={{objectFit:'cover',width:'100%',height:'100%'}}/>
+               )}
             </div>
              
             <div className="users">
@@ -110,18 +114,34 @@ function ContainerHomePosts() {
 
           <div className="post__profile">
             <div className="post__avatar">
+              {item.owner_user_detail.user_detail.image ? (
                <img 
                 src={`${constants.port}/media/${item.owner_user_detail.user_detail.image}`} 
                 alt="User Picture" 
                 style={{objectFit:'cover',width:'100%',height:'100%'}}
                 />
+              ):(
+               <img 
+                src="../images/accounts/user_default.png" 
+                alt="User Picture" 
+                style={{objectFit:'cover',width:'100%',height:'100%'}}
+                />
+              )}
             </div>
-            <div className="post__avatar1">            
+            <div className="post__avatar1"> 
+            {item.user_detail.image ? (        
                <img 
                 src={`${constants.port}/media/${item.user_detail.image}`}  
                 alt="User Picture" 
                 style={{objectFit:'cover',width:'100%',height:'100%'}}
                 />
+                ):( 
+               <img 
+                src="../images/accounts/user_default.png" 
+                alt="User Picture" 
+                style={{objectFit:'cover',width:'100%',height:'100%'}}
+                />
+                )}  
             </div>
              
             <div className="users">

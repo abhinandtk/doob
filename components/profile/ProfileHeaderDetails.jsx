@@ -171,7 +171,10 @@ function ProfileHeaderDetails({data}) {
                 {/* <button onClick={()=>setShowRank(true)} className="btn profile-edit-btn">Rank</button> */}
                 <div className="profile-image" >
                     {loading ?<Spin style={{position:'absolute',top:'50%',left:'50%'}} spinning={loading} indicator={<LoadingOutlined />}/>:
-                    <img style={{borderRadius:'50%'}} src={`${constants.port}${data.user_image}`} alt=""></img>}
+                    data.user_image ?
+                    <img style={{borderRadius:'50%'}} src={`${constants.port}${data.user_image}`} alt=""></img>
+                    :(
+                    <img style={{borderRadius:'50%'}} src='../images/accounts/user_default.png' alt=""></img>)}
                     
                 </div>
                 <div className="profile-cam1" onClick={uploadShowHandler}>
