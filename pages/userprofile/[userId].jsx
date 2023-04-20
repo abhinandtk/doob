@@ -43,11 +43,11 @@ function OtherUserAccount() {
         <div className="container2">
         <OtherProfileHeaderDetails data={profileDetails} id={userId}/>
     <section id="tabs">
-        <div className="container">
-            <div className="col-md-9  ">
+        
+            
                 <Tabs  id="uncontrolled-tab-example" style={{display:'flex',justifyContent:'space-evenly'}} > 
                     <Tab eventKey={1} title="Feeds">
-                        <hr  className='col-md-12 line' ></hr>
+                        <hr  className=' line' ></hr>
 
                         <div className="row images">
                         {postDetails.map((item,index)=>(
@@ -60,12 +60,12 @@ function OtherUserAccount() {
                     </Tab>
                     <Tab eventKey={2} title="Activities"> 
                     
-                        <hr style={{color:'#000',width:'900px'}} className='col-md-12 ' ></hr>
+                        <hr className=' line ' ></hr>
 
                     </Tab>
                 </Tabs>
-            </div>
-        </div>
+         
+        
     </section>
     </div>
 
