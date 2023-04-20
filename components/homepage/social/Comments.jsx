@@ -29,7 +29,7 @@ function Comments({setVisibleComment,postId,slug}) {
         }).then((res)=>{
             setShowComments(res.data.data.comments)
         })
-    })
+    },[postId])
     const onHideHandler =()=>{
         setShow(false)
         setVisibleComment(false)
@@ -79,7 +79,7 @@ function Comments({setVisibleComment,postId,slug}) {
     onCancel={onHideHandler}
     footer={[]}
     >
-        {showComments.map((item,index)=>(
+        {showComments && showComments.map((item,index)=>(
             
             <div key={index} className='d-flex flex-start mt-4 mx-2'>
             <div className='me-2' href=''>

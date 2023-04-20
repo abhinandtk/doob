@@ -35,6 +35,7 @@ const apis = {
     'removefollower':`${constants.port}/social/Api/remove_follower`,
     'notification':`${constants.port}/social/Api/notification`,
     'activity':`${constants.port}/social/Api/activity`,
+    'explorepage':`${constants.port}/social/Api/unfollowedaccounts`,
 
     //store module
 

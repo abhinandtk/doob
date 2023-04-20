@@ -88,7 +88,7 @@ export default function PostActions({postId,user,setOnSuccess}) {
           <Button key="back" onClick={()=>setVisible(false)}>
             Cancel
           </Button>,
-          <Button key="submit" type="primary" onClick={deletePostHandler}>
+          <Button style={{backgroundColor:'#17A803'}} key="submit" type="primary" onClick={deletePostHandler}>
             Submit
           </Button>,
         ]}

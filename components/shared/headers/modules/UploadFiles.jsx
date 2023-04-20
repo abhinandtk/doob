@@ -63,7 +63,7 @@ function UploadFiles({setUploadShow}) {
         className='upload_file'
         centered
         footer={[
-            <Button key="submit" type="primary" onClick={uploadSubmitHandler}>
+            <Button style={{backgroundColor:'#17A803'}} key="submit" type="primary" onClick={uploadSubmitHandler}>
             Share
             </Button>,
         ]}>
@@ -109,7 +109,7 @@ function UploadFiles({setUploadShow}) {
         <Button key="back" onClick={()=>setShowModal2(false)}>
           Cancel
         </Button>,
-        <Button key="submit" type="primary" onClick={uploadSubmitHandler}>
+        <Button style={{backgroundColor:'#17A803'}} key="submit" type="primary" onClick={uploadSubmitHandler}>
           Share
         </Button>,
       ]}

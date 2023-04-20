@@ -7,6 +7,7 @@ import UploadFiles from './modules/UploadFiles';
 import Notifications from './modules/Notifications';
 import Head from 'next/head';
 import Link from 'next/link';
+import { notification } from 'antd';
 
 function MainHeader({title}) {
 
@@ -30,6 +31,10 @@ function MainHeader({title}) {
           ).then((res)=>{
             if (res.data.status === 1){
                 localStorage.removeItem('user-login-token')
+                notification.success({
+                    message: ' Success',
+                    description: 'Logout Successfully',
+                  });
                 window.location.reload(false);
             }else{
                 print('error loadin')

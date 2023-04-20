@@ -40,7 +40,7 @@ function SharedConfirmation({postId,setVisibleShared,setOnSuccess}) {
     centered
     footer={[
         <Button key='cancel' type='secondary' onClick={handleClose}>Cancel</Button>,
-        <Button key='submit' type='primary' onClick={sharedPostHandler}>Ok</Button>
+        <Button key='submit' style={{backgroundColor:'#17A803'}} type='primary' onClick={sharedPostHandler}>Ok</Button>
     ]}>
         <p>Are you sure to share this post</p>
 

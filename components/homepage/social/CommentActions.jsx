@@ -67,6 +67,7 @@ function CommentActions({user,commentId}) {
 
           <Form.Item>
             <Button 
+            style={{backgroundColor:'#17A803'}}
             type="primary" 
             htmlType="submit"
             >
@@ -90,7 +91,7 @@ function CommentActions({user,commentId}) {
           <Button key="back" onClick={()=>setVisible(false)}>
             Cancel
           </Button>,
-          <Button key="submit" type="primary" onClick={deleteCommentHandler}>
+          <Button style={{backgroundColor:'#17A803'}} key="submit" type="" onClick={deleteCommentHandler}>
             Submit
           </Button>,
         ]}

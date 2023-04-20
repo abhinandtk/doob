@@ -42,7 +42,7 @@ function ForgetEmail({setActiveModal}) {
     type='email'
     className='mx-auto dot'   
     placeholder="Email" 
-    style={{width:'100%',marginTop:'-29px'}}
+    style={{width:'50%',marginTop:'-29px'}}
     onChange={(e)=>setEmail(e.target.value)}
     required
     />

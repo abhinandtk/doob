@@ -25,7 +25,6 @@ function ContainerHomePosts() {
       'Authorization':`Token ${constants.token_id}`
     }
   }).then((res)=>{
-    setPostId(res.data.data.posts.post_id)
     const updatedPosts = res.data.data.posts.map((post) => ({
       ...post,
       liked: post.is_liked === 1 ? true:false,
@@ -79,7 +78,7 @@ function ContainerHomePosts() {
   }
   return (
     <Fragment>
-    <div className="text_followers">My Followers</div>
+    <div className="text_followers" >My Followers</div>
     {postsData.map((item,index)=>(
 
     <div key={index} className="posts">
@@ -183,7 +182,7 @@ function ContainerHomePosts() {
             <button onClick={()=>likeHandler(item.post_id,index)} className="post__button ">
             <svg width="30"
                 height="30" viewBox="0 0 34 32" stroke='black' fill={`${item.liked ?'red':'white'}`} xmlns="http://www.w3.org/2000/svg">
-                <path d="M17.0002 26.6668C17.0002 26.6668 4.25024 19.9834 4.25024 11.9633C4.25024 3.94313 14.1669 3.27478 17.0002 9.54977C19.8336 3.27478 29.7502 3.94313 29.7502 11.9633C29.7502 19.9834 17.0002 26.6668 17.0002 26.6668Z" stroke="black" stroke-width="1.50701" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M17.0002 26.6668C17.0002 26.6668 4.25024 19.9834 4.25024 11.9633C4.25024 3.94313 14.1669 3.27478 17.0002 9.54977C19.8336 3.27478 29.7502 3.94313 29.7502 11.9633C29.7502 19.9834 17.0002 26.6668 17.0002 26.6668Z" stroke={`${item.liked ?'none':'black'}`} stroke-width="1.507" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             </button>
            

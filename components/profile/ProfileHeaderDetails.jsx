@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react'
-import { Modal, Button, Upload, message } from 'antd';
+import { Modal, Button, Upload, message,Icon,Spin } from 'antd';
 import { Card,Tab,Tabs,CardImg } from 'react-bootstrap'
-import { PlusOutlined } from '@ant-design/icons';
+import { PlusOutlined,LoadingOutlined } from '@ant-design/icons';
 import Axios from 'axios'
 import apis from '@/public/data/my-constants/Apis';
 import constants from '@/public/data/my-constants/Constants';
@@ -16,6 +16,9 @@ function ProfileHeaderDetails({data}) {
     const [followingListShow,setFollowingListShow]=useState(false)
 
     const [showRank,setShowRank]=useState(false)
+    const [showUpload,setShowUpload]=useState(false)
+
+    const [loading,setLoading]=useState(false)
 
     const uploadButton = (
         <div>
@@ -40,17 +43,23 @@ function ProfileHeaderDetails({data}) {
         console.log('iiooooooooooooooooooooooooooo',res)
         setUploadImageUrl(URL.createObjectURL(file))
         message.success('profile image updated successfully')
+        setVisible(false)
+
       })
     }
 
     const deleteProfileImg =()=>{
+      setVisible(false)
+      setLoading(true)
       Axios.delete(apis.profilepage,{
         headers:{
           'Authorization':`Token ${constants.token_id}`
         }
       }).then((res)=>{
         setVisible(false)
+        message.success('profile image deleted successfully')
         console.log('ressssssssssssssssssssssssss',res)
+        setLoading(false)
       })
     }
 
@@ -72,25 +81,20 @@ function ProfileHeaderDetails({data}) {
          </Modal>
 
         <Modal
-        title="Upload or Delete Profile Picture"
         open={visible}
-        // onOk={handleOk}
+        style={{padding:'0'}}
         onCancel={()=>setVisible(false)}
-        footer={[
-          <Button key="back" onClick={()=>setVisible(false)} >
-            Cancel
-          </Button>,
-          <Button key="delete" onClick={deleteProfileImg}>
-            Delete
-          </Button>,
-          <Button key="submit" type="primary" >
-            Save
-          </Button>,
-        ]}
+        footer={[]}
       >
-        <Upload
+        
+       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div style={{ margin:'8px',fontSize:'18px',width:'100%',textAlign: 'center' }}>
+              Change profile photo
+            <hr></hr>
+          </div>
+          <div style={{ cursor:'pointer',marginBottom: '10px',width:'100%',textAlign: 'center' }}>
+          <Upload
           name="profilePicture"
-          listType="picture-card"
           showUploadList={false}
           beforeUpload={(file) => {
             // validate file type and size here
@@ -100,15 +104,21 @@ function ProfileHeaderDetails({data}) {
             handleUpload(file);
           }}
         >
-          {uploadImageUrl ? (
-            <img src={uploadImageUrl} style={{width:'100%'}}/>
-          ):(
-            uploadButton
-          )}
+          Add photo
 
-          
-        </Upload>
-      </Modal>
+        </Upload> 
+          </div>
+         
+          <div onClick={deleteProfileImg} style={{cursor:'pointer',marginBottom: '10px',width:'100%',textAlign: 'center' }}>
+              Remove Photo
+          </div>
+          <div style={{cursor:'pointer'}} onClick={()=>setVisible(false)}>
+              Cancel
+          </div>
+        </div>
+      </Modal>          
+
+      
     {/* <Card className='container' style={{width:'910px',marginLeft:'395px',marginTop:'23px',height:'290px'}}>
             <Card.Body>
              <div className='row'>
@@ -158,18 +168,25 @@ function ProfileHeaderDetails({data}) {
             <Card.Body>
              <div className='row'>
                 <div className='col-md-6'>
-                <button onClick={()=>setShowRank(true)} className="btn profile-edit-btn">Rank</button>
-                <div className="profile-image">
-                    <img style={{borderRadius:'50%'}} src={`${constants.port}${data.user_image}`} alt=""></img>
+                {/* <button onClick={()=>setShowRank(true)} className="btn profile-edit-btn">Rank</button> */}
+                <div className="profile-image" >
+                    {loading ?<Spin style={{position:'absolute',top:'50%',left:'50%'}} spinning={loading} indicator={<LoadingOutlined />}/>:
+                    <img style={{borderRadius:'50%'}} src={`${constants.port}${data.user_image}`} alt=""></img>}
+                    
                 </div>
                 <div className="profile-cam1" onClick={uploadShowHandler}>
-                    <img src="../images/accounts/camera.png" href='#'  alt=""></img>
+                    <img src="../images/accounts/camera.png" alt=""></img>
                 </div>
                 </div>
                 <div className='col-md-6'>
                 <div className="profile-stats">
                     <ul>
-                    <h1 className="profile-user-name">{data.name}<span><img src='../images/accounts/stars.png' className='mx-1 mb-1'></img></span><span><img src='../images/accounts/iconoir_help-circles.png' className=' mb-1'></img></span></h1><br></br>
+                    <h1 className="profile-user-name">{data.name}
+                    <span>
+                      <img src='../images/accounts/stars.png' className='mx-1 mb-1'>
+                      </img></span><span><img src='../images/accounts/iconoir_help-circles.png' className=' mb-1'></img>
+                    </span>
+                    </h1><br></br>
                     <h1 className="profile-user-names">{data.username}</h1>
                     <br></br>
                     <li><span className="profile-stat-count">{data.post_count}</span> <span style={{color:'#959595'}}>posts</span></li>
@@ -179,7 +196,9 @@ function ProfileHeaderDetails({data}) {
                     <li><span className="profile-stat-count " style={{color:'#959595'}}>Age:</span>  <span >{data.age}</span></li>
                     <li><span className="profile-stat-count" style={{color:'#959595'}}>Gender:</span>  <span > {data.gender}</span></li>
                     <br></br>
-                    <li><span > <img src={`${constants.port}/media/${data.country_image}`} width={'30px'} alt="" ></img></span><span className="profile-stat-count mx-1">{data.country} </span> <span style={{color:'#959595'}} className='mx-3'>+More</span></li>
+                    <li><span > <img src={`${constants.port}/media/${data.country_image}`} width={'30px'} alt="" ></img></span><span className="profile-stat-count mx-1">{data.country} </span> 
+                    {/* <span style={{color:'#959595'}} className='mx-3'>+More</span> */}
+                    </li>
                     </ul>
 
                 </div>
