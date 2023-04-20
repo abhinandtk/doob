@@ -134,7 +134,43 @@ function OtherProfileHeaderDetails({data,id}) {
         
         </Card.Body>
     </Card>
-            
+    <Card className='ceed'>
+            <Card.Body>
+                
+            {/* <button className=" profile-edits-btn">Rank</button> */}
+             
+                <div className="avatar">    
+                <img className='user-avatar' src={`${constants.port}${data.user_image}`} alt=""  />
+                 </div>
+      
+             
+
+          <div className="main-ceed">
+          <div className="profile-name">{data.name}
+            {/* <span>
+            <img src='../images/accounts/stars.png' className='mx-1 mb-1'></img>
+            <span>
+            <img src='../images/accounts/iconoir_help-circles.png' className=' mb-1'></img></span>
+            </span> */}
+          </div>
+          <div className="profile-role">{data.username}</div>
+          <div className="profile-followers">{data.post_count} <span style={{color:'#959595'}}>posts</span>        
+          <span onClick={()=>setFollowersListShow(true)} className='mx-1'>{data.followers_count} <span style={{color:'#959595'}}>followers</span>
+          </span> 
+          <span onClick={()=>setFollowingListShow(true)} >{data.following_count} <span style={{color:'#959595'}}>following</span></span>   </div>
+          <div className="profile-age">Age:<span >{data.age}</span><span className='mx-2'>Gender: {data.gender}</span></div>
+          <div className="profile-country"> <img src= {`${constants.port}/media/${data.country_image}`} width={'30px'} alt="" ></img><span className=" mx-1">{data.country} 
+          </span>
+           {/* <span style={{color:'#959595'}} className='mx-1'>+More</span> */}
+          </div>
+           <div className='following'>  {data.is_following===1 ?
+                        <button onClick={()=>setShow(true)} className="side-menu__suggestion-buttons " style={{backgroundColor:'#EFEFEF',color:'#000000'}}>Following <i className="bi bi-chevron-down "></i></button>  
+                        :<button onClick={followHandler} className="side-menu__suggestion-buttons ">Follow </button>  }
+                          {/* <button className="side-menu__suggestion-button3 ">Message</button> */}
+                        </div>
+          </div>
+                </Card.Body>
+                </Card>  
             
         </Fragment>
   )
