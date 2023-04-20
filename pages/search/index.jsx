@@ -127,9 +127,10 @@ function SearchPage() {
                     )))}
                 </Tab>
             </Tabs>
-        {/* </div> */}
+      
 	
-</section></div>
+</section>
+</div>
 
 {/* <div className="container2">
     

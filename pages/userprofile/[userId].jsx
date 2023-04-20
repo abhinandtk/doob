@@ -40,6 +40,7 @@ function OtherUserAccount() {
     <Fragment>
         <MainHeader title='Doob'/>
         <MainSidebarFixed />
+     
         <div className="container2">
         <OtherProfileHeaderDetails data={profileDetails} id={userId}/>
     <section id="tabs">
