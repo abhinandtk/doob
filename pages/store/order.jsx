@@ -290,7 +290,7 @@ Arabic</Dropdown.Item>
     </aside>
     <div className='store-container my-4  '>
 
-    <Card >
+    <Card style={{width:'800px'}} >
       <Card.Body>
       <h5 className='mt-4 ms-5'>Order History</h5>
   <p className='ms-5 ' style={{fontWeight:'500'}}>#12454</p>
