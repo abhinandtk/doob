@@ -152,7 +152,7 @@ function Login({setActiveModal}) {
         </Modal.Footer>
         <p style={{color:'red',textAlign:'center'}}>{errorMsg}</p>
       <Form.Group className="mb-1 text-center" controlId="formBasicPassword">
-        <Form.Label >Or Login with</Form.Label>
+        {/* <Form.Label >Or Login with</Form.Label> */}
     
       </Form.Group>
       {/* <Form.Group className=" text-center" controlId="formBasicPassword">

@@ -78,7 +78,8 @@ function ContainerHomePosts() {
   }
   return (
     <Fragment>
-    <div className="text_followers" >My Followers</div>
+    {/* <div className="text_followers" >My Followers</div> */}
+    <div className="ms-1" ><b>My Followers</b></div>
     {postsData.map((item,index)=>(
 
     <div key={index} className="posts">

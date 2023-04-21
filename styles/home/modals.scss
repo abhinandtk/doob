@@ -1,12 +1,5 @@
-// .custom-modal .modal-dialog {
-//     max-width: 200px; /* set the maximum width of the modal */
-//   }
-  
-//   .custom-modal .modal-content {
-//     max-height: 200px; /* set the maximum height of the modal */
-//   }
+// react-bootstrap tab
 
-.modal-btns{
-    background-color: $primary-color;
-}
-  
+.nav-tabs .nav-link.active {
+    color:#17a803 !important;
+  }
