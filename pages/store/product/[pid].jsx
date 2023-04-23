@@ -7,6 +7,7 @@ import MainHeader from '@/components/shared/headers/MainHeader';
 import MainSidebarFixed from '@/components/shared/sidebar/MainSidebarFixed';
 import ProductDetailInfo from '@/components/stores/product-details/ProductDetailInfo';
 import ProductDetailImages from '@/components/stores/product-details/ProductDetailImages';
+import MobileHeader from '@/components/MobileHeader';
 
   
 
@@ -19,6 +20,7 @@ function HomePage ()  {
   return (
     <div>
         <MainHeader title='Doob'/>
+        <MobileHeader />
         <MainSidebarFixed />
 
 
