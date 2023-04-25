@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Fragment } from 'react'
 import {Container,Nav,Navbar,Dropdown,Carousel,Card,Button} from 'react-bootstrap';
 import { Collapse } from 'antd';
@@ -8,6 +8,8 @@ import apis from '@/public/data/my-constants/Apis';
 const {Panel} = Collapse;
 
 function StoreTopDetails({data}) {
+
+  const [descShow,setDescShow]=useState(false)
 
   const storeWishlistHandler=(id,favorite)=>{
     const api = favorite ? apis.removestorewishlist :apis.addstorewishlist
@@ -24,17 +26,11 @@ function StoreTopDetails({data}) {
 
   }
 
-  console.log('6666666666666666',data.title)
-  const headerContent =(
-    <span>
-        More 
-        <hr className='line '></hr>
-    </span> 
-    )
+  
   return (
     <Fragment>
     <div className='banner my-3'>
-          <img src='../images/store/mall.jpg' className='img-fluid'></img>
+          <img src={`${constants.port}${data.cover_photo}`} className='img-fluid'></img>
           <span className='span-icon'>
             <svg onClick={()=>storeWishlistHandler(data.id,data.is_favorite)} width="25" height="22" viewBox="0 0 25 22" fill={`${data.is_favorite?'red':'none'}`} xmlns="http://www.w3.org/2000/svg">
             <path d="M12.2133 20.8391C12.2133 20.8391 1 14.5938 1 7.09945C1 -0.394922 9.72146 -1.01945 12.2133 4.84416C14.7052 -1.01945 23.4266 -0.394922 23.4266 7.09945C23.4266 14.5938 12.2133 20.8391 12.2133 20.8391Z" stroke="white" stroke-width="1.35919" stroke-linecap="round" stroke-linejoin="round"/>
@@ -49,7 +45,7 @@ function StoreTopDetails({data}) {
             <path d="M15.9854 8.30686C15.9854 7.54223 16.6322 6.92236 17.43 6.92236C18.2279 6.92236 18.8747 7.54223 18.8747 8.30686C18.8747 9.0715 18.2279 9.69136 17.43 9.69136C16.6322 9.69136 15.9854 9.0715 15.9854 8.30686Z" stroke="white" stroke-width="1.4447" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
-          <img src='../images/store/foot.png' className='foot-png'></img>
+          <img src={`${constants.port}${data.logo}`} className='foot-png'></img>
         </div>
 
         <div className='my-3'>
@@ -60,39 +56,24 @@ function StoreTopDetails({data}) {
               <span><p className='mx-1'><i className="bi bi-star-fill"style={{color:'yellow'}}></i>4.5 <span style={{color:'grey'}}>(12.30 reviews)</span></p></span>
               <p><i className="bi bi-clock"></i><span className='mx-2'> {data.start_time}-{data.end_time}</span></p>
             </div>
-            {/* <div className='col-md-6'>
-            ddd
-              <Dropdown className='more' >dsc
-                <Dropdown.Toggle    variant="" id="dropdown-basic"  style={{ color:'black',borderColor:'transparent'}}>
-                  Moresc <i className="bi bi-chevron-down "></i>
-                </Dropdown.Toggle>
 
-                <Dropdown.Menu  align="center" className='Menu'   >
-                  <Dropdown.Item href="#"   >English</Dropdown.Item>
-                  <Dropdown.Item href="#"  >Arabic</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-            </div> */}
+            <div className='col-md-6'>
+              <div className='more' onClick={()=>setDescShow(!descShow)}>
+                  More{descShow ?<i className="bi bi-chevron-down "></i>:<i className="bi bi-chevron-right "></i>}
+              </div>
+            </div>
+            <hr className='line '></hr>
+           {descShow &&
+           <div className='text' >
 
-            {/* <div className='text' >
-              <hr className='line '></hr>
               <div className='description'>
                 <h5>Description</h5>
-                <p className='col-md-12'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p className='col-md-12'>{data.description}</p>
               </div>
-            </div> */}
-            <Collapse bordered={false} >
-                <Panel  showArrow={true} header={headerContent} key="1" 
-                >
-                    <div className='text' >
-                        <div className='description'>
-                            <h5>Description</h5>
-                            <p className='col-md-12'>{data.description}</p>
-                        </div>
-                    </div>               
-                </Panel>
+            </div>
+            }
+            
            
-            </Collapse>
           </div>
         </div>
         </Fragment>

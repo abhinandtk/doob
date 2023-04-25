@@ -7,18 +7,37 @@ import MainHeader from '@/components/shared/headers/MainHeader';
 import MainSidebarFixed from '@/components/shared/sidebar/MainSidebarFixed';
 import ProductDetailInfo from '@/components/stores/product-details/ProductDetailInfo';
 import ProductDetailImages from '@/components/stores/product-details/ProductDetailImages';
+import MobileHeader from '@/components/MobileHeader';
+import Axios from 'axios'
+import apis from '@/public/data/my-constants/Apis';  
+import constants from '@/public/data/my-constants/Constants';
+import { useRouter } from 'next/router';
 
-  
-
-
-function HomePage ()  {
+function ProductDetailPage ()  {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const router = useRouter()
+  const {pid} = router.query
+
+  // Axios.post(apis.productdetail,{
+  //   slug_Id:pid
+  // },
+  // {
+  //   headers:{
+  //     'Authorization':`${constants.token_id}`,
+  //   }
+  // }).then((res)=>{
+  //   console.log('productttttttttttttttttttttttt',res)
+  // })
+
+  
   return (
     <div>
         <MainHeader title='Doob'/>
+        <MobileHeader />
         <MainSidebarFixed />
 
 
@@ -53,4 +72,4 @@ function HomePage ()  {
 }
 
 
-export default HomePage
+export default ProductDetailPage

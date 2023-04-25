@@ -46,7 +46,10 @@ function OtherUserAccount() {
     <section id="tabs">
         
             
-                <Tabs  id="uncontrolled-tab-example" style={{display:'flex',justifyContent:'space-evenly'}} > 
+                <Tabs  
+                id="uncontrolled-tab-example" 
+                style={{display:'flex',justifyContent:'space-evenly'}}
+                 > 
                     <Tab eventKey={1} title="Feeds">
                         <hr  className=' line' ></hr>
 

@@ -140,7 +140,7 @@ function OtherProfileHeaderDetails({data,id}) {
             {/* <button className=" profile-edits-btn">Rank</button> */}
              
                 <div className="avatar">    
-                <img className='user-avatar' src={`${constants.port}${data.user_image}`} alt=""  />
+                <img className='user-avatar' src={`${constants.port}/media/${data.user_image}`} alt=""  />
                  </div>
       
              
@@ -150,14 +150,14 @@ function OtherProfileHeaderDetails({data,id}) {
             {/* <span>
             <img src='../images/accounts/stars.png' className='mx-1 mb-1'></img>
             <span>
-            <img src='../images/accounts/iconoir_help-circles.png' className=' mb-1'></img></span>
+            <img src='../image      s/accounts/iconoir_help-circles.png' className=' mb-1'></img></span>
             </span> */}
           </div>
-          <div className="profile-role">{data.username}</div>
+          <div className="profile-role">@{data.username}</div>
           <div className="profile-followers">{data.post_count} <span style={{color:'#959595'}}>posts</span>        
-          <span onClick={()=>setFollowersListShow(true)} className='mx-1'>{data.followers_count} <span style={{color:'#959595'}}>followers</span>
+          <span className='mx-1'>{data.followers_count} <span style={{color:'#959595'}}>followers</span>
           </span> 
-          <span onClick={()=>setFollowingListShow(true)} >{data.following_count} <span style={{color:'#959595'}}>following</span></span>   </div>
+          <span >{data.following_count} <span style={{color:'#959595'}}>following</span></span>   </div>
           <div className="profile-age">Age:<span >{data.age}</span><span className='mx-2'>Gender: {data.gender}</span></div>
           <div className="profile-country"> <img src= {`${constants.port}/media/${data.country_image}`} width={'30px'} alt="" ></img><span className=" mx-1">{data.country} 
           </span>

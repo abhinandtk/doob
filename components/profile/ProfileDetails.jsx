@@ -47,7 +47,7 @@ function ProfileDetails() {
                     activeKey={key}
                     onSelect={(e)=>SetKey(e)}
                     > 
-                       <Tab eventKey={1} title={<span style={{color:`${key === '1' ? 'black':'inherit'}`}}>Feeds</span>}>
+                       <Tab eventKey={1} title="Feeds">
                             <hr  className=' line' ></hr>
 
                             <div className="row images">
@@ -62,7 +62,7 @@ function ProfileDetails() {
                             </div>
                             
                         </Tab>
-                        <Tab eventKey={2} title={<span style={{color:`${key === '2' ? 'black':'inherit'}`}}>Activities</span>} >
+                        <Tab eventKey={2} title="Activities" >
                             <hr  className=' line ' ></hr>
                             <Card className='card-tab'>
                             <h6 style={{color:'#000',fontWeight:'600',fontSize:'18px',marginLeft:'43px',marginTop:'44px',textAlign:'left'}}>Tue.Feb 12</h6>

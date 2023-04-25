@@ -35,7 +35,7 @@ function StoreProductsCard({products,title}) {
   <div className='row store '>
         {products.map((item,index)=>(
        <div key={index} className='col-md-4 col-lg-3  '>
-        <Link href={`/store/product/${item.id}`} style={{textDecoration:'none'}}>
+        <Link href={`/store/product/${item.slug_Id}`} style={{textDecoration:'none'}}>
         <Card key={index} style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} className='favouite-card' >
           <Card.Img  style={{borderRadius:'0px 0px 0px 0px',width:'100%'}} src={`${constants.port}${item.image}`}  />
           <Card.Body>

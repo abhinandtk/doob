@@ -7,10 +7,11 @@ import Axios from 'axios'
 import apis from '@/public/data/my-constants/Apis';
 import constants from '@/public/data/my-constants/Constants';
 import Link from 'next/link';
+import MobileHeader from '@/components/MobileHeader';
 
 function SearchPage() {
 
-    const [activeTab,setActiveTab] = useState(1)
+    const [activeTab,setActiveTab] = useState('1')
     const [error,setError] = useState(false)
 
     const [searchInput,setSearchInput]=useState('')
@@ -60,6 +61,7 @@ function SearchPage() {
   return (
     <Fragment>
         <MainHeader title='Doob'/>
+        <MobileHeader />
         <MainSidebarFixed />
         <div className="container2">
 
