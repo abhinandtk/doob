@@ -177,6 +177,7 @@ function ContainerHomePosts() {
             <PostActions
               postId={item.post_id} 
               user={item.user_detail.id}
+              sharedClick={sharedClick}
               setOnSuccess={setOnSuccess}
             />
           </button>

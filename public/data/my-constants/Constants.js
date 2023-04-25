@@ -14,8 +14,9 @@ if (typeof window !== 'undefined') {
 const constants ={
 
     
-    port : "https://doobapi.9pc.in",
+    // port : "https://doobapi.9pc.in",
     // port : "http://64.227.146.95",
+    port : "http://165.22.213.124",
 
     'token_id':token_id,
     'user_id':user_id,

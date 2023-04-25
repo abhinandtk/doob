@@ -24,7 +24,7 @@ function FavoriteStores() {
         <MainHeader title='Doob'/>
         <MainSidebarFixed />
         <div className='side-container'>
-        <PagesSideBar />
+        <PagesSideBar currentPage='fav-store'/>
         <div className="content-pages">
         <br></br>
         <div className='head'>Favourite Store</div>

@@ -4,7 +4,7 @@ import { Modal, Form, Input, Button } from 'antd';
 import Axios from 'axios'
 import apis from '@/public/data/my-constants/Apis';
 import constants from '@/public/data/my-constants/Constants';
-export default function PostActions({postId,user,setOnSuccess}) {
+export default function PostActions({postId,user,setOnSuccess,sharedClick}) {
     const [show,setShow] = useState(false)
     const [visible,setVisible] = useState(false)
     const [reason,setReason] = useState('')
@@ -105,6 +105,8 @@ export default function PostActions({postId,user,setOnSuccess}) {
           {constants.user_id !== user ? 
             <Dropdown.Item onClick={()=>setShow(true)}>Report</Dropdown.Item>
             :<Dropdown.Item onClick={()=>setVisible(true)}>Delete</Dropdown.Item>}
+            <Dropdown.Item onClick={()=>sharedClick(postId)}>Share</Dropdown.Item>
+
         </Dropdown.Menu>
     </Dropdown> 
     </> 

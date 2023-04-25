@@ -43,7 +43,7 @@ function FavoriteProducts() {
         <MainHeader title='Doob'/>
         <MainSidebarFixed />
         <div className='side-container'>
-        <PagesSideBar />
+        <PagesSideBar currentPage='fav-prod'/>
     
 
         <div className="content-pages">

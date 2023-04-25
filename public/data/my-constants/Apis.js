@@ -51,6 +51,7 @@ const apis = {
     'addstorewishlist':`${constants.port}/store/api/add_store_wishlist`,
     'removestorewishlist':`${constants.port}/store/api/remove_store_wishlist`,
     'viewstorewishlist':`${constants.port}/store/api/view_wishlist_store`,
+    'productdetail':`${constants.port}/store/api/product_detail_view`,
 
 
 

@@ -12,6 +12,12 @@ function SharedConfirmation({postId,setVisibleShared,setOnSuccess}) {
         setShow(false);
     }
     const sharedPostHandler =()=>{
+        console.log('weeeeeeeeeeeeeeeeeeeeeeeeeeeeee')
+        console.log('8898989898989898989899',{
+            parent_id:postId,
+            post_type:'Shared'
+
+        })
         Axios.post(apis.sharedpost,{
             parent_id:postId,
             post_type:'Shared'
@@ -23,12 +29,19 @@ function SharedConfirmation({postId,setVisibleShared,setOnSuccess}) {
             }
         }).then((res)=>{
             setVisibleShared(false)
+            console.log('8898989898989898989899',{
+                parent_id:postId,
+                post_type:'Shared'
+    
+            })
             if(res.data.status === 1){
                 message.success('Post shared Successfully')
                 setOnSuccess(prev => !prev)
 
             }
             console.log(res)
+        }).catch((error)=>{
+            console.error(error)
         })
     }
 

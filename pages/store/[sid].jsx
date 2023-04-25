@@ -11,6 +11,7 @@ import Axios from 'axios'
 import apis from '@/public/data/my-constants/Apis';
 import constants from '@/public/data/my-constants/Constants';
 import { useEffect } from 'react';
+import SearchCategory from '@/components/stores/SearchCategory';
 
 function StoreDetailPage ()  {
   const router = useRouter()
@@ -58,41 +59,7 @@ function StoreDetailPage ()  {
 </section>
 
 
-    <section className='my-2' >
-    <h5>Category</h5>
-    <div className="btn-group me-2" role="group" aria-label="Second group">
-    <button type="button" className="btn btn-outline-secondary" style={{padding:'5px 34px'}}>All</button>
-    
-  </div>
-  
-    <div className="btn-group me-2" role="group" aria-label="Second group">
-    <button type="button" className="btn btn-secondary" >Football</button>
-    
-  </div>
-  <div className="btn-group me-2" role="group" aria-label="Second group">
-    <button type="button" className="btn btn-secondary">Tennis</button>
-    
-  </div>
-  <div className="btn-group me-2" role="group" aria-label="Second group">
-    <button type="button" className="btn btn-secondary">Volleyball</button>
-    
-  </div>
-  <div className="btn-group me-2" role="group" aria-label="Second group">
-    <button type="button" className="btn btn-secondary">Basketball</button>
-    
-  </div>
-  <div className="btn-group me-2" role="group" aria-label="Second group">
-    <button type="button" className="btn btn-secondary">Biliard</button>
-    
-  </div>
-  <div className="btn-group me-2" role="group" aria-label="Second group">
-    <button type="button" className="btn btn-secondary">Squash</button>
-    
-  </div>
-  
-  
-  
-    </section>
+    <SearchCategory />
   
     <section className='my-2' >
     <h5>Hot Deals<span className='view' >View All</span></h5>
