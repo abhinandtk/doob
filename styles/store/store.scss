@@ -10,6 +10,7 @@ body{
  .Drop{
     position: relative;
     margin-left: -15px;
+    background: transparent;
  }
  .search{
     position: relative;
@@ -213,7 +214,7 @@ form.nosubmit {
       
       input.nosubmit1 {
         border: 0px solid #EEEEEE;
-        width: 890px;
+        width: 900px;
         padding: 9px 4px 9px 40px;
          background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
          margin-left: -3px;
@@ -294,18 +295,22 @@ form.nosubmit {
   font-weight:600;
   border:0px;
   color:white;
-  float:right;
-  margin-top: 22px;
-  padding: 7px 50px;
+  padding: 7px 60px;
+  border-radius: 6px;
+  float: right;
+  //  margin-top: -22px;
+
 }
+
+
 .sub-cart-btn{
-  background-color:#EEEEEE;
+  background-color:#CCCCCC;
   font-weight:600;
   border:0px;
   color:rgb(0, 0, 0);
-  float:right;
-  margin-top: 22px;
   padding: 7px 60px;
+  border-radius: 6px;
+  margin-left: 5px;
 }
 .cart-btn{
   background-color:#17A803;
@@ -329,9 +334,9 @@ form.nosubmit {
   font-weight:400;
   border:0px;
   color:white;
-  padding: 4px 13px;
+  padding: 7px 15px;
  margin-right: 33px;
- margin-top: -12px;
+ margin-top: -15px;
  float: right;
 }
 
@@ -344,6 +349,11 @@ form.nosubmit {
  margin-right: 33px;
  margin-bottom: 25px;
  float: right;
+}
+.product-submit{
+  display: flex;
+  justify-content: end;
+  
 }
 .hr{
   border-top: 2px dashed rgb(0, 0, 0);
@@ -412,6 +422,11 @@ input:disabled{
 .op::placeholder{
   color: black;
 }
+.grey::placeholder{
+  color: #959595;
+
+}
+
 .qty1 {
   
   justify-content: end;
@@ -481,20 +496,71 @@ input:disabled{
 
   
 }
-.edit-btn {
+.Add-btn {
     font-size: 15px;
    line-height: 1.8;
     background: #17A803;
     border-radius: 5px;
-    padding: 0 22px;
+    padding: 4px 20px;
     margin-left: -9px;
     font-weight: 600;
     border: 0px;
     color: white;
     float:right;
-    margin-top: -6px;
+    margin-top: -2px;
    
    }
+   .edit-btn{
+    font-size: 15px;
+    line-height: 1.8;
+     background: #8A8A8A;
+     border-radius: 5px;
+     padding: 4px 20px;
+     margin-left: -9px;
+     font-weight: 600;
+     border: 0px;
+     color: white;
+     float:right;
+     margin-top: -2px;
+   }
+   
+   .Add2-btn {
+    font-size: 15px;
+   line-height: 1.8;
+    background: #17A803;
+    border-radius: 5px;
+    padding: 4px 20px;
+    margin-left: -9px;
+    font-weight: 600;
+    border: 0px;
+    color: white;
+    float:right;
+    margin-top: -23px;
+   
+   }
+   .export-btn {
+    font-size: 15px;
+   line-height: 1.8;
+    background: #EEEEEE;
+    border-radius: 5px;
+    padding: 4px 20px;
+    margin-left: -9px;
+    font-weight: 600;
+    border: 0px;
+    color: rgb(0, 0, 0);
+    float:right;
+    margin-top: 3px;
+   
+   }
+   .edit{
+     margin-right: -32px;
+     width: 12px;
+     height: 12px;
+     float:right;
+     margin-top: -17px;
+   }
+  
+
 .sides a {
   display: block;
   color: black;
@@ -515,11 +581,183 @@ input:disabled{
   height: 100%;
    background: white;
    width: 75%;
+
+}
+.content-topics {
+  margin-left: 240px;
+  padding: 1px 6px;
+  height: 690px;    // width noted //...............................................
+   background: white;
+   width: 75%;
    
+}
+.toggle {
+  position: relative;
+  box-sizing: border-box;
+  margin-top: -22px;
+  margin-right: 53px;
+  
+  float: right;
+}
+
+.toggle input[type="checkbox"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  opacity: 0;
+}
+.toggle label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  
+}
+.toggle label:before {
+  content: '';
+  width: 58px;
+  height: 18px;
+  position: relative;
+  display: inline-block;
+  background: #FFF;
+  border-radius: 46px;
+  border: 2px solid #797B79;
+  box-sizing: border-box;
+  transition: 0.2s ease-in;
+}
+.toggle label:after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  left: 3px;
+  
+  top: 3px;
+  z-index: 2;
+  background:#17A803;
+  box-sizing: border-box;
+  transition: 0.2s ease-in;
+}
+.toggle input[type="checkbox"]:checked + label:before {
+  background:#17a803;
+  border: transparent;
+}
+.toggle input[type="checkbox"]:checked + label:after {
+  left: 42px;
+  background: #fff;
+
+}
+
+.reports{
+  height: 182px;
+  background: #EEEEEE;
+  border: 0px;
+}
+.total-order{
+  margin-top: 32px;
+}
+.customer{
+  background:#eeeeee;
+  border-radius:10px;
+  width:610px;
+  margin-top:20px;
+  margin-left: 5px;
+}
+.customer1{
+  background:#eeeeee;
+  border-radius:10px;
+  width:610px;
+  margin-top:3px;
+  margin-left: 5px;
+}
+
+.graph{
+  margin-top: 9px;
+  position: relative;
+  margin-left: 4px;
+}
+
+.toggle1 {
+  position: relative;
+  box-sizing: border-box;
+  margin-top: -22px;
+  margin-right: 190px;
+  
+  float: right;
+}
+
+.toggle1 input[type="checkbox"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  opacity: 0;
+}
+.toggle1 label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  
+}
+.toggle1 label:before {
+  content: '';
+  width: 58px;
+  height: 18px;
+  position: relative;
+  display: inline-block;
+  background: #FFF;
+  border-radius: 46px;
+  border: 2px solid #797B79;
+  box-sizing: border-box;
+  transition: 0.2s ease-in;
+}
+.toggle1 label:after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  left: 3px;
+  
+  top: 3px;
+  z-index: 2;
+  background:#17A803;
+  box-sizing: border-box;
+  transition: 0.2s ease-in;
+}
+.toggle1 input[type="checkbox"]:checked + label:before {
+  background:#17a803;
+  border: transparent;
+}
+.toggle1 input[type="checkbox"]:checked + label:after {
+  left: 42px;
+  background: #fff;
+
+}
+.update{
+  display: flex;
+  justify-content: end;
+  margin-bottom: 5px;
+  position: relative;
+}
+.arrow-icon{
+ margin-right: 190px;
+ float: right;
+ 
 }
 
 .bottom{
   margin-top: 30px;
+  
 }
 
 .button23 {
@@ -625,38 +863,70 @@ input:disabled{
   margin-right: 12px;
 }
 
+
+.foot-ball{
+  margin-left:2px;
+  margin-top:9px;
+  font-weight: 600;
+  font-size: 20px;
+
+}
+.foot-ball-small{
+  margin-left:2px;
+  margin-top:9px;
+  font-weight: 500;
+  font-size: 14px;
+}
+.order-codes{
+  margin-left:-9px;
+  margin-bottom:-13px;
+  font-weight: 700;
+  font-size: 15px;
+}
 .order-code{
-  margin-left:12px;
+  margin-left:32px;
   margin-bottom:-13px;
   
+}
+.order-code2{
+  margin-left:-6px;
+  margin-bottom:-13px; 
 }
 .All-order{
   margin-left:32px;
   margin-bottom:5px; 
 }
+.item_clearfix{
+  display: block;
+ 
+ 
+}
 .clearfix{
   display: block;
-  margin-left:-9px;
+  margin-left:9px;
  
 }
 
+
 .pictures{
   float: left;
-  margin-left: 2px;
-  margin-right: 2px;
+  margin-right: 12px;
+
+
   margin-top: 10px;
   margin-bottom: 20px;
   padding-left: 3%;
-  height: 78px;
-  width: 82px;
-  object-fit: cover;
-  
+  height: 110px;
+  width: 120px;
+  object-fit: cover; 
 }
+
 .shop-content {
-  margin-top: 10px;
-  margin-left: 90px;
+  margin-top: 15px;
   font-size: 12px;
   font-weight: 600;
+  //  line-height: 5px;
+  
 }
 
 

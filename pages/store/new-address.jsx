@@ -308,7 +308,10 @@ Arabic</Dropdown.Item>
 <span ><button className="button button23"><i className="bi bi-house"></i><span className='mx-1'>Home</span></button> <button className="button button23"><i className="bi bi-briefcase"></i><span className='mx-1'>Office</span></button>  <button className="button button23"><i className="bi bi-building"></i><span className='mx-1'>Apartment</span></button>  <button className="button button23"><i className="bi bi-grid "></i><span className='mx-1'>Thirty Party</span></button> </span>
 
 <div className='my-4'>
-<input type="email" className="form-control op p-2" style={{border:'0px',background:'#eeeeee'}} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name"/>
+<div className="form-group my-2 ">
+    <label for="exampleFormControlInput1">Name</label>
+    <input type="email" className="form-control p-2" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlInput1" />
+  </div>
 <div className="form-group my-2">
     <label for="exampleFormControlSelect1" >Select Area*</label>
     <select className="form-control p-2" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlSelect1">

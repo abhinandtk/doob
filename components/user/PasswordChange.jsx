@@ -79,12 +79,12 @@ function PasswordChange() {
      
   <Modal.Footer  >
 
-      <Button 
+      <button 
       type="submit" 
       className='text-white mx-auto mt-2 ' 
       style={{backgroundColor:'#17A803',fontWeight:'600',width:'363px'}}>
      Confirm
-      </Button>
+      </button>
   
     </Modal.Footer>
     <center><p style={{color:'red'}}>{error}</p></center>

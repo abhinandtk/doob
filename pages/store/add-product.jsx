@@ -349,24 +349,24 @@ Arabic</Dropdown.Item>
   
   <div className='my-4 mx-4 '>
     
-  <h6 >Basic Details</h6>
-<input type="email" class="form-control op p-2" style={{border:'0px',background:'#eeeeee'}} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name"/>
+  <h6 style={{fontSize:'14px',fontWeight:'700'}} >Basic Details</h6>
+<input type="email" class="form-control op p-2" style={{border:'0px',background:'#eeeeee',color:'grey'}} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name"/>
 
   <div class="form-group my-2 ">
     <label for="exampleFormControlInput1">Name</label>
-    <input type="email" class="form-control p-2" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlInput1" />
+    <input type="email" class="form-control p-2" style={{border:'0px',background:'#eeeeee',color:'grey'}} id="exampleFormControlInput1" />
   </div>
   <div class="form-group my-2">
     <label for="exampleFormControlInput1">Name in Arabic</label>
-    <input type="email" class="form-control p-2" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlInput1" />
+    <input type="email" class="form-control p-2" style={{border:'0px',background:'#eeeeee',color:'grey'}} id="exampleFormControlInput1" />
   </div>
   <div class="form-group my-2">
     <label for="exampleFormControlInput1">Brand</label>
-    <input type="email" class="form-control p-2" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlInput1" />
+    <input type="email" class="form-control p-2" style={{border:'0px',background:'#eeeeee',color:'grey'}} id="exampleFormControlInput1" />
   </div>
   <div class="form-group my-2">
     <label for="exampleFormControlSelect1" >Category</label>
-    <select class="form-control" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlSelect1">
+    <select class="form-control" style={{border:'0px',background:'#eeeeee',color:'grey'}} id="exampleFormControlSelect1">
       <option>1</option>
       <option>2</option>
       <option>3</option>
@@ -376,7 +376,7 @@ Arabic</Dropdown.Item>
   </div>
   <div class="form-group my-2">
     <label for="exampleFormControlSelect1" >Sub Category</label>
-    <select class="form-control" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlSelect">
+    <select class="form-control" style={{border:'0px',background:'#eeeeee',color:'grey'}} id="exampleFormControlSelect">
       <option>1</option>
       <option>2</option>
       <option>3</option>
@@ -386,7 +386,7 @@ Arabic</Dropdown.Item>
   </div>
   <div class="form-group my-2">
     <label for="exampleFormControlSelect1" >Tag</label>
-    <select class="form-control" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlSelect1">
+    <select class="form-control" style={{border:'0px',background:'#eeeeee',color:'grey'}} id="exampleFormControlSelect1">
       <option>1</option>
       <option>2</option>
       <option>3</option>
@@ -394,38 +394,71 @@ Arabic</Dropdown.Item>
       <option>5</option>
     </select>
   </div>
-  <div class="form-group my-2 ">
+  <div className="form-group my-2 ">
   <label for="exampleFormControlTextarea1">Description</label>
-    <textarea class="form-control" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlTextarea1" rows="3"></textarea>
+    <textarea class="form-control" style={{border:'0px',background:'#eeeeee',color:'grey'}} id="exampleFormControlTextarea1" rows="3"></textarea>
   </div>
-  <div class="form-group my-2 ">
+  <div className="form-group my-2 ">
   <label for="exampleFormControlTextarea1">Description in Arabic</label>
-    <textarea class="form-control" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlTextarea1" rows="3"></textarea>
+    <textarea class="form-control" style={{border:'0px',background:'#eeeeee',color:'grey'}} id="exampleFormControlTextarea1" rows="3"></textarea>
   </div>
-   <div className='clearfix'>
-  <p className='order-code ' style={{fontWeight:'500'}}>Variants</p> <Button type="submit" className='edit-btn' > Add </Button>
+   <div className='clearfix '>
+  <p className='order-code2' style={{fontWeight:'500'}}>Variants</p> <Button type="submit" className='Add-btn' > Add </Button>
   </div>
-  <div class="form-group my-2">
+  <div className="form-group my-2">
     <label for="exampleFormControlInput1">SKU</label>
-    <input type="email" class="form-control p-2" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlInput1" />
+    <input type="email" class="form-control p-2" style={{border:'0px',background:'#eeeeee',color:'grey'}} id="exampleFormControlInput1" />
+  </div>
+  <div className="form-group my-2">
+    <label for="exampleFormControlInput1">Quantity</label>
+    <input type="email" class="form-control p-2" style={{border:'0px',background:'#eeeeee',color:'grey'}} id="exampleFormControlInput1" />
+  </div>
+  <div className="form-group my-2">
+    <label for="exampleFormControlInput1" id='formfile'>Image</label>
+    <input type="file"  id="formFile" class="form-control p-2 grey" style={{border:'0px',background:'#eeeeee',color:'grey'}}  placeholder='No file choosen' />
   </div>
   <div class="form-group my-2">
-    <label for="exampleFormControlInput1">Quantity</label>
-    <input type="email" class="form-control p-2" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlInput1" />
+    <label for="exampleFormControlSelect1" >Color</label>
+    <select class="form-control   " style={{border:'0px',background:'#eeeeee',color:'grey'}} id="exampleFormControlSelect1">
+    <option >No</option>
+    <option>2</option>
+    <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
   </div>
-  {/* <div class="  my-2 ">
-  <Button type="submit" className='sub-cart-btn ' > Cancel  </Button>      <Button type="submit" className='submit-cart-btn mx-2 ' > Save </Button> 
-  </div> */}
-
-                  
-                  </div>
+  <div class="form-group my-2">
+  <label for="exampleFormControlSelect1" >Size</label>
+  <select class="form-control" style={{border:'0px',background:'#eeeeee',color:'grey'}} id="exampleFormControlSelect1">
+  <option>No</option>
+  <option>2</option>
+  <option>3</option>
+  <option>4</option>
+  <option>5</option>
+  </select>
+  </div>
+  <div className="form-group my-2">
+  <label for="exampleFormControlInput1">Actual Price in KD</label>
+  <input type="email" class="form-control p-2" style={{border:'0px',background:'#eeeeee',color:'grey'}} id="exampleFormControlInput1" />
+  </div>
+  <div className="form-group my-2">
+  <label for="exampleFormControlInput1">Selling Price in KD</label>
+  <input type="email" class="form-control p-2" style={{border:'0px',background:'#eeeeee',}} id="exampleFormControlInput1" />
+  </div>
+  <h6 className='product-submit ' >Duplicate</h6>
+  
+  <div className="product-submit my-4">
+    
+  <button type="button" className="submit-cart-btn">Submit</button>
+  <button type="button" className="sub-cart-btn">Cancel</button>
+  </div>
+   </div>
                   
 </div>
 </div>
 </div>
     </div> 
     </div>
-   
   )
 }
 

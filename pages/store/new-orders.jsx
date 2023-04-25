@@ -69,7 +69,7 @@ function store ()  {
   <div className='bottom'>
     
   <h6 className='All-order' style={{color:'#17a803',fontWeight:'700'}}>All Order</h6>
-  <p className='order-code ' style={{fontWeight:'500'}}>#12454<span  style={{float:'right'}}> <Button type="submit" className='order-btn ' > update Status </Button></span></p>
+  <p className='order-code ' style={{fontWeight:'500'}}>#12454<span  style={{float:'right'}}> <Button type="submit" className='order-btn ' > Update status </Button></span></p>
   
   <hr className='mx-auto' style={{width:'90%'}}></hr>
   <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
@@ -105,30 +105,44 @@ function store ()  {
   </div>
   
    <div className=" mt-2  mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-   <div class="clearfix">
-      <img src='../images/store/male-soccer-football-player-training-action-isolated-gradient-studio-neon-light copy.jpg'className='pictures'  ></img>
-
-    <div className='shop-content'>
-      <p >LEGEND 9 CLUB TF Football Shoes   </p>
-      
-    </div>
-    </div>
-    <div class="clearfix">
-   
-      <img src='../images/store/v copy.png' className='pictures' ></img>
-    
-    <div className='shop-content'>
-      
-      <p >LEGEND 9 CLUB TF Football Shoes  </p>
+   {/* <div class="item_clearfix">
   
+      <img src='../images/store/male-soccer-football-player-training-action-isolated-gradient-studio-neon-light copy.jpg'className='pictures'  ></img>
+      
+    <div className='shop-content'>
+      <p style={{fontWeight:'700',fontSize:'12px'}} >LEGEND 9 CLUB TF Football Shoes   LEGEND 9 CLUB TF Football Shoes  CLUB TF  LEGEND 9 CLUB TF Football Shoes  CLUB TF     </p>
+
+      <span><p style={{color:'#959595',fontSize:'14px',fontWeight:'400'}}>Quantity: <span  style={{color:'black'}}>2</span> 
+       <span className='mx-3'>Size: <span  style={{color:'black'}}>36</span></span></p></span>
+     
+       <span><p style={{color:'#959595',fontSize:'14px',fontWeight:'400'}}>Color: <span  style={{color:'black'}}>Blusih Green  Blusih Green  </span> 
+       <span className='mx-3' >SKU: <span  style={{color:'black'}}>00036 4442312 01200312</span></span></p></span>
+       
+       <span><p style={{color:'#959595',fontSize:'14px',fontWeight:'400'}}>Price: <span  style={{color:'black'}}>130000.000 KD x 2</span><span className='mx-3' style={{color:'black'}}>120000.000 KD</span></p></span>
+
     </div>
+    </div> */}
+    <div class="card mb-3" style={{border:'0px'}} >
+  <div class="row ">
+    <div class="col-md-4">
+      <img src="../images/store/soccer-players-action-professional-stadium copy.jpg" class="card-img" alt="..."/>
     </div>
+    <div class="col-md-8 ">
+        <p style={{fontSize:'12px',fontWeight:'bold',marginBottom:'0px'}} >LEGEND 9 CLUB TF Football Shoes LEGEND 9 CLUB TF Football Shoes
+        LEGEND 9 CLUB TF Football Shoes LEGEND 9 CLUB TF Football Shoes  </p>
+        <p >Quantity</p>
+
+      
+    </div>
+  </div>
+</div>
    </div>
+
    <div className=" mx-auto d-flex justify-content-between align-items-center " style={{width:'90%'}}>
    <p className='mx-2'  style={{borderBottom:'1px solid black'}}>Download Invoice</p>
    </div>
   
-   <p className='order-code ' style={{fontWeight:'500'}}>#12454<span  style={{float:'right'}}> <Button type="submit" className='order-btn ' > update Status </Button></span></p>
+   <p className='order-code ' style={{fontWeight:'500'}}>#12454<span  style={{float:'right'}}> <Button type="submit" className='order-btn ' > Update status </Button></span></p>
   <hr className='mx-auto' style={{width:'90%'}}></hr>
   <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
   <span style={{color:'#959595'}}>Order Date</span>

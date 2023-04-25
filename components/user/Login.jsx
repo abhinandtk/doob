@@ -143,11 +143,11 @@ function Login({setActiveModal}) {
        <div className='forget' onClick={handleforgetpsw}> Forget Password</div>
       </Form.Group>
       <Modal.Footer >
-          <Button type="submit" 
+          <button type="submit" 
           className='mx-auto text-white submit1 ' 
         >
             Login
-          </Button>
+          </button>
       
         </Modal.Footer>
         <p style={{color:'red',textAlign:'center'}}>{errorMsg}</p>

@@ -2048,7 +2048,7 @@ position: absolute;
 .side {
   height: 78%;
   width: 240px;
-  position: fixed;
+  position: absolute;
   z-index: 1;
   top: 0;
   left: 0;
@@ -2074,7 +2074,7 @@ position: absolute;
   path:hover{stroke:#17A803;}
 }
 .content-page {
-  margin-left: 260px; /* Same as the width of the sidenav */
+  margin-left: 190px; /* Same as the width of the sidenav */
   padding: 0px 5px;
   margin-top: 58px;
   background-color: white;
@@ -2082,7 +2082,7 @@ position: absolute;
   height: 540px;
 }
 .content-pages {
-  margin-left: 260px; /* Same as the width of the sidenav */
+  margin-left: 190px; /* Same as the width of the sidenav */
   padding: 0px 5px;
   margin-top: 58px;
   background-color: white;

@@ -88,12 +88,12 @@ function RegisterOtpVerification({setActiveModal}) {
       </div>
     )}
 
-      <Button 
+      <button  
       type="submit" 
       className='text-white mx-auto mt-2 ' 
       style={{backgroundColor:'#17A803',fontWeight:'600',width:'363px'}}>
      Confirm
-      </Button>
+      </button>
   
     </Modal.Footer>
 </Form>
