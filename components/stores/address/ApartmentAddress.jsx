@@ -24,7 +24,6 @@ function ApartmentAddress({handleAddAddress}) {
     }
     const submitForm=(e)=>{
         e.preventDefault()
-        console.log('form             dcsscdscsdc',formData,defaultAddress)
         handleAddAddress(formData,defaultAddress)
 
     }

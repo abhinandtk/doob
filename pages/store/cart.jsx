@@ -16,9 +16,10 @@ function CartPage() {
 
   const [cartDetails,setCartDetails]=useState([])
   const [cartProducts,setCartProducts]=useState([])
+  const [onSuccess,setOnSuccess]=useState(true)
 
   useEffect(()=>{
-    Axios.post(apis.viewcart,null,{
+    Axios.post(apis.viewCart,null,{
       headers:{
         'Authorization':`Token ${constants.token_id}`,
       }
@@ -27,7 +28,7 @@ function CartPage() {
       setCartProducts(res.data.data.products)
       console.log('rtttrtrtt',res,res.data.products)
     })
-  })
+  },[onSuccess])
 
   return (
     <Fragment>
@@ -42,7 +43,13 @@ function CartPage() {
               <div className="row">
                 <div className="col-lg-7">
                   <ShippingAddress />
-                  <OrderList product={cartProducts}/>
+
+                  <h5 style={{fontSize:'17px'}}>Order List<span className='view' >Total {cartDetails.cart_items} items</span></h5>
+                  {cartProducts.map((product,index)=>(
+
+                    <OrderList key={index} product={product} setOnSuccess={setOnSuccess}/>
+                  ))}
+                
                 </div>
                 <CheckoutSideSection data={cartDetails}/>
               </div>

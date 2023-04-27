@@ -81,7 +81,7 @@ function AddAddressPage() {
             }
 
         }
-        Axios.post(apis.addaddress,body,
+        Axios.post(apis.addAddress,body,
         {
             headers:{
                 'Authorization':`Token ${constants.token_id}`,
