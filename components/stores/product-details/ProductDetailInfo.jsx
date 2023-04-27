@@ -1,7 +1,41 @@
 import React from 'react'
 import {Button} from 'react-bootstrap';
+import Axios from 'axios'
+import apis from '@/public/data/my-constants/Apis';
+import constants from '@/public/data/my-constants/Constants';
+import { useState } from 'react';
+function ProductDetailInfo({product}) {
+    // console.log('iuiiuiuuuuuuuuuuu65788343',product.Product_Items[0].multivarient[0].slug_id)
+    console.log('iuiiuiuuuuuuuuuuu65788343',product)
 
-function ProductDetailInfo() {
+    const [quantity,setQuantity]=useState(1)
+
+    const handleIncreaseQty=(e)=>{
+        e.preventDefault()
+        setQuantity(quantity + 1)
+    }
+    const handleDecreaseQty=(e)=>{
+        e.preventDefault()
+        if (quantity > 1){
+        setQuantity(quantity - 1)
+        }
+    }
+
+    const addToCartHandler=(slug)=>{
+        console.log("erer",slug)
+        Axios.post(apis.addtocart,{
+            product_var_slug:slug,
+            quantity:quantity
+        },
+        {
+            headers:{
+                'Authorization':`Token ${constants.token_id}`,
+            }
+        }).then((res)=>{
+            console.log('res',res)
+        })
+
+    }
   return (
         <div className="col-md-5 ">
             <div className=" justify-content-between align-items-center " >
@@ -19,9 +53,9 @@ function ProductDetailInfo() {
                         <path d="M10.3735 4.99984C10.3735 4.5396 10.7629 4.1665 11.2431 4.1665C11.7233 4.1665 12.1127 4.5396 12.1127 4.99984C12.1127 5.46007 11.7233 5.83317 11.2431 5.83317C10.7629 5.83317 10.3735 5.46007 10.3735 4.99984Z" stroke="black" stroke-width="0.814796" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </span>
-                <h5 className='col-md-9'  >COPA SENSE.4 FxG Football  Shoes    For Men</h5> 
+                <h5 className='col-md-9'  >{product.Name}</h5> 
                 <p className='mx-1'><i className="bi bi-star-fill"style={{color:'yellow'}}></i>4.5 <span style={{color:'grey'}}>(203 reviews)</span></p>
-                <p style={{fontSize:'14px',fontWeight:'400'}} >Lorem z ipsum dolor sit amet, consectetur adipiscing elit. Facilisis tellus, est lacus arcu ut ac in fermentum. Sit eget proin nunc felis quam rutrum metus. Et lacus, maecenas vel et arcu ut adipiscing morbi eget. </p>
+                <p style={{fontSize:'14px',fontWeight:'400'}} >{product.Description} </p>
             
                 <h6 >Color<br>
                 </br><i className="bi bi-circle-fill" style={{color:'#ED4B4B'}}></i><span><i className="bi bi-circle-fill mx-2" style={{color:'purple'}}></i><i className="bi bi-circle-fill " style={{color:'violet'}}></i></span></h6>
@@ -42,14 +76,15 @@ function ProductDetailInfo() {
                 <br></br>
                 <p style={{color:'gray',fontWeight:'400'}}><s>15.000 KD</s><span className='mx-2' style={{fontSize:'20px',fontWeight:'500',color:'#17a803'}}>13.000 KD</span><span></span></p>
                 <div className="qty">
-                    <div className="minus " style={{backgroundColor:'#aba4a4'}}>-</div>
-                    <input type="number" className="count" name="qty" value="1"/>
-                    <div  className="plus " style={{backgroundColor:'#aba4a4'}}>+</div>
+                    <div onClick={(e)=>handleDecreaseQty(e)} className="minus " style={{backgroundColor:'#aba4a4'}}>-</div>
+                    <input type="number" className="count" name="qty" value={quantity} disabled/>
+                    <div onClick={(e)=>handleIncreaseQty(e)} className="plus" style={{backgroundColor:'#aba4a4'}}>+</div>
                 </div>
         
                 <Button 
                 type="submit" 
-                className='add-cart-btn ' > Add to Cart  </Button>
+                onClick={()=>addToCartHandler(product.Product_Items[0].multivarient[0].slug_id)}
+                className='add-cart-btn '> Add to Cart  </Button>
 
             </div>  
         </div>
