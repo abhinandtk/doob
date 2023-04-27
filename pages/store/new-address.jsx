@@ -348,7 +348,7 @@ Arabic</Dropdown.Item>
     <label for="exampleFormControlInput1">Remark</label>
     <input type="email" className="form-control p-2" style={{border:'0px',background:'#eeeeee'}} id="exampleFormControlInput1" />
   </div>
- <span> <i className="bi bi-square"></i><label className='mx-2'>Make this as the default address</label></span>
+ <span> <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="..."></input><label className='mx-2'>Make this as the default address</label></span>
                   <Button type="submit" className='submit-cart-btn ' > Save  </Button>
                   </div>
           </div>

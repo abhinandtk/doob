@@ -318,7 +318,7 @@ Arabic</Dropdown.Item>
               </Form>
               <button 
       type="submit" 
-      className='submit-cart-btn ' 
+      className='submits-cart-btn ' 
      >
      Submit
       </button>

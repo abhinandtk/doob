@@ -73,70 +73,118 @@ function store ()  {
   
   <hr className='mx-auto' style={{width:'90%'}}></hr>
   <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-  <span style={{color:'#959595'}}>Order Date</span>
-  <span >20 Jan, 2023</span>
+  <span style={{color:'#959595'}}>Customer Name</span>
+  <span >Faisal</span>
   </div>
   <div className="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
+  <span style={{color:'#959595'}}>Address</span>
+  <span> P.O.Box: 1446, Safat,13015 </span>
+  </div>
+  <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
+  <span style={{color:'#959595'}}>Order Date</span>
+  <span > 20 Jan, 2023</span>
+  </div>
+   <div className="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
   <span style={{color:'#959595'}}>Price</span>
-  <span>13.000 KD</span>
+  <span> 14.340 KD </span>
   </div>
   <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
   <span style={{color:'#959595'}}>Payment Mode</span>
-  <span >Cash on Delivery</span>
+  <span > Cash on delivery </span>
   </div>
   <div className="p-2  mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
   <span style={{color:'#959595'}}>Payment Status</span>
   <span style={{color:'#FF640D'}}>Pending</span>
-  </div>
-       
-       
+  </div>    
   <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
   <span style={{color:'#959595'}}>Other Status</span>
   <span style={{color:'#FF640D'}}>Pending</span>
   </div>
-  <div className=" mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-  <select className="form-control" style={{border:'0px',background:'#eeeeee',color:'#959595'}} id="exampleFormControlSelect1">
-  <option>Items</option>
-  <option>2</option>
-  <option>3</option>
-  <option>4</option>
-  <option>5</option>
-  </select>
-  </div>
+ 
   
-   <div className=" mt-2  mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-   {/* <div class="item_clearfix">
-  
-      <img src='../images/store/male-soccer-football-player-training-action-isolated-gradient-studio-neon-light copy.jpg'className='pictures'  ></img>
-      
+   <div className="  mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
+   <div class="item_clearfix">
+      <img src='../images/store/male-soccer-football-player-training-action-isolated-gradient-studio-neon-light copy.jpg'className='pictures'  ></img> 
     <div className='shop-content'>
-      <p style={{fontWeight:'700',fontSize:'12px'}} >LEGEND 9 CLUB TF Football Shoes   LEGEND 9 CLUB TF Football Shoes  CLUB TF  LEGEND 9 CLUB TF Football Shoes  CLUB TF     </p>
-
-      <span><p style={{color:'#959595',fontSize:'14px',fontWeight:'400'}}>Quantity: <span  style={{color:'black'}}>2</span> 
-       <span className='mx-3'>Size: <span  style={{color:'black'}}>36</span></span></p></span>
-     
-       <span><p style={{color:'#959595',fontSize:'14px',fontWeight:'400'}}>Color: <span  style={{color:'black'}}>Blusih Green  Blusih Green  </span> 
-       <span className='mx-3' >SKU: <span  style={{color:'black'}}>00036 4442312 01200312</span></span></p></span>
-       
-       <span><p style={{color:'#959595',fontSize:'14px',fontWeight:'400'}}>Price: <span  style={{color:'black'}}>130000.000 KD x 2</span><span className='mx-3' style={{color:'black'}}>120000.000 KD</span></p></span>
-
+          <div class="shopping-card__details">
+          <div class="shopping-card__title">
+            Strat with Tremolo HSS Laurel Keyboard Brown Sunburst Electric Guitar
+          </div>
+          <div class="shopping-card__options">
+            <div>
+              <small class="option__key">Quantity: </small>
+              <small class="option__value">Brown</small>
+            </div>
+            <div>
+              <small class="option__key">Size: </small>
+              <small class="option__value">34</small>
+            </div>
+          </div>
+          <div class="shopping-card__options">
+            <div>
+              <small class="option__key">Color: </small>
+              <small class="option__value">British Dark Brown</small>
+            </div>
+            <div>
+              <small class="option__key">SKU: </small>
+              <small class="option__value">PDT-23000-34000</small>
+            </div>
+          </div>
+          <div class="shopping-card__options">
+            <div>
+              <small class="option__key">Price: </small>
+              <small class="option__value">13.000.000 KD </small>
+            </div>
+            <div>
+              <small class="option__value ">34000 KD</small>
+            </div>
+          </div>
+        </div>
     </div>
-    </div> */}
-    <div class="card mb-3" style={{border:'0px'}} >
-  <div class="row ">
-    <div class="col-md-4">
-      <img src="../images/store/soccer-players-action-professional-stadium copy.jpg" class="card-img" alt="..."/>
     </div>
-    <div class="col-md-8 ">
-        <p style={{fontSize:'12px',fontWeight:'bold',marginBottom:'0px'}} >LEGEND 9 CLUB TF Football Shoes LEGEND 9 CLUB TF Football Shoes
-        LEGEND 9 CLUB TF Football Shoes LEGEND 9 CLUB TF Football Shoes  </p>
-        <p >Quantity</p>
-
-      
-    </div>
-  </div>
-</div>
    </div>
+   <div className=" mt-2  mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
+   <div class="item1_clearfix">
+      <img src='../images/store/male-soccer-football-player-training-action-isolated-gradient-studio-neon-light copy.jpg'className='pictures'  ></img> 
+    <div className='shop-content'>
+          <div class="shopping-card__details">
+          <div class="shopping-card__title">
+            Strat with Tremolo HSS Laurel Keyboard Brown Sunburst Electric Guitar
+          </div>
+          <div class="shopping-card__options">
+            <div>
+              <small class="option__key">Quantity: </small>
+              <small class="option__value">Brown</small>
+            </div>
+            <div>
+              <small class="option__key">Size: </small>
+              <small class="option__value">34</small>
+            </div>
+          </div>
+          <div class="shopping-card__options">
+            <div>
+              <small class="option__key">Color: </small>
+              <small class="option__value">British Dark Brown</small>
+            </div>
+            <div>
+              <small class="option__key">SKU: </small>
+              <small class="option__value">PDT-23000-34000</small>
+            </div>
+          </div>
+          <div class="shopping-card__options">
+            <div>
+              <small class="option__key">Price: </small>
+              <small class="option__value">13.000.000 KD </small>
+            </div>
+            <div>
+              <small class="option__value ">34000 KD</small>
+            </div>
+          </div>
+        </div>
+    </div>
+    </div>
+   </div>
+   
 
    <div className=" mx-auto d-flex justify-content-between align-items-center " style={{width:'90%'}}>
    <p className='mx-2'  style={{borderBottom:'1px solid black'}}>Download Invoice</p>
@@ -145,36 +193,32 @@ function store ()  {
    <p className='order-code ' style={{fontWeight:'500'}}>#12454<span  style={{float:'right'}}> <Button type="submit" className='order-btn ' > Update status </Button></span></p>
   <hr className='mx-auto' style={{width:'90%'}}></hr>
   <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-  <span style={{color:'#959595'}}>Order Date</span>
-  <span >20 Jan, 2023</span>
+  <span style={{color:'#959595'}}>Customer Name</span>
+  <span >Faisal</span>
   </div>
   <div className="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
+  <span style={{color:'#959595'}}>Address</span>
+  <span> P.O.Box: 1446, Safat,13015 </span>
+  </div>
+  <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
+  <span style={{color:'#959595'}}>Order Date</span>
+  <span > 20 Jan, 2023</span>
+  </div>
+   <div className="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
   <span style={{color:'#959595'}}>Price</span>
-  <span>13.000 KD</span>
+  <span> 14.340 KD </span>
   </div>
   <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
   <span style={{color:'#959595'}}>Payment Mode</span>
-  <span >Cash on Delivery</span>
+  <span > Cash on delivery </span>
   </div>
   <div className="p-2  mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
   <span style={{color:'#959595'}}>Payment Status</span>
-  <span style={{color:'#17A803'}}>Payment Recevied</span>
-  </div> 
+  <span style={{color:'#FF640D'}}>Pending</span>
+  </div>    
   <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
   <span style={{color:'#959595'}}>Other Status</span>
-  <span style={{color:'#17A803'}}>Delivered</span>
-  </div>
-  <div className="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-  <select class="form-control" style={{border:'0px',background:'#eeeeee',color:'#959595'}} id="exampleFormControlSelect1">
-  <option>Items</option>
-  <option>2</option>
-  <option>3</option>
-  <option>4</option>
-  <option>5</option>
-  </select>
-  </div>
-  <div className=" mt-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-  <p className='mx-2'  style={{borderBottom:'1px solid black'}}>Download Invoice</p>
+  <span style={{color:'#FF640D'}}>Pending</span>
   </div>
   </div>
   </div>

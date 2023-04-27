@@ -6,7 +6,7 @@ function CheckoutSideSection() {
   return (
     <Fragment>
         <div className="col-lg-5">
-                <div className="card bg-white   " style={{width:'397px'}}>
+                <div className="card bg-white   " style={{width:'397px',marginTop:'55px'}}>
                   <div className="card-body p-4 ">
                     <div className="d-flex justify-content-between">
                       <p className="mb-2">Sub total(3 items)</p>

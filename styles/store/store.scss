@@ -298,7 +298,18 @@ form.nosubmit {
   padding: 7px 60px;
   border-radius: 6px;
   float: right;
-  //  margin-top: -22px;
+ 
+
+}
+.submits-cart-btn{
+  background-color:#17A803;
+  font-weight:600;
+  border:0px;
+  color:white;
+  padding: 7px 60px;
+  border-radius: 6px;
+  float: right;
+    margin-top: 22px;
 
 }
 
@@ -501,7 +512,7 @@ input:disabled{
    line-height: 1.8;
     background: #17A803;
     border-radius: 5px;
-    padding: 4px 20px;
+    padding: 2px 20px;
     margin-left: -9px;
     font-weight: 600;
     border: 0px;
@@ -515,7 +526,7 @@ input:disabled{
     line-height: 1.8;
      background: #8A8A8A;
      border-radius: 5px;
-     padding: 4px 20px;
+     padding: 2px 20px;
      margin-left: -9px;
      font-weight: 600;
      border: 0px;
@@ -529,7 +540,7 @@ input:disabled{
    line-height: 1.8;
     background: #17A803;
     border-radius: 5px;
-    padding: 4px 20px;
+    padding: 2px 20px;
     margin-left: -9px;
     font-weight: 600;
     border: 0px;
@@ -543,7 +554,7 @@ input:disabled{
    line-height: 1.8;
     background: #EEEEEE;
     border-radius: 5px;
-    padding: 4px 20px;
+    padding: 3px 20px; 
     margin-left: -9px;
     font-weight: 600;
     border: 0px;
@@ -661,20 +672,7 @@ input:disabled{
 .total-order{
   margin-top: 32px;
 }
-.customer{
-  background:#eeeeee;
-  border-radius:10px;
-  width:610px;
-  margin-top:20px;
-  margin-left: 5px;
-}
-.customer1{
-  background:#eeeeee;
-  border-radius:10px;
-  width:610px;
-  margin-top:3px;
-  margin-left: 5px;
-}
+
 
 .graph{
   margin-top: 9px;
@@ -898,8 +896,10 @@ input:disabled{
 }
 .item_clearfix{
   display: block;
- 
- 
+}
+.item1_clearfix{
+  display: block;
+  margin-top:-12px;
 }
 .clearfix{
   display: block;
@@ -911,14 +911,48 @@ input:disabled{
 .pictures{
   float: left;
   margin-right: 12px;
-
-
   margin-top: 10px;
   margin-bottom: 20px;
-  padding-left: 3%;
   height: 110px;
-  width: 120px;
+  border-radius: 10px  10px  10px  10px  ;
+  width: 110px;
   object-fit: cover; 
+}
+.shopping-card__details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.shopping-card__title {
+  font-weight: 600;
+  line-height: 18px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+}
+
+.shopping-card__options {
+  display: flex;
+  gap: 8px;
+}
+
+.option__key {
+  font-weight: 400;
+  font-size: 14px;
+  color: #959595;
+}
+
+.option__value {
+  font-weight: 500;
+  font-size: 14px;
+}
+.shopping-card__price {
+  font-weight: 600;
+  font-size: 14px;
 }
 
 .shop-content {
@@ -928,30 +962,139 @@ input:disabled{
   //  line-height: 5px;
   
 }
+.fil-icon{
+  margin-right:19px;
+  margin-top: 8px;
+ 
+}
+.customer-sale{
+  margin-top: 12px;
+}
+
+
+
+#header {
+  padding: 5px 10px;
+  height: 55px;
+  overflow: no-content;
+
+}
+
+div#header div {
+  display: inline-block;
+  padding: 1% 0;
+  margin: 0 2%;
+  text-align: end;
+  font-size: 16px;
+  font-weight:700;
+}
+
+
+#header-middle {
+  width: 46%;
+  
+}
+
+#header-right {
+  width: 32%;
+  
+}
+
+#logo1{
+  width: 11%;
+}
+#header-middle1 {
+  width: 40%;
+  
+}
+
+#header-right1 {
+  width: 37%;
+  
+}
+
+
+.customer{
+  background:#eeeeee;
+  border-radius:10px;
+  width:610px;
+}
+.sales-report-name{
+  position: relative;
+  display: flex;
+  max-width: 35%;
+}
 
 
 // sajin stores //
-
-@media (max-width:1245px) {
-  .store-container {
-    margin-left: 200px;
-  }
+@media(max-width:1360px){
+  .store-container{
+    width:100%;
+    justify-content: center;
+   margin-left: 200px;
+    align-items: center;
+}
+  input.nosubmit1 {
+        border: 0px solid #EEEEEE;
+        width: 100%;
+        padding: 9px 4px 9px 40px;
+         background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
+         margin-left: -3px;
+         margin-top: 35px;
+         border-radius: 5px;
+        
+         background-color: #EEEEEE;
+        }
+        .view{
+          font-size: 14px;
+          color: #797B79;
+          margin-right: 0px;
+          float: right;
+          font-weight: 400;
+      }
+}
+@media(max-width:1249px){
+ 
 }
 
 
-@media screen and (max-width: 700px) {
-  .sides {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-  .sides a {float: left;}
-  div.content {margin-left: 0;}
+
+@media(max-width:1100px){
+  
+
 }
 
-@media screen and (max-width: 400px) {
-  .sides a {
-    text-align: center;
-    float: none;
-  }
+@media(max-width:1025px){
+  
+ 
 }
+
+@media(max-width:936px){
+  
+}
+
+@media(max-width:769px){
+  
+}
+
+@media(max-width:700px){
+}
+
+@media(max-width:659px){
+}
+@media (max-width:567px) {
+}
+
+@media (max-width:440px) {
+}
+
+@media (max-width:375px) {
+}
+
+
+
+// @media (max-width:1245px) {
+//   .store-container {
+//     margin-left: 200px;
+//   }
+// }

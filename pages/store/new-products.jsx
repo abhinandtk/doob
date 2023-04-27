@@ -344,7 +344,7 @@ Arabic</Dropdown.Item>
 <div className="content-topic  ">
   <div className='bottom'>
  
-  <h6 className=' ms-4' style={{color:'#17a803',fontWeight:'700'}}>Products</h6>
+  <h6 className=' mx-4' style={{color:'#17a803',fontWeight:'700'}}>Products</h6>
   <Button type="submit" className='order1-btn ' > Add  Products </Button>
 
 
@@ -359,20 +359,20 @@ Arabic</Dropdown.Item>
         </div>
 
         <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-          <span style={{color:'#959595'}}>Payment Mode</span>
-          <span >Cash on Delivery</span>
+          <span >Brand</span>
+          <span >Nike</span>
         </div>
         <div className="p-2  mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
-          <span style={{color:'#959595'}}>Payment Status</span>
-          <span style={{color:'#FF640D'}}>Pending</span>
+          <span >Category item</span>
+          <span >Football</span>
         </div>
         <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-          <span style={{color:'#959595'}}>Other Status</span>
-          <span style={{color:'#FF640D'}}>Pending</span>
+          <span >Sub Category</span>
+          <span >Shoe</span>
         </div>
         <div className="p-2  mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
-          <span style={{color:'#959595'}}>Payment Status</span>
-          <span style={{color:'#FF640D'}}>Pending</span>
+          <span style={{color:'#959595'}}> Status</span>
+          <span style={{color:'#17A803'}}>Pending</span>
         </div>
       <br></br>
 
@@ -388,21 +388,21 @@ Arabic</Dropdown.Item>
          <img src='../images/store/b.png' style={{width:'82px',height:'82px'}} ></img>
          
         </div>
- <div className="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-          <span style={{color:'#959595'}}>Order Date</span>
-          <span >20 Jan, 2023</span>
-        </div>
- <div className="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
-          <span style={{color:'#959595'}}>Price</span>
-          <span>13.000 KD</span>
-        </div>
         <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-          <span style={{color:'#959595'}}>Payment Mode</span>
-          <span >Cash on Delivery</span>
+          <span >Brand</span>
+          <span >Nike</span>
         </div>
         <div className="p-2  mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
-          <span style={{color:'#959595'}}>Payment Status</span>
-          <span style={{color:'#17A803'}}>Payment Recevied</span>
+          <span >Category item</span>
+          <span >Football</span>
+        </div>
+        <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
+          <span >Sub Category</span>
+          <span >Shoe</span>
+        </div>
+        <div className="p-2  mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
+          <span style={{color:'#959595'}}> Status</span>
+          <span style={{color:'#17A803'}}>Pending</span>
         </div>
         </div>
        

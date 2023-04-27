@@ -447,7 +447,7 @@ Arabic</Dropdown.Item>
   </div>
   <h6 className='product-submit ' >Duplicate</h6>
   
-  <div className="product-submit my-4">
+  <div className="product-submit my-3">
     
   <button type="button" className="submit-cart-btn">Submit</button>
   <button type="button" className="sub-cart-btn">Cancel</button>

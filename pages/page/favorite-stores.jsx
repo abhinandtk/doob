@@ -29,10 +29,10 @@ function FavoriteStores() {
         <br></br>
         <div className='head'>Favourite Store</div>
             <div className='container'>
-                <div className='row'>
+                <div className='row store  my-2 '>
                     {storeFavList.map((item,index)=>(
-                    <div key={index} className='col-sm-4'>
-                        <Card   style={{backgroundColor:'#EEEEEE',borderRadius:'7%',border:'0px'}} >
+                    <div key={index} className='col-lg-4 col-md-4'>
+                        <Card  className='store-card'   >
                             <Card.Img  style={{borderRadius:'12px 12px 0px 0px'}} src={`${item.store.cover_photo}`}  />
                             <Card.Body>
                                 <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >
@@ -42,8 +42,8 @@ function FavoriteStores() {
                         </Card>
                     </div> 
                     ))}           
-                    <div className='col-sm-4'>
-                        <Card   style={{backgroundColor:'#EEEEEE',borderRadius:'7%',border:'0px'}} >
+                    <div className='col-lg-4 col-md-4'>
+                        <Card   className='store-card'   >
                             <Card.Img  style={{borderRadius:'12px 12px 0px 0px'}} src="../images/1027 4.jpg"  />
                             <Card.Body>
                                 <Card.Text style={{fontSize:'14px',fontWeight:'500'}}  >

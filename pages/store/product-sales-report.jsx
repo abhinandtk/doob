@@ -341,12 +341,12 @@ Arabic</Dropdown.Item>
  <span className='mx-2'>Category</span> </a>
  </div>
 
-<div class="content-topic " >
+<div class="content-topics " >
   <div className='bottom' >
  
-  <h6 className=' ms-4' style={{color:'#17a803',fontWeight:'700'}}>Sales Report</h6>
+  <h6 className=' ms-4' style={{color:'#17a803',fontWeight:'700'}}>Product Sales Report</h6>
   <div className='my-1 mx-4 '>
-  <div className='basic'>
+  
     <div className='update'>  <Dropdown className='mx-1' >
       <Dropdown.Toggle    variant="" id="dropdown-basic"  style={{ color:'black',borderColor:'transparent',background:'transparent'}}>
         Last 30 days <i className="bi bi-chevron-down "></i>
@@ -359,9 +359,10 @@ Arabic</Dropdown.Item>
 
       </Dropdown.Menu>
     </Dropdown>
-    <span> <button type="button" className='export-btn' > Export </button></span>
+     
+    <span><img src='../images/store/f-icon.png' className='fil-icon'></img>  <button type="button" className='export-btn' > Export </button></span>
     </div>
-   
+{/*    
 <Card className='reports' >
     <Card.Body>
      <div className='total-order'>
@@ -370,28 +371,39 @@ Arabic</Dropdown.Item>
      </div>
 
     </Card.Body>
-</Card>
-<div className='graph'>
-    <p>Sales</p>
-    <img src='../images/store/Chart.png' className='img-fluid'></img>
-</div>
-<div className="p-3 d-flex justify-content-between  customer" >
-  <span>Customers</span>
-  <span>450</span>
-  </div>
-  <div className="p-1  d-flex justify-content-between  " >
-  <span className='mx-3'>Total Products</span>
-  <span className='mx-2' >1450</span>
-  </div>
-  <div className="p-3 d-flex justify-content-between  customer1" >
-  <span>Total Orders</span>
-  <span>4500</span>
-  </div>
- 
-  </div>
+</Card> */}
+ <div className='customer-sale'>
+ <div id="header">
+        <div id='logo'>
+            Product
+        </div>
+        <div id="header-middle">
+            Order Count
+        </div>
+        <div id="header-right">
+            Total Amount
+        </div>
+        
+    </div>
 
+<div className="p-3 d-flex justify-content-between  customer" >
+  <span className='sales-report-name'>RED TAPE Runing Shoe Men RED TAPE Runing Shoe    </span>
+  <span >1450</span>
+  <span>4500.000 KD</span>
   </div>
-  <br></br>
+  <div className="p-3 d-flex justify-content-between " >
+  <span className='sales-report-name'>RED TAPE Runing Shoe Men RED TAPE Runing Shoe    </span>
+  <span >1450</span>
+  <span>4500.000 KD</span>
+  </div>
+  <div className="p-3 d-flex justify-content-between  customer" >
+  <span className='sales-report-name'>RED TAPE Runing Shoe Men RED TAPE Runing Shoe   </span>
+  <span >1450</span>
+  <span>4500.000 KD</span>
+  </div>
+  
+  </div>
+  </div>
   </div>
   </div>
   </div>
@@ -402,4 +414,4 @@ Arabic</Dropdown.Item>
 }
 
 
-export default store
+export default store 

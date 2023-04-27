@@ -368,7 +368,7 @@ Arabic</Dropdown.Item>
     <label for="exampleFormControlInput1">Display Order</label>
     <input type="email" class="form-control p-2" style={{border:'0px',background:'#eeeeee',color:'grey'}} id="exampleFormControlInput1" />
   </div>
-  <div className="product-submit my-4">
+  <div className="product-submit my-3">
     
     <button type="button" className="submit-cart-btn">Submit</button>
     <button type="button" className="sub-cart-btn">Cancel</button>

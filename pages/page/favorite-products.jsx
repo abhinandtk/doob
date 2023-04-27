@@ -50,10 +50,10 @@ function FavoriteProducts() {
         <br></br>
         <div className='head'>Favourite Product</div>
             <div className='container'>
-                <div className='row'>
+                <div className='row my-3 store p-3'>
                     {favLists.map((item,index)=>(
-                    <div key={index} className='col-sm-4'>
-                        <Card  style={{backgroundColor:'#EEEEEE',borderRadius:'6%',border:'0px'}} >
+                    <div key={index} className='col-lg-4 col-md-4'>
+                        <Card  className='favouite-cards'  >
                             <Card.Img  style={{borderRadius:'12px 12px 0px 0px'}} src={`${constants.port}${item.product.image}`}  />
                             <Card.Body>
                                 <div style={{fontSize:'14px',fontWeight:'500'}}  >
