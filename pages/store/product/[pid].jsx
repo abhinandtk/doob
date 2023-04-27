@@ -14,24 +14,22 @@ import constants from '@/public/data/my-constants/Constants';
 import { useRouter } from 'next/router';
 
 function ProductDetailPage ()  {
-  const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
+  const [productDetails,setProductDetails]=useState([])
   const router = useRouter()
   const {pid} = router.query
 
-  // Axios.post(apis.productdetail,{
-  //   slug_Id:pid
-  // },
-  // {
-  //   headers:{
-  //     'Authorization':`${constants.token_id}`,
-  //   }
-  // }).then((res)=>{
-  //   console.log('productttttttttttttttttttttttt',res)
-  // })
+  Axios.post(apis.productdetail,{
+    slug_Id:pid
+  },
+  {
+    headers:{
+      'Authorization':`Token ${constants.token_id}`,
+    }
+  }).then((res)=>{
+    setProductDetails(res.data.data[0])
+    console.log('productttttttttttttttttttttttt',res)
+  })
 
   
   return (
@@ -53,7 +51,7 @@ function ProductDetailPage ()  {
             <div className="card-body p-4">
                 <div className="row " >
                     <ProductDetailImages />
-                    <ProductDetailInfo />
+                    <ProductDetailInfo product={productDetails}/>
                 </div>
               </div>
             </div>
