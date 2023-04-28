@@ -1,35 +1,96 @@
-import React, { Fragment } from 'react'
+import { Button, Modal } from "antd";
+import React, { Fragment } from "react";
+import { useState } from "react";
+import AllAddress from "../address/AllAddress";
+import Axios from "axios";
+import constants from "@/public/data/my-constants/Constants";
+import apis from "@/public/data/my-constants/Apis";
+import { useEffect } from "react";
+function ShippingAddress({ data, setOnSuccess }) {
+  const [visible, setVisible] = useState(false);
 
-function ShippingAddress() {
+  const [addressList, setAddressList] = useState([]);
+  useEffect(() => {
+    Axios.get(apis.addressView, {
+      headers: {
+        Authorization: `Token ${constants.token_id}`,
+      },
+    }).then((res) => {
+      setAddressList(res.data.data);
+      console.log("resssssssssssssssssssssssssss", res);
+    });
+  }, []);
+
+  const headerContent =(
+
+    <div>
+      <h3>Address </h3>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+          <Button key='add' type="primary" style={{backgroundColor:'#17A803'}}>Add Address</Button>
+      </div> 
+    </div>
+
+  )
+
   return (
     <Fragment>
-    <p className='mt-3 ' >Shipping Address</p>
-    <div className="card mb-2 " >
-        <div className="card-body">
-          <div className="d-flex justify-content-between ">
-            <div className="d-flex flex-row align-items-center ">
-              <div>
-             <img src='../images/Location icon.png' className='me-4 mb-3' ></img>
-              </div>
-              <div className="ms-1 mt-3">
-                <h6 >Home  </h6>
-                <p className='address-card'>26,  Street 2,Naeem, Al Mutla City, 03200, Kuwait</p>
-              </div>
-            </div>
-            <div  > 
-              <div >
-              <span><img src='../images/edit.png'></img></span>
-              </div>
-              
-            </div>
+      <Modal
+        title={headerContent
             
+        }
+        open={visible}
+        onCancel={() => setVisible(false)}
+      >
+        <AllAddress
+          addressList={addressList}
+          setVisible={setVisible}
+          setOnSuccess={setOnSuccess}
+        />
+      </Modal>
+
+      <p className="mt-3 ">Shipping Address</p>
+      {data.map((item, index) => (
+        <div key={index} className="card mb-2 ">
+          <div className="card-body">
+            <div className="d-flex justify-content-between ">
+              <div className="d-flex flex-row align-items-center ">
+                <div>
+                  <img
+                    src="../images/Location icon.png"
+                    className="me-4 mb-3"
+                  ></img>
+                </div>
+                <div className="ms-1 mt-3">
+                  <h6>{item.address_type}</h6>
+                  {item.address_type === "Home" ? (
+                    <p className="address-card">{`${item.housename}, ${item.avenue}, ${item.street}, ${item.block}, ${item.region}`}</p>
+                  ) : item.address_type === "Office" ? (
+                    <p className="address-card">{`${item.officename}, ${item.avenue}, ${item.street}, ${item.block}, ${item.region}`}</p>
+                  ) : item.address_type === "Apartment" ? (
+                    <p className="address-card">{`${item.flat_no},${item.floor},${item.building}, ${item.avenue}, ${item.street}, ${item.block}, ${item.region}`}</p>
+                  ) : (
+                    <>
+                      <p>Customer address</p>
+                      <p className="address-card">{`${item.building_flat_house_all}, ${item.avenue}, ${item.street}, ${item.block}, ${item.region}`}</p>
+                      <p>Provider address</p>
+                      <p className="address-card">{`${item.providor_avenue}, ${item.providor_street}, ${item.providor_block}, ${item.providor_area}`}</p>
+                    </>
+                  )}
+                </div>
+              </div>
+              <div>
+                <div onClick={() => setVisible(true)} style={{cursor:'pointer'}}>
+                  <span>
+                    <img src="../images/edit.png"></img>
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
-          
         </div>
-        
-      </div>
-      </Fragment>
-  )
+      ))}
+    </Fragment>
+  );
 }
 
-export default ShippingAddress
+export default ShippingAddress;

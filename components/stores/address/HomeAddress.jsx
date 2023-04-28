@@ -15,7 +15,7 @@ function HomeAddress({handleAddAddress}) {
         remark:''
 
     })
-    const [defaultAddress,setDefaultAddress]=useState(null)
+    const [defaultAddress,setDefaultAddress]=useState(false)
 
     const handleChange=(e)=>{
         const newFormData = {...formData};

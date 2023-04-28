@@ -60,6 +60,8 @@ const apis = {
     'removeCart':`${constants.port}/store/api/remove_cart_api`,
     'checkout':`${constants.port}/store/api/checkout_view`,
     'orderList':`${constants.port}/store/api/order_list_view`,
+    'addressView':`${constants.port}/store/api/address_list_view`,
+    'defaultAddress':`${constants.port}/store/api/update_address_is_default`,
 
 
 
