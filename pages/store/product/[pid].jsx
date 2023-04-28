@@ -47,7 +47,7 @@ function ProductDetailPage ()  {
   <section className=" my-3 h-75">
   <div className="row d-flex justify-content-center align-items-center h-100">
     <div className="col">
-        <div className="card" >
+        <div className="card cart" >
             <div className="card-body p-4">
                 <div className="row " >
                     <ProductDetailImages />

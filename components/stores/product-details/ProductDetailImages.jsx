@@ -9,7 +9,7 @@ function ProductDetailImages() {
             </div>
         </div>
         <div className="col-lg-8">                
-            <div className='row '>
+            <div className='row colors '>
                 <div className='col-md-2  '>
                     <img src='../../images/store/red.png'style={{width:'50px',height:'50px'}} ></img>
                 </div>

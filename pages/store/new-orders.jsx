@@ -68,7 +68,7 @@ function store ()  {
   <div className="content-topic  ">
   <div className='bottom'>
     
-  <h6 className='All-order' style={{color:'#17a803',fontWeight:'700'}}>All Order</h6>
+  <h6 className='All-order' style={{color:'#17a803',fontWeight:'700'}}>New Orders</h6>
   <p className='order-code ' style={{fontWeight:'500'}}>#12454<span  style={{float:'right'}}> <Button type="submit" className='order-btn ' > Update status </Button></span></p>
   
   <hr className='mx-auto' style={{width:'90%'}}></hr>

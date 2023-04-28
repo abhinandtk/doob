@@ -87,7 +87,7 @@ function MainHeader({title}) {
                     </Nav.Link>
                     <Nav.Link  >
                         <Dropdown className='Drop' >
-                            <Dropdown.Toggle    variant="" id="dropdown-basic"  style={{ color:'black',borderColor:'transparent'}}>
+                            <Dropdown.Toggle    variant="" id="dropdown-basic"  style={{ color:'black',borderColor:'transparent',background:'transparent'}}>
                                 EN <i className="bi bi-chevron-down "></i>
                             </Dropdown.Toggle>
 

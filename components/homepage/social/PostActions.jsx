@@ -97,7 +97,7 @@ export default function PostActions({postId,user,setOnSuccess,sharedClick}) {
       </Modal>
 
     <Dropdown className='Drop' >
-        <Dropdown.Toggle    variant="" id="dropdown-basic"  style={{ color:'black',borderColor:'transparent'}}>
+        <Dropdown.Toggle    variant="" id="dropdown-basic"  style={{ color:'black',borderColor:'transparent',background:'transparent'}}>
         <i className='bi bi-three-dots-vertical'></i>
         </Dropdown.Toggle>
 

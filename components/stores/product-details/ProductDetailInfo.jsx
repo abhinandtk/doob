@@ -26,7 +26,7 @@ function ProductDetailInfo({product}) {
         Axios.post(apis.addtocart,{
             product_var_slug:slug,
             quantity:quantity
-        },
+        },  
         {
             headers:{
                 'Authorization':`Token ${constants.token_id}`,
@@ -54,24 +54,24 @@ function ProductDetailInfo({product}) {
                     </svg>
                 </span>
                 <h5 className='col-md-9'  >{product.Name}</h5> 
-                <p className='mx-1'><i className="bi bi-star-fill"style={{color:'yellow'}}></i>4.5 <span style={{color:'grey'}}>(203 reviews)</span></p>
+                <p className='mx-1 mb-2'><i className="bi bi-star-fill"style={{color:'yellow'}}></i>4.5 <span style={{color:'grey'}}>(203 reviews)</span></p>
                 <p style={{fontSize:'14px',fontWeight:'400'}} >{product.Description} </p>
             
-                <h6 >Color<br>
+                <h6 style={{marginTop:'-8px'}}>Color<br>
                 </br><i className="bi bi-circle-fill" style={{color:'#ED4B4B'}}></i><span><i className="bi bi-circle-fill mx-2" style={{color:'purple'}}></i><i className="bi bi-circle-fill " style={{color:'violet'}}></i></span></h6>
             
                 <h6>Choose size</h6>
-                <div className="btn-group  " role="group" aria-label="Second group">
-                    <button type="button" className="btn btn-secondary" >34</button>
+                <div className="btn-group group  " role="group" aria-label="Second group">
+                    <button type="button" className="btn btn-secondary outlock " >34</button>
                 </div>
-                <div className="btn-group " role="group" aria-label="Second group">
-                    <button type="button" className="btn btn-outline-secondary">35</button>
+                <div className="btn-group group  " role="group" aria-label="Second group">
+                    <button type="button" className="btn btn-outline-secondary outlock ">35</button>
                 </div>
-                <div className="btn-group " role="group" aria-label="Second group">
-                    <button type="button" className="btn btn-secondary" >34</button>
+                <div className="btn-group group  " role="group" aria-label="Second group">
+                    <button type="button" className="btn btn-secondary outlock " >34</button>
                 </div>
-                <div className="btn-group " role="group" aria-label="Second group">
-                    <button type="button" className="btn btn-outline-secondary">35</button>
+                <div className="btn-group group  " role="group" aria-label="Second group">
+                    <button type="button" className="btn btn-outline-secondary outlock ">35</button>
                 </div> 
                 <br></br>
                 <p style={{color:'gray',fontWeight:'400'}}><s>15.000 KD</s><span className='mx-2' style={{fontSize:'20px',fontWeight:'500',color:'#17a803'}}>13.000 KD</span><span></span></p>

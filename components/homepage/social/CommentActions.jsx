@@ -100,7 +100,7 @@ function CommentActions({user,commentId}) {
       </Modal>
 
     <Dropdown className='Drop' >
-        <Dropdown.Toggle    variant="" id="dropdown-basic"  style={{ color:'#959595',borderColor:'transparent'}}>
+        <Dropdown.Toggle    variant="" id="dropdown-basic"  style={{ color:'#959595',borderColor:'transparent',background:'transparent'}}>
         <i className='bi bi-three-dots'></i>
         </Dropdown.Toggle>
 

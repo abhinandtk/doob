@@ -297,12 +297,12 @@ Arabic</Dropdown.Item>
 
 <section className="h-100 h-custom" >
   <div className="store-container  my-4">
-    <div className="row d-flex justify-content-center align-items-center h-100 ">
+    <div className="row d-flex justify-content-center align-items-center h-100  ">
     <h5>Reviews</h5>
       <div className="col ">
       
         <div className="card "> 
-          <div className="card-body p-4 ">
+          <div className="card-body p-5 ">
 
             <div className="row">
 
