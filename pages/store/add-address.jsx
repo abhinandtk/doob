@@ -19,11 +19,12 @@ function AddAddressPage() {
 
     const handleAddAddress=(data,defaultAddress)=>{
         console.log('daaaaaaaaaaaaaaaata',data)
-        console.log(',,,,,,,,,,,,,',addressType)
+        console.log(',,,,,,,,,,,,,',defaultAddress ? 'True' : 'False')
         let body ={}
         if (addressType === 'home'){
 
             body ={
+                address_type:'Home',
                 name:data.name,
                 region:data.area,
                 block:data.block,
@@ -36,6 +37,7 @@ function AddAddressPage() {
             }
         }else if(addressType === 'office'){
             body ={
+                address_type:'Office',
                 name:data.name,
                 region:data.area,
                 block:data.block,
@@ -49,6 +51,7 @@ function AddAddressPage() {
             }
         }else if(addressType === 'apartment'){
             body ={
+                address_type:'Apartment',
                 name:data.name,
                 region:data.area,
                 block:data.block,
@@ -64,6 +67,7 @@ function AddAddressPage() {
 
         }else{
             body ={
+                address_type:'Third Party',
                 name:data.name,
                 region:data.area,
                 block:data.block,
@@ -81,7 +85,7 @@ function AddAddressPage() {
             }
 
         }
-        Axios.post(apis.addaddress,body,
+        Axios.post(apis.addAddress,body,
         {
             headers:{
                 'Authorization':`Token ${constants.token_id}`,

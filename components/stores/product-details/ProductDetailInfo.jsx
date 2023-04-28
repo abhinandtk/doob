@@ -23,7 +23,7 @@ function ProductDetailInfo({product}) {
 
     const addToCartHandler=(slug)=>{
         console.log("erer",slug)
-        Axios.post(apis.addtocart,{
+        Axios.post(apis.addtoCart,{
             product_var_slug:slug,
             quantity:quantity
         },  

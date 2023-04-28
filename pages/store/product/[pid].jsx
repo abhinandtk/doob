@@ -19,7 +19,7 @@ function ProductDetailPage ()  {
   const router = useRouter()
   const {pid} = router.query
 
-  Axios.post(apis.productdetail,{
+  Axios.post(apis.productDetail,{
     slug_Id:pid
   },
   {

@@ -52,10 +52,16 @@ const apis = {
     'removestorewishlist':`${constants.port}/store/api/remove_store_wishlist`,
     'viewstorewishlist':`${constants.port}/store/api/view_wishlist_store`,
     
-    'productdetail':`${constants.port}/store/api/product_detail_view`,
-    'addtocart':`${constants.port}/store/api/add_to_cart`,
-    'viewcart':`${constants.port}/store/api/view_cart_api`,
-    'addaddress':`${constants.port}/store/api/add_address`,
+    'productDetail':`${constants.port}/store/api/product_detail_view`,
+    'addtoCart':`${constants.port}/store/api/add_to_cart`,
+    'viewCart':`${constants.port}/store/api/view_cart_api`,
+    'addAddress':`${constants.port}/store/api/add_address`,
+    'updateCart':`${constants.port}/store/api/update_cart_list`,
+    'removeCart':`${constants.port}/store/api/remove_cart_api`,
+    'checkout':`${constants.port}/store/api/checkout_view`,
+    'orderList':`${constants.port}/store/api/order_list_view`,
+    'addressView':`${constants.port}/store/api/address_list_view`,
+    'defaultAddress':`${constants.port}/store/api/update_address_is_default`,
 
 
 
