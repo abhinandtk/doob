@@ -21,7 +21,6 @@ function AllAddress({ addressList,setVisible,setOnSuccess }) {
         }).then((res)=>{
             setVisible(false)
             setOnSuccess((prev)=>!prev)
-            console.log('adrelisssssssssssst',res)
         })
     }
   return (
@@ -48,6 +47,7 @@ function AllAddress({ addressList,setVisible,setOnSuccess }) {
               avatar={<EnvironmentOutlined />}
             />
           </Card>
+          <br></br>
         </div>
       ))}
     </Fragment>
