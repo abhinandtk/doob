@@ -10,7 +10,7 @@ function Stores({storeData,title}) {
         <h5 className='mx-2'>{title}</h5>
         {storeData.map((item,index)=>(
             <div key={index} className='col-lg-3 col-md-4'>
-            <Link href={`/store/${item.id}`}>
+            <Link href={`/store/${item.slug_store}`}>
             <img src={`${constants.port}${item.logo}`}  style={{width:'100%'}} ></img>
             </Link>
         </div>
