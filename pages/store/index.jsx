@@ -34,7 +34,7 @@ function StorePage ()  {
      
       <div className="store-container">
         <form className="nosubmit ">
-          <input className="nosubmit1" type="search" placeholder="Search"   />
+        <span> <input className="nosubmit1" type="search" placeholder="Search"   /><img src='../images/store/Fil-icon.png' className='filters-icon'></img></span>
         </form>
         <br></br>
        

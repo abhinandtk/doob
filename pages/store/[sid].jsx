@@ -39,8 +39,8 @@ function StoreDetailPage ()  {
       <MainHeader title='Doob'/>
       <MainSidebarFixed />
       <div className="store-container"> 
-        <form className="nosubmit ">
-          <input className="nosubmit" type="search" placeholder="Search"   />
+      <form className="nosubmit ">
+        <span> <input className="nosubmit1" type="search" placeholder="Search"   /><img src="../images/store/Fil-icon.png" className='filters-icon'></img></span>
         </form>
         <StoreTopDetails data={storeDetails}/>
 

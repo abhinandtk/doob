@@ -341,8 +341,8 @@ Arabic</Dropdown.Item>
  <span className='mx-2'>Category</span> </a>
  </div>
 
-<div class="content-topic  ">
-  <div className='bottom'>
+<div class="play-topic  ">
+  <div className='bottoms'>
  
   <h6 className=' ms-4' style={{color:'#17a803',fontWeight:'700'}}>Add Playground</h6>
 
@@ -375,13 +375,27 @@ Arabic</Dropdown.Item>
   </div>
   <h6 style={{fontSize:'15px',fontWeight:'700'}}>Choose File</h6>
   <div className="slot clearfix   mt-2 ">
-    <span className='float-start '><img src='../images/tournament/footballs.png'></img><span className='mx-1'>Football</span></span>   <input class="form-check-input float-end check" type="checkbox" value="" id="flexCheckDefault"/>
+    <span className='float-start '><img src='../images/tournament/footballs.png'></img><span className='mx-1'>Football</span></span> 
+    <div class="checkbox float-end">
+    <input type="checkbox" id="checkbox_1"/>
+    <label for="checkbox_1"></label>
+    </div>
+    
+      {/* <input class="form-check-input float-end check" type="checkbox" value="" id="flexCheckDefault"/> */}
     </div>
     <div className="slot clearfix mt-2 ">
-    <span className='float-start ' style={{marginLeft:'-6px'}}><img src='../images/tournament/Table tennis.png' ></img><span >Padel</span></span>      <input class="form-check-input float-end check" type="checkbox" value="" id="flexCheckDefault"/>
+    <span className='float-start ' style={{marginLeft:'-6px'}}><img src='../images/tournament/Table tennis.png' ></img><span >Padel</span></span>     
+    <div class="checkbox float-end">
+    <input type="checkbox" id="checkbox_2"  />
+    <label for="checkbox_2"></label>
+    </div>
     </div>
     <div className="slot clearfix mt-2 ">
-    <span className='float-start'><img src='../images/tournament/Basketball.png' ></img><span > Basketball</span></span>      <input class="form-check-input float-end check" type="checkbox" value="" id="flexCheckDefault"/>
+    <span className='float-start'><img src='../images/tournament/Basketball.png' ></img><span > Basketball</span></span>   
+    <div class="checkbox float-end">
+    <input type="checkbox" id="checkbox_3" />
+    <label for="checkbox_3"></label>
+    </div>
     </div>
   
   <div className="form-group my-2 ">
@@ -389,46 +403,78 @@ Arabic</Dropdown.Item>
     <textarea class="form-control" style={{border:'0px',background:'#eeeeee',color:'grey'}} id="exampleFormControlTextarea1" rows="3"></textarea>
   </div>
   
-  <button type="submit" className='Add-btn' > Add </button>
+  <button type="submit" className='playadd-btn' > Add </button>
  <br></br>
   <div className="slot clearfix ">
    <h6 style={{fontSize:'15px',fontWeight:'700'}}>Ground</h6>
-   <p className='float-start'>5A           5.450 KD/slot</p>  <button type="submit" className='edits-btn float-end' >  Edit </button>  <button type="submit" className='slot-btn float-end ' > Slot </button>
+   <p className='float-start'>5A   <span className='mx-4'> 5.450 KD/slot</span></p>  <button type="submit" className='edits-btn float-end' >  Edit </button>  <button type="submit" className='slot-btn float-end ' > Slot </button>
   </div>
   <div className="slot clearfix ">
-   <p className='float-start'>5B        5.450 KD/slot</p>  <button type="submit" className='edits-btn float-end' >  Edit </button>  <button type="submit" className='slot-btn float-end ' > Slot </button>
+   <p className='float-start'>5B  <span className='mx-4'> 5.450 KD/slot</span></p>  <button type="submit" className='edits-btn float-end' >  Edit </button>  <button type="submit" className='slot-btn float-end ' > Slot </button>
   </div>
   <h6 style={{fontSize:'15px',fontWeight:'700'}}>Amenities</h6>
   <div className="slot clearfix ">
-    <span className='float-start'><img src='../images/tournament/shower.png' ></img><span > Shower</span></span>      <input class="form-check-input float-end check" type="checkbox" value="" id="flexCheckDefault"/>
+    <span className='float-start'><img src='../images/tournament/shower.png' ></img><span > Shower</span></span>      
+    <div class="checkbox float-end">
+    <input type="checkbox" id="checkbox_4" /> 
+    <label for="checkbox_4"></label>
+    </div>
     </div>
     <div className="slot clearfix mt-3">
-    <span className='float-start'><img src='../images/tournament/water.png' ></img><span > Purified Water</span></span>      <input class="form-check-input float-end check" type="checkbox" value="" id="flexCheckDefault"/>
+    <span className='float-start'><img src='../images/tournament/water.png' ></img><span > Purified Water</span></span>    
+    <div class="checkbox float-end">
+    <input type="checkbox" id="checkbox_5" />
+    <label for="checkbox_5"></label>
+    </div>
     </div>
     <div className="slot clearfix mt-3 ">
-    <span className='float-start'><img src='../images/tournament/dress.png' ></img><span > Dressing Room</span></span>    <input class="form-check-input float-end check" type="checkbox" value="" id="flexCheckDefault"/>
+    <span className='float-start'><img src='../images/tournament/dress.png' ></img><span > Dressing Room</span></span>    
+    <div class="checkbox float-end">
+    <input type="checkbox" id="checkbox_6" />
+    <label for="checkbox_6"></label>
+    </div>
     </div>
     <div className="slot clearfix mt-3 ">
-    <span className='float-start'><img src='../images/tournament/car.png' ></img><span > Parking Area</span></span>     <input class="form-check-input float-end check" type="checkbox" value="" id="flexCheckDefault"/>
+    <span className='float-start'><img src='../images/tournament/car.png' ></img><span > Parking Area</span></span>   
+    <div class="checkbox float-end">
+    <input type="checkbox" id="checkbox_7" />
+    <label for="checkbox_7"></label>
+    </div>
     </div>
     <div className="slot clearfix mt-3 ">
-    <span className='float-start'><img src='../images/tournament/lock.png' ></img><span > Locker</span></span>     <input class="form-check-input float-end check" type="checkbox" value="" id="flexCheckDefault"/>
+    <span className='float-start'><img src='../images/tournament/lock.png' ></img><span > Locker</span></span>     
+    <div class="checkbox float-end">
+    <input type="checkbox" id="checkbox_8" />
+    <label for="checkbox_8"></label>
+    </div>
     </div>
     <div className="slot clearfix mt-3 ">
-    <span className='float-start'><img src='../images/tournament/food.png' ></img><span > Food</span></span> <input class="form-check-input float-end check" type="checkbox" value="" id="flexCheckDefault"/>
+    <span className='float-start'><img src='../images/tournament/food.png' ></img><span > Food</span></span> 
+    <div class="checkbox float-end">
+    <input type="checkbox" id="checkbox_9" />
+    <label for="checkbox_9"></label>
+    </div>
     </div>
     <div className="slot clearfix mt-3 ">
-    <span className='float-start'><img src='../images/tournament/store.png' ></img><span > Store</span></span>  <input class="form-check-input float-end check" type="checkbox" value="" id="flexCheckDefault"/>
+    <span className='float-start'><img src='../images/tournament/store.png' ></img><span > Store</span></span>  
+    <div class="checkbox float-end">
+    <input type="checkbox" id="checkbox_10" />
+    <label for="checkbox_10"></label>
+    </div>
     </div>
     <div className="slot clearfix mt-3 ">
-    <span className='float-start'><img src='../images/tournament/disability.png' ></img><span > Accessibility for disabled</span></span>  <input class="form-check-input float-end check" type="checkbox" value="" id="flexCheckDefault"/>
+    <span className='float-start'><img src='../images/tournament/disability.png' ></img><span > Accessibility for disabled</span></span>  
+    <div class="checkbox float-end">
+    <input type="checkbox" id="checkbox_11" />
+    <label for="checkbox_11"></label>
+    </div>
     </div>
  
   
   <div className="product-submit my-3">
     
-  <button type="button" className="submit-cart-btn">Submit</button>
-  <button type="button" className="sub-cart-btn">Cancel</button>
+  <button type="button" className="play-sub-btn">Submit</button>
+  <button type="button" className="play-cancel-btn">Cancel</button>
   </div>
    </div>
                   

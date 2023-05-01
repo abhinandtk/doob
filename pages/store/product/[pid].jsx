@@ -41,8 +41,8 @@ function ProductDetailPage ()  {
 
     <div className="store-container">
     <form className="nosubmit ">
-    <input className="nosubmit2" type="search" placeholder="Search"   />
-    </form>
+        <span> <input className="nosubmit1" type="search" placeholder="Search"   /><img src="../../images/store/Fil-icon.png" className='filters-icon'></img></span>
+        </form>
 
   <section className=" my-3 h-75">
   <div className="row d-flex justify-content-center align-items-center h-100">

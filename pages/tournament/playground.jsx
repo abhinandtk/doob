@@ -338,7 +338,7 @@ Arabic</Dropdown.Item>
   
  </div>
 
-<div className="content-topic  ">
+<div className="play-topic  ">
   <div className='bottoms'>
  
   <h6 className=' mx-4' style={{color:'#17a803',fontWeight:'700'}}>Playground</h6>
@@ -347,7 +347,7 @@ Arabic</Dropdown.Item>
 
  <div className="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
           <p style={{fontWeight:'500'}}>Muhammed Al-Hamad Stadium</p>
-          <button className="edit-btn mb-2">Edit</button>
+          <button className="playedit-btn mb-2">Edit</button>
         </div>
         <hr className='mx-auto ' style={{width:'90%',marginTop:'-2px'}}></hr>
         <div className=" imx  d-flex justify-content-between align-items-center" >
@@ -374,7 +374,7 @@ Arabic</Dropdown.Item>
          <div className='my-5'>
         <div className="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
           <p style={{fontWeight:'500'}}>Ali Subah Al-Salem Stadium</p>
-          <button className="edit-btn mb-2">Edit</button>
+          <button className="playedit-btn mb-2">Edit</button>
         </div>
         <hr className='mx-auto ' style={{width:'90%',marginTop:'-2px'}}></hr>
         <div className="  d-flex justify-content-between align-items-center imx" >

@@ -45,7 +45,7 @@ body{
   .doct-card{
      width: 22rem;
      border:0px;
-     border-radius:15px;
+     border-radius:19px;
   }
 
   .play-0 {
@@ -109,7 +109,177 @@ body{
     margin-left: -1px;
     clear: both;
   }
+  .play.clearfix{
+    display: block;
+    content: "";
+    clear: both;
+  
+  }
 
 .check{
   margin-right: 42px;
 }
+
+
+.checkbox input[type="checkbox"] + label::after {
+  content:none;
+}
+
+.checkbox input[type="checkbox"]:checked + label::after {
+  content: "";
+}
+
+
+.checkbox input[type="checkbox"]:focus + label::before {
+  outline: rgb(0, 0, 0) 5px;
+}
+
+
+.checkbox label {
+    position: relative;
+    margin-right: 43px;
+}
+
+.checkbox label::before,
+.checkbox label::after {
+  
+    content: "";
+    position: absolute;
+    display: inline-block;
+    margin-top: -24px;
+}
+.checkbox label::before{
+  height: 16px;
+  width: 16px;
+  border: 1px solid;
+  left: 0px;
+  top: 4px;
+}
+
+
+.checkbox label::after {
+  height: 5px;
+  width: 9px;
+  border-left: 2px solid;
+  border-bottom: 2px solid;
+  transform: rotate(-45deg);
+  left: 4px;
+  top: 7px;
+}
+
+.play-topic {
+  margin-left: 240px;
+  padding: 1px 6px;
+  height: 100%;
+   background: white;
+   width: 75%;
+
+}
+.play-topics {
+  margin-left: 240px;
+  padding: 1px 6px;
+  height: 690px;    // width noted //...............................................
+   background: white;
+   width: 75%;
+   
+}
+.playedit-btn{
+  font-size: 15px;
+  line-height: 1.8;
+   background: #8A8A8A;
+   border-radius: 5px;
+   padding: 2px 20px;
+   margin-left: -9px;
+   font-weight: 600;
+   border: 0px;
+   color: white;
+   float:right;
+   margin-top: -2px;
+ }
+ .playadd-btn {
+  font-size: 15px;
+ line-height: 1.8;
+  background: #17A803;
+  border-radius: 5px;
+  padding: 2px 20px;
+  margin-left: -9px;
+  font-weight: 600;
+  border: 0px;
+  color: white;
+  float:right;
+  margin-top: -2px;
+ 
+ }
+ .play-sub-btn{
+  background-color:#17A803;
+  font-weight:600;
+  border:0px;
+  color:white;
+  padding: 7px 60px;
+  border-radius: 6px;
+  float: right;
+    // margin-top: 22px;
+
+}
+
+
+.play-cancel-btn{
+  background-color:#CCCCCC;
+  font-weight:600;
+  border:0px;
+  color:rgb(0, 0, 0);
+  padding: 7px 60px;
+  border-radius: 6px;
+  margin-left: 5px;
+}
+
+.times{
+  background:#eeeeee;
+  border-radius:10px;
+  width:610px;
+}
+.times1{
+  background:transparent;
+  border-radius:10px;
+  width:610px;
+}
+.time-slot-name{
+  
+  display: flex;
+  margin-left: 8px;
+}
+.time-slot{
+  margin-top: 12px;
+  margin-left: -12px;
+}
+
+
+.time-edit{
+ 
+float: end;
+  margin-left:220px;
+
+}
+.time-section{
+  margin-left: 8px;
+}
+.time-delete{
+  margin-right:14px;
+  float: right;
+ 
+  
+}
+.open-btn {
+  font-size: 15px;
+ line-height: 1.8;
+  background: #17A803;
+  border-radius: 5px;
+  padding: 2px 25px;
+  margin-right: 29px;
+  font-weight: 600;
+  border: 0px;
+  color: white;
+  float:right;
+  margin-right: 36px;
+ 
+ }
