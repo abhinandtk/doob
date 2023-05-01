@@ -62,7 +62,7 @@ function StoreProductsCard({ products, title }) {
       <div className="row store ">
         {updatedStore.map((item, index) => (
           <div key={index} className="col-md-4 col-lg-3  ">
-            {/* <Link href={`/store/product/${item.slug_Id}`} style={{textDecoration:'none'}}> */}
+            <Link href={`/store/product/${item.slug_Id}`} style={{textDecoration:'none'}}>
             <Card
               key={index}
               style={{
@@ -130,7 +130,7 @@ function StoreProductsCard({ products, title }) {
                 </div>
               </Card.Body>
             </Card>
-            {/* </Link> */}
+            </Link>
           </div>
         ))}
 
