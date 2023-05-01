@@ -12,12 +12,15 @@ import apis from '@/public/data/my-constants/Apis';
 import constants from '@/public/data/my-constants/Constants';
 import { useEffect } from 'react';
 import SearchCategory from '@/components/stores/SearchCategory';
+import StoreBannerCard from '@/components/stores/StoreBannerCard';
+import moment from 'moment';
 
 function StoreDetailPage ()  {
   const router = useRouter()
   const {sid} = router.query
 
   const [storeDetails,setStoreDetails] =useState([])
+  const [storeCategory,setStoreCategory] =useState([])
   useEffect(()=>{
     Axios.post(apis.storeview,{
       store_id : sid
@@ -28,6 +31,7 @@ function StoreDetailPage ()  {
       }
     }).then((res)=>{
       setStoreDetails(res.data.data.store[0])
+      setStoreCategory(res.data.data.store[0].categories)
 
     })
   })
@@ -44,9 +48,11 @@ function StoreDetailPage ()  {
         </form>
         <StoreTopDetails data={storeDetails}/>
 
+        {/* <StoreBannerCard /> */}
 
 
-<section>
+
+{/* <section>
   <div className='row store'>
        <div className='col-lg-4 col-md-5  '>
       <img src='../images/store/17.png'  ></img>
@@ -56,10 +62,10 @@ function StoreDetailPage ()  {
       </div>
  
     </div>
-</section>
+</section> */}
 
 
-    <SearchCategory />
+    <SearchCategory category={storeCategory}/>
   
     <section className='my-2' >
     <h5>Hot Deals<span className='view' >View All</span></h5>
