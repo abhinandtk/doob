@@ -12,8 +12,11 @@ import { useState } from 'react';
 import Axios from 'axios';
 import apis from '@/public/data/my-constants/Apis';
 import constants from '@/public/data/my-constants/Constants';
+import { useRouter } from 'next/router';
 
 function AddAddressPage() {
+
+    const router = useRouter()
 
     const [addressType,setAddressType]=useState('home')
 
@@ -91,6 +94,7 @@ function AddAddressPage() {
                 'Authorization':`Token ${constants.token_id}`,
             }
         }).then((res)=>{
+            router.push('/store/cart')
             console.log('adddresssssssssssssssss',res)
         })
         

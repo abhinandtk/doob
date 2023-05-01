@@ -63,6 +63,18 @@ const apis = {
     'addressView':`${constants.port}/store/api/address_list_view`,
     'defaultAddress':`${constants.port}/store/api/update_address_is_default`,
 
+    //shop management
+
+    'createBrand':`${constants.port}/store/api/create_brand`,
+    'brandView':`${constants.port}/store/api/list_user_brands`,
+    'editBrand':`${constants.port}/store/api/edit_brand`,
+    'addCategory':`${constants.port}/store/api/add_category`,
+    'categoryList':`${constants.port}/store/api/store_category_list`,
+    'addProduct':`${constants.port}/store/api/create_product `,
+
+
+
+
 
 
     

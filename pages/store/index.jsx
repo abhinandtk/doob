@@ -2,7 +2,7 @@
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import {Container,Nav,Navbar,Dropdown,Carousel,Card} from 'react-bootstrap';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import MainHeader from '@/components/shared/headers/MainHeader';
 import MainSidebarFixed from '@/components/shared/sidebar/MainSidebarFixed';
 import StoreMainBanner from '@/components/stores/StoreMainBanner';
@@ -16,17 +16,19 @@ import constants from '@/public/data/my-constants/Constants';
 function StorePage ()  {
   const [storeData, setStoreData] = useState([]);
   const [banners, setBanners] = useState([]);
+  useEffect(()=>{
 
-  Axios.get(apis.stores,{
-    headers:{
-      'Authorization':`Token ${constants.token_id}`,
-    }
-  })
-  .then((res)=>{
-    setStoreData([res.data.data])
-    setBanners(res.data.data.top_banner)
-    console.log('rtrtrtrtrtrtrtrtrtrtrtrt',res)
-  })
+    Axios.get(apis.stores,{
+      headers:{
+        'Authorization':`Token ${constants.token_id}`,
+      }
+    })
+    .then((res)=>{
+      setStoreData([res.data.data])
+      setBanners(res.data.data.top_banner)
+      console.log('rtrtrtrtrtrtrtrtrtrtrtrt',res)
+    })
+  },[])
   return (
     <div>
       <MainHeader title='Doob'/>

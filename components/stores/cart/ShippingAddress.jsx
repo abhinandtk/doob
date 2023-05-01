@@ -6,7 +6,11 @@ import Axios from "axios";
 import constants from "@/public/data/my-constants/Constants";
 import apis from "@/public/data/my-constants/Apis";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 function ShippingAddress({ data, setOnSuccess }) {
+
+  const Router = useRouter()
+
   const [visible, setVisible] = useState(false);
 
   const [addressList, setAddressList] = useState([]);
@@ -26,7 +30,7 @@ function ShippingAddress({ data, setOnSuccess }) {
     <div>
       <h3>Address </h3>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
-          <Button key='add' type="primary" style={{backgroundColor:'#17A803'}}>Add Address</Button>
+          <Button key='add' onClick={()=>Router.push('/store/add-address')} type="primary" style={{backgroundColor:'#17A803'}}>Add Address</Button>
       </div> 
     </div>
 
@@ -35,11 +39,10 @@ function ShippingAddress({ data, setOnSuccess }) {
   return (
     <Fragment>
       <Modal
-        title={headerContent
-            
-        }
+        title={headerContent}
         open={visible}
         onCancel={() => setVisible(false)}
+        footer={null}
       >
         <AllAddress
           addressList={addressList}
