@@ -41,7 +41,7 @@ function ProductDetailPage ()  {
 
     <div className="store-container">
     <form className="nosubmit ">
-        <span> <input className="nosubmit1" type="search" placeholder="Search"   /><img src="../../images/store/Fil-icon.png" className='filters-icon'></img></span>
+        <span> <input className="nosubmit2" type="search" placeholder="Search"   /><img src="../../images/store/Fil-icon.png" className='filters-icon'></img></span>
         </form>
 
   <section className=" my-3 h-75">
