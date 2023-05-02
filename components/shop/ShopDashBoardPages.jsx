@@ -47,7 +47,7 @@ function ShopDashBoardPages() {
           </svg>
           <p>All Orders</p>
         </div>
-        <Link href='/shop/category-management' style={{textDecoration:"none",color:'black'}}>
+        <Link href='/shop/category-management' style={{textDecoration:"none",color:'#212529'}}>
         <div className="documents  ">
           <svg
             width="22"
@@ -77,7 +77,7 @@ function ShopDashBoardPages() {
           <p>Category</p>
         </div>
         </Link>
-        <Link href='/shop/brand-management' style={{textDecoration:"none",color:'black'}}>
+        <Link href='/shop/brand-management' style={{textDecoration:"none",color:'#212529'}}>
         <div className="documents ">
           <svg
             width="25"
@@ -98,7 +98,7 @@ function ShopDashBoardPages() {
           <p>Brands</p>
         </div>
         </Link>
-        <Link href='/shop/product-management' style={{textDecoration:"none",color:'black'}}>
+        <Link href='/shop/product-management' style={{textDecoration:"none",color:'#212529'}}>
         <div className="documents  ">
           <svg
             width="25"

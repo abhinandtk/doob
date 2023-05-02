@@ -13,8 +13,9 @@ import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 function EditCategoryPage() {
 
   const router=useRouter()
-  const {cid} = router.query
-
+  // const {cid} = router.query
+  const editData = router.query
+  console.log('88888888888888888888',editData)
   const categorySubmitHandler = (data) => {
     // Axios.put(
     //   apis.editCategory,
@@ -47,7 +48,7 @@ function EditCategoryPage() {
       <div className="store-container">
         <div className="bottom">
           <ShopPagesSideBar currentPage='category'/>
-          <CategoriesForm categorySubmitHandler={categorySubmitHandler} />
+        <CategoriesForm categorySubmitHandler={categorySubmitHandler} editData={editData}/>
         </div>
       </div>
     </Fragment>

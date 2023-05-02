@@ -9,7 +9,7 @@ function BrandForm({handleBrandForm,editDetails}) {
   const [formData, setFormData] = useState({
     name: "",
     nameArabic: "",
-    formFile: "",
+    // formFile: "",
     display: "",
   });
 
@@ -18,7 +18,7 @@ function BrandForm({handleBrandForm,editDetails}) {
       setFormData({
         name:editDetails.brand,
         nameArabic:editDetails.arabic_translator,
-        formFile:editDetails.icon,
+        // formFile:editDetails.icon,
         display:editDetails.display_order
       })
     }
@@ -69,7 +69,7 @@ function BrandForm({handleBrandForm,editDetails}) {
             value={formData.nameArabic}
           />
         </div>
-        <div className="form-group my-2">
+        {/* <div className="form-group my-2">
           <label for="exampleFormControlInput1" id="formfile">
             Image
           </label>
@@ -86,7 +86,7 @@ function BrandForm({handleBrandForm,editDetails}) {
             onChange={(e) => handleChange(e)}
             value={formData.formFile}
           />
-        </div>
+        </div> */}
 
         <div className="form-group my-2">
           <label for="exampleFormControlInput1">Display Order</label>

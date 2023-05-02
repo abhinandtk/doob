@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { notification } from "antd";
 
-function CategoriesForm({categorySubmitHandler}) {
+function CategoriesForm({categorySubmitHandler,editData}) {
   const router = useRouter();
 
   const [categoryList, setCategoryList] = useState([]);
@@ -33,6 +33,7 @@ function CategoriesForm({categorySubmitHandler}) {
     }).then((res) => {
       setCategoryList(res.data.data.categories);
     });
+
   }, []);
 
   const submitHandler=(e)=>{

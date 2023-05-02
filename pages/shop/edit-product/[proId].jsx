@@ -13,6 +13,7 @@ import { useRouter } from "next/router";
 import { notification } from "antd";
 function ProductEditPage() {
   const router =useRouter()
+  const editData = router.query
   const handleProductAdd = (formData) => {
     // Axios.post(
     //   apis.editProduct,
@@ -61,7 +62,7 @@ function ProductEditPage() {
       <div className="store-container">
         <div className="bottom">
           <ShopPagesSideBar currentPage="products" />
-          <ProductsForm handleProductAdd={handleProductAdd}/>
+          <ProductsForm handleProductAdd={handleProductAdd} editData={editData}/>
         </div>
       </div>
     </Fragment>

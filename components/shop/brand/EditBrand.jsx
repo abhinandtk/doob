@@ -16,15 +16,15 @@ function EditBrand() {
   // console.log('id455555555555555daaaaaaaaata5555555',item)
 
   const handleBrandForm = (data) => {
-    console.log('popopooooooooooooooo',data)
+    console.log('popopooooooooooooooo',editData)
     console.log('88788888888888888888888',id)
     Axios.put(
       apis.editBrand,
       {
-        brand_id: id,
+        brand_id:id,
         brand_name: data.name,
         arabic_translator: data.nameArabic,
-        icon_file: data.formFile,
+        // icon_file: data.formFile,
         display_order: data.display,
       },
       {
