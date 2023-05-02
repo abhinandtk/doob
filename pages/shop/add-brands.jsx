@@ -15,7 +15,7 @@ function AddBrandPage() {
       <MainSidebarFixed />
       <div className="store-container">
         <div className="bottom">
-          <ShopPagesSideBar />
+          <ShopPagesSideBar currentPage='brand'/>
           <AddBrand />
         </div>
       </div>

@@ -3,8 +3,13 @@ import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
+import { Switch } from 'antd';
 function CategoryManagement() {
   const [categoryData, setCategoryData] = useState([]);
+  const [checked, setChecked] = useState(false);
+  const handleToggle = (checked) => {
+    setChecked(checked);
+  };
 
   useEffect(() => {
     Axios.get(apis.categoryList, {
@@ -40,8 +45,15 @@ function CategoryManagement() {
                   <p key={index} className="foot-ball">
                     {item.title}
                   </p>
-                  <div class="toggle">
-                    <input placeholder="Active" type="checkbox" />
+                  <div className="toggle">
+                    {/* <input placeholder="Active" type="checkbox" /> */}
+                    <Switch
+      checked={checked}
+      checkedChildren="Active"
+      unCheckedChildren="OFFActive"
+      onChange={handleToggle}
+      className="custom-switch"
+    />
                     <label></label>
                     <span>
                       <img

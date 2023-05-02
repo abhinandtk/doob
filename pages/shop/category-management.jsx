@@ -5,8 +5,8 @@ import ShopPagesSideBar from "@/components/shop/pages/ShopPagesSideBar";
 import MainHeader from "@/components/shared/headers/MainHeader";
 import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
-import AddCategoriesForm from "@/components/shop/AddCategoriesForm";
-import CategoryManagement from "@/components/shop/CategoryManagement";
+import AddCategoriesForm from "@/components/shop/category/CategoriesForm";
+import CategoryManagement from "@/components/shop/category/CategoryManagement";
 
 function CategoryManagementPage() {
   return (
@@ -16,7 +16,7 @@ function CategoryManagementPage() {
       <MainSidebarFixed />
       <div className="store-container">
         <div className="bottom">
-          <ShopPagesSideBar />
+          <ShopPagesSideBar currentPage='category'/>
           <CategoryManagement />
         </div>
       </div>

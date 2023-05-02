@@ -1,15 +1,28 @@
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 
-function BrandForm({handleBrandForm}) {
-    const router=useRouter()
+function BrandForm({handleBrandForm,editDetails}) {
+  console.log('popopooooooooooooooo78',editDetails)
+  // console.log('popopooooooooooooooo',editDetails.icon)
+  const router=useRouter()
   const [formData, setFormData] = useState({
     name: "",
     nameArabic: "",
     formFile: "",
     display: "",
   });
+
+  useEffect(()=>{
+    if (editDetails){
+      setFormData({
+        name:editDetails.brand,
+        nameArabic:editDetails.arabic_translator,
+        formFile:editDetails.icon,
+        display:editDetails.display_order
+      })
+    }
+  },[])
 
   const handleChange = (e) => {
     e.preventDefault();

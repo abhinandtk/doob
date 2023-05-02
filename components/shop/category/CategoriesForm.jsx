@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { notification } from "antd";
 
-function AddCategoriesForm() {
+function CategoriesForm({categorySubmitHandler}) {
   const router = useRouter();
 
   const [categoryList, setCategoryList] = useState([]);
@@ -35,29 +35,13 @@ function AddCategoriesForm() {
     });
   }, []);
 
-  const categorySubmitHandler = (e) => {
-    e.preventDefault();
-    Axios.post(
-      apis.addCategory,
-      {
-        title: formData.name,
-        title_arabic: formData.nameArabic,
-        parent_id: formData.parentCat,
-        display_order: formData.display,
-      },
-      {
-        headers: {
-          Authorization: `Token ${constants.token_id}`,
-        },
-      }
-    ).then((res) => {
-      router.back();
-      notification.success({
-        message: "Success",
-        description: "Category Added Successfully",
-      });
-    });
-  };
+  const submitHandler=(e)=>{
+    e.preventDefault()
+    categorySubmitHandler(formData)
+
+  }
+
+  
   return (
     <div class="content-topics ">
       <div className="bottom">
@@ -65,7 +49,7 @@ function AddCategoriesForm() {
           Add Categories
         </h6>
         <div className="my-4 mx-4 ">
-          <form onSubmit={(e) => categorySubmitHandler(e)}>
+          <form onSubmit={(e) => submitHandler(e)}>
             <div className="form-group my-2">
               <label for="exampleFormControlInput1">Category Name</label>
               <input
@@ -145,4 +129,4 @@ function AddCategoriesForm() {
   );
 }
 
-export default AddCategoriesForm;
+export default CategoriesForm;
