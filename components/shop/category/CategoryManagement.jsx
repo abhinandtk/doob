@@ -21,7 +21,7 @@ function CategoryManagement() {
       setCategoryData(res.data.data.categories);
       console.log("tytytytyytytyty.", res.data.data.categories);
     });
-  });
+  },[]);
   return (
     <div class="content-topics ">
       <div className="bottom">
@@ -74,7 +74,14 @@ function CategoryManagement() {
                         <div class="toggle">
                           <input placeholder="Active" type="checkbox" />
                           <label></label>
-                          <span>
+                          <span
+                            onClick={() =>
+                              router.push({
+                                pathname: `/shop/edit-category/${sub.title}`,
+                                query: sub,
+                              })
+                            }
+                          >
                             <img
                               href="#"
                               src="../images/store/Edit copy.png"

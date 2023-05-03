@@ -349,7 +349,7 @@ Arabic</Dropdown.Item>
                             <div>
                               <div className="d-flex justify-content-between align-items-center">
                                 <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
-                                Sulthan{" "}
+                                Sulthan
                                   
                                 </p>
                               </div>
@@ -368,7 +368,7 @@ Arabic</Dropdown.Item>
                             <div>
                               <div className="d-flex justify-content-between align-items-center">
                                 <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
-                                Sulthan Alhamad{" "}
+                                Sulthan Alhamad
                                   
                                 </p>
                               </div>
@@ -387,7 +387,7 @@ Arabic</Dropdown.Item>
                             <div>
                               <div className="d-flex justify-content-between align-items-center">
                                 <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
-                                Sulthan Khalid{" "}
+                                Sulthan Khalid
                                   
                                 </p>
                               </div>
@@ -405,7 +405,7 @@ Arabic</Dropdown.Item>
                             <div>
                               <div className="d-flex justify-content-between align-items-center">
                                 <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
-                                Sulthan Almubarakd{" "}
+                                Sulthan Almubarakd
                                   
                                 </p>
                               </div>
@@ -424,7 +424,7 @@ Arabic</Dropdown.Item>
                             <div>
                               <div className="d-flex justify-content-between align-items-center">
                                 <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
-                                Sulthan Sameer{" "}
+                                Sulthan Sameer
                                   
                                 </p>
                               </div>

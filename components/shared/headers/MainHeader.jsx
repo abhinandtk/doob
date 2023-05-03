@@ -61,7 +61,7 @@ function MainHeader({ title }) {
         <Container fluid>
           <Navbar.Brand href="/">
             <img
-              src="../images/Contract Doob before sign 13-40-2 (1).png"
+              src="../../../images/Contract Doob before sign 13-40-2 (1).png"
               style={{ width: "120px", height: "43px" }}
             ></img>
           </Navbar.Brand>
@@ -102,7 +102,7 @@ function MainHeader({ title }) {
                           fill="white"
                           stroke="white"
                           stroke-width="0.303194"
-                        />{" "}
+                        />
                       </svg>
                       Post
                     </Dropdown.Item>

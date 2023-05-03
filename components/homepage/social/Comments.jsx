@@ -97,7 +97,7 @@ function Comments({setVisibleComment,postId,slug}) {
                 <div>
                     <div className="d-flex justify-content-between align-items-center">
                         <p className="mb-0" style={{fontWeight:'600'}}>
-                            {item.user.username}{" "}
+                            {item.user.username}
                             <span className="small" style={{color:'#959595',fontWeight:'500',fontSize:'13px'}}>{timeSinceComment(item.created_at)}</span>
                         </p>
                     </div>
@@ -126,7 +126,7 @@ function Comments({setVisibleComment,postId,slug}) {
                                 <div className="d-flex flex-column justify-content-between">
                                     <div className="mb-0">
                                     <p className="mb-0" style={{ fontWeight: '600' }}>
-                                        {reply.user_details.name}{" "}
+                                        {reply.user_details.name}
                                         <span className="small" style={{ color: '#959595', fontWeight: '500', fontSize: '13px' }}>{timeSinceComment(reply.created_at)}</span>
                                     </p>
                                     <p className="small mb-0">

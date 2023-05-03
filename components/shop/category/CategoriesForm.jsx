@@ -10,6 +10,7 @@ import { notification } from "antd";
 function CategoriesForm({categorySubmitHandler,editData}) {
   const router = useRouter();
 
+  console.log('cattttttttttttttttttttttsada',editData)
   const [categoryList, setCategoryList] = useState([]);
   const [formData, setFormData] = useState({
     name: "",
@@ -33,6 +34,15 @@ function CategoriesForm({categorySubmitHandler,editData}) {
     }).then((res) => {
       setCategoryList(res.data.data.categories);
     });
+
+    if(editData){
+      setFormData({
+        name:editData.title,
+        nameArabic:editData.title_arabic,
+        parentCat:editData.parent_id,
+        display:editData.display_order
+      })
+    }
 
   }, []);
 
@@ -62,6 +72,7 @@ function CategoriesForm({categorySubmitHandler,editData}) {
                   color: "grey",
                 }}
                 id="name"
+                value={formData.name}
                 onChange={(e) => handleCategoryChange(e)}
               />
             </div>
@@ -78,6 +89,7 @@ function CategoriesForm({categorySubmitHandler,editData}) {
                   color: "grey",
                 }}
                 id="nameArabic"
+                value={formData.nameArabic}
                 onChange={(e) => handleCategoryChange(e)}
               />
             </div>
@@ -95,7 +107,7 @@ function CategoriesForm({categorySubmitHandler,editData}) {
               >
                 <option value="">select</option>
                 {categoryList.map((item, index) => (
-                  <option key={index} value={item.id}>
+                  <option key={index} selected={editData != null && formData.parentCat == item.id } value={item.id}>
                     {item.title}
                   </option>
                 ))}
@@ -112,6 +124,7 @@ function CategoriesForm({categorySubmitHandler,editData}) {
                   color: "grey",
                 }}
                 id="display"
+                value={formData.display}
                 onChange={(e) => handleCategoryChange(e)}
               />
             </div>

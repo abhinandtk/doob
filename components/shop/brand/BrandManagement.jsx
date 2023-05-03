@@ -29,14 +29,14 @@ function BrandManagement() {
 
         <div className="my-4 mx-4 ">
           <div className="clearfix">
-            <p className="order-codes">Brands</p>{" "}
+            <p className="order-codes">Brands</p>
             <button
               onClick={() => router.push("/shop/add-brands")}
               type="button"
               className="Add2-btn"
             >
-              {" "}
-              Add{" "}
+              
+              Add
             </button>
             <br></br>
             {brandData.map((item, index) => {

@@ -130,7 +130,7 @@ function ShopPagesSideBar({currentPage}) {
         </svg>
         <span className="mx-2" style={{color:`${currentPage === 'settings' ? '#17A803' : ''}`}}>Stock</span>
       </a>
-      <a href="#services">
+      <Link href='/shop/report' style={{textDecoration:'none'}}>
         <svg
           width="25"
           height="33"
@@ -148,8 +148,8 @@ function ShopPagesSideBar({currentPage}) {
             fill="black"
           />
         </svg>
-        <span className="mx-1"> Report</span>
-      </a>
+        <span className="mx-1" style={{color:`${currentPage === 'report' ? '#17A803' : ''}`}}> Report</span>
+      </Link>
       <a href="#clients">
         <svg
           width="18"

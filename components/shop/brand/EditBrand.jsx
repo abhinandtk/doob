@@ -9,7 +9,7 @@ import { notification } from "antd";
 
 function EditBrand() {
   const router = useRouter();
-  const { id } = router.query;
+  const { bid } = router.query;
   const editData = router.query;
 
   // console.log('id4555555555555555555555',id)
@@ -17,11 +17,11 @@ function EditBrand() {
 
   const handleBrandForm = (data) => {
     console.log('popopooooooooooooooo',editData)
-    console.log('88788888888888888888888',id)
+    // console.log('88788888888888888888888',id)
     Axios.put(
       apis.editBrand,
       {
-        brand_id:id,
+        brand_id:editData.id,
         brand_name: data.name,
         arabic_translator: data.nameArabic,
         // icon_file: data.formFile,

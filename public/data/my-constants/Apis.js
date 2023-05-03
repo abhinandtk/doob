@@ -70,13 +70,19 @@ const apis = {
     'editBrand':`${constants.port}/store/api/edit_brand`,
 
     'addCategory':`${constants.port}/store/api/add_category`,
-    'editCategory':`${constants.port}/store/api/edit_category_subcategory`,
+    'editCategory':`${constants.port}/store/api/edit_category`,
+    'editSubCategory':`${constants.port}/store/api/edit_subcategory`,
     'categoryList':`${constants.port}/store/api/store_category_list`,
     'categoryActive':`${constants.port}/store/api/category_active `,
 
     'productsList':`${constants.port}/store/api/list_products `,
     'addProduct':`${constants.port}/store/api/create_product `,
     'editProduct':`${constants.port}/store/api/edit_product `,
+
+    'addReview':`${constants.port}/store/api/add_review `,
+    'viewReview':`${constants.port}/store/api/view_review `,
+    'deleteReview':`${constants.port}/store/api/delete_review `,
+
 
 
 

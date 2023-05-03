@@ -11,37 +11,37 @@ function SideMenuFooter() {
             </li><br></br>
             <li className="side-menu__footer-item ">
                 <a className='side-menu__footer-link mx-1 '>
-                    <img src='../images/adidas-logo-png-hd-17.png' style={{width:'31px', height:'23px'}}></img>
+                    <img src='../../../images/adidas-logo-png-hd-17.png' style={{width:'31px', height:'23px'}}></img>
                 </a>
             </li>
             <li className="side-menu__footer-item">
                 <a className='side-menu__footer-link mx-1'>
-                    <img src='../images/Nike-Logo.png' style={{width:'40px', height:'25px'}}></img>
+                    <img src='../../../images/Nike-Logo.png' style={{width:'40px', height:'25px'}}></img>
                 </a>
             </li>
             <li className="side-menu__footer-item">
                 <a className='side-menu__footer-link'>
-                    <img src='../images/fila.png' style={{width:'31px', height:'16px'}}></img>
+                    <img src='../../../images/fila.png' style={{width:'31px', height:'16px'}}></img>
                 </a>
             </li>
             <li className="side-menu__footer-item">
                 <a className='side-menu__footer-link  '>
-                    <img src='../images/551064.png' style={{width:'54px', height:'38px'}}></img>
+                    <img src='../../../images/551064.png' style={{width:'54px', height:'38px'}}></img>
                 </a>
             </li>
             <li className="side-menu__footer-item ">
                 <a className='side-menu__footer-link '>
-                    <img src='../images/BLACK.png'  style={{width:'101px', height:'35px',marginLeft:'-12px'}}></img>
+                    <img src='../../../images/BLACK.png'  style={{width:'101px', height:'35px',marginLeft:'-12px'}}></img>
                 </a>
             </li>
             <li className="side-menu__footer-item ">
                 <a className='side-menu__footer-link '>
-                    <img src='../images/Air-Jordan-Jumpman-logo.png'  style={{width:'43px', height:'25px',marginLeft:'-10px',marginBottom:'12px'}}></img>
+                    <img src='../../../images/Air-Jordan-Jumpman-logo.png'  style={{width:'43px', height:'25px',marginLeft:'-10px',marginBottom:'12px'}}></img>
                 </a>
             </li>
             <li className="side-menu__footer-item ">
                 <a className='side-menu__footer-link '>
-                    <img src='../images/Converse_shoe_company_logo.png'  style={{width:'43px', height:'25px',marginBottom:'10px'}}></img>
+                    <img src='../../../images/Converse_shoe_company_logo.png'  style={{width:'43px', height:'25px',marginBottom:'10px'}}></img>
                 </a>
             </li>
         </ul>

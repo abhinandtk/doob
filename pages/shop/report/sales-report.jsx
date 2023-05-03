@@ -10,15 +10,14 @@ import {
 } from "react-bootstrap";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import React, { useState } from "react";
-import MainHeader from "@/components/shared/headers/MainHeader";
-import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 
-function store() {
+function SalesReportPage() {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
     <div>
-      <MainHeader />
-      <MainSidebarFixed />
-
+    
       <div className="store-container">
         <div className="bottom">
           <div className="sides">
@@ -215,168 +214,92 @@ function store() {
             </a>
           </div>
 
-  <div className="content-topic  ">
-  <div className='bottom'>
-    
-  <h6 className='All-order' style={{color:'#17a803',fontWeight:'700'}}>New Orders</h6>
-  <p className='order-code ' style={{fontWeight:'500'}}>#12454<span  style={{float:'right'}}> <Button type="submit" className='order-btn ' > Update status </Button></span></p>
-  
-  <hr className='mx-auto' style={{width:'90%'}}></hr>
-  <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-  <span style={{color:'#959595'}}>Customer Name</span>
-  <span >Faisal</span>
-  </div>
-  <div className="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
-  <span style={{color:'#959595'}}>Address</span>
-  <span> P.O.Box: 1446, Safat,13015 </span>
-  </div>
-  <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-  <span style={{color:'#959595'}}>Order Date</span>
-  <span > 20 Jan, 2023</span>
-  </div>
-   <div className="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
-  <span style={{color:'#959595'}}>Price</span>
-  <span> 14.340 KD </span>
-  </div>
-  <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-  <span style={{color:'#959595'}}>Payment Mode</span>
-  <span > Cash on delivery </span>
-  </div>
-  <div className="p-2  mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
-  <span style={{color:'#959595'}}>Payment Status</span>
-  <span style={{color:'#FF640D'}}>Pending</span>
-  </div>    
-  <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-  <span style={{color:'#959595'}}>Other Status</span>
-  <span style={{color:'#FF640D'}}>Pending</span>
-  </div>
- 
-  
-   <div className="  mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-   <div class="item_clearfix">
-      <img src='../images/store/male-soccer-football-player-training-action-isolated-gradient-studio-neon-light copy.jpg'className='pictures'  ></img> 
-    <div className='shop-content'>
-          <div class="shopping-card__details">
-          <div class="shopping-card__title">
-            Strat with Tremolo HSS Laurel Keyboard Brown Sunburst Electric Guitar
-          </div>
-          <div class="shopping-card__options">
-            <div>
-              <small class="option__key">Quantity: </small>
-              <small class="option__value">Brown</small>
-            </div>
-            <div>
-              <small class="option__key">Size: </small>
-              <small class="option__value">34</small>
-            </div>
-          </div>
-          <div class="shopping-card__options">
-            <div>
-              <small class="option__key">Color: </small>
-              <small class="option__value">British Dark Brown</small>
-            </div>
-            <div>
-              <small class="option__key">SKU: </small>
-              <small class="option__value">PDT-23000-34000</small>
-            </div>
-          </div>
-          <div class="shopping-card__options">
-            <div>
-              <small class="option__key">Price: </small>
-              <small class="option__value">13.000.000 KD </small>
-            </div>
-            <div>
-              <small class="option__value ">34000 KD</small>
-            </div>
-          </div>
-        </div>
-    </div>
-    </div>
-   </div>
-   <div className=" mt-2  mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-   <div class="item1_clearfix">
-      <img src='../images/store/male-soccer-football-player-training-action-isolated-gradient-studio-neon-light copy.jpg'className='pictures'  ></img> 
-    <div className='shop-content'>
-          <div class="shopping-card__details">
-          <div class="shopping-card__title">
-            Strat with Tremolo HSS Laurel Keyboard Brown Sunburst Electric Guitar
-          </div>
-          <div class="shopping-card__options">
-            <div>
-              <small class="option__key">Quantity: </small>
-              <small class="option__value">Brown</small>
-            </div>
-            <div>
-              <small class="option__key">Size: </small>
-              <small class="option__value">34</small>
-            </div>
-          </div>
-          <div class="shopping-card__options">
-            <div>
-              <small class="option__key">Color: </small>
-              <small class="option__value">British Dark Brown</small>
-            </div>
-            <div>
-              <small class="option__key">SKU: </small>
-              <small class="option__value">PDT-23000-34000</small>
-            </div>
-          </div>
-          <div class="shopping-card__options">
-            <div>
-              <small class="option__key">Price: </small>
-              <small class="option__value">13.000.000 KD </small>
-            </div>
-            <div>
-              <small class="option__value ">34000 KD</small>
-            </div>
-          </div>
-        </div>
-    </div>
-    </div>
-   </div>
-   
+          <div class="content-topics ">
+            <div className="bottom">
+              <h6
+                className=" ms-4"
+                style={{ color: "#17a803", fontWeight: "700" }}
+              >
+                Product Sales Report
+              </h6>
+              <div className="my-1 mx-4 ">
+                <div className="update">
+                  
+                  <Dropdown className="mx-1">
+                    <Dropdown.Toggle
+                      variant=""
+                      id="dropdown-basic"
+                      style={{
+                        color: "black",
+                        borderColor: "transparent",
+                        background: "transparent",
+                      }}
+                    >
+                      Last 30 days <i className="bi bi-chevron-down "></i>
+                    </Dropdown.Toggle>
 
-   <div className=" mx-auto d-flex justify-content-between align-items-center " style={{width:'90%'}}>
-   <p className='mx-2'  style={{borderBottom:'1px solid black'}}>Download Invoice</p>
-   </div>
-  
-   <p className='order-code ' style={{fontWeight:'500'}}>#12454<span  style={{float:'right'}}> <Button type="submit" className='order-btn ' > Update status </Button></span></p>
-  <hr className='mx-auto' style={{width:'90%'}}></hr>
-  <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-  <span style={{color:'#959595'}}>Customer Name</span>
-  <span >Faisal</span>
-  </div>
-  <div className="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
-  <span style={{color:'#959595'}}>Address</span>
-  <span> P.O.Box: 1446, Safat,13015 </span>
-  </div>
-  <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-  <span style={{color:'#959595'}}>Order Date</span>
-  <span > 20 Jan, 2023</span>
-  </div>
-   <div className="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
-  <span style={{color:'#959595'}}>Price</span>
-  <span> 14.340 KD </span>
-  </div>
-  <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-  <span style={{color:'#959595'}}>Payment Mode</span>
-  <span > Cash on delivery </span>
-  </div>
-  <div className="p-2  mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
-  <span style={{color:'#959595'}}>Payment Status</span>
-  <span style={{color:'#FF640D'}}>Pending</span>
-  </div>    
-  <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-  <span style={{color:'#959595'}}>Other Status</span>
-  <span style={{color:'#FF640D'}}>Pending</span>
-  </div>
-  </div>
-  </div>
-  </div>
-  </div> 
-  </div>
-   
-  )
+                    <Dropdown.Menu align="center" className="Menu">
+                      <Dropdown.Item href="#">English</Dropdown.Item>
+                      <Dropdown.Item href="#">Arabic</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                  <span>
+                    <img
+                      src="../images/store/f-icon.png"
+                      className="fil-icon"
+                    ></img>
+                    <button type="button" className="export-btn">
+                      
+                      Export
+                    </button>
+                  </span>
+                </div>
+                {/*    
+<Card className='reports' >
+    <Card.Body>
+     <div className='total-order'>
+        <p className='text-center'>Total Orders</p>
+        <h1 className='text-center '>1200</h1>
+     </div>
+
+    </Card.Body>
+</Card> */}
+                <div className="customer-sale">
+                  <div id="header">
+                    <div id="logo">Product</div>
+                    <div id="header-middle">Order Count</div>
+                    <div id="header-right">Total Amount</div>
+                  </div>
+
+                  <div className="p-3 d-flex justify-content-between  customer">
+                    <span className="sales-report-name">
+                      RED TAPE Runing Shoe Men RED TAPE Runing Shoe
+                    </span>
+                    <span>1450</span>
+                    <span>4500.000 KD</span>
+                  </div>
+                  <div className="p-3 d-flex justify-content-between ">
+                    <span className="sales-report-name">
+                      RED TAPE Runing Shoe Men RED TAPE Runing Shoe
+                    </span>
+                    <span>1450</span>
+                    <span>4500.000 KD</span>
+                  </div>
+                  <div className="p-3 d-flex justify-content-between  customer">
+                    <span className="sales-report-name">
+                      RED TAPE Runing Shoe Men RED TAPE Runing Shoe
+                    </span>
+                    <span>1450</span>
+                    <span>4500.000 KD</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default store;
+export default SalesReportPage;

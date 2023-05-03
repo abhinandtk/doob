@@ -11,34 +11,57 @@ import MainHeader from "@/components/shared/headers/MainHeader";
 import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 function EditCategoryPage() {
-
-  const router=useRouter()
+  const router = useRouter();
   // const {cid} = router.query
-  const editData = router.query
-  console.log('88888888888888888888',editData)
+  const editData = router.query;
   const categorySubmitHandler = (data) => {
-    // Axios.put(
-    //   apis.editCategory,
-    //   {
-    //     category_id:,
-    //     parent_id:,
-    //     title: data.name,
-    //     title_arabic: data.nameArabic,
-    //     parent_id: data.parentCat,
-    //     display_order: data.display,
-    //   },
-    //   {
-    //     headers: {
-    //       Authorization: `Token ${constants.token_id}`,
-    //     },
-    //   }
-    // ).then((res) => {
-    //   router.back();
-    //   notification.success({
-    //     message: "Success",
-    //     description: "Category Edited Successfully",
-    //   });
-    // });
+    if (data.parentCat) {
+      Axios.put(
+        apis.editSubCategory,
+        {
+          subcategory_id: editData.id,
+          subcategory: {
+            title: data.name,
+            title_arabic: data.nameArabic,
+            parent_id: data.parentCat,
+            display_order: data.display,
+          },
+        },
+        {
+          headers: {
+            Authorization: `Token ${constants.token_id}`,
+          },
+        }
+      ).then((res) => {
+        router.back();
+        notification.success({
+          message: "Success",
+          description: "Sub Category Edited Successfully",
+        });
+      });
+    } else {
+      Axios.put(
+        apis.editCategory,
+        {
+          category_id: editData.id,
+          title: data.name,
+          title_arabic: data.nameArabic,
+          parent_id: data.parentCat,
+          display_order: data.display,
+        },
+        {
+          headers: {
+            Authorization: `Token ${constants.token_id}`,
+          },
+        }
+      ).then((res) => {
+        router.back();
+        notification.success({
+          message: "Success",
+          description: "Category Edited Successfully",
+        });
+      });
+    }
   };
   return (
     <Fragment>
@@ -47,8 +70,11 @@ function EditCategoryPage() {
       <MainSidebarFixed />
       <div className="store-container">
         <div className="bottom">
-          <ShopPagesSideBar currentPage='category'/>
-        <CategoriesForm categorySubmitHandler={categorySubmitHandler} editData={editData}/>
+          <ShopPagesSideBar currentPage="category" />
+          <CategoriesForm
+            categorySubmitHandler={categorySubmitHandler}
+            editData={editData}
+          />
         </div>
       </div>
     </Fragment>

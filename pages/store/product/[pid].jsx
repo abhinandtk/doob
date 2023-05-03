@@ -39,7 +39,7 @@ function ProductDetailPage() {
       <div className="store-container">
         <form className="nosubmit ">
           <span>
-            {" "}
+            
             <input className="nosubmit2" type="search" placeholder="Search" />
             <img
               src="../../images/store/Fil-icon.png"
