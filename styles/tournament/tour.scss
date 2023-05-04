@@ -283,3 +283,364 @@ float: end;
   margin-right: 36px;
  
  }
+
+ .radio-button {
+  cursor: pointer;
+  margin-left: 15px;
+  position: absolute;
+  margin-top: 7px;
+  
+}
+input[type=radio] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+input {
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 11px 23px;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 0;
+    outline: 0;
+    background-color: transparent;
+}
+
+.radio-button__input {
+    opacity: 0;
+    position: absolute;
+}
+
+.radio-button__control {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    vertical-align: middle;
+    background-color: inherit;
+    color: #017b5f;
+    border: 2px solid #666;
+    border-radius: 24px;
+}
+
+.radio-button__input:checked+.radio-button__control:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 13px;
+    height: 13px;
+    background-color: #000000;
+    border-radius: 12px;
+}
+
+.radio-button__input:checked+.radio-button__control {
+    border-color: #000000;
+}
+
+.radio-button__control {
+  transform: scale(0.75);
+}
+
+
+
+
+//game//
+
+.notification-btn{
+  background-color:#17A803;
+  font-weight:400;
+  border:3px;
+  color:white;
+  padding: 14px 90px;
+  border-radius: 10px;
+  margin-right: -58px;
+  
+}
+
+.notification1-btn{
+  background-color:#17A803;
+  font-weight:400;
+  border:0px;
+  color:white;
+  padding: 15px 70px;
+  border-radius: 10px;
+  
+
+}
+.game{
+margin-top: 23px;
+padding: 2px 72px;
+text-align: center;
+
+}
+.newGame-btn{
+  background-color:#17A803;
+  font-weight:400;
+  border:0px;
+  color:white;
+  padding: 6px 20px;
+  border-radius: 6px;
+  margin-top: -12px;
+  
+}
+.game_clearfix{
+  margin-bottom: 35px;
+  width: 100%;
+}
+.book{
+  margin-top: 15px;
+  border: 0px;
+  width: 100%;
+}
+
+.book-content{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-top: -33px;
+}
+.book-details{
+  margin-left: 32px;
+  line-height: 12px;
+  font-weight: 500;
+  
+}
+.book-date{
+  line-height: 6px; 
+  margin-top: 2px;
+}
+.dots{
+  margin-right: -15px;
+  
+}
+
+
+
+.default-avatar,
+.member-overlap-item {
+  height: 30px;
+  width: 30px;
+}
+
+.table td,
+.table th {
+  padding: 0.75rem;
+  vertical-align: middle;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.member-overlap-item {
+  margin-right: -16px;
+  border: 1px solid #000000;
+}
+
+.group {
+  min-height: 40px;
+  height: auto;
+  line-height: 1.6rem;
+}
+
+.grid-icon {
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.group-class {
+  height: 1rem;
+  line-height: 4rem;
+  vertical-align: middle;
+}
+.near{
+  margin-top: 82px;
+  width: 100%;
+ 
+}
+.select {
+  color: #000000;
+  background: transparent;
+  border: 1px solid black;
+}
+.select:hover{
+  color: #ffffff;
+  background: #959595;
+}
+.Join-btn{
+  background-color:#17A803;
+  font-weight:400;
+  border:0px;
+  color:white;
+  padding: 6px 30px;
+  border-radius: 6px;
+  margin-top: -3px;
+  
+}
+.book-img{
+  width: 90px;
+  height:90px;
+  border-radius: 7px;
+  position: absolute;
+  margin-left: -91px;
+  object-fit: cover;
+}
+
+.playground-card{
+  width: 215px;
+  border: 0px;
+  border-radius: 20px 20px 20px 20px   ;
+  height: 330px;
+}
+.playgrounds{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  column-gap: 12px;
+}
+.play-body{
+  margin-top: 3px;
+  line-height: 20px;
+}
+// section {
+//   padding: 60px 0;
+// }
+
+section .section-title {
+  text-align: center;
+  color: #17A803;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+}
+#tabs{
+background: transparent;
+  color: #eee;
+}
+#tabs h6.section-title{
+  color: #eee;
+ 
+}
+
+#tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  color: #f3f3f3;
+  background-color: transparent;
+  border-color: transparent transparent #f3f3f3;
+  border-bottom: 4px solid !important;
+  font-size: 20px;
+  
+}
+#tabs .nav-tabs .nav-link {
+  border: 1px solid transparent;
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+  color: #000000;
+  font-size: 20px;
+  width: 430px;
+}
+
+.play::placeholder{
+  color: #959595;
+ 
+}
+.modals-btn{
+  background-color:#17A803;
+  font-weight:400;
+  border:0px;
+  color:white;
+  padding: 6px 20px;
+  border-radius: 6px;
+  margin-right: -12px;
+  
+}
+.view-btn{
+  background-color:#17A803;
+  font-weight:400;
+  border:0px;
+  color:white;
+  padding: 1px 15px;
+  border-radius: 3px;
+  margin-top: -3px;
+  
+}
+.plays-img{
+  width: 110px;
+  height:105px;
+  border-radius: 9px;
+  object-fit: cover;
+}
+
+.play-details{
+  
+  line-height: 12px;
+  font-weight: 500;
+  margin-left: 13px;
+  margin-top: 2px;
+}
+
+.play-mix{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  
+}
+.plays{
+  margin-top: 15px;
+  border: 0px;
+  width: 100%;
+  height: 200px;
+}
+input.tour {
+  border: 0px solid #EEEEEE;
+  width: 785px;
+  padding: 9px 4px 9px 40px;
+   background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
+   margin-left: 2px;
+   margin-top: 35px;
+   border-radius: 5px;
+  
+   background-color: #EEEEEE;
+  }
+  .tour-icon{
+    margin-left: 6px;
+    height: 42px;
+    margin-top: -4px;
+   }
+   .location-icon{
+    margin-left: 7px;
+    height: 42px;
+    margin-top: -4px;
+   }
+    
+  .Game-detail{
+    border: 0px;
+    margin-top: 25px;
+  }
+ .game-info{
+  margin-right:20px;
+  float: right;
+  margin-top: 23px;
+ 
+ }
+.play_text{
+  font-weight:700;
+  font-size:17px;
+  display:-webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 230px;
+   
+}
+.locations{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-top: 6px;
+}
+.place{
+  color: #959595;
+ font-weight: 400;
+
+ font-size: 15px;
+}

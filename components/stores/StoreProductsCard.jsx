@@ -29,13 +29,13 @@ function StoreProductsCard({ products, title }) {
     const api = favorite ? apis.removewishlist : apis.addwishlist;
     Axios.post(
       api,
-      {
+      {                                                           
         product_id: id,
-      },
-      {
+      },                                                          
+      { 
         headers: {
           Authorization: `Token ${constants.token_id}`,
-        },
+        },                                                                       
       }
     ).then((res) => {
       let updatedItem = {}
@@ -49,7 +49,7 @@ function StoreProductsCard({ products, title }) {
       setUpdatedStore((prevStore) =>
         prevStore.map((item) => (item.slug_Id === id ? updatedItem : item))
       );
-
+ 
       console.log("wishlisttttttttttttttttttttttttttttttttttttt", res);
     });
   };
@@ -67,16 +67,17 @@ function StoreProductsCard({ products, title }) {
               key={index}
               style={{
                 backgroundColor: "#343C42",
-                borderRadius: "0%",
-                border: "0px",
-              }}
-              className="favouite-card"
+                borderRadius: "0%",       
+                border: "0px",    
+                }}
+             
             >
               <Card.Img
-                style={{ borderRadius: "0px 0px 0px 0px", width: "100%" }}
+                style={{ borderRadius: "0px 0px 0px 0px", width: "100%"}}
                 src={`${constants.port}${item.image}`}
               />
-              <Card.Body>
+              <Card.Body  className="favouite-card"  >
+           
                 <div style={{ fontSize: "14px", fontWeight: "500" }}>
                   <i
                     className="bi bi-star-fill"
@@ -109,7 +110,10 @@ function StoreProductsCard({ products, title }) {
                       WebkitBoxOrient: "vertical",
                       overflow: "hidden",
                       textOverflow: "ellipsis",
-                    }}
+                      height:'35px'
+                      
+                      
+                    }} 
                   >
                     {item.Name}
                   </p>
@@ -128,6 +132,7 @@ function StoreProductsCard({ products, title }) {
                     </span>
                   </p>
                 </div>
+               
               </Card.Body>
             </Card>
             </Link>

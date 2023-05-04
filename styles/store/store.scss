@@ -280,9 +280,27 @@ form.nosubmit {
     height: 28px;
     
  }  
- .outlock{
+ .outlock.btn{
   padding: 0px 2px;
+  background: transparent;
+  color: #000;
+  border: 1px solid b;
  }
+ .oulock.btn:hover{
+  background:#656565;
+  color:#fff;
+ }
+.outlocks.btn{
+  background:#656565;
+  color:#fff;
+  padding: 0px 2px;
+}
+.outlocks.btn:hover{
+  background: transparent;
+  color: #000;
+}
+
+
  .colors{
   margin-top: -12px;
  }
@@ -296,10 +314,11 @@ form.nosubmit {
 
 .add-cart-btn{
   background-color:#17A803;
-  font-weight:600;
+  font-weight:400;
   border:0px;
   color:white;
   float:right;
+  padding: 7px 21px;
   margin-top: 22px;
   position: relative;
 }
@@ -338,12 +357,12 @@ form.nosubmit {
 }
 .cart-btn{
   background-color:#17A803;
-  font-weight:600;
+  font-weight:400;
   border:0px;
   color:white;
   float:right;
   margin-top: 260px;
-  padding: 7px 50px;
+  padding: 7px 40px;
 }
 .cart.cart{
   width: 95%;
@@ -363,7 +382,7 @@ form.nosubmit {
   color:white;
   padding: 7px 15px;
  margin-right: 33px;
- margin-top: -15px;
+ margin-top: -19px;
  float: right;
 }
 
@@ -400,28 +419,31 @@ form.nosubmit {
   font-weight: 500;
   line-height: 20px;
   padding: 0 1px;
-  min-width: 35px;
+  min-width: 28px;
   text-align: center;
+  border: 0px;
+  
 }
 .qty .plus {
   cursor: pointer;
   display: inline-block;
   vertical-align: top;
   color: white;
-  width: 20px;
-  height: 20px;
-  font: 21px/1 Arial,sans-serif;
+  width: 23px;
+  height: 23px;
+  font: 14px/1.5 Arial,sans-serif;
   text-align: center;
   border-radius: 30%;
+  font-size: 16px;
   }
 .qty .minus {
   cursor: pointer;
   display: inline-block;
   vertical-align: top;
   color: white;
-  width: 20px;
-  height: 20px;
-  font: 18px/1 Arial,sans-serif;
+  width: 23px;
+  height: 22px;
+  font: 14px/0.50 Arial,sans-serif;
   text-align: center;
   border-radius: 30%;
   background-clip: padding-box;
@@ -690,11 +712,6 @@ input:disabled{
 }
 
 
-.graph{
-  margin-top: 9px;
-  position: relative;
-  margin-left: 4px;
-}
 
 .toggle1 {
   position: relative;
@@ -812,9 +829,12 @@ input:disabled{
  background-color:#343C42;
  border-radius:0%;
  border:0px;
+height: auto;
 
- 
+
+
 }
+
 .top-p{
   font-size:14px;
   color:#959595;
@@ -1063,8 +1083,35 @@ div#header div {
   display: flex;
   max-width: 35%;
 }
+.secondary.btn{
+  background: #656565;
+  color: #ffffff;
+}
+.secondary.btn:hover{
+  background: transparent;
+  color: #000;
+}
+.outline.btn{
+  background: transparent;
+  color: #000;
+}
+.outline.btn:hover{
+ 
+  background: #656565;
+  color: #ffffff;
+}
+.owl-carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
 
-
+.item {
+  flex: 0 0 auto;
+  width: 100%;
+  scroll-snap-align: center;
+}
 // sajin stores //
 @media(max-width:1360px){
   .store-container{

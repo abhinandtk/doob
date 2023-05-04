@@ -84,7 +84,7 @@ function ShippingAddress({ data, setOnSuccess }) {
               <div>
                 <div onClick={() => setVisible(true)} style={{cursor:'pointer'}}>
                   <span>
-                    <img src="../images/edit.png"></img>
+                    <img src="../images/edit.png" className="mt-4 mx-4"></img>
                   </span>
                 </div>
               </div>

@@ -7,6 +7,7 @@ import apis from '@/public/data/my-constants/Apis'
 import constants from '@/public/data/my-constants/Constants'
 import { useState } from 'react'
 import StoreProductsCard from '@/components/stores/StoreProductsCard'
+import SearchCategory from '@/components/stores/SearchCategory'
 
 function StoreSearchPage() {
 
@@ -42,33 +43,7 @@ function StoreSearchPage() {
     
             <section className='my-2 '>
     
-            <div className="btn-group me-2" role="group" aria-label="Second group">
-            <button type="button" className="btn btn-outline-secondary" style={{padding:'5px 35px'}}>All</button>
-            </div>
-        
-            <div className="btn-group me-2" role="group" aria-label="Second group">
-            <button type="button" className="btn btn-secondary" >Shoes</button>
-            </div>
-        <div className="btn-group me-2" role="group" aria-label="Second group">
-            <button type="button" className="btn btn-outline-secondary">Gloves</button>
-            
-        </div>
-        <div className="btn-group me-2" role="group" aria-label="Second group">
-            <button type="button" className="btn btn-outline-secondary">MouthGuard</button>
-            
-        </div>
-        <div className="btn-group me-2" role="group" aria-label="Second group">
-            <button type="button" className="btn btn-outline-secondary">Racket</button>
-            
-        </div>
-        <div className="btn-group me-2" role="group" aria-label="Second group">
-            <button type="button" className="btn btn-outline-secondary">Cue Stick</button>
-            
-        </div>
-        <div className="btn-group me-2" role="group" aria-label="Second group">
-            <button type="button" className="btn btn-outline-secondary">Wrist bands</button>
-            
-        </div>
+            <SearchCategory />
         
             </section>
             <StoreProductsCard products={resultProduct}/>

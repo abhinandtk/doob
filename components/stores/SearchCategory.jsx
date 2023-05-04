@@ -8,19 +8,19 @@ function SearchCategory({ category }) {
         <div className="btn-group me-2" role="group" aria-label="Second group">
           <button
             type="button"
-            className="btn btn-outline-secondary"
-            style={{ padding: "5px 34px" }}
+            className="btn btn-outline-secondary outline"
+            style={{ padding: "5px 27px" }}
           >
             All
           </button>
-        </div>
+        </div> 
         {category.map((item,index)=>(
         <div className="btn-group me-2" role="group" aria-label="Second group">
-          <button type="button" className="btn btn-secondary">
+          <button type="button" className="btn btn-secondary secondary" >
             {item.title}
           </button>
         </div>
-        ))}
+        ))} 
       </section>
     </Fragment>
   );

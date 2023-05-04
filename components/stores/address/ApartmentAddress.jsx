@@ -147,8 +147,8 @@ function ApartmentAddress({handleAddAddress}) {
         <div className="form-group my-2 ">
             <Checkbox
             onChange={(e)=>setDefaultAddress(e.target.checked)}
-            checked={defaultAddress}
-            >
+            checked={defaultAddress} 
+            > 
             Make this as the default address
             </Checkbox>
         </div>        <br></br>
