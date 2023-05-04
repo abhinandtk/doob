@@ -621,3 +621,26 @@ input.tour {
   margin-top: 23px;
  
  }
+.play_text{
+  font-weight:700;
+  font-size:17px;
+  display:-webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 230px;
+   
+}
+.locations{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-top: 6px;
+}
+.place{
+  color: #959595;
+ font-weight: 400;
+
+ font-size: 15px;
+}

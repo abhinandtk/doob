@@ -366,7 +366,7 @@ You have 2 upcoming bookings</button>
 <button type="button" onClick={handleShow} className="newGame-btn float-end" >New Game</button> 
 <Modal  show={show} onHide={handleClose} >
         <Modal.Header closeButton>
-          <Modal.Title>Create a Game</Modal.Title>
+          <Modal.Title style={{fontWeight:'700',fontSize:'16px'}}>Create a Game</Modal.Title>
         </Modal.Header>
         <Modal.Body   style={{marginTop:'-22px'}}>
         <div class="form-group">

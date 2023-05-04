@@ -300,14 +300,14 @@ Arabic</Dropdown.Item>
  <div className='card Game-detail'>
   <div className='card-body p-4'>
     <div className='row'>
-      <div className='col-md-4 '>
+      <div className='col-md-7 '>
       <img src='../images/tournament/backgrounds.jpg' style={{objectFit:'cover'}} ></img>
       </div>
-      <div className='col-md-6 '>
-        <div className='game-info'>
-        <h5 >Football League 2023 </h5>
+      <div className='col-md-3 mx-5 '>
+       
+        <h5 >Football League 2023  </h5>
+         <p>Football</p>
         
-        </div>
       </div>
     </div>
   </div>
