@@ -278,8 +278,7 @@ Arabic</Dropdown.Item>
           </div>
     </nav>
     </aside>
-    <div className='tour-container'>
-
+<div className='tour-container'>
 <div className='bottoms'>
 <div className="side-play">
      
@@ -299,7 +298,7 @@ Arabic</Dropdown.Item>
 </clipPath>
 </defs>
 </svg><span className='mx-2'>Earning</span> </a>
-   <a href="#clients">      <svg width="28" height="25"  viewBox="0 0 38 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <a href="#clients"> <svg width="28" height="25"  viewBox="0 0 38 25" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M37.3133 24.7396H0.917241C0.642721 24.7396 0.419922 24.5166 0.419922 24.2423V0.550053C0.419922 0.275533 0.642721 0.0527344 0.917241 0.0527344H37.3133C37.5878 0.0527344 37.8106 0.275533 37.8106 0.550053V24.2421C37.8106 24.5166 37.5878 24.7396 37.3133 24.7396ZM1.41456 23.7448H36.816V1.04737H1.41456V23.7448Z" fill="black"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M19.1177 16.7924C16.6938 16.7924 14.7217 14.8202 14.7217 12.3961C14.7217 9.97212 16.6935 8 19.1177 8C21.5417 8 23.514 9.97187 23.514 12.3961C23.514 14.82 21.5419 16.7924 19.1177 16.7924ZM19.1177 8.99464C17.2421 8.99464 15.7161 10.5204 15.7161 12.3961C15.7161 14.2717 17.2418 15.7975 19.1177 15.7975C20.9936 15.7975 22.5191 14.2717 22.5191 12.3961C22.5191 10.5204 20.9934 8.99464 19.1177 8.99464Z" fill="black"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M19.1165 24.74C18.8419 24.74 18.6191 24.5169 18.6191 24.2426V16.2955C18.6191 15.6408 19.6138 15.641 19.6138 16.2955V24.2424C19.6138 24.5169 19.391 24.74 19.1165 24.74ZM19.1165 8.99484C18.8419 8.99484 18.6191 8.77204 18.6191 8.49752V0.550611C18.6191 -0.10411 19.6138 -0.10411 19.6138 0.550611V8.49752C19.6138 8.77229 19.391 8.99484 19.1165 8.99484Z" fill="black"/>
@@ -331,21 +330,42 @@ Arabic</Dropdown.Item>
 <div className="play-topics  ">
   <div className='bottoms'>
   <h6 className=' mx-4' style={{color:'#17a803',fontWeight:'700'}}>Slots</h6>
-  <div className='play clearfix '>
-  
-                        <Button type="submit" className='open-btn' > Add </Button>
-  </div>
+  <div className='play clearfix'>
+  <div class="example">
+  <label class="radio-button">
+    <input type="radio" class="radio-button__input" id="choice1-1" name="choice1"/>
+    <span class="radio-button__control"></span>
+    <span class="radio-button__label">Static Time</span>
+  </label>
+  <br></br>
+  <label class="radio-button">
+    <input type="radio" class="radio-button__input" id="choice1-2" name="choice1"/>
+    <span class="radio-button__control"></span>
+    <span class="radio-button__label">Open time</span>
+  </label>
+</div>
+   <button type="submit" className='open-btn'> Add </button>
+  </div> 
   <div className='time-slot'>
-  
-<div className="p-3 mx-auto d-flex justify-content-between  times " style={{width:'90%'}} >
+  <div className="p-3 mx-auto d-flex justify-content-between  times " style={{width:'90%'}} >
   <span className='time-slot-name' >05:00 PM - 07.00 PM  </span>
   <span className='time-edit'  >Edit</span>
   <span className='time-delete'>Delete</span>
   </div>
   <div className="p-3 mx-auto d-flex justify-content-between  times1 " style={{width:'90%'}} >
-  <span className='time-slot-name' >05:00 PM - 07.00 PM  </span>
+  <span className='time-slot-name' >05:00 PM - 07.00 PM </span>
   <span className='time-edit'  >Edit</span>
   <span className='time-delete'>Delete</span>
+  </div> 
+ <div className="p-3 mx-auto d-flex justify-content-between  times  " style={{width:'90%'}} >
+ <span className='time-slot-name'  >05:00 PM - 07.00 PM  </span>
+  <span className='time-edit'  >Edit</span>
+  <span className='time-delete'>Delete</span>
+  </div>
+  <div className="p-3 mx-auto d-flex justify-content-between  times1 " style={{width:'90%'}} >
+  <span className='time-slot-name' >05:00 PM - 07.00 PM  </span>
+  <span className='time-edit'  >Edit</span> 
+  <span className='time-delete'>Delete</span> 
   </div>
  <div className="p-3 mx-auto d-flex justify-content-between  times  " style={{width:'90%'}} >
   <span className='time-slot-name'  >05:00 PM - 07.00 PM  </span>
@@ -356,27 +376,13 @@ Arabic</Dropdown.Item>
   <span className='time-slot-name' >05:00 PM - 07.00 PM  </span>
   <span className='time-edit'  >Edit</span>
   <span className='time-delete'>Delete</span>
+  </div> 
   </div>
- <div className="p-3 mx-auto d-flex justify-content-between  times  " style={{width:'90%'}} >
-  <span className='time-slot-name'  >05:00 PM - 07.00 PM  </span>
-  <span className='time-edit'  >Edit</span>
-  <span className='time-delete'>Delete</span>
-  </div>
-  <div className="p-3 mx-auto d-flex justify-content-between  times1 " style={{width:'90%'}} >
-  <span className='time-slot-name' >05:00 PM - 07.00 PM  </span>
-  <span className='time-edit'  >Edit</span>
-  <span className='time-delete'>Delete</span>
-  </div>
-
- 
-  
-  </div>
- 
 </div>
 </div> 
 </div>
-    </div> 
-    </div>
+</div> 
+</div>
    
   )
 }

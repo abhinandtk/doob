@@ -40,7 +40,7 @@ function ProductDetailInfo({product}) {
         <div className="col-md-5 ">
             <div className=" justify-content-between align-items-center " >
                 <span className='float' >
-                    <svg width="18" height="17" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="18" height="17" className='mx-2' viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M9.5 18C9.5 18 0 12.3609 0 5.59388C0 -1.17312 7.38889 -1.73704 9.5 3.55748C11.6111 -1.73704 19 -1.17312 19 5.59388C19 12.3609 9.5 18 9.5 18Z" fill="black"/>
                     </svg>
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -65,7 +65,7 @@ function ProductDetailInfo({product}) {
                     <button type="button" className="btn btn-secondary outlock " >34</button>
                 </div>
                 <div className="btn-group group  " role="group" aria-label="Second group">
-                    <button type="button" className="btn btn-outline-secondary outlock ">35</button>
+                    <button type="button" className="btn btn-outline-secondary outlocks ">35</button>
                 </div>
                 <div className="btn-group group  " role="group" aria-label="Second group">
                     <button type="button" className="btn btn-secondary outlock " >34</button>
@@ -76,9 +76,9 @@ function ProductDetailInfo({product}) {
                 <br></br>
                 <p style={{color:'gray',fontWeight:'400'}}><s>15.000 KD</s><span className='mx-2' style={{fontSize:'20px',fontWeight:'500',color:'#17a803'}}>13.000 KD</span><span></span></p>
                 <div className="qty">
-                    <div onClick={(e)=>handleDecreaseQty(e)} className="minus " style={{backgroundColor:'#aba4a4'}}>-</div>
+                    <div onClick={(e)=>handleDecreaseQty(e)} className="minus " style={{backgroundColor:'#959595'}}>_</div>
                     <input type="number" className="count" name="qty" value={quantity} disabled/>
-                    <div onClick={(e)=>handleIncreaseQty(e)} className="plus" style={{backgroundColor:'#aba4a4'}}>+</div>
+                    <div onClick={(e)=>handleIncreaseQty(e)} className="plus" style={{backgroundColor:'#959595'}}>+</div>
                 </div>
         
                 <Button 

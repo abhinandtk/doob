@@ -23,7 +23,7 @@ function CartPage() {
     Axios.post(apis.viewCart,null,{
       headers:{
         'Authorization':`Token ${constants.token_id}`,
-      }
+      }            
     }).then((res)=>{
       setCartDetails(res.data.data)
       setCartAddress(res.data.data.address)
@@ -32,7 +32,7 @@ function CartPage() {
     })
   },[onSuccess])
 
-  return (
+  return (          
     <Fragment>
         <MainHeader title='Doob'/>
         <MobileHeader />
@@ -41,7 +41,7 @@ function CartPage() {
         <section className="h-100 my-3 ">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col">
-              <h5 fw-bold>My Cart</h5>
+              <h5 fw-bold>My Cart</h5>  
               <div className="row">
                 <div className="col-lg-7">
                   <ShippingAddress data={cartAddress} setOnSuccess={setOnSuccess}/>
@@ -53,7 +53,7 @@ function CartPage() {
                   ))}
                 
                 </div>
-                <CheckoutSideSection data={cartDetails}/>
+                <CheckoutSideSection data={cartDetails}/> 
               </div>
             </div>
           </div>
