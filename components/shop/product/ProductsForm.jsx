@@ -13,7 +13,6 @@ function ProductsForm({ handleProductAdd, editData }) {
   const [subCategory, setSubCategory] = useState([]);
 
   const router = useRouter();
-  console.log("oootttttttttttttttttttttt", editData.name);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -396,10 +395,9 @@ function ProductsForm({ handleProductAdd, editData }) {
                     onChange={(e) => handleVariantChange(e, index)}
                   >
                     <option>No</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
+                    
                     <option value="5">5</option>
+                    <option value="6">6</option>
                   </select>
                 </div>
                 <div class="form-group my-2">
@@ -415,13 +413,9 @@ function ProductsForm({ handleProductAdd, editData }) {
                     onChange={(e) => handleVariantChange(e, index)}
                   >
                     <option>No</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
+              
                     <option value="7">7</option>
-                    <option>8</option>
+                    <option value="7">8</option>
                   </select>
                 </div>
                 <div className="form-group my-2">

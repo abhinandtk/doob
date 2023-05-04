@@ -2,13 +2,13 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import React, { useState } from "react";
 import MainHeader from "@/components/shared/headers/MainHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
-import ProductDetailInfo from "@/components/stores/product-details/ProductDetailInfo";
 import ProductDetailImages from "@/components/stores/product-details/ProductDetailImages";
 import MobileHeader from "@/components/MobileHeader";
 import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
+import ProductDetailFullWidth from "@/components/stores/product-details/ProductDetailFullWidth";
 
 function ProductDetailPage() {
   const [productDetails, setProductDetails] = useState([]);
@@ -26,7 +26,7 @@ function ProductDetailPage() {
       },
     }
   ).then((res) => {
-    setProductDetails(res.data.data[0]);
+    setProductDetails([res.data.data[0]]);
     console.log("productttttttttttttttttttttttt", res);
   });
 
@@ -54,8 +54,7 @@ function ProductDetailPage() {
               <div className="card cart">
                 <div className="card-body p-4">
                   <div className="row ">
-                    <ProductDetailImages />
-                    <ProductDetailInfo product={productDetails} />
+                    <ProductDetailFullWidth product={productDetails} />
                   </div>
                 </div>
               </div>
