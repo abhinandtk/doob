@@ -265,7 +265,7 @@ function store() {
 
                   <Offcanvas.Body className="mx-4">
                     <div className="">
-                      {" "}
+                      
                       <svg
                         width="25"
                         height="22"
@@ -290,7 +290,7 @@ function store() {
                           stroke-width="1.3039"
                         />
                       </svg>
-                      <span className="mx-2"> Wallet</span>{" "}
+                      <span className="mx-2"> Wallet</span>
                     </div>
 
                     <div className="my-4">
@@ -312,7 +312,7 @@ function store() {
                           stroke-width="1.10069"
                         />
                       </svg>
-                      <span className="mx-2"> Favourite Store</span>{" "}
+                      <span className="mx-2"> Favourite Store</span>
                     </div>
 
                     <div className="my-4">
@@ -328,7 +328,7 @@ function store() {
                           fill="black"
                         />
                       </svg>
-                      <span className="mx-2"> Favourite Product</span>{" "}
+                      <span className="mx-2"> Favourite Product</span>
                     </div>
 
                     <div className="my-4">
@@ -346,7 +346,7 @@ function store() {
                           stroke-width="0.239706"
                         />
                       </svg>
-                      <span className="mx-3">Bookings</span>{" "}
+                      <span className="mx-3">Bookings</span>
                     </div>
 
                     <div className="my-4">
@@ -362,7 +362,7 @@ function store() {
                           fill="black"
                         />
                       </svg>
-                      <span className="mx-3">My Orders</span>{" "}
+                      <span className="mx-3">My Orders</span>
                     </div>
 
                     <div className="my-4">
@@ -378,7 +378,7 @@ function store() {
                           fill="black"
                         />
                       </svg>
-                      <span className="mx-3">Feedback</span>{" "}
+                      <span className="mx-3">Feedback</span>
                     </div>
 
                     <div className="my-4">
@@ -394,7 +394,7 @@ function store() {
                           fill="#080808"
                         />
                       </svg>
-                      <span className="mx-3">Logout</span>{" "}
+                      <span className="mx-3">Logout</span>
                     </div>
                   </Offcanvas.Body>
                 </Offcanvas>
@@ -533,7 +533,7 @@ function store() {
                 <br></br>
                 <li className="side-menu__footer-item ">
                   <a className="side-menu__footer-link mx-1 ">
-                    {" "}
+                    
                     <img
                       src="../images/adidas-logo-png-hd-17.png"
                       style={{ width: "31px", height: "23px" }}
@@ -723,7 +723,7 @@ function store() {
                   stroke="black"
                   stroke-width="1.3039"
                 />
-              </svg>{" "}
+              </svg>
               <span className="mx-2">Wallet</span>
             </a>
             <a href="#services">
@@ -746,7 +746,7 @@ function store() {
                   stroke-width="1.10069"
                 />
               </svg>
-              <span className="mx-2">Favourite Store</span>{" "}
+              <span className="mx-2">Favourite Store</span>
             </a>
             <a href="#clients">
               <svg
@@ -777,8 +777,8 @@ function store() {
                   stroke="black"
                   stroke-width="0.239706"
                 />
-              </svg>{" "}
-              <span className="mx-1">Booking</span>{" "}
+              </svg>
+              <span className="mx-1">Booking</span>
             </a>
             <a href="#home">
               <svg
@@ -841,7 +841,7 @@ function store() {
                   fill="#080808"
                 />
               </svg>
-              <span className="mx-2">Logout</span>{" "}
+              <span className="mx-2">Logout</span>
             </a>
           </div>
 

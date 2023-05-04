@@ -4,11 +4,16 @@ import { Button } from "react-bootstrap";
 import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
-function AddProductsForm() {
+import { useRouter } from "next/router";
+import { notification } from "antd";
+function ProductsForm({ handleProductAdd, editData }) {
   const [brandData, setBrandData] = useState([]);
   const [categoryData, setCategoryData] = useState([]);
   const [variantData, setVariantData] = useState([]);
   const [subCategory, setSubCategory] = useState([]);
+
+  const router = useRouter();
+  console.log("oootttttttttttttttttttttt", editData.name);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -43,6 +48,32 @@ function AddProductsForm() {
       setBrandData(res.data.data.brand);
       setVariantData(res.data.data.variant_types);
     });
+
+    if (editData) {
+      setFormData({
+        name: editData.name,
+        nameArabic: editData.name_ar,
+        brand: "",
+        category: "",
+        subCategory: "",
+        tag: [],
+        primary: "",
+        secondary: "",
+        description: "",
+        description_ar: "",
+        variants: [
+          {
+            sku: "",
+            quantity: "",
+            formFile: "",
+            color: "",
+            size: "",
+            actualPrize: "",
+            sellingPrice: "",
+          },
+        ],
+      });
+    }
   }, []);
 
   const handleChange = (e) => {
@@ -61,6 +92,15 @@ function AddProductsForm() {
     newFormData[e.target.id] = e.target.value;
     setFormData({ ...newFormData });
     console.log("oooooooooooooorrrrr", formData);
+  };
+  const handleVariantChange = (e, index) => {
+    e.preventDefault();
+    setFormData((prev) => {
+      const variants = [...prev.variants];
+      variants[index][e.target.id] = e.target.value;
+      return { ...prev, variants };
+    });
+    console.log("trrrrrrrrrrrrrrrrrruiououo8745884", formData);
   };
 
   const addVariantFields = () => {
@@ -86,21 +126,13 @@ function AddProductsForm() {
       ...formData,
       variants: [newVariants],
     });
-
-    // const submitHandler = (e) => {
-    //   e.preventDefault();
-    //   Axios.post(apis.addProduct,{
-    //     Name
-    //     arabic_translator
-    //     brand_id
-    //     category_id
-    //     sub_category_id
-    //     tags
-
-
-    //   });
-    // };
   };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    handleProductAdd(formData);
+  };
+
   return (
     <div class="content-topic  ">
       <div className="bottom">
@@ -122,6 +154,7 @@ function AddProductsForm() {
                   color: "grey",
                 }}
                 id="name"
+                value={formData.name}
                 onChange={(e) => handleChange(e)}
               />
             </div>
@@ -136,6 +169,7 @@ function AddProductsForm() {
                   color: "grey",
                 }}
                 id="nameArabic"
+                value={formData.nameArabic}
                 onChange={(e) => handleChange(e)}
               />
             </div>
@@ -149,6 +183,7 @@ function AddProductsForm() {
                   color: "grey",
                 }}
                 id="brand"
+                value={formData.brand}
                 onChange={(e) => handleChange(e)}
               >
                 <option value="">--Selelct--</option>
@@ -211,6 +246,7 @@ function AddProductsForm() {
                   color: "grey",
                 }}
                 id="tag"
+                value={formData.tag}
                 onChange={(e) => handleChange(e)}
               />
             </div>
@@ -267,6 +303,7 @@ function AddProductsForm() {
                 }}
                 id="description"
                 rows="3"
+                value={formData.description}
                 onChange={(e) => handleChange(e)}
               ></textarea>
             </div>
@@ -283,6 +320,7 @@ function AddProductsForm() {
                 }}
                 id="description_ar"
                 rows="3"
+                value={formData.description_ar}
                 onChange={(e) => handleChange(e)}
               ></textarea>
             </div>
@@ -311,7 +349,7 @@ function AddProductsForm() {
                       color: "grey",
                     }}
                     id="sku"
-                    onChange={(e) => handleChange(e)}
+                    onChange={(e) => handleVariantChange(e, index)}
                   />
                 </div>
                 <div className="form-group my-2">
@@ -325,7 +363,7 @@ function AddProductsForm() {
                       color: "grey",
                     }}
                     id="quantity"
-                    onChange={(e) => handleChange(e)}
+                    onChange={(e) => handleVariantChange(e, index)}
                   />
                 </div>
                 <div className="form-group my-2">
@@ -342,7 +380,7 @@ function AddProductsForm() {
                       color: "grey",
                     }}
                     placeholder="No file choosen"
-                    onChange={(e) => handleChange(e)}
+                    onChange={(e) => handleVariantChange(e, index)}
                   />
                 </div>
                 <div class="form-group my-2">
@@ -355,13 +393,13 @@ function AddProductsForm() {
                       color: "grey",
                     }}
                     id="color"
-                    onChange={(e) => handleChange(e)}
+                    onChange={(e) => handleVariantChange(e, index)}
                   >
                     <option>No</option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
-                    <option>5</option>
+                    <option value="5">5</option>
                   </select>
                 </div>
                 <div class="form-group my-2">
@@ -374,13 +412,16 @@ function AddProductsForm() {
                       color: "grey",
                     }}
                     id="size"
-                    onChange={(e) => handleChange(e)}
+                    onChange={(e) => handleVariantChange(e, index)}
                   >
                     <option>No</option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
                     <option>5</option>
+                    <option>6</option>
+                    <option value="7">7</option>
+                    <option>8</option>
                   </select>
                 </div>
                 <div className="form-group my-2">
@@ -396,7 +437,7 @@ function AddProductsForm() {
                       color: "grey",
                     }}
                     id="actualPrize"
-                    onChange={(e) => handleChange(e)}
+                    onChange={(e) => handleVariantChange(e, index)}
                   />
                 </div>
                 <div className="form-group my-2">
@@ -408,7 +449,7 @@ function AddProductsForm() {
                     class="form-control p-2"
                     style={{ border: "0px", background: "#eeeeee" }}
                     id="sellingPrice"
-                    onChange={(e) => handleChange(e)}
+                    onChange={(e) => handleVariantChange(e, index)}
                   />
                 </div>
                 {index > 0 && (
@@ -426,7 +467,7 @@ function AddProductsForm() {
             <h6 className="product-submit ">Duplicate</h6>
 
             <div className="product-submit my-3">
-              <button type="button" className="submit-cart-btn">
+              <button type="submit" className="submit-cart-btn">
                 Submit
               </button>
               <button type="button" className="sub-cart-btn">
@@ -440,4 +481,4 @@ function AddProductsForm() {
   );
 }
 
-export default AddProductsForm;
+export default ProductsForm;

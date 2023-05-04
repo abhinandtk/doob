@@ -54,7 +54,7 @@ function PagesSideBar({ currentPage }) {
         </svg>
         <span
           className="mx-2"
-          style={{ color: `${currentPage === "fav-store" ? "green" : ""}` }}
+          style={{ color: `${currentPage === "fav-store" ? "#17A803" : ""}` }}
         >
           Favourite Store
         </span>
@@ -74,7 +74,7 @@ function PagesSideBar({ currentPage }) {
         </svg>
         <span
           className="mx-2"
-          style={{ color: `${currentPage === "fav-prod" ? "green" : ""}` }}
+          style={{ color: `${currentPage === "fav-prod" ? "#17A803" : ""}` }}
         >
           Favourite Products
         </span>

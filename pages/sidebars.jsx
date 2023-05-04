@@ -354,7 +354,7 @@ Arabic</Dropdown.Item>
                             <div>
                               <div className="d-flex justify-content-between align-items-center">
                                 <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
-                                Ali Subah Al-Salem Stadium{" "}
+                                Ali Subah Al-Salem Stadium
                                   
                                 </p>
                                 <span style={{fontWeight:'600',color:'#17A803',fontSize:'15px'}}>5.000 KD</span>
@@ -375,7 +375,7 @@ Arabic</Dropdown.Item>
                             <div>
                               <div className="d-flex justify-content-between align-items-center">
                                 <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
-                                Ali Subah Al-Salem Stadium{" "}
+                                Ali Subah Al-Salem Stadium
                                   
                                 </p>
                                 <span style={{fontWeight:'600',color:'#17A803',fontSize:'15px'}}>5.000 KD</span>
@@ -396,7 +396,7 @@ Arabic</Dropdown.Item>
                             <div>
                               <div className="d-flex justify-content-between align-items-center">
                                 <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
-                                Ali Subah Al-Salem Stadium{" "}
+                                Ali Subah Al-Salem Stadium
                                   
                                 </p>
                                 <span style={{fontWeight:'600',color:'#17A803',fontSize:'15px'}}>5.000 KD</span>
@@ -416,7 +416,7 @@ Arabic</Dropdown.Item>
                             <div>
                               <div className="d-flex justify-content-between align-items-center">
                                 <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
-                                Ali Subah Al-Salem Stadium{" "}
+                                Ali Subah Al-Salem Stadium
                                   
                                 </p>
                                 <span style={{fontWeight:'600',color:'#17A803',fontSize:'15px'}}>5.000 KD</span>
@@ -437,7 +437,7 @@ Arabic</Dropdown.Item>
                             <div>
                               <div className="d-flex justify-content-between align-items-center">
                                 <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
-                                Ali Subah Al-Salem Stadium{" "}
+                                Ali Subah Al-Salem Stadium
                                   
                                 </p>
                                 <span style={{fontWeight:'600',color:'#17A803',fontSize:'15px'}}>5.000 KD</span>
@@ -457,7 +457,7 @@ Arabic</Dropdown.Item>
                             <div>
                               <div className="d-flex justify-content-between align-items-center">
                                 <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
-                                Ali Subah Al-Salem Stadium{" "}
+                                Ali Subah Al-Salem Stadium
                                   
                                 </p>
                                 <span style={{fontWeight:'600',color:'#17A803',fontSize:'15px'}}>5.000 KD</span>

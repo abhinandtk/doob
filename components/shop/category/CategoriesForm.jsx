@@ -7,9 +7,10 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { notification } from "antd";
 
-function AddCategoriesForm() {
+function CategoriesForm({categorySubmitHandler,editData}) {
   const router = useRouter();
 
+  console.log('cattttttttttttttttttttttsada',editData)
   const [categoryList, setCategoryList] = useState([]);
   const [formData, setFormData] = useState({
     name: "",
@@ -33,31 +34,25 @@ function AddCategoriesForm() {
     }).then((res) => {
       setCategoryList(res.data.data.categories);
     });
+
+    if(editData){
+      setFormData({
+        name:editData.title,
+        nameArabic:editData.title_arabic,
+        parentCat:editData.parent_id,
+        display:editData.display_order
+      })
+    }
+
   }, []);
 
-  const categorySubmitHandler = (e) => {
-    e.preventDefault();
-    Axios.post(
-      apis.addCategory,
-      {
-        title: formData.name,
-        title_arabic: formData.nameArabic,
-        parent_id: formData.parentCat,
-        display_order: formData.display,
-      },
-      {
-        headers: {
-          Authorization: `Token ${constants.token_id}`,
-        },
-      }
-    ).then((res) => {
-      router.back();
-      notification.success({
-        message: "Success",
-        description: "Category Added Successfully",
-      });
-    });
-  };
+  const submitHandler=(e)=>{
+    e.preventDefault()
+    categorySubmitHandler(formData)
+
+  }
+
+  
   return (
     <div class="content-topics ">
       <div className="bottom">
@@ -65,7 +60,7 @@ function AddCategoriesForm() {
           Add Categories
         </h6>
         <div className="my-4 mx-4 ">
-          <form onSubmit={(e) => categorySubmitHandler(e)}>
+          <form onSubmit={(e) => submitHandler(e)}>
             <div className="form-group my-2">
               <label for="exampleFormControlInput1">Category Name</label>
               <input
@@ -77,6 +72,7 @@ function AddCategoriesForm() {
                   color: "grey",
                 }}
                 id="name"
+                value={formData.name}
                 onChange={(e) => handleCategoryChange(e)}
               />
             </div>
@@ -93,6 +89,7 @@ function AddCategoriesForm() {
                   color: "grey",
                 }}
                 id="nameArabic"
+                value={formData.nameArabic}
                 onChange={(e) => handleCategoryChange(e)}
               />
             </div>
@@ -110,7 +107,7 @@ function AddCategoriesForm() {
               >
                 <option value="">select</option>
                 {categoryList.map((item, index) => (
-                  <option key={index} value={item.id}>
+                  <option key={index} selected={editData != null && formData.parentCat == item.id } value={item.id}>
                     {item.title}
                   </option>
                 ))}
@@ -127,6 +124,7 @@ function AddCategoriesForm() {
                   color: "grey",
                 }}
                 id="display"
+                value={formData.display}
                 onChange={(e) => handleCategoryChange(e)}
               />
             </div>
@@ -145,4 +143,4 @@ function AddCategoriesForm() {
   );
 }
 
-export default AddCategoriesForm;
+export default CategoriesForm;

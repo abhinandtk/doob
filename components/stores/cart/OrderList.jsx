@@ -27,7 +27,8 @@ function OrderList({ product, setOnSuccess }) {
   };
 
   const handleIncreaseQty = (e) => {
-    e.preventDefault();
+    e.preventDefault()
+    console.log("yyyyyyyyyyyyyyyy");
     setQuantity(quantity + 1);
     let qty = quantity;
     console.log("popop", qty);

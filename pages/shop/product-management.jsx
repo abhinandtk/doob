@@ -5,7 +5,7 @@ import ShopPagesSideBar from "@/components/shop/pages/ShopPagesSideBar";
 import MainHeader from "@/components/shared/headers/MainHeader";
 import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
-import ProductManagement from "@/components/shop/ProductManagement";
+import ProductManagement from "@/components/shop/product/ProductManagement";
 
 function ProductManagementPage() {
   return (
@@ -15,7 +15,7 @@ function ProductManagementPage() {
       <MainSidebarFixed />
       <div className="store-container">
         <div className="bottom">
-          <ShopPagesSideBar />
+          <ShopPagesSideBar currentPage='products'/>
           <ProductManagement />
         </div>
       </div>

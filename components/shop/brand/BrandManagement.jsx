@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useEffect } from "react";
 import Axios from "axios";
 import constants from "@/public/data/my-constants/Constants";
 import apis from "@/public/data/my-constants/Apis";
@@ -8,15 +8,17 @@ import { useState } from "react";
 function BrandManagement() {
   const router = useRouter();
   const [brandData, setBrandData] = useState([]);
+  useEffect(()=>{
 
-  Axios.get(apis.brandView, {
-    headers: {
-      Authorization: `Token ${constants.token_id}`,
-    },
-  }).then((res) => {
-    setBrandData(res.data.data);
-    console.log("brand vvvvvvvvvvvviewwwwwe", res);
-  });
+    Axios.get(apis.brandView, {
+      headers: {
+        Authorization: `Token ${constants.token_id}`,
+      },
+    }).then((res) => {
+      setBrandData(res.data.data);
+      console.log("brand vvvvvvvvvvvviewwwwwe", res);
+    });
+  },[])
 
   return (
     <div class="content-topics ">
@@ -27,14 +29,14 @@ function BrandManagement() {
 
         <div className="my-4 mx-4 ">
           <div className="clearfix">
-            <p className="order-codes">Brands</p>{" "}
+            <p className="order-codes">Brands</p>
             <button
               onClick={() => router.push("/shop/add-brands")}
               type="button"
               className="Add2-btn"
             >
-              {" "}
-              Add{" "}
+              
+              Add
             </button>
             <br></br>
             {brandData.map((item, index) => {
@@ -46,7 +48,10 @@ function BrandManagement() {
                   <div class="toggle">
                     <input placeholder="Active" type="checkbox" />
                     <label></label>
-                    <span onClick={()=>router.push(`/shop/edit-brands/${item.slug_brand}`)}>
+                    <span onClick={()=>router.push({
+                      pathname:`/shop/edit-brands/${item.slug_brand}`,
+                      query:item
+                    })}>
                       <img
                         href="#"
                         src="../images/store/Edit copy.png"

@@ -298,7 +298,6 @@ Arabic</Dropdown.Item>
 
 <div className="tour-container">
 
-
 </div>
 </div>
   

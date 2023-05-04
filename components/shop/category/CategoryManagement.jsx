@@ -3,8 +3,14 @@ import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
+import { Switch } from "antd";
 function CategoryManagement() {
+  const router = useRouter();
   const [categoryData, setCategoryData] = useState([]);
+  const [checked, setChecked] = useState(false);
+  const handleToggle = (checked) => {
+    setChecked(checked);
+  };
 
   useEffect(() => {
     Axios.get(apis.categoryList, {
@@ -13,9 +19,9 @@ function CategoryManagement() {
       },
     }).then((res) => {
       setCategoryData(res.data.data.categories);
+      console.log("tytytytyytytyty.", res.data.data.categories);
     });
-  }, []);
-  const router = useRouter();
+  },[]);
   return (
     <div class="content-topics ">
       <div className="bottom">
@@ -40,10 +46,18 @@ function CategoryManagement() {
                   <p key={index} className="foot-ball">
                     {item.title}
                   </p>
-                  <div class="toggle">
+                  <div className="toggle">
                     <input placeholder="Active" type="checkbox" />
+
                     <label></label>
-                    <span>
+                    <span
+                      onClick={() =>
+                        router.push({
+                          pathname: `/shop/edit-category/${item.title}`,
+                          query: item,
+                        })
+                      }
+                    >
                       <img
                         href="#"
                         src="../images/store/Edit copy.png"
@@ -54,11 +68,20 @@ function CategoryManagement() {
                   {item.subcategories.map((sub) => {
                     return (
                       <>
-                        <p key={sub} className="foot-ball-small">{sub.title}</p>
+                        <p key={sub} className="foot-ball-small">
+                          {sub.title}
+                        </p>
                         <div class="toggle">
                           <input placeholder="Active" type="checkbox" />
                           <label></label>
-                          <span>
+                          <span
+                            onClick={() =>
+                              router.push({
+                                pathname: `/shop/edit-category/${sub.title}`,
+                                query: sub,
+                              })
+                            }
+                          >
                             <img
                               href="#"
                               src="../images/store/Edit copy.png"

@@ -1,41 +1,44 @@
-import React from 'react'
-import {Button} from 'react-bootstrap';
-import Axios from 'axios'
-import apis from '@/public/data/my-constants/Apis';
-import constants from '@/public/data/my-constants/Constants';
-import { useState } from 'react';
-function ProductDetailInfo({product}) {
-    // console.log('iuiiuiuuuuuuuuuuu65788343',product.Product_Items[0].multivarient[0].slug_id)
-    console.log('iuiiuiuuuuuuuuuuu65788343',product)
+import React from "react";
+import { Button } from "react-bootstrap";
+import Axios from "axios";
+import apis from "@/public/data/my-constants/Apis";
+import constants from "@/public/data/my-constants/Constants";
+import { useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+function ProductDetailInfo({ product }) {
+  const router = useRouter();
 
-    const [quantity,setQuantity]=useState(1)
+  const [quantity, setQuantity] = useState(1);
 
-    const handleIncreaseQty=(e)=>{
-        e.preventDefault()
-        setQuantity(quantity + 1)
+  const handleIncreaseQty = (e) => {
+    e.preventDefault();
+    setQuantity(quantity + 1);
+  };
+  const handleDecreaseQty = (e) => {
+    e.preventDefault();
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
     }
-    const handleDecreaseQty=(e)=>{
-        e.preventDefault()
-        if (quantity > 1){
-        setQuantity(quantity - 1)
-        }
-    }
+  };
 
-    const addToCartHandler=(slug)=>{
-        console.log("erer",slug)
-        Axios.post(apis.addtoCart,{
-            product_var_slug:slug,
-            quantity:quantity
-        },  
-        {
-            headers:{
-                'Authorization':`Token ${constants.token_id}`,
-            }
-        }).then((res)=>{
-            console.log('res',res)
-        })
-
-    }
+  const addToCartHandler = (slug) => {
+    console.log("erer", slug);
+    Axios.post(
+      apis.addtoCart,
+      {
+        product_var_slug: slug,
+        quantity: quantity,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      console.log("res", res);
+    });
+  };
   return (
         <div className="col-md-5 ">
             <div className=" justify-content-between align-items-center " >
@@ -91,4 +94,4 @@ function ProductDetailInfo({product}) {
   )
 }
 
-export default ProductDetailInfo
+export default ProductDetailInfo;

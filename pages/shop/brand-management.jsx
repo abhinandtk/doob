@@ -16,7 +16,7 @@ function CategoryManagementPage() {
       <MainSidebarFixed />
       <div className="store-container">
         <div className="bottom">
-          <ShopPagesSideBar />
+          <ShopPagesSideBar currentPage='brand'/>
           <BrandManagement />
         </div>
       </div>

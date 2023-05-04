@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 
 function EditBrandPage() {
   const router = useRouter()
-  const {id} = router.query
+  // const {id} = router.query
   return (
     <Fragment>
       <MainHeader title="Doob" />
@@ -18,7 +18,7 @@ function EditBrandPage() {
       <MainSidebarFixed />
       <div className="store-container">
         <div className="bottom">
-          <ShopPagesSideBar />
+          <ShopPagesSideBar currentPage='brand'/>
           <EditBrand />
         </div>
       </div>
