@@ -1,6 +1,12 @@
 import constants from "./Constants";
 
 const apis = {
+
+
+    //commmon Api
+    "commonList" : `${constants.port}/API/common_list_api`,
+
+
     // user module
     "country" : `${constants.port}/API/country-api`,
     "register" : `${constants.port}/API/register_api`,
@@ -82,6 +88,13 @@ const apis = {
     'addReview':`${constants.port}/store/api/add_review `,
     'viewReview':`${constants.port}/store/api/view_review `,
     'deleteReview':`${constants.port}/store/api/delete_review `,
+
+    //Play ground
+
+    'listStadium':`${constants.port}/playground/api/list_all_stadium`,
+    'listGameAmenities':`${constants.port}/playground/api/get_all_games_and_amenities `,
+
+
 
 
 
