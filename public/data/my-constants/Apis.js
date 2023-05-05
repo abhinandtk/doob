@@ -93,6 +93,7 @@ const apis = {
 
     'listStadium':`${constants.port}/playground/api/list_all_stadium`,
     'listGameAmenities':`${constants.port}/playground/api/get_all_games_and_amenities `,
+    'stadiumDetailView':`${constants.port}/playground/api/list_timeslots `,
 
 
 
