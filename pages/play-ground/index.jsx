@@ -40,7 +40,7 @@ function PlayGroundPage() {
       <div className="tour-container">
         <form className="nosubmit ">
           <span>
-            {" "}
+            
             <input className="nosubmit1" type="search" placeholder="Search" />
             <img
               src="../images/tournament/Fil-icon.png"
@@ -340,7 +340,7 @@ function PlayGroundPage() {
               ></img>
               <span className="mx-4" style={{ color: "#959595" }}>
                 +7 more participants
-              </span>{" "}
+              </span>
             </div>
             <hr></hr>
             <div className="clearfix">
@@ -353,7 +353,7 @@ function PlayGroundPage() {
                       height: "30px",
                       objectFit: "cover",
                     }}
-                  ></img>{" "}
+                  ></img>
                   <span className="mx-2">
                     <span style={{ color: "#17A803" }}>Hosted by</span> Muhammad
                     Alsalah
