@@ -370,7 +370,7 @@ You have 2 upcoming bookings</button>
 
 <div className="card  book">
   <div className="card-body">
-  <div className='clearfix'>
+  <div className='clearfix  dot-web'>
       <div className='float-end dots'><svg width="28" height="27" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M12.4629 19.5441C12.4629 18.9445 12.9701 18.4583 13.5959 18.4583C14.2216 18.4583 14.7289 18.9445 14.7289 19.5441C14.7289 20.1438 14.2216 20.6299 13.5959 20.6299C12.9701 20.6299 12.4629 20.1438 12.4629 19.5441Z" fill="black"/>
 <path d="M12.4629 13.0294C12.4629 12.4297 12.9701 11.9436 13.5959 11.9436C14.2216 11.9436 14.7289 12.4297 14.7289 13.0294C14.7289 13.6291 14.2216 14.1152 13.5959 14.1152C12.9701 14.1152 12.4629 13.6291 12.4629 13.0294Z" fill="black"/>
@@ -432,7 +432,7 @@ You have 2 upcoming bookings</button>
 
     <div className="card  book">
   <div className="card-body">
-  <div className='clearfix'>
+  <div className='clearfix dot-web'>
 <div className='float-end dots'>
 <span><img src='../images/tournament/soccer-players-action-professional-stadium 2.png' className='book-img' ></img></span>
   <svg width="28" height="27" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -461,7 +461,7 @@ You have 2 upcoming bookings</button>
    <img className='rounded-circle default-avatar member-overlap-item' style={{objectFit:'cover'}} src='../images/tournament/soccer-players-action-professional-stadium 2.png'></img>
   <span className='mx-4' style={{color:'#959595'}}>+7 more participants</span> </div>
     <hr></hr>
-    <div className='clearfix'>
+    <div className='clearfix joins'>
      <div className='book-profile float-start'>
       <span><img src='../images/tournament/c1.png' style={{width:'30px',height:'30px',objectFit:'cover'}}></img> <span className='mx-2'><span style={{color:'#17A803'}}>Hosted by</span> Muhammad  Alsalah</span></span>
      </div>
@@ -471,7 +471,7 @@ You have 2 upcoming bookings</button>
     </div>
     <div className="card  book">
   <div className="card-body">
-  <div className='clearfix'>
+  <div className='clearfix dot-web'>
 <div className='float-end dots'>
 <span><img src='../images/tournament/soccer-players-action-professional-stadium 2.png' className='book-img' ></img></span>
   <svg width="28" height="27" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -500,7 +500,7 @@ You have 2 upcoming bookings</button>
    <img className='rounded-circle default-avatar member-overlap-item' style={{objectFit:'cover'}} src='../images/tournament/soccer-players-action-professional-stadium 2.png'></img>
   <span className='mx-4' style={{color:'#959595'}}>+7 more participants</span> </div>
     <hr></hr>
-    <div className='clearfix'>
+    <div className='clearfix joins'>
      <div className='book-profile float-start'>
       <span><img src='../images/tournament/c1.png' style={{width:'30px',height:'30px',objectFit:'cover'}}></img> <span className='mx-2'><span style={{color:'#17A803'}}>Hosted by</span> Muhammad  Alsalah</span></span>
      </div>
@@ -509,7 +509,7 @@ You have 2 upcoming bookings</button>
     </div> 
     </div>
 
-    <div className="clearfix mt-3 ">
+    <div className="clearfix mt-3 play-web ">
 <h5 className='float-start' style={{fontWeight:'700',fontSize:'19px',marginLeft:'-6px'}}>Playground</h5>
 <p className='float-end' style={{color:'#959595'}}>View all</p>
 </div>

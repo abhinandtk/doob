@@ -1,6 +1,6 @@
 
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import {Container,Nav,Navbar,Dropdown,Carousel,Card,Button, Form,CardImg,Tabs,Tab} from 'react-bootstrap';
+import {Container,Nav,Navbar,Dropdown,Carousel,Card,Button, Form,CardImg,Tabs,Tab,Modal} from 'react-bootstrap';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import React, { useState } from 'react';
 
@@ -219,7 +219,8 @@ Arabic</Dropdown.Item>
             <span className="nav_head">Profile</span>
           </span>
         </a>
-      
+       
+
         <div className="side-menu__footer">
           
         <div className="side-menu__footer-links next ">
@@ -289,6 +290,8 @@ Arabic</Dropdown.Item>
                         <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M13.4094 0H2.27581C1.39706 0 0.685303 0.728405 0.685303 1.62772V13.0218C0.685303 13.9211 1.39706 14.6495 2.27581 14.6495H13.4094C14.2882 14.6495 14.9999 13.9211 14.9999 13.0218V1.62772C14.9999 0.728405 14.2882 0 13.4094 0ZM4.45323 11.394C3.89893 11.394 3.44961 10.9342 3.44961 10.367V6.7233C3.45041 6.15685 3.89973 5.69702 4.45323 5.69702C5.00752 5.69702 5.45684 6.15685 5.45684 6.72411V10.3678C5.45684 10.9342 5.00752 11.394 4.45323 11.394ZM4.41823 4.65284C3.80509 4.65284 3.39553 4.23452 3.39553 3.67621C3.39553 3.1179 3.8043 2.69957 4.48583 2.69957C5.09897 2.69957 5.50853 3.1179 5.50853 3.67621C5.50853 4.23452 5.09977 4.65284 4.41823 4.65284ZM11.6431 11.394C11.1071 11.394 10.6721 10.9489 10.6721 10.4003V8.28021C10.6721 7.41915 10.1544 7.32474 9.96037 7.32474C9.76633 7.32474 9.11899 7.35323 9.11899 8.28021V10.4003C9.11899 10.9489 8.68399 11.394 8.14798 11.394H8.08357C7.54757 11.394 7.11256 10.9489 7.11256 10.4003V6.72411C7.11256 6.15685 7.56188 5.69702 8.11617 5.69702C8.67047 5.69702 9.11979 6.15685 9.11979 6.72411C9.11979 6.72411 9.34405 5.69702 10.8678 5.69702C11.8372 5.69702 12.6141 6.49216 12.6141 8.28021V10.4003C12.6141 10.9489 12.1791 11.394 11.6431 11.394Z" fill="#797B79"/>
                           </svg></div></a></span>
+
+                          
           </div>
     </nav>
     </aside>
@@ -297,96 +300,29 @@ Arabic</Dropdown.Item>
 
 
 <div className="tour-container">
- <div className='card Game-detail'>
-  <div className='card-body p-4'>
-    <div className='row'>
-      <div className='col-md-7 '>
-      <img src='../images/tournament/backgrounds.jpg' style={{objectFit:'cover'}} ></img>
-      </div>
-      <div className='col-md-4 mx-4'>
-        <div className='game-info'>
-        <h5 style={{fontWeight:'700',fontSize:'15px'}}>Football League 2023     </h5>
-         <div className='field-clearfix '>
-          <p className='float-start' style={{fontSize:'15px',fontWeight:'500'}}>Footabll  </p>
-           <img className='logox'   src='../images/tournament/logox.png'></img>
-         </div>
-        
-          <div className='field-info'>
-            <span> <img   src='../images/tournament/c1.png' style={{width:'25px',height:'25px',objectFit:'cover'}}></img><span className='mx-1' style={{color:'#17A803',fontSize:'14px',fontWeight:'500'}}>Hosted by</span><span style={{fontSize:'14px',fontWeight:'500'}}>Ahmed Al Tourah   </span></span>
-            <br></br>
-            <span><i class="bi bi-clock"></i><span className='mx-2' style={{fontWeight:'500',fontSize:'14px'}} >4 Feb, 2023</span><span style={{fontWeight:'500',fontSize:'14px'}}> 9.00 AM to 12.00 PM</span></span>
-            <br></br>
-            <span><svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M7.87701 12.3541C5.64479 12.3541 3.82129 10.5387 3.82129 8.29315C3.82129 6.04755 5.64479 4.24268 7.87701 4.24268C10.1092 4.24268 11.9327 6.05804 11.9327 8.30364C11.9327 10.5492 10.1092 12.3541 7.87701 12.3541ZM7.87701 5.81669C6.51462 5.81669 5.39327 6.929 5.39327 8.30364C5.39327 9.67829 6.50414 10.7906 7.87701 10.7906C9.24988 10.7906 10.3607 9.67829 10.3607 8.30364C10.3607 6.929 9.2394 5.81669 7.87701 5.81669Z" fill="#17A803"/>
-<path d="M7.87602 18.8422C6.72413 18.8422 5.56445 18.3777 4.66161 17.4568C2.36561 15.1006 -0.171663 11.3425 0.785653 6.87079C1.64957 2.81394 4.97294 0.99707 7.87602 0.99707C7.87602 0.99707 7.87602 0.99707 7.8838 0.99707C10.7869 0.99707 14.1102 2.81394 14.9742 6.87909C15.9237 11.3508 13.3864 15.1006 11.0904 17.4568C10.1876 18.3777 9.02791 18.8422 7.87602 18.8422ZM7.87602 2.2415C5.61115 2.2415 2.70029 3.52742 1.92976 7.14457C1.08919 11.0521 3.39298 14.4204 5.47884 16.5525C6.8253 17.938 8.93451 17.938 10.281 16.5525C12.3591 14.4204 14.6628 11.0521 13.8378 7.14457C13.0595 3.52742 10.1409 2.2415 7.87602 2.2415Z" fill="#17A803"/>
-</svg>
-<span className='mx-2' style={{fontWeight:'500',fontSize:'14px'}} >Al Sadaqua Walsalam Stadium
-</span><span style={{fontWeight:'500',fontSize:'14px',color:'#959595'}}>Hawally, Kuwait</span></span> 
-<br></br>
 
+<h5 className=' my-4' style={{fontWeight:'600'}}>Tournaments</h5>  
+<div className='row'>
+    <h6 style={{fontWeight:'600'}}>Live Tournament</h6>
+    <div className='col-md-7'>
+    <div class="card  tournaments ">
+  <img class="card-img-top" src="../images/tournament/soccer-players-action-professional-stadium 2.png" className='live-image' alt="Card image cap"/>
+  <div class="card-body ">
+   
+    <div className='live'>
+  
+    </div>
 
-          </div>
-        </div>
-      
-      </div>
+  </div>
+</div>
     </div>
-    <div className='field-content'>
-    <h5 style={{fontWeight:'700',fontSize:'15px'}}>Description</h5>
-    <p className='col-md-12'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting</p>
+    <div className='col-md-5'>
+      <div className=''>
+        <img src='../images/tournament/Group 12.png' className='tournament-imx'></img>
+        </div> 
     </div>
-    <div className='clearfix more'>
-      <div className='float-end'>
-        More <i className="bi bi-chevron-down "></i>
-      </div>
-    </div>
-    <hr ></hr>
-     <div className='clearfix Invite'>
-     <h5 className='float-start' style={{fontWeight:'700',fontSize:'15px'}}>Description</h5>  
-     <button  type="button" className="Join-btn float-end">Invite</button>
-     </div>
-     <div className='clearfix players my-4'>
-     <span><img src='../images/tournament/profiles.png'></img><span className='mx-3'>Ahmad Albedaiwi</span> </span>  
-     <p className='float-end' style={{color:'#959595'}}>Remove</p>
-     </div>
-     <div className='clearfix  players '>
-     <span><img src='../images/tournament/profiles.png'></img><span className='mx-3'>Ahmad Albedaiwi</span> </span>  
-     <p className='float-end' style={{color:'#959595'}}>Remove</p>
-     </div>
-     <div className='clearfix players  my-4'>
-     <span><img src='../images/tournament/profiles.png'></img><span className='mx-3'>Ahmad Albedaiwi</span> </span>  
-     <p className='float-end' style={{color:'#959595'}}>Remove</p>
-     </div>
-     <div className='clearfix players  my-4'>
-     <span><img src='../images/tournament/profiles.png'></img><span className='mx-3'>Ahmad Albedaiwi</span> </span>  
-     <p className='float-end' style={{color:'#959595'}}>Remove</p>
-     </div>
-     <div className='clearfix players  my-4'>
-     <span><img src='../images/tournament/profiles.png'></img><span className='mx-3'>Ahmad Albedaiwi</span> </span>  
-     <p className='float-end' style={{color:'#959595'}}>Remove</p>
-     </div>
-     <div className='clearfix players  my-4'>
-     <span><img src='../images/tournament/profiles.png'></img><span className='mx-3'>Ahmad Albedaiwi</span> </span>  
-     <p className='float-end' style={{color:'#959595'}}>Remove</p>
-     </div>
-     <div className='clearfix players1  my-4'>
-     <span><img src='../images/tournament/profiles.png' style={{opacity:'50%'}}></img><span className='mx-3' style={{opacity:'50%'}} >Ahmad Albedaiwi</span> </span>  
-     <p className='float-end' style={{color:'#FC4444'}}>Removed</p>
-     </div>
-     <div className='clearfix  players1 my-4'>
-     <span><img src='../images/tournament/profiles.png' style={{opacity:'50%'}}></img><span className='mx-3' style={{opacity:'50%'}} >Ahmad Albedaiwi</span> </span>  
-     <p className='float-end' style={{color:'#FC4444'}}>Left</p>
-     </div>
-     <div className='clearfix players  my-4'>
-    <p className='float-start'>Share via link<br></br><span>https://www.doob.com/bookings/file/3MDEKqi76uQxwkFZaqbl5r/Doob?node-id=282%3A802&t</span></p> 
-    <svg width="16" className='float-end' height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1.08079 6.17646C0.427011 5.84957 0.506232 4.89236 1.20485 4.67739L14.0137 0.736219C14.6353 0.544939 15.2176 1.12722 15.0263 1.74888L11.0852 14.5577C10.8702 15.2563 9.91298 15.3355 9.58609 14.6818L6.87177 9.25312C6.79337 9.09633 6.66623 8.96918 6.50943 8.89079L1.08079 6.17646Z" stroke="black" stroke-width="1.02343" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M6.8125 8.94988L10.7389 5.02344" stroke="black" stroke-width="1.02343" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
-     </div>
-    
-   </div>
- </div> 
+</div>
+  
 </div>
 </div>
   

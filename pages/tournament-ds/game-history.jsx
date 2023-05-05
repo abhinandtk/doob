@@ -1,6 +1,6 @@
 
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import {Container,Nav,Navbar,Dropdown,Carousel,Card,Button, Form,CardImg,Tabs,Tab} from 'react-bootstrap';
+import {Container,Nav,Navbar,Dropdown,Carousel,Card,Button, Form,CardImg,Tabs,Tab,Modal} from 'react-bootstrap';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import React, { useState } from 'react';
 
@@ -297,58 +297,148 @@ Arabic</Dropdown.Item>
 
 
 <div className="tour-container">
- <div className='card Game-detail'>
-  <div className='card-body p-4'>
-    <div className='row'>
-      <div className='col-md-7 '>
-      <img src='../images/tournament/backgrounds.jpg' style={{objectFit:'cover'}} ></img>
-      </div>
-      <div className='col-md-4 mx-4'>
-        <div className='game-info'>
-        <h5 style={{fontWeight:'700',fontSize:'15px'}}>Football League 2023     </h5>
-         <div className='field-clearfix '>
-          <p className='float-start' style={{fontSize:'15px',fontWeight:'500'}}>Footabll  </p>
-           <img className='logox'   src='../images/tournament/logox.png'></img>
-         </div>
-        
-          <div className='field-info'>
-            <span> <img   src='../images/tournament/c1.png' style={{width:'25px',height:'25px',objectFit:'cover'}}></img><span className='mx-1' style={{color:'#17A803',fontSize:'14px',fontWeight:'500'}}>Hosted by</span><span style={{fontSize:'14px',fontWeight:'500'}}>Ahmed Al Tourah   </span></span>
-            <br></br>
-            <span><i class="bi bi-clock"></i><span className='mx-2' style={{fontWeight:'500',fontSize:'14px'}} >4 Feb, 2023</span><span style={{fontWeight:'500',fontSize:'14px'}}> 9.00 AM to 12.00 PM</span></span>
-            <br></br>
-            <span><svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M7.87701 12.3541C5.64479 12.3541 3.82129 10.5387 3.82129 8.29315C3.82129 6.04755 5.64479 4.24268 7.87701 4.24268C10.1092 4.24268 11.9327 6.05804 11.9327 8.30364C11.9327 10.5492 10.1092 12.3541 7.87701 12.3541ZM7.87701 5.81669C6.51462 5.81669 5.39327 6.929 5.39327 8.30364C5.39327 9.67829 6.50414 10.7906 7.87701 10.7906C9.24988 10.7906 10.3607 9.67829 10.3607 8.30364C10.3607 6.929 9.2394 5.81669 7.87701 5.81669Z" fill="#17A803"/>
-<path d="M7.87602 18.8422C6.72413 18.8422 5.56445 18.3777 4.66161 17.4568C2.36561 15.1006 -0.171663 11.3425 0.785653 6.87079C1.64957 2.81394 4.97294 0.99707 7.87602 0.99707C7.87602 0.99707 7.87602 0.99707 7.8838 0.99707C10.7869 0.99707 14.1102 2.81394 14.9742 6.87909C15.9237 11.3508 13.3864 15.1006 11.0904 17.4568C10.1876 18.3777 9.02791 18.8422 7.87602 18.8422ZM7.87602 2.2415C5.61115 2.2415 2.70029 3.52742 1.92976 7.14457C1.08919 11.0521 3.39298 14.4204 5.47884 16.5525C6.8253 17.938 8.93451 17.938 10.281 16.5525C12.3591 14.4204 14.6628 11.0521 13.8378 7.14457C13.0595 3.52742 10.1409 2.2415 7.87602 2.2415Z" fill="#17A803"/>
-</svg>
-<span className='mx-2' style={{fontWeight:'500',fontSize:'14px'}} >Al Sadaqua Walsalam Stadium
-</span><span style={{fontWeight:'500',fontSize:'14px',color:'#959595'}}>Hawally, Kuwait</span></span> 
-<br></br>
-<button type="button" className=" field-btn">Join</button>
 
-          </div>
-        </div>
-      
-      </div>
+<h5 className=' my-4' style={{fontWeight:'600'}}>Game History</h5>  
+
+  <div className='types1'>
+  <p style={{color:'#17A803'}}>All</p>
+  <p className='mx-3'>Football</p>
+  <p className='mx-2'>Basketball</p>
+  <p className='mx-2'>Paddle</p>
+  </div>
+  <div className='top' >
+
+    
+  <div className="card  book">
+  <div className="card-body">
+  <div className='clearfix dot-web'>
+<div className='float-end dots'>
+<span><img src='../images/tournament/soccer-players-action-professional-stadium 2.png' className='book-img' ></img></span>
+  <svg width="28" height="27" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.4629 19.5441C12.4629 18.9445 12.9701 18.4583 13.5959 18.4583C14.2216 18.4583 14.7289 18.9445 14.7289 19.5441C14.7289 20.1438 14.2216 20.6299 13.5959 20.6299C12.9701 20.6299 12.4629 20.1438 12.4629 19.5441Z" fill="black"/>
+<path d="M12.4629 13.0294C12.4629 12.4297 12.9701 11.9436 13.5959 11.9436C14.2216 11.9436 14.7289 12.4297 14.7289 13.0294C14.7289 13.6291 14.2216 14.1152 13.5959 14.1152C12.9701 14.1152 12.4629 13.6291 12.4629 13.0294Z" fill="black"/>
+<path d="M12.4629 6.5147C12.4629 5.91504 12.9701 5.42892 13.5959 5.42892C14.2216 5.42892 14.7289 5.91504 14.7289 6.5147C14.7289 7.11436 14.2216 7.60049 13.5959 7.60049C12.9701 7.60049 12.4629 7.11436 12.4629 6.5147Z" fill="black"/>
+</svg>
+</div>
     </div>
-    <div className='field-content'>
-    <h5 style={{fontWeight:'700',fontSize:'15px'}}>Description</h5>
-    <p className='col-md-12'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting</p>
+    <div className='book-content'>
+      <div className='book-date'>
+    <h5 style={{color:'#17A803',fontWeight:'700'}}>24</h5>
+    <p>Feb</p>
     </div>
-    <div className='clearfix more'>
-      <div className='float-end'>
-        More <i className="bi bi-chevron-down "></i>
-      </div>
+    <div className='book-details'>
+      <h5 style={{fontWeight:'700'}}>Football League 2023</h5>
+      <p style={{color:'#959595'}}>9.00 AM to 12.00 PM</p>
+      <p>Mohammed Al‑Hamad Stadium</p>
+      <p>Hawally, Kuwait</p>
     </div>
-    <hr ></hr>
-    <h5 style={{fontWeight:'700',fontSize:'15px'}}>Participants</h5>
-    <div class="route d-flex ">
+    </div>
+   <div class="route d-flex my-3">
    <img className='rounded-circle default-avatar member-overlap-item' style={{objectFit:'cover'}} src='../images/tournament/soccer-players-action-professional-stadium 2.png'></img>
    <img className='rounded-circle default-avatar member-overlap-item' style={{objectFit:'cover'}} src='../images/tournament/soccer-players-action-professional-stadium 2.png'></img>
    <img className='rounded-circle default-avatar member-overlap-item' style={{objectFit:'cover'}} src='../images/tournament/soccer-players-action-professional-stadium 2.png'></img>
    <img className='rounded-circle default-avatar member-overlap-item' style={{objectFit:'cover'}} src='../images/tournament/soccer-players-action-professional-stadium 2.png'></img>
   <span className='mx-4' style={{color:'#959595'}}>+7 more participants</span> </div>
-   </div>
- </div> 
+    <hr></hr>
+    <div className='clearfix joins'>
+     <div className='book-profile float-start'>
+      <span><img src='../images/tournament/c1.png' style={{width:'30px',height:'30px',objectFit:'cover'}}></img> <span className='mx-2'><span style={{color:'#17A803'}}>Hosted by</span> Muhammad  Alsalah</span></span>
+   
+     </div>
+    
+     </div>
+    </div> 
+    </div>
+
+  <div className="card  book">
+  <div className="card-body">
+  <div className='clearfix  dot-web'>
+      <div className='float-end dots'><svg width="28" height="27" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.4629 19.5441C12.4629 18.9445 12.9701 18.4583 13.5959 18.4583C14.2216 18.4583 14.7289 18.9445 14.7289 19.5441C14.7289 20.1438 14.2216 20.6299 13.5959 20.6299C12.9701 20.6299 12.4629 20.1438 12.4629 19.5441Z" fill="black"/>
+<path d="M12.4629 13.0294C12.4629 12.4297 12.9701 11.9436 13.5959 11.9436C14.2216 11.9436 14.7289 12.4297 14.7289 13.0294C14.7289 13.6291 14.2216 14.1152 13.5959 14.1152C12.9701 14.1152 12.4629 13.6291 12.4629 13.0294Z" fill="black"/>
+<path d="M12.4629 6.5147C12.4629 5.91504 12.9701 5.42892 13.5959 5.42892C14.2216 5.42892 14.7289 5.91504 14.7289 6.5147C14.7289 7.11436 14.2216 7.60049 13.5959 7.60049C12.9701 7.60049 12.4629 7.11436 12.4629 6.5147Z" fill="black"/>
+</svg>
+</div>
+    </div>
+    <div className='book-content'>
+      <div className='book-date'>
+    <h5 style={{color:'#17A803',fontWeight:'700'}}>24</h5>
+    <p>Feb</p>
+    </div>
+    <div className='book-details'>
+      <h5 style={{fontWeight:'700'}}>Football League 2023</h5>
+      <p style={{color:'#959595'}}>9.00 AM to 12.00 PM</p>
+      <p>Mohammed Al‑Hamad Stadium</p>
+      <p>Hawally, Kuwait</p>
+    </div>
+    </div>
+   <div class="route d-flex my-3">          
+   <img className='rounded-circle default-avatar member-overlap-item' src='../images/tournament/soccer-players-action-professional-stadium 2.png'></img>
+   <img className='rounded-circle default-avatar member-overlap-item' src='../images/tournament/soccer-players-action-professional-stadium 2.png'></img>
+   <img className='rounded-circle default-avatar member-overlap-item' src='../images/tournament/soccer-players-action-professional-stadium 2.png'></img>
+   <img className='rounded-circle default-avatar member-overlap-item' src='../images/tournament/soccer-players-action-professional-stadium 2.png'></img>
+    <span className='mx-4' style={{color:'#959595'}}>+7 more participants</span> </div>
+    <hr></hr>
+     <div className='book-profile'>
+      <span><img src='../images/tournament/c1.png' style={{width:'30px',height:'30px'}}></img> <span className='mx-2'><span style={{color:'#17A803'}}>Hosted by</span> Muhammad  Alsalah</span></span>
+      
+     </div>
+     <p className=' float-end mx-4' style={{color:'#FF3333',marginTop:'-24px',fontSize:'15px',fontWeight:'500'}}>Cancelled</p>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+  <div className="card  book">
+  <div className="card-body">
+  <div className='clearfix dot-web'>
+<div className='float-end dots'>
+<span><img src='../images/tournament/soccer-players-action-professional-stadium 2.png' className='book-img' ></img></span>
+  <svg width="28" height="27" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.4629 19.5441C12.4629 18.9445 12.9701 18.4583 13.5959 18.4583C14.2216 18.4583 14.7289 18.9445 14.7289 19.5441C14.7289 20.1438 14.2216 20.6299 13.5959 20.6299C12.9701 20.6299 12.4629 20.1438 12.4629 19.5441Z" fill="black"/>
+<path d="M12.4629 13.0294C12.4629 12.4297 12.9701 11.9436 13.5959 11.9436C14.2216 11.9436 14.7289 12.4297 14.7289 13.0294C14.7289 13.6291 14.2216 14.1152 13.5959 14.1152C12.9701 14.1152 12.4629 13.6291 12.4629 13.0294Z" fill="black"/>
+<path d="M12.4629 6.5147C12.4629 5.91504 12.9701 5.42892 13.5959 5.42892C14.2216 5.42892 14.7289 5.91504 14.7289 6.5147C14.7289 7.11436 14.2216 7.60049 13.5959 7.60049C12.9701 7.60049 12.4629 7.11436 12.4629 6.5147Z" fill="black"/>
+</svg>
+</div>
+    </div>
+    <div className='book-content'>
+      <div className='book-date'>
+    <h5 style={{color:'#17A803',fontWeight:'700'}}>24</h5>
+    <p>Feb</p>
+    </div>
+    <div className='book-details'>
+      <h5 style={{fontWeight:'700'}}>Football League 2023</h5>
+      <p style={{color:'#959595'}}>9.00 AM to 12.00 PM</p>
+      <p>Mohammed Al‑Hamad Stadium</p>
+      <p>Hawally, Kuwait</p>
+    </div>
+    </div>
+   <div class="route d-flex my-3">
+   <img className='rounded-circle default-avatar member-overlap-item' style={{objectFit:'cover'}} src='../images/tournament/soccer-players-action-professional-stadium 2.png'></img>
+   <img className='rounded-circle default-avatar member-overlap-item' style={{objectFit:'cover'}} src='../images/tournament/soccer-players-action-professional-stadium 2.png'></img>
+   <img className='rounded-circle default-avatar member-overlap-item' style={{objectFit:'cover'}} src='../images/tournament/soccer-players-action-professional-stadium 2.png'></img>
+   <img className='rounded-circle default-avatar member-overlap-item' style={{objectFit:'cover'}} src='../images/tournament/soccer-players-action-professional-stadium 2.png'></img>
+  <span className='mx-4' style={{color:'#959595'}}>+7 more participants</span> </div>
+    <hr></hr>
+    <div className='clearfix joins'>
+     <div className='book-profile float-start'>
+      <span><img src='../images/tournament/c1.png' style={{width:'30px',height:'30px',objectFit:'cover'}}></img> <span className='mx-2'><span style={{color:'#17A803'}}>Hosted by</span> Muhammad  Alsalah</span></span>
+   
+     </div>
+    
+     </div>
+    </div> 
+    </div>
+    </div>
+
+ 
+  
 </div>
 </div>
   

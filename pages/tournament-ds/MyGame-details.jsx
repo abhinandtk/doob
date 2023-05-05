@@ -306,7 +306,7 @@ Arabic</Dropdown.Item>
       <div className='col-md-4 mx-4'>
         <div className='game-info'>
         <h5 style={{fontWeight:'700',fontSize:'15px'}}>Football League 2023     </h5>
-         <div className='field-clearfix '>
+         <div className='field-clearfix clubs'>
           <p className='float-start' style={{fontSize:'15px',fontWeight:'500'}}>Footabll  </p>
            <img className='logox'   src='../images/tournament/logox.png'></img>
          </div>
@@ -323,7 +323,7 @@ Arabic</Dropdown.Item>
 <span className='mx-2' style={{fontWeight:'500',fontSize:'14px'}} >Al Sadaqua Walsalam Stadium
 </span><span style={{fontWeight:'500',fontSize:'14px',color:'#959595'}}>Hawally, Kuwait</span></span> 
 <br></br>
-
+<button type="button" className=" field-btn">Join</button>
 
           </div>
         </div>
@@ -340,51 +340,13 @@ Arabic</Dropdown.Item>
       </div>
     </div>
     <hr ></hr>
-     <div className='clearfix Invite'>
-     <h5 className='float-start' style={{fontWeight:'700',fontSize:'15px'}}>Description</h5>  
-     <button  type="button" className="Join-btn float-end">Invite</button>
-     </div>
-     <div className='clearfix players my-4'>
-     <span><img src='../images/tournament/profiles.png'></img><span className='mx-3'>Ahmad Albedaiwi</span> </span>  
-     <p className='float-end' style={{color:'#959595'}}>Remove</p>
-     </div>
-     <div className='clearfix  players '>
-     <span><img src='../images/tournament/profiles.png'></img><span className='mx-3'>Ahmad Albedaiwi</span> </span>  
-     <p className='float-end' style={{color:'#959595'}}>Remove</p>
-     </div>
-     <div className='clearfix players  my-4'>
-     <span><img src='../images/tournament/profiles.png'></img><span className='mx-3'>Ahmad Albedaiwi</span> </span>  
-     <p className='float-end' style={{color:'#959595'}}>Remove</p>
-     </div>
-     <div className='clearfix players  my-4'>
-     <span><img src='../images/tournament/profiles.png'></img><span className='mx-3'>Ahmad Albedaiwi</span> </span>  
-     <p className='float-end' style={{color:'#959595'}}>Remove</p>
-     </div>
-     <div className='clearfix players  my-4'>
-     <span><img src='../images/tournament/profiles.png'></img><span className='mx-3'>Ahmad Albedaiwi</span> </span>  
-     <p className='float-end' style={{color:'#959595'}}>Remove</p>
-     </div>
-     <div className='clearfix players  my-4'>
-     <span><img src='../images/tournament/profiles.png'></img><span className='mx-3'>Ahmad Albedaiwi</span> </span>  
-     <p className='float-end' style={{color:'#959595'}}>Remove</p>
-     </div>
-     <div className='clearfix players1  my-4'>
-     <span><img src='../images/tournament/profiles.png' style={{opacity:'50%'}}></img><span className='mx-3' style={{opacity:'50%'}} >Ahmad Albedaiwi</span> </span>  
-     <p className='float-end' style={{color:'#FC4444'}}>Removed</p>
-     </div>
-     <div className='clearfix  players1 my-4'>
-     <span><img src='../images/tournament/profiles.png' style={{opacity:'50%'}}></img><span className='mx-3' style={{opacity:'50%'}} >Ahmad Albedaiwi</span> </span>  
-     <p className='float-end' style={{color:'#FC4444'}}>Left</p>
-     </div>
-     <div className='clearfix players  my-4'>
-    <p className='float-start'>Share via link<br></br><span>https://www.doob.com/bookings/file/3MDEKqi76uQxwkFZaqbl5r/Doob?node-id=282%3A802&t</span></p> 
-    <svg width="16" className='float-end' height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1.08079 6.17646C0.427011 5.84957 0.506232 4.89236 1.20485 4.67739L14.0137 0.736219C14.6353 0.544939 15.2176 1.12722 15.0263 1.74888L11.0852 14.5577C10.8702 15.2563 9.91298 15.3355 9.58609 14.6818L6.87177 9.25312C6.79337 9.09633 6.66623 8.96918 6.50943 8.89079L1.08079 6.17646Z" stroke="black" stroke-width="1.02343" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M6.8125 8.94988L10.7389 5.02344" stroke="black" stroke-width="1.02343" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
-     </div>
-    
+    <h5 style={{fontWeight:'700',fontSize:'15px'}}>Participants</h5>
+    <div class="route d-flex ">
+   <img className='rounded-circle default-avatar member-overlap-item' style={{objectFit:'cover'}} src='../images/tournament/soccer-players-action-professional-stadium 2.png'></img>
+   <img className='rounded-circle default-avatar member-overlap-item' style={{objectFit:'cover'}} src='../images/tournament/soccer-players-action-professional-stadium 2.png'></img>
+   <img className='rounded-circle default-avatar member-overlap-item' style={{objectFit:'cover'}} src='../images/tournament/soccer-players-action-professional-stadium 2.png'></img>
+   <img className='rounded-circle default-avatar member-overlap-item' style={{objectFit:'cover'}} src='../images/tournament/soccer-players-action-professional-stadium 2.png'></img>
+  <span className='mx-4' style={{color:'#959595'}}>+7 more participants</span> </div>
    </div>
  </div> 
 </div>
