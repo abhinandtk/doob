@@ -1,6 +1,6 @@
 
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import {Container,Nav,Navbar,Dropdown,Carousel,Card,Button, Form,CardImg,Tabs,Tab} from 'react-bootstrap';
+import {Container,Nav,Navbar,Dropdown,Carousel,Card,Button, Form,CardImg,Tabs,Tab,Modal} from 'react-bootstrap';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import React, { useState } from 'react';
 
@@ -297,21 +297,91 @@ Arabic</Dropdown.Item>
 
 
 <div className="tour-container">
- <div className='card Game-detail'>
-  <div className='card-body p-4'>
-    <div className='row'>
-      <div className='col-md-7 '>
-      <img src='../images/tournament/backgrounds.jpg' style={{objectFit:'cover'}} ></img>
-      </div>
-      <div className='col-md-3 mx-5 '>
-       
-        <h5 >Football League 2023  </h5>
-         <p>Football</p>
-        
-      </div>
-    </div>
-  </div>
+<form className="nosubmit ">
+<span> <input className="nosubmit1" type="search" placeholder="Search"   />
+<img src='../images/tournament/Fil-icon.png' className='filters-icon'></img></span>
+</form> 
+ <div className='my-3'>
+    <img src='../images/tournament/stadium 3.jpg' className='img-fluid' style={{width:'100%',height:'auto'}}></img>
  </div>
+  
+  <h5 style={{fontWeight:'700',fontSize:'18px'}}>Mohammed Al‑Hamad Stadium</h5>
+      <p style={{fontSize:'14px',color:'gray',fontWeight:'500'}}>Hawally,Kuwait</p>
+      <div className='clearfix rating'>
+      <span className='float-start ml-5'><i className="bi bi-star-fill"style={{color:'yellow'}}></i><span className='mx-2'>4.5</span></span>
+      <p className='float-end' style={{fontWeight:'700',color:'#17A803'}} >5.000 KD<span style={{fontWeight:'400'}}>/slot</span></p>
+      </div>
+      <span className='sports-type'><img src='../images/tournament/footballs.png' ></img><span className='mx-1'><img src='../images/tournament/Basketball.png'></img></span><span className='mx-1'><img src='../images/tournament/Cricket.png'></img></span></span>
+      <br></br>
+   
+ <hr></hr>
+ <h5 style={{fontWeight:'700',fontSize:'15px'}}>Description</h5>
+ <p className='col-md-12'>Mohammed al-Hamad Stadium is a multi-purpose stadium in Hawally, Kuwait. It is currently used mostly for football matches. The stadium holds 26,000. This Stadium is the home ground for Al Qadsia Kuwait.</p>
+ <h5 style={{fontWeight:'700',fontSize:'15px'}}>Amenities</h5>
+ <div className='Amenties'>
+    <span><span><img src='../images/tournament/shower.png'></img></span> <span className='mx-2'>Shower</span></span>
+    <span className='mx-2'><span><img src='../images/tournament/shower.png'></img></span>  <span className='mx-2'>Dressing Room</span> </span>
+    <span className='mx-2'><span><img src='../images/tournament/shower.png'></img></span> <span className='mx-2'> Purified Water</span></span>
+    <span className='mx-2'><span><img src='../images/tournament/shower.png'></img></span><span className='mx-2'> Parking Area</span></span>
+    <span className='mx-2'><span><img src='../images/tournament/shower.png'></img></span> <span className='mx-1'> Food</span></span>
+    <span className='mx-1'><span><img src='../images/tournament/shower.png'></img></span> <span className='mx-1'> Accessibility for disabled</span></span>
+ </div>
+
+<div className='my-4'>
+<h5 style={{fontWeight:'700',fontSize:'15px'}}>Select Ground</h5>
+<div className='group A'>
+<button type="button" className=" ground-btn">5 A</button> 
+<button type="button" className=" ground1-btn">5 A</button> 
+</div>
+</div>
+
+<div className='card Grounds'>
+    <div className='card-body p-4'>
+   
+    <div className='row'>
+        <div className='col-md-6'>
+        <h5 style={{fontWeight:'600'}}>Date</h5>
+        <div className=" d-flex   ground-customer" >
+         <p style={{marginTop:'12px',marginLeft:'12px'}}>04-02-2023</p>
+       </div>
+       <h5 className='my-4' style={{fontSize:'15px',fontWeight:'700'}}>Available time slots</h5>
+       <div className='Available-slot'>
+       <div className=" d-flex  time-slot1" >
+         <p style={{marginTop:'13px',marginLeft:'23px'}}>8.00 AM - 10.00 AM </p>
+       </div>
+       <div className=" d-flex  time-slot2 mx-3" >
+         <p style={{marginTop:'13px',marginLeft:'20px'}}>8.00 AM - 10.00 AM </p>
+       </div>
+       <br></br>
+
+       <div className=" d-flex  time-slot3 my-2" >
+         <p style={{marginTop:'13px',marginLeft:'23px'}}>8.00 AM - 10.00 AM </p>
+       </div>
+       <div className=" d-flex  time-slot4 mx-3 my-2" >
+         <p style={{marginTop:'13px',marginLeft:'20px'}}>8.00 AM - 10.00 AM </p>
+       </div>
+
+       <br></br>
+
+<div className=" d-flex  time-slot5 " >
+  <p style={{marginTop:'13px',marginLeft:'23px'}}>8.00 AM - 10.00 AM </p>
+</div>
+<div className=" d-flex  time-slot6 mx-3 " >
+  <p style={{marginTop:'13px',marginLeft:'20px'}}>18.00 AM - 10.00 AM </p>
+</div>
+       </div>
+        </div>
+        <div className='col-md-6'>
+         <div className=''>
+            <img src='../images/tournament/playgrounds.png' className='ground-img'></img>
+            <p className='img-text'>5 A</p>
+            <button type="button" className=" image-btn">Add to Cart</button> 
+         </div>
+        </div>
+    </div>
+    </div>
+</div>
+ 
 </div>
 </div>
   
