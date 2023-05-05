@@ -33,49 +33,54 @@ function NewGameForm({ game, country }) {
 
   const handleChange = (e) => {
     e.preventDefault();
-    const newForm = { ...formData };
-    newForm[e.target.id] = e.target.value;
-    setFormData({ ...newForm });
+    if (e.target.id === "date") {
+      const date = new Date(e.target.value);
+      const formattedDate = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
+      setFormData({ ...formData, [e.target.id]: formattedDate });
+    } else {
+      setFormData({ ...formData, [e.target.id]: e.target.value });
+    }
+    // const newForm = { ...formData };
+    // newForm[e.target.id] = e.target.value;
+    // setFormData({ ...newForm });
   };
   const searchNewGameHandler = (e) => {
-    console.log("ooooooooooooooo", constants.token_id);
+    console.log("ooooooooooooooo", formData);
     e.preventDefault();
-    Axios.get(apis.listStadium, {
-        headers: {
-          'Authorization': `Token ${constants.token_id}`
-        },
-        params: {
-            sports_id: formData.sport,
-            area: formData.area,
-            date: "12-02-2023"
-        }
-      })
-      .then( (res) =>{
-        console.log(res);
-      })
-    }
-      
+  //   Axios.post(apis.listStadium, {
+  //     headers: {
+  //       Authorization: `Token ${constants.token_id}`,
+  //     },
+  //     params: {
+  //       area: formData.area,
+  //       sports_id: formData.sport,
+  //       date: formData.date,
+  //     },
+  //   }).then((res) => {
+  //     console.log(res);
+  //   });
+  // };
 
-//     Axios.get(
-//       apis.listStadium,
-//       {
-//         sports_id: formData.sport,
-//         area: formData.area,
-//         date: "20-02-2023",
-//       },
-//       {
-//         headers: {
-//           Authorization: `Token ${constants.token_id}`,
-//         },
-//       }
-//     )
-//       .then((res) => {
-//         console.log("Successssssss");
-//       })
-//       .catch((error) => {
-//         console.error(error);
-//       });
-//   };
+      Axios.post(
+        apis.listStadium,
+        {
+          sports_id: formData.sport,
+          area: formData.area,
+          date: formData.date,
+        },
+        {
+          headers: {
+            Authorization: `Token ${constants.token_id}`,
+          },
+        }
+      )
+        .then((res) => {
+          console.log("Successssssss",res);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    };
 
   return (
     <Fragment>
@@ -171,4 +176,4 @@ function NewGameForm({ game, country }) {
   );
 }
 
-export default NewGameForm
+export default NewGameForm;
