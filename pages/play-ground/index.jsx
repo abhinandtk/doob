@@ -10,6 +10,10 @@ import { useEffect } from "react";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import Axios from "axios";
+import PlayGroundCard from "@/components/playGround/PlayGroundCard";
+import MainHeader from "@/components/shared/headers/MainHeader";
+import MobileHeader from "@/components/MobileHeader";
+import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 
 function PlayGroundPage() {
   const [game, setGame] = useState([]);
@@ -28,7 +32,7 @@ function PlayGroundPage() {
 
     Axios.get(apis.commonList, {
       headers: {
-        'Authorization': `Token ${constants.token_id}`,
+        Authorization: `Token ${constants.token_id}`,
       },
     }).then((res) => {
       setCountry(res.data.country);
@@ -37,10 +41,12 @@ function PlayGroundPage() {
   }, []);
   return (
     <div>
+      <MainHeader title="Doob"/>
+      <MobileHeader />
+      <MainSidebarFixed />
       <div className="tour-container">
         <form className="nosubmit ">
           <span>
-            
             <input className="nosubmit1" type="search" placeholder="Search" />
             <img
               src="../images/tournament/Fil-icon.png"
@@ -186,8 +192,7 @@ function PlayGroundPage() {
           </div>
         </div>
 
-        
-        <NewGameForm  game={game} country={country} />
+        <NewGameForm game={game} country={country} />
 
         <GamesCard />
         <section>
@@ -273,217 +278,12 @@ function PlayGroundPage() {
           </div>
         </section>
 
-        <div className="card  book">
-          <div className="card-body">
-            <div className="clearfix">
-              <div className="float-end dots">
-                <span>
-                  <img
-                    src="../images/tournament/soccer-players-action-professional-stadium 2.png"
-                    className="book-img"
-                  ></img>
-                </span>
-                <svg
-                  width="28"
-                  height="27"
-                  viewBox="0 0 28 27"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12.4629 19.5441C12.4629 18.9445 12.9701 18.4583 13.5959 18.4583C14.2216 18.4583 14.7289 18.9445 14.7289 19.5441C14.7289 20.1438 14.2216 20.6299 13.5959 20.6299C12.9701 20.6299 12.4629 20.1438 12.4629 19.5441Z"
-                    fill="black"
-                  />
-                  <path
-                    d="M12.4629 13.0294C12.4629 12.4297 12.9701 11.9436 13.5959 11.9436C14.2216 11.9436 14.7289 12.4297 14.7289 13.0294C14.7289 13.6291 14.2216 14.1152 13.5959 14.1152C12.9701 14.1152 12.4629 13.6291 12.4629 13.0294Z"
-                    fill="black"
-                  />
-                  <path
-                    d="M12.4629 6.5147C12.4629 5.91504 12.9701 5.42892 13.5959 5.42892C14.2216 5.42892 14.7289 5.91504 14.7289 6.5147C14.7289 7.11436 14.2216 7.60049 13.5959 7.60049C12.9701 7.60049 12.4629 7.11436 12.4629 6.5147Z"
-                    fill="black"
-                  />
-                </svg>
-              </div>
-            </div>
-            <div className="book-content">
-              <div className="book-date">
-                <h5 style={{ color: "#17A803", fontWeight: "700" }}>24</h5>
-                <p>Feb</p>
-              </div>
-              <div className="book-details">
-                <h5 style={{ fontWeight: "700" }}>Football League 2023</h5>
-                <p style={{ color: "#959595" }}>9.00 AM to 12.00 PM</p>
-                <p>Mohammed Al‑Hamad Stadium</p>
-                <p>Hawally, Kuwait</p>
-              </div>
-            </div>
-            <div class="route d-flex my-3">
-              <img
-                className="rounded-circle default-avatar member-overlap-item"
-                style={{ objectFit: "cover" }}
-                src="../images/tournament/soccer-players-action-professional-stadium 2.png"
-              ></img>
-              <img
-                className="rounded-circle default-avatar member-overlap-item"
-                style={{ objectFit: "cover" }}
-                src="../images/tournament/soccer-players-action-professional-stadium 2.png"
-              ></img>
-              <img
-                className="rounded-circle default-avatar member-overlap-item"
-                style={{ objectFit: "cover" }}
-                src="../images/tournament/soccer-players-action-professional-stadium 2.png"
-              ></img>
-              <img
-                className="rounded-circle default-avatar member-overlap-item"
-                style={{ objectFit: "cover" }}
-                src="../images/tournament/soccer-players-action-professional-stadium 2.png"
-              ></img>
-              <span className="mx-4" style={{ color: "#959595" }}>
-                +7 more participants
-              </span>
-            </div>
-            <hr></hr>
-            <div className="clearfix">
-              <div className="book-profile float-start">
-                <span>
-                  <img
-                    src="../images/tournament/c1.png"
-                    style={{
-                      width: "30px",
-                      height: "30px",
-                      objectFit: "cover",
-                    }}
-                  ></img>
-                  <span className="mx-2">
-                    <span style={{ color: "#17A803" }}>Hosted by</span> Muhammad
-                    Alsalah
-                  </span>
-                </span>
-              </div>
-              <button type="button" className="Join-btn float-end">
-                Join
-              </button>
-            </div>
-          </div>
-        </div>
+        <GamesCard />
+        <GamesCard />
+        <GamesCard />
 
-        <div className="clearfix mt-3 ">
-          <h5
-            className="float-start"
-            style={{ fontWeight: "700", fontSize: "19px", marginLeft: "-6px" }}
-          >
-            Playground
-          </h5>
-          <p className="float-end" style={{ color: "#959595" }}>
-            View all
-          </p>
-        </div>
-        <div className="playgrounds">
-          <div class=" card playground-card">
-            <img
-              src="../images/tournament/soccer-players-action-professional-stadium 2.png"
-              style={{
-                height: "190px",
-                borderRadius: "20px 20px 0px 0px",
-                objectFit: "cover",
-              }}
-              alt="..."
-            />
-            <div class="card-body play-body">
-              <p>Mohammed Al‑Hamad Stadium </p>
-              <div style={{ marginTop: "-5px" }}>
-                <span>
-                  <i class="bi bi-geo-alt" style={{ color: "green" }}></i>
-                  <span className="mx-2">Hawally, Kuwait</span>
-                </span>
-              </div>
-              <div style={{ marginTop: "8px" }}>
-                <span>
-                  <i class="bi bi-star-fill" style={{ color: "yellow" }}></i>
-                  <span className="mx-2">4.5</span>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class=" card playground-card">
-            <img
-              src="../images/tournament/soccer-players-action-professional-stadium 2.png"
-              style={{
-                height: "190px",
-                borderRadius: "20px 20px 0px 0px",
-                objectFit: "cover",
-              }}
-              alt="..."
-            />
-            <div class="card-body play-body">
-              <p>Mohammed Al‑Hamad Stadium </p>
-              <div style={{ marginTop: "-5px" }}>
-                <span>
-                  <i class="bi bi-geo-alt" style={{ color: "green" }}></i>
-                  <span className="mx-2">Hawally, Kuwait</span>
-                </span>
-              </div>
-              <div style={{ marginTop: "8px" }}>
-                <span>
-                  <i class="bi bi-star-fill" style={{ color: "yellow" }}></i>
-                  <span className="mx-2">4.5</span>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class=" card playground-card">
-            <img
-              src="../images/tournament/soccer-players-action-professional-stadium 2.png"
-              style={{
-                height: "190px",
-                borderRadius: "20px 20px 0px 0px",
-                objectFit: "cover",
-              }}
-              alt="..."
-            />
-            <div class="card-body play-body">
-              <p>Mohammed Al-Hamad Stadium </p>
-              <div style={{ marginTop: "-5px" }}>
-                <span>
-                  <i class="bi bi-geo-alt" style={{ color: "green" }}></i>
-                  <span className="mx-2">Hawally, Kuwait</span>
-                </span>
-              </div>
-              <div style={{ marginTop: "8px" }}>
-                <span>
-                  <i class="bi bi-star-fill" style={{ color: "yellow" }}></i>
-                  <span className="mx-2">4.5</span>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class=" card playground-card">
-            <img
-              src="../images/tournament/soccer-players-action-professional-stadium 2.png"
-              style={{
-                height: "190px",
-                borderRadius: "20px 20px 0px 0px",
-                objectFit: "cover",
-              }}
-              alt="..."
-            />
-            <div class="card-body play-body">
-              <p>Mohammed Al Hamad Stadium </p>
-              <div style={{ marginTop: "-5px" }}>
-                <span>
-                  <i class="bi bi-geo-alt" style={{ color: "green" }}></i>
-                  <span className="mx-2">Hawally, Kuwait</span>
-                </span>
-              </div>
-              <div style={{ marginTop: "8px" }}>
-                <span>
-                  <i class="bi bi-star-fill" style={{ color: "yellow" }}></i>
-                  <span className="mx-2">4.5</span>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <PlayGroundCard />
+
         <h5 style={{ fontWeight: "700" }} className="my-3">
           Doob Map
         </h5>

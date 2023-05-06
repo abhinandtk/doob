@@ -1,5 +1,5 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MainHeader from "@/components/shared/headers/MainHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import ProductDetailImages from "@/components/stores/product-details/ProductDetailImages";
@@ -15,20 +15,22 @@ function ProductDetailPage() {
   const router = useRouter();
   const { pid } = router.query;
 
-  Axios.post(
-    apis.productDetail,
-    {
-      slug_Id: pid,
-    },
-    {
-      headers: {
-        Authorization: `Token ${constants.token_id}`,
+  useEffect(()=>{
+    Axios.post(
+      apis.productDetail,
+      {
+        slug_Id: pid,
       },
-    }
-  ).then((res) => {
-    setProductDetails([res.data.data[0]]);
-    console.log("productttttttttttttttttttttttt", res);
-  });
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      setProductDetails([res.data.data[0]]);
+      console.log("productttttttttttttttttttttttt", res);
+    });
+  },[])
 
   return (
     <>

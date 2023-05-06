@@ -91,9 +91,12 @@ const apis = {
 
     //Play ground
 
+    'homePagePlay':`${constants.port}/playground/api/games_homepage`,
     'listStadium':`${constants.port}/playground/api/list_all_stadium`,
     'listGameAmenities':`${constants.port}/playground/api/get_all_games_and_amenities `,
     'stadiumDetailView':`${constants.port}/playground/api/list_timeslots `,
+    'createGame':`${constants.port}/playground/api/create_game`,
+    'playCart':`${constants.port}/playground/api/play_cart`,
 
 
 

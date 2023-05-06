@@ -1,47 +1,24 @@
+import constants from "@/public/data/my-constants/Constants";
 import React from "react";
 import { Fragment } from "react";
 
-function AmenitiesList() {
+function AmenitiesList({amenitiesData}) {
   return (
     <Fragment>
       <h5 style={{ fontWeight: "700", fontSize: "15px" }}>Amenities</h5>
       <div className="Amenties">
-        <span>
+        {amenitiesData.map((item,index)=>(
+        <span key={index} className="mx-2">
           <span>
-            <img src="../images/tournament/shower.png"></img>
+            <img src={`${constants.port}${item.logo}`} style={{width:'18px',height:'18px',objectFit:'cover',borderRadius:'50%'}} />
           </span>
-          <span className="mx-2">Shower</span>
+          <span className="mx-2">{item.name}</span>
         </span>
-        <span className="mx-2">
-          <span>
-            <img src="../images/tournament/shower.png"></img>
-          </span>
-          <span className="mx-2">Dressing Room</span>
-        </span>
-        <span className="mx-2">
-          <span>
-            <img src="../images/tournament/shower.png"></img>
-          </span>
-          <span className="mx-2"> Purified Water</span>
-        </span>
-        <span className="mx-2">
-          <span>
-            <img src="../images/tournament/shower.png"></img>
-          </span>
-          <span className="mx-2"> Parking Area</span>
-        </span>
-        <span className="mx-2">
-          <span>
-            <img src="../images/tournament/shower.png"></img>
-          </span>
-          <span className="mx-1"> Food</span>
-        </span>
-        <span className="mx-1">
-          <span>
-            <img src="../images/tournament/shower.png"></img>
-          </span>
-          <span className="mx-1"> Accessibility for disabled</span>
-        </span>
+        ))}
+        <br></br>
+        <br></br>
+    
+
       </div>
     </Fragment>
   );
