@@ -96,7 +96,12 @@ function ProductsForm({ handleProductAdd, editData }) {
     e.preventDefault();
     setFormData((prev) => {
       const variants = [...prev.variants];
-      variants[index][e.target.id] = e.target.value;
+      if(e.target.id==='formFile'){
+        variants[index][e.target.id] = e.target.files[0];
+      }else{
+        variants[index][e.target.id] = e.target.value;
+
+      }
       return { ...prev, variants };
     });
     console.log("trrrrrrrrrrrrrrrrrruiououo8745884", formData);

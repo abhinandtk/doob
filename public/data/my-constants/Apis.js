@@ -89,6 +89,8 @@ const apis = {
     'viewReview':`${constants.port}/store/api/view_review `,
     'deleteReview':`${constants.port}/store/api/delete_review `,
 
+    'brandReport':`${constants.port}/store/api/brand_report `,
+
     //Play ground
 
     'homePagePlay':`${constants.port}/playground/api/games_homepage`,
@@ -97,6 +99,9 @@ const apis = {
     'stadiumDetailView':`${constants.port}/playground/api/list_timeslots `,
     'createGame':`${constants.port}/playground/api/create_game`,
     'playCart':`${constants.port}/playground/api/play_cart`,
+    'gameDetail':`${constants.port}/playground/api/games_detail`,
+
+
 
 
 

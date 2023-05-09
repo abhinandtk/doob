@@ -20,6 +20,7 @@ function PlayGroundPage() {
   const [amenity, setAmenity] = useState([]);
   const [country, setCountry] = useState([]);
   const [homePageData, setHomePageData] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
   useEffect(() => {
     Axios.get(apis.listGameAmenities, {
       headers: {
@@ -55,6 +56,10 @@ function PlayGroundPage() {
       console.log("eeeeeeeeeeeeeeeeeeeeeerrrrrrrrrrrrr", res);
     });
   }, []);
+
+  const handleCategoryClick = (title) => {
+    setSelectedCategory(title);
+  };
   return (
     <div>
       <MainHeader title="Doob" />
@@ -240,23 +245,51 @@ function PlayGroundPage() {
                 aria-label="Second group"
               >
                 <button
+                  onClick={() => handleCategoryClick(null)}
                   type="button"
                   className="btn btn-outline-secondary select "
                 >
-                  Football
+                  All
                 </button>
               </div>
+              {contents.games_near_me.length !== 0 ? (
+                contents.games_near_me.map((item, index) => (
+                  <>
+                    <div
+                      className="btn-group me-2 "
+                      role="group"
+                      aria-label="Second group"
+                    >
+                      <button
+                        onClick={() => handleCategoryClick(item.title)}
+                        type="button"
+                        className="btn btn-outline-secondary select "
+                      >
+                        {item.title}
+                      </button>
+                    </div>
+                  </>
+                ))
+              ) : (
+                <></>
+              )}
             </section>
+            {contents.games_near_me.length !== 0 ? (
+              contents.games_near_me.map((item, index) =>
+                selectedCategory === null || selectedCategory === item.title ? (
+                  <GamesCard key={index} data={item.games_near_me} />
+                ) : null
+              )
+            ) : (
+              <></>
+            )}
 
-            {/* <GamesCard />
-            <GamesCard />
-            <GamesCard /> */}
+            {contents.playgrounds_near_me.length !== 0 ? (
+              <PlayGroundCard content={contents.playgrounds_near_me} />
+            ) : (
+              <></>
+            )}
 
-            {contents.playgrounds_near_me.length !== 0 ? 
-            <PlayGroundCard content={contents.playgrounds_near_me}/>
-            :<></> }
-
-            
             <h5 style={{ fontWeight: "700" }} className="my-3">
               Doob Map
             </h5>

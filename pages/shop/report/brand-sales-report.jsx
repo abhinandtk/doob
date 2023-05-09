@@ -1,41 +1,70 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Chart as chartJS, ArcElement, Tooltip, Legend } from "chart.js";
 chartJS.register(ArcElement, Tooltip, Legend);
-import {
-  Container,
-  Nav,
-  Navbar,
-  Dropdown,
-  CardImg,
-  Card,
-  Button,
-} from "react-bootstrap";
-import React, { useState } from "react";
+import { Dropdown } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
 import ShopPagesSideBar from "@/components/shop/pages/ShopPagesSideBar";
 import ReportOrderCountTable from "@/components/shop/report/ReportOrderCountTable";
 import { Doughnut } from "react-chartjs-2";
-
+import Axios from "axios";
+import apis from "@/public/data/my-constants/Apis";
+import constants from "@/public/data/my-constants/Constants";
+import randomColor from "randomcolor";
 function BrandSaleReport() {
-  const data = {
-    labels: ["Red", "Green", "Yellow"],
+  const [brandReportData, setBrandReport] = useState([]);
+  const [chartData, setChartData] = useState({
+    labels: [],
     datasets: [
       {
-        data: [300, 50, 100],
-        backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-        hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+        data: [],
+        backgroundColor: [],
+        hoverBackgroundColor: [],
       },
     ],
-  };
-  const options = { 
+  });
+  useEffect(() => {
+    Axios.post(
+      apis.brandReport,
+      {
+        start_date: "",
+        end_date: "",
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      setBrandReport(res.data.data[0].brands);
+      const data = res.data.data[0];
+      const brandColors = randomColor({
+        count: data.brands.length,
+        luminosity: "bright",
+        format: "rgba",
+      });
+      const chartData = {
+        labels: data.brands.map((brand) => brand.brand_name),
+        datasets: [
+          {
+            data: data.brands.map((brand) => brand.count),
+            backgroundColor: brandColors,
+            hoverBackgroundColor: brandColors,
+          },
+        ],
+      };
+      setChartData(chartData);
+    });
+  }, []);
+ 
+  const options = {
     plugins: {
       legend: {
-        labels:{
-            boxWidth:50,
-            boxHeight:50,
-            color:'red',
-
+        labels: {
+          boxWidth: 50,
+          boxHeight: 50,
+          color: "black",
         },
-        position: 'bottom', // set the position of the legend to bottom
+        position: "bottom", // set the position of the legend to bottom
       },
     },
   };
@@ -81,9 +110,13 @@ function BrandSaleReport() {
                 </div>
 
                 <br></br>
-                <div style={{width:'400px',height:'400px'}}><center><Doughnut data={data} options={options}/></center></div>
-                
-                <ReportOrderCountTable />
+                <div style={{ width: "400px", height: "400px" }}>
+                  <center>
+                    <Doughnut data={chartData} options={options} />
+                  </center>
+                </div>
+
+                <ReportOrderCountTable reportData={brandReportData} title='Product'/>
               </div>
             </div>
           </div>
