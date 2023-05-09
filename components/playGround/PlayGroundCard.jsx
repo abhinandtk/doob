@@ -2,7 +2,7 @@ import React from "react";
 import { Fragment } from "react";
 import Axios from 'axios'
 
-function PlayGroundCard() {
+function PlayGroundCard({content}) {
     
   return (
     <Fragment>
@@ -18,7 +18,8 @@ function PlayGroundCard() {
         </p>
       </div>
       <div className="playgrounds">
-        <div class=" card playground-card">
+      {content.map((item,index)=>(
+        <div key={index} class="card playground-card">
           <img
             src="../images/tournament/soccer-players-action-professional-stadium 2.png"
             style={{
@@ -29,11 +30,11 @@ function PlayGroundCard() {
             alt="..."
           />
           <div class="card-body play-body">
-            <p>Mohammed Al‑Hamad Stadium </p>
+            <p>{item.stadium_name}</p>
             <div style={{ marginTop: "-5px" }}>
               <span>
                 <i class="bi bi-geo-alt" style={{ color: "green" }}></i>
-                <span className="mx-2">Hawally, Kuwait</span>
+                <span className="mx-2">{item.location}, Kuwait</span>
               </span>
             </div>
             <div style={{ marginTop: "8px" }}>
@@ -43,7 +44,7 @@ function PlayGroundCard() {
               </span>
             </div>
           </div>
-        </div>
+        </div>))}
       </div>
     </Fragment>
   );

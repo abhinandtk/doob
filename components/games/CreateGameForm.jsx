@@ -1,13 +1,15 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
 import React, { useState } from "react";
-
+import Axios from 'axios'
+import apis from "@/public/data/my-constants/Apis";
+import constants from "@/public/data/my-constants/Constants";
 function CreateGameForm() {
 
 
   const [formData, setFormData] = useState({
     title:'',
     image:'',
-    textArea:'',
+    participants:'',
     description:'',
     visible:'',
     gender:'',
@@ -26,9 +28,40 @@ function CreateGameForm() {
     );
   }
 
+  const changeHandler=(e)=>{
+    e.preventDefault()
+    const newFormData ={...formData}
+    if (e.target.id === "image") {
+      newFormData[e.target.id] = e.target.files[0];
+    } else {
+      newFormData[e.target.id] = e.target.value;
+    }
+    setFormData({...newFormData})
+  }
+
+  const submitHandler=(e)=>{
+    e.preventDefault()
+    Axios.post(apis.createGame,{
+      booking_id:df,
+      title:formData.title,
+      description:formData.description,
+      visible_to:formData.visible,
+      gender:formData.gender,
+      no_of_participants:formData.participants,
+      game:formData.f,
+      age_from:formData.ageFrom,
+      age_to:formData.ageTo,
+      last_date_of_joining:formData.lastDay,
+      images:formData.
+    },
+    {
+      'Authorization':`Token ${constants.port}`,
+    })
+  }
+
   return (
     <div>
-      <form>
+      <form onSubmit={(e)=>submitHandler(e)}>
         <div class="form-group my-3">
           <label for="exampleInputPassword1">Title</label>
           <input
@@ -40,6 +73,7 @@ function CreateGameForm() {
               color: "#959595",
             }}
             id="title"
+            onChange={(e)=>changeHandler(e)}
           />
         </div>
         <div className="form-group my-1">

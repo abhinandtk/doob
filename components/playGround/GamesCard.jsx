@@ -1,9 +1,11 @@
 import React, { Fragment } from "react";
 
-function GamesCard() {
+function GamesCard({data}) {
+  console.log('daaaaaaaaaaaaaaa',data)
   return (
     <Fragment>
-      <div className="card  book">
+      {data.map((item,index)=>(
+      <div key={index} className="card  book">
           <div className="card-body">
             <div className="clearfix">
               <div className="float-end dots">
@@ -41,7 +43,7 @@ function GamesCard() {
                 <p>Feb</p>
               </div>
               <div className="book-details">
-                <h5 style={{ fontWeight: "700" }}>Football League 2023</h5>
+                <h5 style={{ fontWeight: "700" }}>{item.title}</h5>
                 <p style={{ color: "#959595" }}>9.00 AM to 12.00 PM</p>
                 <p>Mohammed Al‑Hamad Stadium</p>
                 <p>Hawally, Kuwait</p>
@@ -95,7 +97,7 @@ function GamesCard() {
               </button>
             </div>
           </div>
-        </div>
+        </div>))}
     </Fragment>
   );
 }

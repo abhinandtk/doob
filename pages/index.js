@@ -40,6 +40,12 @@ function HomePage ()  {
     }
   };
 
+  const regionChange =(e)=>{
+    const regId =e.target.value;
+    console.log('idddd',regId)
+    localStorage.setItem('region-select',regId)
+  }
+
   const countrySubmitHandler = (e) =>{
     e.preventDefault()
 
@@ -97,10 +103,11 @@ function HomePage ()  {
               <Form.Select 
               aria-label="Default select example"
               required
+              onChange={(e)=>regionChange(e)}
               >
               <option value=''>Locations</option>
               {regionData.map(item=>(
-                <option key={item.id} value={item.region_name}>{item.region_name}</option>
+                <option key={item.id} value={item.id}>{item.region_name}</option>
               ))}
               </Form.Select>
             </Form.Group>
