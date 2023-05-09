@@ -8,6 +8,7 @@ import { useState } from "react";
 function BrandManagement() {
   const router = useRouter();
   const [brandData, setBrandData] = useState([]);
+  const [isChecked, setIsChecked] = useState(false);
   useEffect(()=>{
 
     Axios.get(apis.brandView, {
@@ -19,6 +20,20 @@ function BrandManagement() {
       console.log("brand vvvvvvvvvvvviewwwwwe", res);
     });
   },[])
+
+  const statusHandlerChange=(e,id)=>{
+    // setIsChecked(e.target.checked)
+    Axios.post(apis.activeBrand,{
+      brand_id:id,
+      status:e.target.checked === 'true' ? 'Active' : 'Pending'
+    },{
+      headers:{
+        'Authorization':`Token ${constants.token_id}`,
+      }
+    }).then((res)=>{
+      console.log(res)
+    })
+  }
 
   return (
     <div class="content-topics ">
@@ -46,7 +61,7 @@ function BrandManagement() {
                     {item.brand}
                   </p>
                   <div class="toggle">
-                    <input placeholder="Active" type="checkbox" />
+                    <input  onChange={(e)=>statusHandlerChange(e,item.id)} placeholder="Active" type="checkbox" />
                     <label></label>
                     <span onClick={()=>router.push({
                       pathname:`/shop/edit-brands/${item.slug_brand}`,

@@ -74,6 +74,7 @@ const apis = {
     'createBrand':`${constants.port}/store/api/create_brand`,
     'brandView':`${constants.port}/store/api/list_user_brands`,
     'editBrand':`${constants.port}/store/api/edit_brand`,
+    'activeBrand':`${constants.port}/store/api/brand_active`,
 
     'addCategory':`${constants.port}/store/api/add_category`,
     'editCategory':`${constants.port}/store/api/edit_category`,
