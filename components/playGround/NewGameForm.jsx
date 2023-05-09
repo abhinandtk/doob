@@ -7,8 +7,9 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { Modal } from "antd";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 function NewGameForm({ game, country }) {
-  //   console.log('88888888',game.amenity)
+  const router = useRouter();
   const [visible, setVisible] = useState(false);
   const [area, setArea] = useState([]);
   console.log("res98", country);
@@ -30,52 +31,50 @@ function NewGameForm({ game, country }) {
     date: "",
     area: "",
   });
+  const [data, setData] = useState([]);
 
   const handleChange = (e) => {
     e.preventDefault();
-    const newForm = { ...formData };
-    newForm[e.target.id] = e.target.value;
-    setFormData({ ...newForm });
+    if (e.target.id === "date") {
+      const date = new Date(e.target.value);
+      const formattedDate = `${date.getDate()}-${
+        date.getMonth() + 1
+      }-${date.getFullYear()}`;
+      setFormData({ ...formData, [e.target.id]: formattedDate });
+    } else {
+      setFormData({ ...formData, [e.target.id]: e.target.value });
+    }
   };
   const searchNewGameHandler = (e) => {
-    console.log("ooooooooooooooo", constants.token_id);
     e.preventDefault();
-    Axios.get(apis.listStadium, {
+    Axios.post(
+      apis.listStadium,
+      {
+        sports_id: formData.sport,
+        area: formData.area,
+        date: formData.date,
+      },
+      {
         headers: {
-          'Authorization': `Token ${constants.token_id}`
+          Authorization: `Token ${constants.token_id}`,
         },
-        params: {
+      }
+    )
+      .then((res) => {
+        router.push({
+          pathname: "/play-ground/stadium-list",
+          query: {
             sports_id: formData.sport,
             area: formData.area,
-            date: "12-02-2023"
-        }
+            date: formData.date,
+          },
+        });
+        console.log("Successssssss", res);
       })
-      .then( (res) =>{
-        console.log(res);
-      })
-    }
-      
-
-//     Axios.get(
-//       apis.listStadium,
-//       {
-//         sports_id: formData.sport,
-//         area: formData.area,
-//         date: "20-02-2023",
-//       },
-//       {
-//         headers: {
-//           Authorization: `Token ${constants.token_id}`,
-//         },
-//       }
-//     )
-//       .then((res) => {
-//         console.log("Successssssss");
-//       })
-//       .catch((error) => {
-//         console.error(error);
-//       });
-//   };
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   return (
     <Fragment>
@@ -96,15 +95,24 @@ function NewGameForm({ game, country }) {
           </button>
         </div>
       </section>
+
       <Modal
         title="Create Game"
         open={visible}
         onCancel={() => setVisible(false)}
         maskClosable
         centered
-        footer={null}
+        footer={
+          <Button
+            onClick={(e) => searchNewGameHandler(e)}
+            type="submit"
+            className="modals-btn "
+          >
+            Submit
+          </Button>
+        }
       >
-        <form onSubmit={(e) => searchNewGameHandler(e)}>
+        <form>
           <div class="form-group">
             <label for="exampleFormControlSelect1">Choose a sport</label>
             <select
@@ -114,7 +122,6 @@ function NewGameForm({ game, country }) {
               onChange={(e) => handleChange(e)}
             >
               <option style={{ color: "#959595" }} value="">
-                {" "}
                 --Select--
               </option>
               {game.map((item, index) => (
@@ -161,9 +168,6 @@ function NewGameForm({ game, country }) {
               ))}
             </select>
           </div>
-          <Button type="submit" className="modals-btn ">
-            Submit
-          </Button>
         </form>
       </Modal>
       <br></br>
@@ -171,4 +175,4 @@ function NewGameForm({ game, country }) {
   );
 }
 
-export default NewGameForm
+export default NewGameForm;
