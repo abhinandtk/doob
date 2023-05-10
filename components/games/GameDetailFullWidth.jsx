@@ -7,32 +7,45 @@ import { useEffect } from "react";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
+import GameOthersParticipants from "./GameOthersParticipants";
 function GameDetailFullWidth() {
-    const router =useRouter()
-    const {gameId}=router.query
+  const router = useRouter();
+  const { gameId } = router.query;
+  console.log("popi", gameId);
 
-    const [gameDetials,setGameDetails]=useState(null)
+  const [gameDetials, setGameDetails] = useState(null);
+  const [onSuccess, setOnSuccess] = useState(false);
+  const [participantsList, setParticipantsList] = useState([]);
 
   useEffect(() => {
     Axios.post(
       apis.gameDetail,
       {
-        game_id:gameId,
+        game_slug: gameId,
       },
       {
         headers: {
           Authorization: `Token ${constants.token_id}`,
         },
       }
-    ).then((res)=>{
-        setGameDetails([res.data.data])
-        console.log('resforgamedetaail',res)
-    })
-  },[])
+    ).then((res) => {
+      setGameDetails(res.data.data);
+      setParticipantsList(res.data.data.participants);
+      console.log("resforgamedetaail", res.data.data);
+    });
+  }, [gameId, onSuccess]);
   return (
     <Fragment>
-      <GameDetailTopContent details={gameDetials}/>
-      <GameParticipantsList />
+      <GameDetailTopContent details={gameDetials} />
+      {gameDetials &&
+      gameDetials.created_by.created_by_id == constants.user_id ? (
+        <GameParticipantsList
+          participants={participantsList}
+          setOnSuccess={setOnSuccess}
+        />
+      ) : (
+        <GameOthersParticipants />
+      )}
     </Fragment>
   );
 }

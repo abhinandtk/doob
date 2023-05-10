@@ -1,102 +1,85 @@
-import React from "react";
+import apis from "@/public/data/my-constants/Apis";
+import { Input, List, Modal } from "antd";
+import React, { useState } from "react";
 import { Fragment } from "react";
+import Axios from "axios";
+import { CardImg } from "react-bootstrap";
+import constants from "@/public/data/my-constants/Constants";
+import GameInviteUser from "./GameInviteUser";
+import { useRouter } from "next/router";
+function GameParticipantsList({ participants,setOnSuccess }) {
+  console.log("result6567", participants);
+  const router = useRouter();
+  const { gameId } = router.query;
 
-function GameParticipantsList() {
+  const removeHandler = (id) => {
+    console.log("id324", id);
+    Axios.post(
+      apis.removeUser,
+      {
+        user_id: [id],
+        game_slug: gameId,
+        type: "removed",
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      setOnSuccess(prev=>!prev)
+      console.log("removed success", res);
+    });
+  };
+
   return (
     <Fragment>
-      <div className="clearfix Invite">
-        <h5
-          className="float-start"
-          style={{ fontWeight: "700", fontSize: "15px" }}
+      <GameInviteUser setOnSuccess={setOnSuccess}/>
+      {participants.map((item, index) => (
+        <div
+          key={index}
+          className="clearfix players my-4"
+          style={{
+            opacity: `${
+              item.participation_status == 2 || item.participation_status == 5
+                ? "50%"
+                : ""
+            }`,
+          }}
         >
-          Description
-        </h5>
-        <button type="button" className="Join-btn float-end">
-          Invite
-        </button>
-      </div>
-      <div className="clearfix players my-4">
-        <span>
-          <img src="../images/tournament/profiles.png"></img>
-          <span className="mx-3">Ahmad Albedaiwi</span>{" "}
-        </span>
-        <p className="float-end" style={{ color: "#959595" }}>
-          Remove
-        </p>
-      </div>
-      <div className="clearfix  players ">
-        <span>
-          <img src="../images/tournament/profiles.png"></img>
-          <span className="mx-3">Ahmad Albedaiwi</span>{" "}
-        </span>
-        <p className="float-end" style={{ color: "#959595" }}>
-          Remove
-        </p>
-      </div>
-      <div className="clearfix players  my-4">
-        <span>
-          <img src="../images/tournament/profiles.png"></img>
-          <span className="mx-3">Ahmad Albedaiwi</span>{" "}
-        </span>
-        <p className="float-end" style={{ color: "#959595" }}>
-          Remove
-        </p>
-      </div>
-      <div className="clearfix players  my-4">
-        <span>
-          <img src="../images/tournament/profiles.png"></img>
-          <span className="mx-3">Ahmad Albedaiwi</span>{" "}
-        </span>
-        <p className="float-end" style={{ color: "#959595" }}>
-          Remove
-        </p>
-      </div>
-      <div className="clearfix players  my-4">
-        <span>
-          <img src="../images/tournament/profiles.png"></img>
-          <span className="mx-3">Ahmad Albedaiwi</span>{" "}
-        </span>
-        <p className="float-end" style={{ color: "#959595" }}>
-          Remove
-        </p>
-      </div>
-      <div className="clearfix players  my-4">
-        <span>
-          <img src="../images/tournament/profiles.png"></img>
-          <span className="mx-3">Ahmad Albedaiwi</span>{" "}
-        </span>
-        <p className="float-end" style={{ color: "#959595" }}>
-          Remove
-        </p>
-      </div>
-      <div className="clearfix players1  my-4">
-        <span>
-          <img
-            src="../images/tournament/profiles.png"
-            style={{ opacity: "50%" }}
-          ></img>
-          <span className="mx-3" style={{ opacity: "50%" }}>
-            Ahmad Albedaiwi
-          </span>{" "}
-        </span>
-        <p className="float-end" style={{ color: "#FC4444" }}>
-          Removed
-        </p>
-      </div>
-      <div className="clearfix  players1 my-4">
-        <span>
-          <img
-            src="../images/tournament/profiles.png"
-            style={{ opacity: "50%" }}
-          ></img>
-          <span className="mx-3" style={{ opacity: "50%" }}>
-            Ahmad Albedaiwi
-          </span>{" "}
-        </span>
-        <p className="float-end" style={{ color: "#FC4444" }}>
-          Left
-        </p>
-      </div>
+          <span>
+            <img
+              src={`${constants.port}/media/${item.user__userdetail__image}`}
+              style={{
+                height: "45px",
+                width: "45px",
+                borderRadius: "50%",
+                objectFit: "cover",
+              }}
+            ></img>
+            <span className="mx-3">{item.user__userdetail__name}</span>
+          </span>
+          {item.participation_status == 2 ? (
+            <p className="float-end" style={{ color: "#FC4444" }}>
+              Removed
+            </p>
+          ) : item.participation_status == 5 ? (
+            <p className="float-end" style={{ color: "#FC4444" }}>
+              Left
+            </p>
+          ) : (
+            <p
+              onClick={() => removeHandler(item.user_id)}
+              className="float-end"
+              style={{ color: "#959595", cursor: "pointer" }}
+            >
+              Remove
+            </p>
+          )}
+        </div>
+      ))}
+
+      
       <div className="clearfix players  my-4">
         <p className="float-start">
           Share via link<br></br>

@@ -100,6 +100,8 @@ const apis = {
     'createGame':`${constants.port}/playground/api/create_game`,
     'playCart':`${constants.port}/playground/api/play_cart`,
     'gameDetail':`${constants.port}/playground/api/games_detail`,
+    'inviteUser':`${constants.port}/playground/api/invite_user`,
+    'removeUser':`${constants.port}/playground/api/remove_user`,
 
 
 

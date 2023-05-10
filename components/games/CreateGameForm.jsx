@@ -41,22 +41,25 @@ function CreateGameForm() {
 
   const submitHandler=(e)=>{
     e.preventDefault()
-    Axios.post(apis.createGame,{
-      booking_id:df,
-      title:formData.title,
-      description:formData.description,
-      visible_to:formData.visible,
-      gender:formData.gender,
-      no_of_participants:formData.participants,
-      game:formData.f,
-      age_from:formData.ageFrom,
-      age_to:formData.ageTo,
-      last_date_of_joining:formData.lastDay,
-      images:formData.
-    },
-    {
-      'Authorization':`Token ${constants.port}`,
-    })
+    console.log('input786',formData)
+    // Axios.post(apis.createGame,{
+    //   booking_id:,
+    //   title:formData.title,
+    //   description:formData.description,
+    //   visible_to:formData.visible,
+    //   gender:formData.gender,
+    //   no_of_participants:formData.participants,
+    //   game:formData.f,
+    //   age_from:formData.ageFrom,
+    //   age_to:formData.ageTo,
+    //   last_date_of_joining:formData.lastDay,
+    //   images:formData.image
+    // },
+    // {
+    //   'Authorization':`Token ${constants.port}`,
+    // }).then((res)=>{
+    //   console.log('add game',res)
+    // })
   }
 
   return (
@@ -90,6 +93,7 @@ function CreateGameForm() {
               color: "grey",
             }}
             placeholder="No file choosen"
+            onChange={(e)=>changeHandler(e)}
           />
         </div>
         <div class="form-group my-3">
@@ -103,6 +107,7 @@ function CreateGameForm() {
             }}
             id="description"
             rows="3"
+            onChange={(e)=>changeHandler(e)}
           ></textarea>
         </div>
         <div class="form-group my-2">
@@ -115,6 +120,7 @@ function CreateGameForm() {
               color: "#959595",
             }}
             id="visible"
+            onChange={(e)=>changeHandler(e)}
           >
             <option style={{ color: "#959595" }} value="1">
               Private
@@ -137,6 +143,7 @@ function CreateGameForm() {
               color: "#959595",
             }}
             id="gender"
+            onChange={(e)=>changeHandler(e)}
           >
             <option style={{ color: "#959595" }} value="">
               Not Specified
@@ -161,6 +168,7 @@ function CreateGameForm() {
                   color: "#959595",
                 }}
                 id="ageFrom"
+                onChange={(e)=>changeHandler(e)}
               >
                 <option style={{ color: "#959595" }} value="">
                   From
@@ -180,6 +188,7 @@ function CreateGameForm() {
                   color: "#959595",
                 }}
                 id="ageTo"
+                onChange={(e)=>changeHandler(e)}
               >
                 <option style={{ color: "#959595" }} value="">
                   To
@@ -200,12 +209,13 @@ function CreateGameForm() {
               color: "#959595",
             }}
             id="participants"
+            onChange={(e)=>changeHandler(e)}
           />
         </div>
         <div class="form-group my-3">
           <label for="exampleInputPassword1">Last day of joining</label>
           <input
-            type="text"
+            type="date"
             class="form-control p-2"
             style={{
               border: "0px",
@@ -213,6 +223,7 @@ function CreateGameForm() {
               color: "#959595",
             }}
             id="lastDay"
+            onChange={(e)=>changeHandler(e)}
           />
         </div>
         <button type="submit" className="make-btn">
