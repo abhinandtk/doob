@@ -103,6 +103,7 @@ const apis = {
     'gameDetail':`${constants.port}/playground/api/games_detail`,
     'inviteUser':`${constants.port}/playground/api/invite_user`,
     'removeUser':`${constants.port}/playground/api/remove_user`,
+    'addPlayground':`${constants.port}/playground/api/ad_add_playground`,
 
 
 

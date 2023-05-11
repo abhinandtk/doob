@@ -11,10 +11,32 @@ import ModuleSecondVariants from "./ModuleSecondVariants";
 import { Fragment } from "react";
 import ProductDetailImages from "./ProductDetailImages";
 import ProductDetailTopDetails from "./ProductDetailTopDetails";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setProPrimaryVarient,
+  setProSecondaryVarientId,
+} from "@/Redux/productDetail";
+import { useEffect } from "react";
 function ProductDetailFullWidth({ product }) {
+  const dispatch = useDispatch();
   const router = useRouter();
+  const prVarientId = useSelector((state) => state.product.proVarient);
 
+  console.log("detaillllllllllspag14", prVarientId);
   console.log("detaillllllllllspag14", product);
+  useEffect(() => {
+    product && product.Product_Items && product.Product_Items.map((item, index) => {
+      item.multivarient.length !== 0
+        ? item.multivarient.map((item_, index_) => {
+            if (item_.slug_id === prVarientId) {
+              dispatch(setProPrimaryVarient(item.varent_id));
+              dispatch(setProSecondaryVarientId(item_.slug_id));
+              // setSuccess(true);
+            }
+          })
+        : dispatch(setProPrimaryVarientId(item.varent_id));
+    });
+  }, []);
 
   const [quantity, setQuantity] = useState(1);
 
@@ -56,7 +78,7 @@ function ProductDetailFullWidth({ product }) {
               <div className=" justify-content-between align-items-center ">
                 <ProductDetailTopDetails product={product} />
                 <ModuleVariants product={product} />
-                <ModuleSecondVariants product={product}/>
+                <ModuleSecondVariants product={product} />
                 <br></br>
                 <p style={{ color: "gray", fontWeight: "400" }}>
                   <s>15.000 KD</s>

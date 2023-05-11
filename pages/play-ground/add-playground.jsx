@@ -11,8 +11,79 @@ import {
 import Offcanvas from "react-bootstrap/Offcanvas";
 import React, { useState } from "react";
 import PlayGroundSideBar from "@/components/playGround/PlayGroundSideBar";
+import PlayGroundsForm from "@/components/playGround/PlayGroundsForm";
+import Axios from "axios";
+import apis from "@/public/data/my-constants/Apis";
+import constants from "@/public/data/my-constants/Constants";
 
 function AddPlaygroundPage() {
+  const handlePlaygroundForm = (data, game, amenity, slot) => {
+    console.log("dataaaaaaaaaaaaa546", data);
+    console.log("gameeeeeeee", game);
+    console.log("amenityyyyyyyyyyy", amenity);
+    console.log("slooooot", slot);
+    // const formData = new FormData();
+    // formData.append("stadium_name", data.name);
+    // formData.append("city", data.city);
+    // formData.append("location", data.location);
+    // formData.append("description", data.description);
+    // formData.append("google_map_location_field", data.gmap);
+    // formData.append("opening_time", data.opening);
+    // formData.append("closing_time", data.closing);
+    // formData.append("images", data.image);
+    // game.map((value) => {
+    //   formData.append("game[]", value);
+    // });
+    // amenity.map((value) => {
+    //   formData.append("game[]", value);
+    // });
+    // formData.append("timeslot[0]start_time", "09:00");
+    // formData.append("timeslot[0]end_time", "10:00");
+    let formdata = new FormData();
+    formdata.append("amount", "20");
+    formdata.append("timeslot[0]start_time", "09:00:00");
+    formdata.append("timeslot[0]end_time", "11:00:00");
+    formdata.append("game", "1");
+    formdata.append("amnities", "2");
+    formdata.append("description", "fgbgfn etgbr rh rt rtghrth rth th yh");
+    formdata.append("location", "calicut");
+    formdata.append("city", "1");
+    formdata.append("stadium_name", "abc stadium");
+    formdata.append("amnities", "1");
+    formdata.append("game", "2");
+    formdata.append("opening_time", "09:00:00");
+    formdata.append("closing_time", "23:00:00");
+    formdata.append("google_map_location_field", "vfdv");
+    formdata.append("images", data.image)
+      
+
+    Axios.post(
+      apis.addPlayground,
+      formdata,
+      // {
+      //   stadium_name: data.name,
+      //   city: data.city,
+      //   location: data.location,
+      //   description: data.description,
+      //   google_map_location_field: data.gmap,
+      //   opening_time: data.opening,
+      //   closing_time: data.closing,
+      //   images: data.image,
+      //   game: [1,2],
+      //   amnities: [1,2],
+      //   "timeslot[0]start_time": "09:00",
+      //   "timeslot[0]end_time": "10:00",
+      // },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      console.log("success4444444444444444444444", res);
+    });
+  };
+
   return (
     <div>
       <div className="store-container">
@@ -32,307 +103,7 @@ function AddPlaygroundPage() {
                 <h6 style={{ fontSize: "14px", fontWeight: "700" }}>
                   Basic Details
                 </h6>
-
-                <div class="form-group my-2 ">
-                  <label for="exampleFormControlInput1">Name</label>
-                  <input
-                    type="email"
-                    class="form-control p-2"
-                    style={{
-                      border: "0px",
-                      background: "#eeeeee",
-                      color: "grey",
-                    }}
-                    id="exampleFormControlInput1"
-                  />
-                </div>
-                <div class="form-group my-2">
-                  <label for="exampleFormControlInput1">City</label>
-                  <input
-                    type="email"
-                    class="form-control p-2"
-                    style={{
-                      border: "0px",
-                      background: "#eeeeee",
-                      color: "grey",
-                    }}
-                    id="exampleFormControlInput1"
-                  />
-                </div>
-
-                <label for="exampleFormControlInput1">Location</label>
-                <div
-                  className="rounded border-0 d-flex w-100 p-2 align-items-center  "
-                  style={{ background: "#eeeeee" }}
-                >
-                  <div className="ms-auto">
-                    <i class="bi bi-geo-alt-fill"></i>
-                  </div>
-                </div>
-
-                <div className="form-group my-2">
-                  <label for="exampleFormControlInput1" id="formfile">
-                    Image
-                  </label>
-                  <input
-                    type="file"
-                    id="formFile"
-                    class="form-control p-2 grey"
-                    style={{
-                      border: "0px",
-                      background: "#eeeeee",
-                      color: "grey",
-                    }}
-                    placeholder="No file choosen"
-                  />
-                </div>
-                <h6 style={{ fontSize: "15px", fontWeight: "700" }}>
-                  Choose File
-                </h6>
-                <div className="slot clearfix   mt-2 ">
-                  <span className="float-start ">
-                    <img src="../images/tournament/footballs.png"></img>
-                    <span className="mx-1">Football</span>
-                  </span>
-                  <div class="checkbox float-end">
-                    <input type="checkbox" id="checkbox_1" />
-                    <label for="checkbox_1"></label>
-                  </div>
-
-                  {/* <input class="form-check-input float-end check" type="checkbox" value="" id="flexCheckDefault"/> */}
-                </div>
-                <div className="slot clearfix mt-2 ">
-                  <span className="float-start " style={{ marginLeft: "-6px" }}>
-                    <img src="../images/tournament/Table tennis.png"></img>
-                    <span>Padel</span>
-                  </span>
-                  <div class="checkbox float-end">
-                    <input type="checkbox" id="checkbox_2" />
-                    <label for="checkbox_2"></label>
-                  </div>
-                </div>
-                <div className="slot clearfix mt-2 ">
-                  <span className="float-start">
-                    <img src="../images/tournament/Basketball.png"></img>
-                    <span> Basketball</span>
-                  </span>
-                  <div class="checkbox float-end">
-                    <input type="checkbox" id="checkbox_3" />
-                    <label for="checkbox_3"></label>
-                  </div>
-                </div>
-
-                <div className="form-group my-2 ">
-                  <label for="exampleFormControlTextarea1">
-                    {" "}
-                    <h6 style={{ fontSize: "15px", fontWeight: "700" }}>
-                      Description
-                    </h6>
-                  </label>
-                  <textarea
-                    class="form-control"
-                    style={{
-                      border: "0px",
-                      background: "#eeeeee",
-                      color: "grey",
-                    }}
-                    id="exampleFormControlTextarea1"
-                    rows="3"
-                  ></textarea>
-                </div>
-
-                <br></br>
-
-                <h6 style={{ fontSize: "15px", fontWeight: "700" }}>
-                  Amenities
-                </h6>
-                <div className="slot clearfix ">
-                  <span className="float-start">
-                    <img src="../images/tournament/shower.png"></img>
-                    <span> Shower</span>
-                  </span>
-                  <div class="checkbox float-end">
-                    <input type="checkbox" id="checkbox_4" />
-                    <label for="checkbox_4"></label>
-                  </div>
-                </div>
-                <div className="slot clearfix mt-3">
-                  <span className="float-start">
-                    <img src="../images/tournament/water.png"></img>
-                    <span> Purified Water</span>
-                  </span>
-                  <div class="checkbox float-end">
-                    <input type="checkbox" id="checkbox_5" />
-                    <label for="checkbox_5"></label>
-                  </div>
-                </div>
-                <div className="slot clearfix mt-3 ">
-                  <span className="float-start">
-                    <img src="../images/tournament/dress.png"></img>
-                    <span> Dressing Room</span>
-                  </span>
-                  <div class="checkbox float-end">
-                    <input type="checkbox" id="checkbox_6" />
-                    <label for="checkbox_6"></label>
-                  </div>
-                </div>
-                <div className="slot clearfix mt-3 ">
-                  <span className="float-start">
-                    <img src="../images/tournament/car.png"></img>
-                    <span> Parking Area</span>
-                  </span>
-                  <div class="checkbox float-end">
-                    <input type="checkbox" id="checkbox_7" />
-                    <label for="checkbox_7"></label>
-                  </div>
-                </div>
-                <div className="slot clearfix mt-3 ">
-                  <span className="float-start">
-                    <img src="../images/tournament/lock.png"></img>
-                    <span> Locker</span>
-                  </span>
-                  <div class="checkbox float-end">
-                    <input type="checkbox" id="checkbox_8" />
-                    <label for="checkbox_8"></label>
-                  </div>
-                </div>
-                <div className="slot clearfix mt-3 ">
-                  <span className="float-start">
-                    <img src="../images/tournament/food.png"></img>
-                    <span> Food</span>
-                  </span>
-                  <div class="checkbox float-end">
-                    <input type="checkbox" id="checkbox_9" />
-                    <label for="checkbox_9"></label>
-                  </div>
-                </div>
-                <div className="slot clearfix mt-3 ">
-                  <span className="float-start">
-                    <img src="../images/tournament/store.png"></img>
-                    <span> Store</span>
-                  </span>
-                  <div class="checkbox float-end">
-                    <input type="checkbox" id="checkbox_10" />
-                    <label for="checkbox_10"></label>
-                  </div>
-                </div>
-                <div className="slot clearfix mt-3 ">
-                  <span className="float-start">
-                    <img src="../images/tournament/disability.png"></img>
-                    <span> Accessibility for disabled</span>
-                  </span>
-                  <div class="checkbox float-end">
-                    <input type="checkbox" id="checkbox_11" />
-                    <label for="checkbox_11"></label>
-                  </div>
-                </div>
-                <div className="bottoms">
-                  <h6
-                    className=" mx-4"
-                    style={{ color: "#17a803", fontWeight: "700" }}
-                  >
-                    Slots
-                  </h6>
-                  <div className="play clearfix">
-                    <div class="example">
-                      <label class="radio-button">
-                        <input
-                          type="radio"
-                          class="radio-button__input"
-                          id="choice1-1"
-                          name="choice1"
-                        />
-                        <span class="radio-button__control"></span>
-                        <span class="radio-button__label">Static Time</span>
-                      </label>
-                      <br></br>
-                      <label class="radio-button">
-                        <input
-                          type="radio"
-                          class="radio-button__input"
-                          id="choice1-2"
-                          name="choice1"
-                        />
-                        <span class="radio-button__control"></span>
-                        <span class="radio-button__label">Open time</span>
-                      </label>
-                    </div>
-                    <button type="submit" className="open-btn">
-                      {" "}
-                      Add{" "}
-                    </button>
-                  </div>
-                  <div className="time-slot">
-                    <div
-                      className="p-3 mx-auto d-flex justify-content-between  times "
-                      style={{ width: "90%" }}
-                    >
-                      <span className="time-slot-name">
-                        05:00 PM - 07.00 PM{" "}
-                      </span>
-                      <span className="time-edit">Edit</span>
-                      <span className="time-delete">Delete</span>
-                    </div>
-                    <div
-                      className="p-3 mx-auto d-flex justify-content-between  times1 "
-                      style={{ width: "90%" }}
-                    >
-                      <span className="time-slot-name">
-                        05:00 PM - 07.00 PM{" "}
-                      </span>
-                      <span className="time-edit">Edit</span>
-                      <span className="time-delete">Delete</span>
-                    </div>
-                    <div
-                      className="p-3 mx-auto d-flex justify-content-between  times  "
-                      style={{ width: "90%" }}
-                    >
-                      <span className="time-slot-name">
-                        05:00 PM - 07.00 PM{" "}
-                      </span>
-                      <span className="time-edit">Edit</span>
-                      <span className="time-delete">Delete</span>
-                    </div>
-                    <div
-                      className="p-3 mx-auto d-flex justify-content-between  times1 "
-                      style={{ width: "90%" }}
-                    >
-                      <span className="time-slot-name">
-                        05:00 PM - 07.00 PM{" "}
-                      </span>
-                      <span className="time-edit">Edit</span>
-                      <span className="time-delete">Delete</span>
-                    </div>
-                    <div
-                      className="p-3 mx-auto d-flex justify-content-between  times  "
-                      style={{ width: "90%" }}
-                    >
-                      <span className="time-slot-name">
-                        05:00 PM - 07.00 PM{" "}
-                      </span>
-                      <span className="time-edit">Edit</span>
-                      <span className="time-delete">Delete</span>
-                    </div>
-                    <div
-                      className="p-3 mx-auto d-flex justify-content-between  times1 "
-                      style={{ width: "90%" }}
-                    >
-                      <span className="time-slot-name">
-                        05:00 PM - 07.00 PM{" "}
-                      </span>
-                      <span className="time-edit">Edit</span>
-                      <span className="time-delete">Delete</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="product-submit my-3">
-                  <button type="button" className="play-sub-btn">
-                    Submit
-                  </button>
-                  <button type="button" className="play-cancel-btn">
-                    Cancel
-                  </button>
-                </div>
+                <PlayGroundsForm handlePlaygroundForm={handlePlaygroundForm} />
               </div>
             </div>
           </div>

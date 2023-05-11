@@ -3,19 +3,8 @@ import { useSelector } from "react-redux";
 
 function ModuleSecondVariants({ product }) {
 
-  const primaryIndex=useSelector((state)=>state.product.proPrimaryVarientId)
-  const multiItems = [];
-  const prVarientId = useSelector((state)=>state.product.proVarient)
-  product.Product_Items.map((item, index) => {
-    item.multivarient.map((item_, index_) => {
-      if (item.varent_id === primaryIndex) {
-        multiItems.push({
-          value: item_.values,
-          slug: item_.slug_id,
-        });
-      }
-    });
-  });
+  
+  console.log('oooooo',product)
 
   return (
     <div>

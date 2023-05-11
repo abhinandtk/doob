@@ -32,7 +32,7 @@ function CreateGameForm() {
     e.preventDefault()
     const newFormData ={...formData}
     if (e.target.id === "image") {
-      newFormData[e.target.id] = e.target.files[0];
+      newFormData[e.target.id] = s[0];
     } else {
       newFormData[e.target.id] = e.target.value;
     }

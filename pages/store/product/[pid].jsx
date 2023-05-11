@@ -30,7 +30,7 @@ function ProductDetailPage() {
       setProductDetails([res.data.data[0]]);
       console.log("productttttttttttttttttttttttt", res);
     });
-  },[])
+  })
 
   return (
     <>

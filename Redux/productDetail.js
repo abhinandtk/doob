@@ -1,21 +1,34 @@
-import { createSlice } from "@reduxjs/toolkit";
-const INITIAL_STATE = {
-  proPrimaryVarientId: null,
-  proVarient: null,
-};
+import { createSlice } from '@reduxjs/toolkit'
 
-const productDetailSlice = createSlice({
-  name: "productDetail",
-  initialState: INITIAL_STATE,
+const productSlice = createSlice({
+  name: 'product',
+  initialState: {
+    proVarient: null,
+    proPrimaryVarient: null,
+    proPrimaryVarientId: null,
+    proSecondaryVarientId: null,
+  },
   reducers: {
-    setProPrimaryVarientId(state, action) {
-      state.proPrimaryVarientId = action.payload;
+    setProVarient: (state, action) => {
+      state.proVarient = action.payload
     },
-    setProVarient(state, action) {
-      state.proVarient = action.payload;
+    setProPrimaryVarient: (state, action) => {
+      state.proPrimaryVarient = action.payload
+    },
+    setProPrimaryVarientId: (state, action) => {
+      state.proPrimaryVarientId = action.payload
+    },
+    setProSecondaryVarientId: (state, action) => {
+      state.proSecondaryVarientId = action.payload
     },
   },
-});
+})
 
-export const {setProPrimaryVarientId,setProVarient} = productDetailSlice.actions
-export default productDetailSlice.reducer
+export const {
+  setProVarient,
+  setProPrimaryVarient,
+  setProPrimaryVarientId,
+  setProSecondaryVarientId,
+} = productSlice.actions
+
+export default productSlice.reducer
