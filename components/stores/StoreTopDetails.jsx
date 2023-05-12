@@ -1,14 +1,5 @@
 import React, { useState } from "react";
 import { Fragment } from "react";
-import {
-  Container,
-  Nav,
-  Navbar,
-  Dropdown,
-  Carousel,
-  Card,
-  Button,
-} from "react-bootstrap";
 import { Collapse } from "antd";
 import Axios from "axios";
 import constants from "@/public/data/my-constants/Constants";
@@ -35,13 +26,6 @@ function StoreTopDetails({ data }) {
       console.log("restttttttttttttttttttttttttttttttttttttt", res);
     });
   };
-  // const timeFormatHandler = (time) => {
-  //   const duration = moment.duration(time);
-  //   console.log('tim')
-  //   duration.subtract(duration.seconds(), "seconds");
-  //   const humanizedDuration = duration.humanize();
-  //   return humanizedDuration;
-  // };
 
   return (
     <Fragment>
@@ -140,8 +124,8 @@ function StoreTopDetails({ data }) {
             <p>
               <i className="bi bi-clock"></i>
               <span className="mx-2">
-                {data.start_time} -
-                  {data.end_time}
+                {moment(data.start_time, "HH:mm:ss").format("hh:mm A")} -
+                {moment(data.end_time, "HH:mm:ss").format("hh:mm A")}
               </span>
             </p>
           </div>

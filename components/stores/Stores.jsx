@@ -19,15 +19,7 @@ function Stores({storeData,title}) {
         <div className='col-lg-3 col-md-4'>
             <img src='../images/store/s1.png'  style={{width:'100%'}} ></img>
         </div>
-        <div className='col-lg-3 col-md-4'>
-            <img src='../images/store/s1.png'  style={{width:'100%'}} ></img>
-        </div>
-        <div className='col-lg-3 col-md-4'> 
-            <img src='../images/store/s1.png'  style={{width:'100%'}} ></img>
-        </div>
-        <div className='col-lg-3 col-md-4'>
-            <img src='../images/store/s1.png'  style={{width:'100%'}} ></img>
-        </div> 
+        
         {/* <div class="owl-carousel">
   <div class="item"><img src='../images/store/s1.png'></img></div>
   <div class="item"><img src='../images/store/s1.png'></img></div>

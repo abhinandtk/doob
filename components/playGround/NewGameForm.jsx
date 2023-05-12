@@ -35,11 +35,13 @@ function NewGameForm({ game, country }) {
 
   const handleChange = (e) => {
     e.preventDefault();
+    // setFormData({ ...formData, [e.target.id]: e.target.value });
+
     if (e.target.id === "date") {
       const date = new Date(e.target.value);
-      const formattedDate = `${date.getDate()}-${
+      const formattedDate = `${date.getFullYear()}-${
         date.getMonth() + 1
-      }-${date.getFullYear()}`;
+      }-${date.getDate()}`;
       setFormData({ ...formData, [e.target.id]: formattedDate });
     } else {
       setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -47,6 +49,7 @@ function NewGameForm({ game, country }) {
   };
   const searchNewGameHandler = (e) => {
     e.preventDefault();
+    console.log('ddddddddddddddaaaate',formData)
     Axios.post(
       apis.listStadium,
       {

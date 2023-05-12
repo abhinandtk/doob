@@ -22,44 +22,45 @@ function AddPlaygroundPage() {
     console.log("gameeeeeeee", game);
     console.log("amenityyyyyyyyyyy", amenity);
     console.log("slooooot", slot);
-    // const formData = new FormData();
-    // formData.append("stadium_name", data.name);
-    // formData.append("city", data.city);
-    // formData.append("location", data.location);
-    // formData.append("description", data.description);
-    // formData.append("google_map_location_field", data.gmap);
-    // formData.append("opening_time", data.opening);
-    // formData.append("closing_time", data.closing);
-    // formData.append("images", data.image);
-    // game.map((value) => {
-    //   formData.append("game[]", value);
-    // });
-    // amenity.map((value) => {
-    //   formData.append("game[]", value);
-    // });
-    // formData.append("timeslot[0]start_time", "09:00");
-    // formData.append("timeslot[0]end_time", "10:00");
-    let formdata = new FormData();
-    formdata.append("amount", "20");
-    formdata.append("timeslot[0]start_time", "09:00:00");
-    formdata.append("timeslot[0]end_time", "11:00:00");
-    formdata.append("game", "1");
-    formdata.append("amnities", "2");
-    formdata.append("description", "fgbgfn etgbr rh rt rtghrth rth th yh");
-    formdata.append("location", "calicut");
-    formdata.append("city", "1");
-    formdata.append("stadium_name", "abc stadium");
-    formdata.append("amnities", "1");
-    formdata.append("game", "2");
-    formdata.append("opening_time", "09:00:00");
-    formdata.append("closing_time", "23:00:00");
-    formdata.append("google_map_location_field", "vfdv");
-    formdata.append("images", data.image)
+    const formData = new FormData();
+    formData.append("stadium_name", data.name);
+    formData.append("city", data.city);
+    formData.append("location", data.location);
+    formData.append("description", 'data.description');
+    formData.append("google_map_location_field", data.gmap);
+    formData.append("opening_time", data.opening);
+    formData.append("closing_time", data.closing);
+    formData.append("images", data.image);
+    game.map((value) => {
+      formData.append("game", value);
+    });
+    amenity.map((value) => {
+      console.log('ami67',value)
+      formData.append("amnities", value);
+    });
+    formData.append("timeslot[0]start_time", "09:00");
+    formData.append("timeslot[0]end_time", "10:00");
+    // let formdata = new FormData();
+    // formdata.append("amount", "20");
+    // formdata.append("timeslot[0]start_time", "09:00:00");
+    // formdata.append("timeslot[0]end_time", "11:00:00");
+    // formdata.append("game", "1");
+    // formdata.append("amnities", "2");
+    // formdata.append("description", "fgbgfn etgbr rh rt rtghrth rth th yh");
+    // formdata.append("location", "calicut");
+    // formdata.append("city", "1");
+    // formdata.append("stadium_name", "abc stadium");
+    // formdata.append("amnities", "1");
+    // formdata.append("game", "2");
+    // formdata.append("opening_time", "09:00:00");
+    // formdata.append("closing_time", "23:00:00");
+    // formdata.append("google_map_location_field", "vfdv");
+    // formdata.append("images", data.image)
       
 
     Axios.post(
       apis.addPlayground,
-      formdata,
+      formData,
       // {
       //   stadium_name: data.name,
       //   city: data.city,

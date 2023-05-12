@@ -6,7 +6,7 @@ import {
 import constants from "@/public/data/my-constants/Constants";
 import React from "react";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 function ModuleVariants({ product }) {
   console.log("tttttttttttt45", product);

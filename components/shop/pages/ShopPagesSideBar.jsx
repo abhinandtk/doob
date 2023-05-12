@@ -20,7 +20,7 @@ function ShopPagesSideBar({currentPage}) {
         </svg>
         <span className="mx-2" style={{color:`${currentPage === 'settings' ? '#17A803' : ''}`}}>Settings</span>
       </a>
-      <a href="#services">
+      <Link href='/shop/admin-all-orders' style={{textDecoration:'none'}}>
         <svg
           width="25"
           className="svg"
@@ -42,8 +42,8 @@ function ShopPagesSideBar({currentPage}) {
             fill="black"
           />
         </svg>
-        <span className="mx-2" style={{color:`${currentPage === 'settings' ? '#17A803' : ''}`}}>All Orders</span>
-      </a>
+        <span className="mx-2" style={{color:`${currentPage === 'allOrders' ? '#17A803' : ''}`}}>All Orders</span>
+      </Link>
       <a href="#clients">
         <svg
           width="26"

@@ -1,30 +1,159 @@
-import React from 'react'
-import { Line } from 'react-chartjs-2';
-import {CategoryScale} from 'chart.js'; 
-Chart.register(CategoryScale);
+import "bootstrap-icons/font/bootstrap-icons.css";
+import { Chart as chartJS, ArcElement, Tooltip, Legend } from "chart.js";
+chartJS.register(ArcElement, Tooltip, Legend);
+import { Dropdown } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import ShopPagesSideBar from "@/components/shop/pages/ShopPagesSideBar";
+import { Doughnut } from "react-chartjs-2";
+import Axios from "axios";
+import apis from "@/public/data/my-constants/Apis";
+import constants from "@/public/data/my-constants/Constants";
+import randomColor from "randomcolor";
+import ReportOrderCountTable from "@/components/shop/report/ReportOrderCountTable";
 function CategorySalesReport() {
-    const data = {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+  const [categoryReportData, setCategoryReportData] = useState([]);
+  const [chartData, setChartData] = useState({
+    labels: [],
+    datasets: [
+      {
+        data: [],
+        backgroundColor: [],
+        hoverBackgroundColor: [],
+      },
+    ],
+  });
+  useEffect(() => {
+    Axios.post(
+      apis.categoryReport,
+      {
+        start_date: "",
+        end_date: "",
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      setCategoryReportData(res.data.data[0].category);
+      const data = res.data.data[0];
+      const brandColors = randomColor({
+        count: data.category.length,
+        luminosity: "bright",
+        format: "rgba",
+      });
+      const chartData = {
+        labels: data.category.map((cat) => cat.category_name),
         datasets: [
           {
-            label: 'Sales',
-            data: [20, 15, 25, 30, 40, 35],
-            borderColor: 'blue',
-            fill: false,
+            data: data.category.map((cat) => cat.count),
+            backgroundColor: brandColors,
+            hoverBackgroundColor: brandColors,
           },
         ],
       };
-    
-      const options = {
-        responsive: true,
-        maintainAspectRatio: false,
-      };
+      setChartData(chartData);
+    });
+  }, []);
+
+  const options = {
+    plugins: {
+      legend: {
+        labels: {
+          boxWidth: 50,
+          boxHeight: 50,
+          color: "black",
+        },
+        position: "bottom", // set the position of the legend to bottom
+      },
+    },
+  };
   return (
     <div>
-      <h2>My Line Chart</h2>
-      <Line data={data} options={options} />
+      <div className="store-container">
+        <div className="bottom">
+          <ShopPagesSideBar />
+
+          <div class="content-topics ">
+            <div className="bottom">
+              <h6
+                className=" ms-4"
+                style={{ color: "#17a803", fontWeight: "700" }}
+              >
+                Category Sales Report
+              </h6>
+              <div className="my-1 mx-4 ">
+                <div className="update">
+                  <Dropdown className="mx-1">
+                    <Dropdown.Toggle
+                      variant=""
+                      id="dropdown-basic"
+                      style={{
+                        color: "black",
+                        borderColor: "transparent",
+                        background: "transparent",
+                      }}
+                    >
+                      Last 30 days <i className="bi bi-chevron-down "></i>
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu align="center" className="Menu">
+                      <Dropdown.Item href="#">English</Dropdown.Item>
+                      <Dropdown.Item href="#">Arabic</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                  <span>
+                    <button type="button" className="export-btn">
+                      Export
+                    </button>
+                  </span>
+                </div>
+
+                <br></br>
+                <div style={{ width: "400px", height: "400px" }}>
+                  <center>
+                    <Doughnut data={chartData} options={options} />
+                  </center>
+                </div>
+
+                <div className="customer-sale">
+                  <div id="header" className="d-flex justify-content-between">
+                    <div id="logo" style={{textAlign:'start'}} className="w-50">
+                      Category
+                    </div>
+                    <div id="header-middle" style={{textAlign:'start'}} className="w-25 text-center">
+                      Order Count
+                    </div>
+                    <div id="header-right" style={{textAlign:'start'}} className="w-25 text-center">
+                      Total Amount
+                    </div>
+                  </div>
+                  {categoryReportData.length !== 0 ? (
+                    categoryReportData.map((item, index) => (
+                      <div
+                        key={index}
+                        className="p-3 d-flex justify-content-between customer"
+                      >
+                        <span className="sales-report-name w-50">
+                          {item.category_name}
+                        </span>
+                        <span className="w-25 text-center">{item.count}</span>
+                        <span className="w-25 text-center">
+                          {item.total_amount} KD
+                        </span>
+                      </div>
+                    ))
+                  ) : (
+                    <></>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default CategorySalesReport
+export default CategorySalesReport;
