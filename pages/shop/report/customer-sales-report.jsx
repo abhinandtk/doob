@@ -14,6 +14,9 @@ import ShopPagesSideBar from "@/components/shop/pages/ShopPagesSideBar";
 import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
+import MainHeader from "@/components/shared/headers/MainHeader";
+import MobileHeader from "@/components/MobileHeader";
+import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 
 function CustomerSalesReport() {
   const [customerSale, setCustomerSale] = useState([]);
@@ -35,6 +38,9 @@ function CustomerSalesReport() {
   });
   return (
     <div>
+      <MainHeader title='Doob'/>
+      <MobileHeader />
+      <MainSidebarFixed />
       <div className="store-container">
         <div className="bottom">
           <ShopPagesSideBar />

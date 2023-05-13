@@ -10,7 +10,20 @@ import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import randomColor from "randomcolor";
+import moment from "moment";
+import MainHeader from "@/components/shared/headers/MainHeader";
+import MobileHeader from "@/components/MobileHeader";
+import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 function BrandSaleReport() {
+
+  const [selectedDays, setSelectedDays] = useState(30);
+
+  const [startDate, setStartDate] = useState(
+    moment().subtract(30, "days").format("YYYY-MM-DD")
+  );
+
+  const today = moment().format("YYYY-MM-DD");
+  const [endDate, setEndDate] = useState(today);
   const [brandReportData, setBrandReport] = useState([]);
   const [chartData, setChartData] = useState({
     labels: [],
@@ -22,12 +35,18 @@ function BrandSaleReport() {
       },
     ],
   });
+
+  const handleDayChange = (days) => {
+    setSelectedDays(days);
+    setStartDate(moment().subtract(days, "days").format("YYYY-MM-DD"));
+  };
+  console.log("change", startDate);
   useEffect(() => {
     Axios.post(
       apis.brandReport,
       {
-        start_date: "",
-        end_date: "",
+        start_date: startDate,
+        end_date: endDate,
       },
       {
         headers: {
@@ -54,8 +73,8 @@ function BrandSaleReport() {
       };
       setChartData(chartData);
     });
-  }, []);
- 
+  }, [startDate, endDate]);
+
   const options = {
     plugins: {
       legend: {
@@ -70,6 +89,9 @@ function BrandSaleReport() {
   };
   return (
     <div>
+      <MainHeader title='Doob'/>
+      <MobileHeader />
+      <MainSidebarFixed />
       <div className="store-container">
         <div className="bottom">
           <ShopPagesSideBar />
@@ -94,12 +116,20 @@ function BrandSaleReport() {
                         background: "transparent",
                       }}
                     >
-                      Last 30 days <i className="bi bi-chevron-down "></i>
+                      {`Last ${selectedDays} days`}{" "}
+                      <i className="bi bi-chevron-down "></i>
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu align="center" className="Menu">
-                      <Dropdown.Item href="#">English</Dropdown.Item>
-                      <Dropdown.Item href="#">Arabic</Dropdown.Item>
+                      <Dropdown.Item onClick={() => handleDayChange(30)}>
+                        Last 30 days
+                      </Dropdown.Item>
+                      <Dropdown.Item onClick={() => handleDayChange(60)}>
+                        Last 60 days
+                      </Dropdown.Item>
+                      <Dropdown.Item onClick={() => handleDayChange(120)}>
+                        Last 120 days
+                      </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
                   <span>
@@ -116,7 +146,10 @@ function BrandSaleReport() {
                   </center>
                 </div>
 
-                <ReportOrderCountTable reportData={brandReportData} title='Product'/>
+                <ReportOrderCountTable
+                  reportData={brandReportData}
+                  title="Product"
+                />
               </div>
             </div>
           </div>

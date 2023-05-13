@@ -16,9 +16,9 @@ import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 Chart.register(CategoryScale);
 
-function SalesReport() {
+function EarningsReport() {
   const [selectedDays, setSelectedDays] = useState(30);
-  const [salesData, setSalesData] = useState([]);
+  const [earningsData, setEarningsData] = useState([]);
 
   const [startDate, setStartDate] = useState(
     moment().subtract(30, "days").format("YYYY-MM-DD")
@@ -26,20 +26,21 @@ function SalesReport() {
 
   const today = moment().format("YYYY-MM-DD");
   const [endDate, setEndDate] = useState(today);
-
-  const data = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+  const [chartData, setChartData] = useState({
+    labels: [],
     datasets: [
       {
-        label: "My First dataset",
-        data: [65, 59, 80, 81, 56, 55, 40],
+        label: "",
+        data: [],
         fill: false,
         borderColor: "rgb(75, 192, 192)",
         tension: 0.1,
         backgroundColor: "rgba(0, 0, 0, 0)",
       },
     ],
-  };
+  });
+
+  
   const options = {
     scales: {
       x: {
@@ -66,23 +67,46 @@ function SalesReport() {
   };
   console.log("change", startDate);
   useEffect(() => {
-    Axios.post(
-      apis.salesReport,
-      {
-        start_date: startDate,
-        end_date: endDate,
+    Axios.get(apis.earningReport, {
+      headers: {
+        Authorization: `Token ${constants.token_id}`,
       },
-      {
-        headers: {
-          Authorization: `Token ${constants.token_id}`,
-        },
-      }
-    ).then((res) => {
+    }).then((res) => {
       console.log(res);
-      setSalesData(res.data.data);
-      //   setBrandReport(res.data.data[0].brands);
-      //   const data = res.data.data[0];
+      setEarningsData(res.data.data);
+      const resp = res.data.data;
+      const data = {
+        labels: resp.per_day_earnings.map((earn) => earn.date),
+        datasets: [
+          {
+            label: "My  Earnings",
+            data: resp.per_day_earnings.map((price) => price.price),
+            fill: false,
+            borderColor: "rgb(75, 192, 192)",
+            tension: 0.1,
+            backgroundColor: "rgba(0, 0, 0, 0)",
+          },
+        ],
+      };
+      setChartData(data);
     });
+    // Axios.post(
+    //   apis.salesReport,
+    //   {
+    //     start_date: startDate,
+    //     end_date: endDate,
+    //   },
+    //   {
+    //     headers: {
+    //       Authorization: `Token ${constants.token_id}`,
+    //     },
+    //   }
+    // ).then((res) => {
+    //     console.log(res)
+    //     setSalesData(res.data.data)
+    //   //   setBrandReport(res.data.data[0].brands);
+    //   //   const data = res.data.data[0];
+    // });
   }, [startDate, endDate]);
 
   return (
@@ -92,7 +116,7 @@ function SalesReport() {
       <MainSidebarFixed />
       <div className="store-container">
         <div className="bottom">
-          <ShopPagesSideBar />
+          <ShopPagesSideBar currentPage="earnings" />
 
           <div class="content-topics ">
             <div className="bottom">
@@ -100,7 +124,7 @@ function SalesReport() {
                 className=" ms-4"
                 style={{ color: "#17a803", fontWeight: "700" }}
               >
-                Product Sales Report
+                My Earnings
               </h6>
               <div className="my-1 mx-4 ">
                 <div className="update">
@@ -136,33 +160,37 @@ function SalesReport() {
                     </button>
                   </span>
                 </div>
-                <div>
-                  <Line data={data} options={options} />
-                </div>
 
                 <Card className="reports">
                   <div>
                     <div className="total-order">
-                      <p className="text-center">Total Orders</p>
-                      <h1 className="text-center ">{salesData.total_orders}</h1>
+                      <p className="text-center">Total Earnings</p>
+                      <h1 className="text-center ">
+                        {earningsData.total_earnings}
+                      </h1>
                     </div>
                   </div>
                 </Card>
 
+                <div>
+                  <Line data={chartData} options={options} />
+                </div>
+
                 <br></br>
                 <div className="customer-sale">
-                  <div className="p-3 d-flex justify-content-between  customer">
-                    <span className="sales-report-name">Customers</span>
-                    <span>{salesData.total_customers}</span>
-                  </div>
-                  <div className="p-3 d-flex justify-content-between  customer">
-                    <span className="sales-report-name">Total Products</span>
-                    <span>{salesData.total_products}</span>
-                  </div>
-                  <div className="p-3 d-flex justify-content-between  customer">
-                    <span className="sales-report-name">Total Orders</span>
-                    <span>{salesData.total_orders}</span>
-                  </div>
+                  <p>
+                    <b>Day by Report</b>
+                  </p>
+                  {earningsData.per_day_earnings &&
+                    earningsData.per_day_earnings.map((item, index) => (
+                      <div
+                        key={index}
+                        className="p-3 d-flex justify-content-between  customer"
+                      >
+                        <span className="sales-report-name">{item.date}</span>
+                        <span>{item.price}</span>
+                      </div>
+                    ))}
                 </div>
               </div>
             </div>
@@ -173,4 +201,4 @@ function SalesReport() {
   );
 }
 
-export default SalesReport;
+export default EarningsReport;

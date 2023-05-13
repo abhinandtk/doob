@@ -4,11 +4,12 @@ import Axios from "axios";
 import constants from "@/public/data/my-constants/Constants";
 import apis from "@/public/data/my-constants/Apis";
 import { useState } from "react";
+import { notification } from "antd";
 
 function BrandManagement() {
   const router = useRouter();
   const [brandData, setBrandData] = useState([]);
-  const [isChecked, setIsChecked] = useState(false);
+  const [onSuccess,setOnSuccess]=useState(false)
   useEffect(()=>{
 
     Axios.get(apis.brandView, {
@@ -19,19 +20,23 @@ function BrandManagement() {
       setBrandData(res.data.data);
       console.log("brand vvvvvvvvvvvviewwwwwe", res);
     });
-  },[])
+  },[onSuccess])
 
   const statusHandlerChange=(e,id)=>{
-    // setIsChecked(e.target.checked)
     Axios.post(apis.activeBrand,{
       brand_id:id,
-      status:e.target.checked === 'true' ? 'Active' : 'Pending'
+      status:e.target.checked == true ? 'Active' : 'Pending'
     },{
       headers:{
         'Authorization':`Token ${constants.token_id}`,
       }
     }).then((res)=>{
-      console.log(res)
+      setOnSuccess(prev=>!prev)
+      notification.success({
+        message:'Success',
+        description:'Status changed successfully'
+      })
+      console.log('result for active',res)
     })
   }
 
@@ -61,7 +66,7 @@ function BrandManagement() {
                     {item.brand}
                   </p>
                   <div class="toggle">
-                    <input  onChange={(e)=>statusHandlerChange(e,item.id)} placeholder="Active" type="checkbox" />
+                    <input  onChange={(e)=>statusHandlerChange(e,item.id,index)} checked={item.status==='Active'} type="checkbox" />
                     <label></label>
                     <span onClick={()=>router.push({
                       pathname:`/shop/edit-brands/${item.slug_brand}`,

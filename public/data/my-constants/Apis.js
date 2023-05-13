@@ -99,6 +99,10 @@ const apis = {
     'ordersAdmin':`${constants.port}/store/api/order_list_api_store `,
     'changeStatus':`${constants.port}/store/api/change_status_product `,
 
+    'salesReport':`${constants.port}/store/api/sales_report `,
+    'earningReport':`${constants.port}/store/api/earnings_day_report `,
+
+
 
 
     //Play ground

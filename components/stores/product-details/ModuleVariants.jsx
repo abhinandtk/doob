@@ -1,5 +1,5 @@
 import {
-  setProPrimaryVarient,
+  setProPrimaryVarientId,
   setProSecondaryVarientId,
   setProVarient,
 } from "@/Redux/productDetail";
@@ -18,31 +18,36 @@ function ModuleVariants({ product }) {
   const items = [];
 
   product.Product_Items.map((item, index) => {
-      const isExist = (obj) => obj.varent_id === item.varent_id;
-      if (items.some(isExist) === false) {
-         
-          items.push({
-              varent_id: item.varent_id,
-              values_values: item.values_values,
-              secondVarientSlug:
-                  item.multivarient.length !== 0
-                      ? item.multivarient[0].slug_id
-                      : item.slug_id,
-          });
-      }
+    const isExist = (obj) => obj.varent_id === item.varent_id;
+    if (items.some(isExist) === false) {
+      items.push({
+        varent_id: item.varent_id,
+        values_values: item.values_values,
+        varient_color_image: item.varient_color_image,
+        secondVarientSlug:
+          item.multivarient.length !== 0
+            ? item.multivarient[0].slug_id
+            : item.slug_id,
+      });
+    }
   });
 
-  console.log('items module',items)
+  console.log("items module", items);
 
-
+  const handleButtonActions = (varent_id, secondVarientSlug) => {
+    setPrimaryIndex(varent_id);
+    dispatch(setProPrimaryVarientId(varent_id));
+    dispatch(setProVarient(secondVarientSlug));
+    dispatch(setProSecondaryVarientId(secondVarientSlug));
+  };
 
   return (
     <div>
       <h6 style={{ marginTop: "-8px" }}>
         Color<br></br>
         <div>
-          {product.Product_Items.map((item, index) => (
-            <span key={index}>
+          {items.map((item, index) => (
+            <span key={index} onClick={()=>handleButtonActions(item.varent_id,item.secondVarientSlug)}>
               <img
                 className="mx-1"
                 src={`${constants.port}${item.varient_color_image}`}

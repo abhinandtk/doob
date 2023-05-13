@@ -10,6 +10,9 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import randomColor from "randomcolor";
 import ReportOrderCountTable from "@/components/shop/report/ReportOrderCountTable";
+import MainHeader from "@/components/shared/headers/MainHeader";
+import MobileHeader from "@/components/MobileHeader";
+import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 function CategorySalesReport() {
   const [categoryReportData, setCategoryReportData] = useState([]);
   const [chartData, setChartData] = useState({
@@ -70,6 +73,9 @@ function CategorySalesReport() {
   };
   return (
     <div>
+      <MainHeader title="Doob" />
+      <MobileHeader />
+      <MainSidebarFixed />
       <div className="store-container">
         <div className="bottom">
           <ShopPagesSideBar />
@@ -118,13 +124,25 @@ function CategorySalesReport() {
 
                 <div className="customer-sale">
                   <div id="header" className="d-flex justify-content-between">
-                    <div id="logo" style={{textAlign:'start'}} className="w-50">
+                    <div
+                      id="logo"
+                      style={{ textAlign: "start" }}
+                      className="w-50"
+                    >
                       Category
                     </div>
-                    <div id="header-middle" style={{textAlign:'start'}} className="w-25 text-center">
+                    <div
+                      id="header-middle"
+                      style={{ textAlign: "start" }}
+                      className="w-25 text-center"
+                    >
                       Order Count
                     </div>
-                    <div id="header-right" style={{textAlign:'start'}} className="w-25 text-center">
+                    <div
+                      id="header-right"
+                      style={{ textAlign: "start" }}
+                      className="w-25 text-center"
+                    >
                       Total Amount
                     </div>
                   </div>
