@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 function SearchCategory({ category }) {
   return (
     <Fragment>
-      <section className="my-2">
+      <div  className="my-2">
         <h5>Category</h5>
         <div className="btn-group me-2" role="group" aria-label="Second group">
           <button
@@ -21,7 +21,7 @@ function SearchCategory({ category }) {
           </button>
         </div>
         ))} 
-      </section>
+      </div>
     </Fragment>
   );
 }

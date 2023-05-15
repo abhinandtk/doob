@@ -6,28 +6,28 @@ function StoreMainBanner({banners}) {
   return (
     <Carousel className='mx-2' >
       {banners.map((item,index)=>(
-      <Carousel.Item key={index} interval={1000}>
+      <Carousel.Item key={index} interval={1000}  >
         <img
-          className=" w-100 "
+          className=" w-100  "
           src={`${constants.port}${item.image}`} style={{width:'100%'}}
-          alt="First slide"
+          alt="First slide" 
         />
       </Carousel.Item>
-      ))}
-  {/* <Carousel.Item interval={500}>
+      ))}                                                                                                    
+  {/* <Carousel.Item interval={500}> 
     <img
       className=" w-100"
       src="../images/store/banner1.jpg" style={{width:'100%'}}
       alt="Second slide"
     />
   </Carousel.Item>
-  <Carousel.Item>
+  <Carousel.Item>                            
     <img
       className=" w-100"
       src="../images/store/banner1.jpg"  style={{width:'100%'}}
       alt="Third slide"
     />
-
+                                                                           
   </Carousel.Item> */}
 </Carousel>
    

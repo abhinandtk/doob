@@ -67,9 +67,9 @@ function StoreDetailPage ()  {
 
     <SearchCategory category={storeCategory}/>
   
-    <section className='my-2' >
+    <div className='my-2' >
     <h5>Hot Deals<span className='view' >View All</span></h5>
-  <div className='row  '>
+  <div className='row row row-cols-2 store  '>
        <div className='col-md-3  '>
        <Card   style={{backgroundColor:'#343C42',borderRadius:'0%',border:'0px'}} >
       <Card.Img  style={{borderRadius:'0px 0px 0px 0px'}} src="../images/store/shoes.jpg"  />
@@ -124,7 +124,7 @@ function StoreDetailPage ()  {
       </div>
       
     </div>
-    </section>
+    </div>
     </div>
 </div>
 

@@ -40,7 +40,7 @@ function FavoriteStores() {
   
 
   
-
+  
 
   return (
     <Fragment>
@@ -51,11 +51,11 @@ function FavoriteStores() {
         <div className="content-pages">
           <br></br>
           <div className="head">Favourite Store</div>
-          <div className="container">
-            <div className="row store  my-2 ">
+          <div className="ones container">
+            <div className="row row-cols-2 g-3 my-2  store p-2 ">
               {storeFavList.map((item, index) => (
-                <div key={index} className="col-lg-4 col-md-4">
-                  <Card className="store-card">
+                <div key={index} className="col-lg-6 col-md-4 col-sm-6 col-xs-6 ">
+                  <Card className="store-card " >
                     <Card.Img
                       style={{ borderRadius: "12px 12px 0px 0px" }}
                       src={`${item.store.cover_photo}`}

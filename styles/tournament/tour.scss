@@ -513,31 +513,31 @@ section .section-title {
   margin-bottom: 50px;
   text-transform: uppercase;
 }
-#tabs{
-background: transparent;
-  color: #eee;
-}
-#tabs h6.section-title{
-  color: #eee;
+// #tabs{
+// background: transparent;
+//   color: #eee;
+// }
+// #tabs h6.section-title{
+//   color: #eee;
  
-}
+// }
 
-#tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-  color: #f3f3f3;
-  background-color: transparent;
-  border-color: transparent transparent #f3f3f3;
-  border-bottom: 4px solid !important;
-  font-size: 20px;
+// #tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+//   color: #f3f3f3;
+//   background-color: transparent;
+//   border-color: transparent transparent #f3f3f3;
+//   border-bottom: 4px solid !important;
+//   font-size: 20px;
   
-}
-#tabs .nav-tabs .nav-link {
-  border: 1px solid transparent;
-  border-top-left-radius: .25rem;
-  border-top-right-radius: .25rem;
-  color: #000000;
-  font-size: 20px;
-  width: 430px;
-}
+// }
+// #tabs .nav-tabs .nav-link {
+//   border: 1px solid transparent;
+//   border-top-left-radius: .25rem;
+//   border-top-right-radius: .25rem;
+//   color: #000000;
+//   font-size: 20px;
+//   width: 430px;
+// }
 
 .play::placeholder{
   color: #959595;
@@ -673,7 +673,7 @@ input.tour {
 .field-content{
   margin-top: 14px;
 }
-.more{
+.More{
   margin-top: -26px;
   color: #17A803;
   
@@ -1856,163 +1856,163 @@ margin-left: 13px;
   color: #888;
 }
                                         
-#contain { 
-  width: 510px; 
-  height: 600px; 
-  float: left; 
+// #contain { 
+//   width: 510px; 
+//   height: 600px; 
+//   float: left; 
   
-}
+// }
 
-section { 
-  width: 130px; 
-  height: 320px; 
-  float: left;
-  margin-top: -104px;
-}
+// section { 
+//   width: 130px; 
+//   height: 320px; 
+//   float: left;
+//   margin-top: -104px;
+// }
 
-section > div { 
-  width: 170px; 
-  height: 95px; 
-  border-radius: 6px;
-  margin: 120px 0; 
-  background: #EEEEEE; 
-  color: rgb(0, 0, 0); 
-  padding: 10px 10px 10px 20px;
+// section > div { 
+//   width: 170px; 
+//   height: 95px; 
+//   border-radius: 6px;
+//   margin: 120px 0; 
+//   background: #EEEEEE; 
+//   color: rgb(0, 0, 0); 
+//   padding: 10px 10px 10px 20px;
  
-}
+// }
 
-section > div:nth-child(2n) { 
-  margin-bottom: -90px;
-}
+// section > div:nth-child(2n) { 
+//   margin-bottom: -90px;
+// }
 
-.connecter { 
-  width: 30px; 
-  height: 520px; 
-  float: left; 
-}
+// .connecter { 
+//   width: 30px; 
+//   height: 520px; 
+//   float: left; 
+// }
 
-.liner { 
-  width: 30px; 
-  height: 520px; 
-  float: left; 
-}
+// .liner { 
+//   width: 30px; 
+//   height: 520px; 
+//   float: left; 
+// }
 
-.connecter div {
-  border: 2px solid #000;
-  border-left: none;
-  height: 220px;
-  width: 100%;
-  margin: 80px 0 0 1px;
-  margin-left: 39px;
-  margin-top: 123px;
-}
+// .connecter div {
+//   border: 2px solid #000;
+//   border-left: none;
+//   height: 220px;
+//   width: 100%;
+//   margin: 80px 0 0 1px;
+//   margin-left: 39px;
+//   margin-top: 123px;
+// }
 
-.connecter div:first-child { 
-  margin: 32px 0 0 1px; 
-  margin-left: 40px;
-  margin-top: 62px;
+// .connecter div:first-child { 
+//   margin: 32px 0 0 1px; 
+//   margin-left: 40px;
+//   margin-top: 62px;
 
-}
+// }
 
-.liner div {
-  border-top: 2px solid #000;
-  margin: 133px 0 0 1px;
-  width: 29px;
-  margin-top: 337px;
-  margin-left: 38px;
-}
+// .liner div {
+//   border-top: 2px solid #000;
+//   margin: 133px 0 0 1px;
+//   width: 29px;
+//   margin-top: 337px;
+//   margin-left: 38px;
+// }
 
-.liner div:first-child { 
-  margin-top: 165px;
-  margin-left: 40px;
-  width: 29px;
+// .liner div:first-child { 
+//   margin-top: 165px;
+//   margin-left: 40px;
+//   width: 29px;
 
-}
+// }
 
-#quarterFinals > div {
-  margin-top: 246px;
-  margin-left: 37px;
-}
-#quarterFinals > div:first-child {
-  margin-top: 223px;
-  margin-left: 37px;
-}
+// #quarterFinals > div {
+//   margin-top: 246px;
+//   margin-left: 37px;
+// }
+// #quarterFinals > div:first-child {
+//   margin-top: 223px;
+//   margin-left: 37px;
+// }
 
-#conn2 div { 
-  margin-top: 133px; 
-  height: 133px;
-}
+// #conn2 div { 
+//   margin-top: 133px; 
+//   height: 133px;
+// }
 
-#conn2 div:first-child { 
-  margin-top: 57px; 
-}
+// #conn2 div:first-child { 
+//   margin-top: 57px; 
+// }
 
-#liner2 div { 
-  margin-top: 270px; 
-}
+// #liner2 div { 
+//   margin-top: 270px; 
+// }
 
-#liner2 div:first-child { 
-  margin-top: 125px; 
-}
-#semiFinals > div { 
-  margin-top: 230px; 
+// #liner2 div:first-child { 
+//   margin-top: 125px; 
+// }
+// #semiFinals > div { 
+//   margin-top: 230px; 
   
-}
+// }
 
 
-#semiFinals > div:first-child {
-    margin-top: 390px;
-    width: 86px;
-    margin-left: 77px;
-    border-radius: 6px 0px 0px 6px;
-}
-#conn3 div {
-  margin-top: 165px;
-  height: 345px;
-  margin-left: 78px;
-}
+// #semiFinals > div:first-child {
+//     margin-top: 390px;
+//     width: 86px;
+//     margin-left: 77px;
+//     border-radius: 6px 0px 0px 6px;
+// }
+// #conn3 div {
+//   margin-top: 165px;
+//   height: 345px;
+//   margin-left: 78px;
+// }
 
-#liner3 div {
-  margin-top: 332px;
+// #liner3 div {
+//   margin-top: 332px;
 
-  width: 29px;
-  margin-left: 78px;
-}
+//   width: 29px;
+//   margin-left: 78px;
+// }
 
-#final > div { 
-  margin-top: 250px; 
-}
+// #final > div { 
+//   margin-top: 250px; 
+// }
 
 
-.carousel  {
-  position: relative;
-  width: 100%;
-  height: 400px;
-  margin-top:14px;
-  overflow: hidden;
-  border-radius: 10px;
-}
-.carousel-indicators .active {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #17A803;
-  margin: 0 5px;
-  cursor: pointer;
-}
+// .carousel  {
+//   position: relative;
+//   width: 100%;
+//   height: 400px;
+//   margin-top:14px;
+//   overflow: hidden;
+//   border-radius: 10px;
+// }
+// .carousel-indicators .active {
+//   width: 10px;
+//   height: 10px;
+//   border-radius: 50%;
+//   background-color: #17A803;
+//   margin: 0 5px;
+//   cursor: pointer;
+// }
 
-.carousel-indicators .Indicators {
-  background-color: #959595;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  margin: 0 5px;
-  cursor: pointer;
-}
-.carousel-indicators {
-  margin-bottom:24px;
+// .carousel-indicators .Indicators {
+//   background-color: #959595;
+//   width: 10px;
+//   height: 10px;
+//   border-radius: 50%;
+//   margin: 0 5px;
+//   cursor: pointer;
+// }
+// .carousel-indicators {
+//   margin-bottom:24px;
   
-}
+// }
 .barca{
   display: flex;
   flex-wrap: wrap;

@@ -8,6 +8,7 @@ import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { notification } from "antd";
+import PagesSideBar from "@/components/stores/pages/PagesSideBar";
 function FeedbackPage() {
   const [formData, setFormData] = useState({
     title: "",
@@ -51,7 +52,7 @@ function FeedbackPage() {
       <MainSidebarFixed />
 
       <div className="side-container">
-        <div className="side">
+        {/* <div className="side">
           <a href="#home">
             <svg
               width="25"
@@ -197,7 +198,8 @@ function FeedbackPage() {
             </svg>
             <span className="mx-2">Logout</span>{" "}
           </a>
-        </div>
+        </div> */}
+        <PagesSideBar />
 
         <div className="content-page">
           <br></br>

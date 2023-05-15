@@ -38,7 +38,7 @@ function CartPage() {
         <MobileHeader />
         <MainSidebarFixed />
         <div className="store-container h-100">
-        <section className="h-100 my-3 ">
+        <div  className="h-100 my-3 ">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col">
               <h5 fw-bold>My Cart</h5>  
@@ -57,7 +57,7 @@ function CartPage() {
               </div>
             </div>
           </div>
-        </section>  
+        </div>  
       </div>
     </Fragment>
   )

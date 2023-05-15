@@ -99,7 +99,7 @@ function OfficeAddress({handleAddAddress}) {
             onChange={(e)=>handleChange(e)} 
             style={{border:'0px',background:'#eeeeee'}} 
              />
-        </div>
+        </div> 
 
         <div className="form-group my-2">
             <label for="exampleFormControlInput1">Phone Number</label>

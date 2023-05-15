@@ -5,10 +5,10 @@ function StoreBannerCard({banners}) {
   return (
     <section>
         
-        <div className='row '>
+        <div className='row row-cols-2 '>
             {banners.map((item,index)=>(
 
-                <div key={index} className='col-lg-5 col-md-5  '>
+                <div key={index} className='col-lg-5 col-md-5 col-sm-6 col-xs-6   '>
                 <img src={`${constants.port}${item.image}`} ></img>
                 </div>
             ))}
