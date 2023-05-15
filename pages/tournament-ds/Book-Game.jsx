@@ -447,8 +447,8 @@ You have 2 upcoming bookings</button>
     <h5 style={{color:'#17A803',fontWeight:'700'}}>24</h5>
     <p>Feb</p>
     </div>
-    <div className='book-details'>
-      <h5 style={{fontWeight:'700'}}>Football League 2023</h5>
+    <div className='book-details'> 
+      <h5 style={{fontWeight:'700'}}>Football League 2023</h5> 
       <p style={{color:'#959595'}}>9.00 AM to 12.00 PM</p>
       <p>Mohammed Al‑Hamad Stadium</p>
       <p>Hawally, Kuwait</p>

@@ -886,6 +886,9 @@ height: auto;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
+  // display: grid;
+  // grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
+  // grid-gap:10px;
 }
 .carl1{  
   display: flex;
@@ -1112,6 +1115,9 @@ div#header div {
   width: 100%;
   scroll-snap-align: center;
 }
+
+
+
 // sajin stores //
 @media(max-width:1360px){
   .store-container{
@@ -1144,7 +1150,10 @@ div#header div {
 }
 
 @media(max-width:769px){
-  
+  .store-container {
+  margin: 0 auto;
+  }
+
 }
 
 @media(max-width:700px){
@@ -1153,12 +1162,21 @@ div#header div {
 @media(max-width:659px){
 }
 @media (max-width:567px) {
+  .doc-card {
+    width: 119px;
+}
 }
 
 @media (max-width:440px) {
+  .doc-card {
+    width: 119px;
+}
 }
 
 @media (max-width:375px) {
+  .doc-card {
+    width: 100px;
+}
 }
 
 
