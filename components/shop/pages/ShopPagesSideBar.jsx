@@ -20,7 +20,7 @@ function ShopPagesSideBar({currentPage}) {
         </svg>
         <span className="mx-2" style={{color:`${currentPage === 'settings' ? '#17A803' : ''}`}}>Settings</span>
       </a>
-      <a href="#services">
+      <Link href='/shop/admin-all-orders' style={{textDecoration:'none'}}>
         <svg
           width="25"
           className="svg"
@@ -42,9 +42,9 @@ function ShopPagesSideBar({currentPage}) {
             fill="black"
           />
         </svg>
-        <span className="mx-2" style={{color:`${currentPage === 'settings' ? '#17A803' : ''}`}}>All Orders</span>
-      </a>
-      <a href="#clients">
+        <span className="mx-2" style={{color:`${currentPage === 'allOrders' ? '#17A803' : ''}`}}>All Orders</span>
+      </Link>
+      <Link href='/shop/report/earnings-report' style={{textDecoration:'none'}}>
         <svg
           width="26"
           height="27"
@@ -69,8 +69,8 @@ function ShopPagesSideBar({currentPage}) {
             </clipPath>
           </defs>
         </svg>
-        <span className="mx-2" style={{color:`${currentPage === 'settings' ? '#17A803' : ''}`}}>Earnings</span>
-      </a>
+        <span className="mx-2" style={{color:`${currentPage === 'earnings' ? '#17A803' : ''}`}}>Earnings</span>
+      </Link>
       <Link href='/shop/product-management' style={{textDecoration:'none'}}>
         <svg
           width="25"

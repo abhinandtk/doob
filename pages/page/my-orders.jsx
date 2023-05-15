@@ -23,7 +23,7 @@ function MyOrdersPage() {
       <MainSidebarFixed />
       <div className="store-container   ">
         <div className="bottom">
-          <PagesSideBar />
+          <PagesSideBar currentPage='myOrder'/>
 
           <MyOrders />
 

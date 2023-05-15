@@ -26,23 +26,33 @@ import constants from "@/public/data/my-constants/Constants";
 import MainHeader from "@/components/shared/headers/MainHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileHeader from "@/components/MobileHeader";
+import { useRouter } from "next/router";
 
 function PlayGroundDetailPage() {
-  //   useEffect(() => {
-  //     Axios.post(
-  //       apis.stadiumDetailView,
-  //       {
-  //         stadium_id: date,
-  //       },
-  //       {
-  //         headers: {
-  //           'Authorization': `Token ${constants.token_id}`,
-  //         }
-  //       }
-  //     ).then((res)=>{
-  //         console.log('trrtrtrtop879',res)
-  //     })
-  //   })
+    const router =useRouter()
+    const inputData = router.query
+    const [groundData,setGroundData]=useState([])
+    const [amenitiesData,setAmenitiesData]=useState([])
+    console.log('ggggggggggggggg',inputData)
+    useEffect(() => {
+      Axios.post(
+        apis.stadiumDetailView,
+        {
+          stadium_id:inputData.stadium_id, 
+          date:inputData.date
+        },
+        {
+          headers: {
+            'Authorization': `Token ${constants.token_id}`,
+          }
+        }
+      ).then((res)=>{
+        setGroundData(res.data.data.stadium_details)
+        setAmenitiesData(res.data.data.stadium_details.amnities)
+        
+          console.log('trrtrtrtop879',res)
+      })
+    },[inputData])
 
   return (
     <Fragment>
@@ -59,9 +69,10 @@ function PlayGroundDetailPage() {
             ></img>
           </span>
         </form>
-        <PlayGroundTopDetails />
-        <AmenitiesList />
-        <SelectGround />
+
+        <PlayGroundTopDetails details={groundData}/>
+        <AmenitiesList amenitiesData={amenitiesData}/>
+        <SelectGround details={groundData}/>
       </div>
     </Fragment>
   );

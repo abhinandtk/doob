@@ -97,7 +97,7 @@ function PagesSideBar({ currentPage }) {
         <span className="mx-2">Booking</span>
       </a>
 
-      <a href="#home">
+      <Link href="/page/favorite-stores" style={{ textDecoration: "none" }}>
         <svg
           width="22"
           height="22"
@@ -110,9 +110,14 @@ function PagesSideBar({ currentPage }) {
             fill="black"
           />
         </svg>
-        <span className="mx-2">My Orders</span>
-      </a>
-      <a href="#services">
+        <span
+          className="mx-2"
+          style={{ color: `${currentPage === "myOrder" ? "#17A803" : ""}` }}
+        >
+          My Orders
+        </span>
+      </Link>
+      <Link href="/store/feedback" style={{ textDecoration: "none" }}>
         <svg
           width="22"
           height="22"
@@ -125,8 +130,14 @@ function PagesSideBar({ currentPage }) {
             fill="black"
           />
         </svg>
-        <span className="mx-2"> FeedBack</span>
-      </a>
+        <span
+          className="mx-2"
+          style={{ color: `${currentPage === "feedback" ? "#17A803" : ""}` }}
+        >
+          {" "}
+          FeedBack
+        </span>
+      </Link>
       <a href="#clients">
         <svg
           width="23"

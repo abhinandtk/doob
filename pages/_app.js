@@ -7,8 +7,17 @@ import '@/styles/profiles/pros.scss'
 import '@/styles/store/store.scss'
 import '@/styles/tournament/tour.scss'
 import '@/styles/home/modals.scss'
+import { Provider } from 'react-redux';
+import { store } from '@/Redux/store';
 export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
-  
+  return (
+    <Provider store={store}>
+
+      <Component {...pageProps} />
+    </Provider>
+
+  )
+
+
 }
 

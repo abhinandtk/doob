@@ -11,10 +11,74 @@ import ModuleSecondVariants from "./ModuleSecondVariants";
 import { Fragment } from "react";
 import ProductDetailImages from "./ProductDetailImages";
 import ProductDetailTopDetails from "./ProductDetailTopDetails";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setProPrimaryVarientId,
+  setProSecondaryVarientId,
+} from "@/Redux/productDetail";
+import { useEffect } from "react";
 function ProductDetailFullWidth({ product }) {
+  const dispatch = useDispatch();
   const router = useRouter();
+  const prVarientId = useSelector((state) => state.product.proVarient);
+  const proPrimaryVarientId = useSelector(
+    (state) => state.product.proPrimaryVarientId
+  );
 
-  console.log("detaillllllllllspag14", product);
+  console.log("detaillllllllllspag14", prVarientId);
+  console.log("sdcsdcsdcsdc", product);
+  let priceView;
+  // useEffect(() => {
+  product &&
+    Array.isArray(product) &&
+    product[0] &&
+    product[0].Product_Items &&
+    product[0].Product_Items.map((item, index) => {
+      item.multivarient.length !== 0
+        ? item.multivarient.map((item_, index_) => {
+            if (item_.slug_id === prVarientId) {
+              priceView = (
+                <p style={{ color: "gray", fontWeight: "400" }}>
+                  <s>{item_.cut_prize}</s>
+                  <span
+                    className="mx-2"
+                    style={{
+                      fontSize: "20px",
+                      fontWeight: "500",
+                      color: "#17a803",
+                    }}
+                  >
+                    {item_.actual_prize}
+                  </span>
+                  <span></span>
+                </p>
+              );
+              dispatch(setProPrimaryVarientId(item.varent_id));
+              dispatch(setProSecondaryVarientId(item_.slug_id));
+              // setSuccess(true);
+            }
+          })
+        : dispatch(setProPrimaryVarientId(item.varent_id));
+      item.slug_id === prVarientId &&
+        (priceView = (
+          <p style={{ color: "gray", fontWeight: "400" }}>
+            <s>{item.cut_prize}</s>
+            <span
+              className="mx-2"
+              style={{
+                fontSize: "20px",
+                fontWeight: "500",
+                color: "#17a803",
+              }}
+            >
+              {item.actual_prize}
+            </span>
+            <span></span>
+          </p>
+        ));
+    });
+  // }, []);
+  console.log("firstloading,,", proPrimaryVarientId);
 
   const [quantity, setQuantity] = useState(1);
 
@@ -29,12 +93,12 @@ function ProductDetailFullWidth({ product }) {
     }
   };
 
-  const addToCartHandler = (slug) => {
-    console.log("erer", slug);
+  const addToCartHandler = (e) => {
+    e.preventDefault();
     Axios.post(
       apis.addtoCart,
       {
-        product_var_slug: slug,
+        product_var_slug: prVarientId,
         quantity: quantity,
       },
       {
@@ -56,22 +120,11 @@ function ProductDetailFullWidth({ product }) {
               <div className=" justify-content-between align-items-center ">
                 <ProductDetailTopDetails product={product} />
                 <ModuleVariants product={product} />
-                <ModuleSecondVariants product={product}/>
+                <ModuleSecondVariants product={product} />
                 <br></br>
-                <p style={{ color: "gray", fontWeight: "400" }}>
-                  <s>15.000 KD</s>
-                  <span
-                    className="mx-2"
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "500",
-                      color: "#17a803",
-                    }}
-                  >
-                    13.000 KD
-                  </span>
-                  <span></span>
-                </p>
+                
+                
+                {priceView}
                 <div className="qty">
                   <div
                     onClick={(e) => handleDecreaseQty(e)}
@@ -95,14 +148,9 @@ function ProductDetailFullWidth({ product }) {
                     +
                   </div>
                 </div>
-
                 <Button
                   type="submit"
-                  onClick={() =>
-                    addToCartHandler(
-                      product.Product_Items[0].multivarient[0].slug_id
-                    )
-                  }
+                  onClick={(e) => addToCartHandler(e)}
                   className="add-cart-btn "
                 >
                   Add to Cart

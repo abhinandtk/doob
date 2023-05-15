@@ -11,6 +11,9 @@ function ProductsForm({ handleProductAdd, editData }) {
   const [categoryData, setCategoryData] = useState([]);
   const [variantData, setVariantData] = useState([]);
   const [subCategory, setSubCategory] = useState([]);
+  const [primaryValues, setPrimaryValues] = useState([]);
+  const [secondaryValues, setSecondaryValues] = useState([]);
+  console.log('editdata',editData)
 
   const router = useRouter();
 
@@ -87,16 +90,40 @@ function ProductsForm({ handleProductAdd, editData }) {
         console.log("jjjjjjjjjjjjjjj");
       }
     }
+
+    if (e.target.id === "primary") {
+      const primaryId = e.target.value;
+      const primaryData = variantData.find((pid) => pid.id == primaryId);
+
+      if (primaryData && primaryData.variant_value) {
+        setPrimaryValues(primaryData.variant_value);
+      }
+    }
+    if (e.target.id === "secondary") {
+      const secondaryId = e.target.value;
+      const secondaryData = variantData.find((pid) => pid.id == secondaryId);
+
+      if (secondaryData && secondaryData.variant_value) {
+        setSecondaryValues(secondaryData.variant_value);
+      }
+    }
     const newFormData = { ...formData };
     newFormData[e.target.id] = e.target.value;
     setFormData({ ...newFormData });
     console.log("oooooooooooooorrrrr", formData);
   };
+
+
+
   const handleVariantChange = (e, index) => {
     e.preventDefault();
     setFormData((prev) => {
       const variants = [...prev.variants];
-      variants[index][e.target.id] = e.target.value;
+      if (e.target.id === "formFile") {
+        variants[index][e.target.id] = e.target.files[0];
+      } else {
+        variants[index][e.target.id] = e.target.value;
+      }
       return { ...prev, variants };
     });
     console.log("trrrrrrrrrrrrrrrrrruiououo8745884", formData);
@@ -394,10 +421,12 @@ function ProductsForm({ handleProductAdd, editData }) {
                     id="color"
                     onChange={(e) => handleVariantChange(e, index)}
                   >
-                    <option>No</option>
-                    
-                    <option value="5">5</option>
-                    <option value="6">6</option>
+                    <option value="">--Select--</option>
+                    {primaryValues.map((item, index) => (
+                      <option key={index} value={item.id}>
+                        {item.Varient_Values}
+                      </option>
+                    ))}
                   </select>
                 </div>
                 <div class="form-group my-2">
@@ -412,10 +441,12 @@ function ProductsForm({ handleProductAdd, editData }) {
                     id="size"
                     onChange={(e) => handleVariantChange(e, index)}
                   >
-                    <option>No</option>
-              
-                    <option value="7">7</option>
-                    <option value="7">8</option>
+                    <option value="">--Select--</option>
+                    {secondaryValues.map((item, index) => (
+                      <option key={index} value={item.id}>
+                        {item.Varient_Values}
+                      </option>
+                    ))}
                   </select>
                 </div>
                 <div className="form-group my-2">

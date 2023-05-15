@@ -45,6 +45,7 @@ const apis = {
 
     //store module
 
+    'feedback':`${constants.port}/API/feedback-api`,
     'stores':`${constants.port}/store/api/stores`,
     'storeview':`${constants.port}/store/api/store_view`,
 
@@ -74,26 +75,52 @@ const apis = {
     'createBrand':`${constants.port}/store/api/create_brand`,
     'brandView':`${constants.port}/store/api/list_user_brands`,
     'editBrand':`${constants.port}/store/api/edit_brand`,
+    'activeBrand':`${constants.port}/store/api/brand_active`,
+    'brandReport':`${constants.port}/store/api/brand_report `,
 
     'addCategory':`${constants.port}/store/api/add_category`,
     'editCategory':`${constants.port}/store/api/edit_category`,
     'editSubCategory':`${constants.port}/store/api/edit_subcategory`,
     'categoryList':`${constants.port}/store/api/store_category_list`,
     'categoryActive':`${constants.port}/store/api/category_active `,
+    'categoryReport':`${constants.port}/store/api/category_report `,
 
     'productsList':`${constants.port}/store/api/list_products `,
     'addProduct':`${constants.port}/store/api/create_product `,
     'editProduct':`${constants.port}/store/api/edit_product `,
+    'productReport':`${constants.port}/store/api/product_report `,
+
+    'costomerReport':`${constants.port}/store/api/customer_report `,
 
     'addReview':`${constants.port}/store/api/add_review `,
     'viewReview':`${constants.port}/store/api/view_review `,
     'deleteReview':`${constants.port}/store/api/delete_review `,
 
+    'ordersAdmin':`${constants.port}/store/api/order_list_api_store `,
+    'changeStatus':`${constants.port}/store/api/change_status_product `,
+
+    'salesReport':`${constants.port}/store/api/sales_report `,
+    'earningReport':`${constants.port}/store/api/earnings_day_report `,
+
+
+
+
     //Play ground
 
+    'homePagePlay':`${constants.port}/playground/api/games_homepage`,
     'listStadium':`${constants.port}/playground/api/list_all_stadium`,
     'listGameAmenities':`${constants.port}/playground/api/get_all_games_and_amenities `,
     'stadiumDetailView':`${constants.port}/playground/api/list_timeslots `,
+    'createGame':`${constants.port}/playground/api/create_game`,
+    'playCart':`${constants.port}/playground/api/play_cart`,
+    'gameDetail':`${constants.port}/playground/api/games_detail`,
+    'inviteUser':`${constants.port}/playground/api/invite_user`,
+    'removeUser':`${constants.port}/playground/api/remove_user`,
+    'addPlayground':`${constants.port}/playground/api/ad_add_playground`,
+
+    'listAllGames':`${constants.port}/playground/api/list_games`,
+
+
 
 
 
