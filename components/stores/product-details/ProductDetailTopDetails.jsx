@@ -21,12 +21,13 @@ function ProductDetailTopDetails({ product }) {
               "| " + item.values_values + "| " + item_.values;
           }
         })
-      : item.slug_id === prVarientId &&
+       : item.slug_id === prVarientId &&
           (
             productNameExtension = "| " + item.values_values,
             productStock = item.stock
           );
-  });
+  }); 
+   
   
   return (
     <Fragment>

@@ -49,8 +49,8 @@ function OfficeAddress({handleAddAddress}) {
             onChange={(e)=>handleChange(e)} 
             style={{border:'0px',background:'#eeeeee'}} 
             >
-            <option value=''>select</option>
-            <option value='1'>1</option>
+            <option value=''>select</option> 
+            <option value='1'>1</option> 
             <option value='2'>2</option>
             <option value='3'>3</option>
            
@@ -99,7 +99,7 @@ function OfficeAddress({handleAddAddress}) {
             onChange={(e)=>handleChange(e)} 
             style={{border:'0px',background:'#eeeeee'}} 
              />
-        </div>
+        </div> 
 
         <div className="form-group my-2">
             <label for="exampleFormControlInput1">Phone Number</label>
@@ -111,7 +111,7 @@ function OfficeAddress({handleAddAddress}) {
             onChange={(e)=>handleChange(e)} 
             style={{border:'0px',background:'#eeeeee'}} 
             />
-        </div>
+        </div> 
         <div className="form-group my-2">
             <label for="exampleFormControlInput1">Office Number</label>
             <input 

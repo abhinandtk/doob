@@ -10,7 +10,7 @@ function ProductDetailImages() {
           setCurrentImageIndex(newIndex)
         }
       >
-        {images.map((image, index) => (
+        {images.map((image, index) => ( 
           <div key={index}>
             <Image src={image} alt={`Product Image ${index + 1}`} />
           </div>

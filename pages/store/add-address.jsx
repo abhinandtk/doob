@@ -107,10 +107,10 @@ function AddAddressPage() {
         <MainSidebarFixed />
         <div className="store-container  my-5">
             <h5 fw-bold>Add a New Address</h5>
-            <div className="card  " style={{width:'85%'}}> 
+            <div className="card address-card " > 
                 <div className="card-body p-5  ">
                     <h6>Address Type</h6>
-                    <span >
+                    <div className='rrr' >
                         <button 
                         className="button button23" 
                         onClick={()=>setAddressType('home')}
@@ -143,7 +143,7 @@ function AddAddressPage() {
                             <i className="bi bi-grid "></i>
                             <span className='mx-1'>Thirty Party</span>
                         </button> 
-                    </span>
+                    </div >
                     {addressType === 'home' && <HomeAddress handleAddAddress={handleAddAddress}/>}
                     {addressType === 'office' && <OfficeAddress handleAddAddress={handleAddAddress}/>}
                     {addressType === 'apartment' && <ApartmentAddress handleAddAddress={handleAddAddress}/>}

@@ -5,7 +5,7 @@ import ProductReviewForm from "@/components/stores/review/ProductReviewForm";
 import ProductReviewList from "@/components/stores/review/ProductReviewList";
 import React, { Fragment } from "react";
 import { CardImg } from "react-bootstrap";
-import Axios from "axios";
+import Axios from "axios"; 
 import { useState } from "react";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
@@ -45,7 +45,7 @@ function ReviewPage() {
           <div className="row d-flex justify-content-center align-items-center h-100  ">
             <h5>Reviews</h5>
             <div className="col ">
-              <div className="card ">
+              <div className="review card ">
                 <div className="card-body p-5 ">
                   <div className="row">
                     {reviewAdded.length === 0 ? <ProductReviewForm setOnSuccess={setOnSuccess}/> : <></>}

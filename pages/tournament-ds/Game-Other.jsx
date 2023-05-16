@@ -312,7 +312,7 @@ Arabic</Dropdown.Item>
          </div>
         
           <div className='field-info'>
-            <span> <img   src='../images/tournament/c1.png' style={{width:'25px',height:'25px',objectFit:'cover'}}></img><span className='mx-1' style={{color:'#17A803',fontSize:'14px',fontWeight:'500'}}>Hosted by</span><span style={{fontSize:'14px',fontWeight:'500'}}>Ahmed Al Tourah   </span></span>
+            <span> <img   src='../images/tournament/c1.png' style={{width:'25px',height:'25px',objectFit:'cover'}}></img><span className='mx-1' style={{color:'#17A803',fontSize:'14px',fontWeight:'500'}}>Hosted by</span><span className='game-name'>Ahmed Al Tourah   </span></span>
             <br></br>
             <span><i class="bi bi-clock"></i><span className='mx-2' style={{fontWeight:'500',fontSize:'14px'}} >4 Feb, 2023</span><span style={{fontWeight:'500',fontSize:'14px'}}> 9.00 AM to 12.00 PM</span></span>
             <br></br>
@@ -377,7 +377,7 @@ Arabic</Dropdown.Item>
      <p className='float-end' style={{color:'#FC4444'}}>Left</p>
      </div>
      <div className='clearfix players  my-4'>
-    <p className='float-start'>Share via link<br></br><span>https://www.doob.com/bookings/file/3MDEKqi76uQxwkFZaqbl5r/Doob?node-id=282%3A802&t</span></p> 
+    <p className='float-start'>Share via link<br></br><span className='col-md-12'>https://www.doob.com/bookings/file/3MDEKqi76uQxwkFZaqbl5r/Doob?node-id=282%3A802&t</span></p> 
     <svg width="16" className='float-end' height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M1.08079 6.17646C0.427011 5.84957 0.506232 4.89236 1.20485 4.67739L14.0137 0.736219C14.6353 0.544939 15.2176 1.12722 15.0263 1.74888L11.0852 14.5577C10.8702 15.2563 9.91298 15.3355 9.58609 14.6818L6.87177 9.25312C6.79337 9.09633 6.66623 8.96918 6.50943 8.89079L1.08079 6.17646Z" stroke="black" stroke-width="1.02343" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M6.8125 8.94988L10.7389 5.02344" stroke="black" stroke-width="1.02343" stroke-linecap="round" stroke-linejoin="round"/>

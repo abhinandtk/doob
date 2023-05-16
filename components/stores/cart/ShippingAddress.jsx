@@ -51,7 +51,7 @@ function ShippingAddress({ data, setOnSuccess }) {
         />
       </Modal>
 
-      <p className="mt-3 ">Shipping Address</p>
+      <h6 className="mt-3 ">Shipping Address</h6>
       {data.map((item, index) => (
         <div key={index} className="card mb-2 ">
           <div className="card-body">

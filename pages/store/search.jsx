@@ -47,7 +47,7 @@ function StoreSearchPage() {
           />
         </form>
 
-        <section className="my-2 ">{/* <SearchCategory /> */}</section>
+        <div className="my-2 ">{/* <SearchCategory /> */}</div>
         {resultProduct && <StoreProductsCard products={resultProduct} />}
       </div>
     </Fragment>
