@@ -17,6 +17,7 @@ import {
   setProSecondaryVarientId,
 } from "@/Redux/productDetail";
 import { useEffect } from "react";
+import { notification } from "antd";
 function ProductDetailFullWidth({ product }) {
   const dispatch = useDispatch();
   const router = useRouter();
@@ -107,6 +108,10 @@ function ProductDetailFullWidth({ product }) {
         },
       }
     ).then((res) => {
+      notification.success({
+        message:'Success',
+        description:'Item added to cart'
+      }),
       console.log("res", res);
     });
   };
@@ -115,7 +120,7 @@ function ProductDetailFullWidth({ product }) {
       {product.map((product, index) => {
         return (
           <>
-            <ProductDetailImages />
+            <ProductDetailImages product={product}/>
             <div className="col-md-5 ">
               <div className=" justify-content-between align-items-center ">
                 <ProductDetailTopDetails product={product} />

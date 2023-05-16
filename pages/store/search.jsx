@@ -8,29 +8,47 @@ import constants from "@/public/data/my-constants/Constants";
 import { useState } from "react";
 import StoreProductsCard from "@/components/stores/StoreProductsCard";
 import SearchCategory from "@/components/stores/SearchCategory";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 function StoreSearchPage() {
-  const [searchInput, setSearchInput] = useState("");
+  const router = useRouter();
+
+  const [searchInput, setSearchInput] = useState(router.query.search);
+  console.log("searchInput", searchInput);
   const [resultProduct, setResultProduct] = useState([]);
-  const searchResult = (e) => {
-    setSearchInput(e.target.value);
-    if (searchInput.length > 2) {
-        console.log('uuuuuuuuuuuuuuut')
-      Axios.post(
-        apis.storesearch,
-        {
-          user_input: searchInput,
+  useEffect(() => {
+    Axios.post(
+      apis.storesearch,
+      {
+        user_input: searchInput,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
         },
-        {
-          headers: {
-            Authorization: `Token ${constants.token_id}`,
-          },
-        }
-      ).then((res) => {
-        setResultProduct(res.data.data);
-        console.log("IIIIIIIIIIIIIIIOOOIOSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS", res);
-      });
-    }
+      }
+    ).then((res) => {
+      setResultProduct(res.data.data);
+      console.log("IIIIIIIIIIIIIIIOOOIOSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS", res);
+    });
+  },[]);
+
+  const searchResultHandler = (e) => {
+    Axios.post(
+      apis.storesearch,
+      {
+        user_input: searchInput,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      setResultProduct(res.data.data);
+      console.log("IIIIIIIIIIIIIIIOOOIOSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS", res);
+    });
   };
 
   return (
@@ -39,12 +57,21 @@ function StoreSearchPage() {
       <MainSidebarFixed />
       <div className="store-container">
         <form className="nosubmit ">
-          <input
-            onChange={searchResult}
-            className="nosubmit1"
-            type="search"
-            placeholder="Search"
-          />
+          <span>
+            {" "}
+            <input
+              className="nosubmit1"
+              onChange={(e) => setSearchInput(e.target.value)}
+              type="search"
+              placeholder="Search"
+            />
+            <span onClick={(e) => searchResultHandler(e)}>
+              <img
+                src="../images/store/Fil-icon.png"
+                className="filters-icon"
+              ></img>
+            </span>
+          </span>
         </form>
 
         <div className="my-2 ">{/* <SearchCategory /> */}</div>

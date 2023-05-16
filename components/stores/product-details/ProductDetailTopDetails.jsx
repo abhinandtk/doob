@@ -31,7 +31,7 @@ function ProductDetailTopDetails({ product }) {
   
   return (
     <Fragment>
-      <span className="float">
+      {/* <span className="float">
         <svg
           width="18"
           height="17"
@@ -96,7 +96,7 @@ function ProductDetailTopDetails({ product }) {
             stroke-linejoin="round"
           />
         </svg>
-      </span>
+      </span> */}
       <h5 className="col-md-9">{product.Name}{productNameExtension}</h5>
       <p className="mx-1 mb-2" style={{cursor:'pointer'}} onClick={()=>router.push(`/store/product/review/${prVarientId}`)}>
         <i className="bi bi-star-fill" style={{ color: "yellow" }}></i>4.5
