@@ -130,7 +130,7 @@ function FavoriteProducts() {
                       />
                       <Card.Body>
                         <div style={{ fontSize: "14px", fontWeight: "500" }}>
-                          <i className="bi bi-star-fill"></i> 4.5
+                          <i className="bi bi-star-fill "></i> 4.5
                           <span
                             onClick={() =>
                               favoriteHandler(item.slug_Id, item.isWish)

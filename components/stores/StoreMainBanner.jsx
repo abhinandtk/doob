@@ -4,15 +4,16 @@ import {Container,Nav,Navbar,Dropdown,Carousel,Card} from 'react-bootstrap';
 
 function StoreMainBanner({banners}) {
   return (
-    <Carousel className='mx-2' >
+    <Carousel className='mx-1' >
       {banners.map((item,index)=>(
       <Carousel.Item key={index} interval={1000}  >
         <img
-          className=" w-100  "
+          className=" w-100 "
           src={`${constants.port}${item.image}`} style={{width:'100%'}}
           alt="First slide" 
         />
       </Carousel.Item>
+
       ))}                                                                                                    
   {/* <Carousel.Item interval={500}> 
     <img

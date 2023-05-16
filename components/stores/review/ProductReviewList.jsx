@@ -29,7 +29,7 @@ function ProductReviewList({ reviewData, setOnSuccess }) {
 
   return (
     <Fragment>
-      {reviewData &&
+      {reviewData && 
         reviewData.map((content, index) => (
           <>
             {content.logined_user &&

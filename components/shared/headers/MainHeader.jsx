@@ -76,7 +76,7 @@ function MainHeader({ title }) {
                       fontFamily: "Inter, sans-serif;",
                       backgroundColor: "#17A803",
                     }}
-                  >
+                  > 
                     Create <i className="bi bi-chevron-down "></i>
                   </Dropdown.Toggle>
 
@@ -279,7 +279,7 @@ function MainHeader({ title }) {
                 <svg
                   width="22"
                   height="18"
-                  className="menu"
+                  className="menu my-2"
                   onClick={() => setShow(true)}
                   viewBox="0 0 22 18"
                   fill="none"
