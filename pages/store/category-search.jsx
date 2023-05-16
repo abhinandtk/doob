@@ -93,7 +93,7 @@ function CategorySearchPage() {
                 </button>
               </div>
             ))}
-          <div
+          {/* <div
             className="btn-group me-2"
             role="group"
             aria-label="Second group"
@@ -101,7 +101,7 @@ function CategorySearchPage() {
             <button type="button" className="btn btn-outline-secondary">
               Gloves
             </button>
-          </div>
+          </div> */}
         </section>
         {subCategoyProduct ? (<>
           <StoreProductsCard products={subCategoyProduct} /></>
