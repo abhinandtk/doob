@@ -37,7 +37,7 @@ function PlayGroundPage() {
         Authorization: `Token ${constants.token_id}`,
       },
     }).then((res) => {
-      setCountry(res.data.country);
+      setCountry(res.data.data.country);
       console.log("fffffffffff", res);
     });
 

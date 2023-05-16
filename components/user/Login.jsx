@@ -140,7 +140,7 @@ function Login({setActiveModal}) {
         placeholder="Password" 
          
         onChange={(e)=>setPassword(e.target.value)}/>
-       <div className='forget' onClick={handleforgetpsw}> Forget Password</div>
+       <div className='forget' onClick={handleforgetpsw}> Forgot Password</div>
       </Form.Group>
       <Modal.Footer >
           <Button type="submit" 

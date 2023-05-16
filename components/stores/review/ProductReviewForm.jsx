@@ -3,8 +3,11 @@ import React, { useState } from "react";
 import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
+import { useRouter } from "next/router";
 
 function ProductReviewForm({ setOnSuccess }) {
+  const router = useRouter();
+  const { rid } = router.query;
   const [count, setCount] = useState(0);
   const [reviewForm, setReviewForm] = useState({
     description: "",
@@ -37,7 +40,7 @@ function ProductReviewForm({ setOnSuccess }) {
         title: "",
         description: reviewForm.description,
         image: reviewForm.image,
-        productSlugId: "doob-c847343b-2",
+        productSlugId: rid,
       },
       {
         headers: {

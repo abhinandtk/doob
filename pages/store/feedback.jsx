@@ -210,7 +210,7 @@ function FeedbackPage() {
               <Form.Control
                 id="title"
                 type="text"
-                placeholder=" title"
+                placeholder="Title"
                 className="  mx-2  op"
                 style={{ width: "90%" }}
                 onChange={(e) => changeHandler(e)}
@@ -220,7 +220,7 @@ function FeedbackPage() {
               <Form.Control
                 id="email"
                 type="email"
-                placeholder="  email"
+                placeholder="Email"
                 className="  mx-2   op"
                 style={{ width: "90%" }}
                 onChange={(e) => changeHandler(e)}

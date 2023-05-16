@@ -8,8 +8,7 @@ import constants from "@/public/data/my-constants/Constants";
 import { useState } from "react";
 
 function ProductManagement() {
-
-  const router=useRouter()
+  const router = useRouter();
   const [productList, setProductList] = useState([]);
   useEffect(() => {
     Axios.get(apis.productsList, {
@@ -19,7 +18,7 @@ function ProductManagement() {
     }).then((res) => {
       setProductList(res.data.data);
 
-      console.log('dhfbvdhbfvhdbfvhdbfvhdbfvhj',res.data.data)
+      console.log("dhfbvdhbfvhdbfvhdbfvhdbfvhj", res.data.data);
     });
   });
   return (
@@ -43,10 +42,17 @@ function ProductManagement() {
                 style={{ width: "90%" }}
               >
                 <p style={{ fontWeight: "500" }}>{item.name}</p>
-                <button onClick={()=>router.push({
-                  pathname:`/shop/edit-product/${item.variants[0].slug_id}`,
-                  query:item
-                })} className="edit-btn mb-2">Edit</button>
+                <button
+                  onClick={() =>
+                    router.push({
+                      pathname: `/shop/edit-product/${item.variants[0].slug_id}`,
+                      query: { id: item.id },
+                    })
+                  }
+                  className="edit-btn mb-2"
+                >
+                  Edit
+                </button>
               </div>
               <hr
                 className="mx-auto "
@@ -110,7 +116,9 @@ function ProductManagement() {
             </div>
           ))
         ) : (
-          <center><div  className="my-5">No products found ......</div></center>
+          <center>
+            <div className="my-5">No products found ......</div>
+          </center>
         )}
 
         <br></br>
