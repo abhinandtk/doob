@@ -13,8 +13,9 @@ import ProductDetailFullWidth from "@/components/stores/product-details/ProductD
 function ProductDetailPage() {
   const [productDetails, setProductDetails] = useState([]);
   const router = useRouter();
-  const { pid } = router.query;
-
+  const { pid } = router.query;                   
+      
+                                                                                                                                                                                                                                    
   useEffect(()=>{
     Axios.post(
       apis.productDetail,

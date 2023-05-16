@@ -38,7 +38,7 @@ function ProductDetailFullWidth({ product }) {
         ? item.multivarient.map((item_, index_) => {
             if (item_.slug_id === prVarientId) {
               priceView = (
-                <p style={{ color: "gray", fontWeight: "400" }}>
+                <p className="price" style={{ color: "gray", fontWeight: "400" }}>
                   <s>{item_.cut_prize}</s>
                   <span
                     className="mx-2"
@@ -116,7 +116,7 @@ function ProductDetailFullWidth({ product }) {
         return (
           <>
             <ProductDetailImages />
-            <div className="col-md-5 ">
+            <div className="col-md-5 shop-cart ">
               <div className=" justify-content-between align-items-center ">
                 <ProductDetailTopDetails product={product} />
                 <ModuleVariants product={product} />

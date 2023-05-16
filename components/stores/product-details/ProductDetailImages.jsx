@@ -35,7 +35,7 @@ function ProductDetailImages() {
         ))}
       </div> */}
       <div className="col-lg-8">
-        <div className="row row-cols-3   colors ">
+        <div className="row row-cols-6  colors ">
           <div className="col-md-3 col-sm-6 col-xs-6  ">
             <img
               src="../../images/store/red.png"

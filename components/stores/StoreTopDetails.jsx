@@ -20,7 +20,7 @@ function StoreTopDetails({ data }) {
       {
         headers: {
           Authorization: `Token ${constants.token_id}`,
-        },
+        }, 
       }
     ).then((res) => {
       console.log("restttttttttttttttttttttttttttttttttttttt", res);
