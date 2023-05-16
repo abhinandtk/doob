@@ -70,18 +70,18 @@ function SelectGround({ details }) {
                           : item.is_booked
                           ? "time-slot1"
                           : "time-slot2"
-                      } `}
+                      } `} 
                       onClick={() => {
                         !item.is_booked && handleSlotClick(item.id);
-                      }}
+                      }}                                                     
                     >
                       <p style={{ marginTop: "13px", marginLeft: "23px" }}>
                         {item.start_time}-{item.end_time}
                       </p>
-                    </div>
+                    </div>              
                   ))
-                ) : (
-                  <>no time slot available</>
+                ) : (                       
+                  <>no time slot available</>                                 
                 )}
               </div>
             </div>

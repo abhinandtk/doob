@@ -72,20 +72,20 @@ console.log('images34',productImages)
         ))}
       </div>
       <div className="col-lg-8">
-        <div className="row colors ">
-          <div className="col-md-2  ">
+        <div className="row row-cols-6  colors ">
+          <div className="col-md-3 col-sm-6 col-xs-6  ">
             <img
               src="../../images/store/red.png"
               style={{ width: "50px", height: "50px" }}
             ></img>
           </div>
-          <div className="col-md-2">
+          <div className="col-md-3 col-sm-6 col-xs-6 ">
             <img
               src="../../images/store/purple.png"
               style={{ width: "50px", height: "50px" }}
             ></img>
           </div>
-          <div className="col-md-2 ">
+          <div className="col-md-3 col-sm-6 col-xs-6  ">
             <img
               src="../../images/store/violet.png"
               style={{ width: "50px", height: "50px" }}

@@ -279,7 +279,7 @@ form.nosubmit {
     .more{
         float: right;
         // margin-right: -120px;
-        margin-top: 58px;
+        margin-top: 110px;
         color: #17A803;
        
     }
@@ -313,6 +313,8 @@ form.nosubmit {
   background:#656565;
   color:#fff;
   padding: 0px 2px;
+  width: 65px;
+  height: 28px;
 }
 .outlocks.btn:hover{
   background: transparent;
@@ -322,6 +324,7 @@ form.nosubmit {
 
  .colors{
   margin-top: -12px;
+
  }
 
  .float{
@@ -1254,6 +1257,46 @@ div#header div {
     border: 0px;
     width: 100%;
   }
+  .colors{
+    margin-top: 32px;
+    justify-content: center;
+   
+   }
+   .qty {
+    float: right;
+    margin-left: 350px;
+    margin-top: -40px;
+  
+  }
+  .shop-cart{
+    margin-top: 22px;
+  }
+  .outlocks.btn{
+    background:#656565;
+    color:#fff;
+    padding: 0px 2px;
+    width: 65px;
+    height: 28px;
+  }
+  .outlocks.btn:hover{
+    background: transparent;
+    color: #000;
+  }
+  .headings {
+    font-weight: 600;
+    line-height: 28px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 290px;
+    
+  }
+  .price{
+    margin-top: -22px;
+  }
+  
 }
 
 
