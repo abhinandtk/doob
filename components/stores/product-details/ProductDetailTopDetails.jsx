@@ -1,8 +1,10 @@
+import { useRouter } from "next/router";
 import React from "react";
 import { Fragment } from "react";
 import { useSelector } from "react-redux";
 
 function ProductDetailTopDetails({ product }) {
+  const router = useRouter()
   let productStock;
   let productNameExtension;
 
@@ -95,7 +97,7 @@ function ProductDetailTopDetails({ product }) {
         </svg>
       </span>
       <h5 className="col-md-9">{product.Name}{productNameExtension}</h5>
-      <p className="mx-1 mb-2">
+      <p className="mx-1 mb-2" style={{cursor:'pointer'}} onClick={()=>router.push(`/store/product/review/${prVarientId}`)}>
         <i className="bi bi-star-fill" style={{ color: "yellow" }}></i>4.5
         <span style={{ color: "grey" }}>(203 reviews)</span>
       </p>

@@ -10,16 +10,19 @@ import { useState } from "react";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 function ReviewPage() {
   const [reviewData, setReviewData] = useState([]);
   const [reviewAdded, setReviewAdded] = useState([]);
   const [onSuccess, setOnSuccess] = useState(false);
+  const router =useRouter()
+  const {rid} = router.query
   useEffect(() => {
     Axios.post(
       apis.viewReview,
       {
         language: "",
-        productSlugId: "doob-c847343b-2",
+        productSlugId: rid,
       },
       {
         headers: {

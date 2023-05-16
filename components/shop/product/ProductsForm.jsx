@@ -13,10 +13,10 @@ function ProductsForm({ handleProductAdd, editData }) {
   const [subCategory, setSubCategory] = useState([]);
   const [primaryValues, setPrimaryValues] = useState([]);
   const [secondaryValues, setSecondaryValues] = useState([]);
-  console.log('editdata',editData)
 
   const router = useRouter();
-
+  console.log("editdata", router.query);
+  const id = router.query.id;
   const [formData, setFormData] = useState({
     name: "",
     nameArabic: "",
@@ -51,32 +51,47 @@ function ProductsForm({ handleProductAdd, editData }) {
       setVariantData(res.data.data.variant_types);
     });
 
-    if (editData) {
-      setFormData({
-        name: editData.name,
-        nameArabic: editData.name_ar,
-        brand: "",
-        category: "",
-        subCategory: "",
-        tag: [],
-        primary: "",
-        secondary: "",
-        description: "",
-        description_ar: "",
-        variants: [
-          {
-            sku: "",
-            quantity: "",
-            formFile: "",
-            color: "",
-            size: "",
-            actualPrize: "",
-            sellingPrice: "",
+    if (editData === "true") {
+      Axios.post(
+        apis.getByidProduct,
+        {
+          product_id: id,
+        },
+        {
+          headers: {
+            Authorization: `Token ${constants.token_id}`,
           },
-        ],
+        }
+      ).then((res) => {
+        if (res.data.status == 1) {
+          const variants = res.data.data[0].variants.map((variant) => ({
+            sku: variant.sku_code,
+            quantity: variant.quantity,
+            formFile: "",
+            color: variant.primary_variant_value_id,
+            size: variant.secondary_variant_value_id,
+            actualPrize: variant.actual_price,
+            sellingPrice: variant.selling_price,
+          }));
+
+          setFormData({
+            name: res.data.data[0].name,
+            nameArabic: res.data.data[0].name_ar,
+            brand: res.data.data[0].brand_id,
+            category: res.data.data[0].category_id,
+            subCategory: res.data.data[0].subcategory_id,
+            tag: [],
+            primary: res.data.data[0].primary_variant_id,
+            secondary: res.data.data[0].secondary_variant_id,
+            description: res.data.data[0].description,
+            description_ar: res.data.data[0].description_ar,
+            variants: variants,
+          });
+        }
+        console.log("getproductiiiiiiiiiiiiii", res);
       });
     }
-  }, []);
+  });
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -113,14 +128,23 @@ function ProductsForm({ handleProductAdd, editData }) {
     console.log("oooooooooooooorrrrr", formData);
   };
 
-
-
   const handleVariantChange = (e, index) => {
     e.preventDefault();
     setFormData((prev) => {
       const variants = [...prev.variants];
       if (e.target.id === "formFile") {
-        variants[index][e.target.id] = e.target.files[0];
+        const formData = new FormData();
+        console.log("iuo", e.target.files[0]);
+        formData.append("file_field_name", e.target.files[0]);
+        Axios.post(apis.allImagesUpload, formData, {
+          headers: {
+            Authorization: `Token ${constants.token_id}`,
+          },
+        }).then((res) => {
+          variants[index][e.target.id] = res.data.image_url;
+          console.log("wweeeeeewwweeee", res);
+        });
+        // variants[index][e.target.id] = e.target.files[0];
       } else {
         variants[index][e.target.id] = e.target.value;
       }
@@ -163,7 +187,7 @@ function ProductsForm({ handleProductAdd, editData }) {
     <div class="content-topic  ">
       <div className="bottom">
         <h6 className=" ms-4" style={{ color: "#17a803", fontWeight: "700" }}>
-          Add Products
+          {editData === "true" ? "Edit Products" : "Add Products"}
         </h6>
 
         <div className="my-4 mx-4 ">
@@ -214,7 +238,11 @@ function ProductsForm({ handleProductAdd, editData }) {
               >
                 <option value="">--Selelct--</option>
                 {brandData.map((item, index) => (
-                  <option key={index} value={item.id}>
+                  <option
+                    selected={editData === "true" && formData.brand == item.id}
+                    key={index}
+                    value={item.id}
+                  >
                     {item.brand}
                   </option>
                 ))}
@@ -235,7 +263,13 @@ function ProductsForm({ handleProductAdd, editData }) {
               >
                 <option value="">--Selelct--</option>
                 {categoryData.map((item, index) => (
-                  <option key={index} value={item.id}>
+                  <option
+                    selected={
+                      editData === "true" && formData.category == item.id
+                    }
+                    key={index}
+                    value={item.id}
+                  >
                     {item.title}
                   </option>
                 ))}
@@ -255,7 +289,13 @@ function ProductsForm({ handleProductAdd, editData }) {
               >
                 <option value="">--Select--</option>
                 {subCategory.map((item, index) => (
-                  <option key={index} value={item.id}>
+                  <option
+                    selected={
+                      editData === "true" && formData.subCategory == item.id
+                    }
+                    key={index}
+                    value={item.id}
+                  >
                     {item.title}
                   </option>
                 ))}
@@ -291,7 +331,13 @@ function ProductsForm({ handleProductAdd, editData }) {
               >
                 <option value="">--Select--</option>
                 {variantData.map((item, index) => (
-                  <option key={index} value={item.id}>
+                  <option
+                    selected={
+                      editData === "true" && formData.primary == item.id
+                    }
+                    key={index}
+                    value={item.id}
+                  >
                     {item.Varient_Name}
                   </option>
                 ))}
@@ -311,7 +357,13 @@ function ProductsForm({ handleProductAdd, editData }) {
               >
                 <option value="">--Select--</option>
                 {variantData.map((item, index) => (
-                  <option key={index} value={item.id}>
+                  <option
+                    selected={
+                      editData === "true" && formData.secondary == item.id
+                    }
+                    key={index}
+                    value={item.id}
+                  >
                     {item.Varient_Name}
                   </option>
                 ))}
@@ -375,6 +427,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                       color: "grey",
                     }}
                     id="sku"
+                    value={item.sku}
                     onChange={(e) => handleVariantChange(e, index)}
                   />
                 </div>
@@ -389,6 +442,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                       color: "grey",
                     }}
                     id="quantity"
+                    value={item.quantity}
                     onChange={(e) => handleVariantChange(e, index)}
                   />
                 </div>
@@ -422,9 +476,13 @@ function ProductsForm({ handleProductAdd, editData }) {
                     onChange={(e) => handleVariantChange(e, index)}
                   >
                     <option value="">--Select--</option>
-                    {primaryValues.map((item, index) => (
-                      <option key={index} value={item.id}>
-                        {item.Varient_Values}
+                    {primaryValues.map((item_, index) => (
+                      <option
+                        selected={editData === "true" && item.color == item_.id}
+                        key={index}
+                        value={item_.id}
+                      >
+                        {item_.Varient_Values}
                       </option>
                     ))}
                   </select>
@@ -442,9 +500,13 @@ function ProductsForm({ handleProductAdd, editData }) {
                     onChange={(e) => handleVariantChange(e, index)}
                   >
                     <option value="">--Select--</option>
-                    {secondaryValues.map((item, index) => (
-                      <option key={index} value={item.id}>
-                        {item.Varient_Values}
+                    {secondaryValues.map((item_, index) => (
+                      <option
+                        selected={editData === "true" && item.size == item_.id}
+                        key={index}
+                        value={item_.id}
+                      >
+                        {item_.Varient_Values}
                       </option>
                     ))}
                   </select>
@@ -462,6 +524,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                       color: "grey",
                     }}
                     id="actualPrize"
+                    value={item.actualPrize}
                     onChange={(e) => handleVariantChange(e, index)}
                   />
                 </div>
@@ -474,6 +537,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                     class="form-control p-2"
                     style={{ border: "0px", background: "#eeeeee" }}
                     id="sellingPrice"
+                    value={item.sellingPrice}
                     onChange={(e) => handleVariantChange(e, index)}
                   />
                 </div>

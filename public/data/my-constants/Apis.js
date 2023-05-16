@@ -72,6 +72,8 @@ const apis = {
 
     //shop management
 
+    'allImagesUpload':`${constants.port}/store/api/upload_image`,
+
     'createBrand':`${constants.port}/store/api/create_brand`,
     'brandView':`${constants.port}/store/api/list_user_brands`,
     'editBrand':`${constants.port}/store/api/edit_brand`,
@@ -89,6 +91,7 @@ const apis = {
     'addProduct':`${constants.port}/store/api/create_product `,
     'editProduct':`${constants.port}/store/api/edit_product `,
     'productReport':`${constants.port}/store/api/product_report `,
+    'getByidProduct':`${constants.port}/store/api/get_product_detail `,
 
     'costomerReport':`${constants.port}/store/api/customer_report `,
 
@@ -101,8 +104,7 @@ const apis = {
 
     'salesReport':`${constants.port}/store/api/sales_report `,
     'earningReport':`${constants.port}/store/api/earnings_day_report `,
-
-
+    
 
 
     //Play ground

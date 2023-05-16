@@ -62,7 +62,7 @@ function ProductEditPage() {
       <div className="store-container">
         <div className="bottom">
           <ShopPagesSideBar currentPage="products" />
-          <ProductsForm handleProductAdd={handleProductAdd} editData={editData}/>
+          <ProductsForm handleProductAdd={handleProductAdd} editData='true'/>
         </div>
       </div>
     </Fragment>
