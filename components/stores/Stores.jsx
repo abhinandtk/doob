@@ -5,7 +5,8 @@ import React from 'react'
 function Stores({storeData,title}) {
   return (
    
-    <div className='row row-cols-2 store'>
+    // <div className='row row-cols-2 store'>
+    <div className='row store'>
 
         <h5 className='mx-2'>{title}</h5>
         {storeData.map((item,index)=>(
@@ -16,9 +17,9 @@ function Stores({storeData,title}) {
         </div>
         ))}
         
-        <div className='col-lg-3 col-md-4 col-sm-6 col-xs-6  '>
+        {/* <div className='col-lg-3 col-md-4 col-sm-6 col-xs-6  '>
             <img src='../images/store/s1.png'  style={{width:'100%'}} ></img>
-        </div>
+        </div> */}
         
         {/* <div class="owl-carousel">
   <div class="item"><img src='../images/store/s1.png'></img></div>
