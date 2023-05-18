@@ -9,6 +9,7 @@ import { useState } from "react";
 import SearchCategory from "@/components/stores/SearchCategory";
 import { useRouter } from "next/router";
 import StoreProductsCard from "@/components/stores/StoreProductsCard";
+import MobileHeader from "@/components/MobileHeader";
 
 function CategorySearchPage() {
   const [searchInput, setSearchInput] = useState("");
@@ -51,6 +52,7 @@ function CategorySearchPage() {
   return (
     <Fragment>
       <MainHeader title="Doob" />
+      <MobileHeader />
       <MainSidebarFixed />
       <div className="store-container">
         <form className="nosubmit ">

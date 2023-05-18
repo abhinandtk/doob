@@ -21,6 +21,7 @@ import { useEffect } from "react";
 import SearchCategory from "@/components/stores/SearchCategory";
 import StoreBannerCard from "@/components/stores/StoreBannerCard";
 import moment from "moment";
+import MobileHeader from "@/components/MobileHeader";
 
 function StoreDetailPage() {
   const router = useRouter();
@@ -50,6 +51,7 @@ function StoreDetailPage() {
   return (
     <div>
       <MainHeader title="Doob" />
+      <MobileHeader />
       <MainSidebarFixed />
       <div className="store-container">
         <form className="nosubmit ">
@@ -95,7 +97,7 @@ function StoreDetailPage() {
     </div>
 </section> */}
 
-        <SearchCategory category={storeCategory} />
+        {storeCategory.length >=1 && <SearchCategory category={storeCategory} />}
 
         {/* <div className="my-2">
           <h5>

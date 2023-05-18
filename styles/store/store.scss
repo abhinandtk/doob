@@ -471,9 +471,12 @@ form.nosubmit {
   border-radius: 30%;
   background-clip: padding-box;
 }
+//nibras change
 .span-icon{
-  margin-top: 43px;
-  margin-left: -153px;
+  margin-top: 15px;
+  margin-left: -105px;
+  // margin-top: 43px;
+  // margin-left: -153px;
   float: right;
   position: absolute;
   
@@ -527,7 +530,7 @@ input:disabled{
   color: rgb(0, 0, 0);
   width: 20px;
   height: 20px;
-  font: 21px/1 Arial,sans-serif;
+  font: 18px Arial,sans-serif;
   text-align: center;
   border-radius: 30%;
   border: 1px solid grey;
@@ -539,7 +542,7 @@ input:disabled{
   color: rgb(0, 0, 0);
   width: 20px;
   height: 20px;
-  font: 18px/1 Arial,sans-serif;
+  font: 17px Arial,sans-serif;
   text-align: center;
   border-radius: 30%;
   background-clip: padding-box;
@@ -978,6 +981,7 @@ height: auto;
 .order-code{
   margin-left:32px;
   margin-bottom:-13px;
+  width:90%
   
 }
 .order-code2{
@@ -1007,10 +1011,12 @@ height: auto;
   margin-right: 12px;
   margin-top: 10px;
   margin-bottom: 20px;
-  height: 110px;
+  // height: 110px;
   border-radius: 10px  10px  10px  10px  ;
-  width: 110px;
+  // width: 110px;
   object-fit: cover; 
+  aspect-ratio: 1;
+  width:30%;
 }
 .shopping-card__details {
   display: flex;
@@ -1053,6 +1059,7 @@ height: auto;
   margin-top: 15px;
   font-size: 12px;
   font-weight: 600;
+  width:100%;
   //  line-height: 5px;
   
 }
@@ -1217,7 +1224,7 @@ div#header div {
   }
   .foot-png{
     float: right;
-    margin-top: 216px;
+    margin-top: 140px;
     position: absolute;
     margin-left: -103px;
     width: 85px;
@@ -1264,7 +1271,8 @@ div#header div {
    }
    .qty {
     float: right;
-    margin-left: 350px;
+    text-align: end;
+    // margin-left: 350px;
     margin-top: -40px;
   
   }

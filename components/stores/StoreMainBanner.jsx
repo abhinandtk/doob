@@ -9,7 +9,7 @@ function StoreMainBanner({banners}) {
       <Carousel.Item key={index} interval={1000}  >
         <img
           className=" w-100 "
-          src={`${constants.port}${item.image}`} style={{width:'100%'}}
+          src={`${constants.port}${item.image}`} style={{width:'100%',aspectRatio:'2.6'}}
           alt="First slide" 
         />
       </Carousel.Item>

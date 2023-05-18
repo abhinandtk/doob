@@ -18,7 +18,9 @@ import {
 } from "@/Redux/productDetail";
 import { useEffect } from "react";
 import { notification } from "antd";
+import { Labels } from "@/public/data/my-constants/Labels";
 function ProductDetailFullWidth({ product }) {
+  const labels = Labels();
   const dispatch = useDispatch();
   const router = useRouter();
   const prVarientId = useSelector((state) => state.product.proVarient);
@@ -39,7 +41,10 @@ function ProductDetailFullWidth({ product }) {
         ? item.multivarient.map((item_, index_) => {
             if (item_.slug_id === prVarientId) {
               priceView = (
-                <p className="price" style={{ color: "gray", fontWeight: "400" }}>
+                <p
+                  className="price"
+                  style={{ color: "gray", fontWeight: "400" }}
+                >
                   <s>{item_.cut_prize}</s>
                   <span
                     className="mx-2"
@@ -108,10 +113,30 @@ function ProductDetailFullWidth({ product }) {
         },
       }
     ).then((res) => {
-      notification.success({
-        message:'Success',
-        description:'Item added to cart'
-      }),
+      if(res.data.status==1){
+        notification.success({
+          message:'Success',
+          description:`${labels['Added to cart']}`
+        })
+      }else{
+        notification.warning({
+          message:'Warning',
+          description:`${labels['Not enough stock']}`
+        })
+
+      }
+      //  if(res.data.status == 1){
+
+      //   notification.success({
+      //     message:'Success',
+      //     description:`${labels['Added to cart']}`
+      //   }),
+
+      //  }
+      // notification.success({
+      //   message:'Success',
+      //   description:`${labels['Added to cart']}`
+      // }),
       console.log("res", res);
     });
   };
@@ -120,15 +145,14 @@ function ProductDetailFullWidth({ product }) {
       {product.map((product, index) => {
         return (
           <>
-            <ProductDetailImages product={product}/>
+            <ProductDetailImages product={product} />
             <div className="col-md-5 shop-cart ">
               <div className=" justify-content-between align-items-center ">
                 <ProductDetailTopDetails product={product} />
                 <ModuleVariants product={product} />
                 <ModuleSecondVariants product={product} />
                 <br></br>
-                
-                
+
                 {priceView}
                 <div className="qty">
                   <div

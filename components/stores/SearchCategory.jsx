@@ -18,6 +18,7 @@ function SearchCategory({ category }) {
         </div>
         {category.map((item, index) => (
           <div
+            key={index}
             onClick={() =>
               router.push({
                 pathname: "/store/category-search",
@@ -41,5 +42,3 @@ function SearchCategory({ category }) {
 }
 
 export default SearchCategory;
-
-

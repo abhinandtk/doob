@@ -3,12 +3,12 @@ import React, { useEffect, useState } from "react";
 import MainHeader from "@/components/shared/headers/MainHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import ProductDetailImages from "@/components/stores/product-details/ProductDetailImages";
-import MobileHeader from "@/components/MobileHeader";
 import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
 import ProductDetailFullWidth from "@/components/stores/product-details/ProductDetailFullWidth";
+import MobileHeader from "@/components/MobileHeader";
 
 function ProductDetailPage() {
   const [productDetails, setProductDetails] = useState([]);
@@ -43,7 +43,7 @@ function ProductDetailPage() {
         <form className="nosubmit ">
           <span>
             
-            <input className="nosubmit2" type="search" placeholder="Search" />
+            <input className="nosubmit1" type="search" placeholder="Search" />
             <img
               src="../../images/store/Fil-icon.png"
               className="filters-icon"

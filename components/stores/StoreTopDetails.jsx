@@ -33,6 +33,7 @@ function StoreTopDetails({ data }) {
         <img
           src={`${constants.port}${data.cover_photo}`}
           className="img-fluid"
+          style={{width:'100%',aspectRatio:'2.2',objectFit:'cover'}}
         ></img>
         <span className="span-icon">
           <svg

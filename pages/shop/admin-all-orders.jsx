@@ -76,13 +76,18 @@ function AdminAllOrders() {
           title="Update Status"
           footer={[
             <Button
+              key="submit"
               type="submit"
               onClick={statusUpdateHandler}
               className="order-btn"
             >
               Ok
             </Button>,
-            <Button onClick={() => setVisible(false)} className="order-btn">
+            <Button
+              key="cancel"
+              onClick={() => setVisible(false)}
+              className="order-btn"
+            >
               Cancel
             </Button>,
           ]}

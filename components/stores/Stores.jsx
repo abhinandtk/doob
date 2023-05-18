@@ -12,7 +12,7 @@ function Stores({storeData,title}) {
         {storeData.map((item,index)=>(
             <div key={index} className='col-lg-3 col-md-4 col-sm-6 col-xs-6 '>
             <Link href={`/store/${item.slug_store}`}> 
-            <img src={`${constants.port}${item.logo}`}  style={{width:'100%'}} ></img>
+            <img src={`${constants.port}${item.logo}`}  style={{width:'100%',objectFit:'cover',aspectRatio:'1'}} ></img>
             </Link>
         </div>
         ))}
