@@ -13,6 +13,7 @@ function OrderProductCard({ products }) {
           <div class="item1_clearfix">
             <img
               src={`${constants.port}${item.Thumbnail_image}`}
+              alt='Doob'
               className="pictures"
             ></img>
             <div className="shop-content">

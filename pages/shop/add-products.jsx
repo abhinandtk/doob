@@ -14,11 +14,12 @@ import { notification } from "antd";
 function AddProductPage() {
   const router =useRouter()
   const handleProductAdd = (formData) => {
+    console.log('form',formData)
 
     const variants = formData.variants.map((variant) => ({
       sku: variant.sku,
       quantity: variant.quantity,
-      image: variant.formFile,
+      image: [variant.formFile],
       primary_variant_value_id: variant.color,
       secondary_variant_value_id: variant.size,
       actual_price: variant.actualPrize,
@@ -36,6 +37,7 @@ function AddProductPage() {
         secondary_variant_id: formData.secondary,
         brand_id: formData.brand,
         category_id: formData.category,
+        thumbnail_image: formData.thumbnail,
         sub_category_id: formData.subCategory,
         tags: [formData.tag],
         variants:variants

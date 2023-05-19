@@ -32,6 +32,7 @@ function ContainerHomePosts() {
     }));
     setPostsData(updatedPosts);
   }).catch((error)=>{
+    localStorage.removeItem("user-login-tokens");
     console.error(error)
   })
   })
@@ -99,7 +100,7 @@ function ContainerHomePosts() {
               {item.user_detail.image ?(
                <img src={`${constants.port}/media/${item.user_detail.image}`} alt="User Picture" style={{objectFit:'cover',width:'100%',height:'100%'}}/>
                ):(
-               <img src="../images/accounts/user_default.png" alt="User Picture" style={{objectFit:'cover',width:'100%',height:'100%'}}/>
+               <img src="/images/accounts/user_default.png" alt="User Picture" style={{objectFit:'cover',width:'100%',height:'100%'}}/>
                )}
             </div>
              
@@ -123,7 +124,7 @@ function ContainerHomePosts() {
                 />
               ):(
                <img 
-                src="../images/accounts/user_default.png" 
+                src="/images/accounts/user_default.png" 
                 alt="User Picture" 
                 style={{objectFit:'cover',width:'100%',height:'100%'}}
                 />

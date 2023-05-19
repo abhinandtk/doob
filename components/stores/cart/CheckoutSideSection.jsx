@@ -4,8 +4,14 @@ import { Button } from 'react-bootstrap'
 import Axios from 'axios'
 import apis from '@/public/data/my-constants/Apis'
 import constants from '@/public/data/my-constants/Constants'
+import { notification } from 'antd'
+import { Labels } from '@/public/data/my-constants/Labels'
+import { Router, useRouter } from 'next/router'
 
 function CheckoutSideSection({data}) {
+
+  const labels = Labels()
+  const router =useRouter()
   const checkoutHandler=()=>{
     console.log('jjjjjjjjjjjjjj')
     Axios.post(apis.checkout,{
@@ -16,6 +22,19 @@ function CheckoutSideSection({data}) {
         'Authorization':`Token ${constants.token_id}`,
       }
     }).then((res)=>{
+      if(res.data.status==1){
+        notification.success({
+          message:constants.Success,
+          description:`${labels['Order successfull']}`
+        })
+        router.push('/store/order-success')
+      }else{
+        notification.error({
+          message:constants.Error,
+          description:`${labels['Cart empty']}`
+        })
+
+      }
       console.log('checkoutooooooooooooooooooooooo',res)
     })
   }

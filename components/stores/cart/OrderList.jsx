@@ -26,8 +26,7 @@ function OrderList({ product, setOnSuccess }) {
     });
   };
 
-  const handleIncreaseQty = (e) => {
-    e.preventDefault()
+  const handleIncreaseQty = () => {
     console.log("yyyyyyyyyyyyyyyy");
     setQuantity(quantity + 1);
     let qty = quantity;
@@ -35,8 +34,7 @@ function OrderList({ product, setOnSuccess }) {
     handleCartUpdate(product.slug_Id, quantity + 1);
   };
 
-  const handleDecreaseQty = (e) => {
-    e.preventDefault();
+  const handleDecreaseQty = () => {
     if (quantity > 1) {
       setQuantity((prev) => prev - 1);
       handleCartUpdate(product.slug_Id, quantity - 1);
@@ -59,6 +57,9 @@ function OrderList({ product, setOnSuccess }) {
       console.log("removeweeeeeeeeeeeeeee", res);
     });
   };
+  // const handleIncreaseQty=()=>{
+  //   console.log('ooooooooo')
+  // }
   return (
     <Fragment>
       <div className="card mb-2 ">
@@ -71,7 +72,7 @@ function OrderList({ product, setOnSuccess }) {
                   className="pixels-png"
                 ></img>
               </div>
-              <div className=" add-left">
+              <div className=" add-left" style={{maxWidth:'45%'}}>
                 <h6>{product.Name}</h6>
                 <p className="address-card-price">{product.selling_prize} KD</p>
               </div>
@@ -87,8 +88,10 @@ function OrderList({ product, setOnSuccess }) {
               </div>
             </div>
           </div>
+
+                 
           <div className="qty1">
-            <div onClick={(e) => handleIncreaseQty(e)} className="plus ">
+            <div onClick={()=>handleIncreaseQty()} className="plus">
               +
             </div>
             <input
@@ -98,7 +101,7 @@ function OrderList({ product, setOnSuccess }) {
               value={quantity}
               disabled
             />
-            <div onClick={(e) => handleDecreaseQty(e)} className="minus ">
+            <div onClick={() => handleDecreaseQty()} className="minus ">
               -
             </div>
           </div>

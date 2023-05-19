@@ -5,6 +5,7 @@ import AllAddress from "../address/AllAddress";
 import Axios from "axios";
 import constants from "@/public/data/my-constants/Constants";
 import apis from "@/public/data/my-constants/Apis";
+import { EditOutlined, EnvironmentOutlined } from "@ant-design/icons";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 function ShippingAddress({ data, setOnSuccess }) {
@@ -59,7 +60,7 @@ function ShippingAddress({ data, setOnSuccess }) {
               <div className="d-flex flex-row align-items-center ">
                 <div>
                   <img
-                    src="../images/Location icon.png"
+                    src="/images/LocationIcon.png"
                     className="me-4 mb-3"
                   ></img>
                 </div>
@@ -84,7 +85,8 @@ function ShippingAddress({ data, setOnSuccess }) {
               <div>
                 <div onClick={() => setVisible(true)} style={{cursor:'pointer'}}>
                   <span>
-                    <img src="../images/edit.png" className="mt-4 mx-4"></img>
+                    <img src="/images/Edit.png" className="mt-4 mx-4"></img>
+                    {/* <EnvironmentOutlined /> */}
                   </span>
                 </div>
               </div>

@@ -97,7 +97,7 @@ function PagesSideBar({ currentPage }) {
         <span className="mx-2">Booking</span>
       </a>
 
-      <Link href="/page/favorite-stores" style={{ textDecoration: "none" }}>
+      <Link href="/page/my-orders" style={{ textDecoration: "none" }}>
         <svg
           width="22"
           height="22"

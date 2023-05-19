@@ -42,7 +42,7 @@ function ProductManagement() {
                 style={{ width: "90%" }}
               >
                 <p style={{ fontWeight: "500" }}>{item.name}</p>
-                <button
+                {/* <button
                   onClick={() =>
                     router.push({
                       pathname: `/shop/edit-product/${item.variants[0].slug_id}`,
@@ -52,7 +52,7 @@ function ProductManagement() {
                   className="edit-btn mb-2"
                 >
                   Edit
-                </button>
+                </button> */}
               </div>
               <hr
                 className="mx-auto "
@@ -60,7 +60,7 @@ function ProductManagement() {
               ></hr>
               <div className=" imx  d-flex justify-content-between align-items-center">
                 <img
-                  src="../images/store/b.png"
+                  src={`${constants.port}${item.thumbnail_image}`}
                   style={{ width: "82px", height: "82px" }}
                 ></img>
 

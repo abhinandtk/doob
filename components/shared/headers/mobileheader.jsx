@@ -18,13 +18,13 @@ function MainHeader() {
             apis.logout,{},
             {
               headers: {
-                'Authorization': `Token ${localStorage.getItem('user-login-token')}`,
+                'Authorization': `Token ${localStorage.getItem('user-login-tokens')}`,
                 'Content-Type': 'application/json',
               }
             }
           ).then((res)=>{
             if (res.data.status === 1){
-                localStorage.removeItem('user-login-token')
+                localStorage.removeItem('user-login-tokens')
             }
           });
         

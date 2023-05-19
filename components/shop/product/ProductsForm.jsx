@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { Button } from "react-bootstrap";
+// import { Button } from "react-bootstrap";
 import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
 import { notification } from "antd";
+import { Upload, Button, Space } from "antd";
+import { UploadOutlined } from "@ant-design/icons";
 function ProductsForm({ handleProductAdd, editData }) {
   const [brandData, setBrandData] = useState([]);
   const [categoryData, setCategoryData] = useState([]);
@@ -13,6 +15,16 @@ function ProductsForm({ handleProductAdd, editData }) {
   const [subCategory, setSubCategory] = useState([]);
   const [primaryValues, setPrimaryValues] = useState([]);
   const [secondaryValues, setSecondaryValues] = useState([]);
+
+  const [image, setImage] = useState(null);
+
+  const handleImageChange = (info) => {
+    // if (info.file.status === "done") {
+    const imageUrl = URL.createObjectURL(info.file.originFileObj);
+    console.log("imageUrl", imageUrl);
+    setImage(imageUrl);
+    // }
+  };
 
   const router = useRouter();
   console.log("editdata", router.query);
@@ -25,6 +37,7 @@ function ProductsForm({ handleProductAdd, editData }) {
     subCategory: "",
     tag: [],
     primary: "",
+    thumbnail: "",
     secondary: "",
     description: "",
     description_ar: "",
@@ -91,11 +104,10 @@ function ProductsForm({ handleProductAdd, editData }) {
         console.log("getproductiiiiiiiiiiiiii", res);
       });
     }
-  });
+  }, []);
 
   const handleChange = (e) => {
     e.preventDefault();
-
     if (e.target.id === "category") {
       setSubCategory([]);
       const catId = e.target.value;
@@ -123,9 +135,25 @@ function ProductsForm({ handleProductAdd, editData }) {
       }
     }
     const newFormData = { ...formData };
+    if (e.target.id === "thumbnail") {
+      // newFormData[e.target.id] = e.target.files[0];
+
+      const formdata = new FormData();
+      formdata.append("file_field_name", e.target.files[0]);
+      console.log("inputcorrect", e.target.files[0]);
+      Axios.post(apis.allImagesUpload, formdata, {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }).then((res) => {
+        console.log("res434", res);
+        newFormData[e.target.id] = res.data.image_url;
+         setFormData({ ...newFormData });
+        console.log(',form23',newFormData)
+      });
+    }
     newFormData[e.target.id] = e.target.value;
     setFormData({ ...newFormData });
-    console.log("oooooooooooooorrrrr", formData);
   };
 
   const handleVariantChange = (e, index) => {
@@ -184,7 +212,7 @@ function ProductsForm({ handleProductAdd, editData }) {
   };
 
   return (
-    <div class="content-topic  ">
+    <div className="content-topic  ">
       <div className="bottom">
         <h6 className=" ms-4" style={{ color: "#17a803", fontWeight: "700" }}>
           {editData === "true" ? "Edit Products" : "Add Products"}
@@ -193,11 +221,11 @@ function ProductsForm({ handleProductAdd, editData }) {
         <div className="my-4 mx-4 ">
           <h6 style={{ fontSize: "14px", fontWeight: "700" }}>Basic Details</h6>
           <form onSubmit={(e) => submitHandler(e)}>
-            <div class="form-group my-2 ">
+            <div className="form-group my-2 ">
               <label for="exampleFormControlInput1">Name</label>
               <input
                 type="text"
-                class="form-control p-2"
+                className="form-control p-2"
                 style={{
                   border: "0px",
                   background: "#eeeeee",
@@ -208,11 +236,11 @@ function ProductsForm({ handleProductAdd, editData }) {
                 onChange={(e) => handleChange(e)}
               />
             </div>
-            <div class="form-group my-2">
+            <div className="form-group my-2">
               <label for="exampleFormControlInput1">Name in Arabic</label>
               <input
                 type="text"
-                class="form-control p-2"
+                className="form-control p-2"
                 style={{
                   border: "0px",
                   background: "#eeeeee",
@@ -223,10 +251,10 @@ function ProductsForm({ handleProductAdd, editData }) {
                 onChange={(e) => handleChange(e)}
               />
             </div>
-            <div class="form-group my-2">
+            <div className="form-group my-2">
               <label for="exampleFormControlSelect1">Brand</label>
               <select
-                class="form-control p-2"
+                className="form-control p-2"
                 style={{
                   border: "0px",
                   background: "#eeeeee",
@@ -249,10 +277,10 @@ function ProductsForm({ handleProductAdd, editData }) {
               </select>
             </div>
 
-            <div class="form-group my-2">
+            <div className="form-group my-2">
               <label for="exampleFormControlSelect1">Category</label>
               <select
-                class="form-control p-2"
+                className="form-control p-2"
                 style={{
                   border: "0px",
                   background: "#eeeeee",
@@ -275,10 +303,10 @@ function ProductsForm({ handleProductAdd, editData }) {
                 ))}
               </select>
             </div>
-            <div class="form-group my-2">
+            <div className="form-group my-2">
               <label for="exampleFormControlSelect1">Sub Category</label>
               <select
-                class="form-control p-2"
+                className="form-control p-2"
                 style={{
                   border: "0px",
                   background: "#eeeeee",
@@ -301,11 +329,28 @@ function ProductsForm({ handleProductAdd, editData }) {
                 ))}
               </select>
             </div>
-            <div class="form-group my-2">
+            <div className="form-group my-2">
+              <label for="exampleFormControlInput1" id="thumbnail">
+                Thumbnail Image
+              </label>
+              <input
+                type="file"
+                id="thumbnail"
+                className="form-control p-2 grey"
+                style={{
+                  border: "0px",
+                  background: "#eeeeee",
+                  color: "grey",
+                }}
+                placeholder="No file choosen"
+                onChange={(e) => handleChange(e)}
+              />
+            </div>
+            <div className="form-group my-2">
               <label for="exampleFormControlInput1">Tag</label>
               <input
                 type="text"
-                class="form-control p-2"
+                className="form-control p-2"
                 style={{
                   border: "0px",
                   background: "#eeeeee",
@@ -317,10 +362,10 @@ function ProductsForm({ handleProductAdd, editData }) {
               />
             </div>
 
-            <div class="form-group my-2">
+            <div className="form-group my-2">
               <label for="exampleFormControlSelect1">Primary Variant</label>
               <select
-                class="form-control p-2"
+                className="form-control p-2"
                 style={{
                   border: "0px",
                   background: "#eeeeee",
@@ -343,10 +388,10 @@ function ProductsForm({ handleProductAdd, editData }) {
                 ))}
               </select>
             </div>
-            <div class="form-group my-2">
+            <div className="form-group my-2">
               <label for="exampleFormControlSelect1">Secondary Variant</label>
               <select
-                class="form-control p-2"
+                className="form-control p-2"
                 style={{
                   border: "0px",
                   background: "#eeeeee",
@@ -373,7 +418,7 @@ function ProductsForm({ handleProductAdd, editData }) {
             <div className="form-group my-2 ">
               <label for="exampleFormControlTextarea1">Description</label>
               <textarea
-                class="form-control"
+                className="form-control"
                 style={{
                   border: "0px",
                   background: "#eeeeee",
@@ -390,7 +435,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                 Description in Arabic
               </label>
               <textarea
-                class="form-control"
+                className="form-control"
                 style={{
                   border: "0px",
                   background: "#eeeeee",
@@ -420,7 +465,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                   <label for="exampleFormControlInput1">SKU</label>
                   <input
                     type="text"
-                    class="form-control p-2"
+                    className="form-control p-2"
                     style={{
                       border: "0px",
                       background: "#eeeeee",
@@ -435,7 +480,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                   <label for="exampleFormControlInput1">Quantity</label>
                   <input
                     type="text"
-                    class="form-control p-2"
+                    className="form-control p-2"
                     style={{
                       border: "0px",
                       background: "#eeeeee",
@@ -446,6 +491,35 @@ function ProductsForm({ handleProductAdd, editData }) {
                     onChange={(e) => handleVariantChange(e, index)}
                   />
                 </div>
+                {/* <div className="form-group my-2">
+                  <label for="exampleFormControlInput1" id="formfile">
+                    Image
+                  </label>
+                  <Space direction="vertical">
+                    <Upload
+                      name="image"
+                      action="/upload"
+                      listType="picture-card"
+                      onChange={handleImageChange}
+                      showUploadList={{
+                        showPreviewIcon: false,
+                        showRemoveIcon: true,
+                      }}
+                     
+                    >
+                      <Button icon={<UploadOutlined />} />
+                    </Upload>
+                    {image && (
+                      <div style={{ width: "100px" }}>
+                        <img
+                          src={image}
+                          alt="Selected"
+                          style={{ maxWidth: "100%" }}
+                        />
+                      </div>
+                    )}
+                  </Space>
+                </div> */}
                 <div className="form-group my-2">
                   <label for="exampleFormControlInput1" id="formfile">
                     Image
@@ -453,7 +527,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                   <input
                     type="file"
                     id="formFile"
-                    class="form-control p-2 grey"
+                    className="form-control p-2 grey"
                     style={{
                       border: "0px",
                       background: "#eeeeee",
@@ -463,10 +537,10 @@ function ProductsForm({ handleProductAdd, editData }) {
                     onChange={(e) => handleVariantChange(e, index)}
                   />
                 </div>
-                <div class="form-group my-2">
+                <div className="form-group my-2">
                   <label for="exampleFormControlSelect1">Color</label>
                   <select
-                    class="form-control p-2"
+                    className="form-control p-2"
                     style={{
                       border: "0px",
                       background: "#eeeeee",
@@ -487,10 +561,10 @@ function ProductsForm({ handleProductAdd, editData }) {
                     ))}
                   </select>
                 </div>
-                <div class="form-group my-2">
+                <div className="form-group my-2">
                   <label for="exampleFormControlSelect1">Size</label>
                   <select
-                    class="form-control p-2"
+                    className="form-control p-2"
                     style={{
                       border: "0px",
                       background: "#eeeeee",
@@ -517,7 +591,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                   </label>
                   <input
                     type="text"
-                    class="form-control p-2"
+                    className="form-control p-2"
                     style={{
                       border: "0px",
                       background: "#eeeeee",
@@ -534,7 +608,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                   </label>
                   <input
                     type="text"
-                    class="form-control p-2"
+                    className="form-control p-2"
                     style={{ border: "0px", background: "#eeeeee" }}
                     id="sellingPrice"
                     value={item.sellingPrice}

@@ -5,9 +5,12 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { useState } from "react";
 import OrderProductCard from "../OrderProductCard";
+import moment from "moment";
 function MyOrders() {
   const [showItems, setShowItems] = useState(false);
   const [ordersList, setOrdersList] = useState([]);
+  const [expandedItemIndex, setExpandedItemIndex] = useState(null);
+
   Axios.post(
     apis.orderList,
     {
@@ -22,6 +25,14 @@ function MyOrders() {
     setOrdersList(res.data.data);
     console.log("ordeeeeeeeeeeeeers", res);
   });
+
+  const toggleOrderItem = (index) => {
+    if (expandedItemIndex === index) {
+      setExpandedItemIndex(null);
+    } else {
+      setExpandedItemIndex(index);
+    }
+  };
   return (
     <Fragment>
       <div class="content-topic ">
@@ -29,14 +40,14 @@ function MyOrders() {
         {ordersList.map((item, index) => {
           return (
             <div key={index}>
-              <p className="ms-5 order-code ">#{item.order_id_m}</p>
+              <p className="mx-auto order-code ">#{item.order_id_m}</p>
               <hr className="mx-auto" style={{ width: "90%" }}></hr>
               <div
-                className="   mx-auto d-flex justify-content-between align-items-center"
+                className="p-2 mx-auto d-flex justify-content-between align-items-center"
                 style={{ width: "90%" }}
               >
                 <span style={{ color: "#959595" }}>Order Date</span>
-                <span>{item.order_date}</span>
+                <span>{moment(item.order_date).format("DD-MM-YYYY")}</span>
               </div>
               <div
                 className="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center"
@@ -76,30 +87,30 @@ function MyOrders() {
                 <span style={{ color: "#FF640D" }}>{item.order_status}</span>
               </div>
               <div
-                className="   mx-auto d-flex justify-content-between align-items-center"
+                className="p-2 mx-auto d-flex justify-content-between align-items-center"
                 style={{ width: "90%" }}
+                onClick={() => toggleOrderItem(index)}
               >
-                <span style={{ color: "#959595" }}>Item</span>
-                {showItems ? (
-                  <span onClick={() => setShowItems(false)}>
-                    <i className="bi bi-chevron-down "></i>
-                  </span>
+                <span style={{ color: "#959595" }}>Items</span>
+                {expandedItemIndex === index ? (
+                  <i className="bi bi-chevron-up "></i>
                 ) : (
-                  <span onClick={() => setShowItems(true)}>
-                    <i className="bi bi-chevron-right "></i>
-                  </span>
+                  <i className="bi bi-chevron-down "></i>
                 )}
+               
               </div>
-              {showItems && <OrderProductCard products={item.products} />}
+              {expandedItemIndex === index && (
+                <OrderProductCard products={item.products} />
+              )}
 
-              <div
+              {/* <div
                 className="   mx-auto d-flex justify-content-between align-items-center"
                 style={{ width: "90%" }}
               >
                 <p className="mx-2" style={{ borderBottom: "1px solid black" }}>
                   Download Invoice
                 </p>
-              </div>
+              </div> */}
               <br></br>
             </div>
           );

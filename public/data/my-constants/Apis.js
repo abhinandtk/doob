@@ -50,6 +50,7 @@ const apis = {
     'storeview':`${constants.port}/store/api/store_view`,
 
     'storesearch':`${constants.port}/store/api/search_products`,
+    'searchbyCategory':`${constants.port}/store/api/category_list`,
 
     'viewwishlist':`${constants.port}/store/api/view_wishlist_product`,
     'addwishlist':`${constants.port}/store/api/create_product_wishlist`,

@@ -28,7 +28,7 @@ function Login({setActiveModal}) {
   //       setActiveModal('ssoregister')
         
   //     }else{
-  //       localStorage.setItem('user-login-token',res.data.data.token)
+  //       localStorage.setItem('user-login-tokens',res.data.data.token)
   //       console.log('successssssssssssssssssssssssss')
   //     }
   //   })
@@ -89,7 +89,7 @@ function Login({setActiveModal}) {
           description: 'Login Successfully',
         });
         setErrorMsg('')
-        localStorage.setItem('user-login-token',res.data.data.token)
+        localStorage.setItem('user-login-tokens',res.data.data.token)
         localStorage.setItem('login-userId',res.data.data.user_id)
         window.location.reload(false)
         setActiveModal('')
