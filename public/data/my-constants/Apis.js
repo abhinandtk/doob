@@ -124,6 +124,13 @@ const apis = {
     'listAllGames':`${constants.port}/playground/api/list_games`,
     'gameHistory':`${constants.port}/playground/api/list_games_history`,
 
+    //Tournament
+
+    'tournamentHome':`${constants.port}/tournament/api/tournament_home`,
+    'allTournament':`${constants.port}/tournament/api/all_tournament`,
+
+
+
 
 
 
