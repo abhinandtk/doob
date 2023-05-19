@@ -87,6 +87,7 @@ function TournamentCardDetails({data}) {
           </div>
         </div>
       </div>
+      <br></br>
     </Fragment>
   );
 }
