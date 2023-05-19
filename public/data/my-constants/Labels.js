@@ -10,6 +10,9 @@ export function Labels() {
         "Order successfull":"Order placed successfully",
         "Cart empty":"Cart is empty,please add some items",
 
+        //Play Ground 
+        "PlayGround added":"Play ground added successfully"
+
     }
     return labels
 

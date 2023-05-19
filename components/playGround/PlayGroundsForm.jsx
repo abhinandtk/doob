@@ -6,16 +6,19 @@ import apis from "@/public/data/my-constants/Apis";
 import { Modal, TimePicker } from "antd";
 import { Button } from "react-bootstrap";
 import moment from "moment";
-function PlayGroundsForm({handlePlaygroundForm}) {
+function PlayGroundsForm({ handlePlaygroundForm }) {
   const [game, setGame] = useState([]);
   const [amenity, setAmenity] = useState([]);
   const [gameChecked, setGameChecked] = useState([]);
   const [amenityChecked, setAmenityChecked] = useState([]);
+  const [country, setCountry] = useState([]);
+  const [area, setArea] = useState([]);
 
   const [visible, setVisible] = useState(false);
   const [start_time, setStartTime] = useState(null);
   const [end_time, setEndTime] = useState(null);
   const [slots, setSlots] = useState([]);
+
 
   const [formData, setFormData] = useState({
     name: "",
@@ -25,18 +28,29 @@ function PlayGroundsForm({handlePlaygroundForm}) {
     image: "",
     opening: "",
     closing: "",
-    description:""
+    description: "",
+    description_ar: "",
   });
 
   const handleChange = (e) => {
     e.preventDefault();
+
     const newForm = { ...formData };
     if (e.target.id === "image") {
-      newForm[e.target.id] = e.target.files[0];
+      const formDatas = new FormData();
+      formDatas.append("file_field_name", e.target.files[0]);
+      Axios.post(apis.allImagesUpload, formDatas, {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }).then((res) => {
+        newForm[e.target.id] = res.data.image_url;
+        setFormData({ ...newForm });
+      });
     }
     newForm[e.target.id] = e.target.value;
     setFormData({ ...newForm });
-    console.log('changeeeeee',formData)
+    console.log("changeeeeee", formData);
   };
 
   useEffect(() => {
@@ -48,7 +62,23 @@ function PlayGroundsForm({handlePlaygroundForm}) {
       setAmenity(res.data.data.amenities);
       setGame(res.data.data.games);
     });
-  }, []);
+
+    Axios.get(apis.commonList, {
+      headers: {
+        Authorization: `Token ${constants.token_id}`,
+      },
+    }).then((res) => {
+      setCountry(res.data.data.country);
+    });
+    const countryId = localStorage.getItem("country-select");
+    const areaData = country.find(
+      (country) => country.country_name === countryId
+    );
+    if (areaData && areaData.regions) {
+      setArea(areaData.regions);
+    }
+    console.log("areaData", areaData);
+  }, [country]);
 
   const handleTime = (time) => {
     if (time) {
@@ -58,16 +88,15 @@ function PlayGroundsForm({handlePlaygroundForm}) {
 
   const handleGameChecked = (e) => {
     const id = parseInt(e.target.id);
-    console.log('idddddddd',id)
+    console.log("idddddddd", id);
     setGameChecked((prevState) => {
       if (e.target.checked) {
         return [...prevState, parseInt(id)];
       } else {
         return prevState.filter((gameId) => gameId !== id);
-      }   
+      }
     });
-    console.log('striiiiiiiiing',gameChecked)
-
+    console.log("striiiiiiiiing", gameChecked);
   };
   const handleAmenityChecked = (e) => {
     const id = parseInt(e.target.id);
@@ -85,24 +114,24 @@ function PlayGroundsForm({handlePlaygroundForm}) {
       console.log("00/**/*/*/*/*/*", start_time);
       const newSlot = {
         start_time: start_time.format("H:mm"),
-        end_time: end_time.format("H:mm")
+        end_time: end_time.format("H:mm"),
       };
 
       console.log(start_time.format("h:mm A"));
-    //   setSlots([...slots, { start_time, end_time }]);
+      //   setSlots([...slots, { start_time, end_time }]);
       setSlots([...slots, newSlot]);
       setStartTime(null);
       setEndTime(null);
     }
   };
 
-  const submitHandler=(e)=>{
-    e.preventDefault()
-    handlePlaygroundForm(formData,gameChecked,amenityChecked,slots)
-  }
+  const submitHandler = (e) => {
+    e.preventDefault();
+    handlePlaygroundForm(formData, gameChecked, amenityChecked, slots);
+  };
 
   return (
-    <form onSubmit={(e)=>submitHandler(e)}>
+    <form onSubmit={(e) => submitHandler(e)}>
       <div class="form-group my-2 ">
         <label for="exampleFormControlInput1">Name*</label>
         <input
@@ -129,14 +158,11 @@ function PlayGroundsForm({handlePlaygroundForm}) {
           <option style={{ color: "#959595" }} value="">
             --Select--
           </option>
-          <option style={{ color: "#959595" }} value="1">
-            ahmadi
-          </option>
-          {/* {area.map((item, index) => (
-            <option style={{ color: "#959595" }} key={index} value={item.id}>
+          {area.map((item, index) => (
+            <option key={index} style={{ color: "#959595" }} value={item.id}>
               {item.region_name}
             </option>
-          ))} */}
+          ))}
         </select>
       </div>
 
@@ -270,6 +296,25 @@ function PlayGroundsForm({handlePlaygroundForm}) {
             color: "grey",
           }}
           id="description"
+          onChange={(e) => handleChange(e)}
+          rows="3"
+        ></textarea>
+      </div>
+      <div className="form-group my-2 ">
+        <label for="exampleFormControlTextarea1">
+          <h6 style={{ fontSize: "15px", fontWeight: "700" }}>
+            Description Arabic
+          </h6>
+        </label>
+        <textarea
+          class="form-control"
+          style={{
+            border: "0px",
+            background: "#eeeeee",
+            color: "grey",
+          }}
+          id="description_ar"
+          onChange={(e) => handleChange(e)}
           rows="3"
         ></textarea>
       </div>
@@ -401,8 +446,8 @@ function PlayGroundsForm({handlePlaygroundForm}) {
                 <span className="time-slot-name">
                   {/* {item.start_time.format("h:mm A")}-
                   {item.end_time.format("h:mm A")} */}
-                  {item.start_time}-
-                  {item.end_time}
+                  {moment(item.start_time, "h:mm").format("h:mm A")}-
+                  {moment(item.end_time, "h:mm").format("h:mm A")}
                 </span>
                 <span
                   onClick={() => setSlots(slots.filter((s) => s !== item))}
