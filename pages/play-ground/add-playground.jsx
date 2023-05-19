@@ -15,8 +15,12 @@ import PlayGroundsForm from "@/components/playGround/PlayGroundsForm";
 import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
+import { notification } from "antd";
+import { Labels } from "@/public/data/my-constants/Labels";
 
 function AddPlaygroundPage() {
+
+  const labels =Labels()
   const handlePlaygroundForm = (data, game, amenity, slot) => {
     console.log("dataaaaaaaaaaaaa546", data);
     console.log("gameeeeeeee", game);
@@ -26,7 +30,8 @@ function AddPlaygroundPage() {
     formData.append("stadium_name", data.name);
     formData.append("city", data.city);
     formData.append("location", data.location);
-    formData.append("description", 'data.description');
+    formData.append("description", data.description);
+    formData.append("description_ar", data.description_ar);
     formData.append("google_map_location_field", data.gmap);
     formData.append("opening_time", data.opening);
     formData.append("closing_time", data.closing);
@@ -38,49 +43,26 @@ function AddPlaygroundPage() {
       console.log('ami67',value)
       formData.append("amnities", value);
     });
-    formData.append("timeslot[0]start_time", "09:00");
-    formData.append("timeslot[0]end_time", "10:00");
-    // let formdata = new FormData();
-    // formdata.append("amount", "20");
-    // formdata.append("timeslot[0]start_time", "09:00:00");
-    // formdata.append("timeslot[0]end_time", "11:00:00");
-    // formdata.append("game", "1");
-    // formdata.append("amnities", "2");
-    // formdata.append("description", "fgbgfn etgbr rh rt rtghrth rth th yh");
-    // formdata.append("location", "calicut");
-    // formdata.append("city", "1");
-    // formdata.append("stadium_name", "abc stadium");
-    // formdata.append("amnities", "1");
-    // formdata.append("game", "2");
-    // formdata.append("opening_time", "09:00:00");
-    // formdata.append("closing_time", "23:00:00");
-    // formdata.append("google_map_location_field", "vfdv");
-    // formdata.append("images", data.image)
-      
-
+    slot.map((time,index)=>{
+      formData.append(`timeslot[${index}]start_time`, time.start_time);
+      formData.append(`timeslot[${index}]end_time`, time.end_time);
+    })
     Axios.post(
       apis.addPlayground,
       formData,
-      // {
-      //   stadium_name: data.name,
-      //   city: data.city,
-      //   location: data.location,
-      //   description: data.description,
-      //   google_map_location_field: data.gmap,
-      //   opening_time: data.opening,
-      //   closing_time: data.closing,
-      //   images: data.image,
-      //   game: [1,2],
-      //   amnities: [1,2],
-      //   "timeslot[0]start_time": "09:00",
-      //   "timeslot[0]end_time": "10:00",
-      // },
       {
         headers: {
           Authorization: `Token ${constants.token_id}`,
         },
       }
     ).then((res) => {
+      if(res.data.status == 1){
+        notification.success({
+          message:constants.Success,
+          description:`${labels['PlayGround added']}`
+        })
+      }
+      
       console.log("success4444444444444444444444", res);
     });
   };

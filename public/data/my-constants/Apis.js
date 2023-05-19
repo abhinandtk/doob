@@ -122,6 +122,7 @@ const apis = {
     'addPlayground':`${constants.port}/playground/api/ad_add_playground`,
 
     'listAllGames':`${constants.port}/playground/api/list_games`,
+    'gameHistory':`${constants.port}/playground/api/list_games_history`,
 
 
 
