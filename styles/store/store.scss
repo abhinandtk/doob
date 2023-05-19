@@ -404,7 +404,7 @@ form.nosubmit {
   border:0px;
   color:white;
   padding: 7px 15px;
- margin-right: 33px;
+ margin-right: -2px;
  margin-top: -19px;
  float: right;
 }
@@ -1046,10 +1046,50 @@ height: auto;
   color: #959595;
 }
 
+
 .option__value {
   font-weight: 500;
   font-size: 14px;
 }
+
+
+.option__value1 {
+  font-weight: 500;
+  font-size: 14px;
+}
+.option__key1 {
+  font-weight: 400;
+  font-size: 14px;
+  color: #959595;
+}
+
+
+.option__value_prices {
+  font-weight: 500;
+  font-size: 14px;
+}
+.option__key_price {
+  font-weight: 400;
+  font-size: 14px;
+  color: #959595;
+}
+
+
+
+.option__value_colors{
+  font-weight: 500;
+  font-size: 14px;
+   
+}
+.option__key_color {
+  font-weight: 400;
+  font-size: 14px;
+  color: #959595;
+}
+
+
+
+
 .shopping-card__price {
   font-weight: 600;
   font-size: 14px;
@@ -1213,6 +1253,10 @@ div#header div {
      width: 100%;
   
   }
+  .store-container{
+    width: 100%;
+  }
+ 
   .sides{
     display: none;
   }
@@ -1304,7 +1348,32 @@ div#header div {
   .price{
     margin-top: -22px;
   }
+  .address-admin{
+    font-weight: 400;
+    
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 178px;
+    float: right;
+  }
   
+  .order-code{
+    margin-left:17px;
+  }
+  .All-order{
+    margin-left:12px;
+  }
+  .value-down{
+    margin-top: 22px;
+    margin-left: -75px;
+  }
+  .option__value1 {
+    font-weight: 500;
+    font-size: 14px;
+  }
 }
 
 

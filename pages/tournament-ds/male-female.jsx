@@ -308,7 +308,7 @@ Arabic</Dropdown.Item>
   <a class="active" href="#home">Ranks</a>
 </div>
 <br></br>
-{/* <section className='my-4'>
+<section className='my-4'>
   <div className="btn-group me-2" role="group" aria-label="Second group">
   <button type="button" className="btn btn-secondary sports ">Football</button>
   </div>
@@ -318,7 +318,7 @@ Arabic</Dropdown.Item>
   <div className="btn-group mx-2" role="group" aria-label="Second group">
     <button type="button" className="btn btn-secondary sports1 ">Padel</button>
   </div>
-    </section> */}
+    </section>
   <div className='player-name'>
   <p  className='gender1 mx-2'>Male</p>
   <p className='mx-4 gender2'>Female</p>
@@ -327,17 +327,20 @@ Arabic</Dropdown.Item>
 
 <div className='row '>
 <div className='col-lg-7 col-md-12'>
-<div className='tables'>
+
+
+
+ <div className='tables'>
   <ul class="responsive-table">
    
     <li class="table-row p-3">
       <div class="col col-1 mt-4  id " data-label="Job Id">#1</div>
-      <span className='ahmed' ><img src='../images/tournament/ahmed.png' ></img></span><span className='col col-8 name mt-3' data-label="Customer Name" >Ayman Alruwaished </span>
+      <span className='ahmed' ><img src='../images/tournament/ahmed.png' ></img></span><span className='col col-8 name mt-3' data-label="Customer Name" >Ayman  </span>
       <div class="col col-1 mt-4 views "  data-label="Payment Status">View</div>
  </li>
  <li class="table-row1">
       <div class="col col-1 mt-3  id " data-label="Job Id">#1</div>
-      <span className='ahmed1' ><img src='../images/tournament/Masid .png' ></img></span><span className='col col-8 name1 mt-3' data-label="Customer Name" >Musaid           rrrrrrrrrrrrrr      45666</span>
+      <span className='ahmed1' ><img src='../images/tournament/Masid .png' ></img></span><span className='col col-8 name1 mt-3' data-label="Customer Name" >Musaid oooooooooooooooooooo           rrrrrrrrrrrrrr      45666</span>
       <div class="col col-1 mt-4 views "  data-label="Payment Status">View</div>
  </li>
  <li class="table-row1">
@@ -379,7 +382,7 @@ Arabic</Dropdown.Item>
       <div class="col col-1 mt-3  id " data-label="Job Id">#9</div>
       <span className='ahmed1' ><img src='../images/tournament/Masid .png' ></img></span><span className='col col-8 name1 mt-3' data-label="Customer Name" >Musaid</span>
       <div class="col col-1 mt-4 views "  data-label="Payment Status">View</div>
- </li>
+ </li> 
  <li class="table-row1">
       <div class="col col-1 mt-3  id " data-label="Job Id">#10</div>
       <span className='ahmed1' ><img src='../images/tournament/Masid .png' ></img></span><span className='col col-8 name1 mt-3' data-label="Customer Name" >Musaid</span>
@@ -391,9 +394,10 @@ Arabic</Dropdown.Item>
       <div class="col col-1 mt-4 views "  data-label="Payment Status">View</div>
  </li>
  <br></br>
+ {/* <button type="button" className="tournaments-btn  ">View all</button> */}
   </ul>
-  {/* <button type="button" className="tournaments-btn ">View all</button> */}
-  </div>
+ 
+  </div> 
     </div>
     <div className='col-lg-5 col-md-6'>
       <div className='live-ads'>

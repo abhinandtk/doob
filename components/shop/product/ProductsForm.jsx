@@ -329,14 +329,14 @@ function ProductsForm({ handleProductAdd, editData }) {
                 ))}
               </select>
             </div>
-            <div className="form-group my-2">
+            <div className="form-group  my-2">
               <label for="exampleFormControlInput1" id="thumbnail">
                 Thumbnail Image
               </label>
-              <input
+              <input 
                 type="file"
                 id="thumbnail"
-                className="form-control p-2 grey"
+                className="form-control thumbs p-2 grey"
                 style={{
                   border: "0px",
                   background: "#eeeeee",
@@ -520,7 +520,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                     )}
                   </Space>
                 </div> */}
-                <div className="form-group my-2">
+                <div className="form-group  my-2">
                   <label for="exampleFormControlInput1" id="formfile">
                     Image
                   </label>

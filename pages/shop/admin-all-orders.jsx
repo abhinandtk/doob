@@ -134,7 +134,7 @@ function AdminAllOrders() {
                       style={{ fontWeight: "500" }}
                     >
                       #{item.order_id_m}
-                      <span style={{ float: "right" }}>
+                      <span >
                         <Button
                           onClick={() => showUpdateHandler(item.order_id_m)}
                           type="button"
@@ -162,7 +162,7 @@ function AdminAllOrders() {
                       }}
                     >
                       <span style={{ color: "#959595" }}>Address</span>
-                      <span> {item.address} </span>
+                      <span className="address-admin"> {item.address} </span>
                     </div>
                     <div
                       className="p-2   mx-auto d-flex justify-content-between align-items-center"
