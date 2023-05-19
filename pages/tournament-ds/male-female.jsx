@@ -337,7 +337,7 @@ Arabic</Dropdown.Item>
  </li>
  <li class="table-row1">
       <div class="col col-1 mt-3  id " data-label="Job Id">#1</div>
-      <span className='ahmed1' ><img src='../images/tournament/Masid .png' ></img></span><span className='col col-8 name1 mt-3' data-label="Customer Name" >Musaid</span>
+      <span className='ahmed1' ><img src='../images/tournament/Masid .png' ></img></span><span className='col col-8 name1 mt-3' data-label="Customer Name" >Musaid           rrrrrrrrrrrrrr      45666</span>
       <div class="col col-1 mt-4 views "  data-label="Payment Status">View</div>
  </li>
  <li class="table-row1">
