@@ -2,8 +2,10 @@ import constants from "@/public/data/my-constants/Constants";
 import React from "react";
 import { Fragment } from "react";
 import moment from "moment";
+import { useRouter } from "next/router";
 function TournamentTabContent({data}) {
   console.log("dataLive",data)
+  const router =useRouter()
   return (
     <Fragment>
       <h6 className="my-2" style={{ fontWeight: "600" }}>
@@ -79,14 +81,14 @@ function TournamentTabContent({data}) {
             </div>
           </div>
           ))}
-          <button type="button" className="live-btn ">
+          <button onClick={()=>router.push('/tournament/all-tournament')} type="button" className="live-btn ">
             View all
           </button>
         </div>
         <div className="col-lg-5 col-md-6">
           <div className="live-ads">
             <img
-              src="../images/tournament/Group 12.png"
+              src="/images/tournament/Group 12.png"
               className="tournament-imx"
             ></img>
           </div>

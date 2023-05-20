@@ -11,7 +11,11 @@ export function Labels() {
         "Cart empty":"Cart is empty,please add some items",
 
         //Play Ground 
-        "PlayGround added":"Play ground added successfully"
+        "PlayGround added":"Play ground added successfully",
+
+        //Tournament
+
+        'Tournaments not found':'Tournaments not found.....',
 
     }
     return labels

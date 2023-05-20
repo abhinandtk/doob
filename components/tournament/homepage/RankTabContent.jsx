@@ -1,226 +1,66 @@
-import React, { Fragment } from "react";
-
-function RankTabContent() {
+import { Tabs, Tab } from "react-bootstrap";
+import React, { Fragment, useState } from "react";
+import RankingTable from "./RankingTable";
+function RankTabContent({ data }) {
+  console.log("dfdata", data);
+  const [selectedMatch, setSelectedMatch] = useState(
+    data[0]?.game_type || null
+  );
   return (
     <Fragment>
-      <div className="player-name">
-        <p className="gender1 mx-2">Male</p>
-        <p className="mx-4 gender2">Female</p>
-        <p className="mx-3 junior">Juniors</p>
-      </div>
-
       <div className="row ">
         <div className="col-lg-7 col-md-12">
-          <div className="tables">
-            <ul className="responsive-table">
-              <li className="table-row p-3">
-                <div className="col col-1 mt-4  id " data-label="Job Id">
-                  #1
-                </div>
-                <span className="ahmed">
-                  <img src="../images/tournament/ahmed.png"></img>
-                </span>
-                <span
-                  className="col col-8 name mt-3"
-                  data-label="Customer Name"
+          <section className="my-4">
+            {data.map((item, index) => (
+              <div
+                key={index}
+                className="btn-group me-2"
+                role="group"
+                aria-label="Second group"
+              >
+                <button
+                  onClick={() => setSelectedMatch(item.game_type)}
+                  type="button"
+                  className={`btn btn-secondary ${
+                    selectedMatch === item.game_type ? "sports" : "sports1"
+                  }`}
                 >
-                  Ayman Alruwaished{" "}
-                </span>
-                <div className="col col-1 mt-4 views " data-label="Payment Status">
-                  View
-                </div>
-              </li>
-              <li className="table-row1">
-                <div className="col col-1 mt-3  id " data-label="Job Id">
-                  #1
-                </div>
-                <span className="ahmed1">
-                  <img src="../images/tournament/Masid .png"></img>
-                </span>
-                <span
-                  className="col col-8 name1 mt-3"
-                  data-label="Customer Name"
+                  {item.game_type}
+                </button>
+              </div>
+            ))}
+          </section>
+
+          {data.map(
+            (content, index) =>
+              content.game_type === selectedMatch && (
+                <Tabs
+                  defaultActiveKey="home"
+                  id="my-tabs"
+                  key={index}
+                  className="gender2"
+                  style={{ justifyContent: "initial", color: "red" }}
                 >
-                  Musaid rrrrrrrrrrrrrr 45666
-                </span>
-                <div className="col col-1 mt-4 views " data-label="Payment Status">
-                  View
-                </div>
-              </li>
-              <li className="table-row1">
-                <div className="col col-1 mt-3  id " data-label="Job Id">
-                  #2
-                </div>
-                <span className="ahmed1">
-                  <img src="../images/tournament/Masid .png"></img>
-                </span>
-                <span
-                  className="col col-8 name1 mt-3"
-                  data-label="Customer Name"
-                >
-                  Musaid
-                </span>
-                <div className="col col-1 mt-4 views " data-label="Payment Status">
-                  View
-                </div>
-              </li>
-              <li className="table-row1">
-                <div className="col col-1 mt-3  id " data-label="Job Id">
-                  #3
-                </div>
-                <span className="ahmed1">
-                  <img src="../images/tournament/Masid .png"></img>
-                </span>
-                <span
-                  className="col col-8 name1 mt-3"
-                  data-label="Customer Name"
-                >
-                  Musaid
-                </span>
-                <div className="col col-1 mt-4 views " data-label="Payment Status">
-                  View
-                </div>
-              </li>
-              <li className="table-row1">
-                <div className="col col-1 mt-3  id " data-label="Job Id">
-                  #4
-                </div>
-                <span className="ahmed1">
-                  <img src="../images/tournament/Masid .png"></img>
-                </span>
-                <span
-                  className="col col-8 name1 mt-3"
-                  data-label="Customer Name"
-                >
-                  Musaid
-                </span>
-                <div className="col col-1 mt-4 views " data-label="Payment Status">
-                  View
-                </div>
-              </li>
-              <li className="table-row1">
-                <div className="col col-1 mt-3  id " data-label="Job Id">
-                  #5
-                </div>
-                <span className="ahmed1">
-                  <img src="../images/tournament/Masid .png"></img>
-                </span>
-                <span
-                  className="col col-8 name1 mt-3"
-                  data-label="Customer Name"
-                >
-                  Musaid
-                </span>
-                <div className="col col-1 mt-4 views " data-label="Payment Status">
-                  View
-                </div>
-              </li>
-              <li className="table-row1">
-                <div className="col col-1 mt-3  id " data-label="Job Id">
-                  #6
-                </div>
-                <span className="ahmed1">
-                  <img src="../images/tournament/Masid .png"></img>
-                </span>
-                <span
-                  className="col col-8 name1 mt-3"
-                  data-label="Customer Name"
-                >
-                  Musaid
-                </span>
-                <div className="col col-1 mt-4 views " data-label="Payment Status">
-                  View
-                </div>
-              </li>
-              <li className="table-row1">
-                <div className="col col-1 mt-3  id " data-label="Job Id">
-                  #7
-                </div>
-                <span className="ahmed1">
-                  <img src="../images/tournament/Masid .png"></img>
-                </span>
-                <span
-                  className="col col-8 name1 mt-3"
-                  data-label="Customer Name"
-                >
-                  Musaid
-                </span>
-                <div className="col col-1 mt-4 views " data-label="Payment Status">
-                  View
-                </div>
-              </li>
-              <li className="table-row1">
-                <div className="col col-1 mt-3  id " data-label="Job Id">
-                  #8
-                </div>
-                <span className="ahmed1">
-                  <img src="../images/tournament/Masid .png"></img>
-                </span>
-                <span
-                  className="col col-8 name1 mt-3"
-                  data-label="Customer Name"
-                >
-                  Musaid
-                </span>
-                <div className="col col-1 mt-4 views " data-label="Payment Status">
-                  View
-                </div>
-              </li>
-              <li className="table-row1">
-                <div className="col col-1 mt-3  id " data-label="Job Id">
-                  #9
-                </div>
-                <span className="ahmed1">
-                  <img src="../images/tournament/Masid .png"></img>
-                </span>
-                <span
-                  className="col col-8 name1 mt-3"
-                  data-label="Customer Name"
-                >
-                  Musaid
-                </span>
-                <div className="col col-1 mt-4 views " data-label="Payment Status">
-                  View
-                </div>
-              </li>
-              <li className="table-row1">
-                <div className="col col-1 mt-3  id " data-label="Job Id">
-                  #10
-                </div>
-                <span className="ahmed1">
-                  <img src="../images/tournament/Masid .png"></img>
-                </span>
-                <span
-                  className="col col-8 name1 mt-3"
-                  data-label="Customer Name"
-                >
-                  Musaid
-                </span>
-                <div className="col col-1 mt-4 views " data-label="Payment Status">
-                  View
-                </div>
-              </li>
-              <li className="table-row1">
-                <div className="col col-1 mt-3 id " data-label="Job Id">
-                  #130
-                </div>
-                <span className="ahmed2">
-                  <img src="../images/tournament/Masid .png"></img>
-                </span>
-                <span
-                  className="col col-8 name2 mt-3"
-                  data-label="Customer Name"
-                >
-                  Me
-                </span>
-                <div className="col col-1 mt-4 views " data-label="Payment Status">
-                  View
-                </div>
-              </li>
-              <br></br>
-            </ul>
-          </div>
+                  <Tab eventKey="home" title="Male">
+                    {content.male.length >= 1 && (
+                      <RankingTable data={content.male} />
+                    )}
+                  </Tab>
+                  <Tab eventKey="profile" title="Female">
+                    {content.female.length >= 1 && (
+                      <RankingTable data={content.male} />
+                    )}
+                  </Tab>
+                  <Tab eventKey="messages" title="Junior">
+                    {content.junior.length >= 1 && (
+                      <RankingTable data={content.male} />
+                    )}
+                  </Tab>
+                </Tabs>
+              )
+          )}
         </div>
+
         <div className="col-lg-5 col-md-6">
           <div className="live-ads">
             <img

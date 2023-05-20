@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { useState } from "react";
+import { Labels } from "@/public/data/my-constants/Labels";
 function AllTournamentPage() {
   const [tournaments, setTournaments] = useState([]);
   const [selectedStatus, setSelectedStatus] = useState("ongoing");
@@ -23,6 +24,8 @@ function AllTournamentPage() {
       console.log("resdata0", res);
     });
   }, []);
+
+  const labels = Labels();
 
   return (
     <Fragment>
@@ -43,7 +46,9 @@ function AllTournamentPage() {
             <button
               type="button"
               onClick={() => setSelectedStatus("ongoing")}
-              className={`btn btn-outline-secondary ${selectedStatus === 'ongoing' ? 'match1':'match2'} `}
+              className={`btn btn-outline-secondary ${
+                selectedStatus === "ongoing" ? "match1" : "match2"
+              } `}
             >
               Ongoing
             </button>
@@ -56,7 +61,9 @@ function AllTournamentPage() {
           >
             <button
               type="button"
-              className={`btn btn-outline-secondary ${selectedStatus === 'future' ? 'match1':'match2'} `}
+              className={`btn btn-outline-secondary ${
+                selectedStatus === "future" ? "match1" : "match2"
+              } `}
             >
               Future
             </button>
@@ -80,29 +87,86 @@ function AllTournamentPage() {
 
           {}
 
-          {selectedStatus === "ongoing"
-            ? selectedType === "ranked"
-              ? tournaments.ongoing &&
-                tournaments.ongoing.ranked.length >= 1 &&
+          {selectedStatus === "ongoing" ? (
+            selectedType === "ranked" ? (
+              tournaments.ongoing && tournaments.ongoing.ranked.length >= 1 ? (
                 tournaments.ongoing.ranked.map((item, index) => (
                   <TournamentCardDetails key={index} data={item} />
                 ))
-              : tournaments.ongoing &&
-                tournaments.ongoing.unranked.length >= 1 &&
-                tournaments.ongoing.unranked.map((item, index) => (
-                  <TournamentCardDetails key={index} data={item} />
-                ))
-            : selectedType === "ranked"
-            ? tournaments.future &&
-              tournaments.future.ranked.length >= 1 &&
+              ) : (
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    height: "60vh",
+                    padding: "0 20px",
+                  }}
+                >
+                  <p style={{ textAlign: "center", fontWeight: "500" }}>
+                    {labels["Tournaments not found"]}
+                  </p>
+                </div>
+              )
+            ) : tournaments.ongoing &&
+              tournaments.ongoing.unranked.length >= 1 ? (
+              tournaments.ongoing.unranked.map((item, index) => (
+                <TournamentCardDetails key={index} data={item} />
+              ))
+            ) : (
+              <div
+                style={{
+                  display: "flex",
+                  // justifyContent: "center",
+                  alignItems: "center",
+                  height: "40vh",
+                  padding: "0 20px",
+                }}
+              >
+                <p style={{ textAlign: "center", fontWeight: "500" }}>
+                  {labels["Tournaments not found"]}
+                </p>
+              </div>
+            )
+          ) : selectedType === "ranked" ? (
+            tournaments.future && tournaments.future.ranked.length >= 1 ? (
               tournaments.future.ranked.map((item, index) => (
                 <TournamentCardDetails key={index} data={item} />
               ))
-            : tournaments.future &&
-              tournaments.future.unranked.length >= 1 &&
-              tournaments.future.unranked.map((item, index) => (
-                <TournamentCardDetails key={index} data={item} />
-              ))}
+            ) : (
+              <div
+                style={{
+                  display: "flex",
+                  // justifyContent: "center",
+                  alignItems: "center",
+                  height: "40vh",
+                  padding: "0 20px",
+                }}
+              >
+                <p style={{ textAlign: "center", fontWeight: "500" }}>
+                  {labels["Tournaments not found"]}
+                </p>
+              </div>
+            )
+          ) : tournaments.future && tournaments.future.unranked.length >= 1 ? (
+            tournaments.future.unranked.map((item, index) => (
+              <TournamentCardDetails key={index} data={item} />
+            ))
+          ) : (
+            <div
+              style={{
+                display: "flex",
+                // justifyContent: "center",
+                alignItems: "center",
+                height: "40vh",
+                padding: "0 20px",
+              }}
+            >
+              <p style={{ textAlign: "center", fontWeight: "500" }}>
+                {labels["Tournaments not found"]}
+              </p>
+            </div>
+          )}
         </div>
       )}
     </Fragment>
