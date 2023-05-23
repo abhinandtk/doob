@@ -20,6 +20,7 @@ function TournamentDetailPage() {
   const [activeTab, setActiveTab] = useState("Home");
   const [homeTabData, setHomeTabData] = useState(null);
   const [teamsTabData, setTeamsTabData] = useState([]);
+  const [adminList, setAdminList] = useState([]);
   const [matchesTabData, setMatchesTabData] = useState([]);
   const [onSuccess, setOnSuccess] = useState(false);
 
@@ -37,6 +38,8 @@ function TournamentDetailPage() {
     ).then((res) => {
       setHomeTabData(res.data.data.home);
       setTeamsTabData(res.data.data.teams);
+      setMatchesTabData(res.data.data.matches)
+      setAdminList(res.data.data.home.tournament_details.tournament_admin_name)
       console.log("response", res);
     });
   }, [tid,onSuccess]);
@@ -214,10 +217,10 @@ function TournamentDetailPage() {
               
             </Tab>
             <Tab eventKey="Teams" title={tabButton("Teams")}>
-              <TeamsCard teamsData={teamsTabData} setOnSuccess={setOnSuccess}/>
+              <TeamsCard teamsData={teamsTabData} setOnSuccess={setOnSuccess} admin={adminList}/>
             </Tab>
             <Tab eventKey="Matches" title={tabButton("Matches")}>
-              <TournamentMatches />
+              <TournamentMatches data={matchesTabData}/>
             </Tab>
             <Tab eventKey="Fixture" title={tabButton("Fixture")}>
               d

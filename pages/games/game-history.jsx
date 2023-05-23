@@ -6,6 +6,10 @@ import Axios from "axios";
 import { useEffect } from "react";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
+import GameBookingCard from "@/components/games/GameBookingCard";
+import MainHeader from "@/components/shared/headers/MainHeader";
+import MobileHeader from "@/components/MobileHeader";
+import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 function HomePage() {
   const [gameDetails, setGameDetails] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -15,7 +19,7 @@ function HomePage() {
         Authorization: `Token ${constants.token_id}`,
       },
     }).then((res) => {
-      setGameDetails([res.data]);
+      setGameDetails(res.data.my_games);
       console.log(res);
     });
   }, []);
@@ -26,40 +30,45 @@ function HomePage() {
 
   return (
     <div>
+      <MainHeader title="Doob" />
+      <MobileHeader />
+      <MainSidebarFixed />
       <div className="tour-container">
         <h5 className=" my-4" style={{ fontWeight: "600" }}>
           Game History
         </h5>
-
-        {gameDetails.map((content, index) => (
-          <>
-            {content.my_games.length >= 1 ? (
-              <div key={index} className="types1">
-                <p style={{ color: "#17A803" }}>All</p>
-                {content.my_games.map((game, index) => (
-                  <p
-                    className="mx-3"
-                    key={index}
-                    onClick={() => handleCategorySelect(game.title)}
-                  >
-                    {game.title}
-                  </p>
-                ))}
-              </div>
+        <div className="types1">
+          <p
+            onClick={() => handleCategorySelect(null)}
+            style={{ color: `${selectedCategory === null ? "#17A803" : ""}` }}
+          >
+            All
+          </p>
+          {gameDetails &&
+            gameDetails.map((item, index) => (
+              <p
+                className="mx-3"
+                style={{
+                  color: `${selectedCategory === item.title ? "#17A803" : ""}`,
+                }}
+                key={index}
+                onClick={() => handleCategorySelect(item.title)}
+              >
+                {item.title}
+              </p>
+            ))}
+        </div>
+        {gameDetails &&
+          gameDetails.map((item, index) =>
+            selectedCategory === null || selectedCategory === item.title ? (
+              <>
+                <GamesHistoryCard key={index} data={item.my_games} />
+                <GameBookingCard key={index} data={item.bookings} />
+              </>
             ) : (
               <></>
-            )}
-            <div className="top">
-              {content.my_games.length >= 1 ? (
-                content.my_games.map((item,index)=>(
-                <GamesHistoryCard key={index} data={item.my_games} />
-                ))
-              ) : (
-                <></>
-              )}
-            </div>
-          </>
-        ))}
+            )
+          )}
       </div>
     </div>
   );

@@ -96,11 +96,14 @@ function AllGamesPage() {
               </div>
               {myGames.map((item, index) =>
                 selectedCategory === null || selectedCategory === item.title ? (
-                  item.bookings.length >= 1 ? (
-                    <GameBookingCard data={item.bookings} />
-                  ) : (
-                    <></>
-                  )
+                  console.log('reeeeeeeeeeeeeeeeeeeet',item.bookings)
+                  // item.bookings.length >= 1 ? (
+
+                  //   <></>
+                  //   // <GameBookingCard data={item.bookings} />
+                  // ) : (
+                  //   <></>
+                  // )
                 ) : null
               )}
               {/* {myGames.map((item, index) =>
