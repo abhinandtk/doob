@@ -115,7 +115,7 @@ function EarningsReport() {
       <MobileHeader />
       <MainSidebarFixed />
       <div className="store-container">
-        <div className="bottom">
+        <div className="Bottom">
           <ShopPagesSideBar currentPage="earnings" />
 
           <div class="content-topics ">

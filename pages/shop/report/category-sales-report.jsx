@@ -77,7 +77,7 @@ function CategorySalesReport() {
       <MobileHeader />
       <MainSidebarFixed />
       <div className="store-container">
-        <div className="bottom">
+        <div className="Bottom">
           <ShopPagesSideBar />
 
           <div class="content-topics ">
@@ -121,7 +121,7 @@ function CategorySalesReport() {
                     <Doughnut data={chartData} options={options} />
                   </center>
                 </div>
-
+                      
                 <div className="customer-sale">
                   <div id="header" className="d-flex justify-content-between">
                     <div

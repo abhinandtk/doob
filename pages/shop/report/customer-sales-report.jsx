@@ -42,7 +42,7 @@ function CustomerSalesReport() {
       <MobileHeader />
       <MainSidebarFixed />
       <div className="store-container">
-        <div className="bottom">
+        <div className="Bottom">
           <ShopPagesSideBar />
 
           <div class="content-topics ">

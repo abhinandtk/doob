@@ -60,7 +60,7 @@ function ProductEditPage() {
       <MobileHeader />
       <MainSidebarFixed />
       <div className="store-container">
-        <div className="bottom">
+        <div className="Bottom">
           <ShopPagesSideBar currentPage="products" />
           <ProductsForm handleProductAdd={handleProductAdd} editData='true'/>
         </div>

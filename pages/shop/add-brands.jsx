@@ -14,10 +14,10 @@ function AddBrandPage() {
       <MobileHeader />
       <MainSidebarFixed />
       <div className="store-container">
-        <div className="bottom">
+        <div className="Bottom">
           <ShopPagesSideBar currentPage='brand'/>
           <AddBrand />
-        </div>
+        </div> 
       </div>
     </Fragment>
   );

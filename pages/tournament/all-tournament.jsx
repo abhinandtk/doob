@@ -44,8 +44,8 @@ function AllTournamentPage() {
               type="button"
               onClick={() => setSelectedStatus("ongoing")}
               className={`btn btn-outline-secondary ${selectedStatus === 'ongoing' ? 'match1':'match2'} `}
-            >
-              Ongoing
+            >                                                                       
+              Ongoing 
             </button>
           </div>
           <div
@@ -68,7 +68,7 @@ function AllTournamentPage() {
               className={`${selectedType === "ranked" ? "active" : ""}`}
             >
               Ranked
-            </span>
+            </span> 
             <span
               className={` ${selectedType === "unranked" ? "active" : ""}`}
               onClick={() => setSelectedType("unranked")}
@@ -96,7 +96,7 @@ function AllTournamentPage() {
             ? tournaments.future &&
               tournaments.future.ranked.length >= 1 &&
               tournaments.future.ranked.map((item, index) => (
-                <TournamentCardDetails key={index} data={item} />
+                <TournamentCardDetails key={index} data={item} /> 
               ))
             : tournaments.future &&
               tournaments.future.unranked.length >= 1 &&
