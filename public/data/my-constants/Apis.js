@@ -128,6 +128,9 @@ const apis = {
 
     'tournamentHome':`${constants.port}/tournament/api/tournament_home`,
     'allTournament':`${constants.port}/tournament/api/all_tournament`,
+    'tournamentDetails':`${constants.port}/tournament/api/tournament_details`,
+    'createTeam':`${constants.port}/tournament/api/create_team`,
+    'playerDetails':`${constants.port}/tournament/api/player_details_api`,
 
 
 

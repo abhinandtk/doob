@@ -1,10 +1,12 @@
 import constants from "@/public/data/my-constants/Constants";
+import Link from "next/link";
 import React from "react";
 import { Fragment } from "react";
 
 function TournamentCardDetails({data}) {
   return (
     <Fragment>
+      <Link href={`/tournament/${data.tournament_slug}`} style={{textDecoration:'none',color:'black'}}>
       <div class="card  tournament1 my-2">
         <img
           src={`${constants.port}${data.image}`}
@@ -87,6 +89,7 @@ function TournamentCardDetails({data}) {
           </div>
         </div>
       </div>
+      </Link>
       <br></br>
     </Fragment>
   );

@@ -1,29 +1,26 @@
+
+$primary-color:#17A803;
 // react-bootstrap tab
+ .nav-tabs .nav-link.active{
+  color:$primary-color !important;
+ }
+ .nav-tabs .nav-link{
+  color:black;
+ }
 
-.nav-tabs .nav-link.active {
-    color:#17a803 !important;
-  }
-
- 
-  // .custom-switch .ant-switch-inner {
-  //   background-color: #17A803; /* green color */
-  //   border-radius: 16px;
-  //   width: 100px;
-  // }
-  
-  // .custom-switch .ant-switch-checked .ant-switch-inner {
-  //   background-color: #686a68; /* darker green color when switch is checked */
-  // }
-  
-  // .custom-switch .ant-switch-checked .ant-switch-handle {
-  //   left: calc(100% - 1px);
-  //   background-color: white;
-  //   padding: 20px;
-  // }
-
-  
- .custom-tabs .ant-tabs-nav .ant-tabs-nav-wrap{
-  display: block;
+ .tour_detail_tabs{
+    .nav-tabs .nav-link{
+        padding: 5px;
+    }
 
  }
-  
+ .play_detail_tabs{
+    .nav-tabs .nav-link{
+        padding: 3px;
+    }
+
+ }
+
+
+
+ 
