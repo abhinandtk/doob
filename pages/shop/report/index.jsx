@@ -13,7 +13,7 @@ function ReportPage() {
       <MainSidebarFixed />
       <MobileHeader />
       <div className="store-container">
-        <div className="bottom">
+        <div className="Bottom">
           <ShopPagesSideBar currentPage='report'/>
 
           <div class="content-topics ">

@@ -292,7 +292,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                 <option value="">--Selelct--</option>
                 {categoryData.map((item, index) => (
                   <option
-                    selected={
+                    selected={ 
                       editData === "true" && formData.category == item.id
                     }
                     key={index}
@@ -307,7 +307,7 @@ function ProductsForm({ handleProductAdd, editData }) {
               <label for="exampleFormControlSelect1">Sub Category</label>
               <select
                 className="form-control p-2"
-                style={{
+                style={{ 
                   border: "0px",
                   background: "#eeeeee",
                   color: "grey",
@@ -336,7 +336,7 @@ function ProductsForm({ handleProductAdd, editData }) {
               <input 
                 type="file"
                 id="thumbnail"
-                className="form-control thumbs p-2 grey"
+                className="form-control  p-2 "
                 style={{
                   border: "0px",
                   background: "#eeeeee",
@@ -527,7 +527,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                   <input
                     type="file"
                     id="formFile"
-                    className="form-control p-2 grey"
+                    className="form-control p-2 "
                     style={{
                       border: "0px",
                       background: "#eeeeee",

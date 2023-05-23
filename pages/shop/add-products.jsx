@@ -12,7 +12,7 @@ import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
 import { notification } from "antd";
 function AddProductPage() {
-  const router =useRouter()
+  const router =useRouter() 
   const handleProductAdd = (formData) => {
     console.log('form',formData)
 
@@ -62,10 +62,10 @@ function AddProductPage() {
       <MobileHeader />
       <MainSidebarFixed />
       <div className="store-container">
-        <div className="bottom">
+        <div className="Bottom">
           <ShopPagesSideBar currentPage="products" />
           <ProductsForm handleProductAdd={handleProductAdd}/>
-        </div>
+        </div> 
       </div>
     </Fragment>
   );

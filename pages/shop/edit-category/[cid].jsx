@@ -69,7 +69,7 @@ function EditCategoryPage() {
       <MobileHeader />
       <MainSidebarFixed />
       <div className="store-container">
-        <div className="bottom">
+        <div className="Bottom">
           <ShopPagesSideBar currentPage="category" />
           <CategoriesForm
             categorySubmitHandler={categorySubmitHandler}

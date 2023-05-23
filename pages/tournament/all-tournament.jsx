@@ -75,7 +75,7 @@ function AllTournamentPage() {
               className={`${selectedType === "ranked" ? "active" : ""}`}
             >
               Ranked
-            </span>
+            </span> 
             <span
               className={` ${selectedType === "unranked" ? "active" : ""}`}
               onClick={() => setSelectedType("unranked")}
@@ -131,7 +131,7 @@ function AllTournamentPage() {
           ) : selectedType === "ranked" ? (
             tournaments.future && tournaments.future.ranked.length >= 1 ? (
               tournaments.future.ranked.map((item, index) => (
-                <TournamentCardDetails key={index} data={item} />
+                <TournamentCardDetails key={index} data={item} /> 
               ))
             ) : (
               <div
