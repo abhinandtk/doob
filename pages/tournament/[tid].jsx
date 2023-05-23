@@ -11,15 +11,17 @@ import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
 import apis from "@/public/data/my-constants/Apis";
 import TeamsCard from "@/components/tournament/view/TeamsCard";
+import TournamentMatches from "@/components/tournament/view/TournamentMatches";
 
 function TournamentDetailPage() {
   const router = useRouter();
   const { tid } = router.query;
 
   const [activeTab, setActiveTab] = useState("Home");
-  const [homeTabData, setHomeTabData] = useState([]);
+  const [homeTabData, setHomeTabData] = useState(null);
   const [teamsTabData, setTeamsTabData] = useState([]);
   const [matchesTabData, setMatchesTabData] = useState([]);
+  const [onSuccess, setOnSuccess] = useState(false);
 
   useEffect(() => {
     Axios.post(
@@ -34,10 +36,10 @@ function TournamentDetailPage() {
       }
     ).then((res) => {
       setHomeTabData(res.data.data.home);
-      setTeamsTabData(res.data.data.teams)
+      setTeamsTabData(res.data.data.teams);
       console.log("response", res);
     });
-  }, [tid]);
+  }, [tid,onSuccess]);
 
   const handleTabChange = (selected) => {
     setActiveTab(selected);
@@ -59,7 +61,7 @@ function TournamentDetailPage() {
   };
 
   const tabButton = (tabKey) => (
-    <button type="button" className="btn btn-outline-secondary match1">
+    <button type="button" className={`${activeTab === tabKey ?'btn btn-outline-secondary match2':'btn btn-outline-secondary match1'}`}>
       {getTabButtonName(tabKey)}
     </button>
   );
@@ -72,7 +74,7 @@ function TournamentDetailPage() {
       <div className="tour-container">
         <div className="row ">
           <div className="col-lg-7 col-md-12">
-            {homeTabData.tournament_details && (
+            {homeTabData && homeTabData.tournament_details && (
               <div class="card  tournament2 my-5">
                 <img
                   src={`${constants.port}${homeTabData.tournament_details.image}`}
@@ -174,47 +176,7 @@ function TournamentDetailPage() {
             </div>
           </div>
         </div>
-        {/* <div style={{ marginTop: "-20px" }}>
-          <div
-            className="btn-group me-1"
-            role="group"
-            aria-label="Second group"
-          >
-            <button
-              type="button"
-              className="btn btn-outline-secondary match1  "
-            >
-              Home
-            </button>
-          </div>
-          <div
-            className="btn-group mx-1"
-            role="group"
-            aria-label="Second group"
-          >
-            <button type="button" className="btn btn-outline-secondary match2 ">
-              Teams
-            </button>
-          </div>
-          <div
-            className="btn-group mx-1"
-            role="group"
-            aria-label="Second group"
-          >
-            <button type="button" className="btn btn-outline-secondary match2 ">
-              Matches
-            </button>
-          </div>
-          <div
-            className="btn-group mx-1"
-            role="group"
-            aria-label="Second group"
-          >
-            <button type="button" className="btn btn-outline-secondary match2 ">
-              Fixture
-            </button>
-          </div>
-        </div> */}
+        
         <div className="tour_detail_tabs">
           <Tabs
             defaultActiveKey="Home"
@@ -224,27 +186,38 @@ function TournamentDetailPage() {
             onSelect={handleTabChange}
           >
             <Tab eventKey="Home" title={tabButton("Home")}>
-              <h6
-                className="my-4"
-                style={{ fontSize: "15px", fontWeight: "600" }}
-              >
-                Next Match
-              </h6>
-              <MatchCards />
+              {homeTabData && homeTabData.next_match && (
+                <>
+                  <h6
+                    className="my-4"
+                    style={{ fontSize: "15px", fontWeight: "600" }}
+                  >
+                    Next Match
+                  </h6>
 
-              <h6
-                className="my-4"
-                style={{ fontSize: "15px", fontWeight: "600" }}
-              >
-                Last Match
-              </h6>
-              <MatchCards />
+                  <MatchCards data={homeTabData.live_match} />
+                </>
+              )}
+              {homeTabData && homeTabData.last_match && (
+                <>
+                  <h6
+                    className="my-4"
+                    style={{ fontSize: "15px", fontWeight: "600" }}
+                  >
+                    Next Match
+                  </h6>
+
+                  <MatchCards data={homeTabData.last_match} />
+                </>
+              )}
+
+              
             </Tab>
             <Tab eventKey="Teams" title={tabButton("Teams")}>
-              <TeamsCard teamsData={teamsTabData}/>
+              <TeamsCard teamsData={teamsTabData} setOnSuccess={setOnSuccess}/>
             </Tab>
             <Tab eventKey="Matches" title={tabButton("Matches")}>
-              d
+              <TournamentMatches />
             </Tab>
             <Tab eventKey="Fixture" title={tabButton("Fixture")}>
               d

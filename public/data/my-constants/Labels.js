@@ -16,6 +16,7 @@ export function Labels() {
         //Tournament
 
         'Tournaments not found':'Tournaments not found.....',
+        'Team created':'Team created successfully',
 
     }
     return labels

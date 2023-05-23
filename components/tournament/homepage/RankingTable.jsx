@@ -1,4 +1,5 @@
 import constants from "@/public/data/my-constants/Constants";
+import Link from "next/link";
 import React from "react";
 import { Fragment } from "react";
 
@@ -15,18 +16,28 @@ function RankingTable({ data }) {
                   <div className="col col-1 mt-4  id " data-label="Job Id">
                     #{index + 1}
                   </div>
-                  <span className="ahmed">
-                    <img
-                      src={`${constants.port}${item.image}`}
-                      className="tour_rank_img"
-                    ></img>
-                  </span>
-                  <span
-                    className="col col-8 name mt-3"
-                    data-label="Customer Name"
+                  <Link
+                    href={`/tournament/player/${item.username}`}
+                    style={{ textDecoration: "none", color: "black" }}
                   >
-                    {item.name}
-                  </span>
+                    <span className="ahmed">
+                      <img
+                        src={`${constants.port}${item.image}`}
+                        className="tour_rank_img"
+                      ></img>
+                    </span>
+                  </Link>
+                  <Link
+                    href={`/tournament/player/${item.username}`}
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    <span
+                      className="col col-8 name mt-3"
+                      data-label="Customer Name"
+                    >
+                      {item.name}
+                    </span>
+                  </Link>
                   <div
                     className="col col-1 mt-4 views "
                     data-label="Payment Status"
@@ -39,18 +50,28 @@ function RankingTable({ data }) {
                   <div className="col col-1 mt-3  id " data-label="Job Id">
                     #{index + 1}
                   </div>
-                  <span className="ahmed1">
-                    <img
-                      className="tour_rank_img1"
-                      src={`${constants.port}${item.image}`}
-                    ></img>
-                  </span>
-                  <span
-                    className="col col-8 name1 mt-3"
-                    data-label="Customer Name"
+                  <Link
+                    href={`/tournament/player/${item.username}`}
+                    style={{ textDecoration: "none", color: "black" }}
                   >
-                    {item.name}
-                  </span>
+                    <span className="ahmed1">
+                      <img
+                        className="tour_rank_img1"
+                        src={`${constants.port}${item.image}`}
+                      ></img>
+                    </span>
+                  </Link>
+                  <Link
+                    href={`/tournament/player/${item.username}`}
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    <span
+                      className="col col-8 name1 mt-3"
+                      data-label="Customer Name"
+                    >
+                      {item.name}
+                    </span>
+                  </Link>
                   <div
                     className="col col-1 mt-4 views "
                     data-label="Payment Status"

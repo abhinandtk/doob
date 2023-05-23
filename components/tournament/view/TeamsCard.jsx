@@ -1,11 +1,130 @@
 import constants from "@/public/data/my-constants/Constants";
-import React from "react";
+import React, { useState } from "react";
 import { Fragment } from "react";
+import Axios from "axios";
+import apis from "@/public/data/my-constants/Apis";
+import { Input, List, Modal, notification } from "antd";
+import { CardImg } from "react-bootstrap";
+import { Labels } from "@/public/data/my-constants/Labels";
 
-function TeamsCard({ teamsData }) {
+function TeamsCard({ teamsData, setOnSuccess }) {
   console.log("teamData", teamsData);
+  const [visible, setVisible] = useState(false);
+  const [searchResult, setSearchResult] = useState([]);
+  const [names, setNames] = useState("");
+
+  const labels = Labels();
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    setNames(e.target.value);
+    Axios.post(apis.usersearch, {
+      user_input: names,
+    }).then((res) => {
+      if (res.data.status === 1) {
+        setSearchResult(res.data.data.results);
+      }
+    });
+  };
+
+  const handleSelect = (id) => {
+    console.log("iddd767",id);
+    Axios.post(
+      apis.createTeam,
+      {
+        user_id: id,
+        tournament_id: 1,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      setVisible(false);
+      setOnSuccess((prev) => !prev);
+      console.log('uuuuuuuuu',res)
+      if (res.data.status === 1) {
+        notification.success({
+          message: constants.Success,
+          description: `${labels["Team created"]}`,
+        });
+      }
+    });
+  };
   return (
     <Fragment>
+      <Modal
+        open={visible}
+        onCancel={() => setVisible(false)}
+        footer={null}
+        centered
+        title="Invite Participants"
+      >
+        <Input
+          placeholder="Enter names"
+          // value={names}
+          onChange={(e) => handleChange(e)}
+        />
+        <List
+          dataSource={searchResult}
+          renderItem={(item, index) => (
+            <List.Item
+              key={index}
+              style={{ padding: "0px" }}
+              onClick={() => handleSelect(item.id)}
+            >
+              <div className="d-flex flex-start mt-4 mx-2">
+                <a className="me-2" href="">
+                  <CardImg
+                    className="rounded-circle shadow-1-strong "
+                    src={`${constants.port}/media/${item.image}`}
+                    style={{
+                      width: "44px",
+                      height: "44px",
+                      objectFit: "cover",
+                    }}
+                  ></CardImg>
+                </a>
+                <div
+                  className="flex-grow-1 flex-shrink-1 "
+                  style={{ marginBottom: "-24px" }}
+                >
+                  <div>
+                    <div className="d-flex justify-content-between align-items-center">
+                      <p
+                        className="mb-0"
+                        style={{
+                          fontWeight: "600",
+                          color: "#000",
+                          fontSize: "15px",
+                        }}
+                      >
+                        {item.name}
+                      </p>
+                    </div>
+
+                    <p
+                      className="small "
+                      style={{
+                        color: "#000",
+                        fontWeight: "400",
+                        fontSize: "14px",
+                        marginTop: "-3px",
+                        float: "left",
+                      }}
+                    >
+                      @{item.username}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </List.Item>
+          )}
+          style={{ height: "250px", overflowY: "auto" }}
+        />
+      </Modal>
+
       {teamsData &&
         teamsData.map((item, index) => (
           <div
@@ -20,7 +139,7 @@ function TeamsCard({ teamsData }) {
                 src={`${constants.port}/media/${item.team_logo}`}
                 className="club1"
               ></img>{" "}
-              {item.team_name}
+              &nbsp;{item.team_name}
             </p>
             <div className="ms-auto">
               <svg
@@ -48,7 +167,11 @@ function TeamsCard({ teamsData }) {
           </div>
         ))}
 
-      <button type="button" className="teams-btn">
+      <button
+        onClick={() => setVisible(true)}
+        type="button"
+        className="teams-btn"
+      >
         Add
       </button>
     </Fragment>
