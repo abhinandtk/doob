@@ -252,7 +252,12 @@ form.nosubmit {
           margin-left: 330px;
            align-items: center;
     }
-
+    .store-container1{
+      width:900px;
+      justify-content: center;
+     margin-left: 330px;
+      align-items: center;
+}
     .store{
         
         row-gap: 12px;
@@ -1204,8 +1209,8 @@ div#header div {
 
 // sajin stores //
 @media(max-width:1360px){
-  .store-container{
-    width:100%;
+  .store-container1{
+    width:auto
  
 }
 .content-topic {
@@ -1243,8 +1248,8 @@ div#header div {
  
 }
 @media(max-width:1299px){
-  .store-container {
-    width: 100%;
+  .store-container1 {
+    width: auto;
   
     }
   .content-topic {
@@ -1255,13 +1260,13 @@ div#header div {
      width: 64%
   
   }
-  .sides{
-    padding: 12px 7px;
-    width: 200px;
-    background-color: #ffffff;
+  // .sides{
+  //   padding: 12px 7px;
+  //   width: 200px;
+  //   background-color: #ffffff;
   
-    margin-left: 250px;
-  }
+  //   margin-left: 250px;
+  // }
   .content-topics {
     margin-right: 20px;
     height: 100%;  
@@ -1283,7 +1288,7 @@ div#header div {
 }
 
 @media(max-width:1249px){
-  .store-container {
+  .store-container1 {
     width: 100%;
     margin: 0 auto;
     }
@@ -1327,7 +1332,7 @@ div#header div {
 
 
 @media(max-width:1100px){
-  .store-container {
+  .store-container1 {
     width: 100%;
     margin: 0 auto;
     }
@@ -1368,7 +1373,7 @@ div#header div {
 }
 
 @media(max-width:1025px){
-  .store-container {
+  .store-container1 {
     width: 100%;
     margin: 0 auto;
     }
@@ -1409,7 +1414,7 @@ div#header div {
 }
 
 @media(max-width:936px){
-  .store-container {
+  .store-container1 {
     width: 100%;
     margin: 0 auto;
     }
@@ -1460,7 +1465,7 @@ div#header div {
 }
 
 @media(max-width:769px){
-  .store-container {
+  .store-container1 {
   width: 100%;
   margin: 0 auto;
   }
@@ -1581,7 +1586,7 @@ div#header div {
     justify-content: center;
 }
   
-  .store-container{
+  .store-container1{
     width: 100%;
   }
   .home{
@@ -1759,7 +1764,7 @@ div#header div {
      width: 86%;
   
   }
-.store-container{
+.store-container1{
   width: 100%;
 }
 
@@ -1911,7 +1916,7 @@ height: 100%;
      width: 86%;
   
   }
-.store-container{
+.store-container1{
   width: 100%;
 }
 

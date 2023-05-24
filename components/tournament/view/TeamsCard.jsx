@@ -128,11 +128,11 @@ function TeamsCard({ teamsData, setOnSuccess }) {
       {teamsData &&
         teamsData.map((item, index) => (
           <div
-            className="rounded border-0 d-flex p-1   my-3"
-            style={{ background: "#eeeeee", width: "590px" }}
+            className="rounded border-0 d-flex p-1 top-teams   my-3"
+            
           >
             <p
-              className=" mb-1 mx-3"
+              className=" mb-2 mx-3"
               style={{ fontWeight: "500", fontSize: "14px" }}
             >
               <img
@@ -141,7 +141,7 @@ function TeamsCard({ teamsData, setOnSuccess }) {
               ></img>{" "}
               &nbsp;{item.team_name}
             </p>
-            <div className="ms-auto">
+            <div className="ms-auto top-teams-dot">
               <svg
                 width="2"
                 height="14"

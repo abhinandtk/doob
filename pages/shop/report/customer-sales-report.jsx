@@ -41,7 +41,7 @@ function CustomerSalesReport() {
       <MainHeader title='Doob'/>
       <MobileHeader />
       <MainSidebarFixed />
-      <div className="store-container">
+      <div className="store-container1">
         <div className="Bottom">
           <ShopPagesSideBar />
 
