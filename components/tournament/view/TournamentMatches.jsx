@@ -1,38 +1,415 @@
 import constants from "@/public/data/my-constants/Constants";
-import React from "react";
+import React, { useEffect } from "react";
 import { Fragment } from "react";
-
-function TournamentMatches({ data }) {
+import Axios from "axios";
+import apis from "@/public/data/my-constants/Apis";
+import { useState } from "react";
+import { useRouter } from "next/router";
+import {
+  DatePicker,
+  Input,
+  List,
+  Modal,
+  Button,
+  notification,
+  TimePicker,
+  Select,
+} from "antd";
+import { CardImg } from "react-bootstrap";
+import { Labels } from "@/public/data/my-constants/Labels";
+import moment from "moment";
+import Link from "next/link";
+function TournamentMatches({ data, setOnSuccess, admin }) {
   console.log("dddddddaaaaaaaaaata,data", data);
+
+  const router = useRouter();
+  const { tid } = router.query;
+
+  const labels = Labels();
+
+  let loginId;
+  if (typeof localStorage !== "undefined") {
+    loginId = localStorage.getItem("login-userId");
+  }
+  const isIdExist = admin && admin.some((item) => item.id == loginId);
+  console.log("tt", isIdExist);
+
+  const [teamAScore, setTeamAScore] = useState("");
+  const [teamBScore, setTeamBScore] = useState("");
+  const [matchDate, setMatchDate] = useState(null);
+  const [matchTime, setMatchTime] = useState(null);
+  const [matchId, setMatchId] = useState("");
+  const [stadiumId, setStadiumId] = useState("");
+  const [matchStatus, setMatchStatus] = useState("");
+
+  const [visible, setVisible] = useState(false);
+  const [visibleStadium, setVisibleStadium] = useState(false);
+  const [visibleDate, setVisibleDate] = useState(false);
+  const [visibleTime, setVisibleTime] = useState(false);
+
+  const [searchResult, setSearchResult] = useState([]);
+  const [stadium, setStadium] = useState("");
+
+  const generateMatchesHandler = () => {
+    console.log("ingen", tid);
+    Axios.post(
+      apis.generateMatch,
+      {
+        tournament_slug: tid,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      setOnSuccess((prev) => !prev);
+      if (res.data.status === 1) {
+        notification.success({
+          message: constants.Success,
+          description: `${labels["Match generated"]}`,
+        });
+      } else if (res.data.status === 2) {
+        notification.info({
+          message: constants.Error,
+          description: `${labels["Maximum participants no match"]}`,
+        });
+      }
+
+      console.log("generate", res);
+    });
+  };
+
+  const handleChangeStadium = (e) => {
+    e.preventDefault();
+    setStadium(e.target.value);
+    Axios.post(
+      apis.tourStadiumSearch,
+      {
+        stadium_input: stadium,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      console.log("ooooooooppp", res);
+      if (res.data.status === 1) {
+        setSearchResult(res.data.data.results);
+      }
+    });
+  };
+
+  const handleModalShow = (match) => {
+    if (isIdExist) {
+      setVisible(true);
+      setMatchId(match);
+    }
+  };
+  const showStadiumModalHandler = (match) => {
+    if (isIdExist) {
+      setMatchId(match);
+      setVisibleStadium(true);
+    }
+  };
+  const showDateModalHandler = (match) => {
+    if (isIdExist) {
+      setMatchId(match);
+      setVisibleDate(true);
+      setMatchDate(null);
+    }
+  };
+  const showTimeModalHandler = (match) => {
+    if (isIdExist) {
+      setMatchId(match);
+      setVisibleTime(true);
+      setMatchTime(null);
+    }
+  };
+
+  const handleMatchUpdate = (id, type) => {
+    let updatedMatch;
+    if (type === "score") {
+      updatedMatch = {
+        tournament_slug: tid,
+        match_id: matchId,
+        team_a_score: teamAScore,
+        team_b_score: teamBScore,
+        match_status: matchStatus,
+      };
+    } else if (type === "stadium") {
+      updatedMatch = {
+        tournament_slug: tid,
+        match_id: matchId,
+        playground_id: id ? id : "",
+      };
+    } else if (type === "date") {
+      updatedMatch = {
+        tournament_slug: tid,
+        match_id: matchId,
+        date: matchDate ? matchDate.format("YYYY-MM-DD") : null,
+      };
+    } else if (type === "time") {
+      updatedMatch = {
+        tournament_slug: tid,
+        match_id: matchId,
+        time: matchTime ? matchTime.format("HH:mm:ss") : null,
+      };
+    }
+    console.log("inpuuuut", updatedMatch);
+
+    Axios.post(apis.updateMatchResult, updatedMatch, {
+      headers: {
+        Authorization: `Token ${constants.token_id}`,
+      },
+    }).then((res) => {
+      if (res.data.status === 1) {
+        notification.success({
+          message: constants.Success,
+          description: `${labels["Match updated successfully"]}`,
+        });
+        setOnSuccess((prev) => !prev);
+        setVisible(false);
+        setVisibleStadium(false);
+        setVisibleTime(false);
+        setVisibleDate(false);
+        setTeamAScore("");
+        setTeamBScore("");
+        setStadiumId("");
+        setMatchDate(null);
+      }
+
+      console.log("resultupdate", res);
+    });
+  };
+
   return (
     <Fragment>
-      {data &&
+      <Modal
+        className="stadium__select"
+        open={visibleStadium}
+        onCancel={() => setVisibleStadium(false)}
+        footer={null}
+        centered
+        title="Select Stadium"
+      >
+        <Input
+          placeholder="Enter Stadium"
+          // value={names}
+          onChange={(e) => handleChangeStadium(e)}
+        />
+        <List
+          dataSource={searchResult}
+          renderItem={(item, index) => (
+            <List.Item
+              key={index}
+              style={{ padding: "0px" }}
+              onClick={() => {
+                setStadiumId(item.id);
+                console.log("opppppppppppppppppppp", item.id);
+
+                handleMatchUpdate(item.id, "stadium");
+              }}
+            >
+              <div className="d-flex flex-start mt-4 mx-2">
+                <a className="me-2" href="">
+                  {item.stadium_image.length >= 1 && (
+                    <CardImg
+                      className="rounded-circle shadow-1-strong "
+                      src={`${constants.port}${item.stadium_image[0].images}`}
+                      style={{
+                        width: "44px",
+                        height: "44px",
+                        objectFit: "cover",
+                      }}
+                    ></CardImg>
+                  )}
+                </a>
+                <div
+                  className="flex-grow-1 flex-shrink-1 "
+                  style={{ marginBottom: "-24px" }}
+                >
+                  <div>
+                    <div className="d-flex justify-content-between align-items-center">
+                      <p
+                        className="mb-0"
+                        style={{
+                          fontWeight: "600",
+                          color: "#000",
+                          fontSize: "15px",
+                        }}
+                      >
+                        {item.stadium_name}
+                      </p>
+                    </div>
+
+                    <p
+                      className="small "
+                      style={{
+                        color: "#000",
+                        fontWeight: "400",
+                        fontSize: "14px",
+                        marginTop: "-3px",
+                        float: "left",
+                      }}
+                    >
+                      @{item.location}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </List.Item>
+          )}
+          style={{ height: "250px", overflowY: "auto" }}
+        />
+      </Modal>
+
+      <Modal
+        open={visible}
+        title="Enter Match Score"
+        onCancel={() => setVisible(false)}
+        footer={
+          <Button
+            key="save"
+            type="primary"
+            style={{ backgroundColor: "#17A803" }}
+            onClick={() => handleMatchUpdate(null, "score")}
+          >
+            Save
+          </Button>
+        }
+      >
+        <Input.Group compact>
+          <Input
+            style={{ width: "30%" }}
+            value={teamAScore}
+            onChange={(e) => setTeamAScore(e.target.value)}
+            placeholder="Team A Score"
+          />
+          <span style={{ margin: "0 8px" }}>-</span>
+          <Input
+            type="number"
+            style={{ width: "40%" }}
+            value={teamBScore}
+            onChange={(e) => setTeamBScore(e.target.value)}
+            placeholder="Team B Score"
+          />
+        </Input.Group>
+        <br></br>
+
+        <Select
+          defaultValue=""
+          placeholder="Match Status"
+          style={{
+            border: "0px",
+            background: "#eeeeee",
+            color: "grey",
+            width: "100%",
+          }}
+          id="team"
+          onChange={(value) => setMatchStatus(value)}
+          // value={formData.team}
+        >
+          <Select.Option value="">--select team--</Select.Option>
+          <Select.Option value="0">End</Select.Option>
+          <Select.Option value="1">Live</Select.Option>
+          <Select.Option value="2">Stop</Select.Option>
+          <Select.Option value="3">Start soon</Select.Option>
+        </Select>
+      </Modal>
+      <Modal
+        open={visibleDate}
+        title="Enter Date"
+        onCancel={() => setVisibleDate(false)}
+        footer={
+          <Button
+            key="save"
+            type="primary"
+            style={{ backgroundColor: "#17A803" }}
+            onClick={() => handleMatchUpdate(null, "date")}
+          >
+            Save
+          </Button>
+        }
+      >
+        <DatePicker
+          showTime
+          format="YYYY-MM-DD"
+          placeholder="Select Date "
+          onChange={(date) => setMatchDate(date)}
+          value={matchDate}
+        />
+      </Modal>
+      <Modal
+        open={visibleTime}
+        title="Enter Time"
+        onCancel={() => setVisibleTime(false)}
+        footer={
+          <Button
+            key="save"
+            type="primary"
+            style={{ backgroundColor: "#17A803" }}
+            onClick={() => handleMatchUpdate(null, "time")}
+          >
+            Save
+          </Button>
+        }
+      >
+        <TimePicker
+          placeholder="Select Time "
+          format="HH:mm:ss"
+          onChange={(time) => setMatchTime(time)}
+          value={matchTime}
+        />
+      </Modal>
+      {data.length >= 1 ? (
         data.map((item, index) => (
           <>
             <h6
+              key={index}
               className="my-4"
               style={{ fontSize: "15px", fontWeight: "600" }}
             >
               {item.match_type}
             </h6>
             {item.matches.map((content, index_) => (
-              <div className="card football1">
+              <div key={index_} className="card football1">
                 <div className="card-body p-5 mx-4">
                   <div className="live1">
-                    <div className=" watch1 ">
-                      <img
-                        src={`${constants.port}${content.team_A_logo}`}
-                        className="clubs"
-                      ></img>
-                      <p className="team1">{content.team_A} </p>
-                    </div>
+                    <Link
+                      href={`/tournament/match/${content.id}`}
+                      style={{ textDecoration: "none", color: "inherit" }}
+                    >
+                      <div className=" watch1 ">
+                        <img
+                          src={`${constants.port}${content.team_A_logo}`}
+                          className="clubs"
+                        ></img>
+                        <p className="team1">{content.team_A} </p>
+                      </div>
 
+                      <div className="watch2 ">
+                        <img
+                          src={`${constants.port}${content.team_B_logo}`}
+                          className="clubs"
+                        ></img>
+                        <p className="team2">{content.team_B}</p>
+                      </div>
+                    </Link>
                     <div className="live-watch mx-5">
-                      <p className="space-line">
-                        {content.team_A_score ? content.team_A_score : "____"}&nbsp;-&nbsp; 
+                      <p
+                        onClick={() => handleModalShow(content.id)}
+                        className="space-line"
+                      >
+                        {content.team_A_score ? content.team_A_score : "____"}
+                        &nbsp;-&nbsp;
                         {content.team_B_score ? content.team_B_score : "____"}
                       </p>
-                      <p className="date-wins">
+                      <p
+                        onClick={() => showDateModalHandler(content.id)}
+                        className="date-wins"
+                      >
                         {content.match_date ? (
                           content.match_date
                         ) : (
@@ -42,21 +419,22 @@ function TournamentMatches({ data }) {
                           ></img>
                         )}
                       </p>
-                      <p className="time-wins">{content.start_time}</p>
+                      <p
+                        onClick={() => showTimeModalHandler(content.id)}
+                        className="time-wins"
+                      >
+                        {content.start_time ? (
+                          content.start_time
+                        ) : (
+                          <i className="bi bi-clock "></i>
+                        )}
+                      </p>
                       <button
                         type="button"
                         className=" btn-outline-secondary left-time"
                       >
                         45 Min
                       </button>
-                    </div>
-
-                    <div className="watch2 ">
-                      <img
-                        src={`${constants.port}${content.team_B_logo}`}
-                        className="clubs"
-                      ></img>
-                      <p className="team2">{content.team_B}</p>
                     </div>
                   </div>
                   <div className="watch-play">
@@ -76,15 +454,33 @@ function TournamentMatches({ data }) {
                         fill="#17A803"
                       />
                     </svg>
-                    <p className="mx-2 stadium">{content.stadium_name}</p>
+                    <p
+                      onClick={() => showStadiumModalHandler(content.id)}
+                      className="mx-2 stadium"
+                    >
+                      {content.stadium_name
+                        ? content.stadium_name
+                        : "_________"}
+                    </p>
                   </div>
                 </div>
               </div>
             ))}
           </>
-        ))}
+        ))
+      ) : (
+        <div style={{ textAlign: "center", margin: "30px" }}>
+          <button
+            onClick={() => generateMatchesHandler()}
+            type="button"
+            className="matches-btn"
+          >
+            Generate Matches
+          </button>
+        </div>
+      )}
 
-      <div className="card football1 my-4">
+      {/* <div className="card football1 my-4">
         <div className="card-body p-5 mx-4">
           <div className="live1">
             <div className=" watch1 ">
@@ -265,7 +661,7 @@ function TournamentMatches({ data }) {
                 className="mx-5 my-2"
               ></img>
               <br></br>
-              <i class="bi bi-clock " style={{ marginLeft: "50px" }}></i>
+              <i className="bi bi-clock " style={{ marginLeft: "50px" }}></i>
             </div>
 
             <div className="watch2 ">
@@ -292,7 +688,7 @@ function TournamentMatches({ data }) {
             <p className="mx-2 stadium">Mohammed Al‑Hamad Stadium </p>
           </div>
         </div>
-      </div>
+      </div> */}
     </Fragment>
   );
 }
