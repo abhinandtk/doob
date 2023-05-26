@@ -352,7 +352,7 @@ Arabic</Dropdown.Item>
   </div> 
     </div>
 <div className='card tournament3 my-4'>
-    <div className='card-body p-5'>
+    <div className='card-body p-3'>
      
     <div class="bracket">
 	<div class="round">
@@ -386,7 +386,7 @@ Arabic</Dropdown.Item>
     <div class="team">
       <div className='fix-image'>
       <img src='../images/tournament/Munchen.png' className='group-image'></img>
-      <img src='../images/tournament/Munchen.png' className='group-image'></img>
+      <img src='../images/tournament/Barcelona.png' className='group-image'></img>
         </div>
         <div className='fix'>
           <div className='group-one'>
@@ -405,7 +405,6 @@ Arabic</Dropdown.Item>
           </div>
         </div>
       </div>
-			
 		</div>
 		<div class="match">
     <div class="team">
@@ -430,12 +429,11 @@ Arabic</Dropdown.Item>
           </div>
         </div>
       </div>
-			
 		</div>
 		<div class="match">
 			<div class="team">
       <div className='fix-image'>
-      <img src='../images/tournament/Munchen.png' className='group-image'></img>
+      <img src='../images/tournament/Barcelona.png' className='group-image'></img>
       <img src='../images/tournament/Munchen.png' className='group-image'></img>
         </div>
         <div className='fix'>
@@ -455,9 +453,7 @@ Arabic</Dropdown.Item>
           </div>
         </div>
       </div>
-			
 		</div>
-    
 	</div>
 	<div class="round">
 		<div class="match">
@@ -483,7 +479,6 @@ Arabic</Dropdown.Item>
           </div>
         </div>
       </div>
-			
 		</div>
 		<div class="match">
     <div class="team">
@@ -508,38 +503,32 @@ Arabic</Dropdown.Item>
           </div>
         </div>
       </div>
-			
 		</div>
 	</div>
 	<div class="round">
 		<div class="match">
     <div class="team">
-      <div className='fix-image'>
+      <div className='fix-image-final'>
       <img src='../images/tournament/Munchen.png' className='group-image'></img>
-      <img src='../images/tournament/Munchen.png' className='group-image'></img>
+   
         </div>
-        <div className='fix'>
-          <div className='group-one'>
+        <div className='fix-final'>
+          <div className='group-one-final'>
             Kasim
           </div>
-          <div className='group-two '>
-            Al-Nasr
-          </div>
+          
         </div>
-        <div className='fix1'>
-          <div className='group-one'>
-            12
+        <div className='fix1-final'>
+          <div className='group-two-final'>
+            5
           </div>
-          <div className='group-two '>
-            31
-          </div>
+         
         </div>
       </div>
 			
 		</div>
 	</div>
 </div>
-  
     </div>
 </div>
 
@@ -550,15 +539,6 @@ Arabic</Dropdown.Item>
         </div> 
     </div>
 </div>
-
-
-
-
-
-
-
-
-
 </div> 
 </div>
   

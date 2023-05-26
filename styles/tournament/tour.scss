@@ -1965,19 +1965,21 @@ margin-left: 13px;
 
 .bracket {
 	display: flex;
+  margin-left: 12px;
+
 }
 
 .round {
 	flex: 1 ;
  
 	display: flex;
-	margin-right: 40px;
+	margin-right: 50px;
 	flex-direction: column;
 	justify-content: space-around;
 }
 
 .match {
-	margin: 15px 0;
+	margin: 20px 0;
 	overflow: hidden;
 	border-radius: 5px;
   
@@ -2014,6 +2016,43 @@ margin-left: 13px;
   justify-content: space-around;
   margin: 0px -8px;
 }
+////////////////
+.fix-image-final{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+ justify-content: center;
+ 
+}
+
+.group-one-final{
+  color: #000000;
+  font-size: 14px;
+ text-align: center;
+  justify-content: center;
+}
+.fix-final{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+ 
+}
+.fix1-final{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+
+}
+
+.group-two-final{
+  color: #000000;
+  font-size: 14px;
+ text-align: center;
+  justify-content: center;
+}
+/////////////
 .group-one{
   color: #000000;
   font-size: 14px;
