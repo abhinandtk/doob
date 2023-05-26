@@ -343,16 +343,202 @@ Arabic</Dropdown.Item>
   </div>
   <div className="btn-group mx-1" role="group" aria-label="Second group">
     <button type="button" className="btn btn-outline-secondary match2 ">Teams</button>
-  </div>
+  </div> 
   <div className="btn-group mx-1" role="group" aria-label="Second group">
     <button type="button" className="btn btn-outline-secondary match2 ">Matches</button>
   </div>
   <div className="btn-group mx-1" role="group" aria-label="Second group">
     <button type="button" className="btn btn-outline-secondary match1 ">Fixture</button>
-  </div>
+  </div> 
     </div>
 <div className='card tournament3 my-4'>
-    <div className='card-body p-5 '>
+    <div className='card-body p-5'>
+     
+    <div class="bracket">
+	<div class="round">
+		<div class="match">
+    <div class="team">
+      <div className='fix-image'>
+      <img src='../images/tournament/Munchen.png' className='group-image'></img>
+      <img src='../images/tournament/Munchen.png' className='group-image'></img>
+        </div>
+        <div className='fix'>
+          <div className='group-one'>
+            Kasim
+          </div>
+          <div className='group-two '>
+            Al-Nasr
+          </div>
+        </div>
+        <div className='fix1'>
+          <div className='group-one'>
+            12
+          </div>
+          <div className='group-two '>
+            3
+          </div>
+        </div>
+      </div>
+		
+		</div>
+ 
+		<div class="match">
+    <div class="team">
+      <div className='fix-image'>
+      <img src='../images/tournament/Munchen.png' className='group-image'></img>
+      <img src='../images/tournament/Munchen.png' className='group-image'></img>
+        </div>
+        <div className='fix'>
+          <div className='group-one'>
+            Kasim
+          </div>
+          <div className='group-two '>
+            Al-Nasr
+          </div>
+        </div>
+        <div className='fix1'>
+          <div className='group-one'>
+            12
+          </div>
+          <div className='group-two '>
+            31
+          </div>
+        </div>
+      </div>
+			
+		</div>
+		<div class="match">
+    <div class="team">
+      <div className='fix-image'>
+      <img src='../images/tournament/Munchen.png' className='group-image'></img>
+      <img src='../images/tournament/Munchen.png' className='group-image'></img>
+        </div>
+        <div className='fix'>
+          <div className='group-one'>
+            Kasim
+          </div>
+          <div className='group-two '>
+            Al-Nasr
+          </div>
+        </div>
+        <div className='fix1'>
+          <div className='group-one'>
+            1
+          </div>
+          <div className='group-two '>
+            31
+          </div>
+        </div>
+      </div>
+			
+		</div>
+		<div class="match">
+			<div class="team">
+      <div className='fix-image'>
+      <img src='../images/tournament/Munchen.png' className='group-image'></img>
+      <img src='../images/tournament/Munchen.png' className='group-image'></img>
+        </div>
+        <div className='fix'>
+          <div className='group-one'>
+            Kasim
+          </div>
+          <div className='group-two '>
+            Al-Nasr
+          </div>
+        </div>
+        <div className='fix1'>
+          <div className='group-one'>
+            12
+          </div>
+          <div className='group-two '>
+            31
+          </div>
+        </div>
+      </div>
+			
+		</div>
+    
+	</div>
+	<div class="round">
+		<div class="match">
+    <div class="team">
+      <div className='fix-image'>
+      <img src='../images/tournament/Munchen.png' className='group-image'></img>
+      <img src='../images/tournament/Munchen.png' className='group-image'></img>
+        </div>
+        <div className='fix'>
+          <div className='group-one'>
+            Kasim
+          </div>
+          <div className='group-two '>
+            Al-Nasr
+          </div>
+        </div>
+        <div className='fix1'>
+          <div className='group-one'>
+            82
+          </div>
+          <div className='group-two '>
+            31
+          </div>
+        </div>
+      </div>
+			
+		</div>
+		<div class="match">
+    <div class="team">
+      <div className='fix-image'>
+      <img src='../images/tournament/Munchen.png' className='group-image'></img>
+      <img src='../images/tournament/Munchen.png' className='group-image'></img>
+        </div>
+        <div className='fix'>
+          <div className='group-one'>
+            Kasim
+          </div>
+          <div className='group-two '>
+            Al-Nasr
+          </div>
+        </div>
+        <div className='fix1'>
+          <div className='group-one'>
+            12
+          </div>
+          <div className='group-two '>
+            31
+          </div>
+        </div>
+      </div>
+			
+		</div>
+	</div>
+	<div class="round">
+		<div class="match">
+    <div class="team">
+      <div className='fix-image'>
+      <img src='../images/tournament/Munchen.png' className='group-image'></img>
+      <img src='../images/tournament/Munchen.png' className='group-image'></img>
+        </div>
+        <div className='fix'>
+          <div className='group-one'>
+            Kasim
+          </div>
+          <div className='group-two '>
+            Al-Nasr
+          </div>
+        </div>
+        <div className='fix1'>
+          <div className='group-one'>
+            12
+          </div>
+          <div className='group-two '>
+            31
+          </div>
+        </div>
+      </div>
+			
+		</div>
+	</div>
+</div>
   
     </div>
 </div>

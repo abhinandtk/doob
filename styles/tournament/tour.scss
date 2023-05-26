@@ -1962,204 +1962,85 @@ margin-left: 13px;
 }
 
 
-#contains { 
-  width: 800px; 
-  height: 600px; 
-  float: left; 
-  margin-left: -23px;
-      margin-top: -39px;
+
+.bracket {
+	display: flex;
 }
 
-section { 
-  width: 130px; 
-  height: 520px; 
-  float: left;
+.round {
+	flex: 1 ;
+ 
+	display: flex;
+	margin-right: 40px;
+	flex-direction: column;
+	justify-content: space-around;
 }
 
-section > div { 
-  width: 170px; 
-  height: 95px; 
-   border-radius: 6px;
-  margin: 30px 0; 
-  background: #eeeeee; 
-  color: rgb(0, 0, 0); 
-  padding: 13px 10px 10px 20px;
-  font-size: 13px;
-}
-
-
-.fixture-team1{
-  font-size: 13px;
-  color: #000;
-  display:-webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 50px;
+.match {
+	margin: 15px 0;
+	overflow: hidden;
+	border-radius: 5px;
   
 }
-.fixture-team2{
-  font-size: 13px;
-  color: #000;
-  display:-webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 50px;
-  margin-left: 9px;
+
+.team {
+	color: #000000;
+	padding:14px 23px;
+	background-color:#EEEEEE;
+  width: 150px;
+  height: 95px;
+  border-radius: 6px;
 }
 
-.fixture-score1{
-  font-size: 13px;
-  color: #000;
 
-  
-}
-.fixture-score2{
-  font-size: 13px;
-  color: #17A803;
-  font-weight: 600;
-  margin-left: 34px;
-}  
-
-
-.fixture{
+.fix{
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  margin-left: 15px;
-}
-
-.fixture1{
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  margin-left: 15px;
-}
-
-
-.fixture2{
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  margin-left: 15px;
+  justify-content: space-between;
  
 }
-
-section > div:nth-child(2n) { 
-  margin-bottom: 40px;
-}
-
-.connecter { 
-  width: 30px; 
-  height: 520px; 
-  float: left; 
-}
-
-.line { 
-  width: 30px; 
-  height: 520px; 
-  float: left; 
-}
-
-.connecter div { 
-  border: 1px solid #000; 
-  border-left: none; 
-  height: 50px; 
-  width: 100%; 
-  margin: 80px 0 0 1px;
-}
-
-.connecter div:first-child { 
-  margin: 32px 0 0 1px; 
-}
-
-.line div {
-  border-top: 1px solid #000;
-  margin: 133px 0 0 1px;
-  margin-top: 314px;
-  margin-left: 20px;
-  width: 32px;
-}
-
-
-.line div:first-child {
-  margin-top: 164px;
-  width: 32px;
-  margin-left: 20px;
-}
-
-#quarterFinals > div { 
-  margin-top: 220px; 
-  margin-left: 24px;
-}
-
-#quarterFinals > div:first-child { 
-  margin-top: 117px; 
-}
-
-#conn2 div {
-  margin-top: 117px;
-  height: 193px;
-  margin-left: 40px;
-}
-
-#conn2 div:first-child { 
-  margin-top: 71px; 
-}
-
-#line2 div { 
-  margin-top: 270px; 
-}
-
-#line2 div:first-child { 
-  margin-top: 125px; 
-}
-#semiFinals > div { 
-  margin-top: 230px; 
-}
-
-
-
-#semiFinals > div:first-child {
-    margin-top: 260px;
-    width: 102px;
-    margin-left: 94px;
-}
-
-#conn3 div {
-  margin-top: 164px;
-  height: 319px;
-  margin-left: 63px;
-}
-#line3 div { 
-  margin-top: 305px; 
-  width: 32px;
-  margin-left: -88px;
-}
-
-#final > div { 
-  margin-top: 250px; 
-}
-
 .fix1{
-  width: 33px;
-  height: 33px;
-  border-radius: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-around;
+  margin: 0px -8px;
+}
+.fix-image{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-around;
+  margin: 0px -8px;
+}
+.group-one{
+  color: #000000;
+  font-size: 14px;
+  display:-webkit-box;
+  -webkit-line-clamp: 1;
+  width: 35px;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.group-two{
+  color: #17A803;
+  font-size: 14px;
+  font-weight: 500;
+  display:-webkit-box;
+  -webkit-line-clamp: 1;
+  width: 35px;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.group-image{
+  width: 30px;
+  height: 30px;
+
   object-fit: cover;
  
-}
-
-
-.fix2{
-  width: 33px;
-  height: 33px;
-  border-radius: 50%;
-  object-fit: cover;
- margin-left: 25px;
-
 }
 
 ///// medai query start ////
