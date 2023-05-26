@@ -220,7 +220,7 @@ function TournamentDetailPage() {
               <TeamsCard teamsData={teamsTabData} setOnSuccess={setOnSuccess} admin={adminList}/>
             </Tab>
             <Tab eventKey="Matches" title={tabButton("Matches")}>
-              <TournamentMatches data={matchesTabData}/>
+              <TournamentMatches data={matchesTabData} setOnSuccess={setOnSuccess} admin={adminList}/>
             </Tab>
             <Tab eventKey="Fixture" title={tabButton("Fixture")}>
               d 

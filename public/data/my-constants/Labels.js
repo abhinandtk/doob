@@ -20,6 +20,11 @@ export function Labels() {
         'Team deleted':'Team deleted successfully',
         'Team Exist':'User already has a team in the tournament',
         'Tournament maximum participants':'Tournament has reached maximum participants',
+        'Match updated successfully':'Match updated successfully',
+        'Match updated successfully':'Match updated successfully',
+        'Maximum participants no match':'Number of teams does not match the maximum participants allowed',
+        'Match generated':'Match generated successfully',
+        'Match details created':'Match details created successfully',
 
     }
     return labels
