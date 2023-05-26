@@ -214,7 +214,7 @@ function PlayGroundsForm({ handlePlaygroundForm }) {
         <input
           required
           type="file"
-          class="form-control p-2 grey"
+          class="form-control p-2 "
           style={{
             border: "0px",
             background: "#eeeeee",

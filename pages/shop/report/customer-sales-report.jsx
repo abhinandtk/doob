@@ -80,7 +80,7 @@ function CustomerSalesReport() {
                     ></img>
                     <button type="button" className="export-btn">
                       Export
-                    </button>
+                    </button> 
                   </span>
                 </div>
 

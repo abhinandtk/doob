@@ -80,7 +80,9 @@ function TournamentTabContent({data}) {
               </div>
             </div>
           </div>
+          
           ))}
+         
           <button onClick={()=>router.push('/tournament/all-tournament')} type="button" className="live-btn ">
             View all
           </button>

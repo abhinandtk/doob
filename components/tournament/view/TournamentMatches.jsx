@@ -16,7 +16,7 @@ function TournamentMatches({ data }) {
               {item.match_type}
             </h6>
             {item.matches.map((content, index_) => (
-              <div className="card football1">
+              <div className="card football1 ">
                 <div className="card-body p-5 mx-4">
                   <div className="live1">
                     <div className=" watch1 ">
@@ -27,7 +27,7 @@ function TournamentMatches({ data }) {
                       <p className="team1">{content.team_A} </p>
                     </div>
 
-                    <div className="live-watch mx-5">
+                    <div className="live-watch ">
                       <p className="space-line">
                         {content.team_A_score ? content.team_A_score : "____"}&nbsp;-&nbsp; 
                         {content.team_B_score ? content.team_B_score : "____"}
@@ -59,7 +59,7 @@ function TournamentMatches({ data }) {
                       <p className="team2">{content.team_B}</p>
                     </div>
                   </div>
-                  <div className="watch-play">
+                  <div className="watch-play ">
                     <svg
                       width="16"
                       height="19"
@@ -78,13 +78,15 @@ function TournamentMatches({ data }) {
                     </svg>
                     <p className="mx-2 stadium">{content.stadium_name}</p>
                   </div>
+
                 </div>
               </div>
+            
             ))}
           </>
         ))}
-
-      <div className="card football1 my-4">
+       
+      <div className="card football1 my-5">
         <div className="card-body p-5 mx-4">
           <div className="live1">
             <div className=" watch1 ">
@@ -95,7 +97,7 @@ function TournamentMatches({ data }) {
               <p className="team1">Barcelona </p>
             </div>
 
-            <div className="live-watch mx-5">
+            <div className="live-watch ">
               <p className="club-wins">2 - 3</p>
               <p className="date-wins">13 Feb 2023</p>
               <p className="time-wins">12.00 PM</p>
@@ -152,7 +154,7 @@ function TournamentMatches({ data }) {
               <p className="team1">Barcelona </p>
             </div>
 
-            <div className="live-watch mx-5">
+            <div className="live-watch ">
               <p className="club-wins">2 - 3</p>
               <p className="date-wins">13 Feb 2023</p>
               <p className="time-wins">12.00 PM</p>
@@ -205,7 +207,7 @@ function TournamentMatches({ data }) {
               <p className="team1">Barcelona </p>
             </div>
 
-            <div className="live-watch mx-5">
+            <div className="live-watch ">
               <p className="space-line">____ ____</p>
               <p className="date-wins">13 Feb 2023</p>
               <p className="time-wins">12.00 PM</p>
@@ -265,7 +267,7 @@ function TournamentMatches({ data }) {
                 className="mx-5 my-2"
               ></img>
               <br></br>
-              <i class="bi bi-clock " style={{ marginLeft: "50px" }}></i>
+              <i class="bi bi-clock " style={{ marginLeft: "0px" }}></i>
             </div>
 
             <div className="watch2 ">

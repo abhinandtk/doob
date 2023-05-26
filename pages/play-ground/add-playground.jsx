@@ -69,19 +69,20 @@ function AddPlaygroundPage() {
 
   return (
     <div>
-      <div className="store-container">
-        <div className="bottom">
-          <PlayGroundSideBar />
-
+      <div className="tour-container">
+        <div className="Bottom">
+          <PlayGroundSideBar />             
+                                
           <div class="play-topic  ">
-            <div className="bottoms">
+            <div className="bottoms"> 
               <h6
                 className=" ms-4"
                 style={{ color: "#17a803", fontWeight: "700" }}
               >
                 Add Playground
               </h6>
-
+              
+                
               <div className="my-4 mx-4 ">
                 <h6 style={{ fontSize: "14px", fontWeight: "700" }}>
                   Basic Details

@@ -10,7 +10,7 @@ function store() {
     <div>
       
       <div className="tour-container">
-        <div className="bottoms">
+        <div className="Bottoms">
           <PlayGroundSideBar />
 
           <div className="play-topic  ">

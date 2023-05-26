@@ -669,7 +669,7 @@ input:disabled{
   padding: 1px 6px;
   height: 100%;
    background: white;
-   width: 75%;
+   width: 65%;
 
 }
 .content-topics {
@@ -677,7 +677,7 @@ input:disabled{
   padding: 1px 6px;
   height: 690px;    // width noted //...............................................
    background: white;
-   width: 75%;
+   width: 65%;
    
 }
 .toggle {
@@ -1122,29 +1122,26 @@ height: auto;
 
 
 
-#header {
-  padding: 5px 10px;
-  height: 55px;
-  overflow: no-content;
-
+.headers {
+ 
+  justify-content: space-between;
 }
 
 div#header div {
   display: inline-block;
-  padding: 1% 0;
-  margin: 0 2%;
+
   text-align: end;
   font-size: 16px;
   font-weight:700;
 }
 
 
-#header-middle {
+.count1 {
   width: 46%;
   
 }
 
-#header-right {
+.account1 {
   width: 32%;
   
 }
@@ -1166,7 +1163,7 @@ div#header div {
 .customer{
   background:#eeeeee;
   border-radius:10px;
-  width:610px;
+  width:530px;
 }
 .sales-report-name{
   position: relative;
@@ -1206,12 +1203,19 @@ div#header div {
   border: 0px;
   width: 80%;
 }
-
+.dough{
+   width: 400px;
+    height: 400px;
+}
 // sajin stores //
 @media(max-width:1360px){
   .store-container1{
     width:auto
  
+}
+.store-container{
+  width:auto
+
 }
 .content-topic {
   margin-right:20px;
@@ -1220,6 +1224,9 @@ div#header div {
    background: white;
    width: 60%
 
+}
+.customer{
+  width: 100%;
 }
 .sides{
   padding: 12px 7px;
@@ -1245,13 +1252,20 @@ div#header div {
     width: 178px;
     float: right;
   }
- 
+  .dough{
+    width: 100%;
+     height: 400px;
+ }
 }
 @media(max-width:1299px){
   .store-container1 {
     width: auto;
   
     }
+    .store-container {
+      width: auto;
+    
+      }
   .content-topic {
     margin-right:20px;
     float: right;
@@ -1292,6 +1306,10 @@ div#header div {
     width: 100%;
     margin: 0 auto;
     }
+    .store-container {
+      width: 100%;
+      margin: 0 auto;
+      }
   .content-topic {
     margin-right:20px;
     float: right;
@@ -1336,6 +1354,10 @@ div#header div {
     width: 100%;
     margin: 0 auto;
     }
+    .store-container {
+      width: 100%;
+      margin: 0 auto;
+      }
     .content-topic {
       margin-right:20px;
       float: right;
@@ -1377,12 +1399,16 @@ div#header div {
     width: 100%;
     margin: 0 auto;
     }
+    .store-container {
+      width: 100%;
+      margin: 0 auto;
+      }
     .content-topic {
       margin-right:20px;
       // float: right;
       height: 100%;
        background: white;
-       width: 55%
+       width: 53%
     
     }
     .sides{
@@ -1397,7 +1423,7 @@ div#header div {
       margin-right: 20px;
       height: 100%;  
        background: white;
-       width: 48%;
+       width: 52%;
       //  float: right;
       }
       .address-admin{
@@ -1418,6 +1444,10 @@ div#header div {
     width: 100%;
     margin: 0 auto;
     }
+    .store-container{
+      width: 100%;
+      margin: 0 auto;
+      }
     .content-topic {
       // margin-right:25px;
       // float: right;
@@ -1469,6 +1499,10 @@ div#header div {
   width: 100%;
   margin: 0 auto;
   }
+  .store-container{
+    width: 100%;
+    margin: 0 auto;
+    }
   .content-topic {
     // margin-right:20px;
     // float: right;
@@ -1529,7 +1563,7 @@ div#header div {
      width: 98%;
      
     }
-   
+  
     .arrow-icon {
       margin-right: -4px;
       float: right;
@@ -1767,8 +1801,20 @@ div#header div {
 .store-container1{
   width: 100%;
 }
+.count1 {
+  width: 46%;
+  
+}
 
+.account1 {
+  width: 32%;
+  
+}
 
+.store-container {
+  width: 100%;
+ 
+  }
 .sides{
   display: none;
 }
@@ -1916,10 +1962,18 @@ height: 100%;
      width: 86%;
   
   }
+  .count1{
+    width: 20%;
+  }
+  .account1{
+    width: 20%;
+  }
 .store-container1{
   width: 100%;
 }
-
+.store-container {
+  width: 100%;
+  }
 .sides{
   display: none;
 }
@@ -2051,7 +2105,7 @@ margin-left: -2px;
 margin-left: -15px;
 height: 100%;  
  background: white;
- width: 100%;
+ width: auto;
  
 }
 }

@@ -353,8 +353,89 @@ Arabic</Dropdown.Item>
     </div>
 <div className='card tournament3 my-4'>
     <div className='card-body p-5 '>
-   
+      
+    <article id="contains">
 
+<section>
+    <div>
+      <div className='fixture1'>
+      <img src='../images/tournament/Munchen.png' className='fix1' ></img>
+      <img src='../images/tournament/Munchen.png' className='fix2' ></img>
+      </div>
+      <div className='fixture'>
+        <div className='fixture-team1'>
+    Kazim   Kazim   Kazim
+        </div>
+        <div className='fixture-team2'>
+          Nassr   Kazim   Kazim
+          </div>
+          
+      </div>
+      <div className='fixture2'>
+        <div className='fixture-score1'>
+        1233
+        </div>
+        <div className='fixture-score2'>
+          333
+          </div>
+          </div>
+
+    </div>
+    <br></br>
+    <div>Player 2 d</div>
+    <div>Player 3</div>
+    <br></br>
+    <div>Player 4</div>
+ 
+</section>
+
+<div class="connecter" id="conn2">
+    <div></div>
+    <div></div>
+</div>
+{/* <div class="connecter">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div> */}
+
+<div class="line">
+   
+    <div></div>
+    <div></div>
+    
+</div>
+
+<section id="quarterFinals">
+    <div></div>
+    <div></div>
+   
+</section>
+
+
+
+{/* <div class="line" id="line2">
+    <div></div>
+    <div></div>
+</div> */}
+<div class="connecter" id="conn3">
+    <div></div>
+</div>
+
+<section id="semiFinals">
+    <div></div>
+   
+</section>
+
+ 
+<div class="line" id="line3">
+    <div></div>
+</div> 
+
+
+
+</article>
     </div>
 </div>
 
