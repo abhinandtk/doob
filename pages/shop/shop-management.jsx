@@ -14,7 +14,7 @@ function ShopManagementPage() {
       <MobileHeader />
       <MainSidebarFixed />
 
-      <div class="store-container  my-5">
+      <div class="store-container1  my-5">
         <h5 className=" fw-bold shop-management">
           Shop Management
           <span className="home" style={{ float: "right", display: "block" }}>

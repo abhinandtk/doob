@@ -69,7 +69,7 @@ function AdminAllOrders() {
       <MobileHeader />
       <MainSidebarFixed />
 
-      <div className="store-container">
+      <div className="store-container1">
         <Modal
           open={visible}
           onCancel={() => setVisible(false)}

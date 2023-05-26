@@ -169,11 +169,11 @@ function TeamsCard({ teamsData, setOnSuccess, admin }) {
       {teamsData &&
         teamsData.map((item, index) => (
           <div
-            className="rounded border-0 d-flex p-1   my-3"
-            style={{ background: "#eeeeee", width: "590px" }}
+            className="rounded border-0 d-flex p-1 top-teams   my-3"
+            
           >
             <p
-              className=" mb-1 mx-3"
+              className=" mb-2 mx-3"
               style={{ fontWeight: "500", fontSize: "14px" }}
             >
               <img
@@ -183,7 +183,7 @@ function TeamsCard({ teamsData, setOnSuccess, admin }) {
               &nbsp;{item.team_name}
             </p>
             {isIdExist && (
-              <div className="ms-auto">
+              <div className="ms-auto top-teams-dot">
                 <Dropdown className="Drop">
                   <Dropdown.Toggle
                     variant=""

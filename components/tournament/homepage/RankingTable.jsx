@@ -44,9 +44,9 @@ function RankingTable({ data }) {
                   >
                     View
                   </div>
-                </li>
-              ) : (
-                <li className="table-row1">
+                </li> 
+              ) : (                                                                                                                                             
+                <li className="table-row1"> 
                   <div className="col col-1 mt-3  id " data-label="Job Id">
                     #{index + 1}
                   </div>
@@ -61,7 +61,7 @@ function RankingTable({ data }) {
                       ></img>
                     </span>
                   </Link>
-                  <Link
+                  <Link 
                     href={`/tournament/player/${item.username}`}
                     style={{ textDecoration: "none", color: "black" }}
                   >
@@ -69,11 +69,11 @@ function RankingTable({ data }) {
                       className="col col-8 name1 mt-3"
                       data-label="Customer Name"
                     >
-                      {item.name}
+                      {item.name} 
                     </span>
                   </Link>
                   <div
-                    className="col col-1 mt-4 views "
+                    className="col col-1 mt-4 views1 "
                     data-label="Payment Status"
                   >
                     View
@@ -102,7 +102,7 @@ function RankingTable({ data }) {
             <li className="table-row1">
               <div className="col col-1 mt-3 id " data-label="Job Id">
                 #130
-              </div>
+              </div> 
               <span className="ahmed2">
                 <img src="../images/tournament/Masid .png"></img>
               </span>
