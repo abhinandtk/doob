@@ -76,7 +76,7 @@ function TournamentTabContent({data}) {
                 </svg>{" "}
                 <p className="mx-2 stadium">{item.playground_details.title}</p>
                 <img
-                  src="/images/tournament/play.png"
+                  src="/images/tournament/video play.png"
                   className="live-play"
                 ></img>
               </div>

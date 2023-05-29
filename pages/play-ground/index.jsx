@@ -238,7 +238,7 @@ function PlayGroundPage() {
                 </p>
               </div>
             </section>
-            <section className="">
+            <section className="game-scroll">
               <div
                 className="btn-group me-2"
                 role="group"
