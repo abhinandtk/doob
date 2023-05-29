@@ -18,6 +18,15 @@ function TournamentDetailPage() {
   const router = useRouter();
   const { tid } = router.query;
 
+  const handleShare = async () => {
+    try {
+      await navigator.share({ url: window.location.href });
+      console.log("Shared successfully!");
+    } catch (error) {
+      console.error("Error sharing:", error);
+    }
+  };
+
   const [activeTab, setActiveTab] = useState("Home");
   const [homeTabData, setHomeTabData] = useState(null);
   const [teamsTabData, setTeamsTabData] = useState([]);
@@ -93,12 +102,13 @@ function TournamentDetailPage() {
                   alt="Card image cap"
                 />
                 <div className="live-icon1">
-                  <span>
+                  <span onClick={()=>handleShare()}>
                     <svg
                       width="16"
                       height="19"
                       viewBox="0 0 22 22"
                       fill="none"
+                      className="mx-4"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
@@ -116,7 +126,7 @@ function TournamentDetailPage() {
                         stroke-linejoin="round"
                       />
                     </svg>
-                    <span className="mx-4">
+                    {/* <span className="mx-4">
                       <svg
                         width="5"
                         height="18"
@@ -146,7 +156,7 @@ function TournamentDetailPage() {
                           stroke-linejoin="round"
                         />
                       </svg>
-                    </span>
+                    </span> */}
                   </span>
                 </div>
 
@@ -206,7 +216,7 @@ function TournamentDetailPage() {
                     Next Match
                   </h6>
 
-                  <MatchCards data={homeTabData.live_match} />
+                  <MatchCards data={homeTabData.next_match} />
                 </>
               )}
               {homeTabData && homeTabData.last_match && (
@@ -215,7 +225,7 @@ function TournamentDetailPage() {
                     className="my-4"
                     style={{ fontSize: "15px", fontWeight: "600" }}
                   >
-                    Next Match
+                    Last Match
                   </h6>
 
                   <MatchCards data={homeTabData.last_match} />
@@ -234,6 +244,7 @@ function TournamentDetailPage() {
                 data={matchesTabData}
                 setOnSuccess={setOnSuccess}
                 admin={adminList}
+                home={homeTabData}
               />
             </Tab>
             <Tab eventKey="Fixture" title={tabButton("Fixture")}>

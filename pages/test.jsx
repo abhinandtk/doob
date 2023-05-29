@@ -32,7 +32,7 @@ const ImageField = () => {
     const isMatchToday = startDateTime.isSame(moment(), 'day');
   
     if (!isMatchToday) {
-      setLiveTime('Match is not today');
+      setLiveTime('00:00');
       return;
     }
   
@@ -45,7 +45,7 @@ const ImageField = () => {
   
       if (totalMinutes >= 100) {
         clearInterval(interval);
-        setLiveTime('100 minutes reached');
+        setLiveTime('90:00');
       } else {
         setLiveTime(`${minutes}:${seconds}`);
       }

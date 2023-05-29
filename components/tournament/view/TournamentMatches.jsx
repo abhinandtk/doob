@@ -19,8 +19,11 @@ import { CardImg } from "react-bootstrap";
 import { Labels } from "@/public/data/my-constants/Labels";
 import moment from "moment";
 import Link from "next/link";
-function TournamentMatches({ data, setOnSuccess, admin }) {
-  console.log("dddddddaaaaaaaaaata,data", data);
+function TournamentMatches({ data, setOnSuccess, admin, home }) {
+  console.log(
+    "dddddddaaaaaaaaaata,data",
+    home && home.tournament_details.game_name_id
+  );
 
   const router = useRouter();
   const { tid } = router.query;
@@ -52,6 +55,57 @@ function TournamentMatches({ data, setOnSuccess, admin }) {
 
   const [searchResult, setSearchResult] = useState([]);
   const [stadium, setStadium] = useState("");
+  const [liveTime, setLiveTime] = useState("");
+
+  const getMatchTime = (time, date) => {
+    const startDate = moment(date, "YYYY-MM-DD");
+    const startTime = moment(time, "HH:mm:ss");
+  
+    const startDateTime = startDate.clone().set({
+      hour: startTime.hours(),
+      minute: startTime.minutes(),
+      second: startTime.seconds(),
+    });
+  
+    const currentTime = moment();
+    
+    if (currentTime.isBefore(startDateTime)) {
+      return "00:00";
+    }
+  
+    const diff = moment.duration(Math.abs(startDateTime.diff(currentTime)));
+    let totalMinutes = Math.floor(diff.asMinutes());
+    let seconds = diff.seconds();
+  
+    if (totalMinutes > 90) {
+      return "90:00"
+    }
+  
+    let matchTime = `${totalMinutes}:${seconds}`;
+  
+    console.log("matchTime:", matchTime);
+    return matchTime;
+  };
+
+  //
+  // const interval = setInterval(() => {
+  //   const currentTime = moment();
+  //   const diff = moment.duration(Math.abs(startDateTime.diff(currentTime)));
+  //   const totalMinutes = Math.floor(diff.asMinutes());
+  //   const minutes = totalMinutes;
+  //   const seconds = diff.seconds();
+
+  //   if (totalMinutes >= 90) {
+  //     clearInterval(interval);
+  //     setLiveTime('90:00');
+  //   } else {
+  //     setLiveTime(`${minutes}:${seconds}`);
+  //   }
+  // }, 1000);
+
+  // return () => {
+  //   clearInterval(interval);
+  // };
 
   const generateMatchesHandler = () => {
     console.log("ingen", tid);
@@ -104,12 +158,12 @@ function TournamentMatches({ data, setOnSuccess, admin }) {
     });
   };
 
-  const handleModalShow = (match,teamA,teamB) => {
+  const handleModalShow = (match, teamA, teamB) => {
     if (isIdExist) {
       setVisible(true);
       setMatchId(match);
-      setTeamAid(teamA)
-      setTeamBid(teamB)
+      setTeamAid(teamA);
+      setTeamBid(teamB);
     }
   };
   const showStadiumModalHandler = (match) => {
@@ -142,9 +196,10 @@ function TournamentMatches({ data, setOnSuccess, admin }) {
         team_a_score: teamAScore,
         team_b_score: teamBScore,
         match_status: matchStatus,
-        team_a_id:teamAid,
-        team_b_id:teamBid,
-        
+        team_a_id: teamAid,
+        team_b_id: teamBid,
+        game_type: home && home.tournament_details.game_name_id,
+        category_game: home && home.tournament_details.tournament_category,
       };
     } else if (type === "stadium") {
       updatedMatch = {
@@ -381,7 +436,7 @@ function TournamentMatches({ data, setOnSuccess, admin }) {
             >
               {item.match_type}
             </h6>
-           
+
             {item.matches.map((content, index_) => (
               <div key={index_} className="card football1">
                 <div className="card-body p-5 mx-4">
@@ -408,7 +463,13 @@ function TournamentMatches({ data, setOnSuccess, admin }) {
                     </Link>
                     <div className="live-watch mx-5">
                       <p
-                        onClick={() => handleModalShow(content.id,content.team_A_id,content.team_B_id)}
+                        onClick={() =>
+                          handleModalShow(
+                            content.id,
+                            content.team_A_id,
+                            content.team_B_id
+                          )
+                        }
                         className="space-line"
                       >
                         {content.team_A_score ? content.team_A_score : "____"}
@@ -420,7 +481,7 @@ function TournamentMatches({ data, setOnSuccess, admin }) {
                         className="date-wins"
                       >
                         {content.match_date ? (
-                          content.match_date
+                          moment(content.match_date).format("DD MMM YYYY")
                         ) : (
                           <img
                             src="/images/tournament/cals.png"
@@ -433,16 +494,19 @@ function TournamentMatches({ data, setOnSuccess, admin }) {
                         className="time-wins"
                       >
                         {content.start_time ? (
-                          content.start_time
+                          moment(content.start_time, "hh:mm:ss").format(
+                            "hh:mm A"
+                          )
                         ) : (
                           <i className="bi bi-clock "></i>
                         )}
                       </p>
+
                       <button
                         type="button"
                         className=" btn-outline-secondary left-time"
                       >
-                        45 Min
+                        {getMatchTime(content.start_time, content.match_date)}
                       </button>
                     </div>
                   </div>
@@ -472,10 +536,8 @@ function TournamentMatches({ data, setOnSuccess, admin }) {
                         : "_________"}
                     </p>
                   </div>
-
                 </div>
               </div>
-            
             ))}
           </>
         ))

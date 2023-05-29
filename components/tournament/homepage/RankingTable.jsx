@@ -12,7 +12,7 @@ function RankingTable({ data }) {
           <ul className="responsive-table">
             {data.map((item, index) =>
               index === 0 ? (
-                <li className="table-row p-3">
+                <li key={index} className="table-row p-3">
                   <div className="col col-1 mt-4  id " data-label="Job Id">
                     #{index + 1}
                   </div>
@@ -46,7 +46,7 @@ function RankingTable({ data }) {
                   </div>
                 </li> 
               ) : (                                                                                                                                             
-                <li className="table-row1"> 
+                <li key={index} className="table-row1"> 
                   <div className="col col-1 mt-3  id " data-label="Job Id">
                     #{index + 1}
                   </div>

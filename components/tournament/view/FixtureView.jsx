@@ -12,9 +12,9 @@ function FixtureView({ data, setOnSuccess, admin }) {
               data.map((item, index) => (
                 <>
                   {item.match_type === "Quater Finals" ? (
-                    <div className="round">
+                    <div key={index} className="round">
                       {item.matches.map((match, index) => (
-                        <div className="match">
+                        <div key={index} className="match">
                           <div className="team">
                             {match.team_A_logo && match.team_B_logo && (
                               <div className="fix-image">
@@ -47,7 +47,7 @@ function FixtureView({ data, setOnSuccess, admin }) {
                   ) : item.match_type === "Semi Finals" ? (
                     <div className="round">
                       {item.matches.map((match, index_) => (
-                        <div className="match">
+                        <div key={index_} className="match">
                           <div className="team">
                             {match.team_A_logo && match.team_B_logo && (
                               <div className="fix-image">
@@ -81,7 +81,7 @@ function FixtureView({ data, setOnSuccess, admin }) {
                     item.match_type === "Finals" && (
                       <div className="round">
                         {item.matches.map((match, index_) => (
-                          <div className="match">
+                          <div key={index_} className="match">
                             <div className="team">
                               {match.team_A_logo && match.team_B_logo && (
                                 <div className="fix-image">

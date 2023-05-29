@@ -9,7 +9,7 @@ function GamesHistoryCard({ data }) {
       <div className="top">
         {data.length >= 1 &&
           data.map((item, index) => (
-            <div className="card  book">
+            <div key={index} className="card  book">
               <div className="card-body">
                 <div className="clearfix dot-web">
                   <div className="float-end dots">
@@ -61,7 +61,7 @@ function GamesHistoryCard({ data }) {
                   </div>
                 </div>
                 {item.participants.length >= 1 ? (
-                  <div class="route d-flex my-3">
+                  <div className="route d-flex my-3">
                     {item.participants.slice(0, 4).map((part, index_) => (
                       <img
                         key={index_}
