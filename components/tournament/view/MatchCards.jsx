@@ -15,16 +15,19 @@ function MatchCards({ data }) {
             <div className="live1">
               <div className=" watch1 ">
                 <img
-                  src={`${constants.port}/media/${data.team_A_logo}`}
+                  src={`${constants.port}${data.team_A_logo}`}
                   className="clubs"
                 ></img>
                 <p className="team1">{data.team_A} </p>
               </div>
 
               <div className="live-watch mx-5">
-                <p className="club-wins">{data.team_A_score} - {data.team_B_score}</p>
-                <p className="date-wins">{moment(data.match_date).format('DD MMM YYYY')}</p>
-                <p className="time-wins">{moment(data.start_time).format('hh:mm A')}</p>
+                <p className="club-wins">{data.team_A_score ? data.team_A_score : '___'} - {data.team_B_score ? data.team_B_score : '___'}</p>
+                <p className="date-wins">{data.match_date ? moment(data.match_date).format('DD MMM YYYY') :<img
+                            src="/images/tournament/cals.png"
+                            className="mx-5 my-2"
+                          ></img>}</p>
+                <p className="time-wins">{data.start_time ? moment(data.start_time,'hh:mm:ss').format('hh:mm A'):<i className="bi bi-clock "></i>}</p>
                 <button
                   type="button"
                   className=" btn-outline-secondary left-time"
@@ -35,7 +38,7 @@ function MatchCards({ data }) {
 
               <div className="watch2 ">
                 <img
-                  src={`${constants.port}/media/${data.team_B_logo}`}
+                  src={`${constants.port}${data.team_B_logo}`}
                   className="clubs"
                 ></img>
                 <p className="team2">{data.team_B} </p>

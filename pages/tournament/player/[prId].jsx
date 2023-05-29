@@ -72,11 +72,11 @@ function PlayerDetailsPage() {
                   <div className="card-body">
                     <div className="grey-content">
                       <div className="grey-details">
-                        <h5 className="grey-number">200</h5>
+                        <h5 className="grey-number">{rankDetails.Matches_Played}</h5>
                         <p className="grey-match">Matches Played</p>
                       </div>
                       <div className="grey-details1">
-                        <h5 className="grey-number">200</h5>
+                        <h5 className="grey-number">{rankDetails.Matches_Won}</h5>
                         <p className="grey-match">Matches Won</p>
                       </div>
                     </div>
@@ -86,7 +86,7 @@ function PlayerDetailsPage() {
                   <div className="card-body">
                     <div className="grey-content">
                       <div className="grey-details">
-                        <h5 className="grey-number">200</h5>
+                        <h5 className="grey-number">{rankDetails.goal}</h5>
                         <p className="grey-match">Goals</p>
                       </div>
                       <div className="grey-details2">
@@ -120,7 +120,7 @@ function PlayerDetailsPage() {
                   <div className="card-body">
                     <div className="grey-content">
                       <div className="grey-details">
-                        <h5 className="grey-number">200</h5>
+                        <h5 className="grey-number">{rankDetails.final_won}</h5>
                         <p className="grey-match">Finals Won</p>
                       </div>
                     </div>

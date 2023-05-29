@@ -15,7 +15,7 @@ function TournamentTabContent({data}) {
       <div className="row ">
         <div className="col-lg-7 col-md-12">
           {data.map((item,index)=>(
-            <Link href={`/tournament/${item.tournament_slug}`} style={{textDecoration:'none',color:'inherit'}}>
+            <Link key={index} href={`/tournament/${item.tournament_slug}`} style={{textDecoration:'none',color:'inherit'}}>
           <div key={index} className="card  tournaments ">
             <img
               src={`${constants.port}${item.image}`}
@@ -86,7 +86,7 @@ function TournamentTabContent({data}) {
           
           ))}
          
-          <button onClick={()=>router.push('/tournament/all-tournament')} type="button" className="live-btn ">
+          <button onClick={()=>router.push('/tournament/all-tournament')} type="button" className="live-btn my-4">
             View all
           </button>
         </div>

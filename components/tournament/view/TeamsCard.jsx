@@ -169,8 +169,8 @@ function TeamsCard({ teamsData, setOnSuccess, admin }) {
       {teamsData &&
         teamsData.map((item, index) => (
           <div
+            key={index}
             className="rounded border-0 d-flex p-1 top-teams   my-3"
-            
           >
             <p
               className=" mb-2 mx-3"
@@ -233,7 +233,7 @@ function TeamsCard({ teamsData, setOnSuccess, admin }) {
         <button
           onClick={() => setVisible(true)}
           type="button"
-          className="teams-btn"
+          className="teams-btn my-4"
         >
           Add
         </button>

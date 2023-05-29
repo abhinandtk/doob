@@ -8,7 +8,7 @@ function GamesCard({ data }) {
     <Fragment>
       {data &&
         data.map((item, index) => (
-          <Link href={`/games/${item.game_slug}`} style={{ textDecoration: "none" }}>
+          <Link key={index} href={`/games/${item.game_slug}`} style={{ textDecoration: "none" }}>
             <div key={index} className="card  book">
               <div className="card-body">
                 <div className="clearfix">
