@@ -14,12 +14,13 @@ import { notification } from "antd";
 function AddProductPage() {
   const router =useRouter() 
   const handleProductAdd = (formData) => {
-    console.log('form',formData)
+    console.log('form8888',formData.variants[0].formFile)
+    console.log('form8888',)
 
     const variants = formData.variants.map((variant) => ({
       sku: variant.sku,
       quantity: variant.quantity,
-      image: [variant.formFile],
+      image: variant.formFile,
       primary_variant_value_id: variant.color,
       secondary_variant_value_id: variant.size,
       actual_price: variant.actualPrize,
@@ -53,7 +54,21 @@ function AddProductPage() {
         message: "Success",
         description: "Product added successfully",
       });
-      console.log("product succccccccessssssssssssss", res);
+      console.log("product succccccccessssssssssssss", res,apis.addProduct,
+      {
+        product_name: formData.name,
+        product_name_ar: formData.nameArabic,
+        description: formData.description,
+        description_ar: formData.description_ar,
+        primary_variant_id: formData.primary,
+        secondary_variant_id: formData.secondary,
+        brand_id: formData.brand,
+        category_id: formData.category,
+        thumbnail_image: formData.thumbnail,
+        sub_category_id: formData.subCategory,
+        tags: [formData.tag],
+        variants:variants
+      });
     });
   };
   return (

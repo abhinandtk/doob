@@ -42,6 +42,9 @@ function TournamentMatches({ data, setOnSuccess, admin }) {
   const [stadiumId, setStadiumId] = useState("");
   const [matchStatus, setMatchStatus] = useState("");
 
+  const [teamAid, setTeamAid] = useState("");
+  const [teamBid, setTeamBid] = useState("");
+
   const [visible, setVisible] = useState(false);
   const [visibleStadium, setVisibleStadium] = useState(false);
   const [visibleDate, setVisibleDate] = useState(false);
@@ -101,10 +104,12 @@ function TournamentMatches({ data, setOnSuccess, admin }) {
     });
   };
 
-  const handleModalShow = (match) => {
+  const handleModalShow = (match,teamA,teamB) => {
     if (isIdExist) {
       setVisible(true);
       setMatchId(match);
+      setTeamAid(teamA)
+      setTeamBid(teamB)
     }
   };
   const showStadiumModalHandler = (match) => {
@@ -137,6 +142,9 @@ function TournamentMatches({ data, setOnSuccess, admin }) {
         team_a_score: teamAScore,
         team_b_score: teamBScore,
         match_status: matchStatus,
+        team_a_id:teamAid,
+        team_b_id:teamBid,
+        
       };
     } else if (type === "stadium") {
       updatedMatch = {
@@ -312,10 +320,10 @@ function TournamentMatches({ data, setOnSuccess, admin }) {
           // value={formData.team}
         >
           <Select.Option value="">--select team--</Select.Option>
-          <Select.Option value="0">End</Select.Option>
-          <Select.Option value="1">Live</Select.Option>
-          <Select.Option value="2">Stop</Select.Option>
-          <Select.Option value="3">Start soon</Select.Option>
+          <Select.Option value={0}>End</Select.Option>
+          <Select.Option value={1}>Live</Select.Option>
+          <Select.Option value={2}>Stop</Select.Option>
+          <Select.Option value={3}>Start soon</Select.Option>
         </Select>
       </Modal>
       <Modal
@@ -373,6 +381,7 @@ function TournamentMatches({ data, setOnSuccess, admin }) {
             >
               {item.match_type}
             </h6>
+           
             {item.matches.map((content, index_) => (
               <div key={index_} className="card football1">
                 <div className="card-body p-5 mx-4">
@@ -399,7 +408,7 @@ function TournamentMatches({ data, setOnSuccess, admin }) {
                     </Link>
                     <div className="live-watch mx-5">
                       <p
-                        onClick={() => handleModalShow(content.id)}
+                        onClick={() => handleModalShow(content.id,content.team_A_id,content.team_B_id)}
                         className="space-line"
                       >
                         {content.team_A_score ? content.team_A_score : "____"}

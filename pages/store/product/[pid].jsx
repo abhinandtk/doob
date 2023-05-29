@@ -13,7 +13,9 @@ import MobileHeader from "@/components/MobileHeader";
 function ProductDetailPage() {
   const [productDetails, setProductDetails] = useState([]);
   const router = useRouter();
-  const { pid } = router.query;                   
+  const { pid } = router.query;       
+  console.log("productttttttttttttttttttttttt444444444");
+            
       
                                                                                                                                                                                                                                     
   useEffect(()=>{
