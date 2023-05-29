@@ -45,7 +45,7 @@ function ShopDashBoardTop() {
               className="mt-4"
               style={{ float: "right", fontSize: "14px" }}
             >
-              <h5 className="ml-5">New Orders</h5>
+              <h5 className="ml-5 new-orders">New Orders</h5>
             </div>
           </Card.Body>
         </Card>
@@ -89,7 +89,7 @@ function ShopDashBoardTop() {
               className="mt-4"
               style={{ float: "right", fontSize: "14px" }}
             >
-              <h5 className="ml-5 ">Processing Orders</h5>
+              <h5 className="ml-5 process-order ">Processing Orders</h5>
             </div>
           </Card.Body>
         </Card>
@@ -129,7 +129,7 @@ function ShopDashBoardTop() {
               className="mt-4"
               style={{ float: "right", fontSize: "14px" }}
             >
-              <h5 className="ml-5">Dispatched Orders</h5>
+              <h5 className="ml-5 dispatch-order">Dispatched Orders</h5>
             </div>
           </Card.Body>
         </Card>

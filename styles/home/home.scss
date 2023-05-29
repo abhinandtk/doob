@@ -2215,7 +2215,12 @@ margin-bottom: -12px;
     .container2{
       width:100%;
     }
-
+ 
+    form.nosubmit {
+      border: none;
+      width:100% ;
+      
+     }
 }
 @media(max-width:1249px){
   .content {
@@ -2247,6 +2252,18 @@ margin-bottom: -12px;
 .side {
   margin-left: 210px;
 }
+    
+input.nosubmit1 {
+  width: 90%;
+  margin-left: -2px;
+}
+ .filters-icon{
+  margin-left: 4px;
+  height: 42px;
+  margin-top: -4px;
+ }
+
+ 
 }
 
 @media(max-width:1100px){
@@ -2279,6 +2296,16 @@ margin-bottom: -12px;
     background-color: white;
     width: 62%;
   }
+  input.nosubmit1 {
+    width: 90%;
+    margin-left: -2px;
+  }
+   .filters-icon{
+    margin-left: 4px;
+    height: 42px;
+    margin-top: -4px;
+   }
+   
   
     //sajin feedback end //
 }

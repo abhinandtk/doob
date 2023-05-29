@@ -1,3 +1,15 @@
 .nav-tabs .nav-link.active {
-  color: #17a803 !important;
+  color: #17A803 !important;
+}
+
+.nav-tabs .nav-link {
+  color: black;
+}
+
+.tour_detail_tabs .nav-tabs .nav-link {
+  padding: 5px;
+}
+
+.play_detail_tabs .nav-tabs .nav-link {
+  padding: 3px;
 }

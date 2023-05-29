@@ -23,7 +23,7 @@ function ShopDashBoardPages() {
 
           <p>Settings</p>
         </div>
-        <div className="documents  ">
+        <div className="documents   ">
           <svg
             width="25"
             className="mx-4"
@@ -98,8 +98,11 @@ function ShopDashBoardPages() {
           <p>Brands</p>
         </div> 
         </Link>
-        <Link href='/shop/product-management' style={{textDecoration:"none",color:'#212529'}}>
-        <div className="documents  ">
+       
+      </div>
+      <div className="carl2">
+      <Link href='/shop/product-management' style={{textDecoration:"none",color:'#212529'}}>
+        <div className="document1  ">
           <svg
             width="25"
             height="26"
@@ -119,8 +122,6 @@ function ShopDashBoardPages() {
           <p>Products</p>
         </div>
         </Link>
-      </div>
-      <div className="carl2">
         <div className="document1  ">
           <svg
             width="22"
