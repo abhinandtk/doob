@@ -371,16 +371,20 @@ function TournamentMatches({ data, setOnSuccess, admin }) {
           value={matchTime}
         />
       </Modal>
+     
       {data.length >= 1 ? (
         data.map((item, index) => (
           <>
-            <h6
+          
+         <h6
               key={index}
               className="my-4"
               style={{ fontSize: "15px", fontWeight: "600" }}
             >
               {item.match_type}
-            </h6>
+              <span className="quaters"> <button className="adds-btn ms-auto">Add</button></span>  </h6>
+           
+           
            
             {item.matches.map((content, index_) => (
               <div key={index_} className="card football1">
