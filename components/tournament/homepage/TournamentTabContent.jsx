@@ -3,6 +3,7 @@ import React from "react";
 import { Fragment } from "react";
 import moment from "moment";
 import { useRouter } from "next/router";
+import Link from "next/link";
 function TournamentTabContent({data}) {
   console.log("dataLive",data)
   const router =useRouter()
@@ -14,6 +15,7 @@ function TournamentTabContent({data}) {
       <div className="row ">
         <div className="col-lg-7 col-md-12">
           {data.map((item,index)=>(
+            <Link href={`/tournament/${item.tournament_slug}`} style={{textDecoration:'none',color:'inherit'}}>
           <div key={index} className="card  tournaments ">
             <img
               src={`${constants.port}${item.image}`}
@@ -42,7 +44,7 @@ function TournamentTabContent({data}) {
                     type="button"
                     className=" btn-outline-secondary club-time"
                   >
-                    {moment(item.time).format('hh:mm')}
+                    {moment(item.time,"hh:mm:ss").format('hh:mm')}
                   </button>
                 </div>
 
@@ -80,6 +82,7 @@ function TournamentTabContent({data}) {
               </div>
             </div>
           </div>
+          </Link>
           
           ))}
          

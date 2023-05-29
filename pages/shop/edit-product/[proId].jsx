@@ -6,53 +6,77 @@ import MainHeader from "@/components/shared/headers/MainHeader";
 import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import ProductsForm from "@/components/shop/product/ProductsForm";
-import Axios from 'axios'
+import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
 import { notification } from "antd";
 function ProductEditPage() {
-  const router =useRouter()
-  const editData = router.query
+  const router = useRouter();
+  const { id } = router.query;
+  console.log("router.query", router.query.id, "opo", id);
   const handleProductAdd = (formData) => {
-    // Axios.post(
-    //   apis.editProduct,
-    //   {
-    //     product_name: formData.name,
-    //     product_name_ar: formData.nameArabic,
-    //     description: formData.description,
-    //     description_ar: formData.description_ar,
-    //     primary_variant_id: formData.primary,
-    //     secondary_variant_id: formData.secondary,
-    //     brand_id: formData.brand,
-    //     category_id: formData.category,
-    //     sub_category_id: formData.subCategory,
-    //     tags: [formData.tag],
-    //     variants: [
-    //       {
-    //         sku: formData.sku,
-    //         quantity: formData.quantity,
-    //         image: formData.formFile,
-    //         primary_variant_value_id: formData.color,
-    //         secondary_variant_value_id: formData.size,
-    //         actual_price: formData.actualPrize,
-    //         selling_price: formData.sellingPrice,
-    //       },
-    //     ],
-    //   },
-    //   {
-    //     headers: {
-    //       Authorization: `Token ${constants.token_id}`,
-    //     },
-    //   }
-    // ).then((res) => {
-    //   router.back();
-    //   notification.success({
-    //     message: "Success",
-    //     description: "Product Edited successfully",
-    //   });
-    //   console.log("product succccccccessssssssssssss", res);
-    // });
+    console.log("formedit55555", formData.variants[0].formFile);
+    console.log("form888845555", formData);
+
+    const variants = formData.variants.map((variant) => ({
+      sku_code: variant.sku,
+      id: variant.slug,
+      quantity: variant.quantity,
+      image: variant.formFile,
+      primary_variant_value_id: variant.color,
+      secondary_variant_value_id: variant.size,
+      actual_price: variant.actualPrize,
+      selling_price: variant.sellingPrice,
+      status: variant.varStatus,
+    }));
+
+    Axios.put(
+      apis.editProduct,
+      {
+        product_id: id,
+        name: formData.name,
+        arabic_translator: formData.nameArabic,
+        description: formData.description,
+        arabic_description: formData.description_ar,
+        varient_type_id: formData.primary,
+        multivarient_id: formData.secondary,
+        product_brand_id: formData.brand,
+        // product_category_id: formData.category,
+        thumbnail_image: formData.thumbnail,
+        product_category_id: formData.subCategory,
+        tags: formData.tag,
+        status: formData.status,
+        variants: variants,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      // router.back();
+      notification.success({
+        message: "Success",
+        description: "Product Edited successfully",
+      });
+      console.log("product succccccccessssssssssssss", res, apis.addProduct, {
+        product_id: id,
+        name: formData.name,
+        arabic_translator: formData.nameArabic,
+        description: formData.description,
+        arabic_description: formData.description_ar,
+        varient_type_id: formData.primary,
+        multivarient_id: formData.secondary,
+        product_brand_id: formData.brand,
+        product_category_id: formData.category,
+        thumbnail_image: formData.thumbnail,
+        // sub_category_id: formData.subCategory,
+        tags: formData.tag,
+        status: formData.status,
+        variants: variants,
+      });
+    });
   };
   return (
     <Fragment>
@@ -62,7 +86,7 @@ function ProductEditPage() {
       <div className="store-container">
         <div className="Bottom">
           <ShopPagesSideBar currentPage="products" />
-          <ProductsForm handleProductAdd={handleProductAdd} editData='true'/>
+          <ProductsForm handleProductAdd={handleProductAdd} editData="true" />
         </div>
       </div>
     </Fragment>

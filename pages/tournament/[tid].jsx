@@ -12,6 +12,7 @@ import { useRouter } from "next/router";
 import apis from "@/public/data/my-constants/Apis";
 import TeamsCard from "@/components/tournament/view/TeamsCard";
 import TournamentMatches from "@/components/tournament/view/TournamentMatches";
+import FixtureView from "@/components/tournament/view/FixtureView";
 
 function TournamentDetailPage() {
   const router = useRouter();
@@ -38,11 +39,11 @@ function TournamentDetailPage() {
     ).then((res) => {
       setHomeTabData(res.data.data.home);
       setTeamsTabData(res.data.data.teams);
-      setMatchesTabData(res.data.data.matches)
-      setAdminList(res.data.data.home.tournament_details.tournament_admin_name)
+      setMatchesTabData(res.data.data.matches);
+      setAdminList(res.data.data.home.tournament_details.tournament_admin_name);
       console.log("response", res);
     });
-  }, [tid,onSuccess]);
+  }, [tid, onSuccess]);
 
   const handleTabChange = (selected) => {
     setActiveTab(selected);
@@ -64,7 +65,14 @@ function TournamentDetailPage() {
   };
 
   const tabButton = (tabKey) => (
-    <button type="button" className={`${activeTab === tabKey ?'btn btn-outline-secondary match2':'btn btn-outline-secondary match1'}`}>
+    <button
+      type="button"
+      className={`${
+        activeTab === tabKey
+          ? "btn btn-outline-secondary match2"
+          : "btn btn-outline-secondary match1"
+      }`}
+    >
       {getTabButtonName(tabKey)}
     </button>
   );
@@ -179,7 +187,7 @@ function TournamentDetailPage() {
             </div>
           </div>
         </div>
-        
+
         <div className="tour_detail_tabs">
           <Tabs
             defaultActiveKey="Home"
@@ -213,17 +221,27 @@ function TournamentDetailPage() {
                   <MatchCards data={homeTabData.last_match} />
                 </>
               )}
-
-              
             </Tab>
             <Tab eventKey="Teams" title={tabButton("Teams")}>
-              <TeamsCard teamsData={teamsTabData} setOnSuccess={setOnSuccess} admin={adminList}/>
+              <TeamsCard
+                teamsData={teamsTabData}
+                setOnSuccess={setOnSuccess}
+                admin={adminList}
+              />
             </Tab>
             <Tab eventKey="Matches" title={tabButton("Matches")}>
-              <TournamentMatches data={matchesTabData} setOnSuccess={setOnSuccess} admin={adminList}/>
+              <TournamentMatches
+                data={matchesTabData}
+                setOnSuccess={setOnSuccess}
+                admin={adminList}
+              />
             </Tab>
             <Tab eventKey="Fixture" title={tabButton("Fixture")}>
-              d 
+              <FixtureView
+                data={matchesTabData}
+                setOnSuccess={setOnSuccess}
+                admin={adminList}
+              />
             </Tab>
           </Tabs>
         </div>
