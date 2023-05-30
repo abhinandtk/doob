@@ -1902,6 +1902,7 @@ p.note {
   background-color: #EEEEEE;
   border-radius: 12px 12px 12px 12px;
   border: 0px;
+  margin-top: -32px;
 }
 
 .top-p {
@@ -1936,7 +1937,9 @@ p.note {
   background-color: #EEEEEE;
   border-radius: 7%;
   border: 0px;
+  margin-top: -27px;
   width: 170px;
+  margin-left: -6px;
 }
 
 @media (max-width: 1360px) {
@@ -1962,6 +1965,10 @@ p.note {
     height: 100%;
   }
   .container2 {
+    width: 100%;
+  }
+  form.nosubmit {
+    border: none;
     width: 100%;
   }
 }
@@ -1991,6 +1998,15 @@ p.note {
   .side {
     margin-left: 210px;
   }
+  input.nosubmit1 {
+    width: 90%;
+    margin-left: -2px;
+  }
+  .filters-icon {
+    margin-left: 4px;
+    height: 42px;
+    margin-top: -4px;
+  }
 }
 @media (max-width: 1100px) {
   .side-menu-section {
@@ -2018,6 +2034,15 @@ p.note {
     margin-top: 58px;
     background-color: white;
     width: 62%;
+  }
+  input.nosubmit1 {
+    width: 90%;
+    margin-left: -2px;
+  }
+  .filters-icon {
+    margin-left: 4px;
+    height: 42px;
+    margin-top: -4px;
   }
 }
 @media (max-width: 1025px) {
@@ -2640,7 +2665,7 @@ p.note {
     width: 100%;
   }
   input.nosubmit1 {
-    width: 89%;
+    width: 85%;
     margin-left: -2px;
   }
   .filters-icon {

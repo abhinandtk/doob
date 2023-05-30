@@ -69,7 +69,7 @@ function AdminAllOrders() {
       <MobileHeader />
       <MainSidebarFixed />
 
-      <div className="store-container">
+      <div className="store-container1">
         <Modal
           open={visible}
           onCancel={() => setVisible(false)}
@@ -90,8 +90,8 @@ function AdminAllOrders() {
             >
               Cancel
             </Button>,
-          ]}
-        >
+          ]} 
+        > 
           <Select
             defaultValue="Select an option"
             style={{ width: "100%" }}
@@ -110,7 +110,7 @@ function AdminAllOrders() {
           <br></br>
           <br></br>
         </Modal>
-        <div className="bottom">
+        <div className="Bottom">
           <ShopPagesSideBar currentPage="allOrders" />
 
           <div className="content-topic  ">
@@ -130,11 +130,11 @@ function AdminAllOrders() {
                   <>
                     <p
                       key={index}
-                      className="order-code "
+                      className="order-code pode "
                       style={{ fontWeight: "500" }}
                     >
                       #{item.order_id_m}
-                      <span style={{ float: "right" }}>
+                      <span >
                         <Button
                           onClick={() => showUpdateHandler(item.order_id_m)}
                           type="button"
@@ -152,7 +152,7 @@ function AdminAllOrders() {
                     >
                       <span style={{ color: "#959595" }}>Customer Name</span>
                       <span>{item.username}</span>
-                    </div>
+                    </div> 
                     <div
                       className="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center"
                       style={{
@@ -162,7 +162,7 @@ function AdminAllOrders() {
                       }}
                     >
                       <span style={{ color: "#959595" }}>Address</span>
-                      <span> {item.address} </span>
+                      <span className="address-admin"> {item.address} </span>
                     </div>
                     <div
                       className="p-2   mx-auto d-flex justify-content-between align-items-center"
@@ -227,7 +227,7 @@ function AdminAllOrders() {
                         Download Invoice
                       </p>
                     </div>
-                  </>
+                  </> 
                 ))
               ) : (
                 <div
@@ -251,5 +251,7 @@ function AdminAllOrders() {
     </Fragment>
   );
 }
+
+
 
 export default AdminAllOrders;

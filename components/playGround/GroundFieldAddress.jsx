@@ -1,18 +1,18 @@
 import React from "react";
 import { Fragment } from "react";
 
-function GroundFieldAddress({ address }) {
+function  GroundFieldAddress({ address }) {
   return (
     <Fragment>
       <div className="col-md-6">
         <h5>Field Address</h5>
-        {address.map((item, index) => (
+        {address && address.map((item, index) => (
           <div key={index} className="card carts">
             <div className="card-body cart-info p-4">
               <div className="cart-location">
-                <div className="locations-icons">
-                <svg 
-                  width='17' height='19'
+                <svg
+                  width="17"
+                  height="19"
                   viewBox="0 0 17 19"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -26,14 +26,14 @@ function GroundFieldAddress({ address }) {
                     fill="black"
                   />
                 </svg>
-                </div>
+
                 <h5 className="mx-4 text-cart">
-                  {item.stadium_name.stadium_name}
+                  {item.stadium_name[0].stadium_name}
                 </h5>
                 <img src="../images/edit.png" className="mt-2 edits"></img>
               </div>
 
-              <p className="cart-place">{item.stadium_name.location}, Kuwait</p>
+              <p className="cart-place">{item.stadium_name[0].location}, Kuwait</p>
             </div>
           </div>
         ))}

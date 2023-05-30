@@ -17,15 +17,6 @@ function ProductsForm({ handleProductAdd, editData }) {
   const [secondaryValues, setSecondaryValues] = useState([]);
 
   const [image, setImage] = useState(null);
-
-  const handleImageChange = (info) => {
-    // if (info.file.status === "done") {
-    const imageUrl = URL.createObjectURL(info.file.originFileObj);
-    console.log("imageUrl", imageUrl);
-    setImage(imageUrl);
-    // }
-  };
-
   const router = useRouter();
   console.log("editdata", router.query);
   const id = router.query.id;
@@ -41,18 +32,55 @@ function ProductsForm({ handleProductAdd, editData }) {
     secondary: "",
     description: "",
     description_ar: "",
+    status: "",
     variants: [
       {
         sku: "",
         quantity: "",
-        formFile: "",
+        formFile: [],
         color: "",
         size: "",
         actualPrize: "",
         sellingPrice: "",
+        slug: "",
       },
     ],
   });
+
+  const handleImageChange = (e, variantIndex) => {
+    const files = e.target.files[0]; // Get selected files
+    const formdata = new FormData();
+    formdata.append("file_field_name", files);
+    console.log("inputcorrect", e.target.files);
+
+    Axios.post(apis.allImagesUpload, formdata, {
+      headers: {
+        Authorization: `Token ${constants.token_id}`,
+      },
+    }).then((res) => {
+      console.log("res434", res);
+      const updatedVariants = [...formData.variants];
+      updatedVariants[variantIndex].formFile = [
+        ...updatedVariants[variantIndex].formFile,
+        res.data.image_url,
+      ];
+
+      setFormData((prevState) => ({
+        ...prevState,
+        variants: updatedVariants,
+      }));
+    });
+
+    console.log("iop", formData);
+  };
+
+  const removeImage = (variantIndex, imageIndex) => {
+    const updatedVariants = [...formData.variants]; // Create a copy of variants array
+    updatedVariants[variantIndex].formFile.splice(imageIndex, 1); // Remove the specified image from the images array
+
+    setFormData({ ...formData, variants: updatedVariants }); // Update the formData state
+  };
+
   useEffect(() => {
     Axios.get(apis.categoryList, {
       headers: {
@@ -80,11 +108,13 @@ function ProductsForm({ handleProductAdd, editData }) {
           const variants = res.data.data[0].variants.map((variant) => ({
             sku: variant.sku_code,
             quantity: variant.quantity,
-            formFile: "",
+            formFile: variant.images.map((image) => image.image),
             color: variant.primary_variant_value_id,
             size: variant.secondary_variant_value_id,
             actualPrize: variant.actual_price,
             sellingPrice: variant.selling_price,
+            slug: variant.slug_id,
+            varStatus: variant.product_varient_status,
           }));
 
           setFormData({
@@ -93,18 +123,54 @@ function ProductsForm({ handleProductAdd, editData }) {
             brand: res.data.data[0].brand_id,
             category: res.data.data[0].category_id,
             subCategory: res.data.data[0].subcategory_id,
-            tag: [],
+            thumbnail: res.data.data[0].thumbnail_image,
+            tag: res.data.data[0].tags,
             primary: res.data.data[0].primary_variant_id,
             secondary: res.data.data[0].secondary_variant_id,
             description: res.data.data[0].description,
             description_ar: res.data.data[0].description_ar,
+            status: res.data.data[0].product_status,
             variants: variants,
           });
         }
-        console.log("getproductiiiiiiiiiiiiii", res);
+
+        console.log(
+          "getproductiiiiiiiiiiiiii",
+          res,
+          res.data.data[0].product_status
+        );
       });
     }
   }, []);
+
+  useEffect(() => {
+    if (editData === "true" && formData.category) {
+      const subData = categoryData.find((item) => item.id == formData.category);
+      if (subData && subData.subcategories) {
+        setSubCategory(subData.subcategories);
+      }
+    }
+    if (editData === "true" && formData.primary) {
+      const primaryData = variantData.find((pid) => pid.id == formData.primary);
+      if (primaryData && primaryData.variant_value) {
+        setPrimaryValues(primaryData.variant_value);
+      }
+    }
+    if (editData === "true" && formData.secondary) {
+      const secondaryData = variantData.find(
+        (pid) => pid.id == formData.secondary
+      );
+      if (secondaryData && secondaryData.variant_value) {
+        setSecondaryValues(secondaryData.variant_value);
+      }
+    }
+  }, [
+    editData,
+    formData.category,
+    categoryData,
+    formData.primary,
+    variantData,
+  ]);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -114,7 +180,6 @@ function ProductsForm({ handleProductAdd, editData }) {
       const subData = categoryData.find((item) => item.id == catId);
       if (subData && subData.subcategories) {
         setSubCategory(subData.subcategories);
-        console.log("jjjjjjjjjjjjjjj");
       }
     }
 
@@ -136,8 +201,6 @@ function ProductsForm({ handleProductAdd, editData }) {
     }
     const newFormData = { ...formData };
     if (e.target.id === "thumbnail") {
-      // newFormData[e.target.id] = e.target.files[0];
-
       const formdata = new FormData();
       formdata.append("file_field_name", e.target.files[0]);
       console.log("inputcorrect", e.target.files[0]);
@@ -148,8 +211,8 @@ function ProductsForm({ handleProductAdd, editData }) {
       }).then((res) => {
         console.log("res434", res);
         newFormData[e.target.id] = res.data.image_url;
-         setFormData({ ...newFormData });
-        console.log(',form23',newFormData)
+        setFormData({ ...newFormData });
+        console.log(",form23", newFormData);
       });
     }
     newFormData[e.target.id] = e.target.value;
@@ -160,22 +223,7 @@ function ProductsForm({ handleProductAdd, editData }) {
     e.preventDefault();
     setFormData((prev) => {
       const variants = [...prev.variants];
-      if (e.target.id === "formFile") {
-        const formData = new FormData();
-        console.log("iuo", e.target.files[0]);
-        formData.append("file_field_name", e.target.files[0]);
-        Axios.post(apis.allImagesUpload, formData, {
-          headers: {
-            Authorization: `Token ${constants.token_id}`,
-          },
-        }).then((res) => {
-          variants[index][e.target.id] = res.data.image_url;
-          console.log("wweeeeeewwweeee", res);
-        });
-        // variants[index][e.target.id] = e.target.files[0];
-      } else {
-        variants[index][e.target.id] = e.target.value;
-      }
+      variants[index][e.target.id] = e.target.value;
       return { ...prev, variants };
     });
     console.log("trrrrrrrrrrrrrrrrrruiououo8745884", formData);
@@ -185,11 +233,12 @@ function ProductsForm({ handleProductAdd, editData }) {
     const newVariants = {
       sku: "",
       quantity: "",
-      formFile: "",
+      formFile: [],
       color: "",
       size: "",
       actualPrize: "",
       sellingPrice: "",
+      varStatus: "",
     };
     setFormData({
       ...formData,
@@ -314,6 +363,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                 }}
                 id="subCategory"
                 onChange={(e) => handleChange(e)}
+                value={formData.subCategory}
               >
                 <option value="">--Select--</option>
                 {subCategory.map((item, index) => (
@@ -329,14 +379,14 @@ function ProductsForm({ handleProductAdd, editData }) {
                 ))}
               </select>
             </div>
-            <div className="form-group my-2">
+            <div className="form-group  my-2">
               <label for="exampleFormControlInput1" id="thumbnail">
                 Thumbnail Image
               </label>
               <input
                 type="file"
                 id="thumbnail"
-                className="form-control p-2 grey"
+                className="form-control  p-2 "
                 style={{
                   border: "0px",
                   background: "#eeeeee",
@@ -447,6 +497,26 @@ function ProductsForm({ handleProductAdd, editData }) {
                 onChange={(e) => handleChange(e)}
               ></textarea>
             </div>
+            {editData === "true" && (
+              <div className="form-group my-2">
+                <label for="exampleFormControlSelect1">Product Status</label>
+                <select
+                  className="form-control p-2"
+                  style={{
+                    border: "0px",
+                    background: "#eeeeee",
+                    color: "grey",
+                  }}
+                  id="status"
+                  onChange={(e) => handleChange(e)}
+                  value={formData.status}
+                >
+                  <option value="Active">Active</option>
+                  <option value="Not verified">Not verified</option>
+                  <option value="Suspended">Suspended</option>
+                </select>
+              </div>
+            )}
             <div className="clearfix ">
               <p className="order-code2" style={{ fontWeight: "500" }}>
                 Variants
@@ -491,43 +561,15 @@ function ProductsForm({ handleProductAdd, editData }) {
                     onChange={(e) => handleVariantChange(e, index)}
                   />
                 </div>
-                {/* <div className="form-group my-2">
-                  <label for="exampleFormControlInput1" id="formfile">
-                    Image
-                  </label>
-                  <Space direction="vertical">
-                    <Upload
-                      name="image"
-                      action="/upload"
-                      listType="picture-card"
-                      onChange={handleImageChange}
-                      showUploadList={{
-                        showPreviewIcon: false,
-                        showRemoveIcon: true,
-                      }}
-                     
-                    >
-                      <Button icon={<UploadOutlined />} />
-                    </Upload>
-                    {image && (
-                      <div style={{ width: "100px" }}>
-                        <img
-                          src={image}
-                          alt="Selected"
-                          style={{ maxWidth: "100%" }}
-                        />
-                      </div>
-                    )}
-                  </Space>
-                </div> */}
-                <div className="form-group my-2">
+
+                {/* <div className="form-group  my-2">
                   <label for="exampleFormControlInput1" id="formfile">
                     Image
                   </label>
                   <input
                     type="file"
                     id="formFile"
-                    className="form-control p-2 grey"
+                    className="form-control p-2 "
                     style={{
                       border: "0px",
                       background: "#eeeeee",
@@ -536,6 +578,64 @@ function ProductsForm({ handleProductAdd, editData }) {
                     placeholder="No file choosen"
                     onChange={(e) => handleVariantChange(e, index)}
                   />
+                </div> */}
+                <div className="form-group  my-2">
+                  <label for="exampleFormControlInput1" id="formfile">
+                    Image
+                  </label>
+
+                  <input
+                    type="file"
+                    id="formFile"
+                    className="form-control p-2 "
+                    style={{
+                      border: "0px",
+                      background: "#eeeeee",
+                      color: "grey",
+                    }}
+                    placeholder="No file choosen"
+                    onChange={(e) => handleImageChange(e, index)}
+                    multiple // Allow selecting multiple images
+                  />
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    marginTop: "20px",
+                  }}
+                >
+                  {item.formFile &&
+                    item.formFile.map((image, imageIndex) => (
+                      <div
+                        key={imageIndex}
+                        style={{ position: "relative", marginRight: "10px" }}
+                      >
+                        <img
+                          src={`${constants.port}${image}`}
+                          alt={`Image ${imageIndex}`}
+                          style={{
+                            width: "55px",
+                            height: "55px",
+                            objectFit: "cover",
+                          }}
+                        />
+                        <button
+                          onClick={() => removeImage(index, imageIndex)}
+                          style={{
+                            position: "absolute",
+                            top: "-18px",
+                            right: "-8px",
+                            backgroundColor: "transparent",
+                            border: "none",
+                            color: "red",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <i class="bi bi-x"></i>
+                        </button>
+                      </div>
+                    ))}
                 </div>
                 <div className="form-group my-2">
                   <label for="exampleFormControlSelect1">Color</label>
@@ -615,6 +715,28 @@ function ProductsForm({ handleProductAdd, editData }) {
                     onChange={(e) => handleVariantChange(e, index)}
                   />
                 </div>
+                {editData === "true" && (
+                  <div className="form-group my-2">
+                    <label for="exampleFormControlSelect1">
+                      Variant Status
+                    </label>
+                    <select
+                      className="form-control p-2"
+                      style={{
+                        border: "0px",
+                        background: "#eeeeee",
+                        color: "grey",
+                      }}
+                      id="varStatus"
+                      onChange={(e) => handleVariantChange(e, index)}
+                      value={item.varStatus}
+                    >
+                      <option value="Active">Active</option>
+                      <option value="Pending">Pending</option>
+                      <option value="Suspended">Suspended</option>
+                    </select>
+                  </div>
+                )}
                 {index > 0 && (
                   <h6
                     onClick={() => removeVariantField(index)}

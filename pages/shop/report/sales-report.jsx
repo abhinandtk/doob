@@ -90,8 +90,8 @@ function SalesReport() {
       <MainHeader title="Doob" />
       <MobileHeader />
       <MainSidebarFixed />
-      <div className="store-container">
-        <div className="bottom">
+      <div className="store-container1">
+        <div className="Bottom">
           <ShopPagesSideBar />
 
           <div class="content-topics ">
@@ -155,11 +155,11 @@ function SalesReport() {
                     <span className="sales-report-name">Customers</span>
                     <span>{salesData.total_customers}</span>
                   </div>
-                  <div className="p-3 d-flex justify-content-between  customer">
+                  <div className="p-3 d-flex justify-content-between my-3 customer">
                     <span className="sales-report-name">Total Products</span>
                     <span>{salesData.total_products}</span>
                   </div>
-                  <div className="p-3 d-flex justify-content-between  customer">
+                  <div className="p-3 d-flex justify-content-between my-3  customer">
                     <span className="sales-report-name">Total Orders</span>
                     <span>{salesData.total_orders}</span>
                   </div>

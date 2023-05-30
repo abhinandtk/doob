@@ -21,7 +21,7 @@ function PlayGroundCartPage() {
     }).then((res) => {
       setCartData(res.data.data);
     });
-  });
+  },[]);
 
   return (
     <div>

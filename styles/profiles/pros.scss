@@ -446,11 +446,17 @@ height:100%;
   margin-top:23px;
   height:100%;
 }
-.book{
+.Book{
   font-weight:500;
   color:#000;
   font-size:15px;
   margin-bottom: 5px;
+  display:-webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+width: 272px;
 }
 .small-time{
   color:#000;
@@ -1510,6 +1516,7 @@ height:100%;
     height: 37px;
    }
   .container2 {
+    margin-left: 4px;
 
     width:auto;
   margin-top:23px;
@@ -1648,12 +1655,13 @@ height:100%;
   justify-content: center;
   
 }
-.book{
+.Book{
   font-weight:500;
   color:#000;
   font-size:12px;
   margin-top: 4px;
-  width: auto;
+  width: 220px;
+
 }
 .small-time{
   color:#000;
@@ -1768,18 +1776,24 @@ height:100%;
   right: 8px;
 }
 
-.book{
+.Book{
   font-weight:500;
   color:#000;
   font-size:11px;
   margin-bottom: -33px;
-  width: auto;
+  width:190px;
+  margin-left: -15px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .small-time{
   color:#000;
   font-weight:500;
   font-size:12px;
-  margin-top:21px;
+  margin-top:33px;
   text-align:left;
 }
 .booked{
@@ -1836,7 +1850,7 @@ height:100%;
 }   
 }
 @media(max-width:375px) {
-  .book{
+  .Book{
     font-weight:500;
     color:#000;
     font-size:9px;

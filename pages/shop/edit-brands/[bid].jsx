@@ -17,7 +17,7 @@ function EditBrandPage() {
       <MobileHeader />
       <MainSidebarFixed />
       <div className="store-container">
-        <div className="bottom">
+        <div className="Bottom">
           <ShopPagesSideBar currentPage='brand'/>
           <EditBrand />
         </div>

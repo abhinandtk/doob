@@ -28,7 +28,9 @@ body{
   justify-content: center;
   align-items: center;
 }
-
+.navbar1{
+  display: none;
+}
  .sidebar {
   position: fixed;
   top: 40;
@@ -439,21 +441,23 @@ body{
  color:#000;
  width:900px;
  }
-.navbar__button.profile-button .profile-button__border {
-  width: 28px;
-  height: 28px;
-  border-width: 2px;
-}
+// .navbar__button.profile-button .profile-button__border {
+//   width: 28px;
+//   height: 28px;
+//   border-width: 2px;
+// }
 
-.navbar::after {
-  content: '';
-  position: absolute;
-  top: 0;
+// .navbar::after {
+//   content: '';
+//   position: absolute;
+//   top: 0;
+  
+//   width: 100%;
+//   height: 1px;
+//   background-color: var(--border);
+// }
+ 
 
-  width: 100%;
-  height: 1px;
-  background-color: var(--border);
-}
 
 .main-container {
   background-color: var(--primary);
@@ -468,7 +472,7 @@ body{
 .content-container {
   width: 100%;
   max-width: 795px;
-  padding: 0 0 8px;
+  // padding: 0 0 8px;
   margin: 0 auto;
   display: flex;
 }
@@ -1674,6 +1678,7 @@ body{
 }
 
 
+
 .chatlist .block .imgBox {
   position: relative;
   min-width: 50px;
@@ -2121,14 +2126,19 @@ margin-bottom: -12px;
   font-weight:500;
    margin-left: 14px;
 }
-
+.wallet{
+  margin-top: 12px;
+  width: 620px;
+  margin-left: 12px;
+  background: #17A803;
+}
 .side-menus__suggestions-btns {
  
   cursor: pointer;
   font-size: 14px;
   flex-shrink: 0;
   margin-right: 62px;
-  float:right; 
+  float:right;
   margin-top: -3px;
   background-color:#17a803;
   border: none;
@@ -2209,7 +2219,12 @@ margin-bottom: -12px;
     .container2{
       width:100%;
     }
-
+ 
+    form.nosubmit {
+      border: none;
+      width:100% ;
+      
+     }
 }
 @media(max-width:1249px){
   .content {
@@ -2241,6 +2256,18 @@ margin-bottom: -12px;
 .side {
   margin-left: 210px;
 }
+    
+input.nosubmit1 {
+  width: 90%;
+  margin-left: -2px;
+}
+ .filters-icon{
+  margin-left: 4px;
+  height: 42px;
+  margin-top: -4px;
+ }
+
+ 
 }
 
 @media(max-width:1100px){
@@ -2273,6 +2300,16 @@ margin-bottom: -12px;
     background-color: white;
     width: 62%;
   }
+  input.nosubmit1 {
+    width: 90%;
+    margin-left: -2px;
+  }
+   .filters-icon{
+    margin-left: 4px;
+    height: 42px;
+    margin-top: -4px;
+   }
+   
   
     //sajin feedback end //
 }
@@ -2317,6 +2354,40 @@ margin-bottom: -12px;
 
   .content-page {
     margin-left: 223px;
+  }
+  .navbar1 {
+    width: 100%;
+    height: 50px;
+    background-color: var(--primary);
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    height: 50px;
+   
+  }
+  .navbar1::after {
+    content: '';
+    position: absolute;
+    top: 0;
+  
+    width: 100%;
+    height: 1px;
+    background-color: var(--border);
+  }
+  
+  .navbar__button1 {
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .navbar1__button.profile-button1 .profile-button__border {
+    width: 28px;
+    height: 28px;
+    border-width: 2px;
   }
 
   .side {

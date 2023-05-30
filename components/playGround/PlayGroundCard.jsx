@@ -1,9 +1,11 @@
 import React from "react";
 import { Fragment } from "react";
-import Axios from 'axios'
+import Axios from "axios";
+import moment from "moment";
+import { useRouter } from "next/router";
 
-function  PlayGroundCard({content}) {
-    
+function PlayGroundCard({ content }) {
+  const router =useRouter()
   return (
     <Fragment>
       <div className="clearfix mt-3 ">
@@ -17,72 +19,47 @@ function  PlayGroundCard({content}) {
           View all
         </p>
       </div>
-      <div className="row row-cols-2">
-        <div className="col-lg-3 col-md-4 col-sm-6 col-xs-6 ">
-      <div className="playgrounds ">
-      {content.map((item,index)=>(
-        <div key={index} class="card playground-card">
-          <img
-            src="../images/tournament/soccer-players-action-professional-stadium 2.png"
-            style={{
-              height: "160px",
-              borderRadius: "20px 20px 0px 0px",
-              objectFit: "cover",
-            }}
-            alt="..."
-          />
-          <div class="card-body play-body">
-            <p className="stadium-name">ooo{item.stadium_name}</p>
-            <div style={{ marginTop: "-5px" }}>
-
-              <div className="playground-content">
-                <i class="bi bi-geo-alt" style={{ color: "green" }}></i>
-                <div className="mx-2 places">{item.location}, Kuwait kjnjhgvcffc</div>
-              </div> 
-            </div>
-            <div style={{ marginTop: "8px" }}>
-              <span>
-                <i class="bi bi-star-fill" style={{ color: "yellow" }}></i>
-                <span className="mx-2">4.5</span>
-              </span>
-            </div>
-          </div>
-        </div>))}
-      </div>
-      </div>
-     
-      <div className="col-lg-3 col-md-4 col-sm-6 col-xs-6 ">
-      <div className="playgrounds ">
-      {content.map((item,index)=>(
-        <div key={index} class="card playground-card">
-          <img
-            src="../images/tournament/soccer-players-action-professional-stadium 2.png"
-            style={{
-              height: "160px",
-              borderRadius: "20px 20px 0px 0px",
-              objectFit: "cover",
-            }}
-            alt="..."
-          />
-          <div class="card-body play-body">
-            <p className="stadium-name">{item.stadium_name}</p>
-            <div style={{ marginTop: "-5px" }}>
-
-              <div className="playground-content">
-                <i class="bi bi-geo-alt" style={{ color: "green" }}></i>
-                <div className="mx-2 places">{item.location}, Kuwait</div>
-              </div> 
-            </div>
-            <div style={{ marginTop: "8px" }}>
-              <span>
-                <i class="bi bi-star-fill" style={{ color: "yellow" }}></i>
-                <span className="mx-2">4.5</span>
-              </span>
+      <div className="playgrounds">
+        {content.map((item, index) => (
+          <div
+            onClick={() =>
+              router.push({
+                pathname: `/play-ground/${item.slug_field}`,
+                query: {
+                  stadium_id: item.id,
+                  date: moment().format('YYYY-MM-DD'),
+                },
+              })
+            }
+            key={index}
+            class="card playground-card"
+          >
+            <img
+              src="../images/tournament/soccer-players-action-professional-stadium 2.png"
+              style={{
+                height: "190px",
+                borderRadius: "20px 20px 0px 0px",
+                objectFit: "cover",
+              }}
+              alt="..."
+            />
+            <div class="card-body play-body">
+              <p>{item.stadium_name}</p>
+              <div style={{ marginTop: "-5px" }}>
+                <span>
+                  <i class="bi bi-geo-alt" style={{ color: "green" }}></i>
+                  <span className="mx-2">{item.location}, Kuwait</span>
+                </span>
+              </div>
+              <div style={{ marginTop: "8px" }}>
+                <span>
+                  <i class="bi bi-star-fill" style={{ color: "yellow" }}></i>
+                  <span className="mx-2">4.5</span>
+                </span>
+              </div>
             </div>
           </div>
-        </div>))}
-      </div>
-      </div>
+        ))}
       </div>
     </Fragment>
   );

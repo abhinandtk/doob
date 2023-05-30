@@ -33,12 +33,15 @@ function PlayGroundDetailPage() {
     const inputData = router.query
     const [groundData,setGroundData]=useState([])
     const [amenitiesData,setAmenitiesData]=useState([])
-    console.log('ggggggggggggggg',inputData)
+    console.log('ggggggggggggggg',inputData,{
+      stadium_id:inputData.stadium_id, 
+      date:inputData.date
+    })
     useEffect(() => {
       Axios.post(
         apis.stadiumDetailView,
         {
-          stadium_id:inputData.stadium_id, 
+          stadium_slug:inputData.pgid, 
           date:inputData.date
         },
         {
