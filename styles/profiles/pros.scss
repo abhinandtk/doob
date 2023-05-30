@@ -1655,12 +1655,12 @@ width: 272px;
   justify-content: center;
   
 }
-.book{
+.Book{
   font-weight:500;
   color:#000;
   font-size:12px;
   margin-top: 4px;
-  width: auto;
+  width: 220px;
 
 }
 .small-time{
@@ -1776,18 +1776,24 @@ width: 272px;
   right: 8px;
 }
 
-.book{
+.Book{
   font-weight:500;
   color:#000;
   font-size:11px;
   margin-bottom: -33px;
-  width: auto;
+  width:190px;
+  margin-left: -15px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .small-time{
   color:#000;
   font-weight:500;
   font-size:12px;
-  margin-top:21px;
+  margin-top:33px;
   text-align:left;
 }
 .booked{
@@ -1844,7 +1850,7 @@ width: 272px;
 }   
 }
 @media(max-width:375px) {
-  .book{
+  .Book{
     font-weight:500;
     color:#000;
     font-size:9px;

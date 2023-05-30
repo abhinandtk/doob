@@ -28,7 +28,9 @@ body{
   justify-content: center;
   align-items: center;
 }
-
+.navbar1{
+  display: none;
+}
  .sidebar {
   position: fixed;
   top: 40;
@@ -439,21 +441,23 @@ body{
  color:#000;
  width:900px;
  }
-.navbar__button.profile-button .profile-button__border {
-  width: 28px;
-  height: 28px;
-  border-width: 2px;
-}
+// .navbar__button.profile-button .profile-button__border {
+//   width: 28px;
+//   height: 28px;
+//   border-width: 2px;
+// }
 
-.navbar::after {
-  content: '';
-  position: absolute;
-  top: 0;
+// .navbar::after {
+//   content: '';
+//   position: absolute;
+//   top: 0;
+  
+//   width: 100%;
+//   height: 1px;
+//   background-color: var(--border);
+// }
+ 
 
-  width: 100%;
-  height: 1px;
-  background-color: var(--border);
-}
 
 .main-container {
   background-color: var(--primary);
@@ -468,7 +472,7 @@ body{
 .content-container {
   width: 100%;
   max-width: 795px;
-  padding: 0 0 8px;
+  // padding: 0 0 8px;
   margin: 0 auto;
   display: flex;
 }
@@ -2350,6 +2354,40 @@ input.nosubmit1 {
 
   .content-page {
     margin-left: 223px;
+  }
+  .navbar1 {
+    width: 100%;
+    height: 50px;
+    background-color: var(--primary);
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    height: 50px;
+   
+  }
+  .navbar1::after {
+    content: '';
+    position: absolute;
+    top: 0;
+  
+    width: 100%;
+    height: 1px;
+    background-color: var(--border);
+  }
+  
+  .navbar__button1 {
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .navbar1__button.profile-button1 .profile-button__border {
+    width: 28px;
+    height: 28px;
+    border-width: 2px;
   }
 
   .side {
