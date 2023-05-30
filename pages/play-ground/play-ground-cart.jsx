@@ -19,7 +19,7 @@ function PlayGroundCartPage() {
         Authorization: `Token ${constants.token_id}`,
       },
     }).then((res) => {
-      setCartData(res.data);
+      setCartData(res.data.data);
     });
   });
 

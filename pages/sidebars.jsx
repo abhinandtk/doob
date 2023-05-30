@@ -289,7 +289,7 @@ Arabic</Dropdown.Item>
     </nav>
     </aside>
     <div className='side-container'>
-    <div className="side">
+    <div className="sides">
      
     <a href="#home" ><svg width="25" height="21" viewBox="0 0 25 21" fill="none" className='svg ' xmlns="http://www.w3.org/2000/svg">
 <path d="M15.4466 0.774414H9.66795C5.58184 0.774414 3.53878 0.774414 2.26939 2.00196C1 3.2295 1 5.2052 1 9.15655V11.9507C1 15.902 1 17.8778 2.26939 19.1053C3.53878 20.3329 5.58184 20.3329 9.66795 20.3329H15.4466C19.5327 20.3329 21.5758 20.3329 22.8452 19.1053C24.1145 17.8778 24.1145 15.902 24.1145 11.9507V9.15655C24.1145 5.2052 24.1145 3.2295 22.8452 2.00196C21.5758 0.774414 19.5327 0.774414 15.4466 0.774414Z" stroke="black" stroke-width="1.3039"/>
@@ -345,131 +345,50 @@ Arabic</Dropdown.Item>
     </Card>
     <br></br>
 <p className='field'>Fields</p>
-<div className='d-flex flex-start mt-4 mx-2'>
-  
-            <a   className='me-2' href=''>
-            <CardImg  className='rounded-circle shadow-1-strong ' src="../images/fa.png" style={{width:'54px',height:'54px'}} ></CardImg>
-            </a>
-            <div className="flex-grow-1 flex-shrink-1 " style={{marginTop:'4px'}}>
-                            <div>
-                              <div className="d-flex justify-content-between align-items-center">
-                                <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
-                                Ali Subah Al-Salem Stadium
-                                  
-                                </p>
-                                <span style={{fontWeight:'600',color:'#17A803',fontSize:'15px'}}>5.000 KD</span>
-                              </div>
-                            
-                              <p className='small ' style={{color:'grey',fontWeight:'500',fontSize:'14px',marginTop:'-5px'}}>
-                              3.200 KD expires in 3 days 
-                              </p>
-                            </div>
-                          </div>
-          </div>
-          <div className='d-flex flex-start mt-4 mx-2'>
-  
-            <a   className='me-2' href=''>
-            <CardImg  className='rounded-circle shadow-1-strong ' src="../images/fa.png" style={{width:'54px',height:'54px'}} ></CardImg>
-            </a>
-            <div className="flex-grow-1 flex-shrink-1 " style={{marginTop:'4px'}}>
-                            <div>
-                              <div className="d-flex justify-content-between align-items-center">
-                                <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
-                                Ali Subah Al-Salem Stadium
-                                  
-                                </p>
-                                <span style={{fontWeight:'600',color:'#17A803',fontSize:'15px'}}>5.000 KD</span>
-                              </div>
-                            
-                              <p className='small ' style={{color:'grey',fontWeight:'500',fontSize:'14px',marginTop:'-5px'}}>
-                              3.200 KD expires in 3 days 
-                              </p>
-                            </div>
-                          </div>
-          </div>
-          <div className='d-flex flex-start mt-4 mx-2'>
-  
-            <a   className='me-2' href=''>
-            <CardImg  className='rounded-circle shadow-1-strong ' src="../images/fa.png" style={{width:'54px',height:'54px'}} ></CardImg>
-            </a>
-            <div className="flex-grow-1 flex-shrink-1 " style={{marginTop:'4px'}}>
-                            <div>
-                              <div className="d-flex justify-content-between align-items-center">
-                                <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
-                                Ali Subah Al-Salem Stadium
-                                  
-                                </p>
-                                <span style={{fontWeight:'600',color:'#17A803',fontSize:'15px'}}>5.000 KD</span>
-                              </div>
-                            
-                              <p className='small ' style={{color:'grey',fontWeight:'500',fontSize:'14px',marginTop:'-5px'}}>
-                              3.200 KD expires in 3 days 
-                              </p>
-                            </div>
-                          </div>
-          </div>
-          <div className='d-flex flex-start mt-4 mx-2'>
-            <a   className='me-2' href=''>
-            <CardImg  className='rounded-circle shadow-1-strong ' src="../images/fa.png" style={{width:'54px',height:'54px'}} ></CardImg>
-            </a>
-            <div className="flex-grow-1 flex-shrink-1 " style={{marginTop:'4px'}}>
-                            <div>
-                              <div className="d-flex justify-content-between align-items-center">
-                                <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
-                                Ali Subah Al-Salem Stadium
-                                  
-                                </p>
-                                <span style={{fontWeight:'600',color:'#17A803',fontSize:'15px'}}>5.000 KD</span>
-                              </div>
-                            
-                              <p className='small ' style={{color:'grey',fontWeight:'500',fontSize:'14px',marginTop:'-5px'}}>
-                              3.200 KD expires in 3 days 
-                              </p>
-                            </div>
-                          </div>
-          </div>
 
           <div className='d-flex flex-start mt-4 mx-2'>
+  
             <a   className='me-2' href=''>
             <CardImg  className='rounded-circle shadow-1-strong ' src="../images/fa.png" style={{width:'54px',height:'54px'}} ></CardImg>
             </a>
             <div className="flex-grow-1 flex-shrink-1 " style={{marginTop:'4px'}}>
                             <div>
                               <div className="d-flex justify-content-between align-items-center">
-                                <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
+                                <p className="mb-0 wallet-name" >
                                 Ali Subah Al-Salem Stadium
                                   
                                 </p>
-                                <span style={{fontWeight:'600',color:'#17A803',fontSize:'15px'}}>5.000 KD</span>
+                                <span  className='rate-dinar'>5.000 KD</span>
                               </div>
                             
-                              <p className='small ' style={{color:'grey',fontWeight:'500',fontSize:'14px',marginTop:'-5px'}}>
-                              3.200 KD expires in 3 days 
-                              </p>
-                            </div>
-                          </div>
-          </div>
-          <div className='d-flex flex-start mt-4 mx-2'>
-            <a   className='me-2' href=''>
-            <CardImg  className='rounded-circle shadow-1-strong ' src="../images/fa.png" style={{width:'54px',height:'54px'}} ></CardImg>
-            </a>
-            <div className="flex-grow-1 flex-shrink-1 " style={{marginTop:'4px'}}>
-                            <div>
-                              <div className="d-flex justify-content-between align-items-center">
-                                <p className="mb-0" style={{fontWeight:'600',color:'#000',fontSize:'15px'}}>
-                                Ali Subah Al-Salem Stadium
-                                  
-                                </p>
-                                <span style={{fontWeight:'600',color:'#17A803',fontSize:'15px'}}>5.000 KD</span>
-                              </div>
-                            
-                              <p className='small ' style={{color:'grey',fontWeight:'500',fontSize:'14px',marginTop:'-5px'}}>
+                              <p className=' expires-date ' >
                               3.200 KD expires in 3 days 
                               </p>
                             </div>
                           </div>
           </div>
         
+          <div className='d-flex flex-start mt-4 mx-2'>
+  
+  <a   className='me-2' href=''>
+  <CardImg  className='rounded-circle shadow-1-strong ' src="../images/fa.png" style={{width:'54px',height:'54px'}} ></CardImg>
+  </a>
+  <div className="flex-grow-1 flex-shrink-1 " style={{marginTop:'4px'}}>
+                  <div>
+                    <div className="d-flex justify-content-between align-items-center">
+                      <p className="mb-0 wallet-name" >
+                      Ali Subah Al-Salem Stadium
+                        
+                      </p>
+                      <span  className='rate-dinar'>5.000 KD</span>
+                    </div>
+                  
+                    <p className=' expires-date ' >
+                    3.200 KD expires in 3 days 
+                    </p>
+                  </div>
+                </div>
+</div>
         
        
 </div>

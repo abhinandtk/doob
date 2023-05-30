@@ -43,7 +43,48 @@ body{
   transition: 0.3s;
   margin-top:-23px;
 }
+.wallet{
+  margin-top: 12px;
+  width: 620px;
+  margin-left: 12px;
+  background: #17A803;
+}
 
+.wallet-name{
+  font-size: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  width: 190px;
+  font-weight:600;
+  color:#000;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.rate-dinar{
+font-weight:600;
+color:#17A803;
+font-size: 14px;
+display: -webkit-box;
+  -webkit-line-clamp: 1;
+  width: 60px;
+  font-weight:600;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.expires-date{
+color:grey;
+font-weight:500;
+font-size:14px;
+display: -webkit-box;
+  -webkit-line-clamp: 1;
+  width: 190px;
+  font-weight:600;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .sidebar-header {
   width: 100%;
   margin-bottom: 44px;
@@ -1644,6 +1685,25 @@ div#header div {
  margin-right: 33px;
 
 }
+.wallet{
+  margin-top: 12px;
+  width: 90%;
+  margin-left: 12px;
+  background: #17A803;
+}
+.rate-dinar{
+  font-weight:600;
+  color:#17A803;
+  font-size: 14px;
+  display: -webkit-box;
+    -webkit-line-clamp: 1;
+    width: 60px;
+    font-weight:600;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 23px;
+  }
 
  .carl{  
   display: grid;
