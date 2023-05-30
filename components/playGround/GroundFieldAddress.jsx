@@ -11,7 +11,7 @@ function  GroundFieldAddress({ address }) {
             <div className="card-body cart-info p-4">
               <div className="cart-location">
                 <svg
-                  width="17"
+                  width="30"
                   height="19"
                   viewBox="0 0 17 19"
                   fill="none"

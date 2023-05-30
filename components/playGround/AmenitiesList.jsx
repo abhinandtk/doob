@@ -5,7 +5,7 @@ import { Fragment } from "react";
 function AmenitiesList({amenitiesData}) {
   return (
     <Fragment>
-      <h5 style={{ fontWeight: "700", fontSize: "15px" }}>Amenities</h5>
+      <h5 className="amenties">Amenities</h5>
       <div className="Amenties">
         {amenitiesData.map((item,index)=>(
         <span key={index} className="mx-2">
