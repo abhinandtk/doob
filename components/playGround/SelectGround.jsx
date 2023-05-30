@@ -7,7 +7,9 @@ import { selectSlots } from "@/Redux/playGroundCart";
 import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
-function SelectGround({ details }) {
+import moment from "moment";
+function 
+SelectGround({ details }) {
   const router = useRouter();
   const inputData = router.query;
 
@@ -21,16 +23,23 @@ function SelectGround({ details }) {
   };
 
   const addTocartHandler = () => {
-    console.log('inpuuuuuuuuuuuut',selectedSlots)
+    console.log('inpuuuuuuuuuuuut',selectedSlots,inputData,{
+      time_slots: selectedSlots,
+      stadium_name:inputData.stadium_id ,
+      amount: 50,
+      slot_type: "static slot",
+      game: inputData.sports_id,
+      date: '2023-5-11',
+    })
     Axios.post(
       apis.playCart,
       {
         time_slots: selectedSlots,
         stadium_name:inputData.stadium_id ,
-        amount: details.amount,
+        amount: '50',
         slot_type: "static slot",
         game: inputData.sports_id,
-        date: inputData.stadium_id,
+        date: inputData.date,
       },
       {
         headers: {
@@ -76,7 +85,7 @@ function SelectGround({ details }) {
                       }}                                                     
                     >
                       <p style={{ marginTop: "13px", marginLeft: "23px" }}>
-                        {item.start_time}-{item.end_time}
+                        {moment(item.start_time,'hh:mm:ss').format('hh:mm A')}-{moment(item.end_time,'hh:mm:ss').format('hh:mm A')}
                       </p>
                     </div>              
                   ))

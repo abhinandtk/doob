@@ -60,52 +60,32 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
   const getMatchTime = (time, date) => {
     const startDate = moment(date, "YYYY-MM-DD");
     const startTime = moment(time, "HH:mm:ss");
-  
+
     const startDateTime = startDate.clone().set({
       hour: startTime.hours(),
       minute: startTime.minutes(),
       second: startTime.seconds(),
     });
-  
+
     const currentTime = moment();
-    
+
     if (currentTime.isBefore(startDateTime)) {
       return "00:00";
     }
-  
+
     const diff = moment.duration(Math.abs(startDateTime.diff(currentTime)));
     let totalMinutes = Math.floor(diff.asMinutes());
     let seconds = diff.seconds();
-  
+
     if (totalMinutes > 90) {
-      return "90:00"
+      return "90:00";
     }
-  
+
     let matchTime = `${totalMinutes}:${seconds}`;
-  
+
     console.log("matchTime:", matchTime);
     return matchTime;
   };
-
-  //
-  // const interval = setInterval(() => {
-  //   const currentTime = moment();
-  //   const diff = moment.duration(Math.abs(startDateTime.diff(currentTime)));
-  //   const totalMinutes = Math.floor(diff.asMinutes());
-  //   const minutes = totalMinutes;
-  //   const seconds = diff.seconds();
-
-  //   if (totalMinutes >= 90) {
-  //     clearInterval(interval);
-  //     setLiveTime('90:00');
-  //   } else {
-  //     setLiveTime(`${minutes}:${seconds}`);
-  //   }
-  // }, 1000);
-
-  // return () => {
-  //   clearInterval(interval);
-  // };
 
   const generateMatchesHandler = () => {
     console.log("ingen", tid);
@@ -190,6 +170,7 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
   const handleMatchUpdate = (id, type) => {
     let updatedMatch;
     if (type === "score") {
+      console.log("match76", matchStatus);
       updatedMatch = {
         tournament_slug: tid,
         match_id: matchId,
@@ -241,6 +222,7 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
         setTeamBScore("");
         setStadiumId("");
         setMatchDate(null);
+        setMatchStatus("");
       }
 
       console.log("resultupdate", res);
@@ -362,7 +344,7 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
         <br></br>
 
         <Select
-          defaultValue=""
+          // defaultValue=""
           placeholder="Match Status"
           style={{
             border: "0px",
@@ -372,9 +354,9 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
           }}
           id="team"
           onChange={(value) => setMatchStatus(value)}
-          // value={formData.team}
+          value={matchStatus}
         >
-          <Select.Option value="">--select team--</Select.Option>
+          <Select.Option value={""}>--select team--</Select.Option>
           <Select.Option value={0}>End</Select.Option>
           <Select.Option value={1}>Live</Select.Option>
           <Select.Option value={2}>Stop</Select.Option>
@@ -426,21 +408,22 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
           value={matchTime}
         />
       </Modal>
-     
+
       {data.length >= 1 ? (
         data.map((item, index) => (
           <>
-          
-         <h6
+            <h6
               key={index}
               className="my-4"
               style={{ fontSize: "15px", fontWeight: "600" }}
             >
               {item.match_type}
-              <span className="quaters"> <button className="adds-btn ms-auto">Add</button></span>  </h6>
-           
-           
-           
+              <span className="quaters">
+                {" "}
+                <button className="adds-btn ms-auto">Add</button>
+              </span>{" "}
+            </h6>
+
             {item.matches.map((content, index_) => (
               <div key={index_} className="card football1">
                 <div className="card-body p-5 mx-4">
@@ -450,18 +433,22 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
                       style={{ textDecoration: "none", color: "inherit" }}
                     >
                       <div className=" watch1 ">
-                        <img
-                          src={`${constants.port}${content.team_A_logo}`}
-                          className="clubs"
-                        ></img>
+                        {content.team_A_logo !== null ? (
+                          <img
+                            src={`${constants.port}${content.team_A_logo}`}
+                            className="clubs"
+                          ></img>
+                        ):'Team A?'}
                         <p className="team1">{content.team_A} </p>
                       </div>
 
                       <div className="watch2 ">
-                        <img
-                          src={`${constants.port}${content.team_B_logo}`}
-                          className="clubs"
-                        ></img>
+                        {content.team_B_logo !== null ? (
+                          <img
+                            src={`${constants.port}${content.team_B_logo}`}
+                            className="clubs"
+                          ></img>
+                        ):'Team B?'}
                         <p className="team2">{content.team_B}</p>
                       </div>
                     </Link>
@@ -510,7 +497,9 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
                         type="button"
                         className=" btn-outline-secondary left-time"
                       >
-                        {getMatchTime(content.start_time, content.match_date)}
+                        {content.match_date
+                          ? getMatchTime(content.start_time, content.match_date)
+                          : "00:00"}
                       </button>
                     </div>
                   </div>

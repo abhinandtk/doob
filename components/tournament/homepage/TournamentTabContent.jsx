@@ -38,7 +38,7 @@ function TournamentTabContent({data}) {
                   <p className="team1">{item.team_a.team_name} </p>
                 </div>
 
-                <div className="live-watch mx-4">
+                <div className="live-watch mx-5">
                   <p className="club-wins">{item.team_a.score} - {item.team_b.score}</p>
                   <button
                     type="button"

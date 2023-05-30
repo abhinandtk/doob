@@ -120,9 +120,12 @@ const apis = {
     'inviteUser':`${constants.port}/playground/api/invite_user`,
     'removeUser':`${constants.port}/playground/api/remove_user`,
     'addPlayground':`${constants.port}/playground/api/ad_add_playground`,
+    'playgroundCheckout':`${constants.port}/playground/api/checkout`,
 
     'listAllGames':`${constants.port}/playground/api/list_games`,
     'gameHistory':`${constants.port}/playground/api/list_games_history`,
+    'listAllBooking':`${constants.port}/playground/api/list_all_booking`,
+    'cancelBooking':`${constants.port}/playground/api/cancel_booking`,
 
     //Tournament
 

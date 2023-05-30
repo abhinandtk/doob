@@ -22,10 +22,7 @@ function AddPlaygroundPage() {
 
   const labels =Labels()
   const handlePlaygroundForm = (data, game, amenity, slot) => {
-    console.log("dataaaaaaaaaaaaa546", data);
-    console.log("gameeeeeeee", game);
-    console.log("amenityyyyyyyyyyy", amenity);
-    console.log("slooooot", slot);
+   
     const formData = new FormData();
     formData.append("stadium_name", data.name);
     formData.append("city", data.city);
