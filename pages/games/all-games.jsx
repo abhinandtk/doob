@@ -135,7 +135,7 @@ function AllGamesPage() {
                       color: `${
                         selectedCategory === item.title ? "#17A803" : ""
                       }`,
-                    }}
+                     }}
                     className="mx-3"
                   >
                     {item.title}

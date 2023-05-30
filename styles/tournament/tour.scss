@@ -2109,7 +2109,7 @@ margin-left: 13px;
   font-size: 14px;
   font-weight: 500;
   display:-webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   width: 70px;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -2690,7 +2690,10 @@ input.nosubmit1 {
 .tournament4 {
   width: 100%;
 }
-
+.amenties{
+ font-weight: 700; 
+ font-size: 15px;
+}
 .green {
   border: 0px;
   border-radius: 8px;
@@ -2855,7 +2858,7 @@ input.nosubmit1 {
   width: 100%;
   height: 35px;
   text-align: center;
-  font-size: 12px;
+  font-size: 14px;
 }
 .match1 {
   color: #ffffff;
@@ -3031,9 +3034,9 @@ input.nosubmit1 {
   margin-left: 80%;
 }
 .ground-img {
-  width:120px;
+  width: 87%;
   margin-top: 32px;
-  margin-left: 24px;
+  margin-left: 17px;
 }
 .new-orders1 {
   margin-left: -4px;
@@ -3096,6 +3099,38 @@ input.nosubmit1 {
   width: 430px;
   margin-left: -9px;
 }
+.time-slot2 {
+  background: #D8D8D8;
+  border-radius: 10px;
+  width: 100%;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+.img-text {
+ 
+  font-weight: 600;
+  margin-right:40px;
+  font-size: 18px;
+}
+.field-info {
+  /* position: absolute; */
+  margin-top: 74px;
+  line-height: 30px;
+}
+
+.logox {
+    float: right;
+    margin-right:30px;
+    position: relative;
+    width: 43px;
+    height: 45px;
+    margin-top: -16px;
+}
+.amenties{
+  font-weight: 700; 
+  font-size: 15px;
+  margin-top: 12px;
+ }
 }
 // @media(max-width:501px) {
 //   .live-image1 {
@@ -3440,10 +3475,22 @@ margin-left: 205px;
 .book{
   margin-top: 15px;
   border: 0px;
-  width: 380px;
+  width: 395px;
   margin-left: -9px;
 }
-
+.games1 {
+  color: #000000;
+  background: transparent;
+  border: 1px solid black;
+  width: 100%;
+  font-size: 11px;
+}
+.games2{
+  color: #ffffff;
+  background: #656565;
+  width: 100%;
+  font-size: 11px;
+}
   .topnav {
     overflow: hidden;
     background-color: transparent;
@@ -3720,6 +3767,12 @@ margin-left: 205px;
     border-radius: 9px;
     object-fit: cover;
     
+  }
+  .book{
+    margin-top: 15px;
+    border: 0px;
+    width: 390px;
+    margin-left: -9px;
   }
   .name {
     font-weight: 500;

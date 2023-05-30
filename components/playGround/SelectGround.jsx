@@ -94,22 +94,13 @@ SelectGround({ details }) {
                 )}
               </div>
             </div>
-            <div className="col-md-6">
-              <div className="">
-                <img
-                  src="../images/tournament/playgrounds.png"
-                  className="ground-img"
-                ></img>
-                <p className="img-text">5 A</p>
-                <button
+            <button
                   onClick={addTocartHandler}
                   type="button"
                   className=" image-btn"
                 >
                   Add to Cart
                 </button>
-              </div>
-            </div>
           </div>
         </div>
       </div>
