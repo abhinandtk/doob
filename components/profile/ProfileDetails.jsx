@@ -73,7 +73,7 @@ function ProfileDetails() {
                                 <div className="flex-grow-1 flex-shrink-1 mx-2 mt-2 " style={{marginBottom:'-24px'}}>
                                    <div>
                                         <div className="d-flex justify-content-between align-items-center">
-                                        <p className=" Book" >
+                                        <p className=" book" >
                                                 
                                               Booked  Mohammed Al-Hamad Stadium 
                                             </p>                                          
@@ -92,7 +92,7 @@ function ProfileDetails() {
                                 <div className="flex-grow-1 flex-shrink-1 mx-2 mt-2 " style={{marginBottom:'-24px'}}>
                                     <div>
                                         <div className="d-flex justify-content-between align-items-center">
-                                        <p className="Book" >
+                                        <p className=" book" >
                                                 
                                               Booked  Mohammed Al-Hamad Stadium 
                                             </p>                                         
@@ -111,7 +111,7 @@ function ProfileDetails() {
                                 <div className="flex-grow-1 flex-shrink-1 mx-2 mt-2 " style={{marginBottom:'-24px'}}>
                                     <div>
                                         <div className="d-flex justify-content-between align-items-center">
-                                        <p className=" Book" >
+                                        <p className=" book" >
                                                 
                                                 Booked  Mohammed Al-Hamad Stadium 
                                               </p>                                         

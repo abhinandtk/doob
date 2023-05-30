@@ -42,8 +42,8 @@ function ProductSalesReport() {
       <MainHeader title='Doob' />
       <MobileHeader />
       <MainSidebarFixed />
-      <div className="store-container1">
-        <div className="Bottom">
+      <div className="store-container">
+        <div className="bottom">
           <ShopPagesSideBar />
 
           <div class="content-topics ">

@@ -24,7 +24,7 @@ function MainSidebarFixed() {
                     <span  className="nav_head">Bookings</span>
                 </span>
             </Link> 
-            <Link href='/tournament' style={{textDecoration:'none'}}>
+            <a>
                 <span>
                     <svg width="19" height="19" viewBox="0 0 19 19" className='nav_head_svg'  fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M9.36828 4.0671C9.43527 3.97763 9.56473 3.97763 9.63172 4.0671L10.1007 4.69363C10.12 4.71936 10.1457 4.73893 10.1751 4.75013L10.8899 5.02286C10.9921 5.06181 11.0321 5.19057 10.9714 5.28481L10.5464 5.94477C10.5289 5.97186 10.519 6.00353 10.518 6.03618L10.4908 6.83128C10.4869 6.94481 10.3821 7.02439 10.2777 6.99317L9.546 6.7745C9.51589 6.76552 9.48411 6.76552 9.454 6.7745L8.72232 6.99317C8.61786 7.02439 8.51307 6.94481 8.50923 6.83128L8.48204 6.03618C8.48096 6.00353 8.47109 5.97186 8.45361 5.94477L8.0286 5.28481C7.96788 5.19057 8.00794 5.06181 8.11006 5.02286L8.82493 4.75013C8.85429 4.73893 8.88004 4.71936 8.89928 4.69363L9.36828 4.0671Z" fill="black"/>
@@ -32,7 +32,7 @@ function MainSidebarFixed() {
                     </svg>              
                     <span className="nav_head mx-2">Tournaments</span>
                 </span>
-            </Link>
+            </a>
             <Link href='/store' style={{textDecoration:'none'}}>
                 <span>
                     <svg width="19" height="20" viewBox="0 0 19 20" className='nav_head_svg' fill="none" xmlns="http://www.w3.org/2000/svg">

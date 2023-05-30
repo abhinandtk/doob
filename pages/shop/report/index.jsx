@@ -12,8 +12,8 @@ function ReportPage() {
       <MainHeader title="Doob" />
       <MainSidebarFixed />
       <MobileHeader />
-      <div className="store-container1">
-        <div className="Bottom">
+      <div className="store-container">
+        <div className="bottom">
           <ShopPagesSideBar currentPage='report'/>
 
           <div class="content-topics ">

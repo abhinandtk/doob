@@ -6,7 +6,7 @@ function OfficeAddress({handleAddAddress}) {
     const [formData,setFormData]=useState({
         name:'',
         area:'',
-        block:'', 
+        block:'',
         street:'',
         avenue:'',
         officeName:'',

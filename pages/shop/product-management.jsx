@@ -13,8 +13,8 @@ function ProductManagementPage() {
       <MainHeader title="Doob" />
       <MobileHeader />
       <MainSidebarFixed />
-      <div className="store-container1">
-        <div className="Bottom">
+      <div className="store-container">
+        <div className="bottom">
           <ShopPagesSideBar currentPage='products'/>
           <ProductManagement />
         </div>

@@ -23,8 +23,8 @@ function AddCategoryPage() {
         parent_id: data.parentCat,
         display_order: data.display,
       },
-      { 
-        headers: { 
+      {
+        headers: {
           Authorization: `Token ${constants.token_id}`,
         },
       }
@@ -36,14 +36,13 @@ function AddCategoryPage() {
       });
     });
   };
-  return ( 
-    
+  return (
     <Fragment>
       <MainHeader title="Doob" />
       <MobileHeader />
       <MainSidebarFixed />
-      <div className="store-container1">
-        <div className="Bottom">
+      <div className="store-container">
+        <div className="bottom">
           <ShopPagesSideBar currentPage='category'/>
           <CategoriesForm categorySubmitHandler={categorySubmitHandler} />
         </div>

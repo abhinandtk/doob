@@ -147,7 +147,7 @@ body {
   height: 16px;
   width: 16px;
   border: 1px solid;
-  left: 23px;
+  left: 0px;
   top: 4px;
 }
 
@@ -1020,7 +1020,7 @@ input.tour {
 
 .tournaments {
   width: 487px;
-  height: auto;
+  height: 370px;
   border: 0px;
   border-radius: 5px;
   margin-top: 5px;
@@ -1186,7 +1186,6 @@ input.tour {
   width: 100px;
   height: 100px;
   object-fit: cover;
-  border-radius: 50%;
   margin-top: 12px;
   margin-left: 9px;
 }
@@ -1247,23 +1246,18 @@ input.tour {
 .live-watch {
   margin-top: 12px;
   margin-left: 30px;
-  text-align: center;
 }
 
 .clubs {
-  width: 50px;
-  height: 50px;
-  aspect-ratio: 1;
+  width: 70px;
+  height: 40px;
   object-fit: cover;
-  border-radius: 50%;
 }
 
 .club1 {
-  width: 33px;
-  height: 33px;
-  border-radius: 50%;
+  width: 27px;
+  height: 30px;
   object-fit: cover;
-  margin-top: 2px;
 }
 
 .club-time {
@@ -1371,7 +1365,7 @@ input.tour {
 }
 
 .live-content1 {
-  color: #17A803;
+  color: white;
   font-weight: 400;
   margin-top: 12px;
   font-size: 14px;
@@ -1393,31 +1387,31 @@ input.tour {
 .topnav {
   overflow: hidden;
   background-color: transparent;
+  margin-top: -25px;
 }
 
-.topnav span {
+.topnav a {
   float: left;
   display: block;
   color: black;
   text-align: center;
-  width: 270px;
-  padding: 22px;
+  padding: 23px 30px;
   text-decoration: none;
   font-size: 17px;
   border-bottom: 4px solid transparent;
 }
 
-.topnav span:hover {
+.topnav a:hover {
   font-size: 17px;
   font-weight: 600;
   color: #17A803;
 }
 
-.topnav span.active {
+.topnav a.active {
   border-bottom: 4px solid #17A803;
   font-weight: 600;
   color: #17A803;
-  width: 270px;
+  width: 230px;
 }
 
 .match1 {
@@ -1531,15 +1525,8 @@ input.tour {
 .tournament-imx1 {
   width: 100%;
   height: 100%;
-  margin-left: 63px;
-  margin-top: -100px;
-}
-
-.tournament-imx {
-  width: 100%;
-  height: 100%;
-  margin-left: 13px;
-  margin-top: -150px;
+  margin-left: 170px;
+  margin-top: -360px;
 }
 
 .player-name {
@@ -1578,33 +1565,19 @@ input.tour {
   margin-bottom: 15px;
 }
 
-.tour_rank_img {
-  width: 75px;
-  height: 75px;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-.tour_rank_img1 {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
 .table-row {
   background-color: #EEEEEE;
-  width: 550px;
+  width: 650px;
 }
 
 .table-row1 {
-  width: 550px;
+  width: 650px;
 }
 
 .name1 {
   font-weight: 400;
   font-size: 19px;
-  margin-left: 2px;
+  margin-left: -5px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -1621,20 +1594,14 @@ input.tour {
 
 .views {
   color: #959595;
-  margin-left: -50px;
-  font-size: 16px;
-}
-
-.views1 {
-  color: #959595;
-  margin-left: -45px;
+  margin-right: -22px;
   font-size: 16px;
 }
 
 .name {
   font-weight: 500;
   font-size: 22px;
-  margin-left: 21px;
+  margin-left: -9px;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
@@ -1647,7 +1614,7 @@ input.tour {
   width: 75px;
   object-fit: cover;
   height: 75px;
-  margin-left: 33px;
+  margin-left: -25px;
 }
 
 .ahmed1 {
@@ -1655,7 +1622,7 @@ input.tour {
   object-fit: cover;
   height: 60px;
   padding: 2px 19px;
-  margin-left: 17px;
+  margin-left: -34px;
 }
 
 .ahmed2 {
@@ -1694,8 +1661,7 @@ input.tour {
   border-radius: 6px;
   width: 155px;
   height: 38px;
-  margin-top: -43px;
-  margin-right: -125px;
+  margin-right: -140px;
 }
 
 .football {
@@ -1757,7 +1723,7 @@ input.tour {
 .watch-play {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .watch-play1 {
@@ -1825,27 +1791,6 @@ input.tour {
   height: 38px;
   margin-right: 310px;
   float: right;
-}
-
-.matches-btn {
-  background-color: #17A803;
-  font-weight: 400;
-  border: 0px;
-  color: white;
-  border-radius: 6px;
-  width: 155px;
-  height: 38px;
-  margin-right: 310px;
-}
-
-.timeline-btn {
-  background-color: #17A803;
-  font-weight: 300;
-  border: 0px;
-  color: white;
-  border-radius: 6px;
-  width: 80px;
-  height: 35px;
 }
 
 .contain {
@@ -1922,256 +1867,22 @@ input.tour {
   color: #888;
 }
 
-.carousel {
-  width: 100%;
-  height: 100%;
-  margin-top: -12px;
-  overflow: hidden;
-  border-radius: 10px;
-}
-
-.carousel-indicators .active {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #17A803;
-  margin: 0 5px;
-  cursor: pointer;
-}
-
-.carousel-indicators .Indicators {
-  background-color: #959595;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  margin: 0 5px;
-  cursor: pointer;
-}
-
-.carousel-indicators {
-  margin-bottom: 24px;
-}
-
 .barca {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
 }
 
-.top-teams {
-  background: #eeeeee;
-  width: 590px;
-  height: 45px;
-}
-
-.top-teams-dot {
-  margin-top: -4px;
-}
-
-.bracket {
-  display: flex;
-  margin-left: 12px;
-}
-
-.round {
-  flex: 1;
-  display: flex;
-  margin-right: 50px;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.match {
-  margin: 20px 0;
-  overflow: hidden;
-  border-radius: 5px;
-}
-
-.team {
-  color: #000000;
-  padding: 14px 23px;
-  background-color: #EEEEEE;
-  width: 150px;
-  height: 95px;
-  border-radius: 6px;
-}
-
-.fix {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-between;
-}
-
-.fix1 {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-around;
-  margin: 0px -8px;
-}
-
-.fix-image {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-around;
-  margin: 0px -8px;
-}
-
-.fix-image-final {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: center;
-}
-
-.group-one-final {
-  color: #000000;
-  font-size: 14px;
-  text-align: center;
-  justify-content: center;
-}
-
-.fix-final {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: center;
-}
-
-.fix1-final {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: center;
-}
-
-.group-two-final {
-  color: #000000;
-  font-size: 14px;
-  text-align: center;
-  justify-content: center;
-}
-
-.group-one {
-  color: #000000;
-  font-size: 14px;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  width: 35px;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.group-two {
-  color: #17A803;
-  font-size: 14px;
-  font-weight: 500;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  width: 35px;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.group-image {
-  width: 30px;
-  height: 30px;
-  object-fit: cover;
-}
-
-.connector {
-  border: 1px solid #000;
-  border-left: none;
-  width: 120px;
-  height: 120px;
-}
-
-@media (max-width: 1360px) {
-  .tour-container {
-    width: 100%;
-    margin-left: 23px;
-  }
-  .side-play {
-    padding: 12px 7px;
-    width: 230px;
-    background-color: #ffffff;
-    position: absolute;
-    height: 100%;
-  }
-  .play-topic {
-    width: 70%;
-  }
-  .play-topics {
-    width: 70%;
-  }
-}
 @media (max-width: 1300px) {
   .tour-container {
-    width: 100%;
-  }
-  .topnav span {
-    float: left;
-    display: block;
-    color: black;
-    text-align: center;
-    width: 270px;
-    padding: 22px;
-    text-decoration: none;
-    font-size: 17px;
-    border-bottom: 4px solid transparent;
-  }
-  .side-play {
-    padding: 12px 7px;
-    width: 230px;
-    background-color: #ffffff;
-    position: absolute;
-    height: 100%;
-  }
-  .play-topic {
-    width: 70%;
-  }
-  .play-topics {
-    width: 70%;
-  }
-}
-@media (max-width: 1249px) {
-  .tour-container {
-    width: 100%;
-  }
-  .side-play {
-    padding: 12px 7px;
-    width: 230px;
-    background-color: #ffffff;
-    position: absolute;
-    height: 100%;
-  }
-  .play-topic {
-    width: 70%;
-  }
-  .play-topics {
-    width: 70%;
+    width: 900px;
+    margin-left: 206px;
   }
 }
 @media (max-width: 1200px) {
   .tour-container {
-    width: 1005;
-  }
-  .side-play {
-    padding: 12px 7px;
-    width: 230px;
-    background-color: #ffffff;
-    position: absolute;
-    height: 100%;
-  }
-  .play-topic {
-    width: 65%;
-  }
-  .play-topics {
-    width: 65%;
+    width: 900px;
+    margin-left: 206px;
   }
   .tournament-imx2 {
     width: 100%;
@@ -2181,20 +1892,7 @@ input.tour {
 }
 @media (max-width: 1100px) {
   .tour-container {
-    width: auto;
-  }
-  .side-play {
-    padding: 12px 7px;
-    width: 230px;
-    background-color: #ffffff;
-    position: absolute;
-    height: 100%;
-  }
-  .play-topic {
-    width: 60%;
-  }
-  .play-topics {
-    width: 60%;
+    width: 700px;
   }
   .tournament-imx2 {
     margin-left: 136px;
@@ -2210,24 +1908,6 @@ input.tour {
   }
   .tournament-imx {
     margin-left: 100px;
-  }
-}
-@media (max-width: 1025px) {
-  .tour-container {
-    width: auto;
-  }
-  .side-play {
-    padding: 12px 7px;
-    width: 230px;
-    background-color: #ffffff;
-    position: absolute;
-    height: 100%;
-  }
-  .play-topic {
-    width: 60%;
-  }
-  .play-topics {
-    width: 60%;
   }
 }
 @media (max-width: 992px) {
@@ -2249,21 +1929,11 @@ input.tour {
     margin-left: 0px;
     margin-top: 0px;
   }
+}
+@media (max-width: 900px) and (min-width: 768px) {
   .tour-container {
-    width: auto;
-  }
-  .side-play {
-    padding: 12px 7px;
-    width: 230px;
-    background-color: #ffffff;
-    position: absolute;
-    height: 100%;
-  }
-  .play-topic {
-    width: 60%;
-  }
-  .play-topics {
-    width: 60%;
+    width: 600px;
+    margin-left: 206px;
   }
 }
 @media (max-width: 769px) {
@@ -2271,20 +1941,9 @@ input.tour {
     display: none;
   }
   .tour-container {
-    width: auto;
-  }
-  .side-play {
-    padding: 12px 7px;
-    width: 230px;
-    background-color: #ffffff;
-    position: absolute;
-    height: 100%;
-  }
-  .play-topic {
-    width: 60%;
-  }
-  .play-topics {
-    width: 60%;
+    width: min-content;
+    margin: 0 auto;
+    padding: 11px;
   }
   .tournament-imx {
     width: 100%;
@@ -2308,106 +1967,6 @@ input.tour {
     height: 38px;
   }
 }
-@media (max-width: 659px) {
-  .tour-container {
-    width: auto;
-  }
-  .side-play {
-    display: none;
-  }
-  .play-topic {
-    margin-left: 0px;
-    width: 90%;
-  }
-  .play-topics {
-    margin-left: 0px;
-    width: 90%;
-  }
-  .open-btn {
-    font-size: 15px;
-    line-height: 1.8;
-    background: #17A803;
-    border-radius: 5px;
-    padding: 2px 25px;
-    margin-right: 29px;
-    font-weight: 600;
-    border: 0px;
-    color: white;
-    float: right;
-    margin-right: 36px;
-  }
-  .play-sub-btn {
-    background-color: #17A803;
-    font-weight: 600;
-    border: 0px;
-    color: white;
-    padding: 7px 60px;
-    border-radius: 6px;
-    float: right;
-  }
-  .play-cancel-btn {
-    background-color: #CCCCCC;
-    font-weight: 600;
-    border: 0px;
-    color: rgb(0, 0, 0);
-    padding: 7px 60px;
-    border-radius: 6px;
-    margin-left: 5px;
-  }
-  .product-submit {
-    justify-content: center;
-  }
-}
-@media (max-width: 527px) {
-  .tour-container {
-    width: auto;
-  }
-  .side-play {
-    display: none;
-  }
-  .play-topic {
-    margin-left: 0px;
-    width: 90%;
-  }
-  .play-topics {
-    margin-left: 0px;
-    width: 90%;
-  }
-  .open-btn {
-    font-size: 15px;
-    line-height: 1.8;
-    background: #17A803;
-    border-radius: 5px;
-    padding: 2px 25px;
-    margin-right: 29px;
-    font-weight: 600;
-    border: 0px;
-    color: white;
-    float: right;
-    margin-right: 36px;
-  }
-  .play-sub-btn {
-    background-color: #17A803;
-    font-weight: 600;
-    border: 0px;
-    color: white;
-    padding: 7px 60px;
-    border-radius: 6px;
-    float: right;
-  }
-  .play-cancel-btn {
-    background-color: #CCCCCC;
-    font-weight: 600;
-    border: 0px;
-    color: rgb(0, 0, 0);
-    padding: 7px 60px;
-    border-radius: 6px;
-    margin-left: 5px;
-  }
-  .product-submit {
-    justify-content: center;
-  }
-}
 @media (max-width: 501px) {
   .live-image1 {
     width: 100%;
@@ -2419,7 +1978,7 @@ input.tour {
     width: 470px;
   }
   .tournament2 {
-    width: 420px;
+    width: 470px;
   }
   .tournament3 {
     width: 470px;
@@ -2438,191 +1997,5 @@ input.tour {
   }
   .timeline-block-left {
     float: inherit;
-  }
-  .topnav span.active {
-    border-bottom: 4px solid #17A803;
-    font-weight: 600;
-    color: #17A803;
-    width: 270px;
-  }
-  .top-teams {
-    background: #eeeeee;
-    width: 100%;
-    height: 45px;
-  }
-  .tour-container {
-    width: auto;
-  }
-  .side-play {
-    display: none;
-  }
-  .play-topic {
-    margin-left: 0px;
-    width: 90%;
-  }
-  .play-topics {
-    margin-left: 0px;
-    width: 90%;
-  }
-  .open-btn {
-    font-size: 15px;
-    line-height: 1.8;
-    background: #17A803;
-    border-radius: 5px;
-    padding: 2px 25px;
-    margin-right: 29px;
-    font-weight: 600;
-    border: 0px;
-    color: white;
-    float: right;
-    margin-right: 36px;
-  }
-  .play-sub-btn {
-    background-color: #17A803;
-    font-weight: 600;
-    border: 0px;
-    color: white;
-    padding: 7px 50px;
-    border-radius: 6px;
-    float: right;
-  }
-  .play-cancel-btn {
-    background-color: #CCCCCC;
-    font-weight: 600;
-    border: 0px;
-    color: rgb(0, 0, 0);
-    padding: 7px 50px;
-    border-radius: 6px;
-    margin-left: 5px;
-  }
-  .product-submit {
-    justify-content: center;
-  }
-  .checkbox label::before {
-    height: 16px;
-    width: 16px;
-    border: 1px solid;
-    left: 23px;
-    top: -15px;
-  }
-}
-@media (max-width: 440px) {
-  .tour-container {
-    width: auto;
-  }
-  .side-play {
-    display: none;
-  }
-  .play-topic {
-    margin-left: 0px;
-    width: 90%;
-  }
-  .play-topics {
-    margin-left: 0px;
-    width: 90%;
-  }
-  .open-btn {
-    font-size: 15px;
-    line-height: 1.8;
-    background: #17A803;
-    border-radius: 5px;
-    padding: 2px 25px;
-    margin-right: 29px;
-    font-weight: 600;
-    border: 0px;
-    color: white;
-    float: right;
-    margin-right: -14px;
-  }
-  .play-sub-btn {
-    background-color: #17A803;
-    font-weight: 600;
-    border: 0px;
-    color: white;
-    padding: 7px 40px;
-    border-radius: 6px;
-    float: right;
-  }
-  .play-cancel-btn {
-    background-color: #CCCCCC;
-    font-weight: 600;
-    border: 0px;
-    color: rgb(0, 0, 0);
-    padding: 7px 40px;
-    border-radius: 6px;
-    margin-left: 5px;
-  }
-  .product-submit {
-    justify-content: center;
-  }
-  .checkbox label::before {
-    height: 16px;
-    width: 16px;
-    border: 1px solid;
-    left: 23px;
-    top: 11px;
-  }
-}
-@media (max-width: 375px) {
-  .tour-container {
-    width: auto;
-  }
-  .side-play {
-    display: none;
-  }
-  .play-topic {
-    margin-left: 0px;
-    width: 90%;
-  }
-  .play-topics {
-    margin-left: 0px;
-    width: 90%;
-  }
-  .open-btn {
-    font-size: 15px;
-    line-height: 1.8;
-    background: #17A803;
-    border-radius: 5px;
-    padding: 2px 20px;
-    margin-right: 29px;
-    font-weight: 600;
-    border: 0px;
-    color: white;
-    float: right;
-    margin-right: 6px;
-  }
-  .play-sub-btn {
-    background-color: #17A803;
-    font-weight: 600;
-    border: 0px;
-    color: white;
-    padding: 7px 25px;
-    border-radius: 6px;
-    float: right;
-  }
-  .play-cancel-btn {
-    background-color: #CCCCCC;
-    font-weight: 600;
-    border: 0px;
-    color: rgb(0, 0, 0);
-    padding: 7px 25px;
-    border-radius: 6px;
-    margin-left: 5px;
-  }
-  .product-submit {
-    justify-content: center;
-  }
-  .play.clearfix {
-    display: block;
-    content: "";
-    clear: both;
-    margin-left: -3px;
-  }
-  .checkbox label::before {
-    height: 16px;
-    width: 16px;
-    border: 1px solid;
-    left: 23px;
-    top: -15px;
   }
 }

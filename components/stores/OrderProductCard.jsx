@@ -32,19 +32,19 @@ function OrderProductCard({ products }) {
                   )}
                 </div>
                 <div class="shopping-card__options">
-                  <div >
-                    <small class="option__key_color">Color: </small>
-                    <small class="option__value_colors">{item.color}</small>
+                  <div>
+                    <small class="option__key">Color: </small>
+                    <small class="option__value">{item.color}</small>
                   </div>
-                  <div className="value-down" >
-                    <small class="option__key1">SKU: </small>
-                    <small class="option__value1">{item.sku}</small>
+                  <div>
+                    <small class="option__key">SKU: </small>
+                    <small class="option__value">{item.sku}</small>
                   </div>
                 </div>
                 <div class="shopping-card__options">
                   <div>
-                    <small class="option__key_price">Price: </small>
-                    <small class="option__value_prices">{item.amount} KD x {item.count}</small>
+                    <small class="option__key">Price: </small>
+                    <small class="option__value">{item.amount} KD x {item.count}</small>
                   </div>
                   <div>
                     <small class="option__value ">{item.amount * item.count} KD</small>

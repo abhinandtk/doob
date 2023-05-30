@@ -76,8 +76,8 @@ function CategorySalesReport() {
       <MainHeader title="Doob" />
       <MobileHeader />
       <MainSidebarFixed />
-      <div className="store-container1">
-        <div className="Bottom">
+      <div className="store-container">
+        <div className="bottom">
           <ShopPagesSideBar />
 
           <div class="content-topics ">
@@ -116,32 +116,32 @@ function CategorySalesReport() {
                 </div>
 
                 <br></br>
-                <div  className="dough" >
+                <div style={{ width: "400px", height: "400px" }}>
                   <center>
                     <Doughnut data={chartData} options={options} />
                   </center>
                 </div>
-                      
+
                 <div className="customer-sale">
-                  <div id="header" className="d-flex justify-content-between headers">
+                  <div id="header" className="d-flex justify-content-between">
                     <div
                       id="logo"
                       style={{ textAlign: "start" }}
-                      className=""
+                      className="w-50"
                     >
                       Category
                     </div>
                     <div
                       id="header-middle"
                       style={{ textAlign: "start" }}
-                      className=" text-center  count1"
+                      className="w-25 text-center"
                     >
                       Order Count
                     </div>
                     <div
                       id="header-right"
                       style={{ textAlign: "start" }}
-                      className=" text-center amount1"
+                      className="w-25 text-center"
                     >
                       Total Amount
                     </div>

@@ -122,23 +122,6 @@ const apis = {
     'addPlayground':`${constants.port}/playground/api/ad_add_playground`,
 
     'listAllGames':`${constants.port}/playground/api/list_games`,
-    'gameHistory':`${constants.port}/playground/api/list_games_history`,
-
-    //Tournament
-
-    'tournamentHome':`${constants.port}/tournament/api/tournament_home`,
-    'allTournament':`${constants.port}/tournament/api/all_tournament`,
-    'tournamentDetails':`${constants.port}/tournament/api/tournament_details`,
-    'createTeam':`${constants.port}/tournament/api/create_team`,
-    'deleteTeam':`${constants.port}/tournament/api/delete_team`,
-    'playerDetails':`${constants.port}/tournament/api/player_details_api`,
-    'updateMatchResult':`${constants.port}/tournament/api/update_match_result`,
-    'tourStadiumSearch':`${constants.port}/tournament/api/stadium_serach_view`,
-    'generateMatch':`${constants.port}/tournament/api/generate_matches`,
-    'matchDetail':`${constants.port}/tournament/api/match_detail`,
-    'createTimeline':`${constants.port}/tournament/api/create_match_point`,
-
-
 
 
 
