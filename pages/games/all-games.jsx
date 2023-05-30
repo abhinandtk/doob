@@ -7,6 +7,9 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import GamesHistoryCard from "@/components/games/GamesHistoryCard";
 import GameBookingCard from "@/components/games/GameBookingCard";
+import MainHeader from "@/components/shared/headers/MainHeader";
+import MobileHeader from "@/components/MobileHeader";
+import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 function AllGamesPage() {
   const [myGames, setMyGames] = useState([]);
   const [gamesJoined, setGamesJoined] = useState([]);
@@ -57,6 +60,9 @@ function AllGamesPage() {
 
   return (
     <div>
+      <MainHeader title='Doob' />
+      <MobileHeader />
+      <MainSidebarFixed />
       <div className="tour-container">
         <h5 className=" my-4" style={{ fontWeight: "600" }}>
           All Games
