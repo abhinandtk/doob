@@ -395,7 +395,7 @@ text-align: center;
 .book{
   margin-top: 15px;
   border: 0px;
-  width: 100%;
+  width: 900px;
 }
 
 .book-content{
@@ -1694,6 +1694,17 @@ margin-left: 13px;
   margin-top: -43px;
   margin-right: -125px;
 }
+
+.book-names{
+  font-size: 14px;
+  display:-webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size:15px; 
+  width: 200px;
+}
 .football{
   width: 591px;
   height: 235px;
@@ -2062,7 +2073,18 @@ margin-left: 13px;
   justify-content: center;
 
 }
-
+.other-stadium{
+  color: #000000;
+  text-align: center;
+  font-size: 14px;
+  display:-webkit-box;
+  -webkit-line-clamp: 1;
+  width: 170px;
+  font-weight: 500;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .group-two-final{
   color: #000000;
   font-size: 14px;
@@ -2610,6 +2632,16 @@ input.nosubmit1 {
     text-align: center;
 }
 
+.book-names{
+  font-size: 14px;
+  display:-webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size:15px; 
+  width: 170px;
+}
   .tournament-imx2 {
     width: 100%;
     height: 100%;
@@ -2957,7 +2989,7 @@ input.nosubmit1 {
   font-weight: 600;
   border: 0px;
   color: white;
-  padding: 7px 60px;
+  padding: 7px 50px;
   border-radius: 6px;
   float: right;
 }
@@ -2966,7 +2998,7 @@ input.nosubmit1 {
   font-weight: 600;
   border: 0px;
   color: rgb(0, 0, 0);
-  padding: 7px 60px;
+  padding: 7px 50px;
   border-radius: 6px;
   margin-left: 5px;
 }
@@ -3048,6 +3080,67 @@ input.nosubmit1 {
   width:80px;
   margin-top: 32px;
   margin-left: 24px;
+}
+.new-orders1 {
+  margin-left: -4px;
+  font-size: 19px;
+}
+.new-orders2 {
+  margin-left: -4px;
+  font-size: 17px;
+}
+
+.games2 {
+  color: #ffffff;
+  background: #656565;
+  width:100%;
+  font-size: 12px;
+}
+.games1 {
+  color: #000000;
+  background: transparent;
+  border: 1px solid black;
+  width: 100%;
+  font-size: 12px;
+}
+.history-btn {
+  background-color: #8A8A8A;
+  font-weight: 600;
+  border: 0px;
+  color: white;
+  width: 190px;
+  height: 34px;
+  border-radius: 6px;
+  margin-top: 23px;
+  float: right;
+    margin-right: 35px;
+  
+}
+.card-texts{
+  font-weight: 700;
+  display:-webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size:18px; 
+  width: 190px;
+}
+.card-texts1{
+  font-weight: 500;
+  display:-webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size:15px; 
+  width: 190px;
+}
+.book{
+  margin-top: 15px;
+  border: 0px;
+  width: 430px;
+  margin-left: -9px;
 }
 }
 // @media(max-width:501px) {
@@ -3354,6 +3447,11 @@ margin-left: 205px;
   
     
   }
+  .doct-card {
+    width: 100%;
+    border: 0px;
+    border-radius: 19px;
+  }
   .live1 {
     display: flex;
     flex-wrap: wrap;
@@ -3382,6 +3480,29 @@ margin-left: 205px;
   margin-top: 18px;
   margin-left: 184px;
 }
+.book-details {
+  margin-left: 10px;
+  line-height: 12px;
+  font-weight: 500;
+}
+
+.book-names{
+  font-size: 14px;
+  display:-webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size:15px; 
+  width: 130px;
+}
+.book{
+  margin-top: 15px;
+  border: 0px;
+  width: 380px;
+  margin-left: -9px;
+}
+
   .topnav {
     overflow: hidden;
     background-color: transparent;
@@ -3555,7 +3676,7 @@ margin-left: 205px;
     width: 16px;
     border: 1px solid;
     left: 23px;
-    top:11px;
+    top:-15px;
   }
   input.nosubmit1 {
     width: 85%;

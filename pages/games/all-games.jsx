@@ -65,7 +65,7 @@ function AllGamesPage() {
           <Tabs
             defaultActiveKey="Home"
             id="my-tabs"
-            className="gender2"
+            className=""
             style={{ justifyContent: "initial", color: "red" }}
             onSelect={handleTabChange}
           >

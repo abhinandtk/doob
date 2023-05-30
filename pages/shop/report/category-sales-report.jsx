@@ -150,13 +150,13 @@ function CategorySalesReport() {
                     categoryReportData.map((item, index) => (
                       <div
                         key={index}
-                        className="p-3 d-flex justify-content-between customer"
+                        className="p-3 mt-2 d-flex justify-content-between customer"
                       >
-                        <span className="sales-report-name w-50">
+                        <span className="sales-report-name ">
                           {item.category_name}
                         </span>
-                        <span className="w-25 text-center">{item.count}</span>
-                        <span className="w-25 text-center">
+                        <span className=" text-center">{item.count}</span>
+                        <span className=" text-center">
                           {item.total_amount} KD
                         </span>
                       </div>

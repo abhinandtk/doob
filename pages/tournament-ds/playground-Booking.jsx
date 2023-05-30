@@ -359,7 +359,7 @@ Arabic</Dropdown.Item>
   </div>
    <div className="p-2 mt-1 mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
   <span style={{color:'#959595'}}>Stadium Name</span>
-  <span> Mohammed Al‑Hamad Stadium</span>
+  <span className='book-names'> Mohammed Al‑Hamad Stadium</span>
   </div>
   <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
   <span style={{color:'#959595'}}>Ground                                           </span>
@@ -403,7 +403,7 @@ Arabic</Dropdown.Item>
   </div>
    <div className="p-2 mt-1 mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
   <span style={{color:'#959595'}}>Stadium Name</span>
-  <span> Mohammed Al‑Hamad Stadium</span>
+  <span className='book-names'> Mohammed Al‑Hamad Stadium</span>
   </div>
   <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
   <span style={{color:'#959595'}}>Ground                                           </span>

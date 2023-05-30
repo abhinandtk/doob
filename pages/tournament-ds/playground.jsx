@@ -346,7 +346,7 @@ Arabic</Dropdown.Item>
 
 
  <div className="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-          <p style={{fontWeight:'500'}}>Muhammed Al-Hamad Stadium</p>
+          <p className='other-stadium' >Muhammed Al-Hamad Stadium</p>
           <button className="playedit-btn mb-2">Edit</button>
         </div>
         <hr className='mx-auto ' style={{width:'90%',marginTop:'-2px'}}></hr>
@@ -373,7 +373,7 @@ Arabic</Dropdown.Item>
 
          <div className='my-5'>
         <div className="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-          <p style={{fontWeight:'500'}}>Ali Subah Al-Salem Stadium</p>
+          <p className='other-stadium' >Ali Subah Al-Salem Stadium</p>
           <button className="playedit-btn mb-2">Edit</button>
         </div>
         <hr className='mx-auto ' style={{width:'90%',marginTop:'-2px'}}></hr>

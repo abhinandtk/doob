@@ -49,12 +49,12 @@ function GamesHistoryCard({ data }) {
                     <p>{moment(item.date).format("MMM")}</p>
                   </div>
                   <div className="book-details">
-                    <h5 style={{ fontWeight: "700" }}>
+                    <h5  className="card-texts" >
                       {item.stadium_details.game_title}
                     </h5>
                     <p style={{ color: "#959595" }}>9.00 AM to 12.00 PM</p>
-                    <p>{item.stadium_details.stadium_name}</p>
-                    <p>
+                    <p className="card-texts1">{item.stadium_details.stadium_name}</p>
+                    <p >
                       {item.stadium_details.location},{" "}
                       {item.stadium_details.city}
                     </p>

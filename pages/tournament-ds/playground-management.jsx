@@ -320,7 +320,7 @@ Arabic</Dropdown.Item>
      
         
         <Card.Text  className='mt-4' style={{float:'right',fontSize:'14px'}}>
-        <h5 className='ml-5 mx-4 new-orders'>Today’s Bookings</h5> 
+        <h5 className='ml-5 mx-4 new-orders1'>Today’s Bookings</h5> 
         </Card.Text>
        
       </Card.Body>
@@ -345,7 +345,7 @@ Arabic</Dropdown.Item>
      
         
         <Card.Text  className='mt-4' style={{float:'right',fontSize:'14px'}}>
-        <h5 className='ml-5 mx-4 new-orders'>Monthly Bookings</h5> 
+        <h5 className='ml-5 mx-4 new-orders2'>Monthly Bookings</h5> 
         </Card.Text>
         
       </Card.Body>
