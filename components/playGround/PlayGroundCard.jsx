@@ -35,7 +35,7 @@ function PlayGroundCard({ content }) {
             class="card playground-card"
           >
             <img
-              src="../images/tournament/soccer-players-action-professional-stadium 2.png"
+              src="/images/tournament/soccer-players-action-professional-stadium 2.png"
               style={{
                 height: "190px",
                 borderRadius: "20px 20px 0px 0px",

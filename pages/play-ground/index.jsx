@@ -4,7 +4,7 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import React, { useState } from "react";
 import GamesCard from "@/components/playGround/GamesCard";
 import { Modal } from "antd";
-import { Button } from "react-bootstrap";
+import { Button, Tab, Tabs } from "react-bootstrap";
 import NewGameForm from "@/components/playGround/NewGameForm";
 import { useEffect } from "react";
 import apis from "@/public/data/my-constants/Apis";
@@ -14,6 +14,7 @@ import PlayGroundCard from "@/components/playGround/PlayGroundCard";
 import MainHeader from "@/components/shared/headers/MainHeader";
 import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
+import SimpleMap from "@/components/playGround/MapPlayground";
 
 function PlayGroundPage() {
   const [game, setGame] = useState([]);
@@ -221,60 +222,64 @@ function PlayGroundPage() {
               <></>
             )}
 
-            <section>
-              <div className="clearfix near ">
-                <h5
-                  className="float-start"
-                  style={{
-                    fontWeight: "700",
-                    fontSize: "19px",
-                    marginLeft: "-6px",
-                  }}
-                >
-                  Games near me
-                </h5>
-                <p className="float-end" style={{ color: "#959595" }}>
-                  View all
-                </p>
-              </div>
-            </section>
-            <section className="game-scroll">
-              <div
-                className="btn-group me-2"
-                role="group"
-                aria-label="Second group"
-              >
-                <button
-                  onClick={() => handleCategoryClick(null)}
-                  type="button"
-                  className="btn btn-outline-secondary select "
-                >
-                  All
-                </button>
-              </div>
-              {contents.games_near_me.length !== 0 ? (
-                contents.games_near_me.map((item, index) => (
-                  <>
-                    <div
-                      key={index}
-                      className="btn-group me-2 "
-                      role="group"
-                      aria-label="Second group"
+            {contents.games_near_me[0].my_games.length !== 0 && (
+              <>
+                <section>
+                  <div className="clearfix near ">
+                    <h5
+                      className="float-start"
+                      style={{
+                        fontWeight: "700",
+                        fontSize: "19px",
+                        marginLeft: "-6px",
+                      }}
                     >
-                      <button
-                        onClick={() => handleCategoryClick(item.title)}
-                        type="button"
-                        className="btn btn-outline-secondary select "
-                      >
-                        {item.title}
-                      </button>
-                    </div>
-                  </>
-                ))
-              ) : (
-                <></>
-              )}
-            </section>
+                      Games near me
+                    </h5>
+                    <p className="float-end" style={{ color: "#959595" }}>
+                      View all
+                    </p>
+                  </div>
+                </section>
+                <section className="game-scroll">
+                  <div
+                    className="btn-group me-2"
+                    role="group"
+                    aria-label="Second group"
+                  >
+                    <button
+                      onClick={() => handleCategoryClick(null)}
+                      type="button"
+                      className="btn btn-outline-secondary select "
+                    >
+                      All
+                    </button>
+                  </div>
+                  {contents.games_near_me.length !== 0 ? (
+                    contents.games_near_me.map((item, index) => (
+                      <>
+                        <div
+                          key={index}
+                          className="btn-group me-2 "
+                          role="group"
+                          aria-label="Second group"
+                        >
+                          <button
+                            onClick={() => handleCategoryClick(item.title)}
+                            type="button"
+                            className="btn btn-outline-secondary select "
+                          >
+                            {item.title}
+                          </button>
+                        </div>
+                      </>
+                    ))
+                  ) : (
+                    <></>
+                  )}
+                </section>
+              </>
+            )}
             {contents.games_near_me.length !== 0 ? (
               contents.games_near_me.map((item, index) =>
                 selectedCategory === null || selectedCategory === item.title ? (
@@ -294,49 +299,15 @@ function PlayGroundPage() {
             <h5 style={{ fontWeight: "700" }} className="my-3">
               Doob Map
             </h5>
-            <section id="tabs">
-              <nav>
-                <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                  <a
-                    class="nav-item nav-link active"
-                    id="nav-home-tab"
-                    data-toggle="tab"
-                    href="#nav-home"
-                    role="tab"
-                    aria-controls="nav-home"
-                    aria-selected="true"
-                  >
-                    Fields
-                  </a>
-                  <a
-                    class="nav-item nav-link "
-                    id="nav-profile-tab"
-                    data-toggle="tab"
-                    href="#nav-profile"
-                    role="tab"
-                    aria-controls="nav-profile"
-                    aria-selected="false"
-                  >
-                    Game
-                  </a>
-                </div>
-              </nav>
-              <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-                <div
-                  class="tab-pane fade show active"
-                  id="nav-home"
-                  role="tabpanel"
-                  aria-labelledby="nav-home-tab"
-                ></div>
-                <div
-                  class="tab-pane fade"
-                  id="nav-profile"
-                  role="tabpanel"
-                  aria-labelledby="nav-profile-tab"
-                ></div>
-              </div>
-            </section>
             
+            <Tabs style={{ display: "flex", justifyContent: "space-evenly" }}>
+              <Tab eventKey={1} title="Fields">
+                <SimpleMap data={contents.playgrounds_near_me} />
+              </Tab>
+              <Tab eventKey={2} title="Game">
+                
+              </Tab>
+            </Tabs>
           </>
         ))}
       </div>
