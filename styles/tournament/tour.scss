@@ -847,7 +847,7 @@ input.tour {
   width: 100%;
 }
 .cart-place{
-  margin-left: 40px;
+  margin-left: 53px;
   margin-top: -10px;
 }
 .cart-info{
@@ -915,7 +915,7 @@ margin-left: 13px;
   text-align: center;
 }
 .edits{
-  margin-left: 122px;
+  margin-left: 102px;
   float: right;
 }
 .make-btn{
@@ -2122,6 +2122,33 @@ margin-left: 13px;
   object-fit: cover;
  
 }
+.stadium-name{
+  font-weight: 500;
+  display:-webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size:15px; 
+  width: 190px; 
+  color: #000000;
+}
+.stadiums{
+  display: flex;
+
+  align-items: flex-start;
+}
+.places{
+  font-weight: 500;
+  display:-webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size:15px; 
+  width: 160px; 
+  color: #959595;
+}
 
 .connector {
   border: 1px solid #000; 
@@ -2600,9 +2627,10 @@ input.nosubmit1 {
     color: white;
     border-radius: 6px;
     height: 38px;
-    width: 100%;
+    width: 75%;
     margin-top: 12px;
     text-align: center;
+    margin-right: 0px;
 }
 
 .book-names{
@@ -3021,6 +3049,27 @@ input.nosubmit1 {
   margin-top: 20px;
   margin-left: 0px;
 }
+.text-cart {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+  font-size: 18px;
+  width: 190px;
+}
+.cart-place {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 400;
+  font-size: 16px;
+  width: 230px;
+  margin-left: 50px;
+}
 .gender2 {
   color: #000000;
   font-weight: 400;
@@ -3083,6 +3132,33 @@ input.nosubmit1 {
   font-size:18px; 
   width: 190px;
 }
+.stadium-name{
+  font-weight: 500;
+  display:-webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size:15px; 
+  width: 160px; 
+  color: #000000;
+}
+.stadiums{
+  display: flex;
+
+  align-items: flex-start;
+}
+.places{
+  font-weight: 500;
+  display:-webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size:15px; 
+  width: 140px; 
+  color: #959595;
+}
 .card-texts1{
   font-weight: 500;
   display:-webkit-box;
@@ -3131,6 +3207,25 @@ input.nosubmit1 {
   font-size: 15px;
   margin-top: 12px;
  }
+ .playground-card{
+  width: 90%;
+  border: 0px;
+  border-radius: 20px 20px 20px 20px   ;
+  height: 280px;
+}
+.playgrounds {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  row-gap: 13px;
+  column-gap: 12px;
+}
+.playground-card {
+  width: 48%;
+  border: 0px;
+  border-radius: 20px 20px 20px 20px;
+  height: 280px;
+}
 }
 // @media(max-width:501px) {
 //   .live-image1 {
@@ -3393,6 +3488,27 @@ margin-left: 205px;
     text-overflow: ellipsis;
     width: 233px;
   }
+  .text-cart {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 500;
+    font-size: 18px;
+    width: 190px;
+  }
+  .cart-place {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 400;
+    font-size: 16px;
+    width: 230px;
+    margin-left: 43px;
+  }
   .live {
     display: flex;
     flex-wrap: wrap;
@@ -3422,6 +3538,33 @@ margin-left: 205px;
   display: none;
   
     
+  }
+  .stadium-name{
+    font-weight: 500;
+    display:-webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size:15px; 
+    width: 145px; 
+    color: #000000;
+  }
+  .stadiums{
+    display: flex;
+  
+    align-items: flex-start;
+  }
+  .places{
+    font-weight: 500;
+    display:-webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size:15px; 
+    width: 160px; 
+    color: #959595;
   }
   .doct-card {
     width: 100%;
@@ -3471,6 +3614,28 @@ margin-left: 205px;
   text-overflow: ellipsis;
   font-size:15px; 
   width: 130px;
+}
+
+.text-cart {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+  font-size: 18px;
+  width: 150px;
+}
+.cart-place {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 400;
+  font-size: 16px;
+  width: 180px;
+  margin-left: 34px;
 }
 .book{
   margin-top: 15px;
