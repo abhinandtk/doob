@@ -19,7 +19,6 @@ function PlayGroundsForm({ handlePlaygroundForm }) {
   const [end_time, setEndTime] = useState(null);
   const [slots, setSlots] = useState([]);
 
-
   const [formData, setFormData] = useState({
     name: "",
     city: "",
@@ -30,6 +29,9 @@ function PlayGroundsForm({ handlePlaygroundForm }) {
     closing: "",
     description: "",
     description_ar: "",
+    latitude: "",
+    longitude: "",
+    amount:"",
   });
 
   const handleChange = (e) => {
@@ -132,12 +134,12 @@ function PlayGroundsForm({ handlePlaygroundForm }) {
 
   return (
     <form onSubmit={(e) => submitHandler(e)}>
-      <div class="form-group my-2 ">
+      <div className="form-group my-2 ">
         <label for="exampleFormControlInput1">Name*</label>
         <input
           required
           type="text"
-          class="form-control p-2"
+          className="form-control p-2"
           style={{
             border: "0px",
             background: "#eeeeee",
@@ -147,10 +149,10 @@ function PlayGroundsForm({ handlePlaygroundForm }) {
           onChange={(e) => handleChange(e)}
         />
       </div>
-      <div class="form-group my-2">
+      <div className="form-group my-2">
         <label for="exampleFormControlSelect1">City *</label>
         <select
-          class="form-control "
+          className="form-control "
           style={{ border: "0px", background: "#eeeeee", color: "#959595" }}
           id="city"
           onChange={(e) => handleChange(e)}
@@ -166,12 +168,12 @@ function PlayGroundsForm({ handlePlaygroundForm }) {
         </select>
       </div>
 
-      <div class="form-group my-2 ">
+      <div className="form-group my-2 ">
         <label for="exampleFormControlInput1">Location*</label>
         <input
           required
           type="text"
-          class="form-control p-2"
+          className="form-control p-2"
           style={{
             border: "0px",
             background: "#eeeeee",
@@ -181,18 +183,48 @@ function PlayGroundsForm({ handlePlaygroundForm }) {
           onChange={(e) => handleChange(e)}
         />
       </div>
-      <div class="form-group my-2 ">
+      <div className="form-group my-2 ">
         <label for="exampleFormControlInput1">Google Map Location*</label>
         <input
           required
           type="text"
-          class="form-control p-2"
+          className="form-control p-2"
           style={{
             border: "0px",
             background: "#eeeeee",
             color: "grey",
           }}
           id="gmap"
+          onChange={(e) => handleChange(e)}
+        />
+      </div>
+      <div className="form-group my-2 ">
+        <label for="exampleFormControlInput1">Longitude *</label>
+        <input
+          required
+          type="text"
+          className="form-control p-2"
+          style={{
+            border: "0px",
+            background: "#eeeeee",
+            color: "grey",
+          }}
+          id="longitude"
+          onChange={(e) => handleChange(e)}
+        />
+      </div>
+      <div className="form-group my-2 ">
+        <label for="exampleFormControlInput1">Latitude*</label>
+        <input
+          required
+          type="text"
+          className="form-control p-2"
+          style={{
+            border: "0px",
+            background: "#eeeeee",
+            color: "grey",
+          }}
+          id="latitude"
           onChange={(e) => handleChange(e)}
         />
       </div>
@@ -203,7 +235,7 @@ function PlayGroundsForm({ handlePlaygroundForm }) {
         style={{ background: "#eeeeee" }}
       >
         <div className="ms-auto">
-          <i class="bi bi-geo-alt-fill"></i>
+          <i className="bi bi-geo-alt-fill"></i>
         </div>
       </div> */}
 
@@ -214,7 +246,7 @@ function PlayGroundsForm({ handlePlaygroundForm }) {
         <input
           required
           type="file"
-          class="form-control p-2 "
+          className="form-control p-2 "
           style={{
             border: "0px",
             background: "#eeeeee",
@@ -225,12 +257,12 @@ function PlayGroundsForm({ handlePlaygroundForm }) {
           onChange={(e) => handleChange(e)}
         />
       </div>
-      <div class="form-group my-2 ">
+      <div className="form-group my-2 ">
         <label for="exampleFormControlInput1">Opening Time*</label>
         <input
           required
           type="time"
-          class="form-control p-2"
+          className="form-control p-2"
           style={{
             border: "0px",
             background: "#eeeeee",
@@ -240,12 +272,12 @@ function PlayGroundsForm({ handlePlaygroundForm }) {
           onChange={(e) => handleChange(e)}
         />
       </div>
-      <div class="form-group my-2 ">
+      <div className="form-group my-2 ">
         <label for="exampleFormControlInput1">Closing Time*</label>
         <input
           required
           type="time"
-          class="form-control p-2"
+          className="form-control p-2"
           style={{
             border: "0px",
             background: "#eeeeee",
@@ -289,7 +321,7 @@ function PlayGroundsForm({ handlePlaygroundForm }) {
           <h6 style={{ fontSize: "15px", fontWeight: "700" }}>Description</h6>
         </label>
         <textarea
-          class="form-control"
+          className="form-control"
           style={{
             border: "0px",
             background: "#eeeeee",
@@ -307,13 +339,31 @@ function PlayGroundsForm({ handlePlaygroundForm }) {
           </h6>
         </label>
         <textarea
-          class="form-control"
+          className="form-control"
           style={{
             border: "0px",
             background: "#eeeeee",
             color: "grey",
           }}
           id="description_ar"
+          onChange={(e) => handleChange(e)}
+          rows="3"
+        ></textarea>
+      </div>
+      <div className="form-group my-2 ">
+        <label for="exampleFormControlTextarea1">
+          <h6 style={{ fontSize: "15px", fontWeight: "700" }}>
+            Amount
+          </h6>
+        </label>
+        <textarea
+          className="form-control"
+          style={{
+            border: "0px",
+            background: "#eeeeee",
+            color: "grey",
+          }}
+          id="amount"
           onChange={(e) => handleChange(e)}
           rows="3"
         ></textarea>
@@ -332,7 +382,7 @@ function PlayGroundsForm({ handlePlaygroundForm }) {
           <div>
             <span className="float-start">
               <img
-                src={`${constants.port}${data.logo}`}
+                src={`${constants.port}/media/${data.logo}`}
                 style={{ width: "18px", height: "18px", objectFit: "cover" }}
               />
               <span className="mx-1">{data.name}</span>
@@ -351,42 +401,42 @@ function PlayGroundsForm({ handlePlaygroundForm }) {
         </div>
       ))}
 
-      <div className="slot clearfix mt-3 ">
+      {/* <div className="slot clearfix mt-3 ">
         <span className="float-start">
-          <img src="../images/tournament/disability.png"></img>
+          <img src="/images/tournament/disability.png"></img>
           <span> Accessibility for disabled</span>
         </span>
-        <div class="checkbox float-end">
+        <div className="checkbox float-end">
           <input type="checkbox" id="checkbox_11" />
           <label for="checkbox_11"></label>
         </div>
-      </div>
+      </div> */}
       <div className="bottoms">
         <h6 className=" mx-4" style={{ color: "#17a803", fontWeight: "700" }}>
           Slots
         </h6>
         <div className="play clearfix">
-          <div class="example">
-            <label class="radio-button">
+          <div className="example">
+            <label className="radio-button">
               <input
                 type="radio"
-                class="radio-button__input"
+                className="radio-button__input"
                 id="choice1-1"
                 name="choice1"
               />
-              <span class="radio-button__control"></span>
-              <span class="radio-button__label">Static Time</span>
+              <span className="radio-button__control"></span>
+              <span className="radio-button__label">Static Time</span>
             </label>
             <br></br>
-            <label class="radio-button">
+            <label className="radio-button">
               <input
                 type="radio"
-                class="radio-button__input"
+                className="radio-button__input"
                 id="choice1-2"
                 name="choice1"
               />
-              <span class="radio-button__control"></span>
-              <span class="radio-button__label">Open time</span>
+              <span className="radio-button__control"></span>
+              <span className="radio-button__label">Open time</span>
             </label>
           </div>
           <button

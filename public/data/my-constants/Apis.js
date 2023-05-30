@@ -126,6 +126,7 @@ const apis = {
     'gameHistory':`${constants.port}/playground/api/list_games_history`,
     'listAllBooking':`${constants.port}/playground/api/list_all_booking`,
     'cancelBooking':`${constants.port}/playground/api/cancel_booking`,
+    'walletView':`${constants.port}/playground/api/wallet_details`,
 
     //Tournament
 

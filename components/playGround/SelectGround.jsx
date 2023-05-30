@@ -8,10 +8,12 @@ import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import moment from "moment";
-function 
-SelectGround({ details }) {
+import { notification } from "antd";
+import { Labels } from "@/public/data/my-constants/Labels";
+function SelectGround({ details }) {
   const router = useRouter();
   const inputData = router.query;
+  const labels = Labels();
 
   const { selectedSlots } = useSelector((state) => state.slot);
   const dispatch = useDispatch();
@@ -23,20 +25,20 @@ SelectGround({ details }) {
   };
 
   const addTocartHandler = () => {
-    console.log('inpuuuuuuuuuuuut',selectedSlots,inputData,{
+    console.log("inpuuuuuuuuuuuut", selectedSlots, inputData, {
       time_slots: selectedSlots,
-      stadium_name:inputData.stadium_id ,
+      stadium_name: inputData.stadium_id,
       amount: 50,
       slot_type: "static slot",
       game: inputData.sports_id,
-      date: '2023-5-11',
-    })
+      date: "2023-5-11",
+    });
     Axios.post(
       apis.playCart,
       {
         time_slots: selectedSlots,
-        stadium_name:inputData.stadium_id ,
-        amount: '50',
+        stadium_name: inputData.stadium_id,
+        amount: "50",
         slot_type: "static slot",
         game: inputData.sports_id,
         date: inputData.date,
@@ -47,7 +49,18 @@ SelectGround({ details }) {
         },
       }
     ).then((res) => {
-      console.log("success add to cart",res);
+      if (res.data.status === 1) {
+        notification.success({
+          message: constants.Success,
+          description: `${labels["Slot Added"]}`,
+        });
+      } else if (res.data.status === 0) {
+        notification.error({
+          messsage: constants.Error,
+          description: `${labels["Book one stadium"]}`,
+        });
+      }
+      console.log("success add to cart", res);
     });
   };
   return (
@@ -79,18 +92,19 @@ SelectGround({ details }) {
                           : item.is_booked
                           ? "time-slot1"
                           : "time-slot2"
-                      } `} 
+                      } `}
                       onClick={() => {
                         !item.is_booked && handleSlotClick(item.id);
-                      }}                                                     
+                      }}
                     >
                       <p style={{ marginTop: "13px", marginLeft: "23px" }}>
-                        {moment(item.start_time,'hh:mm:ss').format('hh:mm A')}-{moment(item.end_time,'hh:mm:ss').format('hh:mm A')}
+                        {moment(item.start_time, "hh:mm:ss").format("hh:mm A")}-
+                        {moment(item.end_time, "hh:mm:ss").format("hh:mm A")}
                       </p>
-                    </div>              
+                    </div>
                   ))
-                ) : (                       
-                  <>no time slot available</>                                 
+                ) : (
+                  <>no time slot available</>
                 )}
               </div>
             </div>

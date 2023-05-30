@@ -256,7 +256,7 @@ function PlayGroundPage() {
                 contents.games_near_me.map((item, index) => (
                   <>
                     <div
-                    key={index}
+                      key={index}
                       className="btn-group me-2 "
                       role="group"
                       aria-label="Second group"
@@ -336,6 +336,7 @@ function PlayGroundPage() {
                 ></div>
               </div>
             </section>
+            
           </>
         ))}
       </div>
