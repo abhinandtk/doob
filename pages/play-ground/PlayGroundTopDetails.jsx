@@ -7,7 +7,7 @@ function PlayGroundTopDetails({ details }) {
   //   console.log("qqqqqqqqqqqqqqq45", details.city.region_name);
   return (
     <Fragment>
-      {/* <div className="my-3">
+      <div className="my-3">
         {details.images && details.images.length > 0 && (
           <img
             src={`${constants.port}${details.images[0].images}`}
@@ -40,7 +40,7 @@ function PlayGroundTopDetails({ details }) {
         {details.game && details.game.map((game,index)=>(
         
         <span key={index} className="mx-1">
-          <img src={`${constants.port}${game.logo}`} style={{width:'18px',height:'18px',objectFit:'cover'}}></img>
+          <img src={`${constants.port}/media/${game.logo}`} style={{width:'18px',height:'18px',objectFit:'cover'}}></img>
         </span>
         ))}
       </span>
@@ -48,7 +48,7 @@ function PlayGroundTopDetails({ details }) {
 
       <hr></hr>
       <h5 style={{ fontWeight: "700", fontSize: "15px" }}>Description</h5>
-      <p className="col-md-12">{details.description}</p> */}
+      <p className="col-md-12">{details.description}</p>
     </Fragment>
   );
 }

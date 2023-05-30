@@ -9,19 +9,20 @@ import { Labels } from "@/public/data/my-constants/Labels";
 function GroundCartItems({ data }) {
   console.log("groundCart", data);
 
-  const labels=Labels()
+  const labels = Labels();
   const checkoutPlaygroundHandler = () => {
-    Axios.post(apis.playgroundCheckout, null,{
+    Axios.post(apis.playgroundCheckout, null, {
       headers: {
         Authorization: `Token ${constants.token_id}`,
       },
     }).then((res) => {
-      if(res.data.status===1){
+      if (res.data.status === 1) {
         notification.success({
-          messsage:constants.Success,
-          description:`${labels['Checkout Successfully']}`
-        })
-      }
+          messsage: constants.Success,
+          description: `${labels["Checkout Successfully"]}`,
+        });
+      } 
+      
       console.log("rescheckout", res);
     });
   };

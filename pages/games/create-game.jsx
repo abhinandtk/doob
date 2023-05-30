@@ -5,6 +5,7 @@ import CreateGameForm from "@/components/games/CreateGameForm";
 import MainHeader from "@/components/shared/headers/MainHeader";
 import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
+import PlayGroudSidePages from "../play-ground/page/PlayGroudSidePages";
 
 function CreateGamePage() {
   return (

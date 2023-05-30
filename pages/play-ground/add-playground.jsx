@@ -17,11 +17,15 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
+import MainHeader from "@/components/shared/headers/MainHeader";
+import MobileHeader from "@/components/MobileHeader";
+import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 
 function AddPlaygroundPage() {
 
   const labels =Labels()
   const handlePlaygroundForm = (data, game, amenity, slot) => {
+    console.log('data',data)
    
     const formData = new FormData();
     formData.append("stadium_name", data.name);
@@ -32,6 +36,9 @@ function AddPlaygroundPage() {
     formData.append("google_map_location_field", data.gmap);
     formData.append("opening_time", data.opening);
     formData.append("closing_time", data.closing);
+    formData.append("latitude", data.latitude);
+    formData.append("longitude", data.longitude);
+    formData.append("amount", data.amount);
     formData.append("images", data.image);
     game.map((value) => {
       formData.append("game", value);
@@ -66,6 +73,9 @@ function AddPlaygroundPage() {
 
   return (
     <div>
+      <MainHeader title='Doob'/>
+      <MobileHeader />
+      <MainSidebarFixed />
       <div className="tour-container">
         <div className="Bottom">
           <PlayGroundSideBar />             
