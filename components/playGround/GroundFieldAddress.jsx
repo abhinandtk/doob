@@ -10,9 +10,9 @@ function GroundFieldAddress({ address }) {
           <div key={index} className="card carts">
             <div className="card-body cart-info p-4">
               <div className="cart-location">
-                <svg
-                  width="17"
-                  height="19"
+                <div className="locations-icons">
+                <svg 
+                  width='17' height='19'
                   viewBox="0 0 17 19"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -26,7 +26,7 @@ function GroundFieldAddress({ address }) {
                     fill="black"
                   />
                 </svg>
-
+                </div>
                 <h5 className="mx-4 text-cart">
                   {item.stadium_name.stadium_name}
                 </h5>

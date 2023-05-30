@@ -21,7 +21,7 @@ function MatchCards({ data }) {
                 <p className="team1">{data.team_A} </p>
               </div>
 
-              <div className="live-watch mx-5">
+              <div className="live-watch mx-4">
                 <p className="club-wins">{data.team_A_score ? data.team_A_score : '___'} - {data.team_B_score ? data.team_B_score : '___'}</p>
                 <p className="date-wins">{data.match_date ? moment(data.match_date).format('DD MMM YYYY') :<img
                             src="/images/tournament/cals.png"
