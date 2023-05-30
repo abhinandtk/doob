@@ -25,7 +25,7 @@ function  PlayGroundCard({content}) {
           <img
             src="../images/tournament/soccer-players-action-professional-stadium 2.png"
             style={{
-              height: "190px",
+              height: "160px",
               borderRadius: "20px 20px 0px 0px",
               objectFit: "cover",
             }}
@@ -58,7 +58,7 @@ function  PlayGroundCard({content}) {
           <img
             src="../images/tournament/soccer-players-action-professional-stadium 2.png"
             style={{
-              height: "190px",
+              height: "160px",
               borderRadius: "20px 20px 0px 0px",
               objectFit: "cover",
             }}

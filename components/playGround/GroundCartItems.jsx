@@ -20,16 +20,18 @@ function GroundCartItems({data}) {
               <div className="clearfix cancel">
                 <div className="float-start cancel1">
                   <p>04-02-2023</p>
-                  <p>1.00 PM - 3.00 PM </p>
+                  <p>14.00 PM - 3.00 PM </p>
                 </div>
-                <div className="float-end trashs">
+                
+              </div>
+              <div className="float-end trashs">
                   <img src="../images/store/trash.png"></img>
                 </div>
-              </div>
             </div>
+            
             <div className="clearfix my-1 sections">
               <p className="carts-group float-start">Ground A B</p>
-              <h5 className="float-end" style={{ fontWeight: "600" }}>
+              <h5 className="float-end " style={{ fontWeight: "600" }}>
                 5.000 KD
               </h5>
             </div>
