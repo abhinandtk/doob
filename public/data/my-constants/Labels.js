@@ -13,7 +13,7 @@ export function Labels() {
         //Play Ground 
         "PlayGround added":"Play ground added successfully",
         "Checkout Successfully":"Checkout Successfully",
-        // "PlayGround added":"Play ground added successfully",
+        "Booking Cancelled":"Booking Cancelled successfully",
 
         //Tournament
 
