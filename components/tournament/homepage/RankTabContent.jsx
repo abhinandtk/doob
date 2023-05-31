@@ -63,10 +63,10 @@ function RankTabContent({ data }) {
 
         <div className="col-lg-5 col-md-6">
           <div className="live-ads">
-            <img
+            {/* <img
               src="../images/tournament/Group 12.png"
               className="tournament-imx1"
-            ></img>
+            ></img> */}
           </div>
         </div>
       </div>

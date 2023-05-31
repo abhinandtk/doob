@@ -38,7 +38,7 @@ function TournamentTabContent({data}) {
                   <p className="team1">{item.team_a.team_name} </p>
                 </div>
 
-                <div className="live-watch mx-5">
+                <div className="live-watch">
                   <p className="club-wins">{item.team_a.score} - {item.team_b.score}</p>
                   <button
                     type="button"
@@ -92,10 +92,10 @@ function TournamentTabContent({data}) {
         </div>
         <div className="col-lg-5 col-md-6">
           <div className="live-ads">
-            <img
+            {/* <img
               src="/images/tournament/Group 12.png"
               className="tournament-imx"
-            ></img>
+            ></img> */}
           </div>
         </div>
       </div>

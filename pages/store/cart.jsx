@@ -41,12 +41,12 @@ function CartPage() {
         <div  className="h-100 my-3 ">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col">
-              <h5 fw-bold>My Cart</h5>  
+              <h5 fw-bold className='mx-2'>My Cart</h5>  
               <div className="row">
                 <div className="col-lg-7">
                   <ShippingAddress data={cartAddress} setOnSuccess={setOnSuccess}/>
 
-                  <h5 style={{fontSize:'17px'}}>Order List<span className='view' >Total {cartDetails.cart_items} items</span></h5>
+                  <h5 style={{fontSize:'17px'}} className='mx-2'>Order List<span className='view' >Total {cartDetails.cart_items} items</span></h5>
                   {cartProducts.map((product,index)=>(
 
                     <OrderList key={index} product={product} setOnSuccess={setOnSuccess}/>

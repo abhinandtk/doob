@@ -32,8 +32,8 @@ function  GroundFieldAddress({ address }) {
                 </h5>
                 <img src="../images/edit.png" className="mt-2 edits"></img>
               </div>
-
-              <p className="cart-place">{item.stadium_name[0].location}, Kuwait</p>
+ <p className="  cart-place">{item.stadium_name[0].location}, Kuwait</p>
+              
             </div>
           </div>
         ))}

@@ -57,9 +57,9 @@ function PlaygroundManagementPage() {
           <div className="play-0 ">
             <Card className="doct-card">
               <Card.Body>
-                <Card.Title className=" mt-2">
+                <Card.Title className="">
                   <svg
-                    className="mx-3"
+                   className=" svgs1"
                     width="45"
                     height="45"
                     viewBox="0 0 45 45"
@@ -82,7 +82,7 @@ function PlaygroundManagementPage() {
                       }}
                       className="mt-2 mx-4  "
                     >
-                      <h4>5</h4>
+                      <h4 className="management-number"> 5</h4>
                     </Card.Subtitle>
                   </span>
                 </Card.Title>
@@ -91,7 +91,7 @@ function PlaygroundManagementPage() {
                   className="mt-4"
                   style={{ float: "right", fontSize: "14px" }}
                 >
-                  <h5 className="ml-5 mx-4 new-orders1">Today’s Bookings</h5>
+                  <h5 className="ml-5  new-orders2">Today’s Bookings</h5>
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -100,13 +100,12 @@ function PlaygroundManagementPage() {
           <div className="play-0  ">
             <Card className="doct-card">
               <Card.Body>
-                <Card.Title className=" mt-2">
+                <Card.Title >
                   <svg
-                    width="42"
-                    className="mx-3"
-                    height="45"
+                    width="45"
+                              height="45"
                     viewBox="0 0 42 45"
-                    fill="none"
+                    fill="none" className=" svgs1"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
@@ -149,7 +148,7 @@ function PlaygroundManagementPage() {
                       }}
                       className="mt-2 mx-4 "
                     >
-                      <h4>5</h4>
+                      <h4 className="management-number">5</h4>
                     </Card.Subtitle>
                   </span>
                 </Card.Title>
@@ -158,7 +157,7 @@ function PlaygroundManagementPage() {
                   className="mt-4"
                   style={{ float: "right", fontSize: "14px" }}
                 >
-                  <h5 className="ml-5 mx-4 new-orders2">Monthly Bookings</h5>
+                  <h5 className="ml-5  new-orders2">Monthly Bookings</h5>
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -192,7 +191,7 @@ function PlaygroundManagementPage() {
                   fill="black"
                 />
               </svg>
-              <p>Bookings</p>
+              <p className="play-manage">Bookings</p>
             </div>
           </Link>
           <div className="docu1  ">
@@ -220,7 +219,7 @@ function PlaygroundManagementPage() {
                 </clipPath>
               </defs>
             </svg>
-            <p>Earnings</p>
+            <p className="play-manage">Earnings</p>
           </div>
           <div className="docu1  ">
             <svg
@@ -275,7 +274,7 @@ function PlaygroundManagementPage() {
               />
             </svg>
 
-            <p>Playground</p>
+            <p className="play-manage">Playground</p>
           </div>
         </div>
         <div className="play2">
@@ -293,7 +292,7 @@ function PlaygroundManagementPage() {
                 fill="black"
               />
             </svg>
-            <p>Settings</p>
+            <p className="play-manage">Settings</p>
           </div>
           <div className="docu2  ">
             <svg
@@ -313,7 +312,7 @@ function PlaygroundManagementPage() {
                 fill="black"
               />
             </svg>
-            <p>Reports</p>
+            <p className="play-manage">Reports</p>
           </div>
 
           <div className="docu2  ">
@@ -331,7 +330,7 @@ function PlaygroundManagementPage() {
               />
             </svg>
 
-            <p>Support</p>
+            <p className="play-manage">Support</p>
           </div>
         </div>
       </div>

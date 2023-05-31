@@ -52,7 +52,7 @@ function ShippingAddress({ data, setOnSuccess }) {
         />
       </Modal>
 
-      <h6 className="mt-3 ">Shipping Address</h6>
+      <h6 className="mt-3 mx-2 ">Shipping Address</h6>
       {data.map((item, index) => (
         <div key={index} className="card mb-2 ">
           <div className="card-body">
@@ -65,7 +65,7 @@ function ShippingAddress({ data, setOnSuccess }) {
                   ></img>
                 </div>
                 <div className="ms-1 mt-3">
-                  <h6>{item.address_type}</h6>
+                  <h6 >{item.address_type}</h6>
                   {item.address_type === "Home" ? (
                     <p className="address-card">{`${item.housename}, ${item.avenue}, ${item.street}, ${item.block}, ${item.region}`}</p>
                   ) : item.address_type === "Office" ? (

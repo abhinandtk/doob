@@ -21,7 +21,7 @@ function ShopDashBoardPages() {
             />
           </svg>
 
-          <p>Settings</p>
+          <p className="shop-manage">Settings</p>
         </div>
         <div className="documents   ">
           <svg
@@ -45,7 +45,7 @@ function ShopDashBoardPages() {
               fill="black"
             />
           </svg>
-          <p>All Orders</p>
+          <p className="shop-manage">All Orders</p>
         </div>
         <Link href='/shop/category-management' style={{textDecoration:"none",color:'#212529'}}>
         <div className="documents  ">
@@ -74,7 +74,7 @@ function ShopDashBoardPages() {
               fill="black"
             />
           </svg>
-          <p>Category</p>
+          <p className="shop-manage">Category</p>
         </div>
         </Link>
         <Link href='/shop/brand-management' style={{textDecoration:"none",color:'#212529'}}>
@@ -95,7 +95,7 @@ function ShopDashBoardPages() {
               stroke-linejoin="round"
             />
           </svg>
-          <p>Brands</p>
+          <p className="shop-manage">Brands</p>
         </div> 
         </Link>
        
@@ -119,7 +119,7 @@ function ShopDashBoardPages() {
               stroke-linejoin="round"
             />
           </svg>
-          <p>Products</p>
+          <p className="shop-manage">Products</p>
         </div>
         </Link>
         <div className="document1  ">
@@ -161,7 +161,7 @@ function ShopDashBoardPages() {
             />
           </svg>
 
-          <p>Stocks</p>
+          <p className="shop-manage">Stocks</p>
         </div>
         <div className="document1  ">
           <svg
@@ -181,7 +181,7 @@ function ShopDashBoardPages() {
               fill="black"
             />
           </svg>
-          <p>Reports</p>
+          <p className="shop-manage">Reports</p>
         </div>
         <div className="document1  ">
           <svg
@@ -208,7 +208,7 @@ function ShopDashBoardPages() {
               </clipPath>
             </defs>
           </svg>
-          <p>Earnings</p>
+          <p className="shop-manage">Earnings</p>
         </div>
         <div className="document1  ">
           <svg
@@ -225,7 +225,7 @@ function ShopDashBoardPages() {
             />
           </svg>
 
-          <p>Support</p>
+          <p className="shop-manage">Support</p>
         </div>
       </div>
     </Fragment>

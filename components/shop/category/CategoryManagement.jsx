@@ -30,7 +30,7 @@ function CategoryManagement() {
         </h6>
 
         <div className="my-4 mx-4 ">
-          <div className="clearfix">
+          <div className=" category clearfix  ">
             <p className="order-codes">Categories</p>
             <button
               onClick={() => router.push("/shop/add-category")}

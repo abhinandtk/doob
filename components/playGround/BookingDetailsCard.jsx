@@ -65,7 +65,7 @@ function BookingDetailsCard({ details }) {
               <span> {moment(item.date).format("DD MMM YYYY")} </span>
             </div>
             <div
-              className="p-2   mx-auto d-flex justify-content-between align-items-center"
+              className="p-1   mx-auto d-flex justify-content-between align-items-center"
               style={{ width: "90%" }}
             >
               <span style={{ color: "#959595" }}>Slot </span>
@@ -80,7 +80,7 @@ function BookingDetailsCard({ details }) {
               </span>
             </div>
             <div
-              className="p-2 mt-1 mx-auto d-flex justify-content-between align-items-center"
+              className="p-2 my-2 mx-auto d-flex justify-content-between align-items-center"
               style={{
                 background: "#eeeeee",
                 borderRadius: "10px",
@@ -88,7 +88,7 @@ function BookingDetailsCard({ details }) {
               }}
             >
               <span style={{ color: "#959595" }}>Stadium Name</span>
-              <span> {item.stadium_name}</span>
+              <span className="book-names" > {item.stadium_name}</span>
             </div>
 
             <div
@@ -99,7 +99,7 @@ function BookingDetailsCard({ details }) {
                 width: "90%",
               }}
             >
-              <span style={{ color: "#959595" }}>Price</span>
+              <span  style={{ color: "#959595" }}>Price</span>
               <span> {item.price}KD</span>
             </div>
 

@@ -73,7 +73,7 @@ function OrderList({ product, setOnSuccess }) {
                 ></img>
               </div>
               <div className=" add-left" style={{maxWidth:'45%'}}>
-                <h6>{product.Name}</h6>
+                <h6 className="ship-address">{product.Name}</h6>
                 <p className="address-card-price">{product.selling_prize} KD</p>
               </div>
             </div>
