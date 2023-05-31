@@ -9,6 +9,7 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import Axios from "axios";
 import { Image } from "antd";
+import MobileFooter from "@/components/shared/MobileFooter";
 function StadiumListPage() {
   const router = useRouter();
   const data = router.query;
@@ -150,6 +151,7 @@ function StadiumListPage() {
           )}
         </div>
       </div>
+      <MobileFooter />
     </div>
   );
 }

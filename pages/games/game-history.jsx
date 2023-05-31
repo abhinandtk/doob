@@ -10,6 +10,7 @@ import GameBookingCard from "@/components/games/GameBookingCard";
 import MainHeader from "@/components/shared/headers/MainHeader";
 import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
+import MobileFooter from "@/components/shared/MobileFooter";
 function HomePage() {
   const [gameDetails, setGameDetails] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -70,6 +71,7 @@ function HomePage() {
             )
           )}
       </div>
+      <MobileFooter />
     </div>
   );
 }

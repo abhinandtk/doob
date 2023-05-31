@@ -16,6 +16,7 @@ import MainHeader from "@/components/shared/headers/MainHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileHeader from "@/components/MobileHeader";
 import Link from "next/link";
+import MobileFooter from "@/components/shared/MobileFooter";
 
 function PlaygroundManagementPage() {
   const [show, setShow] = useState(false);
@@ -57,9 +58,9 @@ function PlaygroundManagementPage() {
           <div className="play-0 ">
             <Card className="doct-card">
               <Card.Body>
-                <Card.Title className="">
+                <Card.Title className=" mt-2">
                   <svg
-                   className=" svgs1"
+                    className="mx-3"
                     width="45"
                     height="45"
                     viewBox="0 0 45 45"
@@ -82,7 +83,7 @@ function PlaygroundManagementPage() {
                       }}
                       className="mt-2 mx-4  "
                     >
-                      <h4 className="management-number"> 5</h4>
+                      <h4>5</h4>
                     </Card.Subtitle>
                   </span>
                 </Card.Title>
@@ -91,7 +92,7 @@ function PlaygroundManagementPage() {
                   className="mt-4"
                   style={{ float: "right", fontSize: "14px" }}
                 >
-                  <h5 className="ml-5  new-orders2">Today’s Bookings</h5>
+                  <h5 className="ml-5 mx-4 new-orders1">Today’s Bookings</h5>
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -100,12 +101,13 @@ function PlaygroundManagementPage() {
           <div className="play-0  ">
             <Card className="doct-card">
               <Card.Body>
-                <Card.Title >
+                <Card.Title className=" mt-2">
                   <svg
-                    width="45"
-                              height="45"
+                    width="42"
+                    className="mx-3"
+                    height="45"
                     viewBox="0 0 42 45"
-                    fill="none" className=" svgs1"
+                    fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
@@ -148,7 +150,7 @@ function PlaygroundManagementPage() {
                       }}
                       className="mt-2 mx-4 "
                     >
-                      <h4 className="management-number">5</h4>
+                      <h4>5</h4>
                     </Card.Subtitle>
                   </span>
                 </Card.Title>
@@ -157,7 +159,7 @@ function PlaygroundManagementPage() {
                   className="mt-4"
                   style={{ float: "right", fontSize: "14px" }}
                 >
-                  <h5 className="ml-5  new-orders2">Monthly Bookings</h5>
+                  <h5 className="ml-5 mx-4 new-orders2">Monthly Bookings</h5>
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -191,7 +193,7 @@ function PlaygroundManagementPage() {
                   fill="black"
                 />
               </svg>
-              <p className="play-manage">Bookings</p>
+              <p>Bookings</p>
             </div>
           </Link>
           <div className="docu1  ">
@@ -219,63 +221,68 @@ function PlaygroundManagementPage() {
                 </clipPath>
               </defs>
             </svg>
-            <p className="play-manage">Earnings</p>
+            <p>Earnings</p>
           </div>
-          <div className="docu1  ">
-            <svg
-              width="38"
-              height="25"
-              className="mx-4"
-              viewBox="0 0 38 25"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M37.3133 24.7396H0.917241C0.642721 24.7396 0.419922 24.5166 0.419922 24.2423V0.550053C0.419922 0.275533 0.642721 0.0527344 0.917241 0.0527344H37.3133C37.5878 0.0527344 37.8106 0.275533 37.8106 0.550053V24.2421C37.8106 24.5166 37.5878 24.7396 37.3133 24.7396ZM1.41456 23.7448H36.816V1.04737H1.41456V23.7448Z"
-                fill="black"
-              />
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M19.1177 16.7924C16.6938 16.7924 14.7217 14.8202 14.7217 12.3961C14.7217 9.97212 16.6935 8 19.1177 8C21.5417 8 23.514 9.97187 23.514 12.3961C23.514 14.82 21.5419 16.7924 19.1177 16.7924ZM19.1177 8.99464C17.2421 8.99464 15.7161 10.5204 15.7161 12.3961C15.7161 14.2717 17.2418 15.7975 19.1177 15.7975C20.9936 15.7975 22.5191 14.2717 22.5191 12.3961C22.5191 10.5204 20.9934 8.99464 19.1177 8.99464Z"
-                fill="black"
-              />
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M19.1165 24.74C18.8419 24.74 18.6191 24.5169 18.6191 24.2426V16.2955C18.6191 15.6408 19.6138 15.641 19.6138 16.2955V24.2424C19.6138 24.5169 19.391 24.74 19.1165 24.74ZM19.1165 8.99484C18.8419 8.99484 18.6191 8.77204 18.6191 8.49752V0.550611C18.6191 -0.10411 19.6138 -0.10411 19.6138 0.550611V8.49752C19.6138 8.77229 19.391 8.99484 19.1165 8.99484Z"
-                fill="black"
-              />
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M37.3145 19.4211H29.9368C29.6623 19.4211 29.4395 19.1981 29.4395 18.9238V5.86841C29.4395 5.59389 29.6625 5.37109 29.9368 5.37109H37.3143C37.5888 5.37109 37.8116 5.59389 37.8116 5.86841V18.9238C37.8121 19.1983 37.5893 19.4211 37.3148 19.4211H37.3145ZM30.4343 18.4265H36.8167V6.36573H30.4343V18.4265Z"
-                fill="black"
-              />
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M37.3118 17.2314H32.4094C32.1349 17.2314 31.9121 17.0083 31.9121 16.7341V8.05884C31.9121 7.78432 32.1352 7.56152 32.4094 7.56152H37.3115C37.586 7.56152 37.8088 7.78432 37.8088 8.05884V16.7341C37.8093 17.0083 37.5865 17.2314 37.312 17.2314H37.3118ZM32.907 16.2365H36.8139V8.55566H32.907V16.2365Z"
-                fill="black"
-              />
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M8.29472 19.4211H0.917241C0.642721 19.4211 0.419922 19.1981 0.419922 18.9238V5.86841C0.419922 5.59389 0.642721 5.37109 0.917241 5.37109H8.29472C8.56924 5.37109 8.79204 5.59389 8.79204 5.86841V18.9238C8.79204 19.1983 8.56924 19.4211 8.29472 19.4211ZM1.41456 18.4265H7.7974V6.36573H1.41456V18.4265Z"
-                fill="black"
-              />
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M5.81931 17.2314H0.917241C0.642721 17.2314 0.419922 17.0083 0.419922 16.7341V8.05884C0.419922 7.78432 0.642721 7.56152 0.917241 7.56152H5.81956C6.09408 7.56152 6.31688 7.78432 6.31688 8.05884V16.7341C6.31639 17.0083 6.09408 17.2314 5.81907 17.2314H5.81931ZM1.41456 16.2365H5.32224V8.55566H1.41456V16.2365Z"
-                fill="black"
-              />
-            </svg>
+          <Link
+            href="/play-ground/playground-view"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <div className="docu1  ">
+              <svg
+                width="38"
+                height="25"
+                className="mx-4"
+                viewBox="0 0 38 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M37.3133 24.7396H0.917241C0.642721 24.7396 0.419922 24.5166 0.419922 24.2423V0.550053C0.419922 0.275533 0.642721 0.0527344 0.917241 0.0527344H37.3133C37.5878 0.0527344 37.8106 0.275533 37.8106 0.550053V24.2421C37.8106 24.5166 37.5878 24.7396 37.3133 24.7396ZM1.41456 23.7448H36.816V1.04737H1.41456V23.7448Z"
+                  fill="black"
+                />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M19.1177 16.7924C16.6938 16.7924 14.7217 14.8202 14.7217 12.3961C14.7217 9.97212 16.6935 8 19.1177 8C21.5417 8 23.514 9.97187 23.514 12.3961C23.514 14.82 21.5419 16.7924 19.1177 16.7924ZM19.1177 8.99464C17.2421 8.99464 15.7161 10.5204 15.7161 12.3961C15.7161 14.2717 17.2418 15.7975 19.1177 15.7975C20.9936 15.7975 22.5191 14.2717 22.5191 12.3961C22.5191 10.5204 20.9934 8.99464 19.1177 8.99464Z"
+                  fill="black"
+                />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M19.1165 24.74C18.8419 24.74 18.6191 24.5169 18.6191 24.2426V16.2955C18.6191 15.6408 19.6138 15.641 19.6138 16.2955V24.2424C19.6138 24.5169 19.391 24.74 19.1165 24.74ZM19.1165 8.99484C18.8419 8.99484 18.6191 8.77204 18.6191 8.49752V0.550611C18.6191 -0.10411 19.6138 -0.10411 19.6138 0.550611V8.49752C19.6138 8.77229 19.391 8.99484 19.1165 8.99484Z"
+                  fill="black"
+                />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M37.3145 19.4211H29.9368C29.6623 19.4211 29.4395 19.1981 29.4395 18.9238V5.86841C29.4395 5.59389 29.6625 5.37109 29.9368 5.37109H37.3143C37.5888 5.37109 37.8116 5.59389 37.8116 5.86841V18.9238C37.8121 19.1983 37.5893 19.4211 37.3148 19.4211H37.3145ZM30.4343 18.4265H36.8167V6.36573H30.4343V18.4265Z"
+                  fill="black"
+                />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M37.3118 17.2314H32.4094C32.1349 17.2314 31.9121 17.0083 31.9121 16.7341V8.05884C31.9121 7.78432 32.1352 7.56152 32.4094 7.56152H37.3115C37.586 7.56152 37.8088 7.78432 37.8088 8.05884V16.7341C37.8093 17.0083 37.5865 17.2314 37.312 17.2314H37.3118ZM32.907 16.2365H36.8139V8.55566H32.907V16.2365Z"
+                  fill="black"
+                />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M8.29472 19.4211H0.917241C0.642721 19.4211 0.419922 19.1981 0.419922 18.9238V5.86841C0.419922 5.59389 0.642721 5.37109 0.917241 5.37109H8.29472C8.56924 5.37109 8.79204 5.59389 8.79204 5.86841V18.9238C8.79204 19.1983 8.56924 19.4211 8.29472 19.4211ZM1.41456 18.4265H7.7974V6.36573H1.41456V18.4265Z"
+                  fill="black"
+                />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M5.81931 17.2314H0.917241C0.642721 17.2314 0.419922 17.0083 0.419922 16.7341V8.05884C0.419922 7.78432 0.642721 7.56152 0.917241 7.56152H5.81956C6.09408 7.56152 6.31688 7.78432 6.31688 8.05884V16.7341C6.31639 17.0083 6.09408 17.2314 5.81907 17.2314H5.81931ZM1.41456 16.2365H5.32224V8.55566H1.41456V16.2365Z"
+                  fill="black"
+                />
+              </svg>
 
-            <p className="play-manage">Playground</p>
-          </div>
+              <p>Playground</p>
+            </div>
+          </Link>
         </div>
         <div className="play2">
           <div className="docu2  ">
@@ -292,7 +299,7 @@ function PlaygroundManagementPage() {
                 fill="black"
               />
             </svg>
-            <p className="play-manage">Settings</p>
+            <p>Settings</p>
           </div>
           <div className="docu2  ">
             <svg
@@ -312,7 +319,7 @@ function PlaygroundManagementPage() {
                 fill="black"
               />
             </svg>
-            <p className="play-manage">Reports</p>
+            <p>Reports</p>
           </div>
 
           <div className="docu2  ">
@@ -330,10 +337,11 @@ function PlaygroundManagementPage() {
               />
             </svg>
 
-            <p className="play-manage">Support</p>
+            <p>Support</p>
           </div>
         </div>
       </div>
+      <MobileFooter />
     </div>
   );
 }

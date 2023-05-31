@@ -13,6 +13,7 @@ import Axios from 'axios';
 import apis from '@/public/data/my-constants/Apis';
 import constants from '@/public/data/my-constants/Constants';
 import { useRouter } from 'next/router';
+import MobileFooter from '@/components/shared/MobileFooter';
 
 function AddAddressPage() {
 
@@ -151,6 +152,8 @@ function AddAddressPage() {
                 </div>
             </div>
         </div>
+        <MobileFooter />
+
         
     </Fragment>
   )

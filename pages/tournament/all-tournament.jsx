@@ -9,6 +9,7 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { useState } from "react";
 import { Labels } from "@/public/data/my-constants/Labels";
+import MobileFooter from "@/components/shared/MobileFooter";
 function AllTournamentPage() {
   const [tournaments, setTournaments] = useState([]);
   const [selectedStatus, setSelectedStatus] = useState("ongoing");
@@ -75,7 +76,7 @@ function AllTournamentPage() {
               className={`${selectedType === "ranked" ? "active" : ""}`}
             >
               Ranked
-            </span> 
+            </span>
             <span
               className={` ${selectedType === "unranked" ? "active" : ""}`}
               onClick={() => setSelectedType("unranked")}
@@ -131,7 +132,7 @@ function AllTournamentPage() {
           ) : selectedType === "ranked" ? (
             tournaments.future && tournaments.future.ranked.length >= 1 ? (
               tournaments.future.ranked.map((item, index) => (
-                <TournamentCardDetails key={index} data={item} /> 
+                <TournamentCardDetails key={index} data={item} />
               ))
             ) : (
               <div
@@ -169,6 +170,7 @@ function AllTournamentPage() {
           )}
         </div>
       )}
+      <MobileFooter />
     </Fragment>
   );
 }

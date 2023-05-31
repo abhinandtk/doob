@@ -31,7 +31,7 @@ function CheckoutSideSection({data}) {
       }else{
         notification.error({
           message:constants.Error,
-          description:`${labels['Cart empty']}`
+          description:res.data.message_en,
         })
 
       }

@@ -79,7 +79,7 @@ function PlayGroundsForm({ handlePlaygroundForm }) {
     if (areaData && areaData.regions) {
       setArea(areaData.regions);
     }
-    console.log("areaData", areaData);
+    // console.log("areaData", areaData);
   }, [country]);
 
   const handleTime = (time) => {

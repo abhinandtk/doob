@@ -17,6 +17,7 @@ import constants from "@/public/data/my-constants/Constants";
 import MainHeader from "@/components/shared/headers/MainHeader";
 import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
+import MobileFooter from "@/components/shared/MobileFooter";
 
 function ProductSalesReport() {
   const [productSale, setProductSale] = useState([]);
@@ -110,6 +111,8 @@ function ProductSalesReport() {
           </div>
         </div>
       </div>
+      <MobileFooter />
+
     </div>
   );
 }

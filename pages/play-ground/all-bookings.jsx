@@ -10,7 +10,8 @@ import constants from "@/public/data/my-constants/Constants";
 import MainHeader from "@/components/shared/headers/MainHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileHeader from "@/components/MobileHeader";
-import PlayGroudSidePages from "./page/PlayGroudSidePages";
+import PlayGroundSideBar from "@/components/playGround/PlayGroundSideBar";
+import MobileFooter from "@/components/shared/MobileFooter";
 function AllBookingPage() {
   const [bookingList, setBookingList] = useState([]);
 
@@ -30,7 +31,7 @@ function AllBookingPage() {
       <MobileHeader />
       <div className="tour-container">
         <div className="bottoms">
-          <PlayGroudSidePages currentPage='bookings'/>
+          <PlayGroundSideBar  currentPage='bookings'/>
 
           <div className="play-topic  ">
             <div className="bottoms">
@@ -46,6 +47,7 @@ function AllBookingPage() {
           </div>
         </div>
       </div>
+      <MobileFooter />
     </div>
   );
 }

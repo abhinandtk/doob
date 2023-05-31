@@ -13,6 +13,7 @@ import apis from "@/public/data/my-constants/Apis";
 import TeamsCard from "@/components/tournament/view/TeamsCard";
 import TournamentMatches from "@/components/tournament/view/TournamentMatches";
 import FixtureView from "@/components/tournament/view/FixtureView";
+import MobileFooter from "@/components/shared/MobileFooter";
 
 function TournamentDetailPage() {
   const router = useRouter();
@@ -257,6 +258,8 @@ function TournamentDetailPage() {
           </Tabs>
         </div>
       </div>
+      <MobileFooter />
+
     </div>
   );
 }

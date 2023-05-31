@@ -1,23 +1,40 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
 import React, { useState } from "react";
-import Axios from 'axios'
+import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { notification } from "antd";
+import { Labels } from "@/public/data/my-constants/Labels";
 function CreateGameForm() {
+  const router = useRouter();
+  const { booking_id } = router.query;
 
+  const labels=Labels()
 
+  const [gameData, setGameData] = useState([]);
   const [formData, setFormData] = useState({
-    title:'',
-    image:'',
-    participants:'',
-    description:'',
-    visible:'',
-    gender:'',
-    ageFrom:'',
-    ageTo:'',
-    lastDay:''
-
+    title: "",
+    image: "",
+    game: "",
+    participants: "",
+    description: "",
+    visible: "",
+    gender: "",
+    ageFrom: "",
+    ageTo: "",
+    lastDay: "",
   });
+  useEffect(() => {
+    Axios.get(apis.listGameAmenities, {
+      headers: {
+        Authorization: `Token ${constants.token_id}`,
+      },
+    }).then((res) => {
+      setGameData(res.data.data.games);
+    });
+  }, []);
   const options = [];
 
   for (let i = 5; i <= 80; i++) {
@@ -28,78 +45,118 @@ function CreateGameForm() {
     );
   }
 
-  const changeHandler=(e)=>{
-    e.preventDefault()
-    const newFormData ={...formData}
+  const changeHandler = (e) => {
+    e.preventDefault();
+    const newFormData = { ...formData };
     if (e.target.id === "image") {
-      newFormData[e.target.id] = s[0];
+      const formdata = new FormData();
+      formdata.append("file_field_name", e.target.files[0]);
+      Axios.post(apis.allImagesUpload, formdata, {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }).then((res) => {
+        newFormData[e.target.id] = res.data.image_url;
+        setFormData({ ...newFormData });
+      });
     } else {
       newFormData[e.target.id] = e.target.value;
+      setFormData({ ...newFormData });
     }
-    setFormData({...newFormData})
-  }
+  };
 
-  const submitHandler=(e)=>{
-    e.preventDefault()
-    console.log('input786',formData)
-    // Axios.post(apis.createGame,{
-    //   booking_id:,
-    //   title:formData.title,
-    //   description:formData.description,
-    //   visible_to:formData.visible,
-    //   gender:formData.gender,
-    //   no_of_participants:formData.participants,
-    //   game:formData.f,
-    //   age_from:formData.ageFrom,
-    //   age_to:formData.ageTo,
-    //   last_date_of_joining:formData.lastDay,
-    //   images:formData.image
-    // },
-    // {
-    //   'Authorization':`Token ${constants.port}`,
-    // }).then((res)=>{
-    //   console.log('add game',res)
-    // })
-  }
+  const submitHandler = (e) => {
+    console.log('form',formData.image)
+    e.preventDefault();
+    const formdata = new FormData();
+    formdata.append("booking_id", booking_id);
+    formdata.append("title", formData.title);
+    formdata.append("description", formData.description);
+    formdata.append("visible_to", formData.visible);
+    formdata.append("gender", formData.gender);
+    formdata.append("no_of_participants", formData.participants);
+    formdata.append("age_from", formData.ageFrom);
+    formdata.append("age_to", formData.ageTo);
+    formdata.append("last_date_of_joining", formData.lastDay);
+    formdata.append("game", formData.game);
+    formdata.append("images", '/media/temp/8bf6d5a9-5cdf-47b8-8220-3a399889cf82_sanjay_1685531977.jpg');
+    Axios.post(apis.createGame, formdata, {
+      headers: {
+        Authorization: `Token ${constants.token_id}`,
+        "Content-Type": "multipart/form-data",
+      },
+    }).then((res) => {
+      if(res.data.status){
+        notification.success({
+          message:constants.Success,
+          description:`${labels['Game created']}`
+        })
+        // router.push('/play-ground')
+      }
+      
+      console.log("add game", res);
+    });
+  };
 
   return (
     <div>
-      <form onSubmit={(e)=>submitHandler(e)}>
-        <div class="form-group my-3">
+      <form onSubmit={(e) => submitHandler(e)}>
+        <div className="form-group my-3">
           <label for="exampleInputPassword1">Title</label>
           <input
             type="text"
-            class="form-control p-2"
+            className="form-control p-2"
             style={{
               border: "0px",
               background: "#eeeeee",
               color: "#959595",
             }}
             id="title"
-            onChange={(e)=>changeHandler(e)}
+            onChange={(e) => changeHandler(e)}
           />
         </div>
         <div className="form-group my-1">
-          <label for="exampleFormControlInput1" id="formfile">
-            Image
-          </label>
+          <label for="exampleFormControlInput1">Image</label>
           <input
             type="file"
             id="image"
-            class="form-control p-2 "
+            className="form-control p-2 grey"
             style={{
               border: "0px",
               background: "#eeeeee",
               color: "grey",
             }}
             placeholder="No file choosen"
-            onChange={(e)=>changeHandler(e)}
+            onChange={(e) => changeHandler(e)}
           />
         </div>
-        <div class="form-group my-3">
+        <div className="form-group my-2">
+          <label for="example ormControlSelect1">Game</label>
+          <select
+            required
+            className="form-control p-2 "
+            style={{
+              border: "0px",
+              background: "#eeeeee",
+              color: "#959595",
+            }}
+            id="game"
+            onChange={(e) => changeHandler(e)}
+          >
+            <option style={{ color: "#959595" }} value="">
+              --Select--
+            </option>
+            {gameData.map((item, index) => (
+              <option key={index} style={{ color: "#959595" }} value={item.id}>
+                {item.title}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="form-group my-3">
           <label for="exampleFormControlTextarea1">Description</label>
           <textarea
-            class="form-control"
+            className="form-control"
             style={{
               border: "0px",
               background: "#eeeeee",
@@ -107,21 +164,25 @@ function CreateGameForm() {
             }}
             id="description"
             rows="3"
-            onChange={(e)=>changeHandler(e)}
+            onChange={(e) => changeHandler(e)}
           ></textarea>
         </div>
-        <div class="form-group my-2">
+        <div className="form-group my-2">
           <label for="example ormControlSelect1">Visible to</label>
           <select
-            class="form-control p-2 "
+            required
+            className="form-control p-2 "
             style={{
               border: "0px",
               background: "#eeeeee",
               color: "#959595",
             }}
             id="visible"
-            onChange={(e)=>changeHandler(e)}
+            onChange={(e) => changeHandler(e)}
           >
+            <option style={{ color: "#959595" }} value="">
+              --Select--
+            </option>
             <option style={{ color: "#959595" }} value="1">
               Private
             </option>
@@ -133,17 +194,18 @@ function CreateGameForm() {
             </option>
           </select>
         </div>
-        <div class="form-group my-3">
+        <div className="form-group my-3">
           <label for="exampleFormControlSelect1">Gender</label>
           <select
-            class="form-control p-2 "
+            required
+            className="form-control p-2 "
             style={{
               border: "0px",
               background: "#eeeeee",
               color: "#959595",
             }}
             id="gender"
-            onChange={(e)=>changeHandler(e)}
+            onChange={(e) => changeHandler(e)}
           >
             <option style={{ color: "#959595" }} value="">
               Not Specified
@@ -158,17 +220,17 @@ function CreateGameForm() {
         </div>
         <div className="row">
           <div className="col-md-6">
-            <div class="form-group my-2">
+            <div className="form-group my-2">
               <label for="exampleFormControlSelect1">Age</label>
               <select
-                class="form-control p-2 "
+                className="form-control p-2 "
                 style={{
                   border: "0px",
                   background: "#eeeeee",
                   color: "#959595",
                 }}
                 id="ageFrom"
-                onChange={(e)=>changeHandler(e)}
+                onChange={(e) => changeHandler(e)}
               >
                 <option style={{ color: "#959595" }} value="">
                   From
@@ -178,17 +240,18 @@ function CreateGameForm() {
             </div>
           </div>
           <div className="col-md-6">
-            <div class="form-group my-2">
+            <div className="form-group my-2">
               <label for="exampleFormControlSelect1">Age</label>
               <select
-                class="form-control p-2 "
+                required
+                className="form-control p-2 "
                 style={{
                   border: "0px",
                   background: "#eeeeee",
                   color: "#959595",
                 }}
                 id="ageTo"
-                onChange={(e)=>changeHandler(e)}
+                onChange={(e) => changeHandler(e)}
               >
                 <option style={{ color: "#959595" }} value="">
                   To
@@ -198,32 +261,32 @@ function CreateGameForm() {
             </div>
           </div>
         </div>
-        <div class="form-group my-3">
+        <div className="form-group my-3">
           <label for="exampleInputPassword1">Number of Participants</label>
           <input
             type="text"
-            class="form-control p-2"
+            className="form-control p-2"
             style={{
               border: "0px",
               background: "#eeeeee",
               color: "#959595",
             }}
             id="participants"
-            onChange={(e)=>changeHandler(e)}
+            onChange={(e) => changeHandler(e)}
           />
         </div>
-        <div class="form-group my-3">
+        <div className="form-group my-3">
           <label for="exampleInputPassword1">Last day of joining</label>
           <input
             type="date"
-            class="form-control p-2"
+            className="form-control p-2"
             style={{
               border: "0px",
               background: "#eeeeee",
               color: "#959595",
             }}
             id="lastDay"
-            onChange={(e)=>changeHandler(e)}
+            onChange={(e) => changeHandler(e)}
           />
         </div>
         <button type="submit" className="make-btn">

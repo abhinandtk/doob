@@ -6,6 +6,7 @@ import MainHeader from "@/components/shared/headers/MainHeader";
 import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import AddBrand from "@/components/shop/brand/AddBrand";
+import MobileFooter from "@/components/shared/MobileFooter";
 
 function AddBrandPage() {
   return (
@@ -19,6 +20,7 @@ function AddBrandPage() {
           <AddBrand />
         </div> 
       </div>
+      <MobileFooter />
     </Fragment>
   );
 }

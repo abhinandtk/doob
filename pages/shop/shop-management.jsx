@@ -5,6 +5,7 @@ import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import ShopDashBoardTop from "@/components/shop/ShopDashBoardTop";
 import ShopDashBoardPages from "@/components/shop/ShopDashBoardPages";
+import MobileFooter from "@/components/shared/MobileFooter";
 
 function ShopManagementPage() {
   
@@ -42,6 +43,8 @@ function ShopManagementPage() {
         <ShopDashBoardTop />
         <ShopDashBoardPages />
       </div>
+      <MobileFooter />
+
     </div>
   );
 }

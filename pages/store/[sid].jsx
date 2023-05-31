@@ -22,6 +22,7 @@ import SearchCategory from "@/components/stores/SearchCategory";
 import StoreBannerCard from "@/components/stores/StoreBannerCard";
 import moment from "moment";
 import MobileHeader from "@/components/MobileHeader";
+import MobileFooter from "@/components/shared/MobileFooter";
 
 function StoreDetailPage() {
   const router = useRouter();
@@ -319,6 +320,8 @@ function StoreDetailPage() {
           </div>
         </div> */}
       </div>
+      <MobileFooter />
+
     </div>
   );
 }

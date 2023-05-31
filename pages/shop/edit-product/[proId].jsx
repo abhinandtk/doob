@@ -11,6 +11,7 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
 import { notification } from "antd";
+import MobileFooter from "@/components/shared/MobileFooter";
 function ProductEditPage() {
   const router = useRouter();
   const { id } = router.query;
@@ -89,6 +90,8 @@ function ProductEditPage() {
           <ProductsForm handleProductAdd={handleProductAdd} editData="true" />
         </div>
       </div>
+      <MobileFooter />
+
     </Fragment>
   );
 }

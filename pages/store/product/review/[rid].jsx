@@ -11,6 +11,7 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import MobileFooter from "@/components/shared/MobileFooter";
 function ReviewPage() {
   const [reviewData, setReviewData] = useState([]);
   const [reviewAdded, setReviewAdded] = useState([]);
@@ -57,6 +58,8 @@ function ReviewPage() {
           </div>
         </div>
       </section>
+      <MobileFooter />
+
     </Fragment>
   );
 }

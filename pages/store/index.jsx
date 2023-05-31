@@ -19,6 +19,7 @@ import StoreProductsCard from "@/components/stores/StoreProductsCard";
 import StoreBannerCard from "@/components/stores/StoreBannerCard";
 import constants from "@/public/data/my-constants/Constants";
 import MobileHeader from "@/components/MobileHeader";
+import MobileFooter from "@/components/shared/MobileFooter";
 
 function StorePage() {
   const [storeData, setStoreData] = useState([]);
@@ -89,6 +90,7 @@ function StorePage() {
           );
         })}
       </div>
+      <MobileFooter />
     </div>
   );
 }

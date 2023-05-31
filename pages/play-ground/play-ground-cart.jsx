@@ -8,6 +8,7 @@ import GroundCartItems from "@/components/playGround/GroundCartItems";
 import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
+import MobileFooter from "@/components/shared/MobileFooter";
 
 function PlayGroundCartPage() {
   const [cartFieldData, setCartFieldData] = useState([]);
@@ -37,6 +38,7 @@ function PlayGroundCartPage() {
             <GroundCartItems data={cartData}/>
           </div>
         </div>
+        <MobileFooter />
     </div>
   );
 }

@@ -15,6 +15,7 @@ import MainHeader from "@/components/shared/headers/MainHeader";
 import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import SimpleMap from "@/components/playGround/MapPlayground";
+import MobileFooter from "@/components/shared/MobileFooter";
 
 function PlayGroundPage() {
   const [game, setGame] = useState([]);
@@ -311,6 +312,7 @@ function PlayGroundPage() {
           </>
         ))}
       </div>
+      <MobileFooter />
     </div>
   );
 }

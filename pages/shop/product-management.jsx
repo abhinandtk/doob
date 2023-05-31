@@ -6,6 +6,7 @@ import MainHeader from "@/components/shared/headers/MainHeader";
 import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import ProductManagement from "@/components/shop/product/ProductManagement";
+import MobileFooter from "@/components/shared/MobileFooter";
 
 function ProductManagementPage() {
   return (
@@ -19,6 +20,8 @@ function ProductManagementPage() {
           <ProductManagement />
         </div>
       </div>
+      <MobileFooter />
+
     </Fragment>
   );
 }

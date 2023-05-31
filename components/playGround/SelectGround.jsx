@@ -17,7 +17,10 @@ function SelectGround({ details }) {
 
   const { selectedSlots } = useSelector((state) => state.slot);
   const dispatch = useDispatch();
-  console.log("sloooooot777777777", inputData);
+  console.log("sloooooot777777777", inputData.date);
+
+  const [date, setDate] = useState(inputData.date);
+  console.log("deeeeee", date);
 
   const handleSlotClick = (slotId) => {
     dispatch(selectSlots({ slotId }));
@@ -25,14 +28,7 @@ function SelectGround({ details }) {
   };
 
   const addTocartHandler = () => {
-    console.log("inpuuuuuuuuuuuut", selectedSlots, inputData, {
-      time_slots: selectedSlots,
-      stadium_name: inputData.stadium_id,
-      amount: 50,
-      slot_type: "static slot",
-      game: inputData.sports_id,
-      date: "2023-5-11",
-    });
+    console.log("inpuuuuuuuuuuuut", selectedSlots, inputData);
     Axios.post(
       apis.playCart,
       {
@@ -41,7 +37,7 @@ function SelectGround({ details }) {
         amount: "50",
         slot_type: "static slot",
         game: inputData.sports_id,
-        date: inputData.date,
+        date: date,
       },
       {
         headers: {
@@ -71,9 +67,18 @@ function SelectGround({ details }) {
             <div className="col-md-6">
               <h5 style={{ fontWeight: "600" }}>Date</h5>
               <div className=" d-flex   ground-customer">
-                <p style={{ marginTop: "12px", marginLeft: "12px" }}>
-                  {inputData.date}
-                </p>
+                <input
+                  type="date"
+                  className="form-control p-2"
+                  style={{
+                    border: "0px",
+                    background: "#eeeeee",
+                    color: "#959595",
+                  }}
+                  id="date"
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                />
               </div>
               <h5
                 className="my-4"
@@ -109,12 +114,12 @@ function SelectGround({ details }) {
               </div>
             </div>
             <button
-                  onClick={addTocartHandler}
-                  type="button"
-                  className=" image-btn"
-                >
-                  Add to Cart
-                </button>
+              onClick={addTocartHandler}
+              type="button"
+              className=" image-btn"
+            >
+              Add to Cart
+            </button>
           </div>
         </div>
       </div>

@@ -420,14 +420,14 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
               {item.match_type}
               <span className="quaters">
                 {" "}
-                
+                <button className="adds-btn ms-auto">Add</button>
               </span>{" "}
             </h6>
 
             {item.matches.map((content, index_) => (
               <div key={index_} className="card football1">
-                <div className="card-body p-5 mx-5">
-                  <div className="live1 ">
+                <div className="card-body p-5 mx-4">
+                  <div className="live1">
                     <Link
                       href={`/tournament/match/${content.id}`}
                       style={{ textDecoration: "none", color: "inherit" }}
@@ -452,7 +452,7 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
                         <p className="team2">{content.team_B}</p>
                       </div>
                     </Link>
-                    <div className="live-watch  mx-5 " >
+                    <div className="live-watch mx-5">
                       <p
                         onClick={() =>
                           handleModalShow(

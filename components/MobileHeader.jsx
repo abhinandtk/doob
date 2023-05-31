@@ -55,7 +55,7 @@ function MobileHeader() {
         className="mobile-nav"
       >
         <Container fluid>
-          <Navbar.Brand href="#">
+          <Navbar.Brand href="/">
             <img
               src="/images/Contract Doob before sign 13-40-2 (1).png"
               className="mobile-logo"
@@ -406,6 +406,7 @@ function MobileHeader() {
           </Navbar>
         </Container>
       </Navbar>
+      
 
       <Modal
         title="Logout"
@@ -442,7 +443,9 @@ function MobileHeader() {
       {notificationShow && (
         <Notifications setNotificationShow={setNotificationShow} />
       )}
+     
     </div>
+    
   );
 }
 
