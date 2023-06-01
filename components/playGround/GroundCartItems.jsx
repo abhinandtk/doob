@@ -20,7 +20,7 @@ function GroundCartItems({ data }) {
     }).then((res) => {
       if (res.data.status === 1) {
         notification.success({
-          messsage: constants.Success,
+          messsage: constants.Success, 
           description: `${labels["Checkout Successfully"]}`,
         });
         router.push({
@@ -40,7 +40,7 @@ function GroundCartItems({ data }) {
             <div className="clearfix numbers">
               <h5 className="float-start">Slots</h5>
               <p className="float-end">Total&nbsp;{item.cart_count}&nbsp;items</p>
-            </div>
+            </div> 
             {item.time_slots.map((slot, index_) => (
               <div key={index_} className="card carts1 my-3">
                 <div className="card-body cart-info p-4">
@@ -53,10 +53,10 @@ function GroundCartItems({ data }) {
                       <div className="float-start cancel1">
                         <p>{item.date}</p>
                         <p>
-                          {" "}
+                          {" "} 
                           {moment(slot.start_time, "hh:mm:ss").format(
                             "hh:mm A"
-                          )}{" "}
+                          )}{" "} 
                           -{" "}
                           {moment(slot.end_time, "hh:mm:ss").format("hh:mm A")}
                         </p>

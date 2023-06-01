@@ -26,6 +26,7 @@ body{
      justify-content: center;
      
   }
+
   .play2{  
     display: flex;
     flex-wrap: wrap;
@@ -2587,6 +2588,28 @@ input.nosubmit1 {
   
     
   }
+  
+
+.play_text {
+    font-weight: 700;
+    font-size: 17px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 180px;
+}
+  .play1.mobile{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+  }
+
+  .play2{  
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+     
+  }
   .views {
     color: #959595;
     margin-left: -69px;
@@ -2595,7 +2618,9 @@ input.nosubmit1 {
 .shop-manage{
 font-size: 13px;
 }
-
+.play-manage{
+  font-size: 13px;
+  }
 .tournament-imx1{
 display: none;
 }
@@ -2623,9 +2648,15 @@ display: none;
   .bracket {
     display: flex;
     margin-left: 12px;
-    height: 52px;
+    height: 100%;
     overflow-x: scroll;
     overflow-y: hidden;
+}
+.play-details {
+  line-height: 12px;
+  font-weight: 500;
+  margin-left: 21px;
+  margin-top: 2px;
 }
 .date-wins {
   font-weight: 600;
@@ -2692,12 +2723,15 @@ display: none;
     margin-left:-3px;
 }
 .docu1 {
-  margin-right: 11px;
-  margin-left: 16px;
+  text-align: center;
+  margin: 5px;
+  padding: 10px;
+ 
 }
 .docu2 {
   margin-right: 21px;
   margin-left: 28px;
+  text-align: center;
 }
 .cart-location {
   display: flex;
@@ -3079,14 +3113,14 @@ display: none;
    }
   .play-topic {
    
-    margin-left: 0px;
-     width: 90%;
+    margin-left: 2px;
+     width: 95%;
   
   }
   .play-topics {
    
-    margin-left: 0px;
-    width: 90%;
+    margin-left: 2px;
+    width: 95%;
      
   }
   .open-btn {
@@ -3222,11 +3256,11 @@ display: none;
 }
 .new-orders1 {
   margin-left: -4px;
-  font-size: 19px;
+  font-size: 15px;
 }
 .new-orders2 {
   margin-left: -4px;
-  font-size: 17px;
+  font-size: 15px;
 }
 
 .games2 {
@@ -3313,6 +3347,14 @@ display: none;
   border-radius: 10px;
   width: 100%;
   color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+.time-slot1 {
+  background: #959595;
+  border-radius: 10px;
+  width: 100%;
+  color: white;
   text-align: center;
 }
 .img-text {
@@ -3515,7 +3557,16 @@ position: absolute;
 margin-top: 18px;
 margin-left: 185px;
 }
-
+.play_text {
+  font-weight: 700;
+  font-size: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 160px;
+}
 .green {
   border: 0px;
   border-radius: 8px;
@@ -3672,7 +3723,7 @@ margin-left: 185px;
   }
   .span-icon {
     margin-top: 15px;
-    margin-left: -135px;
+    margin-left: -120px;
     float: right;
     position: absolute;
     
@@ -3694,6 +3745,12 @@ margin-left: 185px;
   
     
   }
+  .play-details {
+    line-height: 12px;
+    font-weight: 500;
+    margin-left: 21px;
+    margin-top: 2px;
+}
   .watch-play{
     display: flex;
     justify-content: center;
@@ -3784,6 +3841,16 @@ margin-left: 185px;
   line-height: 20px;
   margin-top: 9px;
   font-weight: 500;
+}
+.play_text {
+  font-weight: 700;
+  font-size: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 130px;
 }
 .team2 {
   display: -webkit-box;
@@ -4000,14 +4067,15 @@ margin-left: 160px;
   }
   .play-topic {
    
-    margin-left: 0px;
-     width: 90%;
-  
+    .play-topic {
+      margin-left: 3px;
+      width: 95%;
+  }
   }
   .play-topics {
    
-    margin-left: 0px;
-    width: 90%;
+    margin-left: 3px;
+    width: 95%;
      
   }
   .open-btn {
@@ -4055,6 +4123,7 @@ margin-left: 160px;
   input.nosubmit1 {
     width: 82%;
     margin-left: -2px;
+}
   }
    .filters-icon{
     margin-left: 4px;
@@ -4147,13 +4216,13 @@ margin-left: 160px;
   font-weight: 400;
 }
    
-}
+
 @media (max-width:432px) {
   .play-details{
   
     line-height: 12px;
     font-weight: 500;
-    margin-left: 110px;
+    margin-left: 120px;
     margin-top: 2px;
     position: absolute;
   }
@@ -4200,7 +4269,7 @@ margin-left: 160px;
 }
 .views {
   color: #959595;
-  margin-left: -56px;
+  margin-left: -86px;
   font-size: 15px;
 }
 .views1 {
@@ -4278,7 +4347,7 @@ margin-left: 160px;
 @media (max-width:383px) {
   input.tour {
     border: 0px solid #EEEEEE;
-    width: 67%;
+    width: 60%;
     padding: 9px 4px 9px 40px;
      background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
      margin-left: 0px;
@@ -4410,7 +4479,8 @@ font-weight: 400;
     border: 0px;
     color: white;
     float: right;
-    margin-right: 6px;
+    margin-right: 6px; 
+  
   }
   .play-sub-btn {
   background-color: #17A803;
@@ -4447,7 +4517,7 @@ font-weight: 400;
   left: 23px;
   top: -15px;
 }
-.notification-btn {
+.notification-btn { 
   background-color: #17A803;
   font-weight: 400;
   border: 3px;
@@ -4549,11 +4619,11 @@ margin-left: 145px;
 font-size: 14px;
 font-weight: 400;
 }
+}
 @media (max-width:375px) {
   .green-border {
     border-bottom: 1px solid white;
     margin-top: 15px;
     width: 120px;
   }
-}
 }
