@@ -950,6 +950,7 @@ body{
   flex-shrink: 0;
   overflow: hidden;
   position: relative;
+  aspect-ratio: 1;
   img{
     width: 42px;
     height: 42px;
@@ -997,35 +998,7 @@ body{
   overflow: hidden;
  line-height: 14px;
 }
-.side-suggestion-button1 {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  
-  flex-shrink: 0;
-  margin-right: 25px;
-  margin-top: -23px;
-}
-.side-suggestion-button2 {
- 
-  cursor: pointer;
-  font-size: 14px;
-  flex-shrink: 0;
-  margin-right: 25px;
-  margin-top: -23px;
-  background-color:#17a803;
-  border: none;
-  color: rgb(255, 255, 255);
-  padding: 0px 22px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 5px;
-  cursor: pointer;
-  height: 26px;
-}
+
 //
 
 
@@ -3025,7 +2998,7 @@ margin-left:6px;
     cursor: pointer;
     font-size: 14px;
     flex-shrink: 0;
-    margin-left: 102px;
+    margin-right: 32px;
     margin-top: -23px;
     background-color:#17a803;
     border: none;
@@ -3045,7 +3018,7 @@ margin-left:6px;
     font-size: 14px;
     font-weight: 500;
     flex-shrink: 0;
-    margin-left: 102px;
+    margin-right: 32px;
     margin-top: -23px;
 }
 //////////////////////////////////////
@@ -3168,34 +3141,7 @@ input.nosubmit1 {
 }
 
 @media(max-width:486px) {
-  .side-suggestion-button2 {
- 
-    cursor: pointer;
-    font-size: 14px;
-    flex-shrink: 0;
-    margin-left: 56px;
-    margin-top: -23px;
-    background-color:#17a803;
-    border: none;
-    color: rgb(255, 255, 255);
-    padding: 0px 22px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    border-radius: 5px;
-    cursor: pointer;
-    height: 26px;
-  }
-  .side-suggestion-button1 {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
-    flex-shrink: 0;
-    margin-left: 56px;
-    margin-top: -23px;
-}
+
 }
 @media(max-width:440px) {
   .title{
@@ -3232,34 +3178,7 @@ input.nosubmit1 {
     height: 100%;
     
   }
-  .side-suggestion-button2 {
- 
-    cursor: pointer;
-    font-size: 14px;
-    flex-shrink: 0;
-    margin-right: 66px;
-    margin-top: -23px;
-    background-color:#17a803;
-    border: none;
-    color: rgb(255, 255, 255);
-    padding: 0px 22px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    border-radius: 5px;
-    cursor: pointer;
-    height: 26px;
-  }
-  .side-suggestion-button1 {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
-    flex-shrink: 0;
-    margin-right: 66px;
-    margin-top: -23px;
-}
+
   
   .pop{
     margin-left: 6px;
@@ -3319,37 +3238,7 @@ margin-left:6px;
 }
 
 }
-@media(max-width:405px) {
 
-  .side-suggestion-button2 {
- 
-    cursor: pointer;
-    font-size: 14px;
-    flex-shrink: 0;
-    margin-left: 36px;
-    margin-top: -23px;
-    background-color:#17a803;
-    border: none;
-    color: rgb(255, 255, 255);
-    padding: 0px 22px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    border-radius: 5px;
-    cursor: pointer;
-    height: 26px;
-  }
-  .side-suggestion-button1 {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
-    flex-shrink: 0;
-    margin-left: 36px;
-    margin-top: -23px;
-}
-}
 @media(max-width:349px) {
   .title{
     font-weight:700;
@@ -3357,34 +3246,7 @@ margin-left:6px;
    
    
   }
-  .side-suggestion-button2 {
  
-    cursor: pointer;
-    font-size: 14px;
-    flex-shrink: 0;
-    margin-left: 36px;
-    margin-top: -23px;
-    background-color:#17a803;
-    border: none;
-    color: rgb(255, 255, 255);
-    padding: 0px 22px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    border-radius: 5px;
-    cursor: pointer;
-    height: 26px;
-  }
-  .side-suggestion-button1 {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
-    flex-shrink: 0;
-    margin-left: 36px;
-    margin-top: -23px;
-}
   .title{
     font-weight:700;
     font-size:16px;

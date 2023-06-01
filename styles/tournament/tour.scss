@@ -2589,6 +2589,17 @@ input.nosubmit1 {
     
   }
   
+
+.play_text {
+    font-weight: 700;
+    font-size: 17px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 180px;
+}
   .play1.mobile{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr ;
@@ -2637,9 +2648,15 @@ display: none;
   .bracket {
     display: flex;
     margin-left: 12px;
-    height: 52px;
+    height: 100%;
     overflow-x: scroll;
     overflow-y: hidden;
+}
+.play-details {
+  line-height: 12px;
+  font-weight: 500;
+  margin-left: 21px;
+  margin-top: 2px;
 }
 .date-wins {
   font-weight: 600;
@@ -3540,7 +3557,16 @@ position: absolute;
 margin-top: 18px;
 margin-left: 185px;
 }
-
+.play_text {
+  font-weight: 700;
+  font-size: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 160px;
+}
 .green {
   border: 0px;
   border-radius: 8px;
@@ -3719,6 +3745,12 @@ margin-left: 185px;
   
     
   }
+  .play-details {
+    line-height: 12px;
+    font-weight: 500;
+    margin-left: 21px;
+    margin-top: 2px;
+}
   .watch-play{
     display: flex;
     justify-content: center;
@@ -3809,6 +3841,16 @@ margin-left: 185px;
   line-height: 20px;
   margin-top: 9px;
   font-weight: 500;
+}
+.play_text {
+  font-weight: 700;
+  font-size: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 130px;
 }
 .team2 {
   display: -webkit-box;
@@ -4180,7 +4222,7 @@ margin-left: 160px;
   
     line-height: 12px;
     font-weight: 500;
-    margin-left: 110px;
+    margin-left: 120px;
     margin-top: 2px;
     position: absolute;
   }

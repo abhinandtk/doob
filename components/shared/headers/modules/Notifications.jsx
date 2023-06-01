@@ -69,7 +69,7 @@ function Notifications({setNotificationShow}) {
       maskClosable
       footer={null}
       style={{position:'absolute',right:0}}
-      bodyStyle={{maxHeight:'70vh'}}
+      bodyStyle={{maxHeight:'70vh',overflowY:'scroll'}}
       >
       
           <section className="side-menu-sections ">
@@ -80,7 +80,7 @@ function Notifications({setNotificationShow}) {
               {item.type==='Follow'?(
               <div className="side-menu__suggestions">
                 <a href="#" className="side-menu__suggestion-avatars">
-                  <img src={`${constants.port}/media/${item.image}`} alt="User Picture" />
+                  <img src={`${constants.port}/media/${item.image}`} style={{objectFit:'cover'}} alt="User Picture" />
                 </a>
                 <div className="side-menu__suggestion-infos">
                 <a href="#"> {item.name}
