@@ -69,7 +69,7 @@ function Notifications({setNotificationShow}) {
       maskClosable
       footer={null}
       style={{position:'absolute',right:0}}
-      bodyStyle={{maxHeight:'70vh',overflowY:'scroll'}}
+      bodyStyle={{maxHeight:'70vh'}}
       >
       
           <section className="side-menu-sections ">

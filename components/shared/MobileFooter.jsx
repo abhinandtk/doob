@@ -25,6 +25,7 @@ function MobileFooter() {
     });
   }, []);
   return (
+   
     <nav
       className="navbar1"
       style={{

@@ -120,7 +120,7 @@ function CreateGameForm() {
           <input
             type="file"
             id="image"
-            className="form-control p-2 grey"
+            className="form-control p-2 "
             style={{
               border: "0px",
               background: "#eeeeee",

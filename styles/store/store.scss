@@ -663,7 +663,10 @@ input:disabled{
 .sides.svg :hover{
   color:#17A803;
 }
-
+.carl1{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr ;
+}
 .content-topic {
   margin-left: 240px;
   padding: 1px 6px;
@@ -854,7 +857,9 @@ input:disabled{
   color: black; 
   border: none;
 }
-
+.customs{
+  margin-left: 12px;
+}
 .button23:hover {
   background: #EEEEEE;
   color: #17A803;
@@ -929,18 +934,9 @@ height: auto;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  // display: grid;
-  // grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
-  // grid-gap:10px;
+  
 }
-.carl1{  
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-   margin-top:94px;
-   justify-content: center;
-   
-}
+
 .carl2{  
   display: flex;
   flex-wrap: wrap;
@@ -951,6 +947,7 @@ height: auto;
 }
 .documents{
   margin-right: 95px;
+  text-align: center;
 }
 .document1{
   margin-right: 102px;
@@ -1621,6 +1618,10 @@ div#header div {
      width: 88%;
   
   }
+  .carl1.mobile{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+  }
   .product-submit {
  
     justify-content: center;
@@ -1634,7 +1635,7 @@ div#header div {
     float: right;
   }
   .doc-card{
-    width: 100%;
+    width: 130px;
     border:0px;
     border-radius:15px;
     height: 130px;
@@ -1646,9 +1647,16 @@ div#header div {
 }
 
  .carl{  
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  margin-left: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  
+}
+
+.documents{
+  flex-basis: calc(33.33% - 10px); /* Adjust the width of the columns as needed */
+  margin: 5px;
+  padding: 10px;
 }
 
 .new-orders{
@@ -1663,22 +1671,16 @@ font-size: 14px;
   margin-left: -4px;
   font-size: 14px;
 }
-.documents {
-  margin-right: 7px;
-  margin-left: 12px;
-}
+// .documents {
+//   margin-right: 7px;
+//   margin-left: 12px;
+// }
 .document1 {
   margin-right: 14px;
   margin-left: 12px;
   margin-top: -12px;
 }
-.carl1 {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  margin-top: 34px;
-  justify-content: center;
-}
+
 
  .shop-management{
   margin-left: 15px;
@@ -1814,12 +1816,12 @@ font-size: 14px;
     margin-right: -4px;
     float: right;
 }
+
 .content-topics {
-  margin-left: -15px;
-  height: 100%;  
-   background: white;
-   width: 100%;
-   
+  margin-right: 15px;
+  height: 100%;
+  background: white;
+  width: 100%;
 }
 }
 
@@ -1980,7 +1982,7 @@ margin-left: -2px;
   float: right;
 }
 .content-topics {
-margin-left: -15px;
+margin-right: 15px;
 height: 100%;  
  background: white;
  width: 100%;
@@ -2005,7 +2007,7 @@ margin-right: 33px;
 .carl{  
 display: grid;
 grid-template-columns: 1fr 1fr 1fr;
-margin-left: 12px;
+margin-left: 4%;
 }
 
 .new-orders{
@@ -2028,11 +2030,9 @@ justify-content: center;
   margin-left: 17px;
 }
 .carl1 {
-display: flex;
-flex-wrap: wrap;
-align-items: flex-start;
-margin-top: 34px;
-
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr ;
+   justify-content: end;
 }
 
 .shop-management{
@@ -2193,11 +2193,10 @@ margin-left: -2px;
   float: right;
 }
 .content-topics {
-margin-left: -15px;
-height: 100%;  
- background: white;
- width: auto;
- 
+  margin-right: 15px;
+  height: 100%;
+  background: white;
+  width: 100%;
 }
 .home{
   margin-right: 23px;
@@ -2243,11 +2242,8 @@ margin-left: 12px;
 margin-top: -12px;
 }
 .carl1 {
-display: flex;
-flex-wrap: wrap;
-align-items: flex-start;
-margin-top: 34px;
-justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr ;
 }
 
 .shop-management{
