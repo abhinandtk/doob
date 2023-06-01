@@ -9,8 +9,8 @@ import { updateStoreCartCount } from "@/Redux/cartsCount";
 import { useRouter } from "next/router";
 
 function MobileFooter() {
-  const router=useRouter()
-  const {asPath}=router
+  const router = useRouter();
+  const { asPath } = router;
   const storeCount = useSelector((state) => state.storeCartCount.storeCount);
   const dispatch = useDispatch();
   console.log("storreCount", storeCount);
@@ -29,7 +29,6 @@ function MobileFooter() {
     });
   }, []);
   return (
-   
     <nav
       className="navbar1"
       style={{
@@ -94,11 +93,7 @@ function MobileFooter() {
       </Link>
 
       <Link
-        href={`${
-          asPath.includes("store") || storeCount != 0
-            ? "/store/cart"
-            : "/play-ground/play-ground-cart"
-        }`}
+        href="/store"
         className="navbar__button1"
       >
         <svg
@@ -117,6 +112,7 @@ function MobileFooter() {
           />
         </svg>
       </Link>
+
       <Link href="/profile" className="navbar__button1">
         <svg
           width="19"

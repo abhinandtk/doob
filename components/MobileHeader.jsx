@@ -15,6 +15,7 @@ import Notifications from "./shared/headers/modules/Notifications";
 import Link from "next/link";
 import { useEffect } from "react";
 import constants from "@/public/data/my-constants/Constants";
+import { useRouter } from "next/router";
 function MobileHeader() {
   const [show, setShow] = useState(false);
   const [confirmLogout, setConfirmLogout] = useState(false);
@@ -24,6 +25,8 @@ function MobileHeader() {
 
   const storeCount = useSelector((state) => state.storeCartCount.storeCount);
   const dispatch = useDispatch();
+  const router=useRouter()
+  const {asPath}=router
   // console.log("storreCount", storeCount);
 
   const [user, setUser] = useState("");
@@ -143,7 +146,31 @@ function MobileHeader() {
                   />
                 </svg>
               </Nav.Link> */}
-              <Nav.Link href="/store">
+              <Link
+                href={`${
+                  asPath.includes("store") || storeCount != 0
+                    ? "/store/cart"
+                    : "/play-ground/play-ground-cart"
+                }`}
+                className="navbar__button1"
+              >
+                <svg
+                  width="19"
+                  height="20"
+                  viewBox="0 0 19 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.4619 3C11.4619 2.46957 11.2553 1.96086 10.8876 1.58579C10.5198 1.21071 10.0211 1 9.50098 1C8.9809 1 8.48213 1.21071 8.11438 1.58579C7.74662 1.96086 7.54002 2.46957 7.54002 3M6.5517 13H9.49314M12.4346 13H9.49314M9.49314 13V10M9.49314 13V16M16.6193 7.696L17.9772 16.696C18.0202 16.9808 18.0022 17.2718 17.9247 17.5489C17.8471 17.8261 17.7118 18.0828 17.5279 18.3016C17.344 18.5204 17.1159 18.6961 16.8592 18.8167C16.6025 18.9372 16.3233 18.9997 16.0408 19H2.96119C2.67845 19 2.39905 18.9377 2.14214 18.8173C1.88523 18.6969 1.65689 18.5212 1.47277 18.3024C1.28865 18.0836 1.15311 17.8267 1.07544 17.5494C0.997772 17.2721 0.979809 16.981 1.02279 16.696L2.38075 7.696C2.45198 7.22359 2.68674 6.79282 3.0425 6.4817C3.39826 6.17059 3.8515 5.9997 4.32013 6H14.6818C15.1503 5.99994 15.6033 6.17094 15.9589 6.48203C16.3144 6.79312 16.549 7.22376 16.6202 7.696H16.6193Z"
+                    stroke="black"
+                    stroke-width="1.4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </Link>
+              {/* <Nav.Link href="/store">
                 <i
                   className="bi bi-bag"
                   style={{
@@ -152,7 +179,7 @@ function MobileHeader() {
                     color: "black",
                   }}
                 ></i>
-              </Nav.Link>
+              </Nav.Link> */}
               {/* <Nav.Link href="/store/cart">
                 <i
                   className="bi bi-cart"
