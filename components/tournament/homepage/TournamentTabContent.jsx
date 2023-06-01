@@ -7,6 +7,36 @@ import Link from "next/link";
 function TournamentTabContent({data}) {
   console.log("dataLive",data)
   const router =useRouter()
+
+  const getMatchTime = (time, date) => {
+    const startDate = moment(date, "YYYY-MM-DD");
+    const startTime = moment(time, "HH:mm:ss");
+
+    const startDateTime = startDate.clone().set({
+      hour: startTime.hours(),
+      minute: startTime.minutes(),
+      second: startTime.seconds(),
+    });
+
+    const currentTime = moment();
+
+    if (currentTime.isBefore(startDateTime)) {
+      return "00:00";
+    }
+
+    const diff = moment.duration(Math.abs(startDateTime.diff(currentTime)));
+    let totalMinutes = Math.floor(diff.asMinutes());
+    let seconds = diff.seconds();
+
+    if (totalMinutes > 90) {
+      return "90:00";
+    }
+
+    let matchTime = `${totalMinutes}:${seconds}`;
+
+    console.log("matchTime:", matchTime);
+    return matchTime;
+  };
   return (
     <Fragment>
       <h6 className="my-2" style={{ fontWeight: "600" }}>
@@ -44,7 +74,9 @@ function TournamentTabContent({data}) {
                     type="button"
                     className=" btn-outline-secondary club-time"
                   >
-                    {moment(item.time,"hh:mm:ss").format('hh:mm')}
+                     {item.date
+                          ? getMatchTime(item.time, item.date)
+                          : "00:00"}
                   </button>
                 </div>
 

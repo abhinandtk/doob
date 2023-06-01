@@ -1,7 +1,29 @@
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Axios from "axios";
 
+import apis from "@/public/data/my-constants/Apis";
+import constants from "@/public/data/my-constants/Constants";
+import { useDispatch, useSelector } from "react-redux";
+import { updateStoreCartCount } from "@/Redux/cartsCount";
 function MobileFooter() {
+  const storeCount = useSelector((state) => state.storeCartCount.storeCount);
+  const dispatch = useDispatch();
+  console.log("storreCount", storeCount);
+
+  const [user, setUser] = useState("");
+
+  useEffect(() => {
+    Axios.get(apis.countDisplay, {
+      headers: {
+        Authorization: `Token ${constants.token_id}`,
+      },
+    }).then((res) => {
+      dispatch(updateStoreCartCount(res.data.data.cart_count));
+      setUser(res.data.data.user_type);
+      console.log("count", res);
+    });
+  }, []);
   return (
     <nav
       className="navbar1"
@@ -12,7 +34,7 @@ function MobileFooter() {
         marginTop: "4px",
       }}
     >
-      <Link  href="/" className="navbar__button1">
+      <Link href="/" className="navbar__button1">
         <svg
           width="18"
           height="19"
@@ -65,7 +87,13 @@ function MobileFooter() {
           />
         </svg>
       </Link>
-      <Link href="/" className="navbar__button1">
+
+      <Link
+        href={`${
+          storeCount != 0 ? "/store/cart" : "/play-ground/play-ground-cart"
+        }`}
+        className="navbar__button1"
+      >
         <svg
           width="19"
           height="20"

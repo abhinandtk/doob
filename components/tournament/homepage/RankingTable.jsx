@@ -1,10 +1,13 @@
 import constants from "@/public/data/my-constants/Constants";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 import { Fragment } from "react";
 
 function RankingTable({ data }) {
   console.log("rrrrrrrrreeeeeeeeeeeee", data);
+
+  const router = useRouter()
   return (
     <Fragment>
       {data && (
@@ -12,41 +15,47 @@ function RankingTable({ data }) {
           <ul className="responsive-table">
             {data.map((item, index) =>
               index === 0 ? (
-                <li key={index} className="table-row p-3">
+                <li
+                  onClick={() =>
+                    router.push(`/tournament/player/${item.username}`)
+                  }
+                  key={index}
+                  className="table-row p-3"
+                  style={{ cursor: "pointer" }}
+                >
                   <div className="col col-1 mt-4  id " data-label="Job Id">
                     #{index + 1}
                   </div>
-                  <Link
-                    href={`/tournament/player/${item.username}`}
-                    style={{ textDecoration: "none", color: "black" }}
+
+                  <span className="ahmed">
+                    <img
+                      src={`${constants.port}${item.image}`}
+                      className="tour_rank_img"
+                    ></img>
+                  </span>
+
+                  <span
+                    className="col col-8 name mt-3"
+                    data-label="Customer Name"
                   >
-                    <span className="ahmed">
-                      <img
-                        src={`${constants.port}${item.image}`}
-                        className="tour_rank_img"
-                      ></img>
-                    </span>
-                  </Link>
-                  <Link
-                    href={`/tournament/player/${item.username}`}
-                    style={{ textDecoration: "none", color: "black" }}
-                  >
-                    <span
-                      className="col col-8 name mt-3"
-                      data-label="Customer Name"
-                    >
-                      {item.name}
-                    </span>
-                  </Link>
+                    {item.name}
+                  </span>
                   <div
                     className="col col-1 mt-4 views "
                     data-label="Payment Status"
                   >
                     View
                   </div>
-                </li> 
-              ) : (                                                                                                                                             
-                <li key={index} className="table-row1"> 
+                </li>
+              ) : (
+                <li
+                  key={index}
+                  className="table-row1"
+                  onClick={() =>
+                    router.push(`/tournament/player/${item.username}`)
+                  }
+                  style={{ cursor: "pointer" }}
+                >
                   <div className="col col-1 mt-3  id " data-label="Job Id">
                     #{index + 1}
                   </div>
@@ -61,17 +70,14 @@ function RankingTable({ data }) {
                       ></img>
                     </span>
                   </Link>
-                  <Link 
-                    href={`/tournament/player/${item.username}`}
-                    style={{ textDecoration: "none", color: "black" }}
+
+                  <span
+                    className="col col-8 name1 mt-3"
+                    data-label="Customer Name"
                   >
-                    <span
-                      className="col col-8 name1 mt-3"
-                      data-label="Customer Name"
-                    >
-                      {item.name} 
-                    </span>
-                  </Link>
+                    {item.name}
+                  </span>
+
                   <div
                     className="col col-1 mt-4 views1 "
                     data-label="Payment Status"

@@ -418,10 +418,6 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
               style={{ fontSize: "15px", fontWeight: "600" }}
             >
               {item.match_type}
-              <span className="quaters">
-                {" "}
-                <button className="adds-btn ms-auto">Add</button>
-              </span>{" "}
             </h6>
 
             {item.matches.map((content, index_) => (
@@ -452,7 +448,7 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
                         <p className="team2">{content.team_B}</p>
                       </div>
                     </Link>
-                    <div className="live-watch mx-5">
+                    <div className="live-watch mx-5" style={{cursor:'ponter'}}>
                       <p
                         onClick={() =>
                           handleModalShow(
@@ -463,9 +459,9 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
                         }
                         className="space-line"
                       >
-                        {content.team_A_score ? content.team_A_score : "____"}
+                        {content.team_A_score !=null ? content.team_A_score : "____"}
                         &nbsp;-&nbsp;
-                        {content.team_B_score ? content.team_B_score : "____"}
+                        {content.team_B_score !=null? content.team_B_score : "____"}
                       </p>
                       <p
                         onClick={() => showDateModalHandler(content.id)}
