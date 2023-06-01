@@ -452,7 +452,7 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
                       <p
                         onClick={() =>
                           handleModalShow(
-                            content.id,
+                            content.id, 
                             content.team_A_id,
                             content.team_B_id
                           )

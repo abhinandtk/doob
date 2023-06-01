@@ -38,7 +38,7 @@ function RankingTable({ data }) {
                     className="col col-8 name mt-3"
                     data-label="Customer Name"
                   >
-                    {item.name}
+                    {item.name} 
                   </span>
                   <div
                     className="col col-1 mt-4 views "
@@ -74,7 +74,7 @@ function RankingTable({ data }) {
                   <span
                     className="col col-8 name1 mt-3"
                     data-label="Customer Name"
-                  >
+                  >  
                     {item.name}
                   </span>
 

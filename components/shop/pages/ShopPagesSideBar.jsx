@@ -18,7 +18,7 @@ function ShopPagesSideBar({currentPage}) {
             fill="black"
           />
         </svg>
-        <span className="mx-2" style={{color:`${currentPage === 'settings' ? '#17A803' : ''}`}}>Settings</span>
+        <span className="customs" style={{color:`${currentPage === 'settings' ? '#17A803' : ''}`}}>Settings</span>
       </a>
       <Link href='/shop/admin-all-orders' style={{textDecoration:'none'}}>
         <svg
@@ -42,7 +42,7 @@ function ShopPagesSideBar({currentPage}) {
             fill="black"
           />
         </svg>
-        <span className="mx-2" style={{color:`${currentPage === 'allOrders' ? '#17A803' : ''}`}}>All Orders</span>
+        <span className="customs" style={{color:`${currentPage === 'allOrders' ? '#17A803' : ''}`}}>All Orders</span>
       </Link>
       <Link href='/shop/report/earnings-report' style={{textDecoration:'none'}}>
         <svg
@@ -69,7 +69,7 @@ function ShopPagesSideBar({currentPage}) {
             </clipPath>
           </defs>
         </svg>
-        <span className="mx-2" style={{color:`${currentPage === 'earnings' ? '#17A803' : ''}`}}>Earnings</span>
+        <span className="customs" style={{color:`${currentPage === 'earnings' ? '#17A803' : ''}`}}>Earnings</span>
       </Link>
       <Link href='/shop/product-management' style={{textDecoration:'none'}}>
         <svg
@@ -88,7 +88,7 @@ function ShopPagesSideBar({currentPage}) {
             stroke-linejoin="round"
           />
         </svg>
-        <span className="mx-2" style={{color:`${currentPage === 'products' ? '#17A803' : ''}`}}>Products</span>
+        <span className="customs" style={{color:`${currentPage === 'products' ? '#17A803' : ''}`}}>Products</span>
       </Link>
       <a href="#home">
         <svg
@@ -128,7 +128,7 @@ function ShopPagesSideBar({currentPage}) {
             stroke-linejoin="round"
           />
         </svg>
-        <span className="mx-2" style={{color:`${currentPage === 'settings' ? '#17A803' : ''}`}}>Stock</span>
+        <span className=" customs" style={{color:`${currentPage === 'settings' ? '#17A803' : ''}`}}> Stock</span>
       </a>
       <Link href='/shop/report' style={{textDecoration:'none'}}>
         <svg
@@ -148,7 +148,7 @@ function ShopPagesSideBar({currentPage}) {
             fill="black"
           />
         </svg>
-        <span className="mx-1" style={{color:`${currentPage === 'report' ? '#17A803' : ''}`}}> Report</span>
+        <span className="customs" style={{color:`${currentPage === 'report' ? '#17A803' : ''}`}}>Report</span>
       </Link>
       <a href="#clients">
         <svg
@@ -165,7 +165,7 @@ function ShopPagesSideBar({currentPage}) {
           />
         </svg>
 
-        <span className="mx-2" style={{color:`${currentPage === 'settings' ? '#17A803' : ''}`}}>Support </span>
+        <span className="customs" style={{color:`${currentPage === 'settings' ? '#17A803' : ''}`}}>  Support </span>
       </a>
       <Link href='/shop/category-management' style={{textDecoration:'none'}}>
         <svg
@@ -193,7 +193,7 @@ function ShopPagesSideBar({currentPage}) {
             fill="black"
           />
         </svg>
-        <span className="mx-2" style={{color:`${currentPage === 'category' ? '#17A803' : ''}`}}>Category</span>
+        <span className="customs" style={{color:`${currentPage === 'category' ? '#17A803' : ''}`}}>Category</span>
       </Link>
       <Link href='/shop/brand-management' style={{textDecoration:'none'}}>
       <svg
@@ -212,7 +212,7 @@ function ShopPagesSideBar({currentPage}) {
               stroke-linejoin="round"
             />
           </svg>
-        <span className="mx-2" style={{color:`${currentPage === 'brand' ? '#17A803' : ''}`}}>Brand</span>
+        <span className="customs" style={{color:`${currentPage === 'brand' ? '#17A803' : ''}`}}>Brand</span>
       </Link>
 
       {/* 

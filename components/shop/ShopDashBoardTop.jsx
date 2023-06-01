@@ -3,9 +3,9 @@ import { Card } from "react-bootstrap";
 
 function ShopDashBoardTop() {
   return (
-    <div className="carl">
+    <div className="carl ">
       <div className="document  ">
-        <Card className="doc-card">
+        <Card className="doc-card ">
           <Card.Body>
             <Card.Title className=" mt-2">
               <svg
