@@ -448,7 +448,7 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
                         <p className="team2">{content.team_B}</p>
                       </div>
                     </Link>
-                    <div className="live-watch " style={{cursor:'ponter'}}>
+                    <div className="live-watch1 " style={{cursor:'ponter'}}>
                       <p
                         onClick={() =>
                           handleModalShow(

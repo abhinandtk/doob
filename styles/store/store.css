@@ -31,6 +31,22 @@ body {
   align-items: center;
 }
 
+.sidebar {
+  position: fixed;
+  top: 40;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 230px;
+  height: 100%;
+  padding: 40px 10px 30px 10px;
+  background: transparent;
+  border-right: 0px solid #dbdbdb;
+  transition: 0.3s;
+  margin-top: -23px;
+}
+
 .sidebar-header {
   width: 100%;
   margin-bottom: 44px;
@@ -1527,7 +1543,7 @@ div#header div {
     float: right;
   }
   .doc-card {
-    width: 110px;
+    width: 100%;
     border: 0px;
     border-radius: 15px;
     height: 130px;
@@ -1556,9 +1572,10 @@ div#header div {
     margin-right: 7px;
     margin-left: 12px;
   }
-  .documents {
-    margin-right: 7px;
+  .document1 {
+    margin-right: 14px;
     margin-left: 12px;
+    margin-top: -12px;
   }
   .carl1 {
     display: flex;
@@ -1702,13 +1719,13 @@ div#header div {
     margin-left: 24px;
     height: 100%;
     background: white;
-    width: 86%;
+    width: 100%;
   }
   .store-container1 {
     width: 100%;
   }
   .count1 {
-    width: 46%;
+    width: 40%;
   }
   .account1 {
     width: 32%;
@@ -1839,13 +1856,62 @@ div#header div {
     background: white;
     width: 100%;
   }
+  .home {
+    margin-right: 23px;
+    float: right;
+  }
+  .doc-card {
+    width: 110px;
+    border: 0px;
+    border-radius: 15px;
+    height: 130px;
+  }
+  .order1-btn {
+    margin-right: 33px;
+  }
+  .carl {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-left: 12px;
+  }
+  .new-orders {
+    margin-left: -4px;
+    font-size: 14px;
+  }
+  .process-order {
+    margin-left: -4px;
+    font-size: 14px;
+  }
+  .dispatch-order {
+    margin-left: -4px;
+    font-size: 14px;
+  }
+  .documents {
+    justify-content: center;
+  }
+  .document1 {
+    justify-content: space-evenly;
+    margin-left: 17px;
+  }
+  .carl1 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-top: 34px;
+  }
+  .shop-management {
+    margin-left: 15px;
+  }
+  .summary {
+    margin-left: 15px;
+  }
 }
 @media (max-width: 375px) {
   .content-topic {
     margin-left: 24px;
     height: 100%;
     background: white;
-    width: 86%;
+    width: 100%;
   }
   .count1 {
     width: 20%;
@@ -1981,5 +2047,57 @@ div#header div {
     height: 100%;
     background: white;
     width: auto;
+  }
+  .home {
+    margin-right: 23px;
+    float: right;
+  }
+  .doc-card {
+    width: 106px;
+    border: 0px;
+    border-radius: 15px;
+    height: 130px;
+  }
+  .order1-btn {
+    margin-right: 33px;
+  }
+  .carl {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-left: 12px;
+  }
+  .new-orders {
+    margin-left: -4px;
+    font-size: 14px;
+  }
+  .process-order {
+    margin-left: -4px;
+    font-size: 14px;
+  }
+  .dispatch-order {
+    margin-left: -4px;
+    font-size: 14px;
+  }
+  .documents {
+    margin-right: 7px;
+    margin-left: 12px;
+  }
+  .document1 {
+    margin-right: 14px;
+    margin-left: 12px;
+    margin-top: -12px;
+  }
+  .carl1 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-top: 34px;
+    justify-content: center;
+  }
+  .shop-management {
+    margin-left: 15px;
+  }
+  .summary {
+    margin-left: 15px;
   }
 }

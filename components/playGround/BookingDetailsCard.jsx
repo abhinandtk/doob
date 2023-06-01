@@ -88,7 +88,7 @@ function BookingDetailsCard({ details }) {
               }}
             >
               <span style={{ color: "#959595" }}>Stadium Name</span>
-              <span> {item.stadium_name}</span>
+              <span className="book-names"> {item.stadium_name}</span>
             </div>
 
             <div

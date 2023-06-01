@@ -65,7 +65,7 @@ function MatchCards({ data }) {
                       className="mx-5 my-2"
                     ></img>
                   )}
-                </p>
+                </p> 
                 <p className="time-wins">
                   {data.start_time ? (
                     moment(data.start_time, "hh:mm:ss").format("hh:mm A")
