@@ -426,7 +426,7 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
 
             {item.matches.map((content, index_) => (
               <div key={index_} className="card football1">
-                <div className="card-body p-5 mx-5">
+                <div className="card-body p-5 mx-4">
                   <div className="live1 ">
                     <Link
                       href={`/tournament/match/${content.id}`}
@@ -452,7 +452,7 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
                         <p className="team2">{content.team_B}</p>
                       </div>
                     </Link>
-                    <div className="live-watch  mx-5 " >
+                    <div className="live-watch  "  >
                       <p
                         onClick={() =>
                           handleModalShow(
@@ -492,7 +492,7 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
                           <i className="bi bi-clock "></i>
                         )}
                       </p>
-
+                      
                       <button
                         type="button"
                         className=" btn-outline-secondary left-time"

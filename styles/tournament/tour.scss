@@ -1779,6 +1779,7 @@ margin-left: 13px;
   display: flex;
   justify-content: center;
   margin-top: 30px; 
+  margin-left: 60px;
 }
 .watch-play1{
   display: flex;
@@ -2610,7 +2611,52 @@ input.nosubmit1 {
     white-space: nowrap;
     width: 100%;
 }
-  
+.date-wins {
+  font-weight: 600;
+  font-size: 14px;
+  color: #959595;
+  text-align: center;
+  margin-bottom: 2px;
+}
+.time-wins {
+  font-weight: 600;
+  font-size: 14px;
+  color: #959595;
+  text-align: center;
+  margin-bottom: 2px;
+}
+.space-line {
+  font-weight: 800;
+  word-spacing: 25px;
+  color: #959595;
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 2px;
+}
+.team1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 13px;
+  width: 70px;
+  line-height: 20px;
+  margin-top: 9px;
+  font-weight: 500;
+}
+.team2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 13px;
+  width: 70px;
+  line-height: 20px;
+  margin-top: 9px;
+  font-weight: 500;
+}
   .doct-card {
     width: 100%;
     border: 0px;
@@ -2903,7 +2949,8 @@ input.nosubmit1 {
 .live-watch {
   margin-top: 12px;
   text-align: center;
- justify-content: center;
+  margin-right: 115px;
+
 }
 
 .quaters {
@@ -3643,6 +3690,12 @@ margin-top: 18px;
     margin-top: 13px;
     justify-content: center;
   }
+  .live-watch {
+    margin-top: 12px;
+    text-align: center;
+    margin-right: 105px;
+  
+  }
   .video-play {
     display: flex;
     flex-wrap: wrap;
@@ -3705,6 +3758,12 @@ margin-top: 18px;
     margin-left: 27px;
     margin-top: -19px;
 }
+.live-watch {
+  margin-top: 12px;
+  text-align: center;
+  margin-right: 75px;
+
+}
 .watch1 {
   position: absolute;
   margin-top: 18px;
@@ -3713,7 +3772,7 @@ margin-top: 18px;
 .watch2 {
 position: absolute;
 margin-top: 18px;
-margin-left: 205px;
+margin-left: 160px;
 }
 
 .Game-detail {
