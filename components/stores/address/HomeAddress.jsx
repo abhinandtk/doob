@@ -5,6 +5,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import Axios from "axios";
 function HomeAddress({ handleAddAddress,areaData }) {
+    console.log('area',areaData)
   const [formData, setFormData] = useState({
     name: "",
     area: "",
@@ -26,7 +27,6 @@ function HomeAddress({ handleAddAddress,areaData }) {
   };
   const submitForm = (e) => {
     e.preventDefault();
-    console.log("form             dcsscdscsdc", formData, defaultAddress);
     handleAddAddress(formData, defaultAddress);
   };
   return (
@@ -52,7 +52,7 @@ function HomeAddress({ handleAddAddress,areaData }) {
             style={{ border: "0px", background: "#eeeeee" }}
           >
             <option value="">select</option>
-            {areaData.map((item, index) => (
+            {areaData.length >=1 && areaData.map((item, index) => (
               <option key={index} value={item.id}>
                 {item.region_name}
               </option>

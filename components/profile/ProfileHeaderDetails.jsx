@@ -224,7 +224,7 @@ function ProfileHeaderDetails({ data, setSuccess }) {
                       </span>{" "}
                       <span style={{ color: "#959595" }}>followers</span>
                     </li>
-                    <li>
+                    <li >
                       <span
                         onClick={() => setFollowingListShow(true)}
                         className="profile-stat-count"

@@ -61,7 +61,7 @@ function MainHeader({ title }) {
             message: " Success",
             description: "Logout Successfully",
           });
-          window.location.reload(false);
+          // window.location.reload(false);
           router.push("/");
         } else {
           console.log("error loading");
@@ -73,7 +73,7 @@ function MainHeader({ title }) {
           message: " Success",
           description: "Logout Successfully",
         });
-        window.location.reload(false);
+        // window.location.reload(false);
         router.push("/");
         console.log("error loading");
       });
