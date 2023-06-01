@@ -208,7 +208,7 @@ function Register({setActiveModal,countries}) {
         <Form.Label>Password*</Form.Label>
         <Form.Control 
         id="password"
-        type="text" 
+        type="password" 
         placeholder="" 
        
         onChange={(e)=>{handleInputChange(e)}}
@@ -221,7 +221,7 @@ function Register({setActiveModal,countries}) {
         <Form.Label>Confirm Password*</Form.Label>
         <Form.Control 
         id="confirmpsw"
-        type="text" 
+        type="password" 
         placeholder="" 
      
         onChange={(e)=>{handleInputChange(e)}}

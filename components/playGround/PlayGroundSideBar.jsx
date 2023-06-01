@@ -145,7 +145,7 @@ function PlayGroundSideBar({currentPage}) {
             fill="black"
           />
         </svg>
-        <span className="mx-2">Setting</span>{" "}
+        <span className="mx-2">Settings</span>{" "}
       </a>
       <a href="#clients">
         <svg

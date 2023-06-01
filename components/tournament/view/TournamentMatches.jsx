@@ -356,7 +356,7 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
           onChange={(value) => setMatchStatus(value)}
           value={matchStatus}
         >
-          <Select.Option value={""}>--select team--</Select.Option>
+          <Select.Option value={""}>--Select Status--</Select.Option>
           <Select.Option value={0}>End</Select.Option>
           <Select.Option value={1}>Live</Select.Option>
           <Select.Option value={2}>Stop</Select.Option>

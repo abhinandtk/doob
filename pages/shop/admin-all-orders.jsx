@@ -20,7 +20,8 @@ function AdminAllOrders() {
   const [allOrders, setAllOrders] = useState([]);
   const [visible, setVisible] = useState(false);
   const [orderId, setOrderId] = useState(null);
-  const [orderStatus, setOrderStatus] = useState(null);
+  const [orderStatus, setOrderStatus] = useState("");
+  const [paymentStatus, setPaymentStatus] = useState("");
 
   useEffect(() => {
     Axios.post(
@@ -44,24 +45,24 @@ function AdminAllOrders() {
   };
 
   const statusUpdateHandler = (e) => {
+    console.log("success", orderId, orderStatus);
     e.preventDefault();
-    if (orderStatus !== "" && orderStatus !== "Select an option") {
-      Axios.post(
-        apis.changeStatus,
-        {
-          order_id: orderId,
-          order_status: orderStatus,
+    Axios.post(
+      apis.changeStatus,
+      {
+        order_id: orderId,
+        order_status: orderStatus,
+        order_payment: paymentStatus,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
         },
-        {
-          headers: {
-            Authorization: `Token ${constants.token_id}`,
-          },
-        }
-      ).then((res) => {
-        setVisible(false);
-        console.log("success update", res);
-      });
-    }
+      }
+    ).then((res) => {
+      setVisible(false);
+      console.log("success update", res);
+    });
   };
 
   return (
@@ -75,41 +76,95 @@ function AdminAllOrders() {
           open={visible}
           onCancel={() => setVisible(false)}
           title="Update Status"
-          footer={[
+          footer={
             <Button
+              style={{ backgroundColor: "#17A803" }}
               key="submit"
-              type="submit"
-              onClick={statusUpdateHandler}
-              className="order-btn"
+              type="primary"
+              onClick={(e) => statusUpdateHandler(e)}
             >
-              Ok
-            </Button>,
-            <Button
-              key="cancel"
-              onClick={() => setVisible(false)}
-              className="order-btn"
+              Submit
+            </Button>
+          }
+          // footer={[
+          //   <Button
+          //     key="submit"
+          //     type="submit"
+          //     onClick={(e)=>statusUpdateHandler(e)}
+          //     className="order-btn"
+          //   >
+          //     Ok
+          //   </Button>,
+          //   <Button
+          //     key="cancel"
+          //     onClick={() => setVisible(false)}
+          //     className="order-btn"
+          //   >
+          //     Cancel
+          //   </Button>,
+          // ]}
+        >
+          <div className="form-group my-2">
+            <label for="exampleFormControlSelect1">Payment Status</label>
+            <select
+              placeholder="order stsu"
+              className="form-control p-2 "
+              style={{
+                border: "0px",
+                background: "#eeeeee",
+                color: "#959595",
+              }}
+              onChange={(e) => setPaymentStatus(e.target.value)}
             >
-              Cancel
-            </Button>,
-          ]} 
-        > 
-          <Select
-            defaultValue="Select an option"
-            style={{ width: "100%" }}
-            onChange={setOrderStatus}
-            required
-          >
-            <Option value="Ordered">Ordered</Option>
-            <Option value="failed">Failed</Option>
-            <Option value="processing">Processing</Option>
-            <Option value="shipped">Shipped</Option>
-            <Option value="out for delivery">Out for delivery</Option>
-            <Option value="delivered">Delivered</Option>
-            <Option value="cancelled">Cancelled</Option>
-          </Select>
-          <br></br>
-          <br></br>
-          <br></br>
+              <option value="" style={{ color: "#959595" }}>
+                --Select--
+              </option>
+              <option value="Pending" style={{ color: "#959595" }}>
+                Pending
+              </option>
+              <option value="Received" style={{ color: "#959595" }}>
+                Received
+              </option>
+            </select>
+          </div>
+          <div className="form-group my-2">
+            <label for="exampleFormControlSelect1">Order Status</label>
+            <select
+              placeholder="order stsu"
+              className="form-control p-2 "
+              style={{
+                border: "0px",
+                background: "#eeeeee",
+                color: "#959595",
+              }}
+              onChange={(e) => setOrderStatus(e.target.value)}
+            >
+              <option value="" style={{ color: "#959595" }}>
+                --Select--
+              </option>
+              <option value="Ordered" style={{ color: "#959595" }}>
+                Ordered
+              </option>
+              <option value="failed" style={{ color: "#959595" }}>
+                Failed
+              </option>
+              <option value="processing" style={{ color: "#959595" }}>
+                Processing
+              </option>
+              <option value="shipped" style={{ color: "#959595" }}>
+                Shipped
+              </option>
+              <option value="out for delivery" style={{ color: "#959595" }}>
+                Out for delivery
+              </option>
+              <option value="delivered" style={{ color: "#959595" }}>
+                Delivered
+              </option>
+              <option value="cancelled" style={{ color: "#959595" }}>
+                Cancelled
+              </option>
+            </select>
+          </div>
         </Modal>
         <div className="Bottom">
           <ShopPagesSideBar currentPage="allOrders" />
@@ -135,7 +190,7 @@ function AdminAllOrders() {
                       style={{ fontWeight: "500" }}
                     >
                       #{item.order_id_m}
-                      <span >
+                      <span>
                         <Button
                           onClick={() => showUpdateHandler(item.order_id_m)}
                           type="button"
@@ -153,7 +208,7 @@ function AdminAllOrders() {
                     >
                       <span style={{ color: "#959595" }}>Customer Name</span>
                       <span>{item.username}</span>
-                    </div> 
+                    </div>
                     <div
                       className="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center"
                       style={{
@@ -228,7 +283,7 @@ function AdminAllOrders() {
                         Download Invoice
                       </p>
                     </div>
-                  </> 
+                  </>
                 ))
               ) : (
                 <div
@@ -250,11 +305,8 @@ function AdminAllOrders() {
         </div>
       </div>
       <MobileFooter />
-
     </Fragment>
   );
 }
-
-
 
 export default AdminAllOrders;

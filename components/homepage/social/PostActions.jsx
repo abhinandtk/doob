@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
 import {Dropdown, CardImg, } from 'react-bootstrap';
-import { Modal, Form, Input, Button } from 'antd';
+import { Modal, Form, Input, Button, notification } from 'antd';
 import Axios from 'axios'
 import apis from '@/public/data/my-constants/Apis';
 import constants from '@/public/data/my-constants/Constants';
+import { Labels } from '@/public/data/my-constants/Labels';
 export default function PostActions({postId,user,setOnSuccess,sharedClick}) {
+
     const [show,setShow] = useState(false)
     const [visible,setVisible] = useState(false)
     const [reason,setReason] = useState('')
+    const labels=Labels()
     const postReportHandler =(e)=>{
       console.log('ppppppppppp',postId)
       e.preventDefault()
@@ -21,7 +24,10 @@ export default function PostActions({postId,user,setOnSuccess,sharedClick}) {
         }
       }).then((res)=>{
         setShow(false)
-        console.log('*/*/*/*/*/*/*/*/*/*/*/*/**',res)
+        notification.success({
+          message:constants.Success,
+          description:`${labels['Reported successfully']}`
+        })
       })
 
     }
@@ -36,7 +42,10 @@ export default function PostActions({postId,user,setOnSuccess,sharedClick}) {
         }
       }).then((res)=>{
         setOnSuccess(prev => !prev)
-        console.log('result',res)
+        notification.success({
+          message:constants.Success,
+          description:`${labels['Post deleted successfully']}`
+        })
       })
       setVisible(false)
     }
@@ -64,8 +73,9 @@ export default function PostActions({postId,user,setOnSuccess,sharedClick}) {
             />
           </Form.Item>
 
-          <Form.Item>
+          <Form.Item style={{display:'flex',justifyContent:'flex-end'}}>
             <Button 
+            style={{backgroundColor: "#17A803"}}
             type="primary" 
             htmlType="submit"
             >

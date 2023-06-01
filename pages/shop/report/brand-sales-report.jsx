@@ -15,9 +15,12 @@ import MainHeader from "@/components/shared/headers/MainHeader";
 import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileFooter from "@/components/shared/MobileFooter";
+import { notification } from "antd";
+import { Labels } from "@/public/data/my-constants/Labels";
 function BrandSaleReport() {
-
   const [selectedDays, setSelectedDays] = useState(30);
+
+  const labels = Labels();
 
   const [startDate, setStartDate] = useState(
     moment().subtract(30, "days").format("YYYY-MM-DD")
@@ -55,24 +58,28 @@ function BrandSaleReport() {
         },
       }
     ).then((res) => {
-      setBrandReport(res.data.data[0].brands);
-      const data = res.data.data[0];
-      const brandColors = randomColor({
-        count: data.brands.length,
-        luminosity: "bright",
-        format: "rgba",
-      });
-      const chartData = {
-        labels: data.brands.map((brand) => brand.brand_name),
-        datasets: [
-          {
-            data: data.brands.map((brand) => brand.count),
-            backgroundColor: brandColors,
-            hoverBackgroundColor: brandColors,
-          },
-        ],
-      };
-      setChartData(chartData);
+      console.log("res", res);
+      if (res.data.data.length > 0) {
+        setBrandReport(res.data.data[0].brands);
+
+        const data = res.data.data[0];
+        const brandColors = randomColor({
+          count: data.brands.length,
+          luminosity: "bright",
+          format: "rgba",
+        });
+        const chartData = {
+          labels: data.brands.map((brand) => brand.brand_name),
+          datasets: [
+            {
+              data: data.brands.map((brand) => brand.count),
+              backgroundColor: brandColors,
+              hoverBackgroundColor: brandColors,
+            },
+          ],
+        };
+        setChartData(chartData);
+      }
     });
   }, [startDate, endDate]);
 
@@ -90,12 +97,12 @@ function BrandSaleReport() {
   };
   return (
     <div>
-      <MainHeader title='Doob'/>
+      <MainHeader title="Doob" />
       <MobileHeader />
       <MainSidebarFixed />
       <div className="store-container1">
         <div className="Bottom">
-          <ShopPagesSideBar />
+          <ShopPagesSideBar currentPage="report" />
 
           <div class="content-topics ">
             <div className="bottom">
@@ -134,7 +141,16 @@ function BrandSaleReport() {
                     </Dropdown.Menu>
                   </Dropdown>
                   <span>
-                    <button type="button" className="export-btn">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        notification.info({
+                          message: constants.Info,
+                          description: `${labels["This feature will added soon"]}`,
+                        })
+                      }
+                      className="export-btn"
+                    >
                       Export
                     </button>
                   </span>
@@ -157,7 +173,6 @@ function BrandSaleReport() {
         </div>
       </div>
       <MobileFooter />
-
     </div>
   );
 }

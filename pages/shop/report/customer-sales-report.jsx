@@ -18,9 +18,13 @@ import MainHeader from "@/components/shared/headers/MainHeader";
 import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileFooter from "@/components/shared/MobileFooter";
+import { notification } from "antd";
+import { Labels } from "@/public/data/my-constants/Labels";
 
 function CustomerSalesReport() {
   const [customerSale, setCustomerSale] = useState([]);
+  const labels=Labels()
+
   useEffect(() => {
     Axios.post(
       apis.costomerReport,
@@ -39,12 +43,12 @@ function CustomerSalesReport() {
   });
   return (
     <div>
-      <MainHeader title='Doob'/>
+      <MainHeader title="Doob" />
       <MobileHeader />
       <MainSidebarFixed />
       <div className="store-container1">
         <div className="Bottom">
-          <ShopPagesSideBar />
+          <ShopPagesSideBar currentPage="report" />
 
           <div class="content-topics ">
             <div className="bottom">
@@ -75,13 +79,22 @@ function CustomerSalesReport() {
                     </Dropdown.Menu>
                   </Dropdown>
                   <span>
-                    <img
-                      src="../images/store/f-icon.png"
+                    {/* <img
+                      src="/images/store/f-icon.png"
                       className="fil-icon"
-                    ></img>
-                    <button type="button" className="export-btn">
+                    ></img> */}
+                    <button
+                      onClick={() =>
+                        notification.info({
+                          message: constants.Info,
+                          description: `${labels["This feature will added soon"]}`,
+                        })
+                      }
+                      type="button"
+                      className="export-btn"
+                    >
                       Export
-                    </button> 
+                    </button>
                   </span>
                 </div>
 
@@ -111,7 +124,6 @@ function CustomerSalesReport() {
         </div>
       </div>
       <MobileFooter />
-
     </div>
   );
 }

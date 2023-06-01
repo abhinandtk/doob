@@ -41,7 +41,7 @@ function BrandManagement() {
   }
 
   return (
-    <div class="content-topics ">
+    <div className="content-topics ">
       <div className="bottom">
         <h6 className=" ms-4" style={{ color: "#17a803", fontWeight: "700" }}>
           Brand Management
@@ -65,7 +65,7 @@ function BrandManagement() {
                   <p key={index} className="foot-ball-small">
                     {item.brand}
                   </p>
-                  <div class="toggle">
+                  <div className="toggle">
                     <input  onChange={(e)=>statusHandlerChange(e,item.id,index)} checked={item.status==='Active'} type="checkbox" />
                     <label></label>
                     <span onClick={()=>router.push({
@@ -74,7 +74,7 @@ function BrandManagement() {
                     })}>
                       <img
                         href="#"
-                        src="../images/store/Edit copy.png"
+                        src="/images/store/Edit copy.png"
                         className="edit"
                       ></img>
                     </span>

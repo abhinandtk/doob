@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { notification } from "antd";
 
-function CategoriesForm({categorySubmitHandler,editData}) {
+function CategoriesForm({ categorySubmitHandler, editData }) {
   const router = useRouter();
 
   console.log('cattttttttttttttttttttttsada',editData)
@@ -35,24 +35,21 @@ function CategoriesForm({categorySubmitHandler,editData}) {
       setCategoryList(res.data.data.categories);
     });
 
-    if(editData){
+    if (editData) {
       setFormData({
-        name:editData.title,
-        nameArabic:editData.title_arabic,
-        parentCat:editData.parent_id,
-        display:editData.display_order
-      })
+        name: editData.title,
+        nameArabic: editData.title_arabic,
+        parentCat: editData.parent_id,
+        display: editData.display_order,
+      });
     }
-
   }, []);
 
-  const submitHandler=(e)=>{
-    e.preventDefault()
-    categorySubmitHandler(formData)
+  const submitHandler = (e) => {
+    e.preventDefault();
+    categorySubmitHandler(formData);
+  };
 
-  }
-
-  
   return (
     <div class="content-topics ">
       <div className="bottom">
@@ -107,7 +104,11 @@ function CategoriesForm({categorySubmitHandler,editData}) {
               >
                 <option value="">select</option>
                 {categoryList.map((item, index) => (
-                  <option key={index} selected={editData != null && formData.parentCat == item.id } value={item.id}>
+                  <option
+                    key={index}
+                    selected={editData != null && formData.parentCat == item.id}
+                    value={item.id}
+                  >
                     {item.title}
                   </option>
                 ))}
@@ -132,7 +133,11 @@ function CategoriesForm({categorySubmitHandler,editData}) {
               <button type="submit" className="submit-cart-btn">
                 Submit
               </button>
-              <button type="button" className="sub-cart-btn">
+              <button
+                onClick={() => router.back()}
+                type="button"
+                className="sub-cart-btn"
+              >
                 Cancel
               </button>
             </div>

@@ -61,7 +61,7 @@ function AllGamesPage() {
 
   return (
     <div>
-      <MainHeader title='Doob' />
+      <MainHeader title="Doob" />
       <MobileHeader />
       <MainSidebarFixed />
       <div className="tour-container">
@@ -102,16 +102,16 @@ function AllGamesPage() {
                 ))}
               </div>
               {myGames.map((item, index) =>
-                selectedCategory === null || selectedCategory === item.title ? (
-                  console.log('reeeeeeeeeeeeeeeeeeeet',item.bookings)
-                  // item.bookings.length >= 1 ? (
+                selectedCategory === null || selectedCategory === item.title
+                  ? console.log("reeeeeeeeeeeeeeeeeeeet", item.bookings)
+                  : // item.bookings.length >= 1 ? (
 
-                  //   <></>
-                  //   // <GameBookingCard data={item.bookings} />
-                  // ) : (
-                  //   <></>
-                  // )
-                ) : null
+                    //   <></>
+                    //   // <GameBookingCard data={item.bookings} />
+                    // ) : (
+                    //   <></>
+                    // )
+                    null
               )}
               {/* {myGames.map((item, index) =>
                 item.bookings.length >= 1 ? <GameBookingCard data={item.bookings}/> : <></>
@@ -136,7 +136,7 @@ function AllGamesPage() {
                       color: `${
                         selectedCategory === item.title ? "#17A803" : ""
                       }`,
-                     }}
+                    }}
                     className="mx-3"
                   >
                     {item.title}
@@ -186,8 +186,8 @@ function AllGamesPage() {
           </Tabs>
         </div>
 
-        <button type="button" className="history-btn ">
-          View History88
+        <button type="button" className="history-btn">
+          View History
         </button>
       </div>
       <MobileFooter />

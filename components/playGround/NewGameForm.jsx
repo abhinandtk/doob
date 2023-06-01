@@ -15,6 +15,12 @@ function NewGameForm({ game, country }) {
   console.log("res98", country);
 
   useEffect(() => {
+    if (router.query.path === "headerNav") {
+      setVisible(true);
+    }
+  }, []);
+
+  useEffect(() => {
     if (country.length > 0) {
       const userCountry = localStorage.getItem("country-select");
       console.log("res988", userCountry);
@@ -49,7 +55,7 @@ function NewGameForm({ game, country }) {
   };
   const searchNewGameHandler = (e) => {
     e.preventDefault();
-    console.log('ddddddddddddddaaaate',formData)
+    console.log("ddddddddddddddaaaate", formData);
     Axios.post(
       apis.listStadium,
       {

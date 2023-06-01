@@ -22,23 +22,29 @@ function PlayGroundCartPage() {
     }).then((res) => {
       setCartData(res.data.data);
     });
-  },[]);
+  }, []);
 
   return (
     <div>
       <MainHeader doob="title" />
       <MobileHeader />
       <MainSidebarFixed />
-        <div className="tour-container">
-          <h5 className=" my-4" style={{ fontWeight: "600" }}>
-            My Cart
-          </h5>
-          <div className="row">
-            <GroundFieldAddress address={cartData} />
-            <GroundCartItems data={cartData}/>
-          </div>
+      <div className="tour-container">
+        <h5 className=" my-4" style={{ fontWeight: "600" }}>
+          My Cart
+        </h5>
+        <div className="row">
+          {cartData.length != 0 ? (
+            <>
+              <GroundFieldAddress address={cartData} />
+              <GroundCartItems data={cartData} />
+            </>
+          ) : (
+            <div>Cart is empty</div>
+          )}
         </div>
-        <MobileFooter />
+      </div>
+      <MobileFooter />
     </div>
   );
 }

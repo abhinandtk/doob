@@ -3,11 +3,12 @@ import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
-import { Switch } from "antd";
+import { Switch, notification } from "antd";
 function CategoryManagement() {
   const router = useRouter();
   const [categoryData, setCategoryData] = useState([]);
   const [checked, setChecked] = useState(false);
+  const [onSuccess, setOnSuccess] = useState();
   const handleToggle = (checked) => {
     setChecked(checked);
   };
@@ -21,9 +22,52 @@ function CategoryManagement() {
       setCategoryData(res.data.data.categories);
       console.log("tytytytyytytyty.", res.data.data.categories);
     });
-  },[]);
+  }, [onSuccess]);
+
+  const statusHandlerChange = (e, id) => {
+    Axios.post(
+      apis.categoryActive,
+      {
+        category_id: id,
+        status: e.target.checked == true ? "True" : "False",
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      setOnSuccess((prev) => !prev);
+      notification.success({
+        message: "Success",
+        description: "Status changed successfully",
+      });
+    });
+  };
+  const statusSubHandler = (e, id) => {
+    
+    Axios.post(
+      apis.subCategoryActive,
+      {
+        subcategory_id: id,
+        status: e.target.checked == true ? "True" : "False",
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      setOnSuccess((prev) => !prev);
+      notification.success({
+        message: "Success",
+        description: "Status changed successfully",
+      });
+      
+    });
+  };
   return (
-    <div class="content-topics ">
+    <div className="content-topics ">
       <div className="bottom">
         <h6 className=" ms-4" style={{ color: "#17a803", fontWeight: "700" }}>
           Category Management
@@ -47,7 +91,12 @@ function CategoryManagement() {
                     {item.title}
                   </p>
                   <div className="toggle">
-                    <input placeholder="Active" type="checkbox" />
+                    <input
+                      placeholder="Active"
+                      onChange={(e) => statusHandlerChange(e, item.id, index)}
+                      checked={item.status === true}
+                      type="checkbox"
+                    />
 
                     <label></label>
                     <span
@@ -60,7 +109,7 @@ function CategoryManagement() {
                     >
                       <img
                         href="#"
-                        src="../images/store/Edit copy.png"
+                        src="/images/store/Edit copy.png"
                         className="edit"
                       ></img>
                     </span>
@@ -71,8 +120,15 @@ function CategoryManagement() {
                         <p key={sub} className="foot-ball-small">
                           {sub.title}
                         </p>
-                        <div class="toggle">
-                          <input placeholder="Active" type="checkbox" />
+                        <div className="toggle">
+                          <input
+                            placeholder="Active"
+                            onChange={(e) =>
+                              statusSubHandler(e, sub.id, index)
+                            }
+                            checked={sub.status === true}
+                            type="checkbox"
+                          />
                           <label></label>
                           <span
                             onClick={() =>
@@ -84,7 +140,7 @@ function CategoryManagement() {
                           >
                             <img
                               href="#"
-                              src="../images/store/Edit copy.png"
+                              src="/images/store/Edit copy.png"
                               className="edit"
                             ></img>
                           </span>

@@ -15,6 +15,8 @@ import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { useEffect } from "react";
+import MobileHeader from "@/components/MobileHeader";
+import MobileFooter from "@/components/shared/MobileFooter";
 function FavoriteProducts() {
   const [favLists, setFavLists] = useState([]);
     useEffect(()=>{})
@@ -54,6 +56,7 @@ function FavoriteProducts() {
   return (
     <Fragment>
       <MainHeader title="Doob" />
+      <MobileHeader />
       <MainSidebarFixed />
       <div className="side-container">
         <PagesSideBar currentPage="fav-prod" />
@@ -68,7 +71,7 @@ function FavoriteProducts() {
                   <div key={index} className="col-lg-4 col-md-4 col-sm-6 col-xs-6  ">
                     <Card className="favouite-cards"> 
                       <Card.Img
-                        style={{ borderRadius: "12px 12px 0px 0px" }}
+                        style={{ borderRadius: "12px 12px 0px 0px" ,objectFit:'cover',aspectRatio:'1'}}
                         src={`${constants.port}${item.image}`}
                       />
                       <Card.Body>
@@ -124,6 +127,7 @@ function FavoriteProducts() {
           </div>
         </div>
       </div>
+      <MobileFooter />
     </Fragment>
   );
 }
