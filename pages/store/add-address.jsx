@@ -39,11 +39,9 @@ function AddAddressPage() {
     if (cityData && cityData.regions) {
         setAreaData(cityData.regions);
     }
-  }, []);
+  }, [country]);
 
   const handleAddAddress = (data, defaultAddress) => {
-    console.log("daaaaaaaaaaaaaaaata", data);
-    console.log(",,,,,,,,,,,,,", defaultAddress ? "True" : "False");
     let body = {};
     if (addressType === "home") {
       body = {
@@ -112,7 +110,6 @@ function AddAddressPage() {
       },
     }).then((res) => {
       router.push("/store/cart");
-      console.log("adddresssssssssssssssss", res);
     });
   };
   return (
