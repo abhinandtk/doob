@@ -14,11 +14,11 @@ const markerStyle = {
 };
 
 export default function SimpleMap({data}) {
-    console.log('functionmap',data)
+    console.log('functionmap',data[0] && data[0].latitude)
   const defaultProps = {
     center: {
-      lat: 11.162233,
-      lng: 75.81366,
+      lat: 29.3117,
+      lng: 47.4818,
     },
     zoom: 11,
   };

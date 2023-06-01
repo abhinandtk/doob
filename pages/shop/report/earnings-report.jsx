@@ -15,11 +15,14 @@ import MainHeader from "@/components/shared/headers/MainHeader";
 import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileFooter from "@/components/shared/MobileFooter";
+import { notification } from "antd";
+import { Labels } from "@/public/data/my-constants/Labels";
 Chart.register(CategoryScale);
 
 function EarningsReport() {
   const [selectedDays, setSelectedDays] = useState(30);
   const [earningsData, setEarningsData] = useState([]);
+  const labels=Labels()
 
   const [startDate, setStartDate] = useState(
     moment().subtract(30, "days").format("YYYY-MM-DD")
@@ -41,7 +44,6 @@ function EarningsReport() {
     ],
   });
 
-  
   const options = {
     scales: {
       x: {
@@ -156,7 +158,16 @@ function EarningsReport() {
                     </Dropdown.Menu>
                   </Dropdown>
                   <span>
-                    <button type="button" className="export-btn">
+                    <button
+                      onClick={() =>
+                        notification.info({
+                          message: constants.Info,
+                          description: `${labels["This feature will added soon"]}`,
+                        })
+                      }
+                      type="button"
+                      className="export-btn"
+                    >
                       Export
                     </button>
                   </span>
@@ -199,7 +210,6 @@ function EarningsReport() {
         </div>
       </div>
       <MobileFooter />
-
     </div>
   );
 }

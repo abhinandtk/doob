@@ -6,8 +6,9 @@ function  GroundFieldAddress({ address }) {
     <Fragment>
       <div className="col-md-6">
         <h5>Field Address</h5>
-        {address && address.map((item, index) => (
-          <div key={index} className="card carts">
+        {/* {address && address.map((item, index) => ( */}
+        {address && address[0]&&
+          <div  className="card carts">
             <div className="card-body cart-info p-4">
               <div className="cart-location">
                 <svg
@@ -28,15 +29,15 @@ function  GroundFieldAddress({ address }) {
                 </svg>
 
                 <h5 className="mx-4 text-cart">
-                  {item.stadium_name[0].stadium_name}
+                  {address[0].stadium_name[0].stadium_name}
                 </h5>
-                <img src="../images/edit.png" className="mt-2 edits"></img>
+                <img src="/images/edit.png" className="mt-2 edits"></img>
               </div>
 
-              <p className="cart-place">{item.stadium_name[0].location}, Kuwait</p>
+              <p className="cart-place">{address[0].stadium_name[0].location}, Kuwait</p>
             </div>
-          </div>
-        ))}
+          </div>}
+        {/* ))} */}
       </div>
     </Fragment>
   );

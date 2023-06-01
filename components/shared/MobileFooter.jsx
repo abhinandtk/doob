@@ -6,7 +6,11 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { useDispatch, useSelector } from "react-redux";
 import { updateStoreCartCount } from "@/Redux/cartsCount";
+import { useRouter } from "next/router";
+
 function MobileFooter() {
+  const router=useRouter()
+  const {asPath}=router
   const storeCount = useSelector((state) => state.storeCartCount.storeCount);
   const dispatch = useDispatch();
   console.log("storreCount", storeCount);
@@ -90,7 +94,9 @@ function MobileFooter() {
 
       <Link
         href={`${
-          storeCount != 0 ? "/store/cart" : "/play-ground/play-ground-cart"
+          asPath.includes("store") || storeCount != 0
+            ? "/store/cart"
+            : "/play-ground/play-ground-cart"
         }`}
         className="navbar__button1"
       >

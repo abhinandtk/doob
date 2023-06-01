@@ -6,8 +6,13 @@ import constants from '@/public/data/my-constants/Constants'
 import { Upload, message } from 'antd';
 import { notification } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
+import { useDispatch } from 'react-redux';
+import { apiCallSuccess } from '@/Redux/apiSuccess';
 const { TextArea } = Input;
+
 function UploadFiles({setUploadShow}) {
+
+    const dispatch=useDispatch()
 
     const [file,setFile] = useState(null)
     const [caption,setCaption] = useState('')
@@ -35,6 +40,7 @@ function UploadFiles({setUploadShow}) {
         ).then((res)=>{
             if (res.data.status === 1){
                 console.log('sucesss')
+                dispatch(apiCallSuccess())
                 message.success('Post uploaded successfully');
                 notification.success({
                     message: 'Success',

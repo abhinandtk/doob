@@ -16,6 +16,7 @@ import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import SimpleMap from "@/components/playGround/MapPlayground";
 import MobileFooter from "@/components/shared/MobileFooter";
+import { useRouter } from "next/router";
 
 function PlayGroundPage() {
   const [game, setGame] = useState([]);
@@ -23,6 +24,16 @@ function PlayGroundPage() {
   const [country, setCountry] = useState([]);
   const [homePageData, setHomePageData] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
+
+  const router=useRouter()
+
+  useEffect(()=>{
+    if(router.query.path==='headerNav'){
+      
+
+    }
+
+  },[])
   useEffect(() => {
     Axios.get(apis.listGameAmenities, {
       headers: {

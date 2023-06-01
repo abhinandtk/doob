@@ -755,7 +755,7 @@ function ProductsForm({ handleProductAdd, editData }) {
               <button type="submit" className="submit-cart-btn">
                 Submit
               </button>
-              <button type="button" className="sub-cart-btn">
+              <button onClick={()=>router.back()} type="button" className="sub-cart-btn">
                 Cancel
               </button>
             </div>

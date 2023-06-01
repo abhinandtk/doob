@@ -87,6 +87,7 @@ const apis = {
     'editSubCategory': `${constants.port}/store/api/edit_subcategory`,
     'categoryList': `${constants.port}/store/api/store_category_list`,
     'categoryActive': `${constants.port}/store/api/category_active `,
+    'subCategoryActive': `${constants.port}/store/api/subcategory_active `,
     'categoryReport': `${constants.port}/store/api/category_report `,
 
     'productsList': `${constants.port}/store/api/list_products `,

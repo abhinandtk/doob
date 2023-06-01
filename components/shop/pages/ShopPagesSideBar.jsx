@@ -195,7 +195,7 @@ function ShopPagesSideBar({currentPage}) {
         </svg>
         <span className="mx-2" style={{color:`${currentPage === 'category' ? '#17A803' : ''}`}}>Category</span>
       </Link>
-      <Link href='/shop/category-management' style={{textDecoration:'none'}}>
+      <Link href='/shop/brand-management' style={{textDecoration:'none'}}>
       <svg
             width="25"
             height="26"

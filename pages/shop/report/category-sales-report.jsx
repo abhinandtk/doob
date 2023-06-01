@@ -39,24 +39,26 @@ function CategorySalesReport() {
         },
       }
     ).then((res) => {
-      setCategoryReportData(res.data.data[0].category);
-      const data = res.data.data[0];
-      const brandColors = randomColor({
-        count: data.category.length,
-        luminosity: "bright",
-        format: "rgba",
-      });
-      const chartData = {
-        labels: data.category.map((cat) => cat.category_name),
-        datasets: [
-          {
-            data: data.category.map((cat) => cat.count),
-            backgroundColor: brandColors,
-            hoverBackgroundColor: brandColors,
-          },
-        ],
-      };
-      setChartData(chartData);
+      if (res.data.data.length > 0) {
+        setCategoryReportData(res.data.data[0].category);
+        const data = res.data.data[0];
+        const brandColors = randomColor({
+          count: data.category.length,
+          luminosity: "bright",
+          format: "rgba",
+        });
+        const chartData = {
+          labels: data.category.map((cat) => cat.category_name),
+          datasets: [
+            {
+              data: data.category.map((cat) => cat.count),
+              backgroundColor: brandColors,
+              hoverBackgroundColor: brandColors,
+            },
+          ],
+        };
+        setChartData(chartData);
+      }
     });
   }, []);
 
@@ -79,7 +81,7 @@ function CategorySalesReport() {
       <MainSidebarFixed />
       <div className="store-container1">
         <div className="Bottom">
-          <ShopPagesSideBar />
+          <ShopPagesSideBar currentPage='report' />
 
           <div class="content-topics ">
             <div className="bottom">
@@ -117,19 +119,18 @@ function CategorySalesReport() {
                 </div>
 
                 <br></br>
-                <div  className="dough" >
+                <div className="dough">
                   <center>
                     <Doughnut data={chartData} options={options} />
                   </center>
                 </div>
-                      
+
                 <div className="customer-sale">
-                  <div id="header" className="d-flex justify-content-between headers">
-                    <div
-                      id="logo"
-                      style={{ textAlign: "start" }}
-                      className=""
-                    >
+                  <div
+                    id="header"
+                    className="d-flex justify-content-between headers"
+                  >
+                    <div id="logo" style={{ textAlign: "start" }} className="">
                       Category
                     </div>
                     <div

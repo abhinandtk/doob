@@ -7,6 +7,8 @@ import { Card } from "react-bootstrap";
 import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
+import MobileHeader from "@/components/MobileHeader";
+import MobileFooter from "@/components/shared/MobileFooter";
 
 function FavoriteStores() {
   const [storeFavList, setStoreFavList] = useState([]);
@@ -45,6 +47,7 @@ function FavoriteStores() {
   return (
     <Fragment>
       <MainHeader title="Doob" />
+      <MobileHeader />
       <MainSidebarFixed />
       <div className="side-container">
         <PagesSideBar currentPage="fav-store" />
@@ -87,6 +90,7 @@ function FavoriteStores() {
           </div>
         </div>
       </div>
+      <MobileFooter />
     </Fragment>
   );
 }
