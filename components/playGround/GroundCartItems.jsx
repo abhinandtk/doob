@@ -6,10 +6,12 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
+import { useRouter } from "next/router";
 function GroundCartItems({ data }) {
   console.log("groundCart", data);
 
   const labels = Labels();
+  const router = useRouter();
   const checkoutPlaygroundHandler = () => {
     Axios.post(apis.playgroundCheckout, null, {
       headers: {
@@ -21,8 +23,12 @@ function GroundCartItems({ data }) {
           messsage: constants.Success,
           description: `${labels["Checkout Successfully"]}`,
         });
-      } 
-      
+        router.push({
+          pathname: "/play-ground/page/booking-success",
+          query: { booking_id: res.data.data.booking_id },
+        });
+      }
+
       console.log("rescheckout", res);
     });
   };
@@ -33,7 +39,7 @@ function GroundCartItems({ data }) {
           <div key={index} className="col-md-6">
             <div className="clearfix numbers">
               <h5 className="float-start">Slots</h5>
-              <p className="float-end">Total 2 items</p>
+              <p className="float-end">Total&nbsp;{item.cart_count}&nbsp;items</p>
             </div>
             {item.time_slots.map((slot, index_) => (
               <div key={index_} className="card carts1 my-3">
@@ -61,7 +67,7 @@ function GroundCartItems({ data }) {
                     </div>
                   </div>
                   <div className="clearfix my-1 sections">
-                    <p className="carts-group float-start">Ground A B</p>
+                    {/* <p className="carts-group float-start">Ground A B</p> */}
                     <h5 className="float-end" style={{ fontWeight: "600" }}>
                       {item.stadium_name[0].amount}
                     </h5>

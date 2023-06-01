@@ -18,47 +18,58 @@ import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import { useRouter } from "next/router";
 import MobileFooter from "@/components/shared/MobileFooter";
 
-function OrderSuccessPage() {
-
-    const router = useRouter()
-
-  
+function BookingSuccessPage() {
+  const router = useRouter();
+  const { booking_id } = router.query;
+  console.log("query", router.query,booking_id);
   return (
     <div>
-        <MainHeader title='Doob' />
-        <MobileHeader />
-        <MainSidebarFixed />
+      <MainHeader title="Doob" />
+      <MobileHeader />
+      <MainSidebarFixed />
 
       <div className="store-container  my-5">
         <div className="card ">
           <div className="card-body p-5  ">
             <div className="success " style={{ textAlign: "center" }}>
-              <img
-                src="/images/store/success.png"
-                className="greenlogo"
-              ></img>
+              <img src="/images/store/success.png" className="greenlogo"></img>
               <h5
                 className="text-center
             "
               >
-                Payment Successful
+                You have Successfully Booked
               </h5>
               <p className="text-center">
-                Your order has been Placed Successfully
+                Do you want invite people to this game
               </p>
-              <Button onClick={()=>router.push('/store')} type="submit" className="payment-btn ">
+              <Button
+                onClick={() =>
+                  router.push({
+                    pathname: "/games/create-game",
+                    query: {booking_id:booking_id},
+                  })
+                }
+                type="submit"
+                className="payment-btn "
+                style={{ width: "100px" }}
+              >
                 {" "}
-                Continue Shipping{" "}
+                Yes{" "}
               </Button>
-              <p style={{cursor:'pointer'}} onClick={()=>router.push('/')} className="text-center my-2">Back to Home</p>
+              <p
+                style={{ cursor: "pointer" }}
+                onClick={() => router.push("/play-ground")}
+                className="text-center my-2"
+              >
+                No
+              </p>
             </div>
           </div>
         </div>
       </div>
       <MobileFooter />
-
     </div>
   );
 }
 
-export default OrderSuccessPage;
+export default BookingSuccessPage;

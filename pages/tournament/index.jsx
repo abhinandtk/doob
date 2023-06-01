@@ -9,6 +9,7 @@ import constants from "@/public/data/my-constants/Constants";
 import MainHeader from "@/components/shared/headers/MainHeader";
 import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
+import MobileFooter from "@/components/shared/MobileFooter";
 
 function TournamentHomePage() {
   const [liveTourData, setLiveTourData] = useState([]);
@@ -46,6 +47,8 @@ function TournamentHomePage() {
         {activeTab === 'tournaments' && <TournamentTabContent data={liveTourData} />}
         {activeTab === 'ranks' && <RankTabContent data={rankData}/>}
       </div>
+      <MobileFooter />
+
     </div>
   );
 }

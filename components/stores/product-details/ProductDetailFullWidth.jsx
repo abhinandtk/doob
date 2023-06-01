@@ -113,6 +113,7 @@ function ProductDetailFullWidth({ product }) {
         },
       }
     ).then((res) => {
+      console.log('storreCountres',res)
       if(res.data.status==1){
         notification.success({
           message:'Success',

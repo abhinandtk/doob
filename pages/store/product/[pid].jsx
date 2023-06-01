@@ -9,6 +9,7 @@ import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
 import ProductDetailFullWidth from "@/components/stores/product-details/ProductDetailFullWidth";
 import MobileHeader from "@/components/MobileHeader";
+import MobileFooter from "@/components/shared/MobileFooter";
 
 function ProductDetailPage() {
   const [productDetails, setProductDetails] = useState([]);
@@ -67,6 +68,8 @@ function ProductDetailPage() {
           </div>
         </section>
       </div>
+      <MobileFooter />
+
     </>
   );
 }

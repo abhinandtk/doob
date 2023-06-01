@@ -20,12 +20,13 @@ import { Labels } from "@/public/data/my-constants/Labels";
 import MainHeader from "@/components/shared/headers/MainHeader";
 import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
+import MobileFooter from "@/components/shared/MobileFooter";
 
 function AddPlaygroundPage() {
 
   const labels =Labels()
   const handlePlaygroundForm = (data, game, amenity, slot) => {
-    console.log('data',data)
+    console.log('data',data,game,amenity)
    
     const formData = new FormData();
     formData.append("stadium_name", data.name);
@@ -67,7 +68,7 @@ function AddPlaygroundPage() {
         })
       }
       
-      console.log("success4444444444444444444444", res);
+      console.log("success4444444444444444444444", res,formData);
     });
   };
 
@@ -100,6 +101,7 @@ function AddPlaygroundPage() {
           </div>
         </div>
       </div>
+      <MobileFooter />
     </div>
   );
 }

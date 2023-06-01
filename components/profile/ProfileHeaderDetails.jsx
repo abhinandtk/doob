@@ -133,7 +133,7 @@ function ProfileHeaderDetails({data}) {
                     
                 </div>
                 <div className="profile-cam1" onClick={uploadShowHandler}>
-                    <img src="../images/accounts/camera.png"  alt=""></img>
+                    <img src="../images/accounts/camera.png" alt=""></img>
                 </div>
                 </div>
                 <div className='col-md-6'>
@@ -179,7 +179,7 @@ function ProfileHeaderDetails({data}) {
                 <button className="profile-edit-btn2">Edit</button>  */}
                 <div className="avatar">    
                 <div className="user-online-indicator" onClick={uploadShowHandler}>
-                  <img src="../images/accounts/camera.png" className='pixl.png'  alt=""/>
+                  <img src="../images/accounts/camera.png"  alt=""/>
                 </div>
                 {loading ?<Spin style={{position:'absolute',top:'50%',left:'50%'}} spinning={loading} indicator={<LoadingOutlined />}/>:
                 data.user_image ? (

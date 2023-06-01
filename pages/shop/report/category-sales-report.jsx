@@ -13,6 +13,7 @@ import ReportOrderCountTable from "@/components/shop/report/ReportOrderCountTabl
 import MainHeader from "@/components/shared/headers/MainHeader";
 import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
+import MobileFooter from "@/components/shared/MobileFooter";
 function CategorySalesReport() {
   const [categoryReportData, setCategoryReportData] = useState([]);
   const [chartData, setChartData] = useState({
@@ -170,6 +171,7 @@ function CategorySalesReport() {
           </div>
         </div>
       </div>
+      <MobileFooter />
     </div>
   );
 }

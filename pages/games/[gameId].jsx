@@ -4,6 +4,7 @@ import GameDetailFullWidth from "@/components/games/GameDetailFullWidth";
 import MainHeader from "@/components/shared/headers/MainHeader";
 import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
+import MobileFooter from "@/components/shared/MobileFooter";
 
 function HomePage() {
   return (
@@ -18,6 +19,7 @@ function HomePage() {
           </div>
         </div>
       </div>
+      <MobileFooter />
     </div>
   );
 }

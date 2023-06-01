@@ -17,6 +17,7 @@ import { useEffect } from "react";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import moment  from "moment";
+import MobileFooter from "@/components/shared/MobileFooter";
 function WalletPage() {
   const [walletData, setWalletData] = useState([]);
   const [totalCount, setTotalCount] = useState("");
@@ -252,7 +253,7 @@ function WalletPage() {
           <br></br>
           <p className="field">Fields</p>
           {walletData.map((item, index) => (
-            <div className="d-flex flex-start mt-4 mx-2">
+            <div key={index} className="d-flex flex-start mt-4 mx-2">
               <a className="me-2" href="">
                 <CardImg
                   className="rounded-circle shadow-1-strong "
@@ -281,6 +282,7 @@ function WalletPage() {
           ))}
         </div>
       </div>
+      <MobileFooter />
     </div>
   );
 }

@@ -7,6 +7,36 @@ import Link from "next/link";
 function TournamentTabContent({data}) {
   console.log("dataLive",data)
   const router =useRouter()
+
+  const getMatchTime = (time, date) => {
+    const startDate = moment(date, "YYYY-MM-DD");
+    const startTime = moment(time, "HH:mm:ss");
+
+    const startDateTime = startDate.clone().set({
+      hour: startTime.hours(),
+      minute: startTime.minutes(),
+      second: startTime.seconds(),
+    });
+
+    const currentTime = moment();
+
+    if (currentTime.isBefore(startDateTime)) {
+      return "00:00";
+    }
+
+    const diff = moment.duration(Math.abs(startDateTime.diff(currentTime)));
+    let totalMinutes = Math.floor(diff.asMinutes());
+    let seconds = diff.seconds();
+
+    if (totalMinutes > 90) {
+      return "90:00";
+    }
+
+    let matchTime = `${totalMinutes}:${seconds}`;
+
+    console.log("matchTime:", matchTime);
+    return matchTime;
+  };
   return (
     <Fragment>
       <h6 className="my-2" style={{ fontWeight: "600" }}>
@@ -38,13 +68,15 @@ function TournamentTabContent({data}) {
                   <p className="team1">{item.team_a.team_name} </p>
                 </div>
 
-                <div className="live-watch">
+                <div className="live-watch mx-5">
                   <p className="club-wins">{item.team_a.score} - {item.team_b.score}</p>
                   <button
                     type="button"
                     className=" btn-outline-secondary club-time"
                   >
-                    {moment(item.time,"hh:mm:ss").format('hh:mm')}
+                     {item.date
+                          ? getMatchTime(item.time, item.date)
+                          : "00:00"}
                   </button>
                 </div>
 
@@ -92,10 +124,10 @@ function TournamentTabContent({data}) {
         </div>
         <div className="col-lg-5 col-md-6">
           <div className="live-ads">
-            {/* <img
+            <img
               src="/images/tournament/Group 12.png"
               className="tournament-imx"
-            ></img> */}
+            ></img>
           </div>
         </div>
       </div>

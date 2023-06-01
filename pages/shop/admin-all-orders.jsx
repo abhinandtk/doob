@@ -14,6 +14,7 @@ import moment from "moment";
 import OrderProductCard from "@/components/stores/OrderProductCard";
 import { Modal, Select } from "antd";
 import { Fragment } from "react";
+import MobileFooter from "@/components/shared/MobileFooter";
 const { Option } = Select;
 function AdminAllOrders() {
   const [allOrders, setAllOrders] = useState([]);
@@ -248,6 +249,8 @@ function AdminAllOrders() {
           </div>
         </div>
       </div>
+      <MobileFooter />
+
     </Fragment>
   );
 }

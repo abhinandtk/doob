@@ -7,6 +7,7 @@ import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import AddCategoriesForm from "@/components/shop/category/CategoriesForm";
 import CategoryManagement from "@/components/shop/category/CategoryManagement";
+import MobileFooter from "@/components/shared/MobileFooter";
 
 function CategoryManagementPage() {
   return (
@@ -20,6 +21,8 @@ function CategoryManagementPage() {
           <CategoryManagement />
         </div>
       </div>
+      <MobileFooter />
+
     </Fragment>
   );
 }

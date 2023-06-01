@@ -27,6 +27,7 @@ import MainHeader from "@/components/shared/headers/MainHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileHeader from "@/components/MobileHeader";
 import { useRouter } from "next/router";
+import MobileFooter from "@/components/shared/MobileFooter";
 
 function PlayGroundDetailPage() {
     const router =useRouter()
@@ -77,6 +78,7 @@ function PlayGroundDetailPage() {
         <AmenitiesList amenitiesData={amenitiesData}/>
         <SelectGround details={groundData}/>
       </div>
+      <MobileFooter />
     </Fragment>
   );
 }

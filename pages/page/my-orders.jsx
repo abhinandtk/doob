@@ -14,6 +14,7 @@ import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import PagesSideBar from "@/components/stores/pages/PagesSideBar";
 import MyOrders from "@/components/stores/pages/MyOrders";
+import MobileFooter from "@/components/shared/MobileFooter";
 
 function MyOrdersPage() {
   return (
@@ -29,6 +30,7 @@ function MyOrdersPage() {
 
         </div>
       </div>
+      <MobileFooter />
     </div>
   );
 }

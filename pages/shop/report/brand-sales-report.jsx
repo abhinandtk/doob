@@ -14,6 +14,7 @@ import moment from "moment";
 import MainHeader from "@/components/shared/headers/MainHeader";
 import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
+import MobileFooter from "@/components/shared/MobileFooter";
 function BrandSaleReport() {
 
   const [selectedDays, setSelectedDays] = useState(30);
@@ -155,6 +156,8 @@ function BrandSaleReport() {
           </div>
         </div>
       </div>
+      <MobileFooter />
+
     </div>
   );
 }

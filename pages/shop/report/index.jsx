@@ -1,4 +1,5 @@
 import MobileHeader from "@/components/MobileHeader";
+import MobileFooter from "@/components/shared/MobileFooter";
 import MainHeader from "@/components/shared/headers/MainHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import ShopPagesSideBar from "@/components/shop/pages/ShopPagesSideBar";
@@ -113,6 +114,8 @@ function ReportPage() {
           </div>
         </div>
       </div>
+      <MobileFooter />
+
     </Fragment>
   );
 }

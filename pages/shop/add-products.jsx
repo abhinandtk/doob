@@ -11,6 +11,7 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
 import { notification } from "antd";
+import MobileFooter from "@/components/shared/MobileFooter";
 function AddProductPage() {
   const router =useRouter() 
   const handleProductAdd = (formData) => {
@@ -82,6 +83,7 @@ function AddProductPage() {
           <ProductsForm handleProductAdd={handleProductAdd}/>
         </div> 
       </div>
+      <MobileFooter />
     </Fragment>
   );
 }

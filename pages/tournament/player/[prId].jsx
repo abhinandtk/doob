@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import MainHeader from "@/components/shared/headers/MainHeader";
 import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
+import MobileFooter from "@/components/shared/MobileFooter";
 
 function PlayerDetailsPage() {
   const router = useRouter();
@@ -72,11 +73,15 @@ function PlayerDetailsPage() {
                   <div className="card-body">
                     <div className="grey-content">
                       <div className="grey-details">
-                        <h5 className="grey-number">{rankDetails.Matches_Played}</h5>
+                        <h5 className="grey-number">
+                          {rankDetails.Matches_Played}
+                        </h5>
                         <p className="grey-match">Matches Played</p>
                       </div>
                       <div className="grey-details1">
-                        <h5 className="grey-number">{rankDetails.Matches_Won}</h5>
+                        <h5 className="grey-number">
+                          {rankDetails.Matches_Won}
+                        </h5>
                         <p className="grey-match">Matches Won</p>
                       </div>
                     </div>
@@ -139,6 +144,7 @@ function PlayerDetailsPage() {
           </div>
         )}
       </div>
+      <MobileFooter />
     </Fragment>
   );
 }

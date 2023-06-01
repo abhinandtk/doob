@@ -10,6 +10,7 @@ import constants from "@/public/data/my-constants/Constants";
 import CategoriesForm from "@/components/shop/category/CategoriesForm";
 import { useRouter } from "next/router";
 import { notification } from "antd";
+import MobileFooter from "@/components/shared/MobileFooter";
 function AddCategoryPage() {
 
   const router=useRouter()
@@ -48,6 +49,7 @@ function AddCategoryPage() {
           <CategoriesForm categorySubmitHandler={categorySubmitHandler} />
         </div>
       </div>
+      <MobileFooter />
     </Fragment>
   );
 }

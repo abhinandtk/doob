@@ -10,6 +10,7 @@ import SearchCategory from "@/components/stores/SearchCategory";
 import { useRouter } from "next/router";
 import StoreProductsCard from "@/components/stores/StoreProductsCard";
 import MobileHeader from "@/components/MobileHeader";
+import MobileFooter from "@/components/shared/MobileFooter";
 
 function CategorySearchPage() {
   const [searchInput, setSearchInput] = useState("");
@@ -111,6 +112,8 @@ function CategorySearchPage() {
           <div>No products Found...</div>
         )}
       </div>
+      <MobileFooter />
+
     </Fragment>
   );
 }

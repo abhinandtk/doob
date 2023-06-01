@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import TimeLineCard from "@/components/tournament/view/TimeLineCard";
 import { Button, Input, Modal, Select, notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
+import MobileFooter from "@/components/shared/MobileFooter";
 function MatchTimelinePage() {
   const router = useRouter();
   const { mId } = router.query;
@@ -353,6 +354,7 @@ function MatchTimelinePage() {
           </div>
         </>
       )}
+      <MobileFooter />
     </div>
   );
 }

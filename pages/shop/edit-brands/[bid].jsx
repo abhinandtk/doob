@@ -7,6 +7,7 @@ import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import EditBrand from "@/components/shop/brand/EditBrand";
 import { useRouter } from "next/router";
+import MobileFooter from "@/components/shared/MobileFooter";
 
 function EditBrandPage() {
   const router = useRouter()
@@ -22,6 +23,8 @@ function EditBrandPage() {
           <EditBrand />
         </div>
       </div>
+      <MobileFooter />
+
     </Fragment>
   );
 }

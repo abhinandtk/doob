@@ -36,7 +36,7 @@ function ShopDashBoardTop() {
                   }}
                   className="mt-2  "
                 >
-                   <h4 className="management-number1">5</h4>
+                  <h4>5</h4>
                 </Card.Subtitle>
               </span>
             </Card.Title>
@@ -80,7 +80,7 @@ function ShopDashBoardTop() {
                   }}
                   className="mt-2   "
                 >
-                 <h4 className="management-number1">5</h4>
+                  <h4>5</h4>
                 </Card.Subtitle>
               </span>
             </Card.Title>
@@ -98,7 +98,7 @@ function ShopDashBoardTop() {
         <Card className="doc-card">
           <Card.Body>
             <Card.Title className=" mt-2">
-              <svg 
+              <svg
                 width="26"
                 height="29"
                 viewBox="0 0 26 29"
@@ -120,7 +120,7 @@ function ShopDashBoardTop() {
                   }}
                   className="mt-2 "
                 >
-                  <h4 className="management-number1">5</h4>
+                  <h4>5</h4>
                 </Card.Subtitle>
               </span>
             </Card.Title>
