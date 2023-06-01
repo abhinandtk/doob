@@ -83,7 +83,7 @@ function PlaygroundManagementPage() {
                       }}
                       className="mt-2 mx-4  "
                     >
-                      <h4>5</h4>
+                         <h4 className="play-numbers">5</h4>
                     </Card.Subtitle>
                   </span>
                 </Card.Title>
@@ -150,7 +150,7 @@ function PlaygroundManagementPage() {
                       }}
                       className="mt-2 mx-4 "
                     >
-                      <h4>5</h4>
+                      <h4 className="play-numbers">5</h4>
                     </Card.Subtitle>
                   </span>
                 </Card.Title>
@@ -166,7 +166,7 @@ function PlaygroundManagementPage() {
           </div>
         </div>
 
-        <div className="play1">
+        <div className="play1 mobile">
           <Link
             href="/play-ground/all-bookings"
             style={{ textDecoration: "none", color: "inherit" }}
@@ -174,7 +174,7 @@ function PlaygroundManagementPage() {
             <div className="docu1  ">
               <svg
                 width="25"
-                className="mx-4"
+                className=""
                 height="26"
                 viewBox="0 0 25 26"
                 fill="none"
@@ -193,14 +193,14 @@ function PlaygroundManagementPage() {
                   fill="black"
                 />
               </svg>
-              <p>Bookings</p>
+              <p className="play-manage">Bookings</p>
             </div>
           </Link>
           <div className="docu1  ">
             <svg
               width="26"
               height="27"
-              className="mx-3"
+              className=""
               viewBox="0 0 26 27"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -221,7 +221,7 @@ function PlaygroundManagementPage() {
                 </clipPath>
               </defs>
             </svg>
-            <p>Earnings</p>
+            <p className="play-manage">Earnings</p>
           </div>
           <Link
             href="/play-ground/playground-view"
@@ -231,7 +231,7 @@ function PlaygroundManagementPage() {
               <svg
                 width="38"
                 height="25"
-                className="mx-4"
+                className=""
                 viewBox="0 0 38 25"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -280,15 +280,13 @@ function PlaygroundManagementPage() {
                 />
               </svg>
 
-              <p>Playground</p>
+              <p className="play-manage">Playground</p>
             </div>
           </Link>
-        </div>
-        <div className="play2">
-          <div className="docu2  ">
+          <div className="docu1  ">
             <svg
               width="23"
-              className="mx-3"
+              className=""
               height="24"
               viewBox="0 0 23 24"
               fill="none"
@@ -299,14 +297,14 @@ function PlaygroundManagementPage() {
                 fill="black"
               />
             </svg>
-            <p>Settings</p>
+            <p className="play-manage">Settings</p>
           </div>
-          <div className="docu2  ">
+          <div className="docu1  ">
             <svg
               width="25"
               height="33"
               viewBox="0 0 25 33"
-              className="mx-3"
+              className=""
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -319,14 +317,14 @@ function PlaygroundManagementPage() {
                 fill="black"
               />
             </svg>
-            <p>Reports</p>
+            <p className="play-manage">Reports</p>
           </div>
 
-          <div className="docu2  ">
+          <div className="docu1  ">
             <svg
               width="18"
               height="24"
-              className="mx-3"
+              className=""
               viewBox="0 0 18 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -337,9 +335,12 @@ function PlaygroundManagementPage() {
               />
             </svg>
 
-            <p>Support</p>
+            <p className="play-manage">Support</p>
           </div>
         </div>
+        {/* <div className="play2">
+         
+        </div> */}
       </div>
       <MobileFooter />
     </div>

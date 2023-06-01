@@ -1647,10 +1647,7 @@ div#header div {
 }
 
  .carl{  
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  
+ justify-content: center;
 }
 
 .documents{
@@ -1658,7 +1655,12 @@ div#header div {
   margin: 5px;
   padding: 10px;
 }
-
+div#header div {
+  display: inline-block;
+  text-align: end;
+  font-size: 13px;
+  font-weight: 700;
+}
 .new-orders{
 margin-left: -4px;
 font-size: 14px;
@@ -1849,7 +1851,7 @@ font-size: 14px;
 }
 
 .store-container {
-  width: 100%;
+  width: 90%;
  
   }
 .sides{

@@ -4,9 +4,6 @@ import React from "react";
 function PlayGroundSideBar({currentPage}) {
   return (
     <div className="side-play">
-      <div className="row">
-        
-      </div>
       <Link href="/play-ground/all-bookings" style={{textDecoration:'none'}}>
         {" "}
         <svg
@@ -69,7 +66,7 @@ function PlayGroundSideBar({currentPage}) {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            fill-rule="evenodd"
+            fill-rule="evenodd" 
             clip-rule="evenodd"
             d="M37.3133 24.7396H0.917241C0.642721 24.7396 0.419922 24.5166 0.419922 24.2423V0.550053C0.419922 0.275533 0.642721 0.0527344 0.917241 0.0527344H37.3133C37.5878 0.0527344 37.8106 0.275533 37.8106 0.550053V24.2421C37.8106 24.5166 37.5878 24.7396 37.3133 24.7396ZM1.41456 23.7448H36.816V1.04737H1.41456V23.7448Z"
             fill="black"
@@ -105,7 +102,7 @@ function PlayGroundSideBar({currentPage}) {
             fill="black"
           />
           <path
-            fill-rule="evenodd"
+            fill-rule="evenodd" 
             clip-rule="evenodd"
             d="M5.81931 17.2314H0.917241C0.642721 17.2314 0.419922 17.0083 0.419922 16.7341V8.05884C0.419922 7.78432 0.642721 7.56152 0.917241 7.56152H5.81956C6.09408 7.56152 6.31688 7.78432 6.31688 8.05884V16.7341C6.31639 17.0083 6.09408 17.2314 5.81907 17.2314H5.81931ZM1.41456 16.2365H5.32224V8.55566H1.41456V16.2365Z"
             fill="black"
@@ -164,7 +161,7 @@ function PlayGroundSideBar({currentPage}) {
             fill="black"
           />
         </svg>
-
+  
         <span className="mx-2">Support </span>
       </a>
     </div>
