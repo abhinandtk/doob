@@ -27,7 +27,6 @@ function MobileHeader() {
   const dispatch = useDispatch();
   const router=useRouter()
   const {asPath}=router
-  // console.log("storreCount", storeCount);
 
   const [user, setUser] = useState("");
 
@@ -62,6 +61,7 @@ function MobileHeader() {
           description: "Logout Successfully",
         });
         window.location.reload(false);
+        router.push('/')
       } else {
         print("error loadin");
       }

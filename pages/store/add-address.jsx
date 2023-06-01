@@ -1,162 +1,188 @@
-import React, { Fragment } from 'react'
-import {Button} from 'react-bootstrap';
-import { Tabs, Form } from 'antd';
-import MainHeader from '@/components/shared/headers/MainHeader';
-import MobileHeader from '@/components/MobileHeader';
-import MainSidebarFixed from '@/components/shared/sidebar/MainSidebarFixed';
-import HomeAddress from '@/components/stores/address/HomeAddress';
-import OfficeAddress from '@/components/stores/address/OfficeAddress';
-import ApartmentAddress from '@/components/stores/address/ApartmentAddress';
-import ThirdPartyAddress from '@/components/stores/address/ThirdPartyAddress';
-import { useState } from 'react';
-import Axios from 'axios';
-import apis from '@/public/data/my-constants/Apis';
-import constants from '@/public/data/my-constants/Constants';
-import { useRouter } from 'next/router';
-import MobileFooter from '@/components/shared/MobileFooter';
+import React, { Fragment } from "react";
+import { Button } from "react-bootstrap";
+import { Tabs, Form } from "antd";
+import MainHeader from "@/components/shared/headers/MainHeader";
+import MobileHeader from "@/components/MobileHeader";
+import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
+import HomeAddress from "@/components/stores/address/HomeAddress";
+import OfficeAddress from "@/components/stores/address/OfficeAddress";
+import ApartmentAddress from "@/components/stores/address/ApartmentAddress";
+import ThirdPartyAddress from "@/components/stores/address/ThirdPartyAddress";
+import { useState } from "react";
+import Axios from "axios";
+import apis from "@/public/data/my-constants/Apis";
+import constants from "@/public/data/my-constants/Constants";
+import { useRouter } from "next/router";
+import MobileFooter from "@/components/shared/MobileFooter";
+import { useEffect } from "react";
 
 function AddAddressPage() {
+  const router = useRouter();
 
-    const router = useRouter()
+  const [addressType, setAddressType] = useState("home");
 
-    const [addressType,setAddressType]=useState('home')
+  const [country, setCountry] = useState([]);
+  const [areaData, setAreaData] = useState([]);
 
-    const handleAddAddress=(data,defaultAddress)=>{
-        console.log('daaaaaaaaaaaaaaaata',data)
-        console.log(',,,,,,,,,,,,,',defaultAddress ? 'True' : 'False')
-        let body ={}
-        if (addressType === 'home'){
-
-            body ={
-                address_type:'Home',
-                name:data.name,
-                region:data.area,
-                block:data.block,
-                street:data.street,
-                avenue:data.avenue,
-                housename:data.houseName,
-                phone:data.phone,
-                remark:data.remark,
-                default:defaultAddress ? 'True' : 'False'
-            }
-        }else if(addressType === 'office'){
-            body ={
-                address_type:'Office',
-                name:data.name,
-                region:data.area,
-                block:data.block,
-                street:data.street,
-                avenue:data.avenue,
-                officename:data.officeName,
-                phone:data.phone,
-                officenumber:data.officePhone,
-                remark:data.remark,
-                default:defaultAddress ? 'True' : 'False'
-            }
-        }else if(addressType === 'apartment'){
-            body ={
-                address_type:'Apartment',
-                name:data.name,
-                region:data.area,
-                block:data.block,
-                street:data.street,
-                avenue:data.avenue,
-                building:data.building,
-                floor:data.floor,
-                flat_no:data.flatNo,
-                phone:data.phone,
-                remark:data.remark,
-                default:defaultAddress ? 'True' : 'False'
-            }
-
-        }else{
-            body ={
-                address_type:'Third Party',
-                name:data.name,
-                region:data.area,
-                block:data.block,
-                street:data.street,
-                avenue:data.avenue,
-                phone:data.phone,
-                remark:data.remark,
-                building_flat_house_all:data.address,
-                providor_name:data.providerName,
-                providor_area:data.providerArea,
-                providor_block:data.providerBlock,
-                providor_street:data.providerStreet,
-                flaprovidor_avenuet_no:data.providerAvenue,
-                default:defaultAddress ? 'True' : 'False'
-            }
-
-        }
-        Axios.post(apis.addAddress,body,
-        {
-            headers:{
-                'Authorization':`Token ${constants.token_id}`,
-            }
-        }).then((res)=>{
-            router.push('/store/cart')
-            console.log('adddresssssssssssssssss',res)
-        })
-        
-
+  useEffect(() => {
+    Axios.get(apis.commonList, {
+      headers: {
+        Authorization: `Token ${constants.token_id}`,
+      },
+    }).then((res) => {
+      setCountry(res.data.data.country);
+    });
+    const countryId = localStorage.getItem("country-select");
+    const cityData = country.find(
+      (country) => country.country_name === countryId
+    );
+    if (cityData && cityData.regions) {
+        setAreaData(cityData.regions);
     }
+  }, []);
+
+  const handleAddAddress = (data, defaultAddress) => {
+    console.log("daaaaaaaaaaaaaaaata", data);
+    console.log(",,,,,,,,,,,,,", defaultAddress ? "True" : "False");
+    let body = {};
+    if (addressType === "home") {
+      body = {
+        address_type: "Home",
+        name: data.name,
+        region: data.area,
+        block: data.block,
+        street: data.street,
+        avenue: data.avenue,
+        housename: data.houseName,
+        phone: data.phone,
+        remark: data.remark,
+        default: defaultAddress ? "True" : "False",
+      };
+    } else if (addressType === "office") {
+      body = {
+        address_type: "Office",
+        name: data.name,
+        region: data.area,
+        block: data.block,
+        street: data.street,
+        avenue: data.avenue,
+        officename: data.officeName,
+        phone: data.phone,
+        officenumber: data.officePhone,
+        remark: data.remark,
+        default: defaultAddress ? "True" : "False",
+      };
+    } else if (addressType === "apartment") {
+      body = {
+        address_type: "Apartment",
+        name: data.name,
+        region: data.area,
+        block: data.block,
+        street: data.street,
+        avenue: data.avenue,
+        building: data.building,
+        floor: data.floor,
+        flat_no: data.flatNo,
+        phone: data.phone,
+        remark: data.remark,
+        default: defaultAddress ? "True" : "False",
+      };
+    } else {
+      body = {
+        address_type: "Third Party",
+        name: data.name,
+        region: data.area,
+        block: data.block,
+        street: data.street,
+        avenue: data.avenue,
+        phone: data.phone,
+        remark: data.remark,
+        building_flat_house_all: data.address,
+        providor_name: data.providerName,
+        providor_area: data.providerArea,
+        providor_block: data.providerBlock,
+        providor_street: data.providerStreet,
+        flaprovidor_avenuet_no: data.providerAvenue,
+        default: defaultAddress ? "True" : "False",
+      };
+    }
+    Axios.post(apis.addAddress, body, {
+      headers: {
+        Authorization: `Token ${constants.token_id}`,
+      },
+    }).then((res) => {
+      router.push("/store/cart");
+      console.log("adddresssssssssssssssss", res);
+    });
+  };
   return (
     <Fragment>
-        <MainHeader title="Doob"/>
-        <MobileHeader />
-        <MainSidebarFixed />
-        <div className="store-container  my-5">
-            <h5 fw-bold>Add a New Address</h5>
-            <div className="card address-card " > 
-                <div className="card-body p-5  ">
-                    <h6>Address Type</h6>
-                    <div className='rrr' >
-                        <button 
-                        className="button button23" 
-                        onClick={()=>setAddressType('home')}
-                        style={{color:`${addressType === 'home' ? '#17A803':''}`}}
-                        >
-                            <i className="bi bi-house"></i>
-                            <span className='mx-1'>Home</span>
-                        </button> 
-                        <button 
-                        className="button button23" 
-                        onClick={()=>setAddressType('office')}
-                        style={{color:`${addressType === 'office' ? '#17A803':''}`}}
-                        >
-                            <i className="bi bi-briefcase"></i>
-                            <span className='mx-1'>Office</span>
-                        </button>  
-                        <button 
-                        className="button button23 " 
-                        onClick={()=>setAddressType('apartment')}
-                        style={{color:`${addressType === 'apartment' ? '#17A803':''}`}}
-                        >
-                            <i className="bi bi-building"></i>
-                            <span className='mx-1'>Apartment</span>
-                        </button>  
-                        <button 
-                        className="button button23" 
-                        onClick={()=>setAddressType('thirdParty')}
-                        style={{color:`${addressType === 'thirdParty' ? '#17A803':''}`}}
-                        >
-                            <i className="bi bi-grid "></i>
-                            <span className='mx-1'>Thirty Party</span>
-                        </button> 
-                    </div >
-                    {addressType === 'home' && <HomeAddress handleAddAddress={handleAddAddress}/>}
-                    {addressType === 'office' && <OfficeAddress handleAddAddress={handleAddAddress}/>}
-                    {addressType === 'apartment' && <ApartmentAddress handleAddAddress={handleAddAddress}/>}
-                    {addressType === 'thirdParty' && <ThirdPartyAddress handleAddAddress={handleAddAddress}/>}
-                </div>
+      <MainHeader title="Doob" />
+      <MobileHeader />
+      <MainSidebarFixed />
+      <div className="store-container  my-5">
+        <h5 fw-bold>Add a New Address</h5>
+        <div className="card address-card ">
+          <div className="card-body p-5  ">
+            <h6>Address Type</h6>
+            <div className="rrr">
+              <button
+                className="button button23"
+                onClick={() => setAddressType("home")}
+                style={{ color: `${addressType === "home" ? "#17A803" : ""}` }}
+              >
+                <i className="bi bi-house"></i>
+                <span className="mx-1">Home</span>
+              </button>
+              <button
+                className="button button23"
+                onClick={() => setAddressType("office")}
+                style={{
+                  color: `${addressType === "office" ? "#17A803" : ""}`,
+                }}
+              >
+                <i className="bi bi-briefcase"></i>
+                <span className="mx-1">Office</span>
+              </button>
+              <button
+                className="button button23 "
+                onClick={() => setAddressType("apartment")}
+                style={{
+                  color: `${addressType === "apartment" ? "#17A803" : ""}`,
+                }}
+              >
+                <i className="bi bi-building"></i>
+                <span className="mx-1">Apartment</span>
+              </button>
+              <button
+                className="button button23"
+                onClick={() => setAddressType("thirdParty")}
+                style={{
+                  color: `${addressType === "thirdParty" ? "#17A803" : ""}`,
+                }}
+              >
+                <i className="bi bi-grid "></i>
+                <span className="mx-1">Thirty Party</span>
+              </button>
             </div>
+            {addressType === "home" && (
+              <HomeAddress handleAddAddress={handleAddAddress} areaData={areaData}/>
+            )}
+            {addressType === "office" && (
+              <OfficeAddress handleAddAddress={handleAddAddress} areaData={areaData}/>
+            )}
+            {addressType === "apartment" && (
+              <ApartmentAddress handleAddAddress={handleAddAddress} areaData={areaData}/>
+            )}
+            {addressType === "thirdParty" && (
+              <ThirdPartyAddress handleAddAddress={handleAddAddress} areaData={areaData}/>
+            )}
+          </div>
         </div>
-        <MobileFooter />
-
-        
+      </div>
+      <MobileFooter />
     </Fragment>
-  )
+  );
 }
 
-export default AddAddressPage
+export default AddAddressPage;

@@ -98,7 +98,7 @@ function WalletPage() {
                 </span>
                 <span className="mx-2">My Wallet</span>{" "}
               </Card.Text>
-              <Card.Title className="text-white "> {totalCount?totalCount:0.000} KD</Card.Title>
+              <Card.Title className="text-white "> {totalCount?totalCount:'0.000'} KD</Card.Title>
               <Card.Text className="text-white ">
                 Total Wallet
                 <span style={{ float: "right" }}>Transactions History</span>

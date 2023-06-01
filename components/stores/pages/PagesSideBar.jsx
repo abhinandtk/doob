@@ -1,7 +1,40 @@
 import Link from "next/link";
 import React from "react";
-
+import Axios from "axios";
+import apis from "@/public/data/my-constants/Apis";
+import { notification } from "antd";
 function PagesSideBar({ currentPage }) {
+  const logoutHandle = (e) => {
+    e.preventDefault();
+    Axios.post(
+      apis.logout,
+      {},
+      {
+        headers: {
+          Authorization: `Token ${localStorage.getItem("user-login-tokens")}`,
+          "Content-Type": "application/json",
+        },
+      }
+    ).then((res) => {
+      if (res.data.status === 1) {
+        localStorage.removeItem("user-login-tokens");
+        notification.success({
+          message: " Success",
+          description: "Logout Successfully",
+        });
+        window.location.reload(false);
+        router.push("/");
+      } else {
+        localStorage.removeItem("user-login-tokens");
+        notification.success({
+          message: " Success",
+          description: "Logout Successfully",
+        });
+        window.location.reload(false);
+        router.push("/");
+      }
+    });
+  };
   return (
     <div className="sides">
       <Link href="/page/wallet" style={{ textDecoration: "none" }}>
@@ -161,7 +194,7 @@ function PagesSideBar({ currentPage }) {
         </svg>
         <span className="mx-2">Settings </span>
       </a>
-      <a href="#contact">
+      <a href="#">
         <svg
           width="22"
           height="24"
@@ -174,7 +207,9 @@ function PagesSideBar({ currentPage }) {
             fill="#080808"
           />
         </svg>
-        <span className="mx-2">Logout</span>
+        <span onClick={(e) => logoutHandle(e)} className="mx-2">
+          Logout
+        </span>
       </a>
     </div>
   );

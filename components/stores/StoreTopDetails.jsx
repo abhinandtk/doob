@@ -10,6 +10,15 @@ const { Panel } = Collapse;
 function StoreTopDetails({ data }) {
   const [descShow, setDescShow] = useState(false);
 
+  const handleShare = async () => {
+    try {
+      await navigator.share({ url: window.location.href });
+      console.log("Shared successfully!");
+    } catch (error) {
+      console.error("Error sharing:", error);
+    }
+  };
+
   const storeWishlistHandler = (id, favorite) => {
     const api = favorite ? apis.removestorewishlist : apis.addstorewishlist;
     Axios.post(
@@ -20,7 +29,7 @@ function StoreTopDetails({ data }) {
       {
         headers: {
           Authorization: `Token ${constants.token_id}`,
-        }, 
+        },
       }
     ).then((res) => {
       console.log("restttttttttttttttttttttttttttttttttttttt", res);
@@ -33,16 +42,16 @@ function StoreTopDetails({ data }) {
         <img
           src={`${constants.port}${data.cover_photo}`}
           className="img-fluid"
-          style={{width:'100%',aspectRatio:'2.2',objectFit:'cover'}}
+          style={{ width: "100%", aspectRatio: "2.2", objectFit: "cover" }}
         ></img>
-        <span className="span-icon">
+        <span className="span-icon" >
           <svg
             onClick={() =>
               storeWishlistHandler(data.slug_store, data.is_favorite)
             }
             width="25"
             height="22"
-            viewBox="0 0 25 22" 
+            viewBox="0 0 25 22"
             fill={`${data.is_favorite ? "red" : "none"}`}
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -54,30 +63,32 @@ function StoreTopDetails({ data }) {
               stroke-linejoin="round"
             />
           </svg>
-          <svg
-            width="30"
-            height="28"
-            viewBox="0 0 30 28"
-            className="ms-3"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12.8848 15.9742L18.9425 10.3203"
-              stroke="white"
-              stroke-width="1.50701"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M4.04074 11.9821C3.0321 11.5114 3.15432 10.1331 4.23215 9.82356L23.9935 4.14849C24.9526 3.87306 25.851 4.71151 25.5559 5.60667L19.4755 24.0506C19.1438 25.0566 17.667 25.1707 17.1627 24.2293L12.975 16.4123C12.8541 16.1866 12.6579 16.0035 12.416 15.8906L4.04074 11.9821Z"
-              stroke="white"
-              stroke-width="1.50701"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-          <svg
+          <span onClick={() => handleShare()} style={{cursor:'pointer'}}>
+            <svg
+              width="30"
+              height="28"
+              viewBox="0 0 30 28"
+              className="ms-3"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12.8848 15.9742L18.9425 10.3203"
+                stroke="white"
+                stroke-width="1.50701"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M4.04074 11.9821C3.0321 11.5114 3.15432 10.1331 4.23215 9.82356L23.9935 4.14849C24.9526 3.87306 25.851 4.71151 25.5559 5.60667L19.4755 24.0506C19.1438 25.0566 17.667 25.1707 17.1627 24.2293L12.975 16.4123C12.8541 16.1866 12.6579 16.0035 12.416 15.8906L4.04074 11.9821Z"
+                stroke="white"
+                stroke-width="1.50701"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+          {/* <svg
             width="35"
             height="34"
             viewBox="0 0 35 34"
@@ -106,7 +117,7 @@ function StoreTopDetails({ data }) {
               stroke-linecap="round"
               stroke-linejoin="round"
             />
-          </svg>
+          </svg> */}
         </span>
         <img src={`${constants.port}${data.logo}`} className="foot-png"></img>
       </div>

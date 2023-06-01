@@ -64,7 +64,7 @@ function FavoriteProducts() {
         <div className="content-pages">
           <br></br>
           <div className="head">Favourite Product</div>
-          <div className=" ones">
+          <div className=" ones" style={{minHeight:'500px'}}>
             <div className="row row-cols-2 my-3 g-3 p-3 store">
               {favLists &&
                 favLists.map((item, index) => (

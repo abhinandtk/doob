@@ -181,8 +181,7 @@ function Register({setActiveModal,countries}) {
         >
         <option value=''>--Select--</option>
         {countries.map((item)=>(
-         selectedCountry !== item.country_name ? 
-        <option key={item.id} value={item.country_name}>{item.country_name}</option>:''
+        <option key={item.id} value={item.country_name}>{item.country_name}</option>
         ))}
       
      

@@ -52,7 +52,7 @@ function StorePage() {
             {" "}
             <input className="nosubmit1" type="search" placeholder="Search" />
             <img
-              src="../images/store/Fil-icon.png"
+              src="/images/store/Fil-icon.png"
               className="filters-icon"
             ></img>
           </span>

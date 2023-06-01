@@ -28,7 +28,7 @@ function CategorySearchPage() {
       {
         category_id: id,
         keyword: "",
-        subcategory_id: subCatInput
+        subcategory_id: subCatInput,
       },
       {
         headers: {
@@ -39,16 +39,15 @@ function CategorySearchPage() {
       // setResultProduct(res);
       setSubCategoriesData(res.data.data.subcategories);
       setSubCategoyProduct(res.data.data.category_products);
-      console.log(
-        "IIIIIIIIIIIIIIIOOOIOSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS",
-        res.data.data.category_products
-      );
-      console.log(
-        "IIIIIIIIIIIIIIIOOOIOSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS",
-        res.data.data.category_products[0].Name
-      );
+      console.log("888888", res, {
+        category_id: id,
+        keyword: "",
+        subcategory_id: subCatInput,
+      });
+      
     });
-  },[]);
+  }, [id,subCatInput]);
+  console.log("hihii", subCategoyProduct);
 
   return (
     <Fragment>
@@ -89,7 +88,7 @@ function CategorySearchPage() {
                 className="btn-group me-2"
                 role="group"
                 aria-label="Second group"
-                onClick={()=>setSubcatInput(item.id)}
+                onClick={() => setSubcatInput(item.id)}
               >
                 <button type="button" className="btn btn-secondary">
                   {item.title}
@@ -106,14 +105,15 @@ function CategorySearchPage() {
             </button>
           </div> */}
         </section>
-        {subCategoyProduct ? (<>
-          <StoreProductsCard products={subCategoyProduct} /></>
+        {subCategoyProduct.length >= 1 ? (
+          <>
+            <StoreProductsCard products={subCategoyProduct} />
+          </>
         ) : (
           <div>No products Found...</div>
         )}
       </div>
       <MobileFooter />
-
     </Fragment>
   );
 }
