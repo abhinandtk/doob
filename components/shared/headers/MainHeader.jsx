@@ -11,8 +11,10 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { useDispatch, useSelector } from "react-redux";
 import { updateStoreCartCount } from "@/Redux/cartsCount";
+import { useRouter } from "next/router";
 
 function MainHeader({ title }) {
+  const router = useRouter();
   const [show, setShow] = useState(false);
   const [confirmLogout, setConfirmLogout] = useState(false);
   const [uploadShow, setUploadShow] = useState(false);
@@ -20,6 +22,7 @@ function MainHeader({ title }) {
 
   const storeCount = useSelector((state) => state.storeCartCount.storeCount);
   const dispatch = useDispatch();
+
   console.log("storreCount", storeCount);
 
   const [user, setUser] = useState("");
@@ -58,6 +61,7 @@ function MainHeader({ title }) {
             description: "Logout Successfully",
           });
           window.location.reload(false);
+          router.push("/");
         } else {
           console.log("error loading");
         }
@@ -69,6 +73,7 @@ function MainHeader({ title }) {
           description: "Logout Successfully",
         });
         window.location.reload(false);
+        router.push("/");
         console.log("error loading");
       });
   };
@@ -232,7 +237,13 @@ function MainHeader({ title }) {
                   />
                 </svg>
               </Nav.Link>
-              <Nav.Link href={`${storeCount !=0 ?'/store/cart':'/play-ground/play-ground-cart'}`}>
+              <Nav.Link
+                href={`${
+                  storeCount != 0
+                    ? "/store/cart"
+                    : "/play-ground/play-ground-cart"
+                }`}
+              >
                 <svg
                   width="26"
                   height="35"

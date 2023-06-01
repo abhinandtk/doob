@@ -23,7 +23,7 @@ function PlayGroundCard({ content }) {
         </p>
       </div>
 
-      <div className="playgrounds ">
+      <div className="playgrounds " style={{cursor:'pointer'}}>
         {content.map((item, index) => (
           <div
             onClick={() =>

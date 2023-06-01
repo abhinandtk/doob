@@ -4,7 +4,7 @@ import React from "react";
 function PagesSideBar({ currentPage }) {
   return (
     <div className="sides">
-      <a href="#home">
+      <Link href="/page/wallet" style={{ textDecoration: "none" }}>
         <svg
           width="25"
           height="21"
@@ -30,8 +30,13 @@ function PagesSideBar({ currentPage }) {
             stroke-width="1.3039"
           />
         </svg>
-        <span className="mx-2">Wallet</span>
-      </a>
+        <span
+          className="mx-2"
+          style={{ color: `${currentPage === "wallet" ? "#17A803" : ""}` }}
+        >
+          Wallet
+        </span>
+      </Link>
       <Link href="/page/favorite-stores" style={{ textDecoration: "none" }}>
         <svg
           width="25"

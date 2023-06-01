@@ -19,24 +19,19 @@ import { useRouter } from "next/router";
 import MobileFooter from "@/components/shared/MobileFooter";
 
 function OrderSuccessPage() {
+  const router = useRouter();
 
-    const router = useRouter()
-
-  
   return (
     <div>
-        <MainHeader title='Doob' />
-        <MobileHeader />
-        <MainSidebarFixed />
+      <MainHeader title="Doob" />
+      <MobileHeader />
+      <MainSidebarFixed />
 
       <div className="store-container  my-5">
         <div className="card ">
           <div className="card-body p-5  ">
             <div className="success " style={{ textAlign: "center" }}>
-              <img
-                src="/images/store/success.png"
-                className="greenlogo"
-              ></img>
+              <img src="/images/store/success.png" className="greenlogo"></img>
               <h5
                 className="text-center
             "
@@ -46,17 +41,25 @@ function OrderSuccessPage() {
               <p className="text-center">
                 Your order has been Placed Successfully
               </p>
-              <Button onClick={()=>router.push('/store')} type="submit" className="payment-btn ">
-                {" "}
-                Continue Shipping{" "}
+              <Button
+                onClick={() => router.push("/store")}
+                type="submit"
+                className="payment-btn "
+              >
+                Continue Shopping
               </Button>
-              <p style={{cursor:'pointer'}} onClick={()=>router.push('/')} className="text-center my-2">Back to Home</p>
+              <p
+                style={{ cursor: "pointer" }}
+                onClick={() => router.push("/")}
+                className="text-center my-2"
+              >
+                Back to Home
+              </p>
             </div>
           </div>
         </div>
       </div>
       <MobileFooter />
-
     </div>
   );
 }

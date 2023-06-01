@@ -52,11 +52,11 @@ function StadiumListPage() {
           <span>
             <input className="tour" type="search" placeholder="Search" />
             <img
-              src="../images/tournament/location-icon.png"
+              src="/images/tournament/location-icon.png"
               className="location-icon"
             ></img>
             <img
-              src="../images/tournament/Fil-icon.png"
+              src="/images/tournament/Fil-icon.png"
               className="tour-icon"
             ></img>
           </span>
@@ -65,7 +65,7 @@ function StadiumListPage() {
           Select Playground
         </h5>
         <div className="row">
-          {stadiumData != null && stadiumData.length > 0 ? (
+          {Array.isArray(stadiumData) && stadiumData.length > 0 ? (
             stadiumData.map((item, index) => (
               <div key={index} className="col-md-6">
                 <div className="card  plays">

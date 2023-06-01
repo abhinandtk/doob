@@ -72,7 +72,7 @@ function PlayGroundPage() {
           <span>
             <input className="nosubmit1" type="search" placeholder="Search" />
             <img
-              src="../images/tournament/Fil-icon.png"
+              src="/images/tournament/Fil-icon.png"
               className="filters-icon"
             ></img>
           </span>
