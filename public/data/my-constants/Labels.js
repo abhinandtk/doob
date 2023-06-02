@@ -11,6 +11,11 @@ export function Labels() {
         "Comment deleted successfully": "Comment deleted successfully",
         "Followed successfully": "Followed successfully",
         "Remove user": "Remove user successfully",
+        "Email address does not exist": "User with this email address does not exist",
+        "New OTP has send": "New OTP has been sent to your email address",
+        "Otp is invalid": "Otp is invalid",
+        "Otp verification is complete": "Otp verification is complete",
+        "Password Changed Successfully": "Password Changed Successfully",
 
         //Store Messages
 

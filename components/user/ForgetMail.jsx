@@ -11,10 +11,14 @@ import Form from "react-bootstrap/Form";
 import Axios from "axios";
 import constants from "@/public/data/my-constants/Constants";
 import apis from "@/public/data/my-constants/Apis";
+import { notification } from "antd";
+import { Labels } from "@/public/data/my-constants/Labels";
 function ForgetEmail({ setActiveModal }) {
   const [show, setShow] = useState(true);
 
   const [email, setEmail] = useState("");
+
+  const labels=Labels()
 
   const submitForgotEmail = (e) => {
     e.preventDefault();
@@ -25,6 +29,15 @@ function ForgetEmail({ setActiveModal }) {
       if (res.data.status === 1) {
         setActiveModal("forgetotp");
         localStorage.setItem("forget-psw-email", email);
+        notification.success({
+          message:constants.Success,
+          description:`${labels['New OTP has send']}`
+        })
+      }else{
+        notification.error({
+          message:constants.Error,
+          description:`${labels['Email address does not exist']}`
+        })
       }
     });
   };

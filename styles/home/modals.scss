@@ -1,26 +1,25 @@
-
-$primary-color:#17A803;
+$primary-color: #17a803;
 // react-bootstrap tab
- .nav-tabs .nav-link.active{
-  color:$primary-color !important;
- }
- .nav-tabs .nav-link{
-  color:black;
- }
+.nav-tabs .nav-link.active {
+  color: $primary-color !important;
+}
+.nav-tabs .nav-link {
+  color: black;
+}
 
- .tour_detail_tabs{
-    .nav-tabs .nav-link{
-        padding: 5px;
-    }
+.tour_detail_tabs {
+  .nav-tabs .nav-link {
+    padding: 5px;
+  }
+}
+.play_detail_tabs {
+  .nav-tabs .nav-link {
+    padding: 3px;
+  }
+}
 
- }
- .play_detail_tabs{
-    .nav-tabs .nav-link{
-        padding: 3px;
-    }
-
- }
-
-
-
- 
+.game-choose1 {
+  .ant-modal-footer .ant-btn {
+    background-color: $primary-color;
+  }
+}

@@ -156,7 +156,7 @@ function NewGameForm({ game, country }) {
             />
           </div>
           <div class="form-group">
-            <label for="exampleFormControlSelect1">Choose are</label>
+            <label for="exampleFormControlSelect1">Choose area</label>
             <select
               class="form-control "
               style={{ border: "0px", background: "#eeeeee", color: "#959595" }}
