@@ -4,7 +4,7 @@ import React from "react";
 function PlayGroundSideBar({currentPage}) {
   return (
     <div className="side-play">
-      <Link href="/play-ground/all-bookings" style={{textDecoration:'none'}}>
+      <a href="#services">
         {" "}
         <svg
           width="25"
@@ -28,7 +28,7 @@ function PlayGroundSideBar({currentPage}) {
           />
         </svg>{" "}
         <span className="mx-2" style={{color:`${currentPage === 'bookings' ? '#17A803' : ''}`}}>Bookings</span>
-      </Link>
+      </a>
       <a href="#services">
         {" "}
         <svg

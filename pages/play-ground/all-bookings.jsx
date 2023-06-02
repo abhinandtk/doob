@@ -12,6 +12,7 @@ import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileHeader from "@/components/MobileHeader";
 import PlayGroundSideBar from "@/components/playGround/PlayGroundSideBar";
 import MobileFooter from "@/components/shared/MobileFooter";
+import PagesSideBar from "@/components/stores/pages/PagesSideBar";
 function AllBookingPage() {
   const [bookingList, setBookingList] = useState([]);
 
@@ -31,7 +32,7 @@ function AllBookingPage() {
       <MobileHeader />
       <div className="tour-container">
         <div className="bottoms">
-          <PlayGroundSideBar  currentPage='bookings'/>
+          <PagesSideBar  currentPage='bookings'/>
 
           <div className="play-topic  ">
             <div className="bottoms">

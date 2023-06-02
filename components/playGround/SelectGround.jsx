@@ -36,7 +36,7 @@ function SelectGround({ details }) {
         stadium_name: inputData.stadium_id,
         amount: "50",
         slot_type: "static slot",
-        game: inputData.sports_id,
+        game: inputData.sports_id ? inputData.sports_id :'1',
         date: date,
       },
       {

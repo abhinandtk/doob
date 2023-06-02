@@ -31,6 +31,7 @@ function AddAddressPage() {
       },
     }).then((res) => {
       setCountry(res.data.data.country);
+    //   console.log()
     });
     const countryId = localStorage.getItem("country-select");
     const cityData = country.find(

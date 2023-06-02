@@ -199,7 +199,7 @@ function FeedbackPage() {
             <span className="mx-2">Logout</span>{" "}
           </a>
         </div> */}
-        <PagesSideBar />
+        <PagesSideBar currentPage='feedback'/>
 
         <div className="content-page">
           <br></br>
