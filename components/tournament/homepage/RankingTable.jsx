@@ -41,7 +41,7 @@ function RankingTable({ data }) {
                     {item.name} 
                   </span>
                   <div
-                    className="col col-1 mt-4 views "
+                    className="col col-1 mt-3 views "
                     data-label="Payment Status"
                   >
                     View
@@ -79,7 +79,7 @@ function RankingTable({ data }) {
                   </span>
 
                   <div
-                    className="col col-1 mt-4 views1 "
+                    className="col col-1 mt-3 views1 "
                     data-label="Payment Status"
                   >
                     View
