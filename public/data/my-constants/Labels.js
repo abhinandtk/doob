@@ -23,6 +23,7 @@ export function Labels() {
         "Not enough stock": "There is not enough stock",
         "Order successfull": "Order placed successfully",
         "Cart empty": "Cart is empty,please add some items",
+        "Item removed from cart successfully": "Item removed from cart successfully",
 
         //shop
 
@@ -36,6 +37,8 @@ export function Labels() {
         "Slot Added": "Slot Added successfully",
         "Book one stadium": "At a time can only book one stadium",
         "Game created": "Game created successfully",
+        "Slot removed from cart successfully": "Item removed from cart successfully",
+
 
         //Tournament
 

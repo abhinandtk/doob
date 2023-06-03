@@ -16,15 +16,18 @@ import PagesSideBar from "@/components/stores/pages/PagesSideBar";
 function AllBookingPage() {
   const [bookingList, setBookingList] = useState([]);
 
+  const [success,setSuccess]=useState(false)
+
   useEffect(() => {
     Axios.get(apis.listAllBooking, {
       headers: {
         Authorization: `Token ${constants.token_id}`,
       },
     }).then((res) => {
+      console.log('dedede',res)
       setBookingList(res.data);
     });
-  }, []);
+  }, [success]);
   return (
     <div>
       <MainHeader title="Doob" />
@@ -43,7 +46,7 @@ function AllBookingPage() {
                 Bookings
               </h6>
 
-              <BookingDetailsCard details={bookingList} />
+              <BookingDetailsCard details={bookingList} setSuccess={setSuccess}/>
             </div>
           </div>
         </div>

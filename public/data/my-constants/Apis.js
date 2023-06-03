@@ -98,6 +98,8 @@ const apis = {
 
     'costomerReport': `${constants.port}/store/api/customer_report `,
 
+    'shopSummary': `${constants.port}/store/api/new_order `,
+
     'addReview': `${constants.port}/store/api/add_review `,
     'viewReview': `${constants.port}/store/api/view_review `,
     'deleteReview': `${constants.port}/store/api/delete_review `,
@@ -130,6 +132,7 @@ const apis = {
     'cancelBooking': `${constants.port}/playground/api/cancel_booking`,
     'walletView': `${constants.port}/playground/api/wallet_details`,
     'ground_admin_view_get_put': `${constants.port}/playground/api/list_or_update`,
+    'groundRemoveCartItems': `${constants.port}/playground/api/remove_cart_items`,
 
     //Tournament
 

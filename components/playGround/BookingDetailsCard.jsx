@@ -6,10 +6,10 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { notification } from "antd";
-function BookingDetailsCard({ details }) {
+function BookingDetailsCard({ details, setSuccess }) {
   console.log("hai log", details);
 
-  const lables = Labels();
+  const labels = Labels();
 
   const cancelBookingHandler = (id) => {
     console.log({
@@ -28,7 +28,8 @@ function BookingDetailsCard({ details }) {
       }
     ).then((res) => {
       console.log("book", res);
-      if (res.data.status) {
+      if (res.data.status === 1) {
+        setSuccess((prev) => !prev);
         notification.success({
           message: constants.Success,
           description: `${labels["Booking Cancelled"]}`,
@@ -126,9 +127,11 @@ function BookingDetailsCard({ details }) {
               style={{ width: "90%" }}
             >
               <span style={{ color: "#959595" }}>Booking Status</span>
-              <span style={{ color: "#17A803" }}>{`${
-                item.status === true ? "Success" : "Cancelled"
-              }`}</span>
+              <span
+                style={{
+                  color: `${item.status === true ? "#17A803" : "red"} `,
+                }}
+              >{`${item.status === true ? "Success" : "Cancelled"}`}</span>
             </div>
             <div
               className="p-2   mx-auto d-flex justify-content-between align-items-center"
@@ -136,7 +139,10 @@ function BookingDetailsCard({ details }) {
             >
               <span style={{ color: "#959595" }}></span>
               <span
-                style={{ color: "red" }}
+                style={{
+                  color: `${item.status === true ? "red" : "grey"} `,
+                  cursor: "pointer",
+                }}
                 onClick={() => cancelBookingHandler(item.id)}
               >
                 Cancel Booking

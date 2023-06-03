@@ -7,8 +7,8 @@ import apis from "@/public/data/my-constants/Apis";
 import { useRouter } from "next/router";
 function GameDetailTopContent({ details }) {
   console.log(";909090909", details);
-  const router=useRouter()
-  const {gameId}=router.query
+  const router = useRouter();
+  const { gameId } = router.query;
 
   const timeConvertHandler = (time) => {
     const timeConvert = moment(time, "HH:mm:ss").format("h:mm A");
@@ -35,7 +35,6 @@ function GameDetailTopContent({ details }) {
         },
       }
     ).then((res) => {
-
       console.log("joingame", res);
     });
   };
@@ -45,10 +44,12 @@ function GameDetailTopContent({ details }) {
         <>
           <div className="row">
             <div className="col-md-7 ">
-              <img
-                src="../images/tournament/backgrounds.jpg"
-                style={{ objectFit: "cover" }}
-              ></img>
+              {details.game && details.game.game_image[0] && (
+                <img
+                  src={`${constants.port}${details.game.game_image[0].image}`}
+                  style={{ objectFit: "cover",width:'100%',height:'300px' }}
+                ></img>
+              )}
             </div>
             <div className="col-md-4 mx-4">
               <div className="game-info">
@@ -60,7 +61,7 @@ function GameDetailTopContent({ details }) {
                     className="float-start"
                     style={{ fontSize: "15px", fontWeight: "500" }}
                   >
-                    {details.game}
+                    {details.game.game_title}
                   </p>
                   <img
                     className="logox"
@@ -71,11 +72,12 @@ function GameDetailTopContent({ details }) {
                 <div className="field-info">
                   <span>
                     <img
-                      src={`${constants.port}/media/${details.created_by.profile_pic}`}
+                      src={`${constants.port}${details.created_by.profile_pic}`}
                       style={{
                         width: "25px",
                         height: "25px",
                         objectFit: "cover",
+                        borderRadius: "50%",
                       }}
                     ></img>
                     <span

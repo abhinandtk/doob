@@ -25,15 +25,12 @@ function PlayGroundPage() {
   const [homePageData, setHomePageData] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
-  const router=useRouter()
+  const router = useRouter();
 
-  useEffect(()=>{
-    if(router.query.path==='headerNav'){
-      
-
+  useEffect(() => {
+    if (router.query.path === "headerNav") {
     }
-
-  },[])
+  }, []);
   useEffect(() => {
     Axios.get(apis.listGameAmenities, {
       headers: {
@@ -222,19 +219,19 @@ function PlayGroundPage() {
               </div>
               <div className="col-md-6">
                 <button type="button" className="notification1-btn ">
-                  You have 2 upcoming bookings
+                  You have {contents.invitation_count} upcoming bookings
                 </button>
               </div>
             </div>
 
             <NewGameForm game={game} country={country} />
-            {contents.my_games.length !== 0 ? (
+            {contents.my_games.length >= 1 ? (
               <GamesCard data={contents.my_games} />
             ) : (
               <></>
             )}
 
-            {contents.games_near_me[0].my_games.length !== 0 && (
+            {contents.games_near_me.length >= 1 && (
               <>
                 <section>
                   <div className="clearfix near ">
@@ -267,7 +264,7 @@ function PlayGroundPage() {
                       All
                     </button>
                   </div>
-                  {contents.games_near_me.length !== 0 ? (
+                  {contents.games_near_me.length >=1 ? (
                     contents.games_near_me.map((item, index) => (
                       <>
                         <div
@@ -292,10 +289,10 @@ function PlayGroundPage() {
                 </section>
               </>
             )}
-            {contents.games_near_me.length !== 0 ? (
+            {contents.games_near_me.length >= 1 ? (
               contents.games_near_me.map((item, index) =>
                 selectedCategory === null || selectedCategory === item.title ? (
-                  <GamesCard key={index} data={item.games_near_me} />
+                  <GamesCard key={index} data={item.my_games} />
                 ) : null
               )
             ) : (
@@ -311,14 +308,12 @@ function PlayGroundPage() {
             <h5 style={{ fontWeight: "700" }} className="my-3">
               Doob Map
             </h5>
-            
+
             <Tabs style={{ display: "flex", justifyContent: "space-evenly" }}>
               <Tab eventKey={1} title="Fields">
                 <SimpleMap data={contents.playgrounds_near_me} />
               </Tab>
-              <Tab eventKey={2} title="Game">
-                
-              </Tab>
+              <Tab eventKey={2} title="Game"></Tab>
             </Tabs>
           </>
         ))}

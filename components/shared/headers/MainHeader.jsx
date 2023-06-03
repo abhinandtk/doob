@@ -246,7 +246,7 @@ function MainHeader({ title }) {
               <Nav.Link
                 href={`${
                   // storeCount != 0
-                  asPath.includes("store") || storeCount != 0
+                  asPath.includes("store") 
                     ? "/store/cart"
                     : "/play-ground/play-ground-cart"
                 }`}

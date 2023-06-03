@@ -365,7 +365,6 @@ function PlayGroundsForm({ handlePlaygroundForm }) {
           }}
           id="amount"
           onChange={(e) => handleChange(e)}
-          rows="3"
         ></textarea>
       </div>
 

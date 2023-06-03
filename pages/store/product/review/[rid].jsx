@@ -33,7 +33,7 @@ function ReviewPage() {
     ).then((res) => {
       setReviewAdded(res.data.logined_user);
       setReviewData([res.data]);
-      console.log("reviwwwwwwwwwwwww", res.data.other_user);
+      console.log("reviwwwwwwwwwwwww", res);
     });
   }, [onSuccess]);
   return (
@@ -49,7 +49,7 @@ function ReviewPage() {
               <div className="review card ">
                 <div className="card-body p-5 ">
                   <div className="row">
-                    {reviewAdded.length === 0 ? <ProductReviewForm setOnSuccess={setOnSuccess}/> : <></>}
+                    {reviewAdded.length === 0 ? <ProductReviewForm setOnSuccess={setOnSuccess} userImg={reviewData[0] && reviewData[0].image}/> : <></>}
                     <ProductReviewList reviewData={reviewData} setOnSuccess={setOnSuccess}/>
                   </div>
                 </div>

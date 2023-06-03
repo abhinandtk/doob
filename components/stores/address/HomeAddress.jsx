@@ -16,7 +16,7 @@ function HomeAddress({ handleAddAddress,areaData }) {
     phone: "",
     remark: "",
   });
-  const [defaultAddress, setDefaultAddress] = useState(false);
+  const [defaultAddress, setDefaultAddress] = useState(true);
 
   
 

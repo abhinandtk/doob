@@ -359,7 +359,7 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
           <Select.Option value={""}>--Select Status--</Select.Option>
           <Select.Option value={0}>End</Select.Option>
           <Select.Option value={1}>Live</Select.Option>
-          <Select.Option value={2}>Stop</Select.Option>
+          {/* <Select.Option value={2}>Stop</Select.Option> */}
           <Select.Option value={3}>Start soon</Select.Option>
         </Select>
       </Modal>

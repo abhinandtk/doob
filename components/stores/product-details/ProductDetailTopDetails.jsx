@@ -99,8 +99,8 @@ function ProductDetailTopDetails({ product }) {
       </span> */}
       <h5 className="col-md-9 headings ">{product.Name}{productNameExtension}</h5>
       <p className="mx-1 mb-2  " style={{cursor:'pointer'}} onClick={()=>router.push(`/store/product/review/${prVarientId}`)}>
-        <i className="bi bi-star-fill me-1" style={{ color: "yellow" }}></i>4.5
-        <span className="mx-2" style={{ color: "grey" }}>(203 reviews)</span>
+        <i className="bi bi-star-fill me-1" style={{ color: "yellow" }}></i>{product.product_review.average_rating?product.product_review.average_rating:'0'}
+        <span className="mx-2" style={{ color: "grey" }}>({product.product_review.count} reviews)</span>
       </p>
       <p  style={{ fontSize: "14px", fontWeight: "400" }}>
         {product.Description}

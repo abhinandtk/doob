@@ -66,7 +66,7 @@ function CreateGameForm() {
   };
 
   const submitHandler = (e) => {
-    console.log("form", formData.image);
+    console.log("form", formData);
     e.preventDefault();
     const formdata = new FormData();
     formdata.append("booking_id", booking_id);
@@ -79,31 +79,28 @@ function CreateGameForm() {
     formdata.append("age_to", formData.ageTo);
     formdata.append("last_date_of_joining", formData.lastDay);
     formdata.append("game", formData.game);
-    formdata.append(
-      "images",
-      "/media/temp/8bf6d5a9-5cdf-47b8-8220-3a399889cf82_sanjay_1685531977.jpg"
-    );
+    formdata.append("images", formData.image);
     Axios.post(apis.createGame, formdata, {
       headers: {
         Authorization: `Token ${constants.token_id}`,
         "Content-Type": "multipart/form-data",
       },
     }).then((res) => {
-      if (res.data.status) {
+      if (res.data.status === 1) {
         notification.success({
           message: constants.Success,
           description: `${labels["Game created"]}`,
         });
-        // router.push('/play-ground')
+        router.push('/play-ground')
       }
 
-      console.log("add game", res);
+      console.log("add game", res, formdata);
     });
   };
 
   return (
     <div>
-      {/* <form onSubmit={(e) => submitHandler(e)}> */}
+      <form onSubmit={(e) => submitHandler(e)}>
         <div className="form-group my-3">
           <label for="exampleInputPassword1">Title</label>
           <input
@@ -295,7 +292,7 @@ function CreateGameForm() {
         <button type="submit" className="make-btn">
           Create
         </button>
-      {/* </form> */}
+      </form>
     </div>
   );
 }

@@ -1,24 +1,35 @@
 import constants from "@/public/data/my-constants/Constants";
 import Link from "next/link";
 import React, { Fragment } from "react";
-
+import moment from "moment";
 function GamesCard({ data }) {
   console.log("daaaaaaaaaaaaaaa", data);
   return (
     <Fragment>
       {data &&
         data.map((item, index) => (
-          <Link key={index} href={`/games/${item.game_slug}`} style={{ textDecoration: "none" }}>
+          <Link
+            key={index}
+            href={`/games/${item.game_slug}`}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
             <div key={index} className="card  book">
               <div className="card-body">
                 <div className="clearfix">
                   <div className="float-end dots">
                     <span>
+                      {item.my_game_images &&
                       <img
-                        src={`${constants.port}/media/${item.game_images}`}
+                        src={`${constants.port}${item.my_game_images?item.my_game_images:item.game_images}`}
                         alt="image"
                         className="book-img"
-                      ></img>
+                      ></img>}
+                      {item.game_images &&
+                      <img
+                        src={`${constants.port}${item.my_game_images?item.my_game_images:item.game_images}`}
+                        alt="image"
+                        className="book-img"
+                      ></img>}
                     </span>
                     <svg
                       width="28"
@@ -44,12 +55,26 @@ function GamesCard({ data }) {
                 </div>
                 <div className="book-content">
                   <div className="book-date">
-                    <h5 style={{ color: "#17A803", fontWeight: "700" }}>24</h5>
-                    <p>Feb</p>
+                    <h5 style={{ color: "#17A803", fontWeight: "700" }}>
+                      {moment(item.game_date).format("DD")}
+                    </h5>
+                    <p>{moment(item.game_date).format("MMM")}</p>
                   </div>
                   <div className="book-details">
                     <h5 style={{ fontWeight: "700" }}>{item.title}</h5>
-                    <p style={{ color: "#959595" }}>9.00 AM to 12.00 PM</p>
+                    <p style={{ color: "#959595" }}>
+                      {moment(
+                        item.stadium.time_slots[0]["start_time"],
+                        "hh:mm:ss"
+                      ).format("hh:mm A")}{" "}
+                      to{" "}
+                      {moment(
+                        item.stadium.time_slots[
+                          item.stadium.time_slots.length - 1
+                        ]["end_time"],
+                        "hh:mm:ss"
+                      ).format("hh:mm A")}
+                    </p>
                     <p>{item.stadium.stadium_name}</p>
                     <p>
                       {item.stadium.location}, {item.stadium.area}
@@ -57,51 +82,42 @@ function GamesCard({ data }) {
                   </div>
                 </div>
                 <div class="route d-flex my-3">
+                  {/* {item.participants.length >=1 && 
+                  item.participants.slice(0,4).map((img,index)=>(
                   <img
+                    key={index}
                     className="rounded-circle default-avatar member-overlap-item"
-                    style={{ objectFit: "cover" }}
-                    src="../images/tournament/soccer-players-action-professional-stadium 2.png"
-                  ></img>
-                  <img
-                    className="rounded-circle default-avatar member-overlap-item"
-                    style={{ objectFit: "cover" }}
-                    src="../images/tournament/soccer-players-action-professional-stadium 2.png"
-                  ></img>
-                  <img
-                    className="rounded-circle default-avatar member-overlap-item"
-                    style={{ objectFit: "cover" }}
-                    src="../images/tournament/soccer-players-action-professional-stadium 2.png"
-                  ></img>
-                  <img
-                    className="rounded-circle default-avatar member-overlap-item"
-                    style={{ objectFit: "cover" }}
-                    src="../images/tournament/soccer-players-action-professional-stadium 2.png"
-                  ></img>
+                    style={{ objectFit: "cover" ,width:'30px',height:'30px'}}
+                    src={`${constants.port}/media/${img.user__userdetail__image?img.user__userdetail__image:img.image_url}`}
+                  ></img>))} */}
+                 
+                  
                   <span className="mx-4" style={{ color: "#959595" }}>
-                    +7 more participants
+                    {/* {item.participants.length-4 >=1 ? `+${item.participants.length-4} more participants` :''} */}
+                    {item.participants.length >=1 ?`${item.participants.length} participants`:''}
                   </span>
                 </div>
                 <hr></hr>
                 <div className="clearfix">
                   <div className="book-profile float-start">
                     <span>
-                      <img
+                      {/* <img
                         src="../images/tournament/c1.png"
                         style={{
                           width: "30px",
                           height: "30px",
                           objectFit: "cover",
                         }}
-                      ></img>
+                      ></img> */}
                       <span className="mx-2">
                         <span style={{ color: "#17A803" }}>Hosted by</span>
                         &nbsp;{item.hosted_by}
                       </span>
                     </span>
                   </div>
-                  <button type="button" className="Join-btn float-end">
+                  {/* <button type="button" className="Join-btn float-end">
                     Join
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>

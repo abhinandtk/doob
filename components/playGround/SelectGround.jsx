@@ -17,10 +17,10 @@ function SelectGround({ details }) {
 
   const { selectedSlots } = useSelector((state) => state.slot);
   const dispatch = useDispatch();
-  console.log("sloooooot777777777", details);
+  console.log("sloooooot777777777", inputData.date);
 
   const [date, setDate] = useState(
-    inputData.date ? inputData.date : moment().format("YYYY-MM-DD")
+    inputData.date ? moment(inputData.date).format("YYYY-MM-DD") : moment().format("YYYY-MM-DD")
   );
   const [gameId, setGameId] = useState("");
   const [visible, setVisible] = useState(false);
@@ -32,47 +32,48 @@ function SelectGround({ details }) {
   };
 
   const addTocartHandler = () => {
-  //   console.log("success add to cart", {
-  //     time_slots: selectedSlots,
-  //     stadium_name: inputData.stadium_id,
-  //     amount: details.amount,
-  //     slot_type: "static slot",
-  //     game: inputData.sports_id ? inputData.sports_id : gameId,
-  //     date: date,
-  //   });
+    console.log("success add to cart", {
+      time_slots: selectedSlots,
+      stadium_name: inputData.stadium_id,
+      amount: details.amount,
+      slot_type: "static slot",
+      game: inputData.sports_id ? inputData.sports_id : gameId,
+      date: date,
+    });
 
-  //   if (inputData.sports_id || gameId) {
-  //     Axios.post(
-  //       apis.playCart,
-  //       {
-  //         time_slots: selectedSlots,
-  //         stadium_name: inputData.stadium_id,
-  //         amount: details.amount,
-  //         slot_type: "static slot",
-  //         game: inputData.sports_id ? inputData.sports_id : gameId,
-  //         date: date,
-  //       },
-  //       {
-  //         headers: {
-  //           Authorization: `Token ${constants.token_id}`,
-  //         },
-  //       }
-  //     ).then((res) => {
-  //       if (res.data.status === 1) {
-  //         notification.success({
-  //           message: constants.Success,
-  //           description: `${labels["Slot Added"]}`,
-  //         });
-  //       } else if (res.data.status === 0) {
-  //         notification.error({
-  //           messsage: constants.Error,
-  //           description: `${labels["Book one stadium"]}`,
-  //         });
+    if (inputData.sports_id || gameId) {
+      Axios.post(
+        apis.playCart,
+        {
+          time_slots: selectedSlots,
+          stadium_name: inputData.stadium_id,
+          amount: details.amount,
+          slot_type: "static slot",
+          game: inputData.sports_id ? inputData.sports_id : gameId,
+          date: date,
+        },
+        {
+          headers: {
+            Authorization: `Token ${constants.token_id}`,
+          },
+        }
+      ).then((res) => {
+        if (res.data.status === 1) {
+          notification.success({
+            message: constants.Success,
+            description: `${labels["Slot Added"]}`,
+          });
+        } else if (res.data.status === 0) {
+          notification.error({
+            messsage: constants.Error,
+            description: `${labels["Book one stadium"]}`,
+          });
+        }
         
-  //     });
-  //   } else {
-  //     setVisible(true);
-  //  }
+      });
+    } else {
+      setVisible(true);
+   }
   };
   return (
     <Fragment>

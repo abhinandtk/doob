@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
-
+import Axios from 'axios'
+import apis from "@/public/data/my-constants/Apis";
+import constants from "@/public/data/my-constants/Constants";
 function ShopDashBoardTop() {
+
+  const [counts,setCounts]=useState('')
+  useEffect(()=>{
+    Axios.get(apis.shopSummary,{
+      headers:{
+        Authorization:`Token ${constants.token_id}`
+      }
+    }).then((res)=>{
+      console.log('res',res)
+      setCounts(res.data.data)
+      
+    })
+  },[])
   return (
     <div className="carl ">
       <div className="document  ">
@@ -36,7 +51,7 @@ function ShopDashBoardTop() {
                   }}
                   className="mt-2  "
                 >
-                  <h4>5</h4>
+                  <h4>{counts.new_orders_count}</h4>
                 </Card.Subtitle>
               </span>
             </Card.Title>
@@ -80,7 +95,7 @@ function ShopDashBoardTop() {
                   }}
                   className="mt-2   "
                 >
-                  <h4>5</h4>
+                  <h4>{counts.processing_order_count}</h4>
                 </Card.Subtitle>
               </span>
             </Card.Title>
@@ -120,7 +135,7 @@ function ShopDashBoardTop() {
                   }}
                   className="mt-2 "
                 >
-                  <h4>5</h4>
+                  <h4>{counts.dispatch_order_count}</h4>
                 </Card.Subtitle>
               </span>
             </Card.Title>

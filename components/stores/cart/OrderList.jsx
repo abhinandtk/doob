@@ -3,9 +3,13 @@ import React, { useState } from "react";
 import { Fragment } from "react";
 import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
+import { notification } from "antd";
+import { Labels } from "@/public/data/my-constants/Labels";
 function OrderList({ product, setOnSuccess }) {
   console.log("rrrrrrrrrrrrrrrrrrr", product.quantity);
   const [quantity, setQuantity] = useState(parseInt(product.quantity));
+
+  const labels=Labels()
 
   const handleCartUpdate = (slug, qty) => {
     console.log("ututututuutututu", slug, qty);
@@ -54,6 +58,10 @@ function OrderList({ product, setOnSuccess }) {
       }
     ).then((res) => {
       setOnSuccess((prev) => !prev);
+      notification.success({
+        message:constants.Success,
+        description:`${labels['Item removed from cart successfully']}`
+      })
       console.log("removeweeeeeeeeeeeeeee", res);
     });
   };

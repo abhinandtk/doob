@@ -23,11 +23,10 @@ import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileFooter from "@/components/shared/MobileFooter";
 
 function AddPlaygroundPage() {
-
-  const labels =Labels()
+  const labels = Labels();
   const handlePlaygroundForm = (data, game, amenity, slot) => {
-    console.log('data',data,game,amenity)
-   
+    console.log("data", data, game, amenity);
+
     const formData = new FormData();
     formData.append("stadium_name", data.name);
     formData.append("city", data.city);
@@ -45,52 +44,50 @@ function AddPlaygroundPage() {
       formData.append("game", value);
     });
     amenity.map((value) => {
-      console.log('ami67',value)
+      console.log("ami67", value);
       formData.append("amnities", value);
     });
-    slot.map((time,index)=>{
+    slot.map((time, index) => {
       formData.append(`timeslot[${index}]start_time`, time.start_time);
       formData.append(`timeslot[${index}]end_time`, time.end_time);
-    })
-    Axios.post(
-      apis.addPlayground,
-      formData,
-      {
-        headers: {
-          Authorization: `Token ${constants.token_id}`,
-        },
-      }
-    ).then((res) => {
-      if(res.data.status == 1){
+    });
+    const formDataObject = Object.fromEntries(formData);
+    console.log("formData", formDataObject);
+
+    Axios.post(apis.addPlayground, formData, {
+      headers: {
+        Authorization: `Token ${constants.token_id}`,
+      },
+    }).then((res) => {
+      if (res.data.status == 1) {
         notification.success({
-          message:constants.Success,
-          description:`${labels['PlayGround added']}`
-        })
+          message: constants.Success,
+          description: `${labels["PlayGround added"]}`,
+        });
       }
-      
-      console.log("success4444444444444444444444", res,formData);
+
+      console.log("success4444444444444444444444", res, formData);
     });
   };
 
   return (
     <div>
-      <MainHeader title='Doob'/>
+      <MainHeader title="Doob" />
       <MobileHeader />
       <MainSidebarFixed />
       <div className="tour-container">
         <div className="Bottom">
-          <PlayGroundSideBar />             
-                                
+          <PlayGroundSideBar />
+
           <div class="play-topic  ">
-            <div className="bottoms"> 
+            <div className="bottoms">
               <h6
                 className=" ms-4"
                 style={{ color: "#17a803", fontWeight: "700" }}
               >
                 Add Playground
               </h6>
-              
-                
+
               <div className="my-4 mx-4 ">
                 <h6 style={{ fontSize: "14px", fontWeight: "700" }}>
                   Basic Details

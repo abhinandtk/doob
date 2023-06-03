@@ -18,7 +18,7 @@ function ThirdPartyAddress({ handleAddAddress,areaData }) {
     providerStreet: "",
     providerAvenue: "",
   });
-  const [defaultAddress, setDefaultAddress] = useState(false);
+  const [defaultAddress, setDefaultAddress] = useState(true);
   const handleChange = (e) => {
     const newFormData = { ...formData };
     newFormData[e.target.id] = e.target.value;

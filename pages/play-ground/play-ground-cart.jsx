@@ -13,6 +13,7 @@ import MobileFooter from "@/components/shared/MobileFooter";
 function PlayGroundCartPage() {
   const [cartFieldData, setCartFieldData] = useState([]);
   const [cartData, setCartData] = useState([]);
+  const[success,setSuccess]=useState(true)
 
   useEffect(() => {
     Axios.get(apis.playCart, {
@@ -22,7 +23,7 @@ function PlayGroundCartPage() {
     }).then((res) => {
       setCartData(res.data.data);
     });
-  }, []);
+  }, [success]);
 
   return (
     <div>
@@ -34,10 +35,10 @@ function PlayGroundCartPage() {
           My Cart
         </h5>
         <div className="row">
-          {cartData.length != 0 ? (
+          {cartData.cart_details && cartData.cart_details.length != 0 ? (
             <>
-              <GroundFieldAddress address={cartData} />
-              <GroundCartItems data={cartData} />
+              <GroundFieldAddress address={cartData.stadium} />
+              <GroundCartItems data={cartData} setSuccess={setSuccess}/>
             </>
           ) : (
             <div>Cart is empty</div>

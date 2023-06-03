@@ -74,10 +74,10 @@ function ProductSalesReport() {
                       Last 30 days <i className="bi bi-chevron-down "></i>
                     </Dropdown.Toggle>
 
-                    <Dropdown.Menu align="center" className="Menu">
+                    {/* <Dropdown.Menu align="center" className="Menu">
                       <Dropdown.Item href="#">English</Dropdown.Item>
                       <Dropdown.Item href="#">Arabic</Dropdown.Item>
-                    </Dropdown.Menu>
+                    </Dropdown.Menu> */}
                   </Dropdown>
                   <span>
                     {/* <img
@@ -100,7 +100,7 @@ function ProductSalesReport() {
                 </div>
 
                 <div className="customer-sale">
-                  <div id="header">
+                  <div id="header" style={{display:'flex',justifyContent:'space-around'}}>
                     <div id="logo">Product</div>
                     <div id="header-middle">Order Count</div>
                     <div id="header-right">Total Amount</div>

@@ -15,7 +15,7 @@ function GameDetailFullWidth() {
 
   const [gameDetials, setGameDetails] = useState(null);
   const [onSuccess, setOnSuccess] = useState(false);
-  const [participantsList, setParticipantsList] = useState([]);
+  // const [participantsList, setParticipantsList] = useState([]);
 
   useEffect(() => {
     Axios.post(
@@ -30,7 +30,7 @@ function GameDetailFullWidth() {
       }
     ).then((res) => {
       setGameDetails(res.data.data);
-      setParticipantsList(res.data.data.participants);
+      // setParticipantsList(res.data.data.participants.length >=1 ?res.data.data.participants:[]);
       console.log("resforgamedetaail", res.data.data);
     });
   }, [gameId, onSuccess]);
@@ -40,7 +40,7 @@ function GameDetailFullWidth() {
       {gameDetials &&
       gameDetials.created_by.created_by_id == constants.user_id ? (
         <GameParticipantsList
-          participants={participantsList}
+          participants={gameDetials.participants}
           setOnSuccess={setOnSuccess}
         />
       ) : (

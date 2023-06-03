@@ -15,7 +15,7 @@ function OfficeAddress({ handleAddAddress, areaData }) {
     officePhone: "",
     remark: "",
   });
-  const [defaultAddress, setDefaultAddress] = useState(false);
+  const [defaultAddress, setDefaultAddress] = useState(true);
 
   const handleChange = (e) => {
     const newFormData = { ...formData };

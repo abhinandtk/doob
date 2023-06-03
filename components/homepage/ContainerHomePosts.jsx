@@ -11,8 +11,7 @@ import Link from "next/link";
 import MobileFooter from "../shared/MobileFooter";
 import { useSelector } from "react-redux";
 function ContainerHomePosts() {
-
-  const apiSuccess =useSelector((state)=>state.api)
+  const apiSuccess = useSelector((state) => state.api);
   const [visibleComment, setVisibleComment] = useState(false);
   const [visibleShared, setVisibleShared] = useState(false);
   const [liked, setLiked] = useState(false);
@@ -40,11 +39,16 @@ function ContainerHomePosts() {
         localStorage.removeItem("user-login-tokens");
         console.error(error);
       });
-  }, [onSuccess,apiSuccess,visibleComment]);
+  }, [onSuccess, apiSuccess, visibleComment]);
 
-  const likeHandler = (postId, index) => {
+  const likeHandler = (postId, index,isSharedPost) => {
     // e.preventDefault()
     const updatedPosts = [...postsData];
+    // const postToUpdate = isSharedPost
+    //   ? updatedPosts.find(
+    //       (post) => post.post_id === postId
+    //     )
+    //   : updatedPosts[index];
     Axios.post(
       apis.likepost,
       {
@@ -63,10 +67,23 @@ function ContainerHomePosts() {
         updatedPosts[index].liked = false;
         updatedPosts[index].totalLike = res.data.data.total_like;
       }
+      // if (res.data.data.status === 1) {
+      //   postToUpdate.liked = true;
+      //   postToUpdate.totalLike++;
+      // } else {
+      //   postToUpdate.liked = false;
+      //   postToUpdate.totalLike = res.data.data.total_like;
+      // }
       setPostsData(updatedPosts);
-      console.log("this is result", res);
+      console.log(
+        "this is result",
+        {
+          post_id: postId,
+        },
+        res
+      );
     });
-    console.log("like");
+   
   };
 
   const commentClick = (post_id, slug) => {
@@ -340,7 +357,7 @@ function ContainerHomePosts() {
                       onClick={() =>
                         likeHandler(
                           item.owner_user_detail.orginal_post_id,
-                          index
+                          index,true
                         )
                       }
                       className="post__button "

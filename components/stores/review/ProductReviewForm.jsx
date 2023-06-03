@@ -5,7 +5,8 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
 
-function ProductReviewForm({ setOnSuccess }) {
+function ProductReviewForm({ setOnSuccess,userImg }) {
+  console.log('rwd',userImg)
   const router = useRouter();
   const { rid } = router.query;
   const [count, setCount] = useState(0);
@@ -56,7 +57,7 @@ function ProductReviewForm({ setOnSuccess }) {
     <div className="col-lg-12">
       <h5 className="mb-3">
         <a href="#!" className="text-body">
-          <img src="../../../images/store/c8.png"></img>
+          <img src={`${constants.port}${userImg}`} style={{width:"44px",height:"44px",objectFit:'cover',borderRadius:'50%'}}></img>
           <span className="mx-2">
             <Rate onChange={handleStarChange} />
           </span>
