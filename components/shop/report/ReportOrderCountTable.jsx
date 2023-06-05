@@ -5,9 +5,9 @@ function ReportOrderCountTable({ reportData, title }) {
   return (
     <Fragment>
       <div className="customer-sale">
-        <div id="header">
+        <div id="header" >
           <div id="logo">{title}</div>
-          <div id="header-middle">Order Count</div>
+          <div id="header-middle ">Order Count</div>
           <div id="header-right">Total Amount</div>
         </div>
         {reportData.length !== 0  ? (

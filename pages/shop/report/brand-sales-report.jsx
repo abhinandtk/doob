@@ -157,7 +157,7 @@ function BrandSaleReport() {
                 </div>
 
                 <br></br>
-                <div style={{ width: "400px", height: "400px" }}>
+                <div className="dough">
                   <center>
                     <Doughnut data={chartData} options={options} />
                   </center>
