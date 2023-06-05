@@ -2077,9 +2077,27 @@ margin-left: 13px;
  }
 .group-one-final{
   color: #000000;
+  text-align: center;
   font-size: 14px;
- text-align: center;
-  justify-content: center;
+  font-weight: 500;
+  display:-webkit-box;
+  -webkit-line-clamp: 1;
+  width: 70px;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.group-Two-final{
+  color: #000000;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  display:-webkit-box;
+  -webkit-line-clamp: 1;
+  width: 70px;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .fix-final{
   display: flex;

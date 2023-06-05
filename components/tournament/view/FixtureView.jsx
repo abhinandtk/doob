@@ -99,7 +99,7 @@ function FixtureView({ data, setOnSuccess, admin }) {
                                 <div className="group-one-final">
                                   {match.team_A}
                                 </div>
-                                <div className="group-one-final">
+                                <div className="group-two-final">
                                   {match.team_B}
                                 </div>
                               </div>
