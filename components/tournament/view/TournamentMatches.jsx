@@ -180,7 +180,7 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
         team_a_id: teamAid,
         team_b_id: teamBid,
         game_type: home && home.tournament_details.game_name_id,
-        category_game: home && home.tournament_details.tournament_category,
+        category_game: home && home.tournament_details.tournament_category, 
       };
     } else if (type === "stadium") {
       updatedMatch = {
