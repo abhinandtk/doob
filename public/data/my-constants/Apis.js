@@ -136,6 +136,8 @@ const apis = {
 
     'bookingReport': `${constants.port}/playground/api/ad_report`,
     'playgroundReport': `${constants.port}/playground/api/ad_playground_report`,
+    'gameReport': `${constants.port}/playground/api/ad_game_report`,
+    'groundEarning': `${constants.port}/playground/api/ad_earning_report`,
 
     //Tournament
 
