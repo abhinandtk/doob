@@ -56,9 +56,13 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
                       </div>
                     </div>
                   </div>
+                  
                 ))}
               </div>
+
+              
             ) : item.match_type === "Round of 16" ? (
+              
               <div key={index} className="round">
                 {item.matches.map((match, index) => (
                   <div key={index} className="match">
