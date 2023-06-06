@@ -175,11 +175,11 @@ function playgroundReport() {
                   {dataReport && dataReport.map((item,index)=>(
                   <div
                     key={index}
-                    className="p-3 d-flex justify-content-between  customer"
+                    className=" d-flex justify-content-between  customer my-3"
                   >
                     <span className="sales-report-name">{item.stadium_name}</span>
-                    <span>{item.booking_count}</span>
-                    <span>{item.total_amount} KD</span>
+                    <span className="sales-order-number">{item.booking_count}</span>
+                    <span className="sales-order-price">{item.total_amount} KD</span>
                   </div>
                   ))}
                 </div>

@@ -1133,7 +1133,7 @@ div#header div {
   text-align: center;
   font-size: 16px;
   font-weight:700;
-  margin-right: 30px;
+
 }
 
 
@@ -1150,13 +1150,13 @@ div#header div {
 #logo1{
   width: 11%;
 }
-#header-middle1 {
-  width: 40%;
+#header-middle {
+  width: 30%;
   
 }
 
-#header-right1 {
-  width: 37%;
+#header-right {
+  width: 20%;
   
 }
 
@@ -1165,11 +1165,26 @@ div#header div {
   background:#eeeeee;
   border-radius:10px;
   width:530px;
+  padding: 8px 12px;
 }
 .sales-report-name{
+  width: 35%;
+  font-size: 15px;
+  text-align: left;
+  
+}
+.sales-order-number{
   position: relative;
-  display: flex;
-  max-width: 35%;
+  width: 30%;
+  font-size: 15px;
+  text-align: center;
+  
+}
+.sales-order-price{
+  position: relative;
+  width: 30%;
+  font-size: 15px;
+  text-align: right;
 }
 .secondary.btn{
   background: #656565;
