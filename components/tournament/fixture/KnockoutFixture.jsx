@@ -54,6 +54,7 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
                   </div>
                 ))}
               </div>
+            
             ) : item.match_type === "Quater Finals" ? (
               <div key={index} className="round">
                 {item.matches.map((match, index) => (
@@ -70,7 +71,7 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
                             className="group-image"
                           ></img>
                         </div>
-                      )}
+                      )} 
                       <div className="fix">
                         <div
                           className={`${

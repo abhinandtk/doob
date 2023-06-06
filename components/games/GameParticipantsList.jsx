@@ -47,7 +47,7 @@ function GameParticipantsList({ participants,setOnSuccess }) {
             }`,
           }}
         >
-          <span>
+          <span className="participants">
             <img
               src={`${constants.port}/media/${item.user__userdetail__image}`}
               style={{
@@ -57,25 +57,26 @@ function GameParticipantsList({ participants,setOnSuccess }) {
                 objectFit: "cover",
               }}
             ></img>
-            <span className="mx-3">{item.user__userdetail__name}</span>
-          </span>
-          {item.participation_status == 2 ? (
-            <p className="float-end" style={{ color: "#FC4444" }}>
+            <span className="mx-3 participant-name">{item.user__userdetail__name}</span>
+            {item.participation_status == 2 ? (
+            <p className="ms-auto removed" >
               Removed
             </p>
           ) : item.participation_status == 5 ? (
-            <p className="float-end" style={{ color: "#FC4444" }}>
+            <p className="ms-auto Left-peoples" style={{ color: "#FC4444" }}>
               Left
             </p>
           ) : (
             <p
               onClick={() => removeHandler(item.user_id)}
-              className="float-end"
-              style={{ color: "#959595", cursor: "pointer" }}
+              className="ms-auto remove"
+             
             >
               Remove
             </p>
           )}
+          </span>
+          
         </div>
       ))}
 
@@ -83,7 +84,7 @@ function GameParticipantsList({ participants,setOnSuccess }) {
       <div className="clearfix players  my-4">
         <p className="float-start">
           Share via link<br></br>
-          <span>
+          <span className="game-share">
             https://www.doob.com/bookings/file/3MDEKqi76uQxwkFZaqbl5r/Doob?node-id=282%3A802&t
           </span>
         </p>
