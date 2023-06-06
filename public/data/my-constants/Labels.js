@@ -38,6 +38,8 @@ export function Labels() {
         "Book one stadium": "At a time can only book one stadium",
         "Game created": "Game created successfully",
         "Slot removed from cart successfully": "Item removed from cart successfully",
+        "Joined game": "Joined game successfully",
+        "Left game": "Left game successfully",
 
 
         //Tournament

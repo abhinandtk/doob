@@ -82,14 +82,14 @@ function GamesCard({ data }) {
                   </div>
                 </div>
                 <div class="route d-flex my-3">
-                  {/* {item.participants.length >=1 && 
+                  {item.participants.length >=1 && 
                   item.participants.slice(0,4).map((img,index)=>(
                   <img
                     key={index}
                     className="rounded-circle default-avatar member-overlap-item"
                     style={{ objectFit: "cover" ,width:'30px',height:'30px'}}
                     src={`${constants.port}/media/${img.user__userdetail__image?img.user__userdetail__image:img.image_url}`}
-                  ></img>))} */}
+                  ></img>))}
                  
                   
                   <span className="mx-4" style={{ color: "#959595" }}>
@@ -101,23 +101,23 @@ function GamesCard({ data }) {
                 <div className="clearfix">
                   <div className="book-profile float-start">
                     <span>
-                      {/* <img
+                      <img
                         src="../images/tournament/c1.png"
                         style={{
                           width: "30px",
                           height: "30px",
                           objectFit: "cover",
                         }}
-                      ></img> */}
+                      ></img>
                       <span className="mx-2">
                         <span style={{ color: "#17A803" }}>Hosted by</span>
                         &nbsp;{item.hosted_by}
                       </span>
                     </span>
                   </div>
-                  {/* <button type="button" className="Join-btn float-end">
+                  <button type="button" className="Join-btn float-end">
                     Join
-                  </button> */}
+                  </button>
                 </div>
               </div>
             </div>

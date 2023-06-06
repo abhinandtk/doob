@@ -5,8 +5,12 @@ import constants from "@/public/data/my-constants/Constants";
 import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import { useRouter } from "next/router";
-function GameDetailTopContent({ details }) {
+import { message, notification } from "antd";
+import { Labels } from "@/public/data/my-constants/Labels";
+function GameDetailTopContent({ details, setOnSuccess }) {
   console.log(";909090909", details);
+
+  const labels = Labels();
   const router = useRouter();
   const { gameId } = router.query;
 
@@ -20,6 +24,11 @@ function GameDetailTopContent({ details }) {
     const dateConvert = moment(date).format("D MMM, YYYY");
     return dateConvert;
   };
+
+  let participantUsers =
+    details &&
+    details.participants.some((item) => item.user_id !== constants.user_id);
+  console.log(participantUsers, "oeeeeee",!participantUsers);
 
   const joinGameHandler = (id) => {
     Axios.post(
@@ -35,7 +44,38 @@ function GameDetailTopContent({ details }) {
         },
       }
     ).then((res) => {
+      if (res.data.status === 1) {
+        notification.success({
+          message: constants.Success,
+          description: `${labels["Joined game"]}`,
+        });
+        setOnSuccess((prev) => !prev);
+      }
       console.log("joingame", res);
+    });
+  };
+  const leftGameHandler = (id) => {
+    Axios.post(
+      apis.removeUser,
+      {
+        user_id: [id],
+        game_slug: gameId,
+        type: "left",
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      setOnSuccess((prev) => !prev);
+      if (res.data.status === 1) {
+        notification.success({
+          message: constants.Success,
+          description: `${labels["Left game"]}`,
+        });
+      }
+      console.log("leftgame", res);
     });
   };
   return (
@@ -47,7 +87,7 @@ function GameDetailTopContent({ details }) {
               {details.game && details.game.game_image[0] && (
                 <img
                   src={`${constants.port}${details.game.game_image[0].image}`}
-                  style={{ objectFit: "cover",width:'100%',height:'300px' }}
+                  style={{ objectFit: "cover", width: "100%", height: "300px" }}
                 ></img>
               )}
             </div>
@@ -65,7 +105,7 @@ function GameDetailTopContent({ details }) {
                   </p>
                   <img
                     className="logox"
-                    src="../images/tournament/logox.png"
+                    src="/images/tournament/logox.png"
                   ></img>
                 </div>
 
@@ -154,16 +194,26 @@ function GameDetailTopContent({ details }) {
 
                   {details.created_by.created_by_id != constants.user_id && (
                     <>
-                      <button
-                        type="button"
-                        onClick={() => joinGameHandler(constants.user_id)}
-                        className=" field-btn"
-                      >
-                        Join
-                      </button>
-                      {/* <button type="button" className=" field-btn" style={{backgroundColor:'red'}}>
-                        Left
-                      </button> */}
+                      {console.log("yuyuyuyu", details.participants)}
+
+                      {participantUsers ? (
+                        <button
+                          type="button"
+                          onClick={() => joinGameHandler(constants.user_id)}
+                          className=" field-btn"
+                        >
+                          Join
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={() => leftGameHandler(constants.user_id)}
+                          className=" field-btn"
+                          style={{ backgroundColor: "red" }}
+                        >
+                          Left
+                        </button>
+                      )}
                     </>
                   )}
                 </div>
@@ -174,7 +224,7 @@ function GameDetailTopContent({ details }) {
             <h5 style={{ fontWeight: "700", fontSize: "15px" }}>Description</h5>
             <p className="col-md-12">{details.description}</p>
           </div>
-          <div className="clearfix more">
+          <div className="clearfix">
             <div className="float-end">
               More <i className="bi bi-chevron-down "></i>
             </div>

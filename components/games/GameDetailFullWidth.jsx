@@ -36,15 +36,16 @@ function GameDetailFullWidth() {
   }, [gameId, onSuccess]);
   return (
     <Fragment>
-      <GameDetailTopContent details={gameDetials} />
+      <GameDetailTopContent details={gameDetials} setOnSuccess={setOnSuccess}/>
       {gameDetials &&
       gameDetials.created_by.created_by_id == constants.user_id ? (
         <GameParticipantsList
           participants={gameDetials.participants}
           setOnSuccess={setOnSuccess}
         />
-      ) : (
-        <GameOthersParticipants />
+      ) : (<>
+      {gameDetials && 
+        <GameOthersParticipants participants={gameDetials.participants} setOnSuccess={setOnSuccess}/>}</>
       )}
     </Fragment>
   );

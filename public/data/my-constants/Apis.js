@@ -134,6 +134,9 @@ const apis = {
     'ground_admin_view_get_put': `${constants.port}/playground/api/list_or_update`,
     'groundRemoveCartItems': `${constants.port}/playground/api/remove_cart_items`,
 
+    'bookingReport': `${constants.port}/playground/api/ad_report`,
+    'playgroundReport': `${constants.port}/playground/api/ad_playground_report`,
+
     //Tournament
 
     'tournamentHome': `${constants.port}/tournament/api/tournament_home`,
