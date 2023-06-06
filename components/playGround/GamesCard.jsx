@@ -61,8 +61,8 @@ function GamesCard({ data }) {
                     <p>{moment(item.game_date).format("MMM")}</p>
                   </div>
                   <div className="book-details">
-                    <h5 style={{ fontWeight: "700" }}>{item.title}</h5>
-                    <p style={{ color: "#959595" }}>
+                    <h5 className="book-head">{item.title}</h5>
+                    <p  className="book-time-date">
                       {moment(
                         item.stadium.time_slots[0]["start_time"],
                         "hh:mm:ss"
@@ -75,8 +75,8 @@ function GamesCard({ data }) {
                         "hh:mm:ss"
                       ).format("hh:mm A")}
                     </p>
-                    <p>{item.stadium.stadium_name}</p>
-                    <p>
+                    <p className="book-grounds">{item.stadium.stadium_name}</p>
+                    <p className="book-places">
                       {item.stadium.location}, {item.stadium.area}
                     </p>
                   </div>

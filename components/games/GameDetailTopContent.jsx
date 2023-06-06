@@ -93,7 +93,7 @@ function GameDetailTopContent({ details, setOnSuccess }) {
             </div>
             <div className="col-md-4 mx-4">
               <div className="game-info">
-                <h5 style={{ fontWeight: "700", fontSize: "15px" }}>
+                <h5 className="game-head">
                   {details.title}
                 </h5>
                 <div className="field-clearfix ">
@@ -113,24 +113,15 @@ function GameDetailTopContent({ details, setOnSuccess }) {
                   <span>
                     <img
                       src={`${constants.port}${details.created_by.profile_pic}`}
-                      style={{
-                        width: "25px",
-                        height: "25px",
-                        objectFit: "cover",
-                        borderRadius: "50%",
-                      }}
+                     className="game-imgs"
                     ></img>
                     <span
-                      className="mx-1"
-                      style={{
-                        color: "#17A803",
-                        fontSize: "14px",
-                        fontWeight: "500",
-                      }}
+                      className="mx-1 game-host"
+                    
                     >
                       Hosted by
                     </span>
-                    <span style={{ fontSize: "14px", fontWeight: "500" }}>
+                    <span className="gamer">
                       {details.created_by.hosted_by}
                     </span>
                   </span>
@@ -158,8 +149,8 @@ function GameDetailTopContent({ details, setOnSuccess }) {
                     </span>
                   </span>
                   <br></br>
-                  <span>
-                    <svg
+                  <div className="games12" >
+                    <svg className="my-1"
                       width="16"
                       height="19"
                       viewBox="0 0 16 19"
@@ -176,21 +167,17 @@ function GameDetailTopContent({ details, setOnSuccess }) {
                       />
                     </svg>
                     <span
-                      className="mx-2"
-                      style={{ fontWeight: "500", fontSize: "14px" }}
+                      className="mx-2 game-locations"
+                      
                     >
                       {details.stadium.stadium_name}
                     </span>
                     <span
-                      style={{
-                        fontWeight: "500",
-                        fontSize: "14px",
-                        color: "#959595",
-                      }}
+                     className="game-city"
                     >
                       {details.stadium.location}, {details.stadium.area}
                     </span>
-                  </span>
+                  </div >
 
                   {details.created_by.created_by_id != constants.user_id && (
                     <>
@@ -222,14 +209,14 @@ function GameDetailTopContent({ details, setOnSuccess }) {
           </div>
           <div className="field-content">
             <h5 style={{ fontWeight: "700", fontSize: "15px" }}>Description</h5>
-            <p className="col-md-12">{details.description}</p>
+            <p className="col-md-12 game-description">{details.description}</p>
           </div>
-          <div className="clearfix">
-            <div className="float-end">
+          <div >
+            <div style={{float:'right',color:'#17A803'}}>
               More <i className="bi bi-chevron-down "></i>
             </div>
           </div>
-          <hr></hr>
+          <hr className=" game-line" ></hr>
         </>
       )}
     </Fragment>

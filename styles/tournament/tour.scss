@@ -19,12 +19,11 @@ body{
     justify-content: center;
   }
   .play1{  
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-     margin-top:44px;
      justify-content: center;
-     
+      display: grid;
+      margin-top: 44px;
+      text-align: center;
+      grid-template-columns: 1fr 1fr  1fr;
   }
 
   .play2{  
@@ -620,12 +619,118 @@ input.tour {
     margin-top: 25px;
     width: 100%;
   }
+  .game-head{
+   font-weight: 700;
+    font-size: 15px;
+    display:-webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 140px;
+  }
+  .game-imgs{
+ 
+      width: 25px;
+      height: 25px;
+      object-fit: cover;
+      border-radius: 50%;
+  
+  }
+  .gamer{
+
+      color: #000000;
+      font-size: 14px;
+      font-weight: 500;
+   
+  }
+  .game-locations{
+   font-weight: 500;
+    font-size: 14px;
+    display:-webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 170px;
+    
+  }
+  .games12{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  .game-city{
+  
+      font-weight: 500;
+      font-size: 14px;
+      color: #959595;
+      display:-webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 140px;
+    
+  }
+  .participants{
+     display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  .game-logos{
+ 
+      height: 45px;
+      width: 45px;
+      border-radius: 50%;
+      object-fit: cover;
+    
+  }
+  .game-line{
+    width: 100%;
+    border-bottom: 1px solid black;
+  }
+  .participant-name{
+    font-weight: 500;
+    font-size: 14px;
+    color: #000000;
+    display:-webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 140px;
+   margin-top: 7px;
+  }
+  .game-host{
+
+      color: #17A803;
+      font-size: 14px;
+      font-weight: 500;
+  }
+  .game-share{
+    font-size: 14px;
+    color: #000;
+  }
  .game-info{
   margin-left:-20px;
 
   margin-top: 23px;
  
  }
+ .removed{
+  color: #FC4444;
+  font-size: 16px;
+}
+.remove{
+  color: #959595;
+   cursor: pointer;
+   font-size: 16px;
+}
+.Left-peoples{
+  color: #FC4444;
+  font-size: 16px;
+}
 .play_text{
   font-weight:700;
   font-size:17px;
@@ -1965,9 +2070,44 @@ margin-left: 13px;
   color: #888;
 }
                                         
-
-
-
+.book-head{
+ color: #000000;
+  font-weight: 700;
+  font-size: 20px;
+  // display:-webkit-box;
+  //   -webkit-line-clamp: 1;
+  //   width: 190px;
+  //   -webkit-box-orient: vertical;
+  //   overflow: hidden;
+  //   text-overflow: ellipsis;
+}
+.book-time-date{
+  color: #959595;
+  font-weight: 500;
+  font-size: 17px;
+}
+.book-grounds{
+  color: #000000;
+  font-weight: 500;
+  font-size: 17px;
+  // display:-webkit-box;
+  //   -webkit-line-clamp: 1;
+  //   width: 190px;
+  //   -webkit-box-orient: vertical;
+  //   overflow: hidden;
+  //   text-overflow: ellipsis;
+}
+.book-places{
+  color: #000000;
+  font-weight: 500;
+  font-size: 17px;
+  // display:-webkit-box;
+  //   -webkit-line-clamp: 1;
+  //   width: 190px;
+  //   -webkit-box-orient: vertical;
+  //   overflow: hidden;
+  //   text-overflow: ellipsis;
+}
 .carousel  {
  
   width: 100%;
@@ -2005,17 +2145,68 @@ margin-left: 13px;
 }
 
 
-.top-teams{
-  background: #eeeeee;
-   width: 590px;
-   height: 45px;
-}
 
-.top-teams-dot{
-  margin-top: -4px;
+
+.top-rank-main{
+  background: #EEEEEE;
+  
 }
 
 
+.View-rank{
+color: #959595;
+font-size: 14px;
+text-align: right;
+}
+.table td {
+    border: 0;
+ 
+    padding: 18px 15px;
+
+}
+.Teams-Name-top{
+  
+  font-size: 17px;
+  font-weight:400;
+  color: #000;
+  margin-left: 15px;
+ 
+ 
+}
+.Teams-Name-down{
+  margin-left: 15px;
+  font-size: 15px;
+  font-weight:400;
+  color: #000;
+ 
+}
+
+.Logo-Rank {
+  width: 42px;
+  height: 42px;
+  object-fit: cover;
+  border-radius: 50%;
+
+}
+.Logo-Rank-main {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+
+}
+.Name-main {
+  text-align: left;
+  
+}
+
+
+
+
+.Name {
+  text-align: left
+  
+}
 
 // .bracket {
 // 	display: flex;
@@ -2721,8 +2912,77 @@ input.nosubmit1 {
   
     
   }
+  .book-time-date{
+    color: #959595;
+    font-weight: 500;
+    font-size: 14px;
+  }
   
-
+  .book-head{
+    color: #000000;
+     font-weight: 700;
+     font-size: 16px;
+     display:-webkit-box;
+       -webkit-line-clamp: 1;
+       width: 160px;
+       -webkit-box-orient: vertical;
+       overflow: hidden;
+       text-overflow: ellipsis;
+   }
+   .book-grounds{
+     color: #000000;
+     font-weight: 500;
+     font-size: 14px;
+     display:-webkit-box;
+       -webkit-line-clamp: 1;
+       width: 130px;
+       -webkit-box-orient: vertical;
+       overflow: hidden;
+       text-overflow: ellipsis;
+   }
+   .field-content {
+    margin-top: 120px;
+}
+.game-description{
+  color: #000000;
+  font-weight: 500;
+  font-size: 14px;
+  display:-webkit-box;
+    -webkit-line-clamp: 1;
+    width: 130px;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+   .game-share{
+    font-size: 14px;
+    color: #000;
+    display:-webkit-box;
+       -webkit-line-clamp: 1;
+       width: 130px;
+       -webkit-box-orient: vertical;
+       overflow: hidden;
+       text-overflow: ellipsis;
+  }
+  .book-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 7px;
+    position: absolute;
+    margin-left: -90px;
+    object-fit: cover;
+}
+   .book-places{
+     color: #000000;
+     font-weight: 500;
+     font-size: 14px;
+     display:-webkit-box;
+       -webkit-line-clamp: 1;
+       width: 130px;
+       -webkit-box-orient: vertical;
+       overflow: hidden;
+       text-overflow: ellipsis;
+   }
 .play_text {
     font-weight: 700;
     font-size: 17px;
@@ -3472,7 +3732,7 @@ display: none;
 .book{
   margin-top: 15px;
   border: 0px;
-  width: 430px;
+  width: 100%;
   margin-left: -9px;
 }
 .time-slot2 {
@@ -3497,9 +3757,35 @@ display: none;
   font-size: 18px;
 }
 .field-info {
-  /* position: absolute; */
-  margin-top: 74px;
+  // /* position: absolute; */
+  // margin-top: 74px;
   line-height: 30px;
+}
+.participant-name{
+  font-weight: 500;
+  font-size: 12px;
+  color: #000000;
+  display:-webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 90px;
+ margin-top: 7px;
+}
+
+.removed{
+  color: #FC4444;
+  font-size: 13px;
+}
+.remove{
+  color: #959595;
+   cursor: pointer;
+   font-size: 13px;
+}
+.Left-peoples{
+  color: #FC4444;
+  font-size: 13px;
 }
 
 .logox {
@@ -3865,6 +4151,31 @@ margin-left: 185px;
   color: #000;
   width: 91%;
 }
+.game-locations{
+  font-weight: 500;
+   font-size: 14px;
+   display:-webkit-box;
+   -webkit-line-clamp: 1;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   width: 90px;
+   
+ }
+ 
+ .game-city{
+ 
+     font-weight: 500;
+     font-size: 14px;
+     color: #959595;
+     display:-webkit-box;
+     -webkit-line-clamp: 1;
+     -webkit-box-orient: vertical;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     width: 120px;
+   
+ }
 
 }
 @media (max-width:440px) {
@@ -3878,6 +4189,14 @@ margin-left: 185px;
   
     
   }
+  .book-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 7px;
+    position: absolute;
+    margin-left: -75px;
+    object-fit: cover;
+}
   .play-details {
     line-height: 12px;
     font-weight: 500;
@@ -4059,7 +4378,7 @@ margin-left: 160px;
 .book{
   margin-top: 15px;
   border: 0px;
-  width: 395px;
+  width: 100%;
   margin-left: -9px;
 }
 .games1 {
@@ -4374,7 +4693,7 @@ margin-left: 160px;
   .book{
     margin-top: 15px;
     border: 0px;
-    width: 390px;
+    width: 100%;
     margin-left: -9px;
   }
   .name {
