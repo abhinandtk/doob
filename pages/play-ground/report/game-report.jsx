@@ -16,7 +16,7 @@ import MobileFooter from "@/components/shared/MobileFooter";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 import PlayGroundSideBar from "@/components/playGround/PlayGroundSideBar";
-function gameReport() {
+function GameReport() {
   const [selectedDays, setSelectedDays] = useState('30 days');
 
   const labels = Labels();
@@ -97,6 +97,8 @@ function gameReport() {
       },
     },
   };
+  const url = `${constants.port}/playground/api/game_report_csv?&start_date=${startDate}&end_date=${endDate}`;
+
   return (
     <div>
       <MainHeader title="Doob" />
@@ -143,17 +145,15 @@ function gameReport() {
                     </Dropdown.Menu>
                   </Dropdown>
                   <span>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        notification.info({
-                          message: constants.Info,
-                          description: `${labels["This feature will added soon"]}`,
-                        })
-                      }
-                      className="export-btn"
-                    >
-                      Export
+                  <button type="button" className="export-btn">
+                      <a
+                        href={url}
+                        style={{ textDecoration: "none", color: "inherit",target:'_blank' }}
+                        download
+                        target="_blank"
+                      >
+                        Export
+                      </a>
                     </button>
                   </span>
                 </div>
@@ -192,4 +192,4 @@ function gameReport() {
   );
 }
 
-export default gameReport;
+export default GameReport;

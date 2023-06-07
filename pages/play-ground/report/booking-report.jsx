@@ -95,6 +95,7 @@ function BookingReport() {
     setStartDate(moment().subtract(days, "days").format("DD-MM-YYYY"));
   };
   console.log("change", startDate);
+  const url = `${constants.port}/playground/api/ad_booking_report_csv?&start_date=${startDate}&end_date=${endDate}`;
 
   return (
     <div>
@@ -142,17 +143,19 @@ function BookingReport() {
                     </Dropdown.Menu>
                   </Dropdown>
                   <span>
-                    <button
-                      onClick={() =>
-                        notification.info({
-                          message: constants.Info,
-                          description: `${labels["This feature will added soon"]}`,
-                        })
-                      }
-                      type="button"
-                      className="export-btn"
-                    >
-                      Export
+                    <button type="button" className="export-btn">
+                      <a
+                        href={url}
+                        style={{
+                          textDecoration: "none",
+                          color: "inherit",
+                          target: "_blank",
+                        }}
+                        download
+                        target="_blank"
+                      >
+                        Export
+                      </a>
                     </button>
                   </span>
                 </div>
