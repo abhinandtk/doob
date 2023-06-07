@@ -29,10 +29,10 @@ function PlaygroundManagementPage() {
       <MainSidebarFixed />
       <MobileHeader />
 
-      <div class="tour-container  my-5">
+      <div class="play-container  my-5">
         <h5 className=" fw-bold">
           Playground Management
-          <span className="home" style={{ float: "right", display: "block" }}>
+          <span className="home" style={{ float: "right", display: "block",marginRight:'7px' }}>
             <svg
               width="18"
               height="21"

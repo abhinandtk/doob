@@ -12,6 +12,13 @@ body{
     align-items: center;
 }
 
+.play-container{
+  width:800px;
+  justify-content: center;
+ margin-left: 330px;
+  align-items: center;
+}
+
 .Top-play{  
     display: flex;
     flex-wrap: wrap;
@@ -45,7 +52,7 @@ body{
     margin-left: 4px;
   }
   .doct-card{
-     width: 22rem;
+     width: 24rem;
      border:0px;
      border-radius:19px;
   }
@@ -614,6 +621,9 @@ input.tour {
     margin-top: -4px;
    }
     
+   .Bottoms{
+  margin-top: 30px;
+   }
   .Game-detail{
     border: 0px;
     margin-top: 25px;
@@ -1835,6 +1845,18 @@ margin-left: 13px;
   font-size:15px; 
   width: 152px;
 }
+.book-names1{
+  font-size: 14px;
+  display:-webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size:15px; 
+  width: 139px;
+}
+
+
 .football{
   width: 591px;
   height: 235px;
@@ -2174,7 +2196,7 @@ text-align: right;
   font-weight:400;
   color: #000;
   margin-left: 15px;
- 
+  width: 78%;
  
 }
 .Teams-Name-down{
@@ -2529,6 +2551,10 @@ input.nosubmit1 {
     width: 100%;
     margin-left: 23px;
   }
+  .play-container{
+    width: 100%;
+    margin-left: 23px;
+  }
   .side-play {
  
     padding: 12px 7px  ;
@@ -2555,6 +2581,10 @@ input.nosubmit1 {
   .tour-container {
     width: 100%;
     
+  }
+  .play-container{
+    width: 100%;
+   
   }
   .topnav span {
     float: left;
@@ -2596,6 +2626,10 @@ input.nosubmit1 {
     width: 100%;
     
   }
+  .play-container{
+    width: 100%;
+    
+  }
   .side-play {
  
     padding: 12px 7px  ;
@@ -2620,8 +2654,12 @@ input.nosubmit1 {
 }
 @media(max-width:1200px) {
   .tour-container {
-    width: 1005;
+    width: 100%;
     
+  }
+  .play-container{
+    width: 100%;
+   
   }
   .side-play {
  
@@ -2654,6 +2692,10 @@ input.nosubmit1 {
   .tour-container {
     width: auto;
     
+  }
+  .play-container{
+    width: auto;
+   
   }
   .side-play {
  
@@ -2693,6 +2735,10 @@ input.nosubmit1 {
 }
 @media (max-width:1025px) {
   .tour-container {
+    width: auto;
+    
+  }
+  .play-container{
     width: auto;
     
   }
@@ -2737,6 +2783,10 @@ input.nosubmit1 {
   margin-top: 0px;
 }
 .tour-container {
+  width: auto;
+  
+}
+.play-container{
   width: auto;
   
 }
@@ -2803,6 +2853,10 @@ input.nosubmit1 {
     width: auto;
     
   }
+  .play-container{
+    width: auto;
+    
+  }
   .side-play {
   
     padding: 12px 7px  ;
@@ -2845,6 +2899,10 @@ input.nosubmit1 {
 }
 @media(max-width:659px) {
   .tour-container {
+    width: auto;
+    
+  }
+  .play-container{
     width: auto;
     
   }
@@ -2905,6 +2963,10 @@ input.nosubmit1 {
 
 @media (max-width:527px) {
   .tour-container {
+    width: auto;
+    margin-right: 13px;
+  }
+  .play-container{
     width: auto;
     margin-right: 13px;
   }
@@ -3186,6 +3248,16 @@ display: none;
   text-overflow: ellipsis;
   font-size:15px; 
   width: 170px;
+}
+.book-names1{
+  font-size: 14px;
+  display:-webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size:15px; 
+  width: 138px;
 }
   .tournament-imx2 {
    display: none;
@@ -3656,6 +3728,7 @@ display: none;
 .new-orders2 {
   margin-left: -4px;
   font-size: 15px;
+  
 }
 
 .games2 {
@@ -4185,12 +4258,28 @@ margin-left: 185px;
     width: auto;
     
   }
+  .play-container {
+    width: auto;
+    
+  }
   .side-play {
   
   display: none;
   
     
   }
+  .tour_rank_img {
+    width: 65px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.tour_rank_img1 {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
   .book-img {
     width: 70px;
     height: 70px;
@@ -4355,7 +4444,25 @@ margin-left: 160px;
   font-size:15px; 
   width: 90px;
 }
-
+.green-imx {
+  width: 84px;
+  height: 85px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-top: 12px;
+  margin-left: 9px;
+}
+.green-text {
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 190px;
+}
 .text-cart {
   display: -webkit-box;
   -webkit-line-clamp: 1;
@@ -4669,7 +4776,8 @@ margin-left: 160px;
   font-size: 19px;
   font-weight: 400;
 }
-   
+
+ 
 
 @media (max-width:432px) {
   .play-details{
@@ -4698,6 +4806,8 @@ margin-left: 160px;
     width: 100%;
     margin-left: -9px;
   }
+ 
+ 
   .name {
     font-weight: 600;
     font-size: 15px;
@@ -4708,7 +4818,7 @@ margin-left: 160px;
     overflow: hidden;
     text-overflow: ellipsis;
     width: 107px;
-    margin-right: 126px;
+    margin-right: 136px;
 }
 .name1 {
   font-weight: 400;
@@ -4795,6 +4905,7 @@ margin-left: 160px;
   .grey-details3 {
     margin-left: 20px;
   }
+ 
 
 }
 }
@@ -4835,7 +4946,7 @@ margin-left: 160px;
 }
 .green-text {
   color: white;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
   display: -webkit-box;
   -webkit-line-clamp: 1;
@@ -4852,11 +4963,27 @@ margin-left: 160px;
 font-size: 14px;
 font-weight: 400;
 }
+.new-orders1 {
+  margin-left: -4px;
+  font-size: 15px;
+  float: right;
+  margin-top: -32px;
+}
+.new-orders2 {
+  margin-left: -4px;
+  font-size: 15px;
+  float: right;
+  margin-top: -32px;
+}
 
 }
 
 @media (max-width:375px) {
   .tour-container {
+    width: auto;
+    
+  }
+  .play-container {
     width: auto;
     
   }
@@ -5015,9 +5142,9 @@ font-weight: 400;
 
 
 .green-details {
-    margin-top: 18px;
-    margin-left: 120px;
-    position: absolute;
+  margin-top: 18px;
+  margin-left: 106px;
+  position: absolute;
 }
 .tournament-imx3 {
   width: 100%;
@@ -5080,4 +5207,6 @@ font-weight: 400;
     margin-top: 15px;
     width: 120px;
   }
+  
+
 }

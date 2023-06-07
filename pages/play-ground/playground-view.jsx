@@ -90,7 +90,7 @@ function PlaygroundPageAdmin() {
                       style={{ width: "90%" }}
                     >
                       <span>City</span>
-                      <span>{item.city}</span>
+                      <span className="book-names1">{item.city}</span>
                     </div>
                     <div
                       className="p-2  mx-auto d-flex justify-content-between align-items-center"

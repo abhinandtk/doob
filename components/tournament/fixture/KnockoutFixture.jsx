@@ -45,7 +45,7 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
                             match.team_B_score <= match.team_A_score
                               ? "group-two"
                               : "group-one"
-                          }`}
+                          }`} 
                         >
                           {match.team_B}
                         </div>
