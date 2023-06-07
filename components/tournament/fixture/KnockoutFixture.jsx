@@ -133,7 +133,7 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
                               : "group-two"
                           }`}
                         >
-                          {match.team_A}
+                          {match.team_A} 
                         </div>
                         <div
                           className={`${

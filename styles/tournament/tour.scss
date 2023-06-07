@@ -1432,7 +1432,11 @@ margin-left: 13px;
 }
  
                                                     
-                          
+.top-teams {
+  background: #eeeeee;
+  width:65%;
+  height: 45px;
+}                       
 .team1{
   display:-webkit-box;
   -webkit-line-clamp: 1;
@@ -1829,7 +1833,7 @@ margin-left: 13px;
   overflow: hidden;
   text-overflow: ellipsis;
   font-size:15px; 
-  width: 200px;
+  width: 152px;
 }
 .football{
   width: 591px;
@@ -2517,8 +2521,6 @@ input.nosubmit1 {
 	margin-top: 12px;
 }
 
-
-/////////////////////////
 
 
 ///// medai query start ////

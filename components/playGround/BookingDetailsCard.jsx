@@ -91,14 +91,12 @@ function BookingDetailsCard({ details, setSuccess }) {
               <span style={{ color: "#959595" }}>Stadium Name</span>
               <span className="book-names"> {item.stadium_name}</span>
             </div>
-
+             
+            
+  
             <div
-              className="p-2 mt-1 mx-auto d-flex justify-content-between align-items-center"
-              style={{
-                background: "#eeeeee",
-                borderRadius: "10px",
-                width: "90%",
-              }}
+              className="p-2  mx-auto d-flex justify-content-between align-items-center"
+              style={{ width: "90%" }}
             >
               <span style={{ color: "#959595" }}>Price</span>
               <span> {item.price}KD</span>
@@ -106,25 +104,29 @@ function BookingDetailsCard({ details, setSuccess }) {
 
             <div
               className="p-2   mx-auto d-flex justify-content-between align-items-center"
-              style={{ width: "90%" }}
-            >
-              <span style={{ color: "#959595" }}>Payment Mode</span>
-              <span> {item.payment_method} </span>
-            </div>
-            <div
-              className="p-2  mx-auto d-flex justify-content-between align-items-center"
               style={{
                 background: "#eeeeee",
                 borderRadius: "10px",
                 width: "90%",
               }}
             >
+              <span style={{ color: "#959595" }}>Payment Mode</span>
+              <span> {item.payment_method} </span>
+            </div>
+            <div
+              className="p-2  mx-auto d-flex justify-content-between align-items-center"
+              style={{ width: "90%" }}
+            >
               <span style={{ color: "#959595" }}>Payment Status</span>
               <span style={{ color: "#17A803" }}>{item.payment_status}</span>
             </div>
             <div
               className="p-2   mx-auto d-flex justify-content-between align-items-center"
-              style={{ width: "90%" }}
+              style={{
+                background: "#eeeeee",
+                borderRadius: "10px",
+                width: "90%",
+              }}
             >
               <span style={{ color: "#959595" }}>Booking Status</span>
               <span
@@ -134,7 +136,7 @@ function BookingDetailsCard({ details, setSuccess }) {
               >{`${item.status === true ? "Success" : "Cancelled"}`}</span>
             </div>
             <div
-              className="p-2   mx-auto d-flex justify-content-between align-items-center"
+              className="p-2 mt-3  mx-auto d-flex justify-content-between align-items-center"
               style={{ width: "90%" }}
             >
               <span style={{ color: "#959595" }}></span>
