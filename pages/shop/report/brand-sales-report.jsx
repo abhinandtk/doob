@@ -29,6 +29,7 @@ function BrandSaleReport() {
   const today = moment().format("YYYY-MM-DD");
   const [endDate, setEndDate] = useState(today);
   const [brandReportData, setBrandReport] = useState([]);
+  const [slugId, setSlugId] = useState("");
   const [chartData, setChartData] = useState({
     labels: [],
     datasets: [
@@ -41,7 +42,9 @@ function BrandSaleReport() {
   });
 
   const handleDayChange = (days) => {
-    setSelectedDays(days);
+    setSelectedDays(
+      days == 30 ? "30 days" : days == 180 ? "6 months" : "1 year"
+    );
     setStartDate(moment().subtract(days, "days").format("YYYY-MM-DD"));
   };
   console.log("change", startDate);
@@ -60,6 +63,7 @@ function BrandSaleReport() {
     ).then((res) => {
       console.log("res", res);
       if (res.data.data.length > 0) {
+        setSlugId(res.data.data[0].store_slug);
         setBrandReport(res.data.data[0].brands);
 
         const data = res.data.data[0];
@@ -87,14 +91,17 @@ function BrandSaleReport() {
     plugins: {
       legend: {
         labels: {
-          boxWidth: 50,
-          boxHeight: 50,
+          boxWidth: 20,
+          boxHeight: 20,
           color: "black",
         },
         position: "bottom", // set the position of the legend to bottom
       },
     },
   };
+  const url = `${constants.port}/store/brand_report_csv?store_id=${
+    slugId && slugId
+  }&start_date=${startDate}&end_date=${endDate}`;
   return (
     <div>
       <MainHeader title="Doob" />
@@ -124,7 +131,7 @@ function BrandSaleReport() {
                         background: "transparent",
                       }}
                     >
-                      {`Last ${selectedDays} days`}{" "}
+                      {`Last ${selectedDays == 30 ? "30 days" : selectedDays}`}{" "}
                       <i className="bi bi-chevron-down "></i>
                     </Dropdown.Toggle>
 
@@ -132,26 +139,23 @@ function BrandSaleReport() {
                       <Dropdown.Item onClick={() => handleDayChange(30)}>
                         Last 30 days
                       </Dropdown.Item>
-                      <Dropdown.Item onClick={() => handleDayChange(60)}>
-                        Last 60 days
+                      <Dropdown.Item onClick={() => handleDayChange(180)}>
+                        Last 6 months
                       </Dropdown.Item>
-                      <Dropdown.Item onClick={() => handleDayChange(120)}>
-                        Last 120 days
+                      <Dropdown.Item onClick={() => handleDayChange(365)}>
+                        Last 1 year
                       </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
                   <span>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        notification.info({
-                          message: constants.Info,
-                          description: `${labels["This feature will added soon"]}`,
-                        })
-                      }
-                      className="export-btn"
-                    >
-                      Export
+                    <button type="button" className="export-btn">
+                      <a
+                        href={url}
+                        style={{ textDecoration: "none", color: "inherit" }}
+                        download
+                      >
+                        Export
+                      </a>
                     </button>
                   </span>
                 </div>

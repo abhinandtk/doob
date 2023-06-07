@@ -96,7 +96,9 @@ const apis = {
     'productReport': `${constants.port}/store/api/product_report `,
     'getByidProduct': `${constants.port}/store/api/get_product_detail `,
 
-    'costomerReport': `${constants.port}/store/api/customer_report `,
+    'stockApi': `${constants.port}/store/api/list_product_variants_stock `,
+
+    'customerReport': `${constants.port}/store/api/customer_report `,
 
     'shopSummary': `${constants.port}/store/api/new_order `,
 
@@ -109,6 +111,8 @@ const apis = {
 
     'salesReport': `${constants.port}/store/api/sales_report `,
     'earningReport': `${constants.port}/store/api/earnings_day_report `,
+    'earningReportExport': `${constants.port}/store/api/sales_report_pdf `,
+    // 'earningReportExport': `${constants.port}/store/api/earnings_day_report_csv `,
 
 
 
@@ -138,6 +142,8 @@ const apis = {
     'playgroundReport': `${constants.port}/playground/api/ad_playground_report`,
     'gameReport': `${constants.port}/playground/api/ad_game_report`,
     'groundEarning': `${constants.port}/playground/api/ad_earning_report`,
+    'customerReportPlay': `${constants.port}/playground/api/ad_customer_report`,
+    'adminAllBookings': `${constants.port}/playground/api/ad_list_all_booking`,
 
     //Tournament
 

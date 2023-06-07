@@ -678,7 +678,8 @@ input:disabled{
 .content-topics {
   margin-left: 240px;
   padding: 1px 6px;
-  height: 100%;    // width noted //...............................................
+  // height: 100%;    // width noted //...............................................
+  min-height: 500px;
    background: white;
    width: 65%;
    

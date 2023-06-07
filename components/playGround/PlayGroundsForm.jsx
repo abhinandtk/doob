@@ -6,7 +6,10 @@ import apis from "@/public/data/my-constants/Apis";
 import { Modal, TimePicker } from "antd";
 import { Button } from "react-bootstrap";
 import moment from "moment";
-function PlayGroundsForm({ handlePlaygroundForm }) {
+import { useRouter } from "next/router";
+function PlayGroundsForm({ handlePlaygroundForm, editData }) {
+  const router = useRouter();
+  const { id } = router.query;
   const [game, setGame] = useState([]);
   const [amenity, setAmenity] = useState([]);
   const [gameChecked, setGameChecked] = useState([]);
@@ -31,7 +34,7 @@ function PlayGroundsForm({ handlePlaygroundForm }) {
     description_ar: "",
     latitude: "",
     longitude: "",
-    amount:"",
+    amount: "",
   });
 
   const handleChange = (e) => {
@@ -127,6 +130,46 @@ function PlayGroundsForm({ handlePlaygroundForm }) {
     }
   };
 
+  useEffect(() => {
+    if (editData === "true") {
+      Axios.post(
+        apis.ground_admin_view_get_put,
+        { slug_field: id },
+        {
+          headers: {
+            Authorization: `Token ${constants.token_id}`,
+          },
+        }
+      ).then((res) => {
+        console.log("edit345", res);
+        if (res.data.status == 1) {
+          setFormData({
+            name: res.data.data.list.stadium_name,
+            city: res.data.data.list.city.id,
+            location: res.data.data.list.location,
+            gmap: res.data.data.management.google_map_location_field,
+            image: res.data.data.list.images[0].images,
+            opening: res.data.data.list.opening_time,
+            closing: res.data.data.list.closing_time,
+            description: res.data.data.list.description,
+            description_ar: res.data.data.management.description_ar,
+            latitude: res.data.data.list.latitude,
+            longitude: res.data.data.list.longitude,
+            amount: res.data.data.list.amount,
+          });
+          setAmenityChecked(res.data.data.list.amnities.map((item)=>item.id))
+          setGameChecked(res.data.data.list.game.map((item)=>item.id))
+          const newSlots = res.data.data.list.timeslot.map((item) => ({
+            start_time: moment(item.start_time,'hh:mm:ss').format("H:mm"),
+            end_time: moment(item.end_time,'hh:mm:ss').format("H:mm"),
+          }));
+    
+          setSlots(newSlots);
+        }
+      });
+    }
+  }, []);
+
   const submitHandler = (e) => {
     e.preventDefault();
     handlePlaygroundForm(formData, gameChecked, amenityChecked, slots);
@@ -146,6 +189,7 @@ function PlayGroundsForm({ handlePlaygroundForm }) {
             color: "grey",
           }}
           id="name"
+          value={formData.name}
           onChange={(e) => handleChange(e)}
         />
       </div>
@@ -155,6 +199,7 @@ function PlayGroundsForm({ handlePlaygroundForm }) {
           className="form-control "
           style={{ border: "0px", background: "#eeeeee", color: "#959595" }}
           id="city"
+          value={formData.city}
           onChange={(e) => handleChange(e)}
         >
           <option style={{ color: "#959595" }} value="">
@@ -180,6 +225,7 @@ function PlayGroundsForm({ handlePlaygroundForm }) {
             color: "grey",
           }}
           id="location"
+          value={formData.location}
           onChange={(e) => handleChange(e)}
         />
       </div>
@@ -195,21 +241,7 @@ function PlayGroundsForm({ handlePlaygroundForm }) {
             color: "grey",
           }}
           id="gmap"
-          onChange={(e) => handleChange(e)}
-        />
-      </div>
-      <div className="form-group my-2 ">
-        <label for="exampleFormControlInput1">Longitude *</label>
-        <input
-          required
-          type="text"
-          className="form-control p-2"
-          style={{
-            border: "0px",
-            background: "#eeeeee",
-            color: "grey",
-          }}
-          id="longitude"
+          value={formData.gmap}
           onChange={(e) => handleChange(e)}
         />
       </div>
@@ -225,6 +257,23 @@ function PlayGroundsForm({ handlePlaygroundForm }) {
             color: "grey",
           }}
           id="latitude"
+          value={formData.latitude}
+          onChange={(e) => handleChange(e)}
+        />
+      </div>
+      <div className="form-group my-2 ">
+        <label for="exampleFormControlInput1">Longitude *</label>
+        <input
+          required
+          type="text"
+          className="form-control p-2"
+          style={{
+            border: "0px",
+            background: "#eeeeee",
+            color: "grey",
+          }}
+          id="longitude"
+          value={formData.longitude}
           onChange={(e) => handleChange(e)}
         />
       </div>
@@ -244,7 +293,6 @@ function PlayGroundsForm({ handlePlaygroundForm }) {
           Image
         </label>
         <input
-          required
           type="file"
           className="form-control p-2 "
           style={{
@@ -269,6 +317,7 @@ function PlayGroundsForm({ handlePlaygroundForm }) {
             color: "grey",
           }}
           id="opening"
+          value={formData.opening}
           onChange={(e) => handleChange(e)}
         />
       </div>
@@ -284,6 +333,7 @@ function PlayGroundsForm({ handlePlaygroundForm }) {
             color: "grey",
           }}
           id="closing"
+          value={formData.closing}
           onChange={(e) => handleChange(e)}
         />
       </div>
@@ -330,6 +380,7 @@ function PlayGroundsForm({ handlePlaygroundForm }) {
           id="description"
           onChange={(e) => handleChange(e)}
           rows="3"
+          value={formData.description}
         ></textarea>
       </div>
       <div className="form-group my-2 ">
@@ -348,13 +399,12 @@ function PlayGroundsForm({ handlePlaygroundForm }) {
           id="description_ar"
           onChange={(e) => handleChange(e)}
           rows="3"
+          value={formData.description_ar}
         ></textarea>
       </div>
       <div className="form-group my-2 ">
         <label for="exampleFormControlTextarea1">
-          <h6 style={{ fontSize: "15px", fontWeight: "700" }}>
-            Amount
-          </h6>
+          <h6 style={{ fontSize: "15px", fontWeight: "700" }}>Amount</h6>
         </label>
         <textarea
           className="form-control"
@@ -364,6 +414,7 @@ function PlayGroundsForm({ handlePlaygroundForm }) {
             color: "grey",
           }}
           id="amount"
+          value={formData.amount}
           onChange={(e) => handleChange(e)}
         ></textarea>
       </div>

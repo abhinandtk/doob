@@ -133,12 +133,6 @@ function ProductsForm({ handleProductAdd, editData }) {
             variants: variants,
           });
         }
-
-        console.log(
-          "getproductiiiiiiiiiiiiii",
-          res,
-          res.data.data[0].product_status
-        );
       });
     }
   }, []);

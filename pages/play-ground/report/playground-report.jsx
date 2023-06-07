@@ -3,8 +3,6 @@ import { Chart as chartJS, ArcElement, Tooltip, Legend } from "chart.js";
 chartJS.register(ArcElement, Tooltip, Legend);
 import { Dropdown } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
-import ShopPagesSideBar from "@/components/shop/pages/ShopPagesSideBar";
-import ReportOrderCountTable from "@/components/shop/report/ReportOrderCountTable";
 import { Doughnut } from "react-chartjs-2";
 import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
@@ -17,6 +15,7 @@ import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
+import PlayGroundSideBar from "@/components/playGround/PlayGroundSideBar";
 function playgroundReport() {
   const [selectedDays, setSelectedDays] = useState(30);
 
@@ -105,7 +104,7 @@ function playgroundReport() {
       <MainSidebarFixed />
       <div className="store-container1">
         <div className="Bottom">
-          <ShopPagesSideBar currentPage="report" />
+          <PlayGroundSideBar currentPage="report" />
 
           <div class="content-topics ">
             <div className="bottom">

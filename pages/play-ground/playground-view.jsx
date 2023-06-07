@@ -59,7 +59,14 @@ function PlaygroundPageAdmin() {
                       style={{ width: "90%" }}
                     >
                       <p style={{ fontWeight: "500" }}>{item.stadium_name}</p>
-                      {/* <button className="playedit-btn mb-2">Edit</button> */}
+                      <button
+                        className="playedit-btn mb-2"
+                        onClick={() =>
+                          router.push(`/play-ground/edit/${item.stadium_slug}`)
+                        }
+                      >
+                        Edit
+                      </button>
                     </div>
                     <hr
                       className="mx-auto "
@@ -101,7 +108,9 @@ function PlaygroundPageAdmin() {
                       }}
                     >
                       <span> Status</span>
-                      <span style={{ color: "#17A803" }}>{`${item.status=== true ? 'Active' : 'InActive'}`}</span>
+                      <span style={{ color: "#17A803" }}>{`${
+                        item.status === true ? "Active" : "InActive"
+                      }`}</span>
                     </div>
                     <br></br>
                   </div>

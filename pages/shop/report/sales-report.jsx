@@ -22,6 +22,7 @@ Chart.register(CategoryScale);
 function SalesReport() {
   const [selectedDays, setSelectedDays] = useState(30);
   const [salesData, setSalesData] = useState([]);
+  const labels = Labels();
 
   const [startDate, setStartDate] = useState(
     moment().subtract(30, "days").format("YYYY-MM-DD")
@@ -34,7 +35,7 @@ function SalesReport() {
     labels: [],
     datasets: [
       {
-        label: "My First dataset",
+        label: "sales report",
         data: [],
         fill: false,
         borderColor: "rgb(75, 192, 192)",
@@ -63,12 +64,7 @@ function SalesReport() {
       },
     },
   };
-  const handleDayChange = (days) => {
-    setSelectedDays(days);
-    setStartDate(moment().subtract(days, "days").format("YYYY-MM-DD"));
-  };
-  console.log("change", startDate);
-  const labels=Labels()
+
   useEffect(() => {
     Axios.post(
       apis.salesReport,
@@ -82,13 +78,22 @@ function SalesReport() {
         },
       }
     ).then((res) => {
-      console.log(res);
+      console.log("res", res);
       setSalesData(res.data.data);
       //   setBrandReport(res.data.data[0].brands);
       //   const data = res.data.data[0];
     });
   }, [startDate, endDate]);
+  const handleDayChange = (days) => {
+    setSelectedDays(
+      days == 30 ? "30 days" : days == 180 ? "6 months" : "1 year"
+    );
+    setStartDate(moment().subtract(days, "days").format("YYYY-MM-DD"));
+  };
 
+  const url = `${constants.port}/store/sales_report_pdf?store_id=${
+    salesData && salesData.store_slug
+  }&start_date=${startDate}&end_date=${endDate}`;
   return (
     <div>
       <MainHeader title="Doob" />
@@ -96,7 +101,7 @@ function SalesReport() {
       <MainSidebarFixed />
       <div className="store-container1">
         <div className="Bottom">
-          <ShopPagesSideBar currentPage='report'/>
+          <ShopPagesSideBar currentPage="report" />
 
           <div class="content-topics ">
             <div className="bottom">
@@ -104,7 +109,7 @@ function SalesReport() {
                 className=" ms-4"
                 style={{ color: "#17a803", fontWeight: "700" }}
               >
-                Product Sales Report
+                Sales Report
               </h6>
               <div className="my-1 mx-4 ">
                 <div className="update">
@@ -118,7 +123,7 @@ function SalesReport() {
                         background: "transparent",
                       }}
                     >
-                      {`Last ${selectedDays} days`}{" "}
+                      {`Last ${selectedDays == 30 ? "30 days" : selectedDays}`}{" "}
                       <i className="bi bi-chevron-down "></i>
                     </Dropdown.Toggle>
 
@@ -126,26 +131,24 @@ function SalesReport() {
                       <Dropdown.Item onClick={() => handleDayChange(30)}>
                         Last 30 days
                       </Dropdown.Item>
-                      <Dropdown.Item onClick={() => handleDayChange(60)}>
-                        Last 60 days
+                      <Dropdown.Item onClick={() => handleDayChange(180)}>
+                        Last 6 months
                       </Dropdown.Item>
-                      <Dropdown.Item onClick={() => handleDayChange(120)}>
-                        Last 120 days
+                      <Dropdown.Item onClick={() => handleDayChange(365)}>
+                        Last 1 year
                       </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
                   <span>
-                    <button
-                      onClick={() =>
-                        notification.info({
-                          message: constants.Info,
-                          description: `${labels["This feature will added soon"]}`,
-                        })
-                      }
-                      type="button"
-                      className="export-btn"
-                    >
-                      Export
+                    <button type="button" className="export-btn">
+                      <a
+                        href={url}
+                        target="_blank"
+                        style={{ textDecoration: "none", color: "inherit" }}
+                        
+                      >
+                        Export
+                      </a>
                     </button>
                   </span>
                 </div>

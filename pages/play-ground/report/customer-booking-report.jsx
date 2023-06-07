@@ -1,45 +1,57 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
-import {
-  Container,
-  Nav,
-  Navbar,
-  Dropdown,
-  CardImg,
-  Card,
-  Button,
-} from "react-bootstrap";
-import Offcanvas from "react-bootstrap/Offcanvas";
+import { Chart as chartJS, ArcElement, Tooltip, Legend } from "chart.js";
+chartJS.register(ArcElement, Tooltip, Legend);
+import { Dropdown } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
-import ShopPagesSideBar from "@/components/shop/pages/ShopPagesSideBar";
+import { Doughnut } from "react-chartjs-2";
 import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
+import randomColor from "randomcolor";
+import moment from "moment";
 import MainHeader from "@/components/shared/headers/MainHeader";
 import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
-import moment from "moment";
-
-function CustomerSalesReport() {
-  const [customerSale, setCustomerSale] = useState([]);
-  const [selectedDays, setSelectedDays] = useState(30);
+import PlayGroundSideBar from "@/components/playGround/PlayGroundSideBar";
+function CustomerBookingReport() {
+  const [selectedDays, setSelectedDays] = useState('30 days');
 
   const labels = Labels();
 
   const [startDate, setStartDate] = useState(
-    moment().subtract(30, "days").format("YYYY-MM-DD")
+    moment().subtract(30, "days").format("DD-MM-YYYY")
   );
 
-  const today = moment().format("YYYY-MM-DD");
+  const today = moment().format("DD-MM-YYYY");
   const [endDate, setEndDate] = useState(today);
+  const [dataReport, setDataReport] = useState([]);
+  const [chartData, setChartData] = useState({
+    labels: [],
+    datasets: [
+      {
+        data: [],
+        backgroundColor: [],
+        hoverBackgroundColor: [],
+      },
+    ],
+  });
+
+  const handleDayChange = (days) => {
+    setSelectedDays(days == 30 ?'30 days' :days == 180 ?'6 months':'1 year');
+    setStartDate(moment().subtract(days, "days").format("DD-MM-YYYY"));
+  };
+  console.log("change", startDate);
+  const [customerSale, setCustomerSale] = useState([]);
+
   useEffect(() => {
     Axios.post(
-      apis.customerReport,
+      apis.customerReportPlay,
       {
-        start_date: startDate,
-        end_date: endDate,
+        start_date: "",
+        end_date: "",
       },
       {
         headers: {
@@ -49,13 +61,10 @@ function CustomerSalesReport() {
     ).then((res) => {
       setCustomerSale(res.data.data);
     });
-  }, [startDate, endDate]);
-  const handleDayChange = (days) => {
-    setSelectedDays(
-      days == 30 ? "30 days" : days == 180 ? "6 months" : "1 year"
-    );
-    setStartDate(moment().subtract(days, "days").format("YYYY-MM-DD"));
-  };
+  },[startDate, endDate]);
+  console.log("reportDtaaaaaaa888", dataReport);
+
+  
   return (
     <div>
       <MainHeader title="Doob" />
@@ -63,7 +72,7 @@ function CustomerSalesReport() {
       <MainSidebarFixed />
       <div className="store-container1">
         <div className="Bottom">
-          <ShopPagesSideBar currentPage="report" />
+          <PlayGroundSideBar currentPage="report" />
 
           <div class="content-topics ">
             <div className="bottom">
@@ -71,7 +80,7 @@ function CustomerSalesReport() {
                 className=" ms-4"
                 style={{ color: "#17a803", fontWeight: "700" }}
               >
-                Customer Sales Report
+                Customer Booking Report
               </h6>
               <div className="my-1 mx-4 ">
                 <div className="update">
@@ -85,7 +94,7 @@ function CustomerSalesReport() {
                         background: "transparent",
                       }}
                     >
-                      {`Last ${selectedDays == 30 ? "30 days" : selectedDays}`}{" "}
+                      {`Last ${selectedDays}`}{" "}
                       <i className="bi bi-chevron-down "></i>
                     </Dropdown.Toggle>
 
@@ -96,56 +105,44 @@ function CustomerSalesReport() {
                       <Dropdown.Item onClick={() => handleDayChange(180)}>
                         Last 6 months
                       </Dropdown.Item>
-                      <Dropdown.Item onClick={() => handleDayChange(365)}>
+                      <Dropdown.Item onClick={() => handleDayChange(360)}>
                         Last 1 year
                       </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
                   <span>
-                    {/* <img
-                      src="/images/store/f-icon.png"
-                      className="fil-icon"
-                    ></img> */}
                     <button
+                      type="button"
                       onClick={() =>
                         notification.info({
                           message: constants.Info,
                           description: `${labels["This feature will added soon"]}`,
                         })
                       }
-                      type="button"
                       className="export-btn"
                     >
                       Export
                     </button>
                   </span>
                 </div>
+
+                <br></br>
                 <div className="customer-sale">
-                  <div
-                    id="header"
-                    style={{ display: "flex", justifyContent: "space-between" }}
-                  >
+                  <div id="header" style={{display:'flex',justifyContent:"space-between"}}>
                     <div id="logo">Customer</div>
                     <div id="header-middle ">Order Count</div>
                     <div id="header-right">Total Amount</div>
                   </div>
-                  {customerSale &&
-                    customerSale.map((item, index) => (
-                      <div
-                        key={index}
-                        className=" d-flex justify-content-between  customer my-3"
-                      >
-                        <span className="sales-report-name">
-                          {item.customer_name}
-                        </span>
-                        <span className="sales-order-number">
-                          {item.total_count}
-                        </span>
-                        <span className="sales-order-price">
-                          {item.total_amount} KD
-                        </span>
-                      </div>
-                    ))}
+                  {dataReport && dataReport.map((item,index)=>(
+                  <div
+                    key={index}
+                    className=" d-flex justify-content-between  customer my-3"
+                  >
+                    <span className="sales-report-name">{item.Game}sale</span>
+                    <span className="sales-order-number">{item.booking_count}s</span>
+                    <span className="sales-order-price">{item.total_amount} KDs</span>
+                  </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -157,4 +154,4 @@ function CustomerSalesReport() {
   );
 }
 
-export default CustomerSalesReport;
+export default CustomerBookingReport;
