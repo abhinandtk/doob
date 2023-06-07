@@ -34,7 +34,7 @@ function PlaygroundManagementPage() {
           Playground Management
           <span className="home" style={{ float: "right", display: "block",marginRight:'7px' }}>
             <svg
-              width="18"
+            width="18"
               height="21"
               viewBox="0 0 18 21"
               fill="none"

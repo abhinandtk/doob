@@ -92,7 +92,7 @@ function GamesCard({ data }) {
                   ></img>))}
                  
                   
-                  <span className="mx-4" style={{ color: "#959595" }}>
+                  <span className="mx-4 participate" >
                     {/* {item.participants.length-4 >=1 ? `+${item.participants.length-4} more participants` :''} */}
                     {item.participants.length >=1 ?`${item.participants.length} participants`:''}
                   </span>
@@ -100,7 +100,7 @@ function GamesCard({ data }) {
                 <hr></hr>
                 <div className="clearfix">
                   <div className="book-profile float-start">
-                    <span>
+                    <span className="Hosted">
                       <img
                         src="../images/tournament/c1.png"
                         style={{
@@ -109,9 +109,9 @@ function GamesCard({ data }) {
                           objectFit: "cover",
                         }}
                       ></img>
-                      <span className="mx-2">
-                        <span style={{ color: "#17A803" }}>Hosted by</span>
-                        &nbsp;{item.hosted_by}
+                      <span className="mx-2 ">
+                        <span className="hosts">Hosted by</span>
+                       <span className="host-name"> &nbsp;{item.hosted_by}</span> 
                       </span>
                     </span>
                   </div>
