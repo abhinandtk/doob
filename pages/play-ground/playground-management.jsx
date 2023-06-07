@@ -29,12 +29,12 @@ function PlaygroundManagementPage() {
       <MainSidebarFixed />
       <MobileHeader />
 
-      <div class="tour-container  my-5">
+      <div class="play-container  my-5">
         <h5 className=" fw-bold">
           Playground Management
-          <span className="home" style={{ float: "right", display: "block" }}>
+          <span className="home" style={{ float: "right", display: "block",marginRight:'7px' }}>
             <svg
-              width="18"
+            width="18"
               height="21"
               viewBox="0 0 18 21"
               fill="none"
@@ -175,7 +175,7 @@ function PlaygroundManagementPage() {
               <svg
                 width="25"
                 className=""
-                height="26"
+                height="26" 
                 viewBox="0 0 25 26"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -299,7 +299,7 @@ function PlaygroundManagementPage() {
             </svg>
             <p className="play-manage">Settings</p>
           </div>
-          <div className="docu1  ">
+          <div className="docu1 ">
             <svg
               width="25"
               height="33"

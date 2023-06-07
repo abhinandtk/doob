@@ -300,9 +300,6 @@ Arabic</Dropdown.Item>
 
 
 <div className="tour-container">
-
-
-
 <div className='row '>
     <div className='col-md-7'>
     <div class="card  tournament2 my-5">
@@ -332,7 +329,7 @@ Arabic</Dropdown.Item>
         </div>
     </div>
    
-
+ 
    </div>
   </div> 
 </div>
@@ -353,9 +350,8 @@ Arabic</Dropdown.Item>
     </div>
 <div className='card tournament3 my-4'>
     <div className='card-body p-3'>
-     
-
-
+ 
+ 
 
 
     </div>

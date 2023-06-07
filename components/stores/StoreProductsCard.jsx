@@ -99,7 +99,7 @@ function StoreProductsCard({ products, title }) {
                       className="bi bi-star-fill"
                       style={{ color: "yellow" }}
                     ></i>
-                    <span style={{ color: "white" }}>0</span>
+                    <span style={{ color: "white" }} className="mx-1">0</span>
                     <span
                       onClick={() =>
                         addWishlistHandler(item.slug_Id, item.isWish)
