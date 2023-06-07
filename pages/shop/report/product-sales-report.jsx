@@ -29,6 +29,8 @@ function ProductSalesReport() {
   const [startDate, setStartDate] = useState(
     moment().subtract(30, "days").format("YYYY-MM-DD")
   );
+  const [slugId, setSlugId] = useState("");
+
 
   const today = moment().format("YYYY-MM-DD");
   const [endDate, setEndDate] = useState(today);
@@ -46,6 +48,9 @@ function ProductSalesReport() {
         },
       }
     ).then((res) => {
+      console.log("res6", res);
+      setSlugId(res.data.data[0].store_slug)
+
       console.log("ppppopo", res.data.data[0], {
         start_date: startDate,
         end_date: endDate,
@@ -59,6 +64,10 @@ function ProductSalesReport() {
     );
     setStartDate(moment().subtract(days, "days").format("YYYY-MM-DD"));
   };
+  const url = `${constants.port}/store/brand_report_csv?store_id=${
+    slugId && slugId
+  }&start_date=${startDate}&end_date=${endDate}`;
+
   return (
     <div>
       <MainHeader title="Doob" />
@@ -109,21 +118,19 @@ function ProductSalesReport() {
                       src="/images/store/f-icon.png"
                       className="fil-icon"
                     ></img> */}
-                    <button
-                      onClick={() =>
-                        notification.info({
-                          message: constants.Info,
-                          description: `${labels["This feature will added soon"]}`,
-                        })
-                      }
-                      type="button"
-                      className="export-btn"
-                    >
-                      Export{" "}
+                    <button type="button" className="export-btn">
+                      <a
+                        href={url}
+                        
+                        style={{ textDecoration: "none", color: "inherit",target:'_blank' }}
+                        download
+                      >
+                        Export
+                      </a>
                     </button>
                   </span>
                 </div>
-                
+
                 <div className="customer-sale">
                   <div
                     id="header"

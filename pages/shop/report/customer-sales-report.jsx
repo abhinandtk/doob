@@ -25,6 +25,7 @@ import moment from "moment";
 function CustomerSalesReport() {
   const [customerSale, setCustomerSale] = useState([]);
   const [selectedDays, setSelectedDays] = useState(30);
+  const [slugId, setSlugId] = useState("");
 
   const labels = Labels();
 
@@ -47,6 +48,8 @@ function CustomerSalesReport() {
         },
       }
     ).then((res) => {
+      console.log("res4", res);
+      setSlugId(res.data.data[0].store_slug);
       setCustomerSale(res.data.data);
     });
   }, [startDate, endDate]);
@@ -56,6 +59,9 @@ function CustomerSalesReport() {
     );
     setStartDate(moment().subtract(days, "days").format("YYYY-MM-DD"));
   };
+  const url = `${constants.port}/store/brand_report_csv?store_id=${
+    slugId && slugId
+  }&start_date=${startDate}&end_date=${endDate}`;
   return (
     <div>
       <MainHeader title="Doob" />
@@ -106,17 +112,14 @@ function CustomerSalesReport() {
                       src="/images/store/f-icon.png"
                       className="fil-icon"
                     ></img> */}
-                    <button
-                      onClick={() =>
-                        notification.info({
-                          message: constants.Info,
-                          description: `${labels["This feature will added soon"]}`,
-                        })
-                      }
-                      type="button"
-                      className="export-btn"
-                    >
-                      Export
+                    <button type="button" className="export-btn">
+                      <a
+                        href={url}
+                        style={{ textDecoration: "none", color: "inherit",target:"_blank" }}
+                        download
+                      >
+                        Export
+                      </a>
                     </button>
                   </span>
                 </div>

@@ -19,6 +19,7 @@ import moment from "moment";
 function CategorySalesReport() {
   const [categoryReportData, setCategoryReportData] = useState([]);
   const [selectedDays, setSelectedDays] = useState(30);
+  const [slugId, setSlugId] = useState("");
 
   const labels = Labels();
 
@@ -41,8 +42,8 @@ function CategorySalesReport() {
     Axios.post(
       apis.categoryReport,
       {
-        start_date: "",
-        end_date: "",
+        start_date: startDate,
+        end_date: endDate,
       },
       {
         headers: {
@@ -50,6 +51,7 @@ function CategorySalesReport() {
         },
       }
     ).then((res) => {
+      console.log('res3',res)
       if (res.data.data.length > 0) {
         setCategoryReportData(res.data.data[0].category);
         const data = res.data.data[0];
@@ -91,6 +93,9 @@ function CategorySalesReport() {
       },
     },
   };
+  const url = `${constants.port}/store/brand_report_csv?store_id=${
+    slugId && slugId
+  }&start_date=${startDate}&end_date=${endDate}`;
   return (
     <div>
       <MainHeader title="Doob" />
@@ -138,7 +143,13 @@ function CategorySalesReport() {
                   </Dropdown>
                   <span>
                     <button type="button" className="export-btn">
-                      Export
+                      <a
+                        href={url}
+                        style={{ textDecoration: "none", color: "inherit" }}
+                        download
+                      >
+                        Export
+                      </a>
                     </button>
                   </span>
                 </div>
