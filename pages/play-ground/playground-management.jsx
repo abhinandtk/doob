@@ -175,7 +175,7 @@ function PlaygroundManagementPage() {
               <svg
                 width="25"
                 className=""
-                height="26"
+                height="26" 
                 viewBox="0 0 25 26"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -299,7 +299,7 @@ function PlaygroundManagementPage() {
             </svg>
             <p className="play-manage">Settings</p>
           </div>
-          <div className="docu1  ">
+          <div className="docu1 ">
             <svg
               width="25"
               height="33"
