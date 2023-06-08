@@ -71,7 +71,7 @@ function CategorySearchPage() {
           <div
             className="btn-group me-2"
             role="group"
-            aria-label="Second group"
+            aria-label="Second group" 
           >
             <button
               type="button"

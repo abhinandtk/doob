@@ -18,7 +18,7 @@ function ShopManagementPage() {
       <div class="store-container1  my-5">
         <h5 className=" fw-bold shop-management">
           Shop Management
-          <span className="home" style={{ float: "right", display: "block" }}>
+          <span className="home" >
             <svg
               width="18"
               height="21"

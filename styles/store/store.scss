@@ -1224,12 +1224,18 @@ div#header div {
    width: 400px;
     height: 400px;
 }
+
+.home{
+ float: right;
+ display: block;
+}
 // sajin stores //
 @media(max-width:1360px){
   .store-container1{
     width:auto
  
 }
+
 .store-container{
   width:auto
 
@@ -1251,7 +1257,10 @@ div#header div {
   background-color: #ffffff;
 
 }
-
+.home{
+  float: right;
+  display: block;
+ }
 
 .content-topics {
   margin-right: 20px;
@@ -1278,12 +1287,20 @@ div#header div {
  .carousel{
   width: 90%;
  }
+ .carl {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+
+}
+
 }
 @media(max-width:1299px){
   .store-container1 {
     width: auto;
   
     }
+ 
     .store-container {
       width: auto;
     
@@ -1542,6 +1559,7 @@ div#header div {
 
     // margin-left: 29px;
   }
+
   .content-topics {
     // margin-right: 20px;
     height: 100%;  
@@ -1645,6 +1663,12 @@ div#header div {
   .product-submit {
  
     justify-content: center;
+}
+.store-scroll {
+  height: 52px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
 }
 .dough{
   width: 100%;
