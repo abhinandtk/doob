@@ -111,7 +111,7 @@ function PlayGroundSideBar({currentPage}) {
         <span className="mx-2" style={{color:`${currentPage === 'playground' ? '#17A803' : ''}`}}>Playground</span>
       </Link>
 
-      <a href="#services">
+      <Link href="/play-ground/report" style={{textDecoration:'none'}}>
         <svg
           width="25"
           height="33"
@@ -130,7 +130,7 @@ function PlayGroundSideBar({currentPage}) {
           />
         </svg>
         <span className="mx-1"> Report</span>
-      </a>
+      </Link>
       <a href="#contact">
         {" "}
         <svg

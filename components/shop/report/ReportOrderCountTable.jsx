@@ -5,25 +5,25 @@ function ReportOrderCountTable({ reportData, title }) {
   return (
     <Fragment>
       <div className="customer-sale">
-        <div id="header" >
+        <div
+          id="header"
+          style={{ display: "flex", justifyContent: "space-between" }}
+        >
           <div id="logo">{title}</div>
           <div id="header-middle ">Order Count</div>
           <div id="header-right">Total Amount</div>
         </div>
-        {reportData.length !== 0  ? (
+        {reportData &&
           reportData.map((item, index) => (
             <div
               key={index}
-              className="p-3 d-flex justify-content-between  customer"
+              className=" d-flex justify-content-between  customer my-3"
             >
               <span className="sales-report-name">{item.brand_name}</span>
-              <span>{item.count}</span>
-              <span>{item.total_amount} KD</span>
+              <span className="sales-order-number">{item.count}</span>
+              <span className="sales-order-price">{item.total_amount} KD</span>
             </div>
-          ))
-        ) : (
-          <></>
-        )}
+          ))}
       </div>
     </Fragment>
   );

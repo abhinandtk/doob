@@ -4,7 +4,7 @@ import React from "react";
 function PlayGroudSidePages({currentPage}) {
   return (
     <div className="side-play">
-      <Link href="/play-ground/all-bookings" style={{textDecoration:'none'}}>
+      <Link href="/play-ground/admin-bookings-ground" style={{textDecoration:'none'}}>
         {" "}
         <svg
           width="25"
@@ -29,7 +29,7 @@ function PlayGroudSidePages({currentPage}) {
         </svg>{" "}
         <span className="mx-2" style={{color:`${currentPage === 'bookings' ? '#17A803' : ''}`}}>Bookings</span>
       </Link>
-      <a href="#services">
+      <Link href="/play-ground/report/ground-earning-report" style={{textDecoration:'none'}}>
         {" "}
         <svg
           width="26"
@@ -55,7 +55,7 @@ function PlayGroudSidePages({currentPage}) {
           </defs>
         </svg>
         <span className="mx-2">Earning</span>{" "}
-      </a>
+      </Link>
       <Link href="/games/create-game" style={{textDecoration:'none'}}>
         {" "}
         <svg

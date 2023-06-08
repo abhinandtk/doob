@@ -20,17 +20,27 @@ import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
+import moment from "moment";
 
 function ProductSalesReport() {
   const [productSale, setProductSale] = useState([]);
-  const labels=Labels()
+  const labels = Labels();
+  const [selectedDays, setSelectedDays] = useState(30);
+  const [startDate, setStartDate] = useState(
+    moment().subtract(30, "days").format("YYYY-MM-DD")
+  );
+  const [slugId, setSlugId] = useState("");
+
+
+  const today = moment().format("YYYY-MM-DD");
+  const [endDate, setEndDate] = useState(today);
 
   useEffect(() => {
     Axios.post(
       apis.productReport,
       {
-        start_date: "",
-        end_date: "",
+        start_date: startDate,
+        end_date: endDate,
       },
       {
         headers: {
@@ -38,10 +48,26 @@ function ProductSalesReport() {
         },
       }
     ).then((res) => {
-      console.log("ppppopo", res.data.data[0]);
+      console.log("res6", res);
+      setSlugId(res.data.data[0].store_slug)
+
+      console.log("ppppopo", res.data.data[0], {
+        start_date: startDate,
+        end_date: endDate,
+      });
       setProductSale(res.data.data);
     });
-  });
+  }, [startDate, endDate]);
+  const handleDayChange = (days) => {
+    setSelectedDays(
+      days == 30 ? "30 days" : days == 180 ? "6 months" : "1 year"
+    );
+    setStartDate(moment().subtract(days, "days").format("YYYY-MM-DD"));
+  };
+  const url = `${constants.port}/store/brand_report_csv?store_id=${
+    slugId && slugId
+  }&start_date=${startDate}&end_date=${endDate}`;
+
   return (
     <div>
       <MainHeader title="Doob" />
@@ -71,51 +97,64 @@ function ProductSalesReport() {
                         background: "transparent",
                       }}
                     >
-                      Last 30 days <i className="bi bi-chevron-down "></i>
+                      {`Last ${selectedDays == 30 ? "30 days" : selectedDays}`}{" "}
+                      <i className="bi bi-chevron-down "></i>
                     </Dropdown.Toggle>
 
-                    {/* <Dropdown.Menu align="center" className="Menu">
-                      <Dropdown.Item href="#">English</Dropdown.Item>
-                      <Dropdown.Item href="#">Arabic</Dropdown.Item>
-                    </Dropdown.Menu> */}
+                    <Dropdown.Menu align="center" className="Menu">
+                      <Dropdown.Item onClick={() => handleDayChange(30)}>
+                        Last 30 days
+                      </Dropdown.Item>
+                      <Dropdown.Item onClick={() => handleDayChange(180)}>
+                        Last 6 months
+                      </Dropdown.Item>
+                      <Dropdown.Item onClick={() => handleDayChange(365)}>
+                        Last 1 year
+                      </Dropdown.Item>
+                    </Dropdown.Menu>
                   </Dropdown>
                   <span>
                     {/* <img
                       src="/images/store/f-icon.png"
                       className="fil-icon"
                     ></img> */}
-                    <button
-                      onClick={() =>
-                        notification.info({
-                          message: constants.Info,
-                          description: `${labels["This feature will added soon"]}`,
-                        })
-                      }
-                      type="button"
-                      className="export-btn"
-                    >
-                      Export{" "}
+                    <button type="button" className="export-btn">
+                      <a
+                        href={url}
+                        
+                        style={{ textDecoration: "none", color: "inherit",target:'_blank' }}
+                        download
+                      >
+                        Export
+                      </a>
                     </button>
                   </span>
                 </div>
 
                 <div className="customer-sale">
-                  <div id="header" style={{display:'flex',justifyContent:'space-around'}}>
+                  <div
+                    id="header"
+                    style={{ display: "flex", justifyContent: "space-between" }}
+                  >
                     <div id="logo">Product</div>
-                    <div id="header-middle">Order Count</div>
+                    <div id="header-middle ">Order Count</div>
                     <div id="header-right">Total Amount</div>
                   </div>
                   {productSale &&
                     productSale.map((item, index) => (
                       <div
                         key={index}
-                        className="p-3 d-flex justify-content-between  customer"
+                        className=" d-flex justify-content-between  customer my-3"
                       >
                         <span className="sales-report-name">
                           {item.product_name}
                         </span>
-                        <span>{item.total_count}</span>
-                        <span>{item.total_amount} KD</span>
+                        <span className="sales-order-number">
+                          {item.total_count}
+                        </span>
+                        <span className="sales-order-price">
+                          {item.total_amount} KD
+                        </span>
                       </div>
                     ))}
                 </div>

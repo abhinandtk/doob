@@ -14,8 +14,20 @@ import MainHeader from "@/components/shared/headers/MainHeader";
 import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileFooter from "@/components/shared/MobileFooter";
+import { Labels } from "@/public/data/my-constants/Labels";
+import moment from "moment";
 function CategorySalesReport() {
   const [categoryReportData, setCategoryReportData] = useState([]);
+  const [selectedDays, setSelectedDays] = useState(30);
+  const [slugId, setSlugId] = useState("");
+
+  const labels = Labels();
+
+  const [startDate, setStartDate] = useState(
+    moment().subtract(30, "days").format("YYYY-MM-DD")
+  );
+  const today = moment().format("YYYY-MM-DD");
+  const [endDate, setEndDate] = useState(today);
   const [chartData, setChartData] = useState({
     labels: [],
     datasets: [
@@ -30,8 +42,8 @@ function CategorySalesReport() {
     Axios.post(
       apis.categoryReport,
       {
-        start_date: "",
-        end_date: "",
+        start_date: startDate,
+        end_date: endDate,
       },
       {
         headers: {
@@ -39,6 +51,7 @@ function CategorySalesReport() {
         },
       }
     ).then((res) => {
+      console.log('res3',res)
       if (res.data.data.length > 0) {
         setCategoryReportData(res.data.data[0].category);
         const data = res.data.data[0];
@@ -60,20 +73,29 @@ function CategorySalesReport() {
         setChartData(chartData);
       }
     });
-  }, []);
+  }, [startDate, endDate]);
+  const handleDayChange = (days) => {
+    setSelectedDays(
+      days == 30 ? "30 days" : days == 180 ? "6 months" : "1 year"
+    );
+    setStartDate(moment().subtract(days, "days").format("YYYY-MM-DD"));
+  };
 
   const options = {
     plugins: {
       legend: {
         labels: {
-          boxWidth: 50,
-          boxHeight: 50,
+          boxWidth: 20,
+          boxHeight: 20,
           color: "black",
         },
         position: "bottom", // set the position of the legend to bottom
       },
     },
   };
+  const url = `${constants.port}/store/brand_report_csv?store_id=${
+    slugId && slugId
+  }&start_date=${startDate}&end_date=${endDate}`;
   return (
     <div>
       <MainHeader title="Doob" />
@@ -81,7 +103,7 @@ function CategorySalesReport() {
       <MainSidebarFixed />
       <div className="store-container1">
         <div className="Bottom">
-          <ShopPagesSideBar currentPage='report' />
+          <ShopPagesSideBar currentPage="report" />
 
           <div class="content-topics ">
             <div className="bottom">
@@ -103,17 +125,31 @@ function CategorySalesReport() {
                         background: "transparent",
                       }}
                     >
-                      Last 30 days <i className="bi bi-chevron-down "></i>
+                      {`Last ${selectedDays == 30 ? "30 days" : selectedDays}`}{" "}
+                      <i className="bi bi-chevron-down "></i>
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu align="center" className="Menu">
-                      <Dropdown.Item href="#">English</Dropdown.Item>
-                      <Dropdown.Item href="#">Arabic</Dropdown.Item>
+                      <Dropdown.Item onClick={() => handleDayChange(30)}>
+                        Last 30 days
+                      </Dropdown.Item>
+                      <Dropdown.Item onClick={() => handleDayChange(180)}>
+                        Last 6 months
+                      </Dropdown.Item>
+                      <Dropdown.Item onClick={() => handleDayChange(365)}>
+                        Last 1 year
+                      </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
                   <span>
                     <button type="button" className="export-btn">
-                      Export
+                      <a
+                        href={url}
+                        style={{ textDecoration: "none", color: "inherit" }}
+                        download
+                      >
+                        Export
+                      </a>
                     </button>
                   </span>
                 </div>
@@ -124,48 +160,30 @@ function CategorySalesReport() {
                     <Doughnut data={chartData} options={options} />
                   </center>
                 </div>
-
                 <div className="customer-sale">
                   <div
                     id="header"
-                    className="d-flex justify-content-between headers"
+                    style={{ display: "flex", justifyContent: "space-between" }}
                   >
-                    <div id="logo" style={{ textAlign: "start" }} className="">
-                      Category
-                    </div>
-                    <div
-                      id="header-middle"
-                      style={{ textAlign: "start" }}
-                      className=" text-center  count1"
-                    >
-                      Order Count
-                    </div>
-                    <div
-                      id="header-right"
-                      style={{ textAlign: "start" }}
-                      className=" text-center amount1"
-                    >
-                      Total Amount
-                    </div>
+                    <div id="logo">Category</div>
+                    <div id="header-middle ">Order Count</div>
+                    <div id="header-right">Total Amount</div>
                   </div>
-                  {categoryReportData.length !== 0 ? (
+                  {categoryReportData &&
                     categoryReportData.map((item, index) => (
                       <div
                         key={index}
-                        className="p-3 mt-2 d-flex justify-content-between customer"
+                        className=" d-flex justify-content-between  customer my-3"
                       >
-                        <span className="sales-report-name ">
+                        <span className="sales-report-name">
                           {item.category_name}
                         </span>
-                        <span className=" text-center">{item.count}</span>
-                        <span className=" text-center">
+                        <span className="sales-order-number">{item.count}</span>
+                        <span className="sales-order-price">
                           {item.total_amount} KD
                         </span>
                       </div>
-                    ))
-                  ) : (
-                    <></>
-                  )}
+                    ))}
                 </div>
               </div>
             </div>

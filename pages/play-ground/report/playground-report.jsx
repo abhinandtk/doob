@@ -3,8 +3,6 @@ import { Chart as chartJS, ArcElement, Tooltip, Legend } from "chart.js";
 chartJS.register(ArcElement, Tooltip, Legend);
 import { Dropdown } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
-import ShopPagesSideBar from "@/components/shop/pages/ShopPagesSideBar";
-import ReportOrderCountTable from "@/components/shop/report/ReportOrderCountTable";
 import { Doughnut } from "react-chartjs-2";
 import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
@@ -17,7 +15,8 @@ import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
-function playgroundReport() {
+import PlayGroundSideBar from "@/components/playGround/PlayGroundSideBar";
+function PlaygroundReport() {
   const [selectedDays, setSelectedDays] = useState(30);
 
   const labels = Labels();
@@ -98,6 +97,8 @@ function playgroundReport() {
       },
     },
   };
+  const url = `${constants.port}/playground/api/ad_playground_report_csv?&start_date=${startDate}&end_date=${endDate}`;
+
   return (
     <div>
       <MainHeader title="Doob" />
@@ -105,7 +106,7 @@ function playgroundReport() {
       <MainSidebarFixed />
       <div className="store-container1">
         <div className="Bottom">
-          <ShopPagesSideBar currentPage="report" />
+          <PlayGroundSideBar currentPage="report" />
 
           <div class="content-topics ">
             <div className="bottom">
@@ -144,17 +145,15 @@ function playgroundReport() {
                     </Dropdown.Menu>
                   </Dropdown>
                   <span>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        notification.info({
-                          message: constants.Info,
-                          description: `${labels["This feature will added soon"]}`,
-                        })
-                      }
-                      className="export-btn"
-                    >
-                      Export
+                  <button type="button" className="export-btn">
+                      <a
+                        href={url}
+                        style={{ textDecoration: "none", color: "inherit",target:'_blank' }}
+                        download
+                        target="_blank"
+                      >
+                        Export
+                      </a>
                     </button>
                   </span>
                 </div>
@@ -193,4 +192,4 @@ function playgroundReport() {
   );
 }
 
-export default playgroundReport;
+export default PlaygroundReport;

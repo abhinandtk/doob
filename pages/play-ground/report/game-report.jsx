@@ -3,8 +3,6 @@ import { Chart as chartJS, ArcElement, Tooltip, Legend } from "chart.js";
 chartJS.register(ArcElement, Tooltip, Legend);
 import { Dropdown } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
-import ShopPagesSideBar from "@/components/shop/pages/ShopPagesSideBar";
-import ReportOrderCountTable from "@/components/shop/report/ReportOrderCountTable";
 import { Doughnut } from "react-chartjs-2";
 import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
@@ -17,7 +15,8 @@ import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
-function gameReport() {
+import PlayGroundSideBar from "@/components/playGround/PlayGroundSideBar";
+function GameReport() {
   const [selectedDays, setSelectedDays] = useState('30 days');
 
   const labels = Labels();
@@ -98,6 +97,8 @@ function gameReport() {
       },
     },
   };
+  const url = `${constants.port}/playground/api/game_report_csv?&start_date=${startDate}&end_date=${endDate}`;
+
   return (
     <div>
       <MainHeader title="Doob" />
@@ -105,7 +106,7 @@ function gameReport() {
       <MainSidebarFixed />
       <div className="store-container1">
         <div className="Bottom">
-          <ShopPagesSideBar currentPage="report" />
+          <PlayGroundSideBar currentPage="report" />
 
           <div class="content-topics ">
             <div className="bottom">
@@ -113,7 +114,7 @@ function gameReport() {
                 className=" ms-4"
                 style={{ color: "#17a803", fontWeight: "700" }}
               >
-                Play ground Report
+                Game Report
               </h6>
               <div className="my-1 mx-4 ">
                 <div className="update">
@@ -144,17 +145,15 @@ function gameReport() {
                     </Dropdown.Menu>
                   </Dropdown>
                   <span>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        notification.info({
-                          message: constants.Info,
-                          description: `${labels["This feature will added soon"]}`,
-                        })
-                      }
-                      className="export-btn"
-                    >
-                      Export
+                  <button type="button" className="export-btn">
+                      <a
+                        href={url}
+                        style={{ textDecoration: "none", color: "inherit",target:'_blank' }}
+                        download
+                        target="_blank"
+                      >
+                        Export
+                      </a>
                     </button>
                   </span>
                 </div>
@@ -168,18 +167,18 @@ function gameReport() {
                 </div> */}
                 <div className="customer-sale">
                   <div id="header" style={{display:'flex',justifyContent:"space-between"}}>
-                    <div id="logo">PlayGround</div>
+                    <div id="logo">Game</div>
                     <div id="header-middle ">Order Count</div>
                     <div id="header-right">Total Amount</div>
                   </div>
                   {dataReport && dataReport.map((item,index)=>(
                   <div
                     key={index}
-                    className="p-3 d-flex justify-content-between  customer"
+                    className=" d-flex justify-content-between  customer my-3"
                   >
                     <span className="sales-report-name">{item.Game}</span>
-                    <span>{item.booking_count}</span>
-                    <span>{item.total_amount} KD</span>
+                    <span className="sales-order-number">{item.booking_count}</span>
+                    <span className="sales-order-price">{item.total_amount} KD</span>
                   </div>
                   ))}
                 </div>
@@ -193,4 +192,4 @@ function gameReport() {
   );
 }
 
-export default gameReport;
+export default GameReport;

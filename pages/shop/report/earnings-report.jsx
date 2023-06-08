@@ -22,7 +22,7 @@ Chart.register(CategoryScale);
 function EarningsReport() {
   const [selectedDays, setSelectedDays] = useState(30);
   const [earningsData, setEarningsData] = useState([]);
-  const labels=Labels()
+  const labels = Labels();
 
   const [startDate, setStartDate] = useState(
     moment().subtract(30, "days").format("YYYY-MM-DD")
@@ -93,6 +93,8 @@ function EarningsReport() {
       };
       setChartData(data);
     });
+
+   
     // Axios.post(
     //   apis.salesReport,
     //   {
@@ -111,6 +113,16 @@ function EarningsReport() {
     //   //   const data = res.data.data[0];
     // });
   }, [startDate, endDate]);
+  const handleCsvExport=()=>{
+    console.log('logg')
+    Axios.get(apis.earningReportExport,{
+      headers:{
+        Authorization:`Token ${constants.token_id}`
+      }
+    }).then((res)=>{
+      console.log('qqqqqqqqqqqqqqq',res)
+    })
+  }
 
   return (
     <div>
@@ -159,12 +171,7 @@ function EarningsReport() {
                   </Dropdown>
                   <span>
                     <button
-                      onClick={() =>
-                        notification.info({
-                          message: constants.Info,
-                          description: `${labels["This feature will added soon"]}`,
-                        })
-                      }
+                      onClick={()=>handleCsvExport()}
                       type="button"
                       className="export-btn"
                     >

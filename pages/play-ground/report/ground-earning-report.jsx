@@ -2,7 +2,6 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import { Dropdown, Card } from "react-bootstrap";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import React, { useState } from "react";
-import ShopPagesSideBar from "@/components/shop/pages/ShopPagesSideBar";
 import { Line } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
@@ -17,12 +16,13 @@ import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
+import PlayGroundSideBar from "@/components/playGround/PlayGroundSideBar";
 Chart.register(CategoryScale);
 
 function EarningReport() {
   const [selectedDays, setSelectedDays] = useState(30);
   const [bookingData, setBookingData] = useState([]);
-  console.log('bookin333',bookingData)
+  console.log("bookin333", bookingData);
 
   const [startDate, setStartDate] = useState(
     moment().subtract(30, "days").format("DD-MM-YYYY")
@@ -45,10 +45,10 @@ function EarningReport() {
         },
       }
     ).then((res) => {
-      console.log('bookin3332222222',res,{
+      console.log("bookin3332222222", res, {
         start_date: startDate,
         end_date: endDate,
-    });
+      });
       setBookingData(res.data.data);
       //   setBrandReport(res.data.data[0].brands);
       //   const data = res.data.data[0];
@@ -59,7 +59,7 @@ function EarningReport() {
     labels: [],
     datasets: [
       {
-        label: "My First dataset",
+        label: "Booking report",
         data: [],
         fill: false,
         borderColor: "rgb(75, 192, 192)",
@@ -89,7 +89,9 @@ function EarningReport() {
     },
   };
   const handleDayChange = (days) => {
-    setSelectedDays(days == 30 ?'30 days' :days == 180 ?'6 months':'1 year');
+    setSelectedDays(
+      days == 30 ? "30 days" : days == 180 ? "6 months" : "1 year"
+    );
     setStartDate(moment().subtract(days, "days").format("DD-MM-YYYY"));
   };
   console.log("change", startDate);
@@ -101,7 +103,7 @@ function EarningReport() {
       <MainSidebarFixed />
       <div className="store-container1">
         <div className="Bottom">
-          <ShopPagesSideBar currentPage="report" />
+          <PlayGroundSideBar currentPage="report" />
 
           <div class="content-topics ">
             <div className="bottom">
@@ -159,7 +161,9 @@ function EarningReport() {
                   <div>
                     <div className="total-order">
                       <p className="text-center">Total Bookings</p>
-                      <h1 className="text-center ">{bookingData.booking_count}</h1>
+                      <h1 className="text-center ">
+                        {bookingData.booking_count}
+                      </h1>
                     </div>
                   </div>
                 </Card>
