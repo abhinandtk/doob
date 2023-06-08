@@ -422,6 +422,7 @@ text-align: center;
   line-height: 6px; 
   margin-top: 2px;
 }
+
 .dots{
   margin-right: -15px;
   
@@ -507,6 +508,7 @@ text-align: center;
   flex-wrap: wrap;
   align-items: flex-start;
   column-gap: 12px;
+  row-gap: 12px;
 }
 .play-body{
   margin-top: 3px;
@@ -1852,8 +1854,9 @@ margin-left: 13px;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size:15px; 
-  width: 139px;
+  font-size: 16px;
+  width: 147px;
+
 }
 
 
@@ -2112,7 +2115,38 @@ margin-left: 13px;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;  
-  }                     
+  }  
+  .booked-date{
+  color: #17A803; 
+  font-weight: 700;
+  font-size: 20px;
+  }  
+  .book-stadiums{
+     font-weight: 500;
+     font-size: 16px;
+      display:-webkit-box;
+    -webkit-line-clamp: 1;
+    width: 190px;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .book-location{
+  
+    font-size: 16px;
+     display:-webkit-box;
+   -webkit-line-clamp: 1;
+   width: 80px;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   text-overflow: ellipsis;
+  }
+  .booked-month{
+    color: #000000; 
+    font-weight: 400;
+    font-size: 16px;
+    
+    }                  
 .book-head{
  color: #000000;
   font-weight: 700;
@@ -3111,6 +3145,16 @@ input.nosubmit1 {
   
     
   }
+  .book-stadiums{
+    font-weight: 500;
+    font-size: 14px;
+     display:-webkit-box;
+   -webkit-line-clamp: 1;
+   width: 140px;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   text-overflow: ellipsis;
+ }
   .book-time-date{
     color: #959595;
     font-weight: 500;
@@ -3128,6 +3172,17 @@ input.nosubmit1 {
        overflow: hidden;
        text-overflow: ellipsis;
    }
+
+   .booked-date{
+    color: #17A803; 
+    font-weight: 700;
+    font-size: 14px;
+    } 
+    .booked-month{
+      color: #000000; 
+      font-weight: 400;
+      font-size: 14px;
+      }   
    .book-grounds{
      color: #000000;
      font-weight: 500;

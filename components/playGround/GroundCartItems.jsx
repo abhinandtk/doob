@@ -95,12 +95,14 @@ function GroundCartItems({ data, setSuccess }) {
                 <div className="clearfix my-1 sections">
                   {/* <p className="carts-group float-start">Ground A B</p> */}
                   <h5 className="float-end" style={{ fontWeight: "600" }}>
-                    {slot.stadium_amount}&nbsp;KD
+                    {slot.stadium_amount}&nbsp;KD 
                   </h5>
                 </div>
               </div>
             </div>
           ))}
+
+             
 
           <div className="clearfix amounts">
             <p className="float-start">Total Price</p>

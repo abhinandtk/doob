@@ -8,10 +8,10 @@ function GamesCard({ data }) {
     <Fragment>
       {data &&
         data.map((item, index) => (
-          <Link
+          <Link 
             key={index}
             href={`/games/${item.game_slug}`}
-            style={{ textDecoration: "none", color: "inherit" }}
+            style={{ textDecoration: "none", color: "inherit" }} 
           >
             <div key={index} className="card  book">
               <div className="card-body">
@@ -29,10 +29,10 @@ function GamesCard({ data }) {
                         src={`${constants.port}${item.my_game_images?item.my_game_images:item.game_images}`}
                         alt="image"
                         className="book-img"
-                      ></img>}
+                      ></img>} 
                     </span>
                     <svg
-                      width="28"
+                      width="28" 
                       height="27"
                       viewBox="0 0 28 27"
                       fill="none"
@@ -55,10 +55,10 @@ function GamesCard({ data }) {
                 </div>
                 <div className="book-content">
                   <div className="book-date">
-                    <h5 style={{ color: "#17A803", fontWeight: "700" }}>
+                    <h5 className="booked-date">
                       {moment(item.game_date).format("DD")}
                     </h5>
-                    <p>{moment(item.game_date).format("MMM")}</p>
+                    <p className="booked-month">{moment(item.game_date).format("MMM")}</p>
                   </div>
                   <div className="book-details">
                     <h5 className="book-head">{item.title}</h5>
@@ -68,7 +68,7 @@ function GamesCard({ data }) {
                         "hh:mm:ss"
                       ).format("hh:mm A")}{" "}
                       to{" "}
-                      {moment(
+                      {moment( 
                         item.stadium.time_slots[
                           item.stadium.time_slots.length - 1
                         ]["end_time"],
@@ -88,16 +88,13 @@ function GamesCard({ data }) {
                     key={index}
                     className="rounded-circle default-avatar member-overlap-item"
                     style={{ objectFit: "cover" ,width:'30px',height:'30px'}}
-                    src={`${constants.port}/media/${img.user__userdetail__image?img.user__userdetail__image:img.image_url}`}
-                  ></img>))}
-                 
-                  
+                    src={`${constants.port}/media/${img.user__userdetail__image?img.user__userdetail__image:img.image_url}`}></img>))}
                   <span className="mx-4 participate" >
                     {/* {item.participants.length-4 >=1 ? `+${item.participants.length-4} more participants` :''} */}
                     {item.participants.length >=1 ?`${item.participants.length} participants`:''}
                   </span>
                 </div>
-                <hr></hr>
+                <hr></hr> 
                 <div className="clearfix nxt">
                   <div className="book-profile float-start">
                     <span className="Hosted">
@@ -105,7 +102,7 @@ function GamesCard({ data }) {
                         src="../images/tournament/c1.png"
                         style={{
                           width: "30px",
-                          height: "30px",
+                          height: "30px", 
                           objectFit: "cover",
                         }}
                       ></img>

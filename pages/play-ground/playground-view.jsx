@@ -42,15 +42,15 @@ function PlaygroundPageAdmin() {
                 className=" mx-4"
                 style={{ color: "#17a803", fontWeight: "700" }}
               >
-                Playground
+                Playground 
               </h6>
               <Button
                 onClick={() => router.push("/play-ground/add-playground")}
                 type="button"
                 className="order1-btn "
-              >
+              > 
                 Add Playground
-              </Button>
+              </Button> 
               {groundView &&
                 groundView.map((item, index) => (
                   <div key={index} className="my-5">
@@ -58,7 +58,7 @@ function PlaygroundPageAdmin() {
                       className="   mx-auto d-flex justify-content-between align-items-center"
                       style={{ width: "90%" }}
                     >
-                      <p style={{ fontWeight: "500" }}>{item.stadium_name}</p>
+                      <p className="book-stadiums">{item.stadium_name}</p>
                       <button
                         className="playedit-btn mb-2"
                         onClick={() =>
@@ -67,7 +67,7 @@ function PlaygroundPageAdmin() {
                       >
                         Edit
                       </button>
-                    </div>
+                    </div> 
                     <hr
                       className="mx-auto "
                       style={{ width: "90%", marginTop: "-2px" }}
@@ -90,7 +90,7 @@ function PlaygroundPageAdmin() {
                       }}
                     >
                       <span>Location</span>
-                      <span>{item.location}</span>
+                      <span className="book-location">{item.location}</span>
                     </div>
                     <div
                       className="p-2   mx-auto d-flex justify-content-between align-items-center"
