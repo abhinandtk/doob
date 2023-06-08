@@ -96,7 +96,7 @@ function StoreProductsCard({ products, title }) {
                 <Card.Body className="favouite-card">
                   <div style={{ fontSize: "14px", fontWeight: "500" }}>
                     <i
-                      className="bi bi-star-fill"
+                      className="bi bi-star-fill" 
                       style={{ color: "yellow" }}
                     ></i>
                     <span style={{ color: "white" }} className="mx-1">0</span>

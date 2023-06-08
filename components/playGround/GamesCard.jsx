@@ -15,7 +15,7 @@ function GamesCard({ data }) {
           >
             <div key={index} className="card  book">
               <div className="card-body">
-                <div className="clearfix">
+                <div className="clearfix fxt">
                   <div className="float-end dots">
                     <span>
                       {item.my_game_images &&
@@ -72,7 +72,7 @@ function GamesCard({ data }) {
                         item.stadium.time_slots[
                           item.stadium.time_slots.length - 1
                         ]["end_time"],
-                        "hh:mm:ss"
+                        "hh:mm:ss" 
                       ).format("hh:mm A")}
                     </p>
                     <p className="book-grounds">{item.stadium.stadium_name}</p>
@@ -98,7 +98,7 @@ function GamesCard({ data }) {
                   </span>
                 </div>
                 <hr></hr>
-                <div className="clearfix">
+                <div className="clearfix nxt">
                   <div className="book-profile float-start">
                     <span className="Hosted">
                       <img

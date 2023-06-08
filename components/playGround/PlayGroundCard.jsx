@@ -22,7 +22,7 @@ function PlayGroundCard({ content }) {
           {/* View all */}
         </p>
       </div>
-
+        
       <div className="playgrounds " style={{cursor:'pointer'}}>
         {content.map((item, index) => (
           <div

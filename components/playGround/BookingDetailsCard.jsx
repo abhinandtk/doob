@@ -143,11 +143,11 @@ function BookingDetailsCard({ details, setSuccess }) {
               <span
                 style={{
                   color: `${item.status === true ? "red" : "grey"} `,
-                  cursor: "pointer",
+                  cursor: "pointer", 
                 }}
                 onClick={() => cancelBookingHandler(item.id)}
               >
-                Cancel Booking
+                Cancel Booking 
               </span>
             </div>
             <div
