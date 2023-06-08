@@ -169,7 +169,7 @@ function PagesSideBar({ currentPage }) {
           />
         </svg>
         <span
-          className="mx-2"
+          className="mx-1"
           style={{ color: `${currentPage === "feedback" ? "#17A803" : ""}` }}
         >
           {" "}

@@ -2092,7 +2092,7 @@ position: absolute;
 .field{
 font-size:15px;
 font-weight:500;
-margin-left: 13px;
+margin-left: 20px;
 margin-bottom: -12px;
 }
 .head{
@@ -2105,6 +2105,34 @@ margin-bottom: -12px;
   width: 620px;
   margin-left: 12px;
   background: #17A803;
+}
+.wallet-name{
+  font-size: 16px;
+  display:-webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 190px;
+  font-weight: 400;
+}
+.wallet-img{
+ width: 54px; 
+ height: 54px;
+ object-fit: cover;
+}
+.rate-dinar{
+  font-size: 16px;
+}
+.expires-date {
+  font-size: 16px;
+  display:-webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 190px;
+  font-weight: 400;
 }
 .side-menus__suggestions-btns {
  
@@ -3031,6 +3059,29 @@ margin-left:6px;
     display: block;
     
   }
+  .wallet-name{
+    font-size: 15px;
+    display:-webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 140px;
+    font-weight: 400;
+  }
+  .rate-dinar{
+    font-size: 15px;
+  }
+  .expires-date {
+    font-size: 15px;
+    display:-webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 130px;
+    font-weight: 400;
+  }
 
  
   .wallet {
@@ -3095,6 +3146,9 @@ input.nosubmit1 {
   margin-top: -34px;
   
  }
+ .store {
+  row-gap: 32px;
+}
 //////////////////////////////////////
 
 

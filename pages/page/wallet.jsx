@@ -60,7 +60,7 @@ function WalletPage() {
                   <svg
                     width="31"
                     height="23"
-                    viewBox="0 0 31 23"
+                    viewBox="0 0 31 23" 
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -108,12 +108,12 @@ function WalletPage() {
           <br></br>
           <p className="field">Fields</p>
           {walletData.map((item, index) => (
-            <div key={index} className="d-flex flex-start mt-4 mx-2">
+            <div key={index} className="d-flex flex-start mt-4 mx-4">
               <a className="me-2" href="">
                 <CardImg
-                  className="rounded-circle shadow-1-strong "
+                  className="rounded-circle shadow-1-strong wallet-img "
                   src={`${constants.port}${item.stadium.stadium_image}`}
-                  style={{ width: "54px", height: "54px" }}
+                    
                 ></CardImg>
               </a>
               <div

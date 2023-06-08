@@ -92,7 +92,7 @@ function GroundCartItems({ data, setSuccess }) {
                     </div>
                   </div>
                 </div>
-                <div className="clearfix my-1 sections">
+                <div className="clearfix mst my-1 sections">
                   {/* <p className="carts-group float-start">Ground A B</p> */}
                   <h5 className="float-end" style={{ fontWeight: "600" }}>
                     {slot.stadium_amount}&nbsp;KD 

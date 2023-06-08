@@ -341,7 +341,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
       {game.map((item, index) => (
         <div
           key={index}
-          className="slot clearfix mt-2"
+          className="slot clearfix  mt-2"
           style={{ display: "flex", justifyContent: "flex-start" }}
         >
           <div>
@@ -426,7 +426,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
       {amenity.map((data, index) => (
         <div
           key={index}
-          className="slot clearfix mt-2"
+          className="slot clearfix  mt-2"
           style={{ display: "flex", justifyContent: "flex-start" }}
         >
           <div>

@@ -48,7 +48,7 @@ function BrandManagement() {
         </h6>
 
         <div className="my-4 mx-4 ">
-          <div className="clearfix">
+          <div className="clearfix rnt">
             <p className="order-codes">Brands</p>
             <button
               onClick={() => router.push("/shop/add-brands")}

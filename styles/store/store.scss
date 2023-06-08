@@ -1232,12 +1232,12 @@ div#header div {
 // sajin stores //
 @media(max-width:1360px){
   .store-container1{
-    width:auto
+    width:auto;
  
 }
 
 .store-container{
-  width:auto
+  width:auto;
 
 }
 .content-topic {
@@ -1373,8 +1373,14 @@ div#header div {
     background-color: #ffffff;
   
    
-    margin-left: 250px;
+    margin-left: 0px;
   }
+  .wallet {
+    margin-top: 12px;
+    width: 96%;
+    margin-left: 12px;
+    background: #17A803;
+}
   .content-topics {
     margin-right: 20px;
     height: 100%;  
@@ -1398,6 +1404,12 @@ div#header div {
       width: 90%;
      
       }
+      .sides {
+        padding: 12px 7px;
+        width: 200px;
+        background-color: #ffffff;
+        margin-left: -120px;
+    }
 
 }
 
