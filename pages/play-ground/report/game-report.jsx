@@ -26,7 +26,8 @@ function GameReport() {
   );
 
   const today = moment().format("DD-MM-YYYY");
-  const [endDate, setEndDate] = useState(today);
+  const nextDay = moment(today).add(1, "day").format("DD-MM-YYYY");
+  const [endDate, setEndDate] = useState(nextDay);
   const [dataReport, setDataReport] = useState([]);
   const [chartData, setChartData] = useState({
     labels: [],
@@ -128,7 +129,7 @@ function GameReport() {
                         background: "transparent",
                       }}
                     >
-                      {`Last ${selectedDays}`}{" "}
+                      {`Last ${selectedDays == 30 ? "30 days" : selectedDays}`}{" "}
                       <i className="bi bi-chevron-down "></i>
                     </Dropdown.Toggle>
 

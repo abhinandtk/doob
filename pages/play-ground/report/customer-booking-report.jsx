@@ -26,7 +26,8 @@ function CustomerBookingReport() {
   );
 
   const today = moment().format("DD-MM-YYYY");
-  const [endDate, setEndDate] = useState(today);
+  const nextDay = moment(today).add(1, "day").format("DD-MM-YYYY");
+  const [endDate, setEndDate] = useState(nextDay);
   const [dataReport, setDataReport] = useState([]);
   const [chartData, setChartData] = useState({
     labels: [],
@@ -52,8 +53,8 @@ function CustomerBookingReport() {
     Axios.post(
       apis.customerReportPlay,
       {
-        start_date: "",
-        end_date: "",
+        start_date: startDate,
+        end_date: endDate,
       },
       {
         headers: {
@@ -96,7 +97,7 @@ function CustomerBookingReport() {
                         background: "transparent",
                       }}
                     >
-                      {`Last ${selectedDays}`}{" "}
+                      {`Last ${selectedDays == 30 ? "30 days" : selectedDays}`}{" "}
                       <i className="bi bi-chevron-down "></i>
                     </Dropdown.Toggle>
 

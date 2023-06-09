@@ -29,7 +29,8 @@ function EarningsReport() {
   );
 
   const today = moment().format("YYYY-MM-DD");
-  const [endDate, setEndDate] = useState(today);
+  const nextDay = moment(today).add(1, "day").format("YYYY-MM-DD");
+  const [endDate, setEndDate] = useState(nextDay);
   const [chartData, setChartData] = useState({
     labels: [],
     datasets: [
@@ -143,7 +144,7 @@ function EarningsReport() {
               </h6>
               <div className="my-1 mx-4 ">
                 <div className="update">
-                  <Dropdown className="mx-1">
+                <Dropdown className="mx-1">
                     <Dropdown.Toggle
                       variant=""
                       id="dropdown-basic"
@@ -153,7 +154,7 @@ function EarningsReport() {
                         background: "transparent",
                       }}
                     >
-                      {`Last ${selectedDays} days`}{" "}
+                      {`Last ${selectedDays == 30 ? "30 days" : selectedDays}`}{" "}
                       <i className="bi bi-chevron-down "></i>
                     </Dropdown.Toggle>
 
@@ -161,11 +162,11 @@ function EarningsReport() {
                       <Dropdown.Item onClick={() => handleDayChange(30)}>
                         Last 30 days
                       </Dropdown.Item>
-                      <Dropdown.Item onClick={() => handleDayChange(60)}>
-                        Last 60 days
+                      <Dropdown.Item onClick={() => handleDayChange(180)}>
+                        Last 6 months
                       </Dropdown.Item>
-                      <Dropdown.Item onClick={() => handleDayChange(120)}>
-                        Last 120 days
+                      <Dropdown.Item onClick={() => handleDayChange(365)}>
+                        Last 1 year
                       </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>

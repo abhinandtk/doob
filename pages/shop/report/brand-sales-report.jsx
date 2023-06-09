@@ -27,7 +27,9 @@ function BrandSaleReport() {
   );
 
   const today = moment().format("YYYY-MM-DD");
-  const [endDate, setEndDate] = useState(today);
+  const nextDay = moment(today).add(1, "day").format("YYYY-MM-DD");
+  const [endDate, setEndDate] = useState(nextDay);
+  
   const [brandReportData, setBrandReport] = useState([]);
   const [slugId, setSlugId] = useState("");
   const [chartData, setChartData] = useState({
@@ -140,10 +142,10 @@ function BrandSaleReport() {
                         Last 30 days
                       </Dropdown.Item>
                       <Dropdown.Item onClick={() => handleDayChange(180)}>
-                        Last 6 months
+                        Last 1 year
                       </Dropdown.Item>
                       <Dropdown.Item onClick={() => handleDayChange(365)}>
-                        Last 1 year
+                        Al ltime
                       </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
@@ -169,7 +171,7 @@ function BrandSaleReport() {
 
                 <ReportOrderCountTable
                   reportData={brandReportData}
-                  title="Product"
+                  title="Brand"
                 />
               </div>
             </div>

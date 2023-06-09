@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import '@/styles/profiles/pros.scss'
 import '@/styles/store/store.scss'
 import '@/styles/tournament/tour.scss'
-import '@/styles/tournament/tour-bracket.scss'
+import '@/styles/tournament/tourbracket.scss'
 import '@/styles/home/modals.scss'
 import { Provider } from 'react-redux';
 import { store } from '@/Redux/store';

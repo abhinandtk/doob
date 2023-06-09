@@ -27,7 +27,8 @@ function CategorySalesReport() {
     moment().subtract(30, "days").format("YYYY-MM-DD")
   );
   const today = moment().format("YYYY-MM-DD");
-  const [endDate, setEndDate] = useState(today);
+  const nextDay = moment(today).add(1, "day").format("YYYY-MM-DD");
+  const [endDate, setEndDate] = useState(nextDay);
   const [chartData, setChartData] = useState({
     labels: [],
     datasets: [

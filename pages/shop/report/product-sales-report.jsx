@@ -31,9 +31,9 @@ function ProductSalesReport() {
   );
   const [slugId, setSlugId] = useState("");
 
-
   const today = moment().format("YYYY-MM-DD");
-  const [endDate, setEndDate] = useState(today);
+  const nextDay = moment(today).add(1, "day").format("YYYY-MM-DD");
+  const [endDate, setEndDate] = useState(nextDay);
 
   useEffect(() => {
     Axios.post(
@@ -49,7 +49,9 @@ function ProductSalesReport() {
       }
     ).then((res) => {
       console.log("res6", res);
-      setSlugId(res.data.data[0].store_slug)
+      if (res.data.data[0]) {
+        setSlugId(res.data.data[0].store_slug);
+      }
 
       console.log("ppppopo", res.data.data[0], {
         start_date: startDate,
@@ -121,8 +123,11 @@ function ProductSalesReport() {
                     <button type="button" className="export-btn">
                       <a
                         href={url}
-                        
-                        style={{ textDecoration: "none", color: "inherit",target:'_blank' }}
+                        style={{
+                          textDecoration: "none",
+                          color: "inherit",
+                          target: "_blank",
+                        }}
                         download
                       >
                         Export
