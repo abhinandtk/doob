@@ -114,6 +114,12 @@ const apis = {
     'earningReportExport': `${constants.port}/store/api/sales_report_pdf `,
     // 'earningReportExport': `${constants.port}/store/api/earnings_day_report_csv `,
 
+    'listingVarients': `${constants.port}/store/api/listing_varients `,
+    'addOffers': `${constants.port}/store/api/create_offer `,
+    'listOffers_ad': `${constants.port}/store/api/list_offers `,
+    'deleteOffer': `${constants.port}/store/api/delete_offer `,
+
+
 
 
     //Play ground

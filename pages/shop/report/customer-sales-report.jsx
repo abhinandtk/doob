@@ -34,7 +34,8 @@ function CustomerSalesReport() {
   );
 
   const today = moment().format("YYYY-MM-DD");
-  const [endDate, setEndDate] = useState(today);
+  const nextDay = moment(today).add(1, "day").format("YYYY-MM-DD");
+  const [endDate, setEndDate] = useState(nextDay);
   useEffect(() => {
     Axios.post(
       apis.customerReport,
@@ -49,7 +50,9 @@ function CustomerSalesReport() {
       }
     ).then((res) => {
       console.log("res4", res);
-      setSlugId(res.data.data[0].store_slug);
+      if (res.data.data[0]) {
+        setSlugId(res.data.data[0].store_slug);
+      }
       setCustomerSale(res.data.data);
     });
   }, [startDate, endDate]);
@@ -115,7 +118,11 @@ function CustomerSalesReport() {
                     <button type="button" className="export-btn">
                       <a
                         href={url}
-                        style={{ textDecoration: "none", color: "inherit",target:"_blank" }}
+                        style={{
+                          textDecoration: "none",
+                          color: "inherit",
+                          target: "_blank",
+                        }}
                         download
                       >
                         Export

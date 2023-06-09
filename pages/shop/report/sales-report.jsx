@@ -25,17 +25,18 @@ function SalesReport() {
   const labels = Labels();
 
   const [startDate, setStartDate] = useState(
-    moment().subtract(30, "days").format("YYYY-MM-DD")
+    moment().subtract(31, "days").format("YYYY-MM-DD")
   );
 
   const today = moment().format("YYYY-MM-DD");
-  const [endDate, setEndDate] = useState(today);
+  const nextDay = moment(today).add(1, "day").format("YYYY-MM-DD");
+  const [endDate, setEndDate] = useState(nextDay);
 
   const data = {
     labels: [],
     datasets: [
       {
-        label: "sales report",
+        label: 'sales report',
         data: [],
         fill: false,
         borderColor: "rgb(75, 192, 192)",
@@ -78,7 +79,10 @@ function SalesReport() {
         },
       }
     ).then((res) => {
-      console.log("res", res);
+      console.log("res45", res, {
+        start_date: startDate,
+        end_date: endDate,
+      });
       setSalesData(res.data.data);
       //   setBrandReport(res.data.data[0].brands);
       //   const data = res.data.data[0];
@@ -128,14 +132,14 @@ function SalesReport() {
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu align="center" className="Menu">
-                      <Dropdown.Item onClick={() => handleDayChange(30)}>
+                      <Dropdown.Item onClick={() => handleDayChange(31)}>
                         Last 30 days
-                      </Dropdown.Item>
-                      <Dropdown.Item onClick={() => handleDayChange(180)}>
-                        Last 6 months
                       </Dropdown.Item>
                       <Dropdown.Item onClick={() => handleDayChange(365)}>
                         Last 1 year
+                      </Dropdown.Item>
+                      <Dropdown.Item onClick={() => handleDayChange(365)}>
+                        All time
                       </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
@@ -145,7 +149,6 @@ function SalesReport() {
                         href={url}
                         target="_blank"
                         style={{ textDecoration: "none", color: "inherit" }}
-                        
                       >
                         Export
                       </a>

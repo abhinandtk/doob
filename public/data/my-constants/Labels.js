@@ -28,6 +28,8 @@ export function Labels() {
         //shop
 
         'This feature will added soon': 'This feature will added soon',
+        'Offers added successfully': 'Offers added successfully',
+        'Offer deleted successfully': 'Offer deleted successfully',
 
 
         //Play Ground 
