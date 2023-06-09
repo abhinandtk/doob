@@ -1129,37 +1129,43 @@ height: auto;
   justify-content: space-between;
 }
 
-div#header div {
-  display: inline-block;
-  text-align: center;
-  font-size: 16px;
-  font-weight:700;
+// div#header div {
+//   display: inline-block;
+//   text-align: center;
+//   font-size: 16px;
+//   font-weight:700;
 
+// }
+
+.report-section{
+ display:flex;
+ justify-content:space-between;
+ font-weight:700;
+ font-size: 16px;
+ 
 }
-
-
-.count1 {
-  width: 46%;
+// .count1 {
+//   width: 46%;
   
-}
+// }
 
-.account1 {
-  width: 32%;
+// .account1 {
+//   width: 32%;
   
-}
+// }
 
-#logo1{
-  width: 11%;
-}
-#header-middle {
-  width: 30%;
+// #logo1{
+//   width: 11%;
+// }
+// #header-middle {
+//   width: 30%;
   
-}
+// }
 
-#header-right {
-  width: 20%;
+// #header-right {
+//   width: 20%;
   
-}
+// }
 
 
 .customer{
@@ -1382,10 +1388,10 @@ div#header div {
     background: #17A803;
 }
   .content-topics {
-    margin-right: 20px;
+    margin-right: 60px;
     height: 100%;  
      background: white;
-     width: 55%;
+     width: 52%;
      float: right;
     }
     .address-admin{
@@ -1408,7 +1414,7 @@ div#header div {
         padding: 12px 7px;
         width: 200px;
         background-color: #ffffff;
-        margin-left: -120px;
+        margin-left: 260px;
     }
 
 }
@@ -1443,7 +1449,7 @@ div#header div {
       margin-right: 20px;
       height: 100%;  
        background: white;
-       width: 57%;
+       width: 54%;
        float: right;
       }
       .address-admin{
@@ -1574,6 +1580,12 @@ div#header div {
     width: 90%;
     
     }
+    div#header div {
+      display: inline-block;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 700;
+  }
 }
 
 @media(max-width:769px){
@@ -1625,6 +1637,17 @@ div#header div {
     width: 178px;
     float: right;
   }
+  .doc-card {
+    width: 14rem;
+    border: 0px;
+    border-radius: 15px;
+}
+.carl {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+}
   input.nosubmit2 {
         
     width: 89%;
@@ -1706,6 +1729,7 @@ div#header div {
   .carl1.mobile{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr ;
+    justify-content: center;
   }
   .product-submit {
  
@@ -1717,6 +1741,7 @@ div#header div {
     overflow-y: hidden;
     white-space: nowrap;
 }
+
 .dough{
   width: 100%;
    height: 400px;
@@ -1750,14 +1775,14 @@ div#header div {
   margin: 5px;
   padding: 10px;
 }
-div#header div {
-  display: inline-block;
-  text-align: end;
-  font-size: 15px;
-  font-weight: 700;
-  margin-right: 20px;
+// div#header div {
+//   display: inline-block;
+//   text-align: end;
+//   font-size: 14px;
+//   font-weight: 700;
+//   margin-right: 20px;
 
-}
+// }
 .new-orders{
 margin-left: -4px;
 font-size: 14px;
@@ -1950,6 +1975,13 @@ input.nosubmit2 {
   width: 88%;
   margin-left: -2px;
 }
+.report-section{
+  display:flex;
+  justify-content:space-between;
+ 
+  font-size: 14px;
+
+ }
 }
 
 
@@ -2010,13 +2042,13 @@ input.nosubmit2 {
   width: 90%;
  
   }
-  div#header div {
-    display: inline-block;
-    font-size: 15px;
-    font-weight: 700;
-    text-align: center;
-    margin-left: -4px;
-  }
+  // div#header div {
+  //   display: inline-block;
+  //   font-size: 15px;
+  //   font-weight: 700;
+  //   text-align: center;
+  //   margin-left: -4px;
+  // }
 .sides{
   display: none;
 }

@@ -149,7 +149,7 @@ function ApartmentAddress({ handleAddAddress,areaData }) {
             checked={defaultAddress}
           >
             Make this as the default address
-          </Checkbox>
+          </Checkbox> 
         </div>{" "}
         <br></br>
         <button type="submit" className="submit-cart-btn ">

@@ -161,13 +161,10 @@ function CategorySalesReport() {
                   </center>
                 </div>
                 <div className="customer-sale">
-                  <div
-                    id="header"
-                    style={{ display: "flex", justifyContent: "space-between" }}
-                  >
-                    <div id="logo">Category</div>
-                    <div id="header-middle ">Order Count</div>
-                    <div id="header-right">Total Amount</div>
+                <div  className="report-section">
+                    <div >Game</div>
+                    <div >Order Count</div>
+                    <div>Total Amount</div>
                   </div>
                   {categoryReportData &&
                     categoryReportData.map((item, index) => (
