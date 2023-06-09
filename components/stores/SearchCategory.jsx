@@ -5,8 +5,9 @@ function SearchCategory({ category }) {
   const router = useRouter();
   return (
     <Fragment>
-      <div className="my-2">
+      <div className="my-2 " >
         <h5>Category</h5>
+         <div className="game-scroll " >
         <div className="btn-group me-2" role="group" aria-label="Second group">
           <button
             type="button"
@@ -35,7 +36,9 @@ function SearchCategory({ category }) {
               {item.title}
             </button>
           </div>
+       
         ))}
+        </div>
       </div>
     </Fragment>
   );
