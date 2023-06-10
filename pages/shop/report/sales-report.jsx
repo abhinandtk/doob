@@ -22,6 +22,7 @@ Chart.register(CategoryScale);
 function SalesReport() {
   const [selectedDays, setSelectedDays] = useState(30);
   const [salesData, setSalesData] = useState([]);
+  const [salesGraph, setSalesGraph] = useState([]);
   const labels = Labels();
 
   const [startDate, setStartDate] = useState(
@@ -33,11 +34,11 @@ function SalesReport() {
   const [endDate, setEndDate] = useState(nextDay);
 
   const data = {
-    labels: [],
+    labels: salesGraph && salesGraph.map((item) => item.date),
     datasets: [
       {
-        label: 'sales report',
-        data: [],
+        label: "sales report",
+        data: salesGraph && salesGraph.map((item) => item.price),
         fill: false,
         borderColor: "rgb(75, 192, 192)",
         tension: 0.1,
@@ -84,13 +85,14 @@ function SalesReport() {
         end_date: endDate,
       });
       setSalesData(res.data.data);
+      setSalesGraph(res.data.data.per_day_earnings);
       //   setBrandReport(res.data.data[0].brands);
       //   const data = res.data.data[0];
     });
   }, [startDate, endDate]);
   const handleDayChange = (days) => {
     setSelectedDays(
-      days == 30 ? "30 days" : days == 180 ? "6 months" : "1 year"
+      days == 31 ? "30 days" : days == 180 ? "6 months" : "1 year"
     );
     setStartDate(moment().subtract(days, "days").format("YYYY-MM-DD"));
   };
@@ -135,11 +137,11 @@ function SalesReport() {
                       <Dropdown.Item onClick={() => handleDayChange(31)}>
                         Last 30 days
                       </Dropdown.Item>
-                      <Dropdown.Item onClick={() => handleDayChange(365)}>
-                        Last 1 year
+                      <Dropdown.Item onClick={() => handleDayChange(180)}>
+                        Last 6 months
                       </Dropdown.Item>
                       <Dropdown.Item onClick={() => handleDayChange(365)}>
-                        All time
+                        Last 1 year
                       </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>

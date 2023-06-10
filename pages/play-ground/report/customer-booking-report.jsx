@@ -62,11 +62,13 @@ function CustomerBookingReport() {
         },
       }
     ).then((res) => {
-      setCustomerSale(res.data.data);
+      console.log("reportDtaaaaaaa888", res);
+
+      setCustomerSale(res.data.data.playground_report);
     });
   }, [startDate, endDate]);
   console.log("reportDtaaaaaaa888", dataReport);
-  const url = `${constants.port}/playground/api/ad_customer_report_csv?&start_date=${startDate}&end_date=${endDate}`;
+  const url = `${constants.port}/playground/api/ad_customer_report_csv?start_date=${startDate}&end_date=${endDate}`;
 
   return (
     <div>
@@ -134,24 +136,24 @@ function CustomerBookingReport() {
                 <br></br>
                 <div className="customer-sale">
                 <div  className="report-section">
-                    <div >Game</div>
-                    <div >Order Count</div>
+                    <div >User</div>
+                    <div >Booking Count</div>
                     <div>Total Amount</div>
                   </div>
-                  {dataReport &&
-                    dataReport.map((item, index) => (
+                  {customerSale &&
+                    customerSale.map((item, index) => (
                       <div
                         key={index}
                         className=" d-flex justify-content-between  customer my-3"
                       >
                         <span className="sales-report-name">
-                          {item.Game}sale
+                          {item.User}
                         </span>
                         <span className="sales-order-number">
-                          {item.booking_count}s
+                          {item.booking_count}
                         </span>
                         <span className="sales-order-price">
-                          {item.total_amount} KDs
+                          {item.total_amount} KD
                         </span>
                       </div>
                     ))}

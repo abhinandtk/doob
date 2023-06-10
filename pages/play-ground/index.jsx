@@ -14,9 +14,10 @@ import PlayGroundCard from "@/components/playGround/PlayGroundCard";
 import MainHeader from "@/components/shared/headers/MainHeader";
 import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
-import SimpleMap from "@/components/playGround/MapPlayground";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { useRouter } from "next/router";
+import MapPlayGround from "@/components/playGround/MapPlayground";
+import MapGame from "@/components/playGround/MapGames";
 
 function PlayGroundPage() {
   const [game, setGame] = useState([]);
@@ -264,7 +265,7 @@ function PlayGroundPage() {
                       All
                     </button>
                   </div>
-                  {contents.games_near_me.length >=1 ? (
+                  {contents.games_near_me.length >= 1 ? (
                     contents.games_near_me.map((item, index) => (
                       <>
                         <div
@@ -311,9 +312,11 @@ function PlayGroundPage() {
 
             <Tabs style={{ display: "flex", justifyContent: "space-evenly" }}>
               <Tab eventKey={1} title="Fields">
-                <SimpleMap data={contents.playgrounds_near_me} />
+                <MapPlayGround data={contents.playgrounds_near_me} />
               </Tab>
-              <Tab eventKey={2} title="Game"></Tab>
+              <Tab eventKey={2} title="Game">
+                <MapGame data={contents.games_near_me} />
+              </Tab>
             </Tabs>
           </>
         ))}

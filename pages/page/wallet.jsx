@@ -125,11 +125,11 @@ function WalletPage() {
                     <p className="mb-0 wallet-name">
                       {item.stadium.stadium_name}
                     </p>
-                    <span className="rate-dinar">{item.balance}</span>
+                    <span className="rate-dinar">{item.balance} KD</span>
                   </div>
 
                   <p className=" expires-date ">
-                    {item.balance} expires in 3 days
+                    {item.balance} KD expires in 3 days
                   </p>
                 </div>
               </div>

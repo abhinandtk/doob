@@ -517,10 +517,10 @@ function ContainerHomePosts() {
                               fontSize: "14px",
                             }}
                           >
-                            <s>{item.product.Display_Prize}</s>
+                            <s>{item.product.Display_Prize}&nbsp;KD</s>
                           </span>
                           <span style={{ color: "#17A803", fontWeight: "600" }}>
-                            {item.product.Selling_Prize}
+                            {item.product.Selling_Prize}&nbsp;KD
                           </span>
                         </a>
                       </button>
@@ -594,7 +594,7 @@ function ContainerHomePosts() {
         />
       )}
 
-      <div className="posts">
+      {/* <div className="posts">
         <article className="post">
           <div className="post__header">
             <div className="post__profile">
@@ -660,7 +660,7 @@ function ContainerHomePosts() {
             </div>
           </div>
         </article>
-      </div>
+      </div> */}
 
       <div className="post__content">
         <div className="post__medias" style={{ marginTop: "9px" }}>

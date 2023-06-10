@@ -27,7 +27,7 @@ function ProductSalesReport() {
   const labels = Labels();
   const [selectedDays, setSelectedDays] = useState(30);
   const [startDate, setStartDate] = useState(
-    moment().subtract(30, "days").format("YYYY-MM-DD")
+    moment().subtract(31, "days").format("YYYY-MM-DD")
   );
   const [slugId, setSlugId] = useState("");
 
@@ -62,11 +62,11 @@ function ProductSalesReport() {
   }, [startDate, endDate]);
   const handleDayChange = (days) => {
     setSelectedDays(
-      days == 30 ? "30 days" : days == 180 ? "6 months" : "1 year"
+      days == 31 ? "30 days" : days == 180 ? "6 months" : "1 year"
     );
     setStartDate(moment().subtract(days, "days").format("YYYY-MM-DD"));
   };
-  const url = `${constants.port}/store/brand_report_csv?store_id=${
+  const url = `${constants.port}/store/product_report_csv?store_id=${
     slugId && slugId
   }&start_date=${startDate}&end_date=${endDate}`;
 
@@ -104,7 +104,7 @@ function ProductSalesReport() {
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu align="center" className="Menu">
-                      <Dropdown.Item onClick={() => handleDayChange(30)}>
+                      <Dropdown.Item onClick={() => handleDayChange(31)}>
                         Last 30 days
                       </Dropdown.Item>
                       <Dropdown.Item onClick={() => handleDayChange(180)}>

@@ -54,7 +54,7 @@ function PlayGroundSideBar({currentPage}) {
             </clipPath>
           </defs>
         </svg>
-        <span className="mx-2">Earning</span>{" "}
+        <span className="mx-2">Earnings</span>{" "}
       </Link>
       <Link href="/play-ground/playground-view" style={{textDecoration:'none'}}>
         {" "}
@@ -131,7 +131,7 @@ function PlayGroundSideBar({currentPage}) {
         </svg>
         <span className="mx-1"> Report</span>
       </Link>
-      <a href="#contact">
+      {/* <a href="#contact">
         {" "}
         <svg
           width="23"
@@ -146,7 +146,7 @@ function PlayGroundSideBar({currentPage}) {
           />
         </svg>
         <span className="mx-2">Settings</span>{" "}
-      </a>
+      </a> */}
       <a href="#clients">
         <svg
           width="18"

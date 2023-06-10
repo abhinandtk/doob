@@ -23,7 +23,7 @@ function BrandSaleReport() {
   const labels = Labels();
 
   const [startDate, setStartDate] = useState(
-    moment().subtract(30, "days").format("YYYY-MM-DD")
+    moment().subtract(31, "days").format("YYYY-MM-DD")
   );
 
   const today = moment().format("YYYY-MM-DD");
@@ -133,19 +133,19 @@ function BrandSaleReport() {
                         background: "transparent",
                       }}
                     >
-                      {`Last ${selectedDays == 30 ? "30 days" : selectedDays}`}{" "}
+                      {`Last ${selectedDays == 31 ? "30 days" : selectedDays}`}{" "}
                       <i className="bi bi-chevron-down "></i>
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu align="center" className="Menu">
-                      <Dropdown.Item onClick={() => handleDayChange(30)}>
+                      <Dropdown.Item onClick={() => handleDayChange(31)}>
                         Last 30 days
                       </Dropdown.Item>
                       <Dropdown.Item onClick={() => handleDayChange(180)}>
-                        Last 1 year
+                        Last 6 months
                       </Dropdown.Item>
                       <Dropdown.Item onClick={() => handleDayChange(365)}>
-                        Al ltime
+                        Last 1 year
                       </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>

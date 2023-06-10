@@ -168,9 +168,9 @@ function EarningReport() {
                 <Card className="reports">
                   <div>
                     <div className="total-order">
-                      <p className="text-center">Total Bookings</p>
+                      <p className="text-center">Total Earnings</p>
                       <h1 className="text-center ">
-                        {earningData.total_price}
+                        {earningData.total_price} KD
                       </h1>
                     </div>
                   </div>
@@ -191,7 +191,7 @@ function EarningReport() {
                         className="p-3 d-flex justify-content-between  customer"
                       >
                         <span className="sales-report-name">{item.X}</span>
-                        <span>{item.Y}</span>
+                        <span>{item.Y} KD</span>
                       </div>
                     ))}
                 </div>

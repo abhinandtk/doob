@@ -59,29 +59,29 @@ function PlaygroundReport() {
       }
     ).then((res) => {
       console.log("res3", res);
-      // if (res.data.data.playground_report.length > 0) {
-      //   setDataReport(res.data.data.playground_report);
+      if (res.data.data.playground_report.length > 0) {
+        setDataReport(res.data.data.playground_report);
 
-      //   const data = res.data.data;
-      //   const brandColors = randomColor({
-      //     count: data.playground_report.length,
-      //     luminosity: "bright",
-      //     format: "rgba",
-      //   });
-      //   const chartData = {
-      //     labels: data.playground_report.map((play) => play.stadium_name),
-      //     datasets: [
-      //       {
-      //         data: data.playground_report.map((play) => play.booking_count),
-      //         backgroundColor: brandColors,
-      //         hoverBackgroundColor: brandColors,
-      //       },
-      //     ],
-      //   };
-      //   setChartData(chartData);
-      // } else {
-      //   alert("sdhbchjsbdchjbhj");
-      // }
+        const data = res.data.data;
+        const brandColors = randomColor({
+          count: data.playground_report.length,
+          luminosity: "bright",
+          format: "rgba",
+        });
+        const chartData = {
+          labels: data.playground_report.map((play) => play.stadium_name),
+          datasets: [
+            {
+              data: data.playground_report.map((play) => play.booking_count),
+              backgroundColor: brandColors,
+              hoverBackgroundColor: brandColors,
+            },
+          ],
+        };
+        setChartData(chartData);
+      } else {
+        alert("sdhbchjsbdchjbhj");
+      }
     });
   }, [startDate, endDate]);
   console.log("reportDtaaaaaaa888", dataReport);
@@ -169,7 +169,7 @@ function PlaygroundReport() {
                 <div className="customer-sale">
                   <div id="header" style={{display:'flex',justifyContent:"space-between"}}>
                     <div id="logo">PlayGround</div>
-                    <div id="header-middle ">Order Count</div>
+                    <div id="header-middle ">Booking Count</div>
                     <div id="header-right">Total Amount</div>
                   </div>
                   {dataReport && dataReport.map((item,index)=>(

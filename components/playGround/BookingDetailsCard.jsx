@@ -34,6 +34,12 @@ function BookingDetailsCard({ details, setSuccess }) {
           message: constants.Success,
           description: `${labels["Booking Cancelled"]}`,
         });
+      } else {
+        setSuccess((prev) => !prev);
+        notification.success({
+          message: constants.success,
+          description: res.data.message_en,
+        });
       }
     });
   };
@@ -91,9 +97,7 @@ function BookingDetailsCard({ details, setSuccess }) {
               <span style={{ color: "#959595" }}>Stadium Name</span>
               <span className="book-names"> {item.stadium_name}</span>
             </div>
-             
-            
-  
+
             <div
               className="p-2  mx-auto d-flex justify-content-between align-items-center"
               style={{ width: "90%" }}
@@ -140,15 +144,20 @@ function BookingDetailsCard({ details, setSuccess }) {
               style={{ width: "90%" }}
             >
               <span style={{ color: "#959595" }}></span>
-              <span
-                style={{
-                  color: `${item.status === true ? "red" : "grey"} `,
-                  cursor: "pointer", 
-                }}
-                onClick={() => cancelBookingHandler(item.id)}
-              >
-                Cancel Booking 
-              </span>
+              {moment().format("DD MMM YYYY") !==
+              moment(item.date).format("DD MMM YYYY") ? (
+                <span
+                  style={{
+                    color: `${item.status === true ? "red" : "grey"} `,
+                    cursor: "pointer",
+                  }}
+                  onClick={() => cancelBookingHandler(item.id)}
+                >
+                  Cancel Booking
+                </span>
+              ) : (
+                <></>
+              )}
             </div>
             <div
               className=" mx-auto d-flex justify-content-between align-items-center "

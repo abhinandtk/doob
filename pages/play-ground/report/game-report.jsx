@@ -98,7 +98,7 @@ function GameReport() {
       },
     },
   };
-  const url = `${constants.port}/playground/api/game_report_csv?&start_date=${startDate}&end_date=${endDate}`;
+  const url = `${constants.port}/playground/api/game_report_csv?start_date=${startDate}&end_date=${endDate}`;
 
   return (
     <div>
@@ -169,7 +169,7 @@ function GameReport() {
                 <div className="customer-sale">
                   <div  className="report-section">
                     <div >Game</div>
-                    <div >Order Count</div>
+                    <div >Booking Count</div>
                     <div>Total Amount</div>
                   </div>
                   {dataReport && dataReport.map((item,index)=>(
