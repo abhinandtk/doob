@@ -40,7 +40,7 @@ function PlayGroundCard({ content }) {
           >
             {item.images[0] && (
               <img
-                src={`${constants.port}${item.images[0].image_url.slice(7)}`}
+                src={`${constants.port}${item.images[0].images}`}
                 style={{
                   height: "190px",
                   borderRadius: "20px 20px 0px 0px",

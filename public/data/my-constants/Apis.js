@@ -43,6 +43,8 @@ const apis = {
     'notification': `${constants.port}/social/Api/notification`,
     'activity': `${constants.port}/social/Api/activity`,
     'explorepage': `${constants.port}/social/Api/unfollowedaccounts`,
+    'shareProductToPost': `${constants.port}/social/Api/share_product`,
+
 
     //store module
 

@@ -99,16 +99,17 @@ function GamesCard({ data }) {
                   <div className="book-profile float-start">
                     <span className="Hosted">
                       <img
-                        src="../images/tournament/c1.png"
+                        src={`${constants.port}/media/${item.hosted_by.profile_pic}`}
                         style={{
                           width: "30px",
                           height: "30px", 
                           objectFit: "cover",
+                          borderRadius:'50%'
                         }}
                       ></img>
                       <span className="mx-2 ">
                         <span className="hosts">Hosted by</span>
-                       <span className="host-name"> &nbsp;{item.hosted_by}</span> 
+                       <span className="host-name"> &nbsp;{item.hosted_by.hosted_by}</span> 
                       </span>
                     </span>
                   </div>
