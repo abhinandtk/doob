@@ -76,7 +76,7 @@ function EarningsReport() {
         Authorization: `Token ${constants.token_id}`,
       },
     }).then((res) => {
-      console.log(res);
+      console.log(res,'oooo');
       setEarningsData(res.data.data);
       const resp = res.data.data;
       const data = {

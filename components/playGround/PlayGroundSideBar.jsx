@@ -4,7 +4,7 @@ import React from "react";
 function PlayGroundSideBar({currentPage}) {
   return (
     <div className="side-play">
-      <a href="#services">
+      <Link href="/play-ground/admin-bookings-ground" style={{textDecoration:'none'}}>
         {" "}
         <svg
           width="25"
@@ -28,8 +28,8 @@ function PlayGroundSideBar({currentPage}) {
           />
         </svg>{" "}
         <span className="mx-2" style={{color:`${currentPage === 'bookings' ? '#17A803' : ''}`}}>Bookings</span>
-      </a>
-      <a href="#services">
+      </Link>
+      <Link href="/play-ground/report/ground-earning-report" style={{textDecoration:'none'}}>
         {" "}
         <svg
           width="26"
@@ -55,7 +55,7 @@ function PlayGroundSideBar({currentPage}) {
           </defs>
         </svg>
         <span className="mx-2">Earning</span>{" "}
-      </a>
+      </Link>
       <Link href="/play-ground/playground-view" style={{textDecoration:'none'}}>
         {" "}
         <svg

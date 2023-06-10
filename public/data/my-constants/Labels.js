@@ -30,6 +30,7 @@ export function Labels() {
         'This feature will added soon': 'This feature will added soon',
         'Offers added successfully': 'Offers added successfully',
         'Offer deleted successfully': 'Offer deleted successfully',
+        'Offer edited successfully': 'Offer edited successfully',
 
 
         //Play Ground 

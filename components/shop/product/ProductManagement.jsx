@@ -20,7 +20,7 @@ function ProductManagement() {
 
       console.log("dhfbvdhbfvhdbfvhdbfvhdbfvhj", res.data.data);
     });
-  });
+  },[]);
   return (
     <div className="content-topic  ">
       <div className="bottom">

@@ -4,12 +4,12 @@ import React, { useState } from "react";
 import MainHeader from "@/components/shared/headers/MainHeader";
 import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
-import PlayGroudSidePages from "./page/PlayGroudSidePages";
 import { useEffect } from "react";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import Axios from "axios";
 import moment from "moment";
+import PlayGroundSideBar from "@/components/playGround/PlayGroundSideBar";
 function AdminGroundBookings() {
   const [bookingList, setBookingList] = useState([]);
 
@@ -30,7 +30,7 @@ function AdminGroundBookings() {
       <MainSidebarFixed />
       <div className="tour-container">
         <div className="bottoms">
-          <PlayGroudSidePages currentPage="bookings" />
+          <PlayGroundSideBar currentPage="bookings" />
           <div className="play-topic  ">
             <div className="bottoms">
               <h6

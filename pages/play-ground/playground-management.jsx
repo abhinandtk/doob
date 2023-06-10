@@ -171,7 +171,7 @@ function PlaygroundManagementPage() {
 
         <div className="play1 mobile">
           <Link
-            href="/play-ground/all-bookings"
+            href="/play-ground/admin-bookings-ground"
             style={{ textDecoration: "none", color: "inherit" }}
           >
             <div className="docu1  ">

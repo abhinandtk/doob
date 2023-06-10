@@ -25,6 +25,7 @@ function OfferManagement() {
   const labels = Labels();
 
   const [listOffers, setListOffers] = useState([]);
+  const [onSuccess,setOnSuccess]=useState(true)
 
   useEffect(() => {
     Axios.post(apis.listOffers_ad, null, {
@@ -35,7 +36,7 @@ function OfferManagement() {
       setListOffers(res.data.data);
       console.log("resall", res);
     });
-  }, []);
+  }, [onSuccess]);
   const deleteOfferHandler = (slug) => {
     Axios.delete(apis.deleteOffer, {
       data: {
@@ -47,6 +48,7 @@ function OfferManagement() {
     }).then((res) => {
       console.log("resdelee", res);
       if (res.data.status === 1) {
+        setOnSuccess(prev=>!prev)
         notification.success({
           message: constants.Success,
           description: `${labels["Offer deleted successfully"]}`,
@@ -83,14 +85,14 @@ function OfferManagement() {
                     style={{ cursor: "pointer" }}
                   >
                     <img
-                      href="#"
+                      
                       src="/images/store/trash.png"
                       className="edit-offer-list"
                     ></img>{" "}
                   </span>
-                  <span>
+                  <span style={{ cursor: "pointer" }} onClick={()=>router.push(`/shop/edit-offers/${item.slug_offer}`)}>
                     <img
-                      href="#"
+                      
                       src="/images/store/Edit copy.png"
                       className="edit-offer-list mx-4"
                     ></img>{" "}

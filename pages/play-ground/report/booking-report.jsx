@@ -96,7 +96,7 @@ function BookingReport() {
     setStartDate(moment().subtract(days, "days").format("DD-MM-YYYY"));
   };
   console.log("change", startDate);
-  const url = `${constants.port}/playground/api/ad_booking_report_csv?&start_date=${startDate}&end_date=${endDate}`;
+  const url = `${constants.port}/playground/api/ad_booking_report_csv?start_date=${startDate}&end_date=${endDate}`;
 
   return (
     <div>

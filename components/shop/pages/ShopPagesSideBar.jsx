@@ -4,7 +4,7 @@ import React from "react";
 function ShopPagesSideBar({ currentPage }) {
   return (
     <div className="sides">
-      <Link href="/shop/site-settings" style={{ textDecoration: "none" }}>
+      <Link href="/shop/store-settings" style={{ textDecoration: "none" }}>
         <svg
           width="23"
           className="svg"
@@ -264,30 +264,7 @@ function ShopPagesSideBar({ currentPage }) {
           Brand
         </span>
       </Link>
-      <Link href="/shop/offer-management" style={{ textDecoration: "none" }}>
-        <svg
-          width="25"
-          height="26"
-          className="svg"
-          viewBox="0 0 25 26"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M15.1544 3.66667C15.1544 2.95942 14.8749 2.28115 14.3773 1.78105C13.8798 1.28095 13.205 1 12.5013 1C11.7977 1 11.1229 1.28095 10.6253 1.78105C10.1278 2.28115 9.84827 2.95942 9.84827 3.66667M8.51113 17H12.4907M16.4703 17H12.4907M12.4907 17V13M12.4907 17V21M22.1319 9.928L23.9692 21.928C24.0273 22.3078 24.003 22.6957 23.8981 23.0652C23.7932 23.4348 23.61 23.7771 23.3612 24.0689C23.1124 24.3606 22.8038 24.5948 22.4566 24.7556C22.1093 24.9163 21.7316 24.9997 21.3493 25H3.65338C3.27085 25 2.89283 24.9169 2.54525 24.7564C2.19767 24.5959 1.88873 24.3617 1.63963 24.0699C1.39053 23.7781 1.20715 23.4356 1.10207 23.0659C0.996986 22.6962 0.972683 22.308 1.03083 21.928L2.86807 9.928C2.96444 9.29812 3.28205 8.72376 3.76338 8.30894C4.2447 7.89412 4.85791 7.66627 5.49195 7.66667H19.5107C20.1445 7.66659 20.7574 7.89458 21.2385 8.30937C21.7195 8.72416 22.0369 9.29835 22.1333 9.928H22.1319Z"
-            stroke="black"
-            stroke-width="0.84156"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-        <span
-          className="customs"
-          style={{ color: `${currentPage === "offer" ? "#17A803" : ""}` }}
-        >
-          Offers
-        </span>
-      </Link>
+     
 
       {/* 
           <p className="shop-manage">Brands</p> */}

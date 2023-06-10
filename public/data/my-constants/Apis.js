@@ -72,6 +72,9 @@ const apis = {
     'addressView': `${constants.port}/store/api/address_list_view`,
     'defaultAddress': `${constants.port}/store/api/update_address_is_default`,
 
+    'updateStoreStatus': `${constants.port}/store/api/update_store_status`,
+    'storeSettings': `${constants.port}/store/api/store_api_list`,
+
     //shop management
 
     'allImagesUpload': `${constants.port}/store/api/upload_image`,
@@ -118,6 +121,8 @@ const apis = {
     'addOffers': `${constants.port}/store/api/create_offer `,
     'listOffers_ad': `${constants.port}/store/api/list_offers `,
     'deleteOffer': `${constants.port}/store/api/delete_offer `,
+    'updateOffer': `${constants.port}/store/api/update_offer `,
+    'offers_view_get': `${constants.port}/store/api/list_offers_view `,
 
 
 

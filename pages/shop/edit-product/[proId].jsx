@@ -56,7 +56,7 @@ function ProductEditPage() {
         },
       }
     ).then((res) => {
-      // router.back();
+      router.back();
       notification.success({
         message: "Success",
         description: "Product Edited successfully",

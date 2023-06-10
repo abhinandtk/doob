@@ -58,30 +58,30 @@ function PlaygroundReport() {
         },
       }
     ).then((res) => {
-      console.log("res", res);
-      if (res.data.data.playground_report.length > 0) {
-        setDataReport(res.data.data.playground_report);
+      console.log("res3", res);
+      // if (res.data.data.playground_report.length > 0) {
+      //   setDataReport(res.data.data.playground_report);
 
-        const data = res.data.data;
-        const brandColors = randomColor({
-          count: data.playground_report.length,
-          luminosity: "bright",
-          format: "rgba",
-        });
-        const chartData = {
-          labels: data.playground_report.map((play) => play.stadium_name),
-          datasets: [
-            {
-              data: data.playground_report.map((play) => play.booking_count),
-              backgroundColor: brandColors,
-              hoverBackgroundColor: brandColors,
-            },
-          ],
-        };
-        setChartData(chartData);
-      } else {
-        alert("sdhbchjsbdchjbhj");
-      }
+      //   const data = res.data.data;
+      //   const brandColors = randomColor({
+      //     count: data.playground_report.length,
+      //     luminosity: "bright",
+      //     format: "rgba",
+      //   });
+      //   const chartData = {
+      //     labels: data.playground_report.map((play) => play.stadium_name),
+      //     datasets: [
+      //       {
+      //         data: data.playground_report.map((play) => play.booking_count),
+      //         backgroundColor: brandColors,
+      //         hoverBackgroundColor: brandColors,
+      //       },
+      //     ],
+      //   };
+      //   setChartData(chartData);
+      // } else {
+      //   alert("sdhbchjsbdchjbhj");
+      // }
     });
   }, [startDate, endDate]);
   console.log("reportDtaaaaaaa888", dataReport);

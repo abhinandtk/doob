@@ -10,12 +10,12 @@ import {
 } from "react-bootstrap";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import React, { useState } from "react";
-import PlayGroudSidePages from "../page/PlayGroudSidePages";
 import MainHeader from "@/components/shared/headers/MainHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileHeader from "@/components/MobileHeader";
 import MobileFooter from "@/components/shared/MobileFooter";
 import Link from "next/link";
+import PlayGroundSideBar from "@/components/playGround/PlayGroundSideBar";
 
 function GroundReportPage() {
   return (
@@ -26,7 +26,7 @@ function GroundReportPage() {
 
       <div className="tour-container">
         <div className="bottoms">
-          <PlayGroudSidePages />
+          <PlayGroundSideBar currentPage='report' />
 
           <div class="play-topics  ">
             <div className="bottoms">
