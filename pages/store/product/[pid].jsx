@@ -10,16 +10,19 @@ import { useRouter } from "next/router";
 import ProductDetailFullWidth from "@/components/stores/product-details/ProductDetailFullWidth";
 import MobileHeader from "@/components/MobileHeader";
 import MobileFooter from "@/components/shared/MobileFooter";
+import { useDispatch } from "react-redux";
+import { setProVarient } from "@/Redux/productDetail";
 
 function ProductDetailPage() {
   const [productDetails, setProductDetails] = useState([]);
+  const [apiSuccess, setApiSuccess] = useState(false);
   const router = useRouter();
-  const { pid } = router.query;       
+  const { pid } = router.query;
+  const dispatch = useDispatch();
+  dispatch(setProVarient(pid));
   console.log("productttttttttttttttttttttttt444444444");
-            
-      
-                                                                                                                                                                                                                                    
-  useEffect(()=>{
+
+  useEffect(() => {
     Axios.post(
       apis.productDetail,
       {
@@ -34,7 +37,7 @@ function ProductDetailPage() {
       setProductDetails([res.data.data[0]]);
       console.log("productttttttttttttttttttttttt", res);
     });
-  },[pid])
+  }, [pid,apiSuccess]);
 
   return (
     <>
@@ -45,7 +48,6 @@ function ProductDetailPage() {
       <div className="store-container">
         <form className="nosubmit ">
           <span>
-            
             <input className="nosubmit2" type="search" placeholder="Search" />
             <img
               src="../../images/store/Fil-icon.png"
@@ -60,7 +62,7 @@ function ProductDetailPage() {
               <div className="card cart">
                 <div className="card-body p-4">
                   <div className="row ">
-                    <ProductDetailFullWidth product={productDetails} />
+                    <ProductDetailFullWidth product={productDetails} setApiSuccess={setApiSuccess}/>
                   </div>
                 </div>
               </div>
@@ -69,7 +71,6 @@ function ProductDetailPage() {
         </section>
       </div>
       <MobileFooter />
-
     </>
   );
 }

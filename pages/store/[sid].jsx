@@ -23,13 +23,14 @@ import StoreBannerCard from "@/components/stores/StoreBannerCard";
 import moment from "moment";
 import MobileHeader from "@/components/MobileHeader";
 import MobileFooter from "@/components/shared/MobileFooter";
+import StoreProductsCard from "@/components/stores/StoreProductsCard";
 
 function StoreDetailPage() {
   const router = useRouter();
   const { sid } = router.query;
 
   const [searchInput, setSearchInput] = useState("");
-  const [success,setSuccess]=useState(false)
+  const [success, setSuccess] = useState(false);
   const [storeDetails, setStoreDetails] = useState([]);
   const [storeCategory, setStoreCategory] = useState([]);
   const [offersData, setOffersData] = useState([]);
@@ -49,7 +50,23 @@ function StoreDetailPage() {
       setStoreCategory(res.data.data.store[0].categories);
       setOffersData(res.data.data.offers);
     });
-  },[success]);
+  }, [success]);
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      search();
+    }
+  };
+
+  const search = () => {
+    router.push({
+      pathname: "/store/search",
+      query: {
+        search: searchInput,
+      },
+    });
+  };
 
   return (
     <div>
@@ -57,13 +74,14 @@ function StoreDetailPage() {
       <MobileHeader />
       <MainSidebarFixed />
       <div className="store-container">
-        <form className="nosubmit ">
+        <form className="nosubmit " onSubmit={(e)=>handleKeyDown(e)}>
           <span>
             {" "}
             <input
               className="nosubmit1"
               onChange={(e) => setSearchInput(e.target.value)}
               type="search"
+              onKeyDown={handleKeyDown}
               placeholder="Search"
             />
             <span
@@ -78,13 +96,14 @@ function StoreDetailPage() {
               }
             >
               <img
-                src="../images/store/Fil-icon.png"
+                src="/images/store/Fil-icon.png"
                 className="filters-icon"
               ></img>
             </span>
           </span>
+          <button type="submit" style={{ display: "none" }}></button>
         </form>
-        <StoreTopDetails data={storeDetails} setSuccess={setSuccess}/>
+        <StoreTopDetails data={storeDetails} setSuccess={setSuccess} />
 
         {/* <StoreBannerCard /> */}
 
@@ -101,239 +120,21 @@ function StoreDetailPage() {
 </section> */}
 
         {storeCategory.length >= 1 && (
-          <SearchCategory category={storeCategory}/>
+          <SearchCategory category={storeCategory} />
         )}
 
-        {/* {offersData.length > 0 &&
+        {offersData.length > 0 &&
           offersData.map((item, index) => (
             <div key={index} className="my-2">
-              <h5>
+              {/* <h5>
                 {item.offer_name}<span className="view">View All</span>
-              </h5>
-              <div className="row row row-cols-2 store  ">
-                <div className="col-md-3  ">
-                  <Card
-                    style={{
-                      backgroundColor: "#343C42",
-                      borderRadius: "0%",
-                      border: "0px",
-                    }}
-                  >
-                    <Card.Img
-                      style={{ borderRadius: "0px 0px 0px 0px" }}
-                      src="../images/store/shoes.jpg"
-                    />
-                    <Card.Body>
-                      <Card.Text
-                        style={{ fontSize: "14px", fontWeight: "500" }}
-                      >
-                        <i
-                          className="bi bi-star-fill"
-                          style={{ color: "yellow" }}
-                        ></i>{" "}
-                        <span style={{ color: "white" }}>4.5</span>
-                        <span style={{ float: "right" }}>
-                          <i
-                            className="bi bi-suit-heart  "
-                            style={{ color: "white" }}
-                          ></i>
-                        </span>
-                        <br></br>
-                        <p
-                          style={{
-                            fontSize: "12px",
-                            color: "white",
-                            fontWeight: "400;",
-                          }}
-                        >
-                          Edge Identity Running Shoes For Men
-                        </p>
-                        <p style={{ color: "#fff", fontSize: "15px" }}>
-                          <s>13.000 KD</s>
-                          <span>
-                            <p
-                              style={{
-                                fontSize: "16px",
-                                color: "#17A803",
-                                fontWeight: "700",
-                              }}
-                            >
-                              14.450 KD
-                            </p>
-                          </span>
-                        </p>
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </div>
-                <div className="col-md-3 ">
-                  <Card
-                    style={{
-                      backgroundColor: "#343C42",
-                      borderRadius: "0%",
-                      border: "0px",
-                    }}
-                  >
-                    <Card.Img
-                      style={{ borderRadius: "0px 0px 0px 0px" }}
-                      src="../images/store/shoes.jpg"
-                    />
-                    <Card.Body>
-                      <Card.Text
-                        style={{ fontSize: "14px", fontWeight: "500" }}
-                      >
-                        <i
-                          className="bi bi-star-fill"
-                          style={{ color: "yellow" }}
-                        ></i>{" "}
-                        <span style={{ color: "white" }}>4.5</span>
-                        <span style={{ float: "right" }}>
-                          <i
-                            className="bi bi-suit-heart  "
-                            style={{ color: "white" }}
-                          ></i>
-                        </span>
-                        <br></br>
-                        <p
-                          style={{
-                            fontSize: "12px",
-                            color: "white",
-                            fontWeight: "400;",
-                          }}
-                        >
-                          Edge Identity Running Shoes For Men
-                        </p>
-                        <p style={{ color: "#fff", fontSize: "15px" }}>
-                          <s>13.000 KD</s>
-                          <span>
-                            <p
-                              style={{
-                                fontSize: "16px",
-                                color: "#17A803",
-                                fontWeight: "700",
-                              }}
-                            >
-                              14.450 KD
-                            </p>
-                          </span>
-                        </p>
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </div>
-                <div className="col-md-3  ">
-                  <Card
-                    style={{
-                      backgroundColor: "#343C42",
-                      borderRadius: "0%",
-                      border: "0px",
-                    }}
-                  >
-                    <Card.Img
-                      style={{ borderRadius: "0px 0px 0px 0px" }}
-                      src="../images/store/shoes.jpg"
-                    />
-                    <Card.Body>
-                      <Card.Text
-                        style={{ fontSize: "14px", fontWeight: "500" }}
-                      >
-                        <i
-                          className="bi bi-star-fill"
-                          style={{ color: "yellow" }}
-                        ></i>{" "}
-                        <span style={{ color: "white" }}>4.5</span>
-                        <span style={{ float: "right" }}>
-                          <i
-                            className="bi bi-suit-heart  "
-                            style={{ color: "white" }}
-                          ></i>
-                        </span>
-                        <br></br>
-                        <p
-                          style={{
-                            fontSize: "12px",
-                            color: "white",
-                            fontWeight: "400;",
-                          }}
-                        >
-                          Edge Identity Running Shoes For Men
-                        </p>
-                        <p style={{ color: "#fff", fontSize: "15px" }}>
-                          <s>13.000 KD</s>
-                          <span>
-                            <p
-                              style={{
-                                fontSize: "16px",
-                                color: "#17A803",
-                                fontWeight: "700",
-                              }}
-                            >
-                              14.450 KD
-                            </p>
-                          </span>
-                        </p>
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </div>
-                <div className="col-md-3 ">
-                  <Card
-                    style={{
-                      backgroundColor: "#343C42",
-                      borderRadius: "0%",
-                      border: "0px",
-                    }}
-                  >
-                    <Card.Img
-                      style={{ borderRadius: "0px 0px 0px 0px" }}
-                      src="../images/store/shoes.jpg"
-                    />
-                    <Card.Body>
-                      <Card.Text
-                        style={{ fontSize: "14px", fontWeight: "500" }}
-                      >
-                        <i
-                          className="bi bi-star-fill"
-                          style={{ color: "yellow" }}
-                        ></i>{" "}
-                        <span style={{ color: "white" }}>4.5</span>
-                        <span style={{ float: "right" }}>
-                          <i
-                            className="bi bi-suit-heart  "
-                            style={{ color: "white" }}
-                          ></i>
-                        </span>
-                        <br></br>
-                        <p
-                          style={{
-                            fontSize: "12px",
-                            color: "white",
-                            fontWeight: "400;",
-                          }}
-                        >
-                          Edge Identity Running Shoes For Men
-                        </p>
-                        <p style={{ color: "#fff", fontSize: "15px" }}>
-                          <s>13.000 KD</s>
-                          <span>
-                            <p
-                              style={{
-                                fontSize: "16px",
-                                color: "#17A803",
-                                fontWeight: "700",
-                              }}
-                            >
-                              14.450 KD
-                            </p>
-                          </span>
-                        </p>
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </div>
-              </div>
+              </h5> */}
+              <StoreProductsCard
+                products={item.product_varient}
+                title={item.offer_name}
+              />
             </div>
-          ))} */}
+          ))}
       </div>
       <MobileFooter />
     </div>

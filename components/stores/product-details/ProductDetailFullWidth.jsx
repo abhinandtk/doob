@@ -19,7 +19,7 @@ import {
 import { useEffect } from "react";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
-function ProductDetailFullWidth({ product }) {
+function ProductDetailFullWidth({ product,setApiSuccess }) {
   const labels = Labels();
   const dispatch = useDispatch();
   const router = useRouter();
@@ -28,7 +28,7 @@ function ProductDetailFullWidth({ product }) {
     (state) => state.product.proPrimaryVarientId
   );
 
-  console.log("detaillllllllllspag14", prVarientId);
+  console.log("det32 prvarId first", prVarientId);
   console.log("sdcsdcsdcsdc", product);
   let priceView;
   // useEffect(() => {
@@ -39,6 +39,7 @@ function ProductDetailFullWidth({ product }) {
     product[0].Product_Items.map((item, index) => {
       item.multivarient.length !== 0
         ? item.multivarient.map((item_, index_) => {
+          console.log('det32 secondvarId',prVarientId)
             if (item_.slug_id === prVarientId) {
               priceView = (
                 <p
@@ -59,12 +60,15 @@ function ProductDetailFullWidth({ product }) {
                   <span></span>
                 </p>
               );
+             
               dispatch(setProPrimaryVarientId(item.varent_id));
               dispatch(setProSecondaryVarientId(item_.slug_id));
               // setSuccess(true);
             }
           })
         : dispatch(setProPrimaryVarientId(item.varent_id));
+        console.log('det32 item.varent_idsingle',item.varent_id,'var==id',prVarientId),
+
       item.slug_id === prVarientId &&
         (priceView = (
           <p style={{ color: "gray", fontWeight: "400" }}>
@@ -84,7 +88,7 @@ function ProductDetailFullWidth({ product }) {
         ));
     });
   // }, []);
-  console.log("firstloading,,", proPrimaryVarientId);
+  console.log("det32 firstloading,,", proPrimaryVarientId);
 
   const [quantity, setQuantity] = useState(1);
 
@@ -149,7 +153,7 @@ function ProductDetailFullWidth({ product }) {
             <ProductDetailImages product={product} />
             <div className="col-md-5 shop-cart ">
               <div className=" justify-content-between align-items-center ">
-                <ProductDetailTopDetails product={product} />
+                <ProductDetailTopDetails product={product} setApiSuccess={setApiSuccess}/>
                 <ModuleVariants product={product} />
                 <ModuleSecondVariants product={product} />
                 <br></br>

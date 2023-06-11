@@ -18,21 +18,22 @@ function StoreSearchPage() {
   console.log("searchInput", searchInput);
   const [resultProduct, setResultProduct] = useState([]);
   useEffect(() => {
-    Axios.post(
-      apis.storesearch,
-      {
-        user_input: searchInput,
-      },
-      {
-        headers: {
-          Authorization: `Token ${constants.token_id}`,
-        },
-      }
-    ).then((res) => {
-      setResultProduct(res.data.data);
-      console.log("IIIIIIIIIIIIIIIOOOIOSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS", res);
-    });
-  },[]);
+    // Axios.post(
+    //   apis.storesearch,
+    //   {
+    //     user_input: searchInput,
+    //   },
+    //   {
+    //     headers: {
+    //       Authorization: `Token ${constants.token_id}`,
+    //     },
+    //   }
+    // ).then((res) => {
+    //   setResultProduct(res.data.data);
+    //   console.log("IIIIIIIIIIIIIIIOOOIOSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS", res);
+    // });
+    searchResultHandler()
+  },[searchInput]);
 
   const searchResultHandler = (e) => {
     Axios.post(
@@ -47,16 +48,19 @@ function StoreSearchPage() {
       }
     ).then((res) => {
       setResultProduct(res.data.data);
-      console.log("IIIIIIIIIIIIIIIOOOIOSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS", res);
+      console.log("IIIIIIIIIIIIIIIOOOIOSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS", res,{
+        user_input: searchInput,
+      });
     });
   };
+  console.log('resultProduct',resultProduct)
 
   return (
     <Fragment>
       <MainHeader title="Doob" />
       <MainSidebarFixed />
       <div className="store-container">
-        <form className="nosubmit ">
+        {/* <form className="nosubmit "> */}
           <span>
             {" "}
             <input
@@ -67,15 +71,15 @@ function StoreSearchPage() {
             />
             <span onClick={(e) => searchResultHandler(e)}>
               <img
-                src="../images/store/Fil-icon.png"
+                src="/images/store/Fil-icon.png"
                 className="filters-icon"
               ></img>
             </span>
           </span>
-        </form>
+        {/* </form> */}
 
         <div className="my-2  ">{/* <SearchCategory /> */}</div>
-        {resultProduct && <StoreProductsCard products={resultProduct} />}
+        {resultProduct.length >0 && <StoreProductsCard key={resultProduct.length} products={resultProduct} />}
       </div>
     </Fragment>
   );

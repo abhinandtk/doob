@@ -4,22 +4,23 @@ import { Labels } from "@/public/data/my-constants/Labels";
 import { notification } from "antd";
 import Axios from "axios";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
 import { Fragment } from "react";
+import { Dropdown } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
-function ProductDetailTopDetails({ product }) {
-  console.log('===============',product)
+function ProductDetailTopDetails({ product, setApiSuccess }) {
+  console.log("===============", product);
   const router = useRouter();
 
   const labels = Labels();
   let productStock;
   let productNameExtension;
-
+  const [wishlistStatus, setwishlistStatus] = useState(null);
   const prVarientId = useSelector((state) => state.product.proVarient);
 
   let priceView;
-
   product.Product_Items.map((item, index) => {
     item.multivarient.length !== 0
       ? item.multivarient.map((item_, index_) => {
@@ -33,6 +34,17 @@ function ProductDetailTopDetails({ product }) {
         ((productNameExtension = "| " + item.values_values),
         (productStock = item.stock));
   });
+  useEffect(() => {
+    product.Product_Items.map((item, index) => {
+      item.multivarient.length !== 0
+        ? item.multivarient.map((item_, index_) => {
+            if (item_.slug_id === prVarientId) {
+              setwishlistStatus(item_.wishlist_status === 0 ? false : true);
+            }
+          })
+        : setwishlistStatus(item.wishlist_status === 0 ? false : true);
+    });
+  }, [prVarientId]);
 
   const shareToPostHandler = () => {
     Axios.post(
@@ -54,14 +66,14 @@ function ProductDetailTopDetails({ product }) {
     });
   };
 
-  const WishlistHandler = (slug, favorite) => {
-    console.log("weeeeeeeeeeeeeeeeeeeeee", favorite);
-    console.log("w444eeeeeeeeeeeeeeeeeeeeee", !favorite);
-    const api = favorite ? apis.removewishlist : apis.addwishlist;
+  const wishlistHandler = () => {
+    console.log("weeeeeeeeeeeeeeeeeeeeee", wishlistStatus);
+    console.log("weeeeeeeeeeeeeeeeeeeeee", !wishlistStatus);
+    const api = wishlistStatus ? apis.removewishlist : apis.addwishlist;
     Axios.post(
       api,
       {
-        product_id: slug,
+        product_id: prVarientId,
       },
       {
         headers: {
@@ -69,37 +81,34 @@ function ProductDetailTopDetails({ product }) {
         },
       }
     ).then((res) => {
-      // let updatedItem = {};
-
-      // if (res.data.status === 1) {
-      //   updatedItem = {
-      //     ...updatedStore.find((item) => item.slug_Id === id),
-      //     isWish: !favorite,
-      //   };
-      // }
-      // setUpdatedStore((prevStore) =>
-      //   prevStore.map((item) => (item.slug_Id === id ? updatedItem : item))
-      // );
-
-      console.log("wishlisttttttttttttttttttttttttttttttttttttt", res);
+      console.log("weeeeresult34", res);
+      setwishlistStatus(!wishlistStatus);
+      // setApiSuccess((prev) => !prev);
     });
   };
 
   return (
     <Fragment>
       <span className="float">
-        <span style={{ cursor: "pointer" }}>
+        {/* <i
+          className={`${
+            wishlistStatus ? "bi bi-suit-heart-fill" : "bi bi-suit-heart"
+          }`}
+          style={{ color: wishlistStatus ? "#17A803" : "#fff" ,border:'1px solid black'}}
+        ></i> */}
+        <span onClick={() => wishlistHandler()} style={{ cursor: "pointer" }}>
           <svg
             width="18"
             height="17"
             className="mx-2"
             viewBox="0 0 19 18"
             fill="none"
+            border="1px solid black"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
               d="M9.5 18C9.5 18 0 12.3609 0 5.59388C0 -1.17312 7.38889 -1.73704 9.5 3.55748C11.6111 -1.73704 19 -1.17312 19 5.59388C19 12.3609 9.5 18 9.5 18Z"
-              fill="black"
+              fill={`${wishlistStatus ? "#17A803" : "#c3bfbf"}`}
             />
           </svg>
         </span>
@@ -131,6 +140,45 @@ function ProductDetailTopDetails({ product }) {
           </svg>
         </span>
         <span>
+          {/* <Dropdown className="Drodp">
+            <Dropdown.Toggle
+              variant=""
+              id="dropdown-basic"
+              style={{
+                color: "black",
+                borderColor: "transparent",
+                background: "transparent",
+              }}
+            >
+              <svg
+                width="2"
+                height="14"
+                className="mx-4"
+                viewBox="0 0 2 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0.416016 0.958333C0.416016 0.429061 0.752798 0 1.16824 0C1.58368 0 1.92046 0.429061 1.92046 0.958333C1.92046 1.48761 1.58368 1.91667 1.16824 1.91667C0.752798 1.91667 0.416016 1.48761 0.416016 0.958333Z"
+                  fill="black"
+                />
+                <path
+                  d="M0.416016 6.70833C0.416016 6.17906 0.752798 5.75 1.16824 5.75C1.58368 5.75 1.92046 6.17906 1.92046 6.70833C1.92046 7.23761 1.58368 7.66667 1.16824 7.66667C0.752798 7.66667 0.416016 7.23761 0.416016 6.70833Z"
+                  fill="black"
+                />
+                <path
+                  d="M0.416016 12.4583C0.416016 11.9291 0.752798 11.5 1.16824 11.5C1.58368 11.5 1.92046 11.9291 1.92046 12.4583C1.92046 12.9876 1.58368 13.4167 1.16824 13.4167C0.752798 13.4167 0.416016 12.9876 0.416016 12.4583Z"
+                  fill="black"
+                />
+              </svg>
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu align="center" className="Menu">
+              <Dropdown.Item onClick={() => deleteTeamHandler(item.user_id)}>
+                Delete
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown> */}
           <svg
             width="22"
             height="20"
