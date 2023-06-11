@@ -25,11 +25,6 @@ function GameDetailTopContent({ details, setOnSuccess }) {
     return dateConvert;
   };
 
-  let participantUsers =
-  details &&
-  details.participants.some((item) => item.user_id === constants.user_id);
-  console.log(participantUsers, "jjjoeeeeee", constants.user_id);
-
   const joinGameHandler = (id) => {
     console.log("joingame", {
       user_id: [id],
@@ -112,7 +107,7 @@ function GameDetailTopContent({ details, setOnSuccess }) {
                   </p>
                   <img
                     className="logox"
-                    src="/images/tournament/logox.png"
+                    src={`${constants.port}${details.stadium.stadium_image[0].images}`}
                   ></img>
                 </div>
 
@@ -179,9 +174,17 @@ function GameDetailTopContent({ details, setOnSuccess }) {
 
                   {details.created_by.created_by_id != constants.user_id && (
                     <>
-                      {console.log("yuyuyuyu", details.participants)}
-
-                      {/* {participantUsers ? ( */}
+                      {details.is_joined === "Accepted" ? (
+                        <button
+                          type="button"
+                          onClick={() => leftGameHandler(constants.user_id)}
+                          className=" field-btn"
+                          style={{ backgroundColor: "red" }}
+                        >
+                          Leave
+                        </button>
+                      ) : details.is_joined === "Left" ||
+                        details.is_joined === "Invitation Declined" || "No user exist" ? (
                         <button
                           type="button"
                           onClick={() => joinGameHandler(constants.user_id)}
@@ -189,16 +192,21 @@ function GameDetailTopContent({ details, setOnSuccess }) {
                         >
                           Join
                         </button>
-                      {/* ) : ( */}
+                      ) : details.is_joined === "Invited" ? (
                         <button
                           type="button"
-                          onClick={() => leftGameHandler(constants.user_id)}
+                          onClick={() => joinGameHandler(constants.user_id)}
                           className=" field-btn"
-                          style={{ backgroundColor: "red" }}
                         >
-                          Left
+                          Accept
                         </button>
-                      {/* )} */}
+                      ) : details.is_joined === "Removed" ? (
+                        <p className="my-3" style={{ color: "red" }}>
+                          Removed by admin
+                        </p>
+                      ) : (
+                        ""
+                      )}
                     </>
                   )}
                 </div>

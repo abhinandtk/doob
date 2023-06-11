@@ -29,7 +29,7 @@ function StoreDetailPage() {
   const { sid } = router.query;
 
   const [searchInput, setSearchInput] = useState("");
-
+  const [success,setSuccess]=useState(false)
   const [storeDetails, setStoreDetails] = useState([]);
   const [storeCategory, setStoreCategory] = useState([]);
   const [offersData, setOffersData] = useState([]);
@@ -49,7 +49,7 @@ function StoreDetailPage() {
       setStoreCategory(res.data.data.store[0].categories);
       setOffersData(res.data.data.offers);
     });
-  });
+  },[success]);
 
   return (
     <div>
@@ -84,7 +84,7 @@ function StoreDetailPage() {
             </span>
           </span>
         </form>
-        <StoreTopDetails data={storeDetails} />
+        <StoreTopDetails data={storeDetails} setSuccess={setSuccess}/>
 
         {/* <StoreBannerCard /> */}
 
@@ -101,10 +101,10 @@ function StoreDetailPage() {
 </section> */}
 
         {storeCategory.length >= 1 && (
-          <SearchCategory category={storeCategory} />
+          <SearchCategory category={storeCategory}/>
         )}
 
-        {offersData.length > 0 &&
+        {/* {offersData.length > 0 &&
           offersData.map((item, index) => (
             <div key={index} className="my-2">
               <h5>
@@ -333,7 +333,7 @@ function StoreDetailPage() {
                 </div>
               </div>
             </div>
-          ))}
+          ))} */}
       </div>
       <MobileFooter />
     </div>

@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import React, { Fragment } from "react";
 
-function SearchCategory({ category }) {
+function SearchCategory({ category, }) {
   const router = useRouter();
   return (
     <Fragment>

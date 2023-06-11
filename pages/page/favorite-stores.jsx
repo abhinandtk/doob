@@ -9,9 +9,11 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import MobileHeader from "@/components/MobileHeader";
 import MobileFooter from "@/components/shared/MobileFooter";
+import Link from "next/link";
 
 function FavoriteStores() {
   const [storeFavList, setStoreFavList] = useState([]);
+  const [apiSuccess, setApiSuccess] = useState(false);
   useEffect(() => {
     Axios.get(apis.viewstorewishlist, {
       headers: {
@@ -21,10 +23,10 @@ function FavoriteStores() {
       setStoreFavList(res.data.data);
       console.log("wwwwstoreeeeeeeeeeeeeeeeefavvvv", res);
     });
-  },[]);
+  }, [apiSuccess]);
 
-  const removeHandler = (id) => {
-    console.log("ssss", id);
+  const removeHandler = (id, favorite) => {
+    console.log("ssss", id, favorite);
     const api = favorite ? apis.removestorewishlist : apis.addstorewishlist;
     Axios.post(
       api,
@@ -37,7 +39,8 @@ function FavoriteStores() {
         },
       }
     ).then((res) => {
-      console.log("restttttttttttttttttttttttttttttttttttttt", res);
+      setApiSuccess((prev) => !prev);
+      console.log("ssssrestttttttttttttttttttttttttttttttttttttt", res);
     });
   };
 
@@ -59,20 +62,39 @@ function FavoriteStores() {
                   className="col-lg-6 col-md-4 col-sm-6 col-xs-6 "
                 >
                   <Card className="store-card ">
-                    <Card.Img
-                      style={{ borderRadius: "12px 12px 0px 0px" }}
-                      src={`${item.store.cover_photo}`}
-                    />
+                    <Link
+                      href={`/store/${item.store.slug_store}`}
+                      style={{ textDecoration: "none" }}
+                    >
+                      <Card.Img
+                        style={{ borderRadius: "12px 12px 0px 0px" }}
+                        src={`${item.store.cover_photo}`}
+                      />
+                    </Link>
                     <Card.Body>
                       <Card.Text
                         style={{ fontSize: "14px", fontWeight: "500" }}
                       >
-                        {item.store.title}
-                        <span
-                          onClick={() => removeHandler(item.store.slug_store)}
-                          style={{ float: "right" }}
+                        {" "}
+                        <Link
+                          href={`/store/${item.store.slug_store}`}
+                          style={{ textDecoration: "none",color:'inherit' }}
                         >
-                          <i className="bi bi-suit-heart-fill"></i>
+                          {item.store.title}
+                        </Link>
+                        <span
+                          onClick={() =>
+                            removeHandler(
+                              item.store.slug_store,
+                              item.is_favorite
+                            )
+                          }
+                          style={{ float: "right",cursor:'pointer' }}
+                        >
+                          <i
+                            className="bi bi-suit-heart-fill"
+                            style={{ color: "#17A803" }}
+                          ></i>
                         </span>
                       </Card.Text>
                     </Card.Body>

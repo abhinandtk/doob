@@ -113,7 +113,7 @@ function ShopPagesSideBar({ currentPage }) {
           Products
         </span>
       </Link>
-      <a href="#home">
+      <Link href="/shop/stocks" style={{ textDecoration: "none" }}>
         <svg
           width="22"
           height="31"
@@ -158,7 +158,7 @@ function ShopPagesSideBar({ currentPage }) {
           {" "}
           Stock
         </span>
-      </a>
+      </Link>
       <Link href="/shop/report" style={{ textDecoration: "none" }}>
         <svg
           width="25"

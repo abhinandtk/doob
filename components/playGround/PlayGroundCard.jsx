@@ -63,7 +63,7 @@ function PlayGroundCard({ content }) {
                     className="bi bi-star-fill"
                     style={{ color: "yellow" }}
                   ></i>
-                  <span className="mx-2">4.5</span>
+                  <span className="mx-2">{item.rating}</span>
                 </span>
               </div>
             </div>

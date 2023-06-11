@@ -20,20 +20,22 @@ import MobileFooter from "@/components/shared/MobileFooter";
 import Link from "next/link";
 function FavoriteProducts() {
   const [favLists, setFavLists] = useState([]);
-  useEffect(() => {});
-  Axios.get(apis.viewwishlist, {
-    headers: {
-      Authorization: `Token ${constants.token_id}`,
-    },
-  }).then((res) => {
-    setFavLists(
-      res.data.data.map((item) => ({
-        ...item,
-        isWish: item.is_favorite,
-      }))
-    );
-    console.log("vvvvvvvvvvvvvvvvvvvvvvvvvvview", favLists);
-  });
+  const [apiSuccess,setApiSuccess]=useState(false)
+  useEffect(() => {
+    Axios.get(apis.viewwishlist, {
+      headers: {
+        Authorization: `Token ${constants.token_id}`,
+      },
+    }).then((res) => {
+      setFavLists(
+        res.data.data.map((item) => ({
+          ...item,
+          isWish: item.is_favorite,
+        }))
+      );
+      console.log("vvvvvvvvvvvvvvvvvvvvvvvvvvview", res);
+    });
+  },[apiSuccess]);
   const favoriteHandler = (id, favorite) => {
     const api = favorite ? apis.removewishlist : apis.addwishlist;
     Axios.post(
@@ -47,6 +49,7 @@ function FavoriteProducts() {
         },
       }
     ).then((res) => {
+      setApiSuccess(prev=>!prev)
       if (res.data.status === 1) {
       }
 
@@ -89,7 +92,7 @@ function FavoriteProducts() {
                       </Link>
                       <Card.Body>
                         <div style={{ fontSize: "14px", fontWeight: "500" }}>
-                          <i className="bi bi-star-fill"></i> 4.5
+                          <i className="bi bi-star-fill"></i> {item.review}
                           <span
                             onClick={() =>
                               favoriteHandler(item.slug_Id, item.isWish)
@@ -108,7 +111,7 @@ function FavoriteProducts() {
                           <br></br>
                           <Link
                             href={`/store/product/${item.slug_Id}`}
-                            style={{ textDecoration: "none",color:'inherit' }}
+                            style={{ textDecoration: "none", color: "inherit" }}
                           >
                             <div
                               style={{
