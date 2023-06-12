@@ -119,7 +119,8 @@ function AddAddressPage() {
       <MobileHeader />
       <MainSidebarFixed />
       <div className="store-container  my-5">
-        <h5 fw-bold>Add a New Address</h5>
+        <h5 className="add-address" >Add a New Address</h5>
+      
         <div className="card address-card ">
           <div className="card-body p-5  ">
             <h6>Address Type</h6>
