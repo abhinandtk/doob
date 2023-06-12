@@ -18,7 +18,25 @@ body{
  margin-left: 330px;
   align-items: center;
 }
+.play-icons{
+  margin-left: 25px;
+  margin-top: 7px;
+ 
+}
 
+.play-numbers{
+  float:right;
+  font-weight: 600;
+  font-size: 21px;
+   margin-right: 22px;
+   margin-top: 12px;
+}
+.playss{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+}
 .Top-play{  
     display: flex;
     flex-wrap: wrap;
@@ -55,6 +73,7 @@ body{
      width: 24rem;
      border:0px;
      border-radius:19px;
+     height: 9rem;
   }
 
   .play-0 {
@@ -2593,6 +2612,20 @@ input.nosubmit1 {
 .Match-referee {
 	margin-top: 12px;
 }
+.new-orders1 {
+  margin-right: 24px;
+  float: right;
+  font-weight: 600;
+  font-size: 20px;
+  margin-top: 12px;
+}
+.new-orders2 {
+  margin-right: 24px;
+  float: right;
+  font-weight: 600;
+  font-size: 20px;
+  margin-top: 12px;
+}
 
 /////////////////
 
@@ -3145,6 +3178,32 @@ input.nosubmit1 {
   
     
   }
+  .play-icons {
+    margin-left: 5px;
+    margin-top: 7px;
+}
+.play-numbers {
+  float: right;
+  font-weight: 600;
+  font-size: 21px;
+  margin-right: 22px;
+  margin-top: 12px;
+}
+  .new-orders1 {
+    margin-right: 24px;
+    float: right;
+    font-weight: 600;
+    font-size: 17px;
+   
+  }
+  .new-orders2 {
+    margin-right: 24px;
+    float: right;
+    font-weight: 600;
+    font-size: 17px;
+    
+  }
+  
   .book-stadiums{
     font-weight: 500;
     font-size: 14px;
@@ -3922,15 +3981,8 @@ display: none;
   margin-top: 32px;
   margin-left: 17px;
 }
-.new-orders1 {
-  margin-left: -4px;
-  font-size: 15px;
-}
-.new-orders2 {
-  margin-left: -4px;
-  font-size: 15px;
-  
-}
+
+
 
 .games2 {
   color: #ffffff;
@@ -4494,6 +4546,20 @@ margin-left: 185px;
   display: none;
   
     
+  }
+  .new-orders1 {
+    margin-right: 24px;
+    float: right;
+    font-weight: 600;
+    font-size: 15px;
+    margin-top: 12px;
+  }
+  .new-orders2 {
+    margin-right: 24px;
+    float: right;
+    font-weight: 600;
+    font-size: 15px;
+    margin-top: 12px;
   }
   .tour_rank_img {
     width: 55px;
@@ -5195,18 +5261,8 @@ margin-left: 160px;
 font-size: 14px;
 font-weight: 400;
 }
-.new-orders1 {
-  margin-left: -4px;
-  font-size: 15px;
-  float: right;
-  margin-top: -32px;
-}
-.new-orders2 {
-  margin-left: -4px;
-  font-size: 15px;
-  float: right;
-  margin-top: -32px;
-}
+
+
 
 }
 
@@ -5439,6 +5495,30 @@ font-weight: 400;
     margin-top: 15px;
     width: 120px;
   }
+  .play-icons{
+    margin-left: 5px;
+    margin-top: 7px;
+   
+  }
+  
+  .play-numbers{
+    float:right;
+    font-weight: 600;
+    font-size: 21px;
+     margin-right: 7px;
+     margin-top: 12px;
+  }
+  .stadium-name {
+    font-weight: 500;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 15px;
+    width: 147px;
+    color: #000000;
+}
   
 
 }

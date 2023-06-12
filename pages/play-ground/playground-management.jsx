@@ -61,9 +61,9 @@ function PlaygroundManagementPage() {
           <div className="play-0 ">
             <Card className="doct-card">
               <Card.Body>
-                <Card.Title className=" mt-2">
+                <Card.Title className="  playss">
                   <svg
-                    className="mx-3"
+                    className="play-icons"
                     width="45"
                     height="45"
                     viewBox="0 0 45 45"
@@ -76,26 +76,20 @@ function PlaygroundManagementPage() {
                     />
                   </svg>
 
-                  <span>
+              
                     {" "}
-                    <Card.Subtitle
-                      style={{
-                        float: "right",
-                        fontWeight: "600",
-                        fontSize: "19px",
-                      }}
-                      className="mt-2 mx-4  "
-                    >
-                      <h4 className="play-numbers">5</h4>
+                    <Card.Subtitle className="play-numbers"
+                    
+                    >  
+                      5   
                     </Card.Subtitle>
-                  </span>
+                  
                 </Card.Title>
 
-                <Card.Text
-                  className="mt-4"
-                  style={{ float: "right", fontSize: "14px" }}
+                <Card.Text className="new-orders1"
+                 
                 >
-                  <h5 className="ml-5 mx-4 new-orders1">Today’s Bookings</h5>
+                 Today’s Bookings
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -104,10 +98,10 @@ function PlaygroundManagementPage() {
           <div className="play-0  ">
             <Card className="doct-card">
               <Card.Body>
-                <Card.Title className=" mt-2">
+                <Card.Title className="  playss ">
                   <svg
                     width="42"
-                    className="mx-3"
+                    className="play-icons"
                     height="45"
                     viewBox="0 0 42 45"
                     fill="none"
@@ -145,24 +139,20 @@ function PlaygroundManagementPage() {
 
                   <span>
                     {" "}
-                    <Card.Subtitle
-                      style={{
-                        float: "right",
-                        fontWeight: "500",
-                        fontSize: "19px",
-                      }}
-                      className="mt-2 mx-4 "
-                    >
-                      <h4 className="play-numbers">5</h4>
+                    {" "}
+                    <Card.Subtitle className="play-numbers"
+                    
+                    >  
+                      5   
                     </Card.Subtitle>
                   </span>
                 </Card.Title>
 
-                <Card.Text
-                  className="mt-4"
-                  style={{ float: "right", fontSize: "14px" }}
+                
+                <Card.Text className="new-orders2"
+                 
                 >
-                  <h5 className="ml-5 mx-4 new-orders2">Monthly Bookings</h5>
+                 Monthly Bookings
                 </Card.Text>
               </Card.Body>
             </Card>
