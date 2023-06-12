@@ -19,6 +19,8 @@ function CategorySearchPage() {
 
   const [subCatInput, setSubcatInput] = useState("");
 
+  const [selectedSubcategory, setSelectedSubcategory] = useState(null);
+
   const router = useRouter();
   const id = router.query.category_id;
   console.log("category_id", id);
@@ -77,11 +79,12 @@ function CategorySearchPage() {
               type="button"
               className="btn btn-outline-secondary"
               style={{ padding: "5px 35px" }}
+              onClick={() => setSubcatInput("")}
             >
               All
             </button>
           </div>
-          {subCategoriesData &&
+          {subCategoriesData.length >0 &&
             subCategoriesData.map((item, index) => (
               <div
                 key={index}
@@ -95,19 +98,11 @@ function CategorySearchPage() {
                 </button>
               </div>
             ))}
-          {/* <div
-            className="btn-group me-2"
-            role="group"
-            aria-label="Second group"
-          >
-            <button type="button" className="btn btn-outline-secondary">
-              Gloves
-            </button>
-          </div> */}
+          
         </section>
-        {subCategoyProduct.length >= 1 ? (
+        {subCategoyProduct.length >0 ? (
           <>
-            <StoreProductsCard products={subCategoyProduct} />
+            <StoreProductsCard key={subCategoyProduct.length} products={subCategoyProduct} />
           </>
         ) : (
           <div>No products Found...</div>

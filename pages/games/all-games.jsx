@@ -56,6 +56,7 @@ function AllGamesPage() {
       setMyGames(res.data.my_games);
       setGamesJoined(res.data.games_i_joined);
       setGamesInvited(res.data.games_iam_invited);
+      console.log("resultgames", res);
     });
   }, []);
 
@@ -101,21 +102,17 @@ function AllGamesPage() {
                   </p>
                 ))}
               </div>
-              {myGames.map((item, index) =>
-                selectedCategory === null || selectedCategory === item.title
-                  ? console.log("reeeeeeeeeeeeeeeeeeeet", item.bookings)
-                  : // item.bookings.length >= 1 ? (
-
-                    //   <></>
-                    //   // <GameBookingCard data={item.bookings} />
-                    // ) : (
-                    //   <></>
-                    // )
-                    null
-              )}
               {/* {myGames.map((item, index) =>
-                item.bookings.length >= 1 ? <GameBookingCard data={item.bookings}/> : <></>
+                selectedCategory === null || selectedCategory === item.title ? (
+                  <GameBookingCard key={index} data={item.bookings} />
+                ) : null
               )} */}
+              {myGames.map((item, index) =>
+                selectedCategory === null || selectedCategory === item.title ? (
+                  <GamesHistoryCard key={index} data={item.my_games} />
+                ) : null
+              )}
+              
             </Tab>
 
             <Tab eventKey="joined" title={tabButton("joined")}>

@@ -15,7 +15,7 @@ function CheckoutSideSection({data}) {
   const checkoutHandler=()=>{
     console.log('jjjjjjjjjjjjjj')
     Axios.post(apis.checkout,{
-      payment_mode:'Both'
+      payment_mode:'Online'
     },
     {
       headers:{

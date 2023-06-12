@@ -337,7 +337,7 @@ function store() {
    
 
    <div className=" mx-auto d-flex justify-content-between align-items-center " style={{width:'90%'}}>
-   <p className='mx-2'  style={{borderBottom:'1px solid black'}}>Download Invoice</p>
+   {/* <p className='mx-2'  style={{borderBottom:'1px solid black'}}>Download Invoice</p> */}
    </div>
   
    <p className='order-code ' style={{fontWeight:'500'}}>#12454<span  style={{float:'right'}}> <Button type="submit" className='order-btn ' > Update status </Button></span></p>

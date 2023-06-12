@@ -30,7 +30,7 @@ function CustomerSalesReport() {
   const labels = Labels();
 
   const [startDate, setStartDate] = useState(
-    moment().subtract(30, "days").format("YYYY-MM-DD")
+    moment().subtract(31, "days").format("YYYY-MM-DD")
   );
 
   const today = moment().format("YYYY-MM-DD");
@@ -58,11 +58,11 @@ function CustomerSalesReport() {
   }, [startDate, endDate]);
   const handleDayChange = (days) => {
     setSelectedDays(
-      days == 30 ? "30 days" : days == 180 ? "6 months" : "1 year"
+      days == 31 ? "30 days" : days == 180 ? "6 months" : "1 year"
     );
     setStartDate(moment().subtract(days, "days").format("YYYY-MM-DD"));
   };
-  const url = `${constants.port}/store/brand_report_csv?store_id=${
+  const url = `${constants.port}/store/customer_report_csv?store_id=${
     slugId && slugId
   }&start_date=${startDate}&end_date=${endDate}`;
   return (
@@ -99,7 +99,7 @@ function CustomerSalesReport() {
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu align="center" className="Menu">
-                      <Dropdown.Item onClick={() => handleDayChange(30)}>
+                      <Dropdown.Item onClick={() => handleDayChange(31)}>
                         Last 30 days
                       </Dropdown.Item>
                       <Dropdown.Item onClick={() => handleDayChange(180)}>
@@ -132,7 +132,7 @@ function CustomerSalesReport() {
                 </div>
                 <div className="customer-sale">
                 <div  className="report-section">
-                    <div >Game</div>
+                    <div >Customer</div>
                     <div >Order Count</div>
                     <div>Total Amount</div>
                   </div>

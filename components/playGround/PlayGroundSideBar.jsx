@@ -4,7 +4,7 @@ import React from "react";
 function PlayGroundSideBar({currentPage}) {
   return (
     <div className="side-play">
-      <a href="#services">
+      <Link href="/play-ground/admin-bookings-ground" style={{textDecoration:'none'}}>
         {" "}
         <svg
           width="25"
@@ -28,8 +28,8 @@ function PlayGroundSideBar({currentPage}) {
           />
         </svg>{" "}
         <span className="mx-2" style={{color:`${currentPage === 'bookings' ? '#17A803' : ''}`}}>Bookings</span>
-      </a>
-      <a href="#services">
+      </Link>
+      <Link href="/play-ground/report/ground-earning-report" style={{textDecoration:'none'}}>
         {" "}
         <svg
           width="26"
@@ -54,8 +54,8 @@ function PlayGroundSideBar({currentPage}) {
             </clipPath>
           </defs>
         </svg>
-        <span className="mx-2">Earning</span>{" "}
-      </a>
+        <span className="mx-2">Earnings</span>{" "}
+      </Link>
       <Link href="/play-ground/playground-view" style={{textDecoration:'none'}}>
         {" "}
         <svg
@@ -131,7 +131,7 @@ function PlayGroundSideBar({currentPage}) {
         </svg>
         <span className="mx-1"> Report</span>
       </Link>
-      <a href="#contact">
+      {/* <a href="#contact">
         {" "}
         <svg
           width="23"
@@ -146,7 +146,7 @@ function PlayGroundSideBar({currentPage}) {
           />
         </svg>
         <span className="mx-2">Settings</span>{" "}
-      </a>
+      </a> */}
       <a href="#clients">
         <svg
           width="18"

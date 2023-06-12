@@ -58,7 +58,7 @@ function PlaygroundReport() {
         },
       }
     ).then((res) => {
-      console.log("res", res);
+      console.log("res3", res);
       if (res.data.data.playground_report.length > 0) {
         setDataReport(res.data.data.playground_report);
 
@@ -169,7 +169,7 @@ function PlaygroundReport() {
                 <div className="customer-sale">
                   <div id="header" style={{display:'flex',justifyContent:"space-between"}}>
                     <div id="logo">PlayGround</div>
-                    <div id="header-middle ">Order Count</div>
+                    <div id="header-middle ">Booking Count</div>
                     <div id="header-right">Total Amount</div>
                   </div>
                   {dataReport && dataReport.map((item,index)=>(

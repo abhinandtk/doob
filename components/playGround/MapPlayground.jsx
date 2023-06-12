@@ -13,7 +13,7 @@ const markerStyle = {
   padding: "5px",
 };
 
-export default function SimpleMap({data}) {
+export default function MapPlayGround({data}) {
     console.log('functionmap',data[0] && data[0].latitude)
   const defaultProps = {
     center: {
@@ -27,7 +27,7 @@ export default function SimpleMap({data}) {
     // Important! Always set the container height explicitly
     <div style={{ height: "100vh", width: "100%" }}>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: "AIzaSyCLmiBp6YcI-Flc2FwiX2Iw_6VnwqMk6BU" }}
+        bootstrapURLKeys={{ key: "AIzaSyBF2R1k7XoL0LwW-z6w66-CDYYBXMjUfFA" }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
       >

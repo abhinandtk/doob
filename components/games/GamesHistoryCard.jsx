@@ -67,11 +67,11 @@ function GamesHistoryCard({ data }) {
                         key={index_}
                         className="rounded-circle default-avatar member-overlap-item"
                         style={{ objectFit: "cover" }}
-                        src={`${constants.port}${part.image_url}`}
+                        src={`${constants.port}${part.participants}`}
                       ></img>
                     ))}
                     <span className="mx-4" style={{ color: "#959595" }}>
-                      +7 more participants
+                      {/* +7 more participants */}
                     </span>{" "}
                   </div>
                 ) : (

@@ -249,6 +249,13 @@ function ProductsForm({ handleProductAdd, editData }) {
     });
   };
 
+  const duplicateVariant = (index) => {
+    const variantToDuplicate = formData.variants[index];
+    const duplicatedVariant = { ...variantToDuplicate }; 
+    formData.variants.splice(index + 1, 0, duplicatedVariant); 
+    setFormData({ ...formData }); 
+  };
+
   const submitHandler = (e) => {
     e.preventDefault();
     handleProductAdd(formData);
@@ -731,25 +738,33 @@ function ProductsForm({ handleProductAdd, editData }) {
                     </select>
                   </div>
                 )}
-                {index > 0 && (
-                  <h6
-                    onClick={() => removeVariantField(index)}
-                    className="product-submit "
-                  >
-                    Remove
-                  </h6>
-                )}
+                <div className="product-submit ">
+                  {index > 0 && (
+                    <h6 onClick={() => removeVariantField(index)}>Remove</h6>
+                  )}
+                  <span>
+                    <h6
+                      className="mx-3"
+                      onClick={() => duplicateVariant(index)}
+                    >
+                      Duplicate
+                    </h6>
+                  </span>
+                </div>
                 <br></br>
                 <hr style={{ fontSize: "24px" }}></hr>
               </div>
             ))}
-            <h6 className="product-submit ">Duplicate</h6>
 
             <div className="product-submit my-3">
               <button type="submit" className="submit-cart-btn">
                 Submit
               </button>
-              <button onClick={()=>router.back()} type="button" className="sub-cart-btn">
+              <button
+                onClick={() => router.back()}
+                type="button"
+                className="sub-cart-btn"
+              >
                 Cancel
               </button>
             </div>

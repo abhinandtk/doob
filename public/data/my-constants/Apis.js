@@ -43,6 +43,8 @@ const apis = {
     'notification': `${constants.port}/social/Api/notification`,
     'activity': `${constants.port}/social/Api/activity`,
     'explorepage': `${constants.port}/social/Api/unfollowedaccounts`,
+    'shareProductToPost': `${constants.port}/social/Api/share_product`,
+
 
     //store module
 
@@ -71,6 +73,9 @@ const apis = {
     'orderList': `${constants.port}/store/api/order_list_view`,
     'addressView': `${constants.port}/store/api/address_list_view`,
     'defaultAddress': `${constants.port}/store/api/update_address_is_default`,
+
+    'updateStoreStatus': `${constants.port}/store/api/update_store_status`,
+    'storeSettings': `${constants.port}/store/api/store_api_list`,
 
     //shop management
 
@@ -118,6 +123,8 @@ const apis = {
     'addOffers': `${constants.port}/store/api/create_offer `,
     'listOffers_ad': `${constants.port}/store/api/list_offers `,
     'deleteOffer': `${constants.port}/store/api/delete_offer `,
+    'updateOffer': `${constants.port}/store/api/update_offer `,
+    'offers_view_get': `${constants.port}/store/api/list_offers_view `,
 
 
 

@@ -60,7 +60,7 @@ function BookingReport() {
     labels: bookingData.per_day && bookingData.per_day.map((item) => item.X),
     datasets: [
       {
-        label: "My First dataset",
+        label: "no of bookings",
         data: bookingData.per_day && bookingData.per_day.map((item) => item.Y),
         fill: false,
         borderColor: "rgb(75, 192, 192)",
@@ -96,7 +96,7 @@ function BookingReport() {
     setStartDate(moment().subtract(days, "days").format("DD-MM-YYYY"));
   };
   console.log("change", startDate);
-  const url = `${constants.port}/playground/api/ad_booking_report_csv?&start_date=${startDate}&end_date=${endDate}`;
+  const url = `${constants.port}/playground/api/ad_booking_report_csv?start_date=${startDate}&end_date=${endDate}`;
 
   return (
     <div>

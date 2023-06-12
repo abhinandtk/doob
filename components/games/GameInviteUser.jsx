@@ -30,7 +30,11 @@ function GameInviteUser({ setOnSuccess }) {
   };
 
   const handleSelect = (id) => {
-    console.log("iddd767", [id]);
+    console.log("iddd767", {
+      user_id: [id],
+      game_slug: gameId,
+      type: "invite",
+    });
     Axios.post(
       apis.inviteUser,
       {

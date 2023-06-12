@@ -661,6 +661,14 @@ body{
 
 }
 
+.product-name-shared{
+  display: inline-flex;
+  width: 150px; /* Adjust the value as per your requirement */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .post__more-options {
   background-color: transparent;
   border: none;

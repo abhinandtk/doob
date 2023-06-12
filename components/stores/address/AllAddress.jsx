@@ -31,17 +31,17 @@ function AllAddress({ addressList,setVisible,setOnSuccess }) {
             <Meta
               title={`${item.address_type}`}
               description={item.address_type === "Home" ? (
-                <p className="address-card">{`${item.housename}, ${item.avenue}, ${item.street}, ${item.block}, ${item.region.name}`}</p>
+                <p className="address-card">{`${item.housename}, Avenue-${item.avenue}, ${item.street}, Block-${item.block}, ${item.region.name}`}</p>
               ) : item.address_type === "Office" ? (
-                <p className="address-card">{`${item.officename}, ${item.avenue}, ${item.street}, ${item.block}, ${item.region.name}`}</p>
+                <p className="address-card">{`${item.officename}, Avenue-${item.avenue}, ${item.street}, Block-${item.block}, ${item.region.name}`}</p>
               ) : item.address_type === "Apartment" ? (
-                <p className="address-card">{`${item.flat_no},${item.floor},${item.building}, ${item.avenue}, ${item.street}, ${item.block}, ${item.region.name}`}</p>
+                <p className="address-card">{`Flat No-${item.flat_no},Floor-${item.floor},${item.building}, Avenue-${item.avenue}, ${item.street}, Block-${item.block}, ${item.region.name}`}</p>
               ) : (
                 <>
                   <p>Customer address</p>
-                  <p className="address-card">{`${item.building_flat_house_all}, ${item.avenue}, ${item.street}, ${item.block}, ${item.region.name}`}</p>
+                  <p className="address-card">{`${item.building_flat_house_all}, Avenue-${item.avenue}, ${item.street}, Block-${item.block}, ${item.region.name}`}</p>
                   <p>Provider address</p>
-                  <p className="address-card">{`${item.providor_avenue}, ${item.providor_street}, ${item.providor_block}, ${item.providor_area}`}</p>
+                  <p className="address-card">{`Avenue-${item.providor_avenue}, ${item.providor_street}, Block-${item.providor_block}, ${item.providor_area}`}</p>
                 </>
               )}
               avatar={<EnvironmentOutlined />}

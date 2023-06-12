@@ -1,7 +1,7 @@
 import MainHeader from "@/components/shared/headers/MainHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import PagesSideBar from "@/components/stores/pages/PagesSideBar";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Fragment } from "react";
 import { Card } from "react-bootstrap";
 import Axios from "axios";
@@ -9,21 +9,24 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import MobileHeader from "@/components/MobileHeader";
 import MobileFooter from "@/components/shared/MobileFooter";
+import Link from "next/link";
 
 function FavoriteStores() {
   const [storeFavList, setStoreFavList] = useState([]);
+  const [apiSuccess, setApiSuccess] = useState(false);
+  useEffect(() => {
+    Axios.get(apis.viewstorewishlist, {
+      headers: {
+        Authorization: `Token ${constants.token_id}`,
+      },
+    }).then((res) => {
+      setStoreFavList(res.data.data);
+      console.log("wwwwstoreeeeeeeeeeeeeeeeefavvvv", res);
+    });
+  }, [apiSuccess]);
 
-  Axios.get(apis.viewstorewishlist, {
-    headers: {
-      Authorization: `Token ${constants.token_id}`,
-    },
-  }).then((res) => {
-    setStoreFavList(res.data.data);
-    console.log("wwwwstoreeeeeeeeeeeeeeeeefavvvv", res);
-  });
-
-  const removeHandler=(id)=>{
-    console.log('ssss',id)
+  const removeHandler = (id, favorite) => {
+    console.log("ssss", id, favorite);
     const api = favorite ? apis.removestorewishlist : apis.addstorewishlist;
     Axios.post(
       api,
@@ -36,13 +39,10 @@ function FavoriteStores() {
         },
       }
     ).then((res) => {
-      console.log("restttttttttttttttttttttttttttttttttttttt", res);
+      setApiSuccess((prev) => !prev);
+      console.log("ssssrestttttttttttttttttttttttttttttttttttttt", res);
     });
   };
-  
-
-  
-  
 
   return (
     <Fragment>
@@ -57,19 +57,44 @@ function FavoriteStores() {
           <div className="ones container">
             <div className="row row-cols-2 g-3 my-2  store p-2 ">
               {storeFavList.map((item, index) => (
-                <div key={index} className="col-lg-6 col-md-4 col-sm-6 col-xs-6 ">
-                  <Card className="store-card " >
-                    <Card.Img
-                      style={{ borderRadius: "12px 12px 0px 0px" }}
-                      src={`${item.store.cover_photo}`}
-                    />
+                <div
+                  key={index}
+                  className="col-lg-6 col-md-4 col-sm-6 col-xs-6 "
+                >
+                  <Card className="store-card ">
+                    <Link
+                      href={`/store/${item.store.slug_store}`}
+                      style={{ textDecoration: "none" }}
+                    >
+                      <Card.Img
+                        style={{ borderRadius: "12px 12px 0px 0px" }}
+                        src={`${item.store.cover_photo}`}
+                      />
+                    </Link>
                     <Card.Body>
                       <Card.Text
                         style={{ fontSize: "14px", fontWeight: "500" }}
                       >
-                        {item.store.title}
-                        <span onClick={()=>removeHandler(item.store.slug_store)} style={{ float: "right" }}>
-                          <i className="bi bi-suit-heart-fill"></i>
+                        {" "}
+                        <Link
+                          href={`/store/${item.store.slug_store}`}
+                          style={{ textDecoration: "none",color:'inherit' }}
+                        >
+                          {item.store.title}
+                        </Link>
+                        <span
+                          onClick={() =>
+                            removeHandler(
+                              item.store.slug_store,
+                              item.is_favorite
+                            )
+                          }
+                          style={{ float: "right",cursor:'pointer' }}
+                        >
+                          <i
+                            className="bi bi-suit-heart-fill"
+                            style={{ color: "#17A803" }}
+                          ></i>
                         </span>
                       </Card.Text>
                     </Card.Body>

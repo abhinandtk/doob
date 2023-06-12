@@ -24,12 +24,14 @@ export function Labels() {
         "Order successfull": "Order placed successfully",
         "Cart empty": "Cart is empty,please add some items",
         "Item removed from cart successfully": "Item removed from cart successfully",
+        "Product shared": "Product shared successfully",
 
         //shop
 
         'This feature will added soon': 'This feature will added soon',
         'Offers added successfully': 'Offers added successfully',
         'Offer deleted successfully': 'Offer deleted successfully',
+        'Offer edited successfully': 'Offer edited successfully',
 
 
         //Play Ground 

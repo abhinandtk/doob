@@ -7,7 +7,7 @@ import apis from "@/public/data/my-constants/Apis";
 import moment from "moment";
 const { Panel } = Collapse;
 
-function StoreTopDetails({ data }) {
+function StoreTopDetails({ data,setSuccess }) {
   const [descShow, setDescShow] = useState(false);
 
   const handleShare = async () => {
@@ -32,7 +32,8 @@ function StoreTopDetails({ data }) {
         },
       }
     ).then((res) => {
-      console.log("restttttttttttttttttttttttttttttttttttttt", res);
+      setSuccess(prev=>!prev)
+      console.log("wishlistresult5", res);
     });
   };
 

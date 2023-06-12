@@ -17,7 +17,7 @@ import { useDispatch } from "react-redux";
 
 function StoreProductsCard({ products, title }) {
   const dispatch = useDispatch();
-  const [wishList, setWishList] = useState(true);
+  console.log('reere',products)
 
   const [updatedStore, setUpdatedStore] = useState(
     products.map((item) => ({
@@ -26,11 +26,7 @@ function StoreProductsCard({ products, title }) {
     }))
   );
   // products = updatedStore
-  console.log("wewewewewewewewewe", products);
-  console.log("wewewewewewewewewe787", updatedStore);
   const addWishlistHandler = (id, favorite) => {
-    console.log("weeeeeeeeeeeeeeeeeeeeee", favorite);
-    console.log("w444eeeeeeeeeeeeeeeeeeeeee", !favorite);
     const api = favorite ? apis.removewishlist : apis.addwishlist;
     Axios.post(
       api,
@@ -47,12 +43,12 @@ function StoreProductsCard({ products, title }) {
 
       if (res.data.status === 1) {
         updatedItem = {
-          ...updatedStore.find((item) => item.slug_Id === id),
+          ...updatedStore.find((item) => item.slug_product_varient === id),
           isWish: !favorite,
         };
       }
       setUpdatedStore((prevStore) =>
-        prevStore.map((item) => (item.slug_Id === id ? updatedItem : item))
+        prevStore.map((item) => (item.slug_product_varient === id ? updatedItem : item))
       );
 
       console.log("wishlisttttttttttttttttttttttttttttttttttttt", res);
@@ -79,30 +75,32 @@ function StoreProductsCard({ products, title }) {
                 }}
               >
                 <Link
-                  href={`/store/product/${item.slug_Id}`}
+                  href={`/store/product/${item.slug_product_varient}`}
                   style={{ textDecoration: "none" }}
                 >
                   <Card.Img
-                    onClick={() => dispatch(setProVarient(item.slug_Id))}
+                    onClick={() => dispatch(setProVarient(item.slug_product_varient))}
                     style={{
                       borderRadius: "0px 0px 0px 0px",
                       width: "100%",
                       objectFit: "cover",
                       aspectRatio: "1",
                     }}
-                    src={`${constants.port}${item.image}`}
+                    src={`${constants.port}${item.Thumbnail_image}`}
                   />
                 </Link>
                 <Card.Body className="favouite-card">
                   <div style={{ fontSize: "14px", fontWeight: "500" }}>
                     <i
-                      className="bi bi-star-fill" 
+                      className="bi bi-star-fill"
                       style={{ color: "yellow" }}
                     ></i>
-                    <span style={{ color: "white" }} className="mx-1">0</span>
+                    <span style={{ color: "white" }} className="mx-1">
+                      {item.review}
+                    </span>
                     <span
                       onClick={() =>
-                        addWishlistHandler(item.slug_Id, item.isWish)
+                        addWishlistHandler(item.slug_product_varient, item.isWish)
                       }
                       style={{ float: "right" }}
                     >
@@ -117,7 +115,7 @@ function StoreProductsCard({ products, title }) {
                     </span>
                     <br></br>
                     <Link
-                      href={`/store/product/${item.slug_Id}`}
+                      href={`/store/product/${item.slug_product_varient}`}
                       style={{ textDecoration: "none" }}
                     >
                       <p
@@ -132,14 +130,14 @@ function StoreProductsCard({ products, title }) {
                           textOverflow: "ellipsis",
                           height: "35px",
                         }}
-                        onClick={() => dispatch(setProVarient(item.slug_Id))}
+                        onClick={() => dispatch(setProVarient(item.slug_product_varient))}
                       >
                         {item.Name}
                       </p>
                     </Link>
 
                     <p style={{ color: "#fff", fontSize: "15px" }}>
-                      <s>{item.display_price} KD</s>
+                      <s>{item.Display_Prize} KD</s>
                       <span>
                         <p
                           style={{
@@ -148,7 +146,7 @@ function StoreProductsCard({ products, title }) {
                             fontWeight: "700",
                           }}
                         >
-                          {item.selling_price} KD
+                          {item.Selling_Prize} KD
                         </p>
                       </span>
                     </p>

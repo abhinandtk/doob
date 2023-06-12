@@ -28,13 +28,13 @@ function PlayGroundTopDetails({ details }) {
           <div className="clearfix rating">
             <span className="float-start ml-5">
               <i className="bi bi-star-fill" style={{ color: "yellow" }}></i>
-              <span className="mx-2">4.5</span>
+              <span className="mx-2">{details.rating}</span>
             </span>
             <p
               className="float-end"
               style={{ fontWeight: "700", color: "#17A803" }}
             >
-              {details.amount}
+              {details.amount} KD
               <span style={{ fontWeight: "400" }}>/slot</span>
             </p>
           </div>
@@ -44,7 +44,7 @@ function PlayGroundTopDetails({ details }) {
               details.game.map((game, index) => (
                 <span key={index} className="mx-1">
                   <img
-                    src={`${constants.port}/media/${game.logo}`}
+                    src={`${constants.port}${game.logo}`}
                     style={{
                       width: "18px",
                       height: "18px",

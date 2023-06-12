@@ -6,7 +6,7 @@ function ReportOrderCountTable({ reportData, title }) {
     <Fragment>
       <div className="customer-sale">
       <div  className="report-section">
-                    <div >Game</div>
+                    <div >{title}</div>
                     <div >Order Count</div>
                     <div>Total Amount</div>
                   </div>

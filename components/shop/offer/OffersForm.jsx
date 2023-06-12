@@ -11,6 +11,7 @@ const { Option } = Select;
 
 function OffersForm({ OfferSubmitHandler, editData }) {
   const router = useRouter();
+  const { slugId } = router.query;
   const [selectedItems, setSelectedItems] = useState([]);
   const [productsList, setProductsList] = useState([]);
 
@@ -31,7 +32,7 @@ function OffersForm({ OfferSubmitHandler, editData }) {
   };
   console.log("selectedItems", selectedItems);
 
-  useEffect((res) => {
+  useEffect(() => {
     Axios.get(apis.listingVarients, {
       headers: {
         Authorization: `Token ${constants.token_id}`,
@@ -41,9 +42,32 @@ function OffersForm({ OfferSubmitHandler, editData }) {
       console.log("resy", res);
     });
   }, []);
+
+  useEffect(() => {
+    if (editData === "true") {
+      Axios.post(
+        apis.offers_view_get,
+        {
+          slug_offer: slugId,
+        },
+        {
+          headers: {
+            Authorization: `Token ${constants.token_id}`,
+          },
+        }
+      ).then((res) => {
+        console.log(";resultgrt", res);
+        setFormData({
+          name: res.data.data[0].offer_name,
+          nameArabic: res.data.data[0].arabic_translator,
+        });
+        setSelectedItems(res.data.data[0].product_varient.map((item)=>item.id))
+      });
+    }
+  }, []);
   const submitHandler = (e) => {
     e.preventDefault();
-    OfferSubmitHandler(formData,selectedItems);
+    OfferSubmitHandler(formData, selectedItems);
   };
 
   return (

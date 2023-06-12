@@ -21,7 +21,7 @@ function HomePage() {
       },
     }).then((res) => {
       setGameDetails(res.data.my_games);
-      console.log(res);
+      console.log(res,'res3');
     });
   }, []);
 

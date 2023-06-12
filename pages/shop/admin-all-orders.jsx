@@ -238,7 +238,7 @@ function AdminAllOrders() {
                       }}
                     >
                       <span style={{ color: "#959595" }}>Price</span>
-                      <span> {item.order_total} </span>
+                      <span> {item.order_total} KD </span>
                     </div>
                     <div
                       className="p-2   mx-auto d-flex justify-content-between align-items-center"
@@ -272,7 +272,7 @@ function AdminAllOrders() {
 
                     <OrderProductCard products={item.products} />
 
-                    <div
+                    {/* <div
                       className=" mx-auto d-flex justify-content-between align-items-center "
                       style={{ width: "90%" }}
                     >
@@ -282,7 +282,7 @@ function AdminAllOrders() {
                       >
                         Download Invoice
                       </p>
-                    </div>
+                    </div> */}
                   </>
                 ))
               ) : (

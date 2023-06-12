@@ -21,20 +21,21 @@ Chart.register(CategoryScale);
 
 function EarningReport() {
   const [selectedDays, setSelectedDays] = useState(30);
-  const [bookingData, setBookingData] = useState([]);
-  console.log("bookin333", bookingData);
+  const [earningData, setEarningData] = useState([]);
+  console.log("bookin333", earningData);
 
   const [startDate, setStartDate] = useState(
     moment().subtract(30, "days").format("DD-MM-YYYY")
   );
 
   const today = moment().format("DD-MM-YYYY");
-  const [endDate, setEndDate] = useState(today);
+  const nextDay = moment(today).add(1, "day").format("DD-MM-YYYY");
+  const [endDate, setEndDate] = useState(nextDay);
 
   const labels = Labels();
   useEffect(() => {
     Axios.post(
-      apis.bookingReport,
+      apis.groundEarning,
       {
         start_date: startDate,
         end_date: endDate,
@@ -45,22 +46,26 @@ function EarningReport() {
         },
       }
     ).then((res) => {
-      console.log("bookin3332222222", res, {
+      console.log("23bookin3332222222", res, {
         start_date: startDate,
         end_date: endDate,
       });
-      setBookingData(res.data.data);
+      setEarningData(res.data.data);
       //   setBrandReport(res.data.data[0].brands);
       //   const data = res.data.data[0];
     });
   }, [startDate, endDate]);
 
   const data = {
-    labels: [],
+    labels:
+      earningData.playground_report &&
+      earningData.playground_report.map((earn) => earn.X),
     datasets: [
       {
-        label: "Booking report",
-        data: [],
+        label: "Earning report",
+        data:
+          earningData.playground_report &&
+          earningData.playground_report.map((earn) => earn.Y),
         fill: false,
         borderColor: "rgb(75, 192, 192)",
         tension: 0.1,
@@ -95,6 +100,7 @@ function EarningReport() {
     setStartDate(moment().subtract(days, "days").format("DD-MM-YYYY"));
   };
   console.log("change", startDate);
+  const url = `${constants.port}/playground/api/ad_my_earning_report_csv?start_date=${startDate}&end_date=${endDate}`;
 
   return (
     <div>
@@ -111,7 +117,7 @@ function EarningReport() {
                 className=" ms-4"
                 style={{ color: "#17a803", fontWeight: "700" }}
               >
-                Booking Report
+                Earning Report
               </h6>
               <div className="my-1 mx-4 ">
                 <div className="update">
@@ -125,7 +131,7 @@ function EarningReport() {
                         background: "transparent",
                       }}
                     >
-                      {`Last ${selectedDays}`}{" "}
+                      {`Last ${selectedDays == 30 ? "30 days" : selectedDays}`}{" "}
                       <i className="bi bi-chevron-down "></i>
                     </Dropdown.Toggle>
 
@@ -134,25 +140,27 @@ function EarningReport() {
                         Last 30 days
                       </Dropdown.Item>
                       <Dropdown.Item onClick={() => handleDayChange(180)}>
-                        Last 6 months
+                        Last 1 year
                       </Dropdown.Item>
                       <Dropdown.Item onClick={() => handleDayChange(365)}>
-                        Last 1 year
+                        All time
                       </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
                   <span>
-                    <button
-                      onClick={() =>
-                        notification.info({
-                          message: constants.Info,
-                          description: `${labels["This feature will added soon"]}`,
-                        })
-                      }
-                      type="button"
-                      className="export-btn"
-                    >
-                      Export
+                    <button type="button" className="export-btn">
+                      <a
+                        href={url}
+                        style={{
+                          textDecoration: "none",
+                          color: "inherit",
+                          target: "_blank",
+                        }}
+                        download
+                        target="_blank"
+                      >
+                        Export
+                      </a>
                     </button>
                   </span>
                 </div>
@@ -160,9 +168,9 @@ function EarningReport() {
                 <Card className="reports">
                   <div>
                     <div className="total-order">
-                      <p className="text-center">Total Bookings</p>
+                      <p className="text-center">Total Earnings</p>
                       <h1 className="text-center ">
-                        {bookingData.booking_count}
+                        {earningData.total_price} KD
                       </h1>
                     </div>
                   </div>
@@ -173,18 +181,19 @@ function EarningReport() {
 
                 <br></br>
                 <div className="customer-sale">
-                  <div className="p-3 d-flex justify-content-between  customer">
-                    <span className="sales-report-name">Customers</span>
-                    <span>{bookingData.num_customers}</span>
-                  </div>
-                  <div className="p-3 d-flex justify-content-between my-3 customer">
-                    <span className="sales-report-name">Total Slots</span>
-                    <span>{bookingData.num_slots}</span>
-                  </div>
-                  <div className="p-3 d-flex justify-content-between my-3  customer">
-                    <span className="sales-report-name">Total Bookings</span>
-                    <span>{bookingData.booking_count}</span>
-                  </div>
+                  <p>
+                    <b>Day by Report</b>
+                  </p>
+                  {earningData.playground_report &&
+                    earningData.playground_report.map((item, index) => (
+                      <div
+                        key={index}
+                        className="p-3 d-flex justify-content-between  customer"
+                      >
+                        <span className="sales-report-name">{item.X}</span>
+                        <span>{item.Y} KD</span>
+                      </div>
+                    ))}
                 </div>
               </div>
             </div>

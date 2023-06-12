@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 import { message, notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 function GameDetailTopContent({ details, setOnSuccess }) {
-  console.log(";909090909", details);
+  console.log("jjjj4909090909", details);
 
   const labels = Labels();
   const router = useRouter();
@@ -25,12 +25,12 @@ function GameDetailTopContent({ details, setOnSuccess }) {
     return dateConvert;
   };
 
-  let participantUsers =
-    details &&
-    details.participants.some((item) => item.user_id !== constants.user_id);
-  console.log(participantUsers, "oeeeeee",!participantUsers);
-
   const joinGameHandler = (id) => {
+    console.log("joingame", {
+      user_id: [id],
+      game_slug: gameId,
+      type: "join",
+    });
     Axios.post(
       apis.inviteUser,
       {
@@ -51,7 +51,11 @@ function GameDetailTopContent({ details, setOnSuccess }) {
         });
         setOnSuccess((prev) => !prev);
       }
-      console.log("joingame", res);
+      console.log("jjjj4joingame", res, {
+        user_id: [id],
+        game_slug: gameId,
+        type: "join",
+      });
     });
   };
   const leftGameHandler = (id) => {
@@ -75,7 +79,7 @@ function GameDetailTopContent({ details, setOnSuccess }) {
           description: `${labels["Left game"]}`,
         });
       }
-      console.log("leftgame", res);
+      console.log("jjjj4leftgame", res);
     });
   };
   return (
@@ -93,9 +97,7 @@ function GameDetailTopContent({ details, setOnSuccess }) {
             </div>
             <div className="col-md-4 mx-4">
               <div className="game-info">
-                <h5 className="game-head">
-                  {details.title}
-                </h5>
+                <h5 className="game-head">{details.title}</h5>
                 <div className="field-clearfix ">
                   <p
                     className="float-start"
@@ -105,7 +107,7 @@ function GameDetailTopContent({ details, setOnSuccess }) {
                   </p>
                   <img
                     className="logox"
-                    src="/images/tournament/logox.png"
+                    src={`${constants.port}${details.stadium.stadium_image[0].images}`}
                   ></img>
                 </div>
 
@@ -113,14 +115,9 @@ function GameDetailTopContent({ details, setOnSuccess }) {
                   <span>
                     <img
                       src={`${constants.port}${details.created_by.profile_pic}`}
-                     className="game-imgs"
+                      className="game-imgs"
                     ></img>
-                    <span
-                      className="mx-1 game-host"
-                    
-                    >
-                      Hosted by
-                    </span>
+                    <span className="mx-1 game-host">Hosted by</span>
                     <span className="gamer">
                       {details.created_by.hosted_by}
                     </span>
@@ -149,8 +146,9 @@ function GameDetailTopContent({ details, setOnSuccess }) {
                     </span>
                   </span>
                   <br></br>
-                  <div className="games12" >
-                    <svg className="my-1"
+                  <div className="games12">
+                    <svg
+                      className="my-1"
                       width="16"
                       height="19"
                       viewBox="0 0 16 19"
@@ -166,24 +164,27 @@ function GameDetailTopContent({ details, setOnSuccess }) {
                         fill="#17A803"
                       />
                     </svg>
-                    <span
-                      className="mx-2 game-locations"
-                      
-                    >
+                    <span className="mx-2 game-locations">
                       {details.stadium.stadium_name}
                     </span>
-                    <span
-                     className="game-city"
-                    >
+                    <span className="game-city">
                       {details.stadium.location}, {details.stadium.area}
                     </span>
-                  </div >
+                  </div>
 
                   {details.created_by.created_by_id != constants.user_id && (
                     <>
-                      {console.log("yuyuyuyu", details.participants)}
-
-                      {participantUsers ? (
+                      {details.is_joined === "Accepted" ? (
+                        <button
+                          type="button"
+                          onClick={() => leftGameHandler(constants.user_id)}
+                          className=" field-btn"
+                          style={{ backgroundColor: "red" }}
+                        >
+                          Leave
+                        </button>
+                      ) : details.is_joined === "Left" ||
+                        details.is_joined === "Invitation Declined" || "No user exist" ? (
                         <button
                           type="button"
                           onClick={() => joinGameHandler(constants.user_id)}
@@ -191,15 +192,20 @@ function GameDetailTopContent({ details, setOnSuccess }) {
                         >
                           Join
                         </button>
-                      ) : (
+                      ) : details.is_joined === "Invited" ? (
                         <button
                           type="button"
-                          onClick={() => leftGameHandler(constants.user_id)}
+                          onClick={() => joinGameHandler(constants.user_id)}
                           className=" field-btn"
-                          style={{ backgroundColor: "red" }}
                         >
-                          Left
+                          Accept
                         </button>
+                      ) : details.is_joined === "Removed" ? (
+                        <p className="my-3" style={{ color: "red" }}>
+                          Removed by admin
+                        </p>
+                      ) : (
+                        ""
                       )}
                     </>
                   )}
@@ -211,12 +217,12 @@ function GameDetailTopContent({ details, setOnSuccess }) {
             <h5 style={{ fontWeight: "700", fontSize: "15px" }}>Description</h5>
             <p className="col-md-12 game-description">{details.description}</p>
           </div>
-          <div >
-            <div style={{float:'right',color:'#17A803'}}>
+          <div>
+            <div style={{ float: "right", color: "#17A803" }}>
               More <i className="bi bi-chevron-down "></i>
             </div>
           </div>
-          <hr className=" game-line" ></hr>
+          <hr className=" game-line"></hr>
         </>
       )}
     </Fragment>
