@@ -1109,6 +1109,24 @@ body{
   cursor: pointer;
   height: 26px;
 }
+.side-suggestion-button2 {
+ 
+  cursor: pointer;
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-right: 32px;
+  margin-top: -23px;
+  background-color:#17a803;
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 0px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 26px;
+}
 .side-menu__suggestion-buttons {
  
   cursor: pointer;
