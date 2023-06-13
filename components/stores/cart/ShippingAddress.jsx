@@ -83,11 +83,11 @@ function ShippingAddress({ data, setOnSuccess }) {
                     ) : item.address_type === "Office" ? (
                       <p className="address-card">{`${item.officename}, Avenue-${item.avenue}, ${item.street}, Block-${item.block}, ${item.region}`}</p>
                     ) : item.address_type === "Apartment" ? (
-                      <p className="address-card">{`Flat No-${item.flat_no},Floor-${item.floor},${item.building}, Avenue-${item.avenue}, ${item.street}, Block-${item.block}, ${item.region}`}</p>
+                      <p className="address-card">{`Flat No-${item.flat_no},Floor-${item.floor},Building-${item.building}, Avenue-${item.avenue}, ${item.street}, Block-${item.block}, ${item.region}`}</p>
                     ) : (
                       <>
                         <p>Customer address</p>
-                        <p className="address-card">{`${item.building_flat_house_all}, Avenue-${item.avenue}, ${item.street}, Block-${item.block}, ${item.region}`}</p>
+                        <p className="address-card">{`Building-${item.building_flat_house_all}, Avenue-${item.avenue}, ${item.street}, Block-${item.block}, ${item.region}`}</p>
                         <p>Provider address</p>
                         <p className="address-card">{`Avenue-${item.providor_avenue}, ${item.providor_street}, Block-${item.providor_block}, ${item.providor_area}`}</p>
                       </>

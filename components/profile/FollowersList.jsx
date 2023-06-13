@@ -14,7 +14,8 @@ function FollowersList({ setFollowersListShow, setSuccess }) {
   const [followers, setFollowers] = useState([]);
   const labels = Labels();
 
-  const followListApi = () => {
+  // const followListApi = () => {
+  useEffect(() => {
     Axios.get(apis.followerslist, {
       headers: {
         Authorization: `Token ${constants.token_id}`,
@@ -23,8 +24,9 @@ function FollowersList({ setFollowersListShow, setSuccess }) {
       console.log("lkkkl", res);
       setFollowers(res.data.data);
     });
-  };
-  useEffect(() => {}, []);
+  }, []);
+  // };
+  // useEffect(() => {}, []);
 
   const removeAccount = (id) => {
     Axios.delete(apis.removefollower, {
@@ -32,11 +34,14 @@ function FollowersList({ setFollowersListShow, setSuccess }) {
       headers: { Authorization: `Token ${constants.token_id}` },
     })
       .then((res) => {
-        setSuccess((prev) => !prev);
-        notification.success({
-          message: constants.Success,
-          description: `${labels["Remove user"]}`,
-        });
+        console.log("rest", res);
+        if (res.data.status === 1) {
+          setSuccess(prev => !prev);
+          notification.success({
+            message: constants.Success,
+            description: `${labels["Remove user"]}`,
+          });
+        }
       })
       .catch((error) => {
         console.error("handleUnfollow error:", error);
@@ -77,7 +82,7 @@ function FollowersList({ setFollowersListShow, setSuccess }) {
                   ) : (
                     <CardImg
                       className="rounded-circle shadow-1-strong "
-                      src='/images/accounts/user_default.png'
+                      src="/images/accounts/user_default.png"
                       style={{
                         width: "46px",
                         height: "46px",
@@ -85,7 +90,6 @@ function FollowersList({ setFollowersListShow, setSuccess }) {
                       }}
                     ></CardImg>
                   )}
-                  
                 </div>
                 <div className="side-menu__suggestion-info">
                   <p>

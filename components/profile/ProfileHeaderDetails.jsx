@@ -354,12 +354,12 @@ function ProfileHeaderDetails({ data, setSuccess }) {
               </div>
             </div>
 
-            {followersListShow && (
+            {/* {followersListShow && (
               <FollowersList setFollowersListShow={setFollowersListShow} />
             )}
             {followingListShow && (
               <FollowingList setFollowingListShow={setFollowingListShow} />
-            )}
+            )} */}
           </Card.Body>
         </Card>
       </div>

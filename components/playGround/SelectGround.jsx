@@ -10,7 +10,7 @@ import constants from "@/public/data/my-constants/Constants";
 import moment from "moment";
 import { Button, Modal, notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
-function SelectGround({ details }) {
+function SelectGround({ details, setSuccess, setDateSelected }) {
   const router = useRouter();
   const inputData = router.query;
   const labels = Labels();
@@ -20,7 +20,9 @@ function SelectGround({ details }) {
   console.log("sloooooot777777777", inputData.date);
 
   const [date, setDate] = useState(
-    inputData.date ? moment(inputData.date).format("YYYY-MM-DD") : moment().format("YYYY-MM-DD")
+    inputData.date
+      ? moment(inputData.date).format("YYYY-MM-DD")
+      : moment().format("YYYY-MM-DD")
   );
   const [gameId, setGameId] = useState("");
   const [visible, setVisible] = useState(false);
@@ -58,7 +60,7 @@ function SelectGround({ details }) {
           },
         }
       ).then((res) => {
-        console.log('resultcart',res)
+        console.log("resultcart", res);
         if (res.data.status === 1) {
           notification.success({
             message: constants.Success,
@@ -70,11 +72,16 @@ function SelectGround({ details }) {
             description: `${labels["Book one stadium"]}`,
           });
         }
-        
       });
     } else {
       setVisible(true);
-   }
+    }
+  };
+
+  const handleDateChange = (e) => {
+    setDate(e.target.value);
+    setDateSelected(e.target.value);
+    dispatch(selectSlots([]))
   };
   return (
     <Fragment>
@@ -134,7 +141,7 @@ function SelectGround({ details }) {
                   }}
                   id="date"
                   value={date}
-                  onChange={(e) => setDate(e.target.value)}
+                  onChange={handleDateChange}
                 />
               </div>
               <h5
@@ -149,10 +156,10 @@ function SelectGround({ details }) {
                     <div
                       key={index}
                       className={`d-flex my-2 mx-2  ${
-                        selectedSlots.includes(item.id)
-                          ? "time-slot3"
-                          : item.is_booked
+                        item.is_booked
                           ? "time-slot1"
+                          : selectedSlots.includes(item.id)
+                          ? "time-slot3"
                           : "time-slot2"
                       } `}
                       onClick={() => {

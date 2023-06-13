@@ -100,7 +100,7 @@ function OfferManagement() {
                   <br></br>
                   {item.product_varient.map((pro, index_) => (
                     <p key={index_} className="foot-ball-small">
-                      {pro.product_name}&nbsp;{pro.Varient_Values}&nbsp;
+                      {pro.Name}&nbsp;{pro.Varient_Values}&nbsp;
                       {pro.multivarient_values}
                     </p>
                   ))}{" "}

@@ -11,7 +11,8 @@ function FollowingList({ setFollowingListShow }) {
   const [visible, setVisible] = useState(true);
   const [following, setFollowing] = useState([]);
 
-  const [showFollow, setShowFollow] = useState(true);
+  // const [showFollow, setShowFollow] = useState(true);
+  const [apiSuccess,setApiSuccess]=useState(false)
 
   useEffect(() => {
     Axios.get(apis.followinglist, {
@@ -22,7 +23,7 @@ function FollowingList({ setFollowingListShow }) {
       setFollowing(res.data.data);
       console.log("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr", res);
     });
-  }, []);
+  }, [apiSuccess]);
 
   const handleUnFollow = (id, index) => {
     Axios.delete(apis.follow, {
@@ -30,14 +31,11 @@ function FollowingList({ setFollowingListShow }) {
       headers: { Authorization: `Token ${constants.token_id}` },
     })
       .then((response) => {
-        setShowFollow((prev) => {
-          if (!Array.isArray(prev)) {
-            return prev; // return the previous state if it's not an array
-          }
-
-          const updatedShowFollow = [...prev];
-          updatedShowFollow[index].showFollow = false;
-          return updatedShowFollow;
+        setApiSuccess(prev=>!prev)
+        setFollowing((prevFollowing) => {
+          const updatedFollowing = [...prevFollowing];
+          updatedFollowing[index].showFollow = false;
+          return updatedFollowing;
         });
         console.log("response:", response);
       })
