@@ -1255,6 +1255,17 @@ height: auto;
  float: right;
  display: block;
 }
+.address-admin{
+  font-weight: 400;
+  
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 80%;
+  float: right;
+}
 // sajin stores //
 @media(max-width:1360px){
   .store-container1{
