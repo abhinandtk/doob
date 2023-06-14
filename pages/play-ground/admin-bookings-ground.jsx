@@ -135,7 +135,7 @@ function AdminGroundBookings() {
                       <span>{item.customer_name}</span>
                     </div>
                     <div
-                      className="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center"
+                      className="p-2  mx-auto d-flex justify-content-between align-items-center"
                       style={{
                         width: "90%",
                       }}
