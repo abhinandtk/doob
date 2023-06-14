@@ -88,7 +88,7 @@ function PlaygroundManagementPage() {
                 <Card.Text className="new-orders1"
                  
                 > 
-                 Today’s Bookings
+                 Today's Bookings
                 </Card.Text>
               </Card.Body>
             </Card>

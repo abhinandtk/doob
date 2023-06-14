@@ -30,7 +30,7 @@ function OtherUserAccount() {
     )
       .then((res) => {
         console.log("Response:", res);
-        setIsPrivate(res.data.data.is_private)
+        setIsPrivate(res.data.data.is_private);
         setProfileDetials(res.data.data.user_details);
         setPostDetails(res.data.data.post_details);
         setActivityData(res.data.data.activity_serializer);
@@ -48,7 +48,12 @@ function OtherUserAccount() {
       <MainSidebarFixed />
 
       <div className="container2">
-        <OtherProfileHeaderDetails data={profileDetails} id={userId} isPrivate={isPrivate} setIsSuccess={setIsSuccess}/>
+        <OtherProfileHeaderDetails
+          data={profileDetails}
+          id={userId}
+          isPrivate={isPrivate}
+          setIsSuccess={setIsSuccess}
+        />
         {profileDetails.is_following === 1 ? (
           <section id="tabs">
             <Tabs
@@ -78,7 +83,12 @@ function OtherUserAccount() {
             </Tabs>
           </section>
         ) : (
-          <></>
+          <div className="profile-private">
+            <h5 className="text-center">This Account is Private</h5>
+            <p className="text-center">
+              Follow to see their photos and videos.
+            </p>
+          </div>
         )}
       </div>
     </Fragment>

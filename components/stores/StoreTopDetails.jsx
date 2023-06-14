@@ -70,6 +70,7 @@ function StoreTopDetails({ data, setSuccess }) {
           className="img-fluid"
           style={{ width: "100%", aspectRatio: "2.2", objectFit: "cover" }}
         ></img>
+          <img src={`${constants.port}${data.logo}`} className="foot-png"></img>
         <span className="span-icon">
           <svg
             onClick={() =>
@@ -150,8 +151,9 @@ function StoreTopDetails({ data, setSuccess }) {
             </svg>
           </span>
         </span>
-        <img src={`${constants.port}${data.logo}`} className="foot-png"></img>
+      
       </div>
+      
 
       <div className="my-3">
         <div className="row">
@@ -180,11 +182,11 @@ function StoreTopDetails({ data, setSuccess }) {
                 <i className="bi bi-chevron-down "></i>
               ) : (
                 <i className="bi bi-chevron-right "></i>
-              )}
+              )} 
             </div>
           </div>
-          <hr className="line "></hr>
-          {descShow && (
+          <hr className="line "></hr> 
+          {descShow && ( 
             <div className="text">
               <div className="description">
                 <h5>Description</h5>
