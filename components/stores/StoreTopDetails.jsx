@@ -182,11 +182,11 @@ function StoreTopDetails({ data, setSuccess }) {
                 <i className="bi bi-chevron-down "></i>
               ) : (
                 <i className="bi bi-chevron-right "></i>
-              )}
+              )} 
             </div>
           </div>
-          <hr className="line "></hr>
-          {descShow && (
+          <hr className="line "></hr> 
+          {descShow && ( 
             <div className="text">
               <div className="description">
                 <h5>Description</h5>
