@@ -754,7 +754,7 @@ body{
 }
 .locks{
   position: absolute;
-  margin-left: 35rem;
+  margin-left: 36rem;
   float: right;
   margin-top: -70px;
 }
@@ -1095,6 +1095,15 @@ body{
   margin-left: 15px;
   margin-top: 4px;
 }
+.greens1{
+  background-color: #17A803;
+  height: 13px;
+  width: 13px;
+  position: absolute;
+  border-radius: 50%;
+  margin-left: 9px;
+  margin-top: 4px;
+}
 .numbers{
   color: white;
   font-size: 7px;
@@ -1102,6 +1111,7 @@ body{
   text-align: center;
   margin-top: 1px;
 }
+
 .side-menu__suggestion-button1 {
   background-color: transparent;
   border: none;

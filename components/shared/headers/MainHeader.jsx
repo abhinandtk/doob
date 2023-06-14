@@ -284,7 +284,7 @@ function MainHeader({ title }) {
               <Nav.Link>
               <div>
                 <div className="  greens">
-                  <div className="numbers">5</div>
+                  <div className="numbers">35</div>
                    </div>
                 <svg
                   width="30"
@@ -310,7 +310,7 @@ function MainHeader({ title }) {
               </Nav.Link>
               <Nav.Link>
               <div>
-                <div className="  greens">
+                <div className="  greens1">
                   <div className="numbers">15</div>
                    </div>
                 <svg
