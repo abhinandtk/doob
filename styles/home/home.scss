@@ -1094,7 +1094,18 @@ body{
   font-weight: 500;
   
   flex-shrink: 0;
-  margin-right: -9px;
+  margin-right: -32px;
+  margin-top: -23px;
+}
+.side-suggestion-button1 {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  
+  flex-shrink: 0;
+  margin-right: 23px;
   margin-top: -23px;
 }
 .side-menu__suggestion-button2 {
@@ -1740,7 +1751,36 @@ body{
   font-size: 7px;
 }
 
+.bell-icon {
+  position: relative;
+ 
+  border-radius: 50%;
+  display: flex;
+  svg {
+    margin: auto;
+    position: relative;
+    stroke: rgba(0, 0, 0, 0.75);
+  }
+ 
+}
 
+.notification-amount {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 20%;
+  right: 24%;
+  width: 25px;
+  height: 25px;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Copse", serif;
+  font-size: 14px;
+
+}
 .message_p {
   display: flex;
   justify-content: space-between;
