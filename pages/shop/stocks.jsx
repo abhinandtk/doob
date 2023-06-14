@@ -54,12 +54,10 @@ function StockPage() {
               </h6>
               <div className="my-1 mx-4 ">
                 <div className="customer-sale">
-                  <div
-                    id="header"
-                    style={{ display: "flex", justifyContent: "space-between" }}
-                  >
-                    <div id="logo">Product</div>
-                    <div id="header-right">Stock</div>
+                <div  className="report-section">
+                    <div >Product</div>
+                   
+                    <div>stock</div>
                   </div>
                   {stockData.map((item, index) => (
                     <div

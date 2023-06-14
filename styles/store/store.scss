@@ -217,7 +217,7 @@ form.nosubmit {
 
       
 .carousel  {
-  position: relative;
+    position: relative;
   width: 100%;
   // height: 300px;
   // margin-top: -12px;
@@ -288,13 +288,21 @@ form.nosubmit {
         color: #17A803;
        
     }
+
+    .banner {
+      position: relative;
+    }
   .foot-png{
     float: right;
-    margin-top: 380px;
-    position: absolute;
-    margin-left: -103px;
+    // margin-top: 380px;
+    // position: absolute;
+    // margin-left: -103px;
     width: 85px;
     height:60px;
+    z-index: 1;
+    position: inherit;
+    right: 65px;
+    top: -17px;
   }
  
  .btn-group.group {
@@ -887,9 +895,8 @@ input:disabled{
  border:0px;
 height: auto;
 
-
-
 }
+
 .dough{
  width: 200px;
   height: 400px;
@@ -1016,7 +1023,7 @@ height: auto;
   display: block;
   margin-top:-12px;
 }
-.clearfix{
+.players{
   display: block;
   margin-left:9px;
  
@@ -1050,6 +1057,11 @@ height: auto;
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 14px;
+}
+.add-address{
+  font-size:20px;
+  margin-bottom: 19px;
+  font-weight: 600;
 }
 
 .shopping-card__options {
@@ -1315,6 +1327,12 @@ height: auto;
   align-items: flex-start;
 
 }
+   .shipping {
+        width: 100%;
+        margin-top: 44px;
+        background: white;
+        border: 0px;
+    }
 
 }
 @media(max-width:1299px){
@@ -1365,6 +1383,12 @@ height: auto;
       width: 90%;
       
       }
+      .shipping {
+        width: 100%;
+        margin-top: 44px;
+        background: white;
+        border: 0px;
+    }
 }
 
 @media(max-width:1249px){
@@ -1400,7 +1424,7 @@ height: auto;
   }
   .wallet {
     margin-top: 12px;
-    width: 96%;
+    width: 90%;
     margin-left: 12px;
     background: #17A803;
 }
@@ -1448,11 +1472,17 @@ height: auto;
     
       
       }
+      .shipping {
+        width: 100%;
+        margin-top: 44px;
+        background: white;
+        border: 0px;
+    }
       .foot-png {
-        float: right;
-        margin-top: 320px;
-        position: absolute;
-        margin-left: -103px;
+        // float: right;
+        // margin-top: 320px;
+        // position: absolute;
+        // margin-left: -103px;
         width: 85px;
         height: 60px;
     }
@@ -1516,6 +1546,7 @@ height: auto;
       
 
       }
+      
     .content-topic {
       margin-right:20px;
       // float: right;
@@ -1525,10 +1556,10 @@ height: auto;
     
     }
     .foot-png {
-      float: right;
-      margin-top: 270px;
-      position: absolute;
-      margin-left: -103px;
+      // float: right;
+      // margin-top: 270px;
+      // position: absolute;
+      // margin-left: -103px;
       width: 85px;
       height: 60px;
   }
@@ -1573,6 +1604,12 @@ height: auto;
         width: 90%;
         
         }
+        .shipping {
+          width: 100%;
+          margin-top: 44px;
+          background: white;
+          border: 0px;
+      }
 }
 
 @media(max-width:936px){
@@ -1612,10 +1649,10 @@ height: auto;
       float: right;
   }
   .foot-png {
-    float: right;
-    margin-top: 290px;
-    position: absolute;
-    margin-left: -103px;
+    // float: right;
+    // margin-top: 290px;
+    // position: absolute;
+    // margin-left: -103px;
     width: 85px;
     height: 60px;
 }
@@ -1792,6 +1829,7 @@ height: auto;
  
     justify-content: center;
 }
+
 .store-scroll {
   height: 52px;
     overflow-x: scroll;
@@ -1879,10 +1917,10 @@ font-size: 14px;
     border: 0px;
   }
   .foot-png{
-    float: right;
-    margin-top: 140px;
-    position: absolute;
-    margin-left: -103px;
+    // float: right;
+    // margin-top: 140px;
+    // position: absolute;
+    // margin-left: -103px;
     width: 85px;
     height:60px;
   }
@@ -2115,14 +2153,14 @@ input.nosubmit2 {
   background: white;
   border: 0px;
 }
-.foot-png{
-  float: right;
-  margin-top: 140px;
-  position: absolute;
-  margin-left: -103px;
-  width: 85px;
-  height:60px;
-}
+// .foot-png{
+//   float: right;
+//   margin-top: 140px;
+//   position: absolute;
+//   margin-left: -103px;
+//   width: 85px;
+//   height:60px;
+// }
 .more{
   float: right;
   // margin-right: -120px;
@@ -2329,14 +2367,14 @@ margin-left: 15px;
   background: white;
   border: 0px;
 }
-.foot-png{ 
-  float: right;
-  margin-top: 140px;
-  position: absolute;
-  margin-left: -103px;
-  width: 85px;
-  height:60px;
-}
+// .foot-png{ 
+//   float: right;
+//   margin-top: 140px;
+//   position: absolute;
+//   margin-left: -103px;
+//   width: 85px;
+//   height:60px;
+// }
 .more{
   float: right;
   // margin-right: -120px;

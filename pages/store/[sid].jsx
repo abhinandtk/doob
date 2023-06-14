@@ -73,7 +73,7 @@ function StoreDetailPage() {
       <MainHeader title="Doob" />
       <MobileHeader />
       <MainSidebarFixed />
-      <div className="store-container">
+      <div className="store-container ">
         <form className="nosubmit " onSubmit={(e)=>handleKeyDown(e)}>
           <span>
             {" "}

@@ -69,7 +69,7 @@ function CategorySearchPage() {
         {/* <div className="my-2 "> */}
         {/* <SearchCategory /> */}
         {/* </div> */}
-        <section className="my-2 ">
+        <section className="my-2  ">
           <div
             className="btn-group me-2"
             role="group"
@@ -81,7 +81,7 @@ function CategorySearchPage() {
               style={{ padding: "5px 35px" }}
               onClick={() => setSubcatInput("")}
             >
-              All
+              All 
             </button>
           </div>
           {subCategoriesData.length >0 &&
