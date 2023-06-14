@@ -43,7 +43,7 @@ function OtherUserAccount() {
      
         <div className="container2">
         <OtherProfileHeaderDetails data={profileDetails} id={userId}/>
-    <section id="tabs">
+    {/* <section id="tabs">
         
             
                 <Tabs  
@@ -70,7 +70,11 @@ function OtherUserAccount() {
                 </Tabs>
          
         
-    </section>
+    </section> */}
+     <div className="profile-private">
+        <h5 className="text-center">This Account is Private</h5>
+        <p className="text-center">Follow to see their photos and videos.</p>
+      </div>
     </div>
 
 

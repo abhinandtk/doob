@@ -77,6 +77,8 @@ function ProfileDetails() {
           </Tabs>
         </section>
       </div>
+
+     
     </Fragment>
   );
 }
