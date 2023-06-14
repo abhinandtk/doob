@@ -2602,6 +2602,10 @@ input.nosubmit1 {
 	align-items: center;
 }
 
+.Match-date{
+  color: #000;
+  font-size: 16px;
+}
 .Match-time-lapsed {
 	color: #959595;
 	font-size: 14px;
@@ -3178,6 +3182,7 @@ input.nosubmit1 {
   
     
   }
+
   .play-icons {
     margin-left: 5px;
     margin-top: 7px;
@@ -4056,6 +4061,17 @@ display: none;
   text-overflow: ellipsis;
   font-size:15px; 
   width: 190px;
+
+}
+.Match-date{
+  color: #000;
+  font-size: 14px;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size:15px; 
+  width: 90px;
 }
 .book{
   margin-top: 15px;

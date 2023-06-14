@@ -10,7 +10,8 @@ import constants from "@/public/data/my-constants/Constants";
 import Axios from "axios";
 import moment from "moment";
 import PlayGroundSideBar from "@/components/playGround/PlayGroundSideBar";
-import { Modal } from "antd";
+import { Modal, notification } from "antd";
+import { Labels } from "@/public/data/my-constants/Labels";
 function AdminGroundBookings() {
   const [bookingList, setBookingList] = useState([]);
   const [visible, setVisible] = useState(false);
@@ -18,6 +19,7 @@ function AdminGroundBookings() {
   const [bookingId, setBookingId] = useState(null);
   const [onSuccess, setOnSuccess] = useState(false);
 
+  const labels = Labels();
 
   useEffect(() => {
     Axios.get(apis.adminAllBookings, {
@@ -25,30 +27,36 @@ function AdminGroundBookings() {
         Authorization: `Token ${constants.token_id}`,
       },
     }).then((res) => {
-      console.log("res1", res);
+      console.log("responseres1", res);
       setBookingList(res.data);
     });
   }, [onSuccess]);
 
-  const handleShowUpdate = (id) => {
-    console.log('oppppppppppppp')
-    setBookingId(id)
-    setVisible(true);
-  };
-  const statusUpdateHandler=(e)=>{
-    Axios.post(apis.adminBookingStatusChange,{
-      booking_status:bookingStatus,
-      booking_id:bookingId
-    },
-    {
-      headers:{
-        Authorization:`Token ${constants.token_id}`
+  // const handleShowUpdate = (id) => {
+  //   console.log("oppppppppppppp");
+  //   setBookingId(id);
+  //   setVisible(true);
+  // };
+  const statusUpdateHandler = (id) => {
+    Axios.post(
+      apis.adminBookingStatusChange,
+      {
+        booking_status: "0",
+        booking_id: id,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
       }
-    }).then((res)=>{
-      console.log('response',res)
-    })
-
-  }
+    ).then((res) => {
+      setOnSuccess((prev) => !prev);
+      notification.success({
+        message: constants.Success,
+        description: `${labels["Booking Cancelled"]}`,
+      });
+    });
+  };
   return (
     <div>
       <MainHeader title="Doob" />
@@ -111,14 +119,14 @@ function AdminGroundBookings() {
                       #{item.id}
                       <span style={{ float: "right" }}>
                         {" "}
-                        <Button
+                        {/* <Button
                           type="submit"
                           className="order-btn "
                           onClick={() => handleShowUpdate(item.id)}
                         >
                           {" "}
                           Update status{" "}
-                        </Button>
+                        </Button> */}
                       </span>
                     </p>
 
@@ -135,7 +143,7 @@ function AdminGroundBookings() {
                       <span>{item.customer_name}</span>
                     </div>
                     <div
-                      className="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center"
+                      className="p-2  mx-auto d-flex justify-content-between align-items-center"
                       style={{
                         width: "90%",
                       }}
@@ -217,6 +225,27 @@ function AdminGroundBookings() {
                       >{`${
                         item.status === true ? "Success" : "Cancelled"
                       }`}</span>
+                    </div>
+                    <div
+                      className="p-2 mt-3  mx-auto d-flex justify-content-between align-items-center"
+                      style={{ width: "90%" }}
+                    >
+                      <span style={{ color: "#959595" }}></span>
+                      {moment().format("DD MMM YYYY") !==
+                        moment(item.date).format("DD MMM YYYY") ||
+                        (item.status && (
+                          <span
+                            style={{
+                              color: `${
+                                item.status === true ? "red" : "grey"
+                              } `,
+                              cursor: "pointer",
+                            }}
+                            onClick={() => statusUpdateHandler(item.id)}
+                          >
+                            Cancel Booking
+                          </span>
+                        ))}
                     </div>
 
                     <div

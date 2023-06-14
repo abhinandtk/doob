@@ -85,7 +85,7 @@ function GameParticipantsList({ participants,setOnSuccess }) {
         <p className="float-start">
           Share via link<br></br>
           <span className="game-share">
-            https://www.doob.com/bookings/file/3MDEKqi76uQxwkFZaqbl5r/Doob?node-id=282%3A802&t
+           {router.asPath}
           </span>
         </p>
         <svg

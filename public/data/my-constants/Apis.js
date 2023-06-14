@@ -49,6 +49,7 @@ const apis = {
     'shareProductToPost': `${constants.port}/social/Api/share_product`,
     'shareStoreToPost': `${constants.port}/social/Api/share_store`,
     'shareFieldToPost': `${constants.port}/social/Api/share_field`,
+    'acceptRequest': `${constants.port}/social/Api/follow_request_accept`,
 
 
     //store module

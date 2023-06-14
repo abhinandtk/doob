@@ -10,6 +10,7 @@ export function Labels() {
         "Post shared successfully": "Post shared successfully",
         "Comment deleted successfully": "Comment deleted successfully",
         "Followed successfully": "Followed successfully",
+        "Requested successfully": "Requested successfully",
         "Remove user": "Remove user successfully",
         "Email address does not exist": "User with this email address does not exist",
         "New OTP has send": "New OTP has been sent to your email address",
@@ -17,6 +18,7 @@ export function Labels() {
         "Otp verification is complete": "Otp verification is complete",
         "Password Changed Successfully": "Password Changed Successfully",
         "Current password is incorrect": "Current password is incorrect",
+        "Accepted successfully": "Accepted successfully",
 
         //Store Messages
 
@@ -48,6 +50,7 @@ export function Labels() {
         "Joined game": "Joined game successfully",
         "Left game": "Left game successfully",
         "PlayGround shared": "PlayGround shared successfully",
+        "Invited Successfully": "Invited Successfully",
 
 
 

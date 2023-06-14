@@ -752,6 +752,12 @@ body{
   gap: 10px;
   margin-top: -9px;
 }
+.locks{
+  position: absolute;
+  margin-left: 35rem;
+  float: right;
+  margin-top: -70px;
+}
 .post__info {
   display: flex;
   flex-direction: column;
@@ -1088,7 +1094,18 @@ body{
   font-weight: 500;
   
   flex-shrink: 0;
-  margin-right: -9px;
+  margin-right: -32px;
+  margin-top: -23px;
+}
+.side-suggestion-button1 {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  
+  flex-shrink: 0;
+  margin-right: 23px;
   margin-top: -23px;
 }
 .side-menu__suggestion-button2 {
@@ -1324,6 +1341,12 @@ body{
   font-size: 15px;
   margin-top: -12px;
   color: #959595;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 74%;
 }
 
 
@@ -1728,7 +1751,36 @@ body{
   font-size: 7px;
 }
 
+.bell-icon {
+  position: relative;
+ 
+  border-radius: 50%;
+  display: flex;
+  svg {
+    margin: auto;
+    position: relative;
+    stroke: rgba(0, 0, 0, 0.75);
+  }
+ 
+}
 
+.notification-amount {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 20%;
+  right: 24%;
+  width: 25px;
+  height: 25px;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Copse", serif;
+  font-size: 14px;
+
+}
 .message_p {
   display: flex;
   justify-content: space-between;
@@ -2225,6 +2277,12 @@ margin-bottom: -12px;
     max-width: 600px;
     
   }
+  .locks{
+    position: absolute;
+    margin-left: 32rem;
+    float: right;
+    margin-top: -70px;
+  }
   .rightSide{
     display: none;
   }
@@ -2272,6 +2330,12 @@ margin-bottom: -12px;
   }
   .leftSides{
     display: none;
+  }
+  .locks{
+    position: absolute;
+    margin-left: 30rem;
+    float: right;
+    margin-top: -70px;
   }
 
   //sajin favourite product //
@@ -2337,6 +2401,12 @@ input.nosubmit1 {
     height: 42px;
     margin-top: -4px;
    }
+   .locks{
+    position: absolute;
+    margin-left: 30rem;
+    float: right;
+    margin-top: -70px;
+  }
    
   
     //sajin feedback end //
@@ -3037,6 +3107,12 @@ margin-left:6px;
     margin-left: 1px;
     height: 100%;
     margin-top: 3px;
+  }
+  .locks{
+    position: absolute;
+    margin-left: 15rem;
+    float: right;
+    margin-top: -70px;
   }
   .modal-contents {
 

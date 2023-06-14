@@ -22,19 +22,30 @@ function ModuleSharedPostImage({ data }) {
           }
           style={{ textDecoration: "none" }}
         >
+             
           <div className="post__medias">
+         
+
+          
+                
             <img
               className="post__media"
               src={`${data.image}`}
+              
               alt="Post Content"
-            />
+                   />  
+            
             {/* multiple image */}
             {/* <img
                   className="post__media"
                   src="../images/soccer-into-goal-success-concept 2.png"
                   alt="Post Content"
                 /> */}
+    
           </div>
+           
+      <img src="../images/locks.png" className="locks "></img>
+
         </Link>
       )}
     </Fragment>

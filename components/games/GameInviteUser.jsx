@@ -1,5 +1,5 @@
 import apis from "@/public/data/my-constants/Apis";
-import { Input, List, Modal } from "antd";
+import { Input, List, Modal, notification } from "antd";
 import React, { useState } from "react";
 import { Fragment } from "react";
 import Axios from "axios";
@@ -7,6 +7,7 @@ import { CardImg } from "react-bootstrap";
 import constants from "@/public/data/my-constants/Constants";
 import Select from "react-select";
 import { useRouter } from "next/router";
+import { Labels } from "@/public/data/my-constants/Labels";
 
 function GameInviteUser({ setOnSuccess }) {
   const router = useRouter();
@@ -15,6 +16,7 @@ function GameInviteUser({ setOnSuccess }) {
   const [searchResult, setSearchResult] = useState([]);
   const [selectedUser, setSelectedUser] = useState([]);
   const [names, setNames] = useState("");
+  const labels = Labels();
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -49,7 +51,18 @@ function GameInviteUser({ setOnSuccess }) {
       }
     ).then((res) => {
       setVisible(false);
-      setOnSuccess((prev) => !prev)
+      setOnSuccess((prev) => !prev);
+      if (res.data.status === 1) {
+        notification.success({
+          message: constants.Success,
+          description: `${labels["Invited Successfully"]}`,
+        });
+      } else {
+        notification.error({
+          message: constants.Error,
+          description:res.data.message_en,
+        });
+      }
       console.log("resultinvite", res);
     });
   };
