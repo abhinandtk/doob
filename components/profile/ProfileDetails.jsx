@@ -28,13 +28,13 @@ function ProfileDetails() {
     });
   }, [success]);
 
-  Axios.get(apis.activity, {
-    headers: {
-      Authorization: `Token ${constants.token_id}`,
-    },
-  }).then((res) => {
-    setActivityData(res.data.data);
-  });
+  // Axios.get(apis.activity, {
+  //   headers: {
+  //     Authorization: `Token ${constants.token_id}`,
+  //   },
+  // }).then((res) => {
+  //   setActivityData(res.data.data);
+  // });
 
   return (
     <Fragment>

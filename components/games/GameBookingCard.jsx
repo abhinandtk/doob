@@ -1,9 +1,12 @@
+import constants from "@/public/data/my-constants/Constants";
 import moment from "moment";
+import { useRouter } from "next/router";
 import React from "react";
 import { Fragment } from "react";
 
 function GameBookingCard({ data }) {
   console.log("ffffffffffff", data);
+  const router = useRouter();
 
   return (
     <Fragment>
@@ -43,7 +46,19 @@ function GameBookingCard({ data }) {
                   <p>{moment(value.stadium_details.date).format("MMM")}</p>
                 </div>
                 <div className="book-details">
-                  <p style={{ color: "#959595" }}>9.00 AM to 12.00 PM</p>
+                  <p style={{ color: "#959595" }}>
+                    {moment(
+                      value.stadium_details.timeslots[0]["start_time"],
+                      "hh:mm:ss"
+                    ).format("hh:mm A")}{" "}
+                    to{" "}
+                    {moment(
+                      value.stadium_details.timeslots[
+                        value.stadium_details.timeslots.length - 1
+                      ]["end_time"],
+                      "hh:mm:ss"
+                    ).format("hh:mm A")}
+                  </p>
                   <p>{value.stadium_details.stadium_name}</p>
                   <p>
                     {value.stadium_details.location},{" "}
@@ -54,13 +69,30 @@ function GameBookingCard({ data }) {
               <hr></hr>
               <div className="book-profile">
                 <span>
-                  <img
-                    src="../images/tournament/c1.png"
-                    style={{ width: "30px", height: "30px" }}
-                  ></img>{" "}
+                  {value.hosted_by.profile_pic ? (
+                    <img
+                      src={`${constants.port}${value.hosted_by.profile_pic}`}
+                      style={{
+                        width: "30px",
+                        height: "30px",
+                        borderRadius: "50%",
+                      }}
+                    ></img>
+                  ) : (
+                    <img
+                      src="/images/accounts/user_default.png"
+                      alt="User Picture"
+                      style={{
+                        objectFit: "cover",
+                        width: "30px",
+                        height: "30px",
+                        borderRadius: "50%",
+                      }}
+                    />
+                  )}
                   <span className="mx-2">
-                    <span style={{ color: "#17A803" }}>Hosted by</span> Muhammad
-                    Alsalah
+                    <span style={{ color: "#17A803" }}>Hosted by</span>
+                    &nbsp;{value.hosted_by.hosted_by}
                   </span>
                 </span>
                 <p className="my-2" style={{ color: "#959595" }}>
@@ -70,7 +102,16 @@ function GameBookingCard({ data }) {
               <button type="button" className="yes-btn float-end mx-1">
                 No
               </button>{" "}
-              <button type="button" className="yes1-btn float-end">
+              <button
+                type="button"
+                className="yes1-btn float-end"
+                onClick={() =>
+                  router.push({
+                    pathname: "/games/create-game",
+                    query: { booking_id: value.id },
+                  })
+                }
+              >
                 Yes
               </button>
             </div>

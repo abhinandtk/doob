@@ -176,7 +176,7 @@ function PagesSideBar({ currentPage }) {
           FeedBack
         </span>
       </Link>
-      <a href="#clients">
+      <Link href="/page/settings-page" style={{ textDecoration: "none" }}>
         <svg
           width="23"
           height="25"
@@ -192,8 +192,8 @@ function PagesSideBar({ currentPage }) {
             fill="black"
           />
         </svg>
-        <span className="mx-2">Settings </span>
-      </a>
+        <span className="mx-2" style={{ color: `${currentPage === "settings" ? "#17A803" : ""}` }}>Settings </span>
+      </Link>
       <a href="#">
         <svg
           width="22"

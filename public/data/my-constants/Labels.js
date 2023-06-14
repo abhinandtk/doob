@@ -16,6 +16,7 @@ export function Labels() {
         "Otp is invalid": "Otp is invalid",
         "Otp verification is complete": "Otp verification is complete",
         "Password Changed Successfully": "Password Changed Successfully",
+        "Current password is incorrect": "Current password is incorrect",
 
         //Store Messages
 

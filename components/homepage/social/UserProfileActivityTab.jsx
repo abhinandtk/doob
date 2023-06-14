@@ -8,7 +8,7 @@ function UserProfileActivityTab({ activityData }) {
     <div>
       <Card className="card-tab">
         {activityData.map((item, index) => (
-          <div>
+          <div key={index}>
             <h6
               key={index}
               style={{
@@ -92,7 +92,7 @@ function UserProfileActivityTab({ activityData }) {
                     </div>
                     <hr className=" line1 mx-5"></hr>
                   </>
-                ) : item_.type === "Share" || item_.type === "Post" ? (
+                ) : item_.type === "Share" || item_.type === "Post" || item_.type === "Shared"? (
                   <>
                     <div key={index_} className="d-flex flex-start mt-3 mx-5">
                       <a className="me-2" href="">
