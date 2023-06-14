@@ -6,6 +6,8 @@ import Axios from "axios";
 import { useEffect } from "react";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
+import moment from "moment";
+import UserProfileActivityTab from "../homepage/social/UserProfileActivityTab";
 function ProfileDetails() {
   const [key, SetKey] = useState(1);
   const [userDetials, setUserDetails] = useState([]);
@@ -21,10 +23,8 @@ function ProfileDetails() {
     }).then((res) => {
       setUserDetails(res.data.data.user_details);
       setPostDetails(res.data.data.post_details);
-      console.log(
-        "POsts result=-----------------------",
-        res.data.data.user_details
-      );
+      setActivityData(res.data.data.activity_serializer);
+      console.log("POsts result=-----------------------", res);
     });
   }, [success]);
 
@@ -72,96 +72,7 @@ function ProfileDetails() {
             </Tab>
             <Tab eventKey={2} title="Activities">
               <hr className=" line "></hr>
-              <Card className="card-tab">
-                <h6
-                  style={{
-                    color: "#000",
-                    fontWeight: "600",
-                    fontSize: "18px",
-                    marginLeft: "43px",
-                    marginTop: "44px",
-                    textAlign: "left",
-                  }}
-                >
-                  Tue.Feb 12
-                </h6>
-                <div className="d-flex flex-start mt-3 mx-5">
-                  <a className="me-2" href="">
-                    <CardImg
-                      src="../images/accounts/stadium.png"
-                      style={{
-                        width: "64px",
-                        height: "64px",
-                        borderRadius: "0px",
-                      }}
-                    ></CardImg>
-                  </a>
-                  <div
-                    className="flex-grow-1 flex-shrink-1 mx-2 mt-2 "
-                    style={{ marginBottom: "-24px" }}
-                  >
-                    <div>
-                      <div className="d-flex justify-content-between align-items-center">
-                        <p className=" Book">
-                          Booked Mohammed Al-Hamad Stadium
-                        </p>
-                      </div>
-                      <p className="small-time ">10:30</p>
-                    </div>
-                  </div>
-                </div>
-                <hr className=" line1 mx-5"></hr>
-                <div className="d-flex flex-start mt-3 mx-5">
-                  <a className="me-2" href="">
-                    <CardImg
-                      src="../images/accounts/stadium.png"
-                      style={{
-                        width: "64px",
-                        height: "64px",
-                        borderRadius: "0px",
-                      }}
-                    ></CardImg>
-                  </a>
-                  <div
-                    className="flex-grow-1 flex-shrink-1 mx-2 mt-2 "
-                    style={{ marginBottom: "-24px" }}
-                  >
-                    <div>
-                      <div className="d-flex justify-content-between align-items-center">
-                        <p className="Book">Booked Mohammed Al-Hamad Stadium</p>
-                      </div>
-                      <p className="small-time ">10:30</p>
-                    </div>
-                  </div>
-                </div>
-                <hr className=" line1 mx-5"></hr>
-                <div className="d-flex flex-start mt-3 mx-5">
-                  <a className="me-2" href="">
-                    <CardImg
-                      src="../images/accounts/stadium.png"
-                      style={{
-                        width: "64px",
-                        height: "64px",
-                        borderRadius: "0px",
-                      }}
-                    ></CardImg>
-                  </a>
-                  <div
-                    className="flex-grow-1 flex-shrink-1 mx-2 mt-2 "
-                    style={{ marginBottom: "-24px" }}
-                  >
-                    <div>
-                      <div className="d-flex justify-content-between align-items-center">
-                        <p className=" Book">
-                          Booked Mohammed Al-Hamad Stadium
-                        </p>
-                      </div>
-                      <p className="small-time ">10:30</p>
-                    </div>
-                  </div>
-                </div>
-                <br></br>
-              </Card>
+              <UserProfileActivityTab activityData={activityData} />
             </Tab>
           </Tabs>
         </section>

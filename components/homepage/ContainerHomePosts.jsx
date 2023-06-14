@@ -10,6 +10,9 @@ import moment from "moment";
 import Link from "next/link";
 import MobileFooter from "../shared/MobileFooter";
 import { useSelector } from "react-redux";
+import SharedPostHeaders from "./social/ModuleSharedPostHeaders";
+import ModuleSharedPostImage from "./social/ModuleSharedPostImage";
+import ModuleSharedPostDetails from "./social/ModuleSharedPostDetails";
 function ContainerHomePosts() {
   const apiSuccess = useSelector((state) => state.api);
   const [visibleComment, setVisibleComment] = useState(false);
@@ -114,67 +117,11 @@ function ContainerHomePosts() {
               <div className="post__header">
                 {item.owner_user_detail === null ? (
                   item.post_type === "Product" ? (
-                    <div className="post__profile">
-                      <div className="post__avatar">
-                        {item.user_detail.image ? (
-                          <img
-                            src={`${constants.port}/media/${item.user_detail.image}`}
-                            alt="User Picture"
-                            style={{
-                              objectFit: "cover",
-                              width: "100%",
-                              height: "100%",
-                            }}
-                          />
-                        ) : (
-                          <img
-                            src="/images/accounts/user_default.png"
-                            alt="User Picture"
-                            style={{
-                              objectFit: "cover",
-                              width: "100%",
-                              height: "100%",
-                            }}
-                          />
-                        )}
-                      </div>
-                      <div className="users">
-                        <div className="post__likes">
-                          <div href="" className="post__user">
-                            <Link
-                              href={
-                                constants.user_id === item.user_detail.id
-                                  ? "/profile"
-                                  : `/userprofile/${item.user_detail.id}`
-                              }
-                              style={{ textDecoration: "none" }}
-                            >
-                              {item.user_detail.name}
-                              {item.user_detail.account_type === "star" ? (
-                                <span>
-                                  <img
-                                    src="/images/star.png"
-                                    className="mx-1 mb-1"
-                                  ></img>
-                                </span>
-                              ) : (
-                                ""
-                              )}
-                            </Link>
-                            <span className="mx-1" style={{ color: "#616661" }}>
-                              Shared
-                            </span>{" "}
-                            <span
-                              className="product-name-shared"
-                              style={{ fontWeight: "500" }}
-                            >
-                              {item.product.product_name}
-                            </span>
-                          </div>
-                        </div>
-                        <div className="time">{timeSincePost(item.posted)}</div>
-                      </div>
-                    </div>
+                    <SharedPostHeaders data={item} />
+                  ) : item.post_type === "Store" ? (
+                    <SharedPostHeaders data={item} />
+                  ) : item.post_type === "Field" ? (
+                    <SharedPostHeaders data={item} />
                   ) : (
                     <Link
                       href={
@@ -339,6 +286,7 @@ function ContainerHomePosts() {
 
                 <button className="post__more-options">
                   <PostActions
+                    data={item}
                     postId={item.post_id}
                     user={item.user_detail.id}
                     sharedClick={sharedClick}
@@ -347,26 +295,13 @@ function ContainerHomePosts() {
                 </button>
               </div>
 
-              <div className="post__content">
+              <div className="post__content-img">
                 {item.post_type === "Product" ? (
-                  <div className="post__medias">
-                    <Link
-                      href={`/store/product/${item.product.slug_product_varient}`}
-                      style={{ textDecoration: "none" }}
-                    >
-                      <img
-                        className="post__media"
-                        src={`${item.image}`}
-                        alt="Post Content"
-                      />
-                      {/* multiple image */}
-                      {/* <img
-                  className="post__media"
-                  src="../images/soccer-into-goal-success-concept 2.png"
-                  alt="Post Content"
-                /> */}
-                    </Link>
-                  </div>
+                  <ModuleSharedPostImage data={item} />
+                ) : item.post_type === "Store" ? (
+                  <ModuleSharedPostImage data={item} />
+                ) : item.post_type === "Field" ? (
+                  <ModuleSharedPostImage data={item} />
                 ) : (
                   <div className="post__medias">
                     <img
@@ -387,7 +322,9 @@ function ContainerHomePosts() {
               <div className="post__footer">
                 <div className="post__buttons">
                   {item.owner_user_detail === null ? (
-                    item.post_type === "Product" ? (
+                    item.post_type === "Product" ||
+                    item.post_type === "Store" ||
+                    item.post_type === "Field" ? (
                       ""
                     ) : (
                       <>
@@ -506,7 +443,9 @@ function ContainerHomePosts() {
                   </button> */}
 
                   {item.owner_user_detail === null ? (
-                    item.post_type === "Product" ? (
+                    item.post_type === "Product" ||
+                    item.post_type === "Store" ||
+                    item.post_type === "Field" ? (
                       <button className="post__button post__button--align-right">
                         <a>
                           <span
@@ -517,10 +456,16 @@ function ContainerHomePosts() {
                               fontSize: "14px",
                             }}
                           >
-                            <s>{item.product.Display_Prize}&nbsp;KD</s>
+                            {item.post_type === "Product" && (
+                              <s>{item.product.Display_Prize}&nbsp;KD</s>
+                            )}
                           </span>
                           <span style={{ color: "#17A803", fontWeight: "600" }}>
-                            {item.product.Selling_Prize}&nbsp;KD
+                            {item.post_type === "Product"
+                              ? `${item.product.Selling_Prize} KD`
+                              : item.post_type === "Field"
+                              ? `${item.stadium.amount} KD`
+                              : ""}
                           </span>
                         </a>
                       </button>
@@ -551,16 +496,11 @@ function ContainerHomePosts() {
 
                 <div className="post__infos">
                   {item.post_type === "Product" ? (
-                    <>
-                      <div className="post__likes">
-                        <h6 style={{ fontWeight: "600" }}>
-                          {item.product.product_name}
-                        </h6>
-                      </div>
-                      <div className="comments ">
-                        {item.product.Description}
-                      </div>
-                    </>
+                    <ModuleSharedPostDetails data={item} />
+                  ) : item.post_type === "Store" ? (
+                    <ModuleSharedPostDetails data={item} />
+                  ) : item.post_type === "Field" ? (
+                    <ModuleSharedPostDetails data={item} />
                   ) : (
                     <>
                       <div className="post__likes">

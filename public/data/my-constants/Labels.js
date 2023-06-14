@@ -25,6 +25,7 @@ export function Labels() {
         "Cart empty": "Cart is empty,please add some items",
         "Item removed from cart successfully": "Item removed from cart successfully",
         "Product shared": "Product shared successfully",
+        "Store shared": "Store shared successfully",
 
         //shop
 
@@ -45,6 +46,8 @@ export function Labels() {
         "Slot removed from cart successfully": "Item removed from cart successfully",
         "Joined game": "Joined game successfully",
         "Left game": "Left game successfully",
+        "PlayGround shared": "PlayGround shared successfully",
+
 
 
         //Tournament

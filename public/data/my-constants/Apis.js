@@ -44,6 +44,8 @@ const apis = {
     'activity': `${constants.port}/social/Api/activity`,
     'explorepage': `${constants.port}/social/Api/unfollowedaccounts`,
     'shareProductToPost': `${constants.port}/social/Api/share_product`,
+    'shareStoreToPost': `${constants.port}/social/Api/share_store`,
+    'shareFieldToPost': `${constants.port}/social/Api/share_field`,
 
 
     //store module
@@ -157,6 +159,7 @@ const apis = {
     'groundEarning': `${constants.port}/playground/api/ad_earning_report`,
     'customerReportPlay': `${constants.port}/playground/api/ad_customer_report`,
     'adminAllBookings': `${constants.port}/playground/api/ad_list_all_booking`,
+    'adminBookingStatusChange': `${constants.port}/playground/api/booking_status_change`,
 
     //Tournament
 

@@ -29,7 +29,8 @@ function BookingReport() {
   );
 
   const today = moment().format("DD-MM-YYYY");
-  const nextDay = moment(today).add(1, "day").format("DD-MM-YYYY");
+  const nextDay = moment(today,'DD-MM-YYYY').add(1, "day").format("DD-MM-YYYY");
+  console.log('next',nextDay)
   const [endDate, setEndDate] = useState(nextDay);
 
   const labels = Labels();
@@ -184,6 +185,10 @@ function BookingReport() {
                   <div className="p-3 d-flex justify-content-between my-3 customer">
                     <span className="sales-report-name">Total Slots</span>
                     <span>{bookingData.num_slots}</span>
+                  </div>
+                  <div className="p-3 d-flex justify-content-between my-3 customer">
+                    <span className="sales-report-name">Cancel Count</span>
+                    <span>{bookingData.cancel_count}</span>
                   </div>
                   <div className="p-3 d-flex justify-content-between my-3  customer">
                     <span className="sales-report-name">Total Bookings</span>

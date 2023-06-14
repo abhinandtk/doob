@@ -38,12 +38,13 @@ function PlayGroundDetailPage() {
       stadium_id:inputData.stadium_id, 
       date:inputData.date
     })
+    const [dateSelected,setDateSelected]=useState(inputData.date)
     useEffect(() => {
       Axios.post(
         apis.stadiumDetailView,
         {
           stadium_slug:inputData.pgid, 
-          date:inputData.date
+          date:dateSelected
         },
         {
           headers: {
@@ -56,7 +57,7 @@ function PlayGroundDetailPage() {
         
           console.log('trrtrtrtop879',res)
       })
-    },[inputData])
+    },[inputData,dateSelected])
 
   return (
     <Fragment>
@@ -76,7 +77,7 @@ function PlayGroundDetailPage() {
 
         <PlayGroundTopDetails details={groundData}/>
         <AmenitiesList amenitiesData={amenitiesData}/>
-        <SelectGround details={groundData}/>
+        <SelectGround details={groundData} setDateSelected={setDateSelected}/>
       </div>
       <MobileFooter />
     </Fragment>

@@ -10,8 +10,14 @@ import constants from "@/public/data/my-constants/Constants";
 import Axios from "axios";
 import moment from "moment";
 import PlayGroundSideBar from "@/components/playGround/PlayGroundSideBar";
+import { Modal } from "antd";
 function AdminGroundBookings() {
   const [bookingList, setBookingList] = useState([]);
+  const [visible, setVisible] = useState(false);
+  const [bookingStatus, setBookingStatus] = useState("");
+  const [bookingId, setBookingId] = useState(null);
+  const [onSuccess, setOnSuccess] = useState(false);
+
 
   useEffect(() => {
     Axios.get(apis.adminAllBookings, {
@@ -22,12 +28,71 @@ function AdminGroundBookings() {
       console.log("res1", res);
       setBookingList(res.data);
     });
-  }, []);
+  }, [onSuccess]);
+
+  const handleShowUpdate = (id) => {
+    console.log('oppppppppppppp')
+    setBookingId(id)
+    setVisible(true);
+  };
+  const statusUpdateHandler=(e)=>{
+    Axios.post(apis.adminBookingStatusChange,{
+      booking_status:bookingStatus,
+      booking_id:bookingId
+    },
+    {
+      headers:{
+        Authorization:`Token ${constants.token_id}`
+      }
+    }).then((res)=>{
+      console.log('response',res)
+    })
+
+  }
   return (
     <div>
       <MainHeader title="Doob" />
       <MobileHeader />
       <MainSidebarFixed />
+      <Modal
+        open={visible}
+        onCancel={() => setVisible(false)}
+        title="Update Status"
+        footer={
+          <Button
+            style={{ backgroundColor: "#17A803" }}
+            key="submit"
+            type="primary"
+            onClick={(e) => statusUpdateHandler(e)}
+          >
+            Submit
+          </Button>
+        }
+      >
+        <div className="form-group my-2">
+          <label for="exampleFormControlSelect1">Booking Status</label>
+          <select
+            placeholder="order stsu"
+            className="form-control p-2 "
+            style={{
+              border: "0px",
+              background: "#eeeeee",
+              color: "#959595",
+            }}
+            onChange={(e) => setBookingStatus(e.target.value)}
+          >
+            <option value="" style={{ color: "#959595" }}>
+              --Select--
+            </option>
+            <option value={1} style={{ color: "#959595" }}>
+              Success
+            </option>
+            <option value={0} style={{ color: "#959595" }}>
+              Cancel
+            </option>
+          </select>
+        </div>
+      </Modal>
       <div className="tour-container">
         <div className="bottoms">
           <PlayGroundSideBar currentPage="bookings" />
@@ -44,7 +109,19 @@ function AdminGroundBookings() {
                   <div key={index}>
                     <p className="order-code " style={{ fontWeight: "500" }}>
                       #{item.id}
+                      <span style={{ float: "right" }}>
+                        {" "}
+                        <Button
+                          type="submit"
+                          className="order-btn "
+                          onClick={() => handleShowUpdate(item.id)}
+                        >
+                          {" "}
+                          Update status{" "}
+                        </Button>
+                      </span>
                     </p>
+
                     <hr className="mx-auto" style={{ width: "90%" }}></hr>
                     <div
                       class="p-2 mt-2  mx-auto d-flex justify-content-between align-items-center"
@@ -141,7 +218,7 @@ function AdminGroundBookings() {
                         item.status === true ? "Success" : "Cancelled"
                       }`}</span>
                     </div>
-                    
+
                     <div
                       className=" mx-auto d-flex justify-content-between align-items-center "
                       style={{ width: "90%" }}

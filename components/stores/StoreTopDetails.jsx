@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 import { Fragment } from "react";
-import { Collapse } from "antd";
+import { Collapse, notification } from "antd";
 import Axios from "axios";
 import constants from "@/public/data/my-constants/Constants";
 import apis from "@/public/data/my-constants/Apis";
 import moment from "moment";
+import { useRouter } from "next/router";
+import { Labels } from "@/public/data/my-constants/Labels";
 const { Panel } = Collapse;
 
-function StoreTopDetails({ data,setSuccess }) {
+function StoreTopDetails({ data, setSuccess }) {
   const [descShow, setDescShow] = useState(false);
+  const router = useRouter();
+  const { sid } = router.query;
+
+  const labels=Labels()
 
   const handleShare = async () => {
     try {
@@ -32,9 +38,28 @@ function StoreTopDetails({ data,setSuccess }) {
         },
       }
     ).then((res) => {
-      setSuccess(prev=>!prev)
+      setSuccess((prev) => !prev);
       console.log("wishlistresult5", res);
     });
+  };
+  const handleShareStorePost = (slug) => {
+    Axios.post(
+      apis.shareStoreToPost,
+      { store_slug: sid },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res)=>{
+      if(res.data.status===1){
+        notification.success({
+          message:constants.Success,
+          description:`${labels['Store shared']}`
+        })
+      }
+      console.log('res@@',res)
+    })
   };
 
   return (
@@ -45,7 +70,7 @@ function StoreTopDetails({ data,setSuccess }) {
           className="img-fluid"
           style={{ width: "100%", aspectRatio: "2.2", objectFit: "cover" }}
         ></img>
-        <span className="span-icon" >
+        <span className="span-icon">
           <svg
             onClick={() =>
               storeWishlistHandler(data.slug_store, data.is_favorite)
@@ -64,7 +89,10 @@ function StoreTopDetails({ data,setSuccess }) {
               stroke-linejoin="round"
             />
           </svg>
-          <span onClick={() => handleShare()} style={{cursor:'pointer'}}>
+          <span
+            onClick={() => handleShareStorePost(sid)}
+            style={{ cursor: "pointer" }}
+          >
             <svg
               width="30"
               height="28"
@@ -89,36 +117,38 @@ function StoreTopDetails({ data,setSuccess }) {
               />
             </svg>
           </span>
-          {/* <svg
-            width="35"
-            height="34"
-            viewBox="0 0 35 34"
-            fill="none"
-            className="ms-1"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M15.9854 24.9206C15.9854 24.156 16.6322 23.5361 17.43 23.5361C18.2279 23.5361 18.8747 24.156 18.8747 24.9206C18.8747 25.6853 18.2279 26.3051 17.43 26.3051C16.6322 26.3051 15.9854 25.6853 15.9854 24.9206Z"
-              stroke="white"
-              stroke-width="1.4447"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M15.9854 16.614C15.9854 15.8494 16.6322 15.2295 17.43 15.2295C18.2279 15.2295 18.8747 15.8494 18.8747 16.614C18.8747 17.3786 18.2279 17.9985 17.43 17.9985C16.6322 17.9985 15.9854 17.3786 15.9854 16.614Z"
-              stroke="white"
-              stroke-width="1.4447"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M15.9854 8.30686C15.9854 7.54223 16.6322 6.92236 17.43 6.92236C18.2279 6.92236 18.8747 7.54223 18.8747 8.30686C18.8747 9.0715 18.2279 9.69136 17.43 9.69136C16.6322 9.69136 15.9854 9.0715 15.9854 8.30686Z"
-              stroke="white"
-              stroke-width="1.4447"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg> */}
+          <span onClick={() => handleShare()} style={{ cursor: "pointer" }}>
+            <svg
+              width="35"
+              height="34"
+              viewBox="0 0 35 34"
+              fill="none"
+              className="ms-1"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.9854 24.9206C15.9854 24.156 16.6322 23.5361 17.43 23.5361C18.2279 23.5361 18.8747 24.156 18.8747 24.9206C18.8747 25.6853 18.2279 26.3051 17.43 26.3051C16.6322 26.3051 15.9854 25.6853 15.9854 24.9206Z"
+                stroke="white"
+                stroke-width="1.4447"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M15.9854 16.614C15.9854 15.8494 16.6322 15.2295 17.43 15.2295C18.2279 15.2295 18.8747 15.8494 18.8747 16.614C18.8747 17.3786 18.2279 17.9985 17.43 17.9985C16.6322 17.9985 15.9854 17.3786 15.9854 16.614Z"
+                stroke="white"
+                stroke-width="1.4447"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M15.9854 8.30686C15.9854 7.54223 16.6322 6.92236 17.43 6.92236C18.2279 6.92236 18.8747 7.54223 18.8747 8.30686C18.8747 9.0715 18.2279 9.69136 17.43 9.69136C16.6322 9.69136 15.9854 9.0715 15.9854 8.30686Z"
+                stroke="white"
+                stroke-width="1.4447"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
         </span>
         <img src={`${constants.port}${data.logo}`} className="foot-png"></img>
       </div>

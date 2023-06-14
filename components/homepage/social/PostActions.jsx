@@ -10,6 +10,7 @@ export default function PostActions({
   user,
   setOnSuccess,
   sharedClick,
+  data,
 }) {
   const [show, setShow] = useState(false);
   const [visible, setVisible] = useState(false);
@@ -135,9 +136,16 @@ export default function PostActions({
               Delete
             </Dropdown.Item>
           )}
-          <Dropdown.Item onClick={() => sharedClick(postId)}>
-            Share
-          </Dropdown.Item>
+          {data.post_type === "Product" ||
+          data.post_type === "Store" ||
+          data.post_type === "Field" ||
+          data.owner_user_detail !== null ? (
+            ""
+          ) : (
+            <Dropdown.Item onClick={() => sharedClick(postId)}>
+              Share
+            </Dropdown.Item>
+          )}
         </Dropdown.Menu>
       </Dropdown>
     </>

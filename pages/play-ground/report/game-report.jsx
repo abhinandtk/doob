@@ -26,7 +26,7 @@ function GameReport() {
   );
 
   const today = moment().format("DD-MM-YYYY");
-  const nextDay = moment(today).add(1, "day").format("DD-MM-YYYY");
+  const nextDay = moment(today,"DD-MM-YYYY").add(1, "day").format("DD-MM-YYYY");
   const [endDate, setEndDate] = useState(nextDay);
   const [dataReport, setDataReport] = useState([]);
   const [chartData, setChartData] = useState({
@@ -79,9 +79,7 @@ function GameReport() {
           ],
         };
         setChartData(chartData);
-      } else {
-        alert("sdhbchjsbdchjbhj");
-      }
+      } 
     });
   }, [startDate, endDate]);
   console.log("reportDtaaaaaaa888", dataReport);

@@ -26,7 +26,7 @@ function CustomerBookingReport() {
   );
 
   const today = moment().format("DD-MM-YYYY");
-  const nextDay = moment(today).add(1, "day").format("DD-MM-YYYY");
+  const nextDay = moment(today,'"DD-MM-YYYY"').add(1, "day").format("DD-MM-YYYY");
   const [endDate, setEndDate] = useState(nextDay);
   const [dataReport, setDataReport] = useState([]);
   const [chartData, setChartData] = useState({
@@ -62,7 +62,10 @@ function CustomerBookingReport() {
         },
       }
     ).then((res) => {
-      console.log("reportDtaaaaaaa888", res);
+      console.log("reportDtaaaaaaa888", res,{
+        start_date: startDate,
+        end_date: endDate,
+      });
 
       setCustomerSale(res.data.data.playground_report);
     });
@@ -138,6 +141,8 @@ function CustomerBookingReport() {
                 <div  className="report-section">
                     <div >User</div>
                     <div >Booking Count</div>
+                    <div >Cancel Count</div>
+                    <div >Wallet Bal</div>
                     <div>Total Amount</div>
                   </div>
                   {customerSale &&
@@ -151,6 +156,12 @@ function CustomerBookingReport() {
                         </span>
                         <span className="sales-order-number">
                           {item.booking_count}
+                        </span>
+                        <span className="sales-order-number">
+                          {item.cancel_count}
+                        </span>
+                        <span className="sales-order-number">
+                          {item.wallet_bal}
                         </span>
                         <span className="sales-order-price">
                           {item.total_amount} KD

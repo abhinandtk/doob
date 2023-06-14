@@ -29,7 +29,7 @@ function EarningReport() {
   );
 
   const today = moment().format("DD-MM-YYYY");
-  const nextDay = moment(today).add(1, "day").format("DD-MM-YYYY");
+  const nextDay = moment(today,'DD-MM-YYYY').add(1, "day").format("DD-MM-YYYY");
   const [endDate, setEndDate] = useState(nextDay);
 
   const labels = Labels();
@@ -170,7 +170,7 @@ function EarningReport() {
                     <div className="total-order">
                       <p className="text-center">Total Earnings</p>
                       <h1 className="text-center ">
-                        {earningData.total_price} KD
+                        {earningData.total_price ?earningData.total_price:'0.000' } KD
                       </h1>
                     </div>
                   </div>

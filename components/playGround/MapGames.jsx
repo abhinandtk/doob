@@ -71,8 +71,8 @@ export default function MapGame({ data }) {
             item.my_games.map((map) => (
               <AnyReactComponent
                 key={index}
-                lat={map.latitude}
-                lng={map.longitude}
+                lat={map.stadium.latitude}
+                lng={map.stadium.longitude}
                 text="My Marker"
                 gameTitle={item.title}
               />
