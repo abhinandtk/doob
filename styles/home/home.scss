@@ -1086,6 +1086,22 @@ body{
   flex-shrink: 0;
 
 }
+.greens{
+  background-color: #17A803;
+  height: 13px;
+  width: 13px;
+  position: absolute;
+  border-radius: 50%;
+  margin-left: 15px;
+  margin-top: 4px;
+}
+.numbers{
+  color: white;
+  font-size: 7px;
+  margin-left: 1px;
+  text-align: center;
+  margin-top: 1px;
+}
 .side-menu__suggestion-button1 {
   background-color: transparent;
   border: none;

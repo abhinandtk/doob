@@ -294,15 +294,16 @@ form.nosubmit {
     }
   .foot-png{
     float: right;
-    // margin-top: 380px;
-    // position: absolute;
-    // margin-left: -103px;
+    margin-top: 380px;
+    position: absolute;
+    margin-left: -103px;
     width: 85px;
     height:60px;
     z-index: 1;
-    position: inherit;
-    right: 65px;
-    top: -17px;
+    // position: inherit;
+    // right: 65px;
+    // top: -17px;
+  
   }
  
  .btn-group.group {
@@ -1483,8 +1484,10 @@ height: auto;
         // margin-top: 320px;
         // position: absolute;
         // margin-left: -103px;
-        width: 85px;
+        position: inherit;
         height: 60px;
+        right: 25px;
+        top: -55px;
     }
     .content-topic {
       margin-right:20px;
@@ -1560,8 +1563,10 @@ height: auto;
       // margin-top: 270px;
       // position: absolute;
       // margin-left: -103px;
-      width: 85px;
+      position: inherit;
       height: 60px;
+      right: 25px;
+      top: -97px;
   }
     
     .sides{
@@ -1654,7 +1659,10 @@ height: auto;
     // position: absolute;
     // margin-left: -103px;
     width: 85px;
+    position: inherit;
     height: 60px;
+       right: 65px;
+    top: -45px;
 }
 
   .sidebar{
@@ -1922,7 +1930,10 @@ font-size: 14px;
     // position: absolute;
     // margin-left: -103px;
     width: 85px;
-    height:60px;
+    position: inherit;
+    height: 60px;
+    right: 34px;
+    top: -210px;
   }
   .more{
     float: right;
@@ -2552,6 +2563,13 @@ margin-left: 15px;
   input.nosubmit2 {
     width: 82%;
     margin-left: -2px;
+}
+.foot-png {
+  width: 85px;
+  position: inherit;
+  height: 60px;
+  right: 34px;
+  top: -260px;
 }
 }
 // @media (max-width:1245px) {
