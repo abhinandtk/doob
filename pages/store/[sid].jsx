@@ -46,11 +46,16 @@ function StoreDetailPage() {
         },
       }
     ).then((res) => {
-      setStoreDetails(res.data.data.store[0]);
-      setStoreCategory(res.data.data.store[0].categories);
-      setOffersData(res.data.data.offers);
+      console.log("res6666", {
+        store_id: sid,
+      });
+      if (res.data.data) {
+        setStoreDetails(res.data.data.store[0]);
+        setStoreCategory(res.data.data.store[0].categories);
+        setOffersData(res.data.data.offers);
+      }
     });
-  }, [success]);
+  }, [success, sid]);
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
@@ -74,7 +79,7 @@ function StoreDetailPage() {
       <MobileHeader />
       <MainSidebarFixed />
       <div className="store-container ">
-        <form className="nosubmit " onSubmit={(e)=>handleKeyDown(e)}>
+        <form className="nosubmit " onSubmit={(e) => handleKeyDown(e)}>
           <span>
             {" "}
             <input

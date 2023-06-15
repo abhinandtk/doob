@@ -7,8 +7,13 @@ import constants from '@/public/data/my-constants/Constants'
 import { notification } from 'antd'
 import { Labels } from '@/public/data/my-constants/Labels'
 import { Router, useRouter } from 'next/router'
+import { useDispatch } from 'react-redux'
+import { toggle } from '@/Redux/updateNavbar'
 
 function CheckoutSideSection({data}) {
+
+  const dispatch=useDispatch()
+
 
   const labels = Labels()
   const router =useRouter()
@@ -22,6 +27,7 @@ function CheckoutSideSection({data}) {
         'Authorization':`Token ${constants.token_id}`,
       }
     }).then((res)=>{
+      dispatch(toggle())
       if(res.data.status==1){
         notification.success({
           message:constants.Success,

@@ -19,6 +19,7 @@ import {
 import { useEffect } from "react";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
+import { toggle } from "@/Redux/updateNavbar";
 function ProductDetailFullWidth({ product,setApiSuccess }) {
   const labels = Labels();
   const dispatch = useDispatch();
@@ -118,6 +119,7 @@ function ProductDetailFullWidth({ product,setApiSuccess }) {
       }
     ).then((res) => {
       console.log('storreCountres',res)
+      dispatch(toggle())
       if(res.data.status==1){
         notification.success({
           message:'Success',

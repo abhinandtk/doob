@@ -7,17 +7,21 @@ import constants from "@/public/data/my-constants/Constants";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
+import { toggle } from "@/Redux/updateNavbar";
 function GroundCartItems({ data, setSuccess }) {
   console.log("groundCart", data);
 
   const labels = Labels();
   const router = useRouter();
+  const dispatch =useDispatch()
   const checkoutPlaygroundHandler = () => {
     Axios.post(apis.playgroundCheckout, null, {
       headers: {
         Authorization: `Token ${constants.token_id}`,
       },
     }).then((res) => {
+      dispatch(toggle())
       if (res.data.status === 1) {
         notification.success({
           messsage: constants.Success,
@@ -47,6 +51,7 @@ function GroundCartItems({ data, setSuccess }) {
         },
       }
     ).then((res) => {
+      dispatch(toggle())
       if (res.data.status === 1) {
         setSuccess((prev) => !prev);
         notification.success({

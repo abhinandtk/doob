@@ -10,6 +10,7 @@ import constants from "@/public/data/my-constants/Constants";
 import moment from "moment";
 import { Button, Modal, notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
+import { toggle } from "@/Redux/updateNavbar";
 function SelectGround({ details, setSuccess, setDateSelected }) {
   const router = useRouter();
   const inputData = router.query;
@@ -61,6 +62,7 @@ function SelectGround({ details, setSuccess, setDateSelected }) {
         }
       ).then((res) => {
         console.log("resultcart", res);
+        dispatch(toggle())
         if (res.data.status === 1) {
           notification.success({
             message: constants.Success,

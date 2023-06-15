@@ -12,6 +12,7 @@ const { Panel } = Collapse;
 function StoreTopDetails({ data, setSuccess }) {
   const [descShow, setDescShow] = useState(false);
   const router = useRouter();
+  console.log('dat',data)
   const { sid } = router.query;
 
   const labels=Labels()
@@ -161,9 +162,9 @@ function StoreTopDetails({ data, setSuccess }) {
             <h5>{data.title}</h5>
             <p style={{ fontSize: "13px", color: "gray" }}>{data.address}</p>
             <span>
-              <p className="mx-1">
+              <p className="mx-1" onClick={()=>router.push(`/store/store-review/${sid}`)}>
                 <i className="bi bi-star-fill" style={{ color: "yellow" }}></i>
-                4.5 <span style={{ color: "grey" }}>(12.30 reviews)</span>
+                {data.review_average_rating} <span style={{ color: "grey" }}>({data.review_count} reviews)</span>
               </p>
             </span>
             <p>

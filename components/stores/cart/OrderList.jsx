@@ -5,11 +5,14 @@ import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
+import { useDispatch } from "react-redux";
+import { toggle } from "@/Redux/updateNavbar";
 function OrderList({ product, setOnSuccess }) {
   console.log("rrrrrrrrrrrrrrrrrrr", product.quantity);
   const [quantity, setQuantity] = useState(parseInt(product.quantity));
 
   const labels=Labels()
+  const dispatch=useDispatch()
 
   const handleCartUpdate = (slug, qty) => {
     console.log("ututututuutututu", slug, qty);
@@ -58,6 +61,7 @@ function OrderList({ product, setOnSuccess }) {
       }
     ).then((res) => {
       setOnSuccess((prev) => !prev);
+      dispatch(toggle())
       notification.success({
         message:constants.Success,
         description:`${labels['Item removed from cart successfully']}`

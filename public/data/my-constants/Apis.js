@@ -82,6 +82,9 @@ const apis = {
 
     'updateStoreStatus': `${constants.port}/store/api/update_store_status`,
     'storeSettings': `${constants.port}/store/api/store_api_list`,
+    'storeReviewView': `${constants.port}/store/api/view_review_store`,
+    'addStoreReview': `${constants.port}/store/api/add_store_review`,
+    'removeStoreReview': `${constants.port}/store/api/remove_review_store`,
 
     //shop management
 
