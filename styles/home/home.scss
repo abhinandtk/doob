@@ -774,6 +774,17 @@ body{
   gap: 6px;
   
 }
+.post-names{
+   font-weight: 600;
+   font-size: 16px;
+   display:-webkit-box;
+   -webkit-line-clamp: 1;
+   width: 210px;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   text-overflow: ellipsis;
+
+}
 .post__likes-avatar {
   width: 20px;
   height: 20px;
@@ -2432,7 +2443,7 @@ input.nosubmit1 {
    }
    .locks{
     position: absolute;
-    margin-left: 30rem;
+    margin-left: 25rem;
     float: right;
     margin-top: -70px;
   }
@@ -3436,6 +3447,17 @@ margin-left:6px;
    
    
   }
+  .post-names{
+    font-weight: 600;
+    font-size: 16px;
+    display:-webkit-box;
+    -webkit-line-clamp: 1;
+    width: 180px;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+ 
+ }
  
   .title{
     font-weight:700;

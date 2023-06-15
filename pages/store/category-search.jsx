@@ -60,7 +60,7 @@ function CategorySearchPage() {
         <form className="nosubmit ">
           <input
             // onChange={searchResult}
-            className="nosubmit1"
+            className="nosubmit-shop"
             type="search"
             placeholder="Search"
           />
@@ -69,9 +69,9 @@ function CategorySearchPage() {
         {/* <div className="my-2 "> */}
         {/* <SearchCategory /> */}
         {/* </div> */}
-        <section className="my-2  ">
+        <section className="my-2 game-scroll ">
           <div
-            className="btn-group me-2"
+            className="btn-group me-2 "
             role="group"
             aria-label="Second group" 
           >
