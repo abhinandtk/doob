@@ -209,3 +209,36 @@
 //   top:4%;
 //   left:32%;
 // }
+
+
+@media (max-width: 527px){
+  .stadium-name {
+    font-weight: 500;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 15px;
+    width: 140px;
+    color: #000000;
+
+}
+
+}
+@media (max-width: 320px){
+  .stadium-name {
+    font-weight: 500;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 15px;
+    width: 120px;
+    color: #000000;
+
+}
+
+}
+
