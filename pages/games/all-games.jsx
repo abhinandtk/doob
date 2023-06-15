@@ -102,11 +102,11 @@ function AllGamesPage() {
                   </p>
                 ))}
               </div>
-              {/* {myGames.map((item, index) =>
+              {myGames.map((item, index) =>
                 selectedCategory === null || selectedCategory === item.title ? (
                   <GameBookingCard key={index} data={item.bookings} />
                 ) : null
-              )} */}
+              )}
               {myGames.map((item, index) =>
                 selectedCategory === null || selectedCategory === item.title ? (
                   <GamesHistoryCard key={index} data={item.my_games} />
@@ -183,9 +183,7 @@ function AllGamesPage() {
           </Tabs>
         </div>
 
-        <button type="button" className="history-btn">
-          View History
-        </button>
+        
       </div>
       <MobileFooter />
     </div>

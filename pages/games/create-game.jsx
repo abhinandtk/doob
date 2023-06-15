@@ -17,7 +17,7 @@ function CreateGamePage() {
         <div className="col ">
           <div className="card my-5 " style={{ border: "0px" }}>
             <div className="card-body p-5 ">
-              <h5 style={{ fontWeight: "700" }}>Create a Game</h5>
+              <h5 style={{ fontWeight: "700" }}>Create  Game</h5>
               <CreateGameForm />
             </div>
           </div>

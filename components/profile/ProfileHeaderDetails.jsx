@@ -180,13 +180,13 @@ function ProfileHeaderDetails({ data, setSuccess }) {
                     />
                   ) : data.user_image ? (
                     <img
-                      style={{ borderRadius: "50%" }}
+                      style={{ borderRadius: "50%",objectFit:'cover' }}
                       src={`${constants.port}${data.user_image}`}
                       alt=""
                     ></img>
                   ) : (
                     <img
-                      style={{ borderRadius: "50%" }}
+                      style={{ borderRadius: "50%",objectFit:'cover' }}
                       src="/images/accounts/user_default.png"
                       alt=""
                     ></img>

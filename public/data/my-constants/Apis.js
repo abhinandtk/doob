@@ -20,6 +20,9 @@ const apis = {
     "ssoregister": `${constants.port}/API/sso-register-api`,
     "ssologin": `${constants.port}/API/sso-login-api`,
     "logout": `${constants.port}/API/logout_api`,
+    "settings": `${constants.port}/API/list_user_status`,
+    "update_delete_account": `${constants.port}/API/update_user_status`,
+    "changePasswordSettings": `${constants.port}/API/change_password`,
 
     // social module
 
@@ -46,6 +49,7 @@ const apis = {
     'shareProductToPost': `${constants.port}/social/Api/share_product`,
     'shareStoreToPost': `${constants.port}/social/Api/share_store`,
     'shareFieldToPost': `${constants.port}/social/Api/share_field`,
+    'acceptRequest': `${constants.port}/social/Api/follow_request_accept`,
 
 
     //store module

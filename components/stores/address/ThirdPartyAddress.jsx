@@ -149,9 +149,11 @@ function ThirdPartyAddress({ handleAddAddress,areaData }) {
             style={{ border: "0px", background: "#eeeeee" }}
           >
             <option value="">select</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
+            {areaData.map((item, index) => (
+              <option key={index} value={item.id}>
+                {item.region_name}
+              </option>
+            ))}
           </select>
         </div>
         <div className="form-group my-2">

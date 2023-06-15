@@ -1,144 +1,183 @@
-import React, { Fragment, useState } from 'react'
-import { Modal, Form, Input, Button } from 'antd';
-import Axios from 'axios'
-import apis from '@/public/data/my-constants/Apis'
-import constants from '@/public/data/my-constants/Constants'
-import { Upload, message } from 'antd';
-import { notification } from 'antd';
-import { InboxOutlined } from '@ant-design/icons';
-import { useDispatch } from 'react-redux';
-import { apiCallSuccess } from '@/Redux/apiSuccess';
+import React, { Fragment, useState } from "react";
+import { Modal, Form, Input, Button } from "antd";
+import Axios from "axios";
+import apis from "@/public/data/my-constants/Apis";
+import constants from "@/public/data/my-constants/Constants";
+import { Upload, message } from "antd";
+import { notification } from "antd";
+import { InboxOutlined } from "@ant-design/icons";
+import { useDispatch } from "react-redux";
+import { apiCallSuccess } from "@/Redux/apiSuccess";
 const { TextArea } = Input;
 
-function UploadFiles({setUploadShow}) {
+function UploadFiles({ setUploadShow }) {
+  const dispatch = useDispatch();
 
-    const dispatch=useDispatch()
+  const [file, setFile] = useState(null);
+  const [caption, setCaption] = useState("");
+  const [show, setShow] = useState(true);
+  const [showModal2, setShowModal2] = useState(false);
 
-    const [file,setFile] = useState(null)
-    const [caption,setCaption] = useState('')
-    const[show,setShow] =useState(true);
-    const[showModal2,setShowModal2]=useState(false);
-
-
-    const handleFileChange =(e) =>{
-        if (e.fileList.length > 0) {
-            setFile(e.fileList[0].originFileObj);
-          }
-        
+  const handleFileChange = (e) => {
+    if (e.fileList.length > 0) {
+      setFile(e.fileList[0].originFileObj);
     }
+  };
 
-    const uploadSubmitHandler =()=>{
-        Axios.post(apis.homepageapi,{
-            caption:caption,
-            image:file
-        },{
-            headers:{
-                'Authorization':`Token ${constants.token_id}`,
-                'Content-Type': 'multipart/form-data'
-            }
+  const uploadSubmitHandler = () => {
+    console.log('Eroorssinput',{
+        caption: caption,
+        image: file,
+      })
+    Axios.post(
+      apis.homepageapi,
+      {
+        caption: "",
+        image: file,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    )
+      .then((res) => {
+        console.log("Eroor:", res);
+        if (res.data.status === 1) {
+          console.log("sucesss");
+          dispatch(apiCallSuccess());
+          notification.success({
+            message: "Success",
+            description: "Post created Successfully",
+          });
+        } else {
+          console.log("failed");
         }
-        ).then((res)=>{
-            if (res.data.status === 1){
-                console.log('sucesss')
-                dispatch(apiCallSuccess())
-                message.success('Post uploaded successfully');
-                notification.success({
-                    message: 'Success',
-                    description: 'Post created Successfully',
-                  });
-            }else{
-                console.log('failed')
-            }
-        }).catch((error)=>{
-            console.log('Eroor:',error)
-    })  
-    setShow(false) 
-    setUploadShow(false)   
-    }
-
+      })
+      .catch((error) => {
+        notification.error({
+          message: "error",
+          description: "Please upload image less than 1 mb ",
+        });
+        console.log("Eroorss:", error,{
+            caption: caption,
+            image: file,
+          });
+      });
+    setShow(false);
+    setUploadShow(false);
+  };
 
   return (
     <Fragment>
-        <Modal
-        title='Create a post'
+      <Modal
+        title="Create a post"
         open={show}
-        onCancel={()=>{
-            setShow(false)
-            setUploadShow(false)
+        onCancel={() => {
+          setShow(false);
+          setUploadShow(false);
         }}
-        className='upload_file'
+        className="upload_file"
         centered
         footer={[
-            <Button style={{backgroundColor:'#17A803'}} key="submit" type="primary" onClick={uploadSubmitHandler}>
+          <Button
+            style={{ backgroundColor: "#17A803" }}
+            key="submit"
+            type="primary"
+            onClick={uploadSubmitHandler}
+          >
             Share
-            </Button>,
-        ]}>
-
-    
-            <Form>
-                <div style={{width:'100%',maxHeight:'70vh'}}>
-                    <Upload.Dragger
-                    name="file"
-                    accept=".jpg,.png"
-                    beforeUpload={() => false}
-                    onChange={handleFileChange}
-                    showUploadList={false}
-                    >
-                    {file ? (
-                        <div style={{ textAlign: 'center' }}>
-                            <img src={URL.createObjectURL(file)} alt="Uploaded Image" style={{ maxWidth: '100%', maxHeight: '70vh' }} />
-                        </div>
-                    ):(
-                        <>
-                            <p className="ant-upload-drag-icon">
-                            <InboxOutlined />
-                            </p>
-                            <p className="ant-upload-text">Click or drag file to upload</p>
-                        </>
-                    )}
-                    </Upload.Dragger>
+          </Button>,
+        ]}
+      >
+        <Form>
+          <div style={{ width: "100%", maxHeight: "70vh" }}>
+            <Upload.Dragger
+              name="file"
+              accept=".jpg,.png"
+              beforeUpload={() => false}
+              onChange={handleFileChange}
+              showUploadList={false}
+            >
+              {file ? (
+                <div style={{ textAlign: "center" }}>
+                  <img
+                    src={URL.createObjectURL(file)}
+                    alt="Uploaded Image"
+                    style={{ maxWidth: "100%", maxHeight: "70vh" }}
+                  />
                 </div>
-                <div style={{width:'100%',marginTop: '1rem'}}>
-                    Description
-                    <Form.Item>
-                    <TextArea rows={4} value={caption} onChange={(e) => setCaption(e.target.value)} />
-                    </Form.Item>
-                </div>
-            </Form>
-        </Modal>
+              ) : (
+                <>
+                  <p className="ant-upload-drag-icon">
+                    <InboxOutlined />
+                  </p>
+                  <p className="ant-upload-text">
+                    Click or drag file to upload
+                  </p>
+                </>
+              )}
+            </Upload.Dragger>
+          </div>
+          <div style={{ width: "100%", marginTop: "1rem" }}>
+            Description
+            <Form.Item>
+              <TextArea
+                rows={4}
+                value={caption}
+                onChange={(e) => setCaption(e.target.value)}
+              />
+            </Form.Item>
+          </div>
+        </Form>
+      </Modal>
 
-        <Modal
-      open={showModal2}
-      title="Upload Image"
-      onCancel={()=>setShowModal2(false)}
-      footer={[
-        <Button key="back" onClick={()=>setShowModal2(false)}>
-          Cancel
-        </Button>,
-        <Button style={{backgroundColor:'#17A803'}} key="submit" type="primary" onClick={uploadSubmitHandler}>
-          Share
-        </Button>,
-      ]}
-    >
-      <Form>
-        {/* <Form.Item>
+      <Modal
+        open={showModal2}
+        title="Upload Image"
+        onCancel={() => setShowModal2(false)}
+        footer={[
+          <Button key="back" onClick={() => setShowModal2(false)}>
+            Cancel
+          </Button>,
+          <Button
+            style={{ backgroundColor: "#17A803" }}
+            key="submit"
+            type="primary"
+            onClick={uploadSubmitHandler}
+          >
+            Share
+          </Button>,
+        ]}
+      >
+        <Form>
+          {/* <Form.Item>
           <input type="file" onChange={handleFileChange} />
         </Form.Item> */}
-        {file && (
-          <div style={{ textAlign: 'center' }}>
-            <img src={URL.createObjectURL(file)} alt="Uploaded Image" style={{ maxWidth: '100%', maxHeight: '70vh' }} />
-          </div>
-        )}
-        <Form.Item label="Description">
-          <TextArea rows={4} value={caption} onChange={(e) => setCaption(e.target.value)} />
-        </Form.Item>
-      </Form>
-    </Modal>
+          {file && (
+            <div style={{ textAlign: "center" }}>
+              <img
+                src={URL.createObjectURL(file)}
+                alt="Uploaded Image"
+                style={{ maxWidth: "100%", maxHeight: "70vh" }}
+              />
+            </div>
+          )}
+          <Form.Item label="Description">
+            <TextArea
+              rows={4}
+              value={caption}
+              onChange={(e) => setCaption(e.target.value)}
+            />
+          </Form.Item>
+        </Form>
+      </Modal>
 
-        {/* {file ? 
+      {/* {file ? 
         <img src={URL.createObjectURL(file)} alt="Uploaded file" style={{ maxHeight: 200 }} />} */}
 
-        {/* <Modal 
+      {/* <Modal 
         show={show}
         onHide={()=>{
             setShow(false) 
@@ -162,7 +201,7 @@ function UploadFiles({setUploadShow}) {
             </Form>
         </ModalBody>
         </Modal> */}
-        {/* <Modal 
+      {/* <Modal 
         show={showModal1}
         onHide={()=>setShowModal2(false)}
         className='upload_files'
@@ -186,7 +225,7 @@ function UploadFiles({setUploadShow}) {
             </div>
         </Modal> */}
     </Fragment>
-  )
+  );
 }
 
-export default UploadFiles
+export default UploadFiles;

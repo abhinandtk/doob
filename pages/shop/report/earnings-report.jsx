@@ -23,6 +23,7 @@ function EarningsReport() {
   const [selectedDays, setSelectedDays] = useState(30);
   const [earningsData, setEarningsData] = useState([]);
   const labels = Labels();
+  const [slugId, setSlugId] = useState("");
 
   const [startDate, setStartDate] = useState(
     moment().subtract(30, "days").format("YYYY-MM-DD")
@@ -66,7 +67,9 @@ function EarningsReport() {
     },
   };
   const handleDayChange = (days) => {
-    setSelectedDays(days);
+    setSelectedDays(
+      days == 30 ? "30 days" : days == 180 ? "6 months" : "1 year"
+    );
     setStartDate(moment().subtract(days, "days").format("YYYY-MM-DD"));
   };
   console.log("change", startDate);
@@ -76,7 +79,8 @@ function EarningsReport() {
         Authorization: `Token ${constants.token_id}`,
       },
     }).then((res) => {
-      console.log(res,'oooo');
+      console.log(res, "oooo");
+      setSlugId(res.data.data.store_Slug);
       setEarningsData(res.data.data);
       const resp = res.data.data;
       const data = {
@@ -95,7 +99,6 @@ function EarningsReport() {
       setChartData(data);
     });
 
-   
     // Axios.post(
     //   apis.salesReport,
     //   {
@@ -114,16 +117,9 @@ function EarningsReport() {
     //   //   const data = res.data.data[0];
     // });
   }, [startDate, endDate]);
-  const handleCsvExport=()=>{
-    console.log('logg')
-    Axios.get(apis.earningReportExport,{
-      headers:{
-        Authorization:`Token ${constants.token_id}`
-      }
-    }).then((res)=>{
-      console.log('qqqqqqqqqqqqqqq',res)
-    })
-  }
+  const url = `${constants.port}/store/earnings_day_report_csv?store_id=${
+    slugId && slugId
+  }&start_date=${startDate}&end_date=${endDate}`;
 
   return (
     <div>
@@ -144,7 +140,7 @@ function EarningsReport() {
               </h6>
               <div className="my-1 mx-4 ">
                 <div className="update">
-                <Dropdown className="mx-1">
+                  <Dropdown className="mx-1">
                     <Dropdown.Toggle
                       variant=""
                       id="dropdown-basic"
@@ -171,12 +167,18 @@ function EarningsReport() {
                     </Dropdown.Menu>
                   </Dropdown>
                   <span>
-                    <button
-                      onClick={()=>handleCsvExport()}
-                      type="button"
-                      className="export-btn"
-                    >
-                      Export
+                    <button type="button" className="export-btn">
+                      <a
+                        href={url}
+                        style={{
+                          textDecoration: "none",
+                          color: "inherit",
+                          target: "_blank",
+                        }}
+                        download
+                      >
+                        Export
+                      </a>
                     </button>
                   </span>
                 </div>
@@ -186,7 +188,7 @@ function EarningsReport() {
                     <div className="total-order">
                       <p className="text-center">Total Earnings</p>
                       <h1 className="text-center ">
-                        {earningsData.total_earnings}
+                        {earningsData.total_earnings} KD
                       </h1>
                     </div>
                   </div>
@@ -208,7 +210,7 @@ function EarningsReport() {
                         className="p-3 d-flex justify-content-between  customer"
                       >
                         <span className="sales-report-name">{item.date}</span>
-                        <span>{item.price}</span>
+                        <span>{item.price} KD</span>
                       </div>
                     ))}
                 </div>
