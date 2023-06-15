@@ -167,6 +167,7 @@ const apis = {
     'customerReportPlay': `${constants.port}/playground/api/ad_customer_report`,
     'adminAllBookings': `${constants.port}/playground/api/ad_list_all_booking`,
     'adminBookingStatusChange': `${constants.port}/playground/api/booking_status_change`,
+    'groundmanageSummary': `${constants.port}/playground/api/ad_playground_management`,
 
     //Tournament
 

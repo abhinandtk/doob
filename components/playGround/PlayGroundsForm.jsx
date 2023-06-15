@@ -485,8 +485,8 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
                 id="choice1-2"
                 name="choice1"
               />
-              <span className="radio-button__control"></span>
-              <span className="radio-button__label">Open time</span>
+              {/* <span className="radio-button__control"></span> */}
+              {/* <span className="radio-button__label">Open time</span> */}
             </label>
           </div>
           <button

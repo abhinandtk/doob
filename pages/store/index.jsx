@@ -47,7 +47,7 @@ function StorePage() {
       <MainSidebarFixed />
 
       <div className="store-container">
-        <form className="nosubmit ">
+        {/* <form className="nosubmit ">
           <span>
             {" "}
             <input className="nosubmit1" type="search" placeholder="Search" />
@@ -56,7 +56,7 @@ function StorePage() {
               className="filters-icon"
             ></img>
           </span>
-        </form>
+        </form> */}
         <br></br>
 
         {storeData.map((content, index) => {

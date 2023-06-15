@@ -24,8 +24,8 @@ import MobileFooter from "@/components/shared/MobileFooter";
 import { useRouter } from "next/router";
 
 function EditPlaygroundPage() {
-  const router=useRouter()
-  const {id} = router.query
+  const router = useRouter();
+  const { id } = router.query;
   const labels = Labels();
   const handlePlaygroundForm = (data, game, amenity, slot) => {
     console.log("data", data, game, amenity);
@@ -58,18 +58,18 @@ function EditPlaygroundPage() {
     const formDataObject = Object.fromEntries(formData);
     console.log("formData", formDataObject);
 
-    Axios.post(apis.addPlayground, formData, {
+    Axios.put(apis.ground_admin_view_get_put, formData, {
       headers: {
         Authorization: `Token ${constants.token_id}`,
       },
     }).then((res) => {
-      if (res.data.status == 1) {
-        notification.success({
-          message: constants.Success,
-          description: `${labels["PlayGround edited"]}`,
-        });
-        router.back()
-      }
+      // if (res.data.status === 1) {
+      notification.success({
+        message: constants.Success,
+        description: `${labels["PlayGround edited"]}`,
+      });
+      router.back();
+      // }
 
       console.log("success4444444444444444444444edit", res, formData);
     });
@@ -97,7 +97,10 @@ function EditPlaygroundPage() {
                 <h6 style={{ fontSize: "14px", fontWeight: "700" }}>
                   Basic Details
                 </h6>
-                <PlayGroundsForm handlePlaygroundForm={handlePlaygroundForm} editData='true'/>
+                <PlayGroundsForm
+                  handlePlaygroundForm={handlePlaygroundForm}
+                  editData="true"
+                />
               </div>
             </div>
           </div>

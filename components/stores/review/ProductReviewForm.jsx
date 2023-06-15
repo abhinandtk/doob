@@ -5,8 +5,8 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
 
-function ProductReviewForm({ setOnSuccess,userImg }) {
-  console.log('rwd',userImg)
+function ProductReviewForm({ setOnSuccess, userImg }) {
+  console.log("rwd", userImg);
   const router = useRouter();
   const { rid } = router.query;
   const [count, setCount] = useState(0);
@@ -33,23 +33,24 @@ function ProductReviewForm({ setOnSuccess,userImg }) {
   const handleProductReview = (e) => {
     e.preventDefault();
     console.log("result74", reviewForm);
-    Axios.post(
-      apis.addReview,
-      {
-        language: "",
-        rating: count,
-        title: "",
-        description: reviewForm.description,
-        image: reviewForm.image,
-        productSlugId: rid,
+    let formdata = new FormData();
+    formdata.append("language", "");
+    formdata.append("rating", count);
+    formdata.append("title", "");
+    formdata.append("description", reviewForm.description);
+    formdata.append("productSlugId", rid);
+    formdata.append("image", reviewForm.image);
+    Axios.post(apis.addReview, formdata, {
+      headers: {
+        Authorization: `Token ${constants.token_id}`,
       },
-      {
-        headers: {
-          Authorization: `Token ${constants.token_id}`,
-        },
-      }
-    ).then((res) => {
-      setOnSuccess(prev => !prev)
+    }).then((res) => {
+      setCount(0);
+      setReviewForm({
+        description: "",
+        image: "",
+      });
+      setOnSuccess((prev) => !prev);
       message.success("Review Added");
     });
   };
@@ -57,7 +58,15 @@ function ProductReviewForm({ setOnSuccess,userImg }) {
     <div className="col-lg-12">
       <h5 className="mb-3">
         <a href="#!" className="text-body">
-          <img src={`${constants.port}${userImg}`} style={{width:"44px",height:"44px",objectFit:'cover',borderRadius:'50%'}}></img>
+          <img
+            src={`${constants.port}${userImg}`}
+            style={{
+              width: "44px",
+              height: "44px",
+              objectFit: "cover",
+              borderRadius: "50%",
+            }}
+          ></img>
           <span className="mx-2">
             <Rate onChange={handleStarChange} />
           </span>

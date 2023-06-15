@@ -140,10 +140,10 @@ function EarningReport() {
                         Last 30 days
                       </Dropdown.Item>
                       <Dropdown.Item onClick={() => handleDayChange(180)}>
-                        Last 1 year
+                        Last 6 months
                       </Dropdown.Item>
                       <Dropdown.Item onClick={() => handleDayChange(365)}>
-                        All time
+                        Last 1 year
                       </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>

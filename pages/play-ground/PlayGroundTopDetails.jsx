@@ -82,10 +82,10 @@ function PlayGroundTopDetails({ details }) {
             {details.location},{details.city && details.city.region_name}
           </p>
           <div className="clearfix rating">
-            <span className="float-start ml-5">
+            {/* <span className="float-start ml-5">
               <i className="bi bi-star-fill" style={{ color: "yellow" }}></i>
               <span className="mx-2">{details.rating}</span>
-            </span>
+            </span> */}
             <p
               className="float-end"
               style={{ fontWeight: "700", color: "#17A803" }}

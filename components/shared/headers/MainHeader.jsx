@@ -65,8 +65,8 @@ function MainHeader({ title }) {
             message: " Success",
             description: "Logout Successfully",
           });
-          // window.location.reload(false);
           router.push("/");
+          window.location.reload(false);
         } else {
           console.log("error loading");
         }
@@ -286,9 +286,9 @@ function MainHeader({ title }) {
               </Nav.Link>
               <Nav.Link>
                 <div>
-                  <div className="  greens">
+                  {/* <div className="  greens">
                     <div className="numbers">35</div>
-                  </div>
+                  </div> */}
                   <svg
                     width="30"
                     height="30"
@@ -314,7 +314,7 @@ function MainHeader({ title }) {
               <Nav.Link>
                 <div>
                   <div className="  greens1">
-                    <div className="numbers">15</div>
+                    <div className="numbers">0</div>
                   </div>
                   <svg
                     onClick={() => setNotificationShow(!notificationShow)}

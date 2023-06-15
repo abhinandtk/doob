@@ -113,7 +113,7 @@ function Login({setActiveModal}) {
 
     <Modal  
     show={shows} 
-    onHide={()=>setShows(false)} 
+    // onHide={()=>setShows(false)} 
      >
          
         <Modal.Header  closeButton>

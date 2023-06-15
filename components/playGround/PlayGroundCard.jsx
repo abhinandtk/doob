@@ -58,13 +58,13 @@ function PlayGroundCard({ content }) {
                 </div>
               </div>
               <div style={{ marginTop: "8px" }}>
-                <span>
+                {/* <span>
                   <i
                     className="bi bi-star-fill"
                     style={{ color: "yellow" }}
                   ></i>
                   <span className="mx-2">{item.rating}</span>
-                </span>
+                </span> */}
               </div>
             </div>
           </div>

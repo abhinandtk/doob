@@ -77,7 +77,7 @@ function PlayGroundPage() {
       <MobileHeader />
       <MainSidebarFixed />
       <div className="tour-container">
-        <form className="nosubmit ">
+        {/* <form className="nosubmit ">
           <span>
             <input className="nosubmit1" type="search" placeholder="Search" />
             <img
@@ -85,7 +85,7 @@ function PlayGroundPage() {
               className="filters-icon"
             ></img>
           </span>
-        </form>
+        </form> */}
         <div id="carouselExampleIndicators" class="carousel slide my-2">
           <div class="carousel-indicators">
             <button

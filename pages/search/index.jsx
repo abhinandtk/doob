@@ -49,7 +49,7 @@ function SearchPage() {
       });
     } else {
       console.log("2222222222222222222222222", activeTab);
-
+      setSearchInput(e.target.value);
       Axios.post(apis.usersearch, {
         user_input: searchInput,
       }).then((res) => {
@@ -63,6 +63,7 @@ function SearchPage() {
       });
     }
   };
+  console.log('searchInput',searchInput)
 
   return (
     <Fragment>

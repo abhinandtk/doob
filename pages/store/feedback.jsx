@@ -24,7 +24,7 @@ function FeedbackPage() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(formData)
+    console.log(formData);
     Axios.post(
       apis.feedback,
       {
@@ -38,6 +38,11 @@ function FeedbackPage() {
         },
       }
     ).then((res) => {
+      setFormData({
+        title: "",
+        email: "",
+        description: "",
+      });
       console.log(res);
       notification.success({
         message: "Success",
@@ -199,7 +204,7 @@ function FeedbackPage() {
             <span className="mx-2">Logout</span>{" "}
           </a>
         </div> */}
-        <PagesSideBar currentPage='feedback'/>
+        <PagesSideBar currentPage="feedback" />
 
         <div className="content-page">
           <br></br>
@@ -213,6 +218,7 @@ function FeedbackPage() {
                 placeholder="Title"
                 className="  mx-2  op"
                 style={{ width: "90%" }}
+                value={formData.title}
                 onChange={(e) => changeHandler(e)}
               />
             </Form.Group>
@@ -223,6 +229,7 @@ function FeedbackPage() {
                 placeholder="Email"
                 className="  mx-2   op"
                 style={{ width: "90%" }}
+                value={formData.email}
                 onChange={(e) => changeHandler(e)}
               />
             </Form.Group>
@@ -233,6 +240,7 @@ function FeedbackPage() {
                 id="description"
                 rows="3"
                 placeholder="Description"
+                value={formData.description}
                 onChange={(e) => changeHandler(e)}
               ></textarea>
             </Form.Group>

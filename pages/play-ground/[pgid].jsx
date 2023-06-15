@@ -65,7 +65,7 @@ function PlayGroundDetailPage() {
       <MainSidebarFixed />
       <MobileHeader />
       <div className="tour-container">
-        <form className="nosubmit ">
+        {/* <form className="nosubmit ">
           <span>
             <input className="nosubmit1" type="search" placeholder="Search" />
             <img
@@ -73,7 +73,7 @@ function PlayGroundDetailPage() {
               className="filters-icon"
             ></img>
           </span>
-        </form>
+        </form> */}
 
         <PlayGroundTopDetails details={groundData}/>
         <AmenitiesList amenitiesData={amenitiesData}/>

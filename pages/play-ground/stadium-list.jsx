@@ -48,7 +48,7 @@ function StadiumListPage() {
       <MobileHeader />
 
       <div className="tour-container">
-        <form className="nosubmit ">
+        {/* <form className="nosubmit ">
           <span>
             <input className="tour" type="search" placeholder="Search" />
             <img
@@ -60,7 +60,7 @@ function StadiumListPage() {
               className="tour-icon"
             ></img>
           </span>
-        </form>
+        </form> */}
         <h5 style={{ fontWeight: "700" }} className="my-2">
           Select Playground
         </h5>

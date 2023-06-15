@@ -1,5 +1,6 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
+import { useRouter } from "next/router";
 
 // const AnyReactComponent = ({ text }) => <div style={markerStyle}><i class="bi-geo-alt-fill"></i></div>;
 
@@ -10,39 +11,35 @@ import GoogleMapReact from "google-map-react";
 //   border: "1px solid #ccc",
 //   padding: "5px",
 // };
-const AnyReactComponent = ({ text, gameTitle }) => {
+const AnyReactComponent = ({ text, gameTitle, onclick }) => {
   let markerStyle = {
     position: "absolute",
     transform: "translate(-50%, -50%)",
     background: "white",
     border: "1px solid #ccc",
     padding: "5px",
+    cursor:'pointer'
   };
 
   if (gameTitle === "Football") {
     // Custom marker style for Football games
     markerStyle = {
       ...markerStyle,
-      // Add specific styles for Football markers
-      // Example: background color, icon, etc.
+
       background: "green",
       color: "white",
     };
   } else if (gameTitle === "Basketball") {
-    // Custom marker style for Basketball games
     markerStyle = {
       ...markerStyle,
-      // Add specific styles for Basketball markers
-      // Example: background color, icon, etc.
+
       background: "orange",
       color: "black",
     };
   }
 
-  // Add more conditions for different game titles
-
   return (
-    <div style={markerStyle}>
+    <div style={markerStyle} onClick={onclick}>
       <i className="bi-geo-alt-fill"></i>
     </div>
   );
@@ -56,6 +53,12 @@ export default function MapGame({ data }) {
       lng: 47.4818,
     },
     zoom: 11,
+  };
+
+  const router = useRouter();
+
+  const handleMarkerClick = (slug) => {
+    router.push(`/games/${slug}`);
   };
 
   return (
@@ -75,6 +78,7 @@ export default function MapGame({ data }) {
                 lng={map.stadium.longitude}
                 text="My Marker"
                 gameTitle={item.title}
+                onclick={() => handleMarkerClick(map.game_slug)}
               />
             ))
           )}

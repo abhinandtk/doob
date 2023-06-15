@@ -11,18 +11,31 @@ import {
   CardImg,
 } from "react-bootstrap";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MainHeader from "@/components/shared/headers/MainHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileHeader from "@/components/MobileHeader";
 import Link from "next/link";
 import MobileFooter from "@/components/shared/MobileFooter";
-
+import constants from "@/public/data/my-constants/Constants";
+import apis from "@/public/data/my-constants/Apis";
+import Axios from 'axios'
 function PlaygroundManagementPage() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [summary,setSummary]=useState('')
+  useEffect(()=>{
+    Axios.get(apis.groundmanageSummary,{
+      headers:{
+        Authorization:`Token ${constants.token_id}`
+      }
+    }).then((res)=>{
+      setSummary(res.data.data)
+      console.log('haie',res)
+    })
+  },[])
   return (
     <div>
       <MainHeader title="Doob" />
@@ -80,7 +93,7 @@ function PlaygroundManagementPage() {
                     <Card.Subtitle className="play-numbers"
                     
                     >  
-                      5   
+                      {summary.todays_booking}  
                     </Card.Subtitle>
                   
                 </Card.Title>
@@ -88,7 +101,7 @@ function PlaygroundManagementPage() {
                 <Card.Text className="new-orders1"
                  
                 > 
-                 Today's Bookings
+                 Today&apos;s Bookings
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -142,7 +155,7 @@ function PlaygroundManagementPage() {
                     <Card.Subtitle className="play-numbers"
                     
                     >  
-                      5   
+                      {summary.months_booking}    
                     </Card.Subtitle>
                   </span>
                 </Card.Title>

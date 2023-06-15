@@ -30,7 +30,7 @@ function StoreReviewForm({ setOnSuccess, userImg }) {
     setReviewForm({ ...newForm });
   };
 
-  const handleProductReview = (e) => {
+  const handleStoreReview = (e) => {
     e.preventDefault();
     let formdata = new FormData();
     formdata.append("store_slug", rSlug);
@@ -80,7 +80,7 @@ function StoreReviewForm({ setOnSuccess, userImg }) {
         </a>
       </h5>
 
-      <form onSubmit={(e) => handleProductReview(e)}>
+      <form onSubmit={(e) => handleStoreReview(e)}>
         <div className="form-group">
           <textarea
             className="form-control op p-4  "

@@ -43,6 +43,7 @@ function AddAddressPage() {
   }, [country]);
 
   const handleAddAddress = (data, defaultAddress) => {
+    console.log('dfvfvvdv')
     let body = {};
     if (addressType === "home") {
       body = {
@@ -101,10 +102,12 @@ function AddAddressPage() {
         providor_area: data.providerArea,
         providor_block: data.providerBlock,
         providor_street: data.providerStreet,
-        flaprovidor_avenuet_no: data.providerAvenue,
+        providor_avenue: data.providerAvenue,
         default: defaultAddress ? "True" : "False",
       };
     }
+    console.log('body',body)
+    console.log('body')
     Axios.post(apis.addAddress, body, {
       headers: {
         Authorization: `Token ${constants.token_id}`,

@@ -243,7 +243,7 @@ function ContainerHomePosts() {
                             {item.user_detail.account_type === "star" ? (
                               <span>
                                 <img
-                                  src="../images/star.png"
+                                  src="/images/star.png"
                                   className="mx-1 mb-1"
                                 ></img>
                               </span>
@@ -337,7 +337,7 @@ function ContainerHomePosts() {
                             height="30"
                             viewBox="0 0 34 32"
                             stroke="black"
-                            fill={`${item.liked ? "red" : "white"}`}
+                            fill={`${item.liked ? "#17A803" : "white"}`}
                             xmlns="http://www.w3.org/2000/svg"
                           >
                             <path
@@ -397,7 +397,7 @@ function ContainerHomePosts() {
                         height="30"
                         viewBox="0 0 34 32"
                         stroke="black"
-                        fill={`${item.liked ? "red" : "white"}`}
+                        fill={`${item.liked ? "#17A803" : "white"}`}
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path

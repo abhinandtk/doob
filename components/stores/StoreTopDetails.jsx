@@ -80,7 +80,7 @@ function StoreTopDetails({ data, setSuccess }) {
             width="25"
             height="22"
             viewBox="0 0 25 22"
-            fill={`${data.is_favorite ? "red" : "none"}`}
+            fill={`${data.is_favorite ? "#17A803" : "none"}`}
             xmlns="http://www.w3.org/2000/svg"
           >
             <path

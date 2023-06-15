@@ -96,7 +96,7 @@ function PlayerDetailsPage() {
                       </div>
                       <div className="grey-details2">
                         <h5 className="grey-number">
-                          {rankDetails.final_played}
+                          {rankDetails.tournament_played}
                         </h5>
                         <p className="grey-match">Tournaments Played</p>
                       </div>
