@@ -69,7 +69,7 @@ function FavoriteProducts() {
           <br></br>
           <div className="head">Favourite Product</div>
           <div className=" ones" style={{ minHeight: "500px" }}>
-            <div className="row row-cols-2 my-3 g-3 p-3 store">
+            <div className="row row-cols-2 my-4 g-3 p-3 store">
               {favLists &&
                 favLists.map((item, index) => (
                   <div
@@ -143,10 +143,12 @@ function FavoriteProducts() {
                         </div>
                       </Card.Body>
                     </Card>
+                    <br></br>
                   </div>
                 ))}
             </div>
           </div>
+          
         </div>
       </div>
       <MobileFooter />

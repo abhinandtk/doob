@@ -4,7 +4,7 @@ function ModuleSharedPostDetails({ data }) {
   return (
     <div>
       <div className="post__likes">
-        <h6 style={{ fontWeight: "600" }}>
+        <h6 className="post-names">
           {data.post_type === "Product"
             ? data.product.product_name
             : data.post_type === "Store"

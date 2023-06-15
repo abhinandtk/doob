@@ -504,7 +504,7 @@ function ContainerHomePosts() {
                   ) : (
                     <>
                       <div className="post__likes">
-                        <h6 style={{ fontWeight: "600" }}>
+                        <h6 className="post-names" >
                           {item.totalLike} likes
                         </h6>
                       </div>
