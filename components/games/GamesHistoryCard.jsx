@@ -14,10 +14,12 @@ function GamesHistoryCard({ data }) {
                 <div className="clearfix dot-web">
                   <div className="float-end dots">
                     <span>
-                      <img
-                        src="/images/tournament/soccer-players-action-professional-stadium 2.png"
-                        className="book-img"
-                      ></img>
+                      {item.game_image[0] && (
+                        <img
+                          src={`${constants.port}${item.game_image[0].image}`}
+                          className="book-img"
+                        ></img>
+                      )}
                     </span>
                     <svg
                       width="28"
@@ -49,12 +51,26 @@ function GamesHistoryCard({ data }) {
                     <p>{moment(item.date).format("MMM")}</p>
                   </div>
                   <div className="book-details">
-                    <h5  className="card-texts" >
+                    <h5 className="card-texts">
                       {item.stadium_details.game_title}
                     </h5>
-                    <p style={{ color: "#959595" }}>9.00 AM to 12.00 PM</p>
-                    <p className="card-texts1">{item.stadium_details.stadium_name}</p>
-                    <p >
+                    <p style={{ color: "#959595" }}>
+                      {moment(
+                        item.stadium_details.timeslots[0]["start_time"],
+                        "hh:mm:ss"
+                      ).format("hh:mm A")}{" "}
+                      to{" "}
+                      {moment(
+                        item.stadium_details.timeslots[
+                          item.stadium_details.timeslots.length - 1
+                        ]["end_time"],
+                        "hh:mm:ss"
+                      ).format("hh:mm A")}
+                    </p>
+                    <p className="card-texts1">
+                      {item.stadium_details.stadium_name}
+                    </p>
+                    <p>
                       {item.stadium_details.location},{" "}
                       {item.stadium_details.city}
                     </p>
@@ -67,7 +83,7 @@ function GamesHistoryCard({ data }) {
                         key={index_}
                         className="rounded-circle default-avatar member-overlap-item"
                         style={{ objectFit: "cover" }}
-                        src={`${constants.port}${part.participants}`}
+                        src={`${constants.port}/media/${part.user__userdetail__image}`}
                       ></img>
                     ))}
                     <span className="mx-4" style={{ color: "#959595" }}>

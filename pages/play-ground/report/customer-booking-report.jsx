@@ -71,7 +71,7 @@ function CustomerBookingReport() {
     });
   }, [startDate, endDate]);
   console.log("reportDtaaaaaaa888", dataReport);
-  const url = `${constants.port}/playground/api/ad_customer_report_csv?start_date=${startDate}&end_date=${endDate}`;
+  const url = `${constants.port}/playground/api/ad_customer_report_csv?start_date=${startDate}&end_date=${endDate}&username=${constants.user_id}`;
 
   return (
     <div>

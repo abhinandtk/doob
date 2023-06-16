@@ -70,10 +70,10 @@ function StoreSearchPage() {
               placeholder="Search"
             />
             <span onClick={(e) => searchResultHandler(e)}>
-              <img
+              {/* <img
                 src="/images/store/Fil-icon.png"
                 className="filters-icon"
-              ></img>
+              ></img> */}
             </span>
           </span>
         {/* </form> */}

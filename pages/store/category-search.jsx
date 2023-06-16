@@ -57,14 +57,14 @@ function CategorySearchPage() {
       <MobileHeader />
       <MainSidebarFixed />
       <div className="store-container">
-        <form className="nosubmit ">
+        {/* <form className="nosubmit ">
           <input
             // onChange={searchResult}
             className="nosubmit-shop"
             type="search"
             placeholder="Search"
           />
-        </form>
+        </form> */}
 
         {/* <div className="my-2 "> */}
         {/* <SearchCategory /> */}

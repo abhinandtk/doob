@@ -13,7 +13,7 @@ import { useSelector } from "react-redux";
 import SharedPostHeaders from "./social/ModuleSharedPostHeaders";
 import ModuleSharedPostImage from "./social/ModuleSharedPostImage";
 import ModuleSharedPostDetails from "./social/ModuleSharedPostDetails";
-function ContainerHomePosts() {
+function SingleContainerHomePosts() {
   const apiSuccess = useSelector((state) => state.api);
   const [visibleComment, setVisibleComment] = useState(false);
   const [visibleShared, setVisibleShared] = useState(false);
@@ -25,14 +25,20 @@ function ContainerHomePosts() {
   const [slug, setSlug] = useState(null);
   const [onSuccess, setOnSuccess] = useState(true);
   useEffect(() => {
-    Axios.get(apis.homepageapi, {
-      headers: {
-        Authorization: `Token ${constants.token_id}`,
+    Axios.post(
+      apis.SinglePostView,
+      {
+        slug_post: "shabeen_muhammed-a-1e9f5eb4-e82b-4",
       },
-    })
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    )
       .then((res) => {
-        console.log('we3',res)
-        const updatedPosts = res.data.data.posts.map((post) => ({
+        console.log("we3", res);
+        const updatedPosts = res.data.data.map((post) => ({
           ...post,
           liked: post.is_liked === 1 ? true : false,
           totalLike: post.like || 0,
@@ -45,7 +51,7 @@ function ContainerHomePosts() {
       });
   }, [onSuccess, apiSuccess, visibleComment]);
 
-  console.log('weweweee',postsData)
+  console.log("weweweee", postsData);
 
   const likeHandler = (postId, index, isSharedPost) => {
     // e.preventDefault()
@@ -307,11 +313,13 @@ function ContainerHomePosts() {
                   <ModuleSharedPostImage data={item} />
                 ) : (
                   <div className="post__medias">
-                    <img
-                      className="post__media"
-                      src={`${item.image}`}
-                      alt="Post Content"
-                    />
+                    {item.image && (
+                      <img
+                        className="post__media"
+                        src={`${item.image}`}
+                        // alt="Post Content"
+                      />
+                    )}
                     {/* multiple image */}
                     {/* <img
                     className="post__media"
@@ -507,9 +515,7 @@ function ContainerHomePosts() {
                   ) : (
                     <>
                       <div className="post__likes">
-                        <h6 className="post-names" >
-                          {item.totalLike} likes
-                        </h6>
+                        <h6 className="post-names">{item.totalLike} likes</h6>
                       </div>
                       <div className="comments">{item.caption}</div>
                     </>
@@ -619,4 +625,4 @@ function ContainerHomePosts() {
   );
 }
 
-export default ContainerHomePosts;
+export default SingleContainerHomePosts;

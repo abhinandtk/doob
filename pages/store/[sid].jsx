@@ -100,10 +100,11 @@ function StoreDetailPage() {
                 })
               }
             >
-              <img
+              {/* <img
                 src="/images/store/Fil-icon.png"
                 className="filters-icon"
-              ></img>
+              ></img> */}
+              search
             </span>
           </span>
           <button type="submit" style={{ display: "none" }}></button>

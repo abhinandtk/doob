@@ -142,7 +142,7 @@ function GamesCard({ data }) {
                   </div>
                   {item.created_by != constants.user_id && (
                     <button type="button" className="Join-btn float-end">
-                      Join
+                      View
                     </button>
                   )}
                 </div>

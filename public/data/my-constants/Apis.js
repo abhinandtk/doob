@@ -27,6 +27,7 @@ const apis = {
     // social module
 
     'homepageapi': `${constants.port}/social/Api/home_page_api/`,
+    'SinglePostView': `${constants.port}/social/Api/post_detail_view`,
     'likepost': `${constants.port}/social/Api/post_like`,
     'postcomment': `${constants.port}/social/Api/comment_api`,
     'commentlist': `${constants.port}/social/Api/comment_list`,
@@ -182,6 +183,7 @@ const apis = {
     'generateMatch': `${constants.port}/tournament/api/generate_matches`,
     'matchDetail': `${constants.port}/tournament/api/match_detail`,
     'createTimeline': `${constants.port}/tournament/api/create_match_point`,
+    'leagueTable': `${constants.port}/tournament/api/league_table`,
 
 
 

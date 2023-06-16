@@ -54,7 +54,7 @@ function OtherUserAccount() {
           isPrivate={isPrivate}
           setIsSuccess={setIsSuccess}
         />
-        {profileDetails.is_following === 1 ? (
+        {profileDetails.is_following === 1 || !isPrivate ? (
           <section id="tabs">
             <Tabs
               id="uncontrolled-tab-example"

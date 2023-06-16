@@ -51,6 +51,7 @@ function TeamsCard({ teamsData, setOnSuccess, admin }) {
     ).then((res) => {
       setVisible(false);
       setOnSuccess((prev) => !prev);
+      console.log('resy',res)
       if (res.data.status === 1) {
         notification.success({
           message: constants.Success,
@@ -64,7 +65,7 @@ function TeamsCard({ teamsData, setOnSuccess, admin }) {
       } else {
         notification.error({
           message: constants.Error,
-          description: `${labels["Team Exist"]}`,
+          description: res.data.message_en,
         });
       }
     });

@@ -27,7 +27,7 @@ function MainHeader({ title }) {
   const updateState = useSelector((state) => state.navbarUpdate.update);
   const dispatch = useDispatch();
 
-  console.log("storreCount", storeCount,updateState);
+  console.log("storreCount", storeCount, updateState);
 
   const [user, setUser] = useState("");
 
@@ -38,7 +38,7 @@ function MainHeader({ title }) {
       },
     }).then((res) => {
       dispatch(updateStoreCartCount(res.data.data.cart_count));
-      dispatch(updateGroundCartCount(res.data.data.playground))
+      dispatch(updateGroundCartCount(res.data.data.playground));
       setUser(res.data.data.user_type);
       console.log("count", res);
     });
@@ -68,6 +68,13 @@ function MainHeader({ title }) {
           router.push("/");
           window.location.reload(false);
         } else {
+          localStorage.removeItem("user-login-tokens");
+          notification.success({
+            message: " Success",
+            description: "Logout Successfully",
+          });
+          router.push("/");
+          window.location.reload(false);
           console.log("error loading");
         }
       })
@@ -77,8 +84,8 @@ function MainHeader({ title }) {
           message: " Success",
           description: "Logout Successfully",
         });
-        // window.location.reload(false);
         router.push("/");
+        window.location.reload(false);
         console.log("error loading");
       });
   };
@@ -250,7 +257,7 @@ function MainHeader({ title }) {
               <Nav.Link
                 href={`${
                   // storeCount != 0
-                  asPath.includes("store") ||asPath.includes("shop")
+                  asPath.includes("store") || asPath.includes("shop")
                     ? "/store/cart"
                     : "/play-ground/play-ground-cart"
                 }`}

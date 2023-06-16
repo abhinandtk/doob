@@ -73,7 +73,7 @@ function HomePage ()  {
       // onHide={() => setCountryModalShow(false)} 
       className='country_select'
       >
-        <Modal.Header closeButton>
+        <Modal.Header >
      
         </Modal.Header>
         <Modal.Body>

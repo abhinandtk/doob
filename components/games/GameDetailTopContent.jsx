@@ -217,11 +217,11 @@ function GameDetailTopContent({ details, setOnSuccess }) {
             <h5 style={{ fontWeight: "700", fontSize: "15px" }}>Description</h5>
             <p className="col-md-12 game-description">{details.description}</p>
           </div>
-          <div>
+          {/* <div>
             <div style={{ float: "right", color: "#17A803" }}>
               More <i className="bi bi-chevron-down "></i>
             </div>
-          </div>
+          </div> */}
           <hr className=" game-line"></hr>
         </>
       )}

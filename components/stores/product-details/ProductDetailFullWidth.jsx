@@ -126,9 +126,9 @@ function ProductDetailFullWidth({ product,setApiSuccess }) {
           description:`${labels['Added to cart']}`
         })
       }else{
-        notification.warning({
-          message:'Warning',
-          description:`${labels['Not enough stock']}`
+        notification.error({
+          message:constants.Error,
+          description:res.data.message_en
         })
 
       }

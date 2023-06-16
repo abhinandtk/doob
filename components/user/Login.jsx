@@ -116,7 +116,7 @@ function Login({setActiveModal}) {
     // onHide={()=>setShows(false)} 
      >
          
-        <Modal.Header  closeButton>
+        <Modal.Header  >
          
         </Modal.Header>
         <Modal.Title className='title' >Login</Modal.Title>

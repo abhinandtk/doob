@@ -15,7 +15,7 @@ function FixtureView({ data, setOnSuccess, admin }) {
             setOnSuccess={setOnSuccess}
             admin={admin}
           />
-          {/* <LeaguePointTable /> */}
+          <LeaguePointTable />
         </div>
       </div>
     </Fragment>

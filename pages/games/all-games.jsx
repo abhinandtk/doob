@@ -11,12 +11,17 @@ import MainHeader from "@/components/shared/headers/MainHeader";
 import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileFooter from "@/components/shared/MobileFooter";
+import { useRouter } from "next/router";
 function AllGamesPage() {
+  const router=useRouter()
+  const {tab}=router.query
   const [myGames, setMyGames] = useState([]);
   const [gamesJoined, setGamesJoined] = useState([]);
   const [gamesInvited, setGamesInvited] = useState([]);
-  const [activeTab, setActiveTab] = useState("games");
+  const [activeTab, setActiveTab] = useState(tab);
   const [selectedCategory, setSelectedCategory] = useState(null);
+
+  
 
   const getTabName = (tabKey) => {
     if (tabKey === "games") {
@@ -71,7 +76,7 @@ function AllGamesPage() {
         </h5>
         <div className="play_detail_tabs">
           <Tabs
-            defaultActiveKey="Home"
+            defaultActiveKey={activeTab}
             id="my-tabs"
             className=""
             style={{ justifyContent: "initial", color: "red" }}

@@ -11,6 +11,16 @@ function GameParticipantsList({ participants,setOnSuccess }) {
   console.log("result6567", participants);
   const router = useRouter();
   const { gameId } = router.query;
+  const handleShare = () => {
+    // e.preventDefault();
+    // e.stopPropagation();
+    try {
+      navigator.share({ url: window.location.href });
+      console.log("Shared successfully!");
+    } catch (error) {
+      console.error("Error sharing:", error);
+    }
+  };
 
   const removeHandler = (id) => {
     console.log("id324", id);
@@ -88,6 +98,7 @@ function GameParticipantsList({ participants,setOnSuccess }) {
            {router.asPath}
           </span>
         </p>
+        <span onClick={()=>handleShare()}>
         <svg
           width="16"
           className="float-end"
@@ -111,6 +122,7 @@ function GameParticipantsList({ participants,setOnSuccess }) {
             stroke-linejoin="round"
           />
         </svg>
+        </span>
       </div>
     </Fragment>
   );

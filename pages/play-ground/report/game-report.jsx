@@ -96,7 +96,7 @@ function GameReport() {
       },
     },
   };
-  const url = `${constants.port}/playground/api/ad_game_report_csv?start_date=${startDate}&end_date=${endDate}`;
+  const url = `${constants.port}/playground/api/ad_game_report_csv?start_date=${startDate}&end_date=${endDate}&username=${constants.user_id}`;
 
   return (
     <div>

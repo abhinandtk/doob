@@ -20,10 +20,7 @@ import { Labels } from "@/public/data/my-constants/Labels";
 import moment from "moment";
 import Link from "next/link";
 function TournamentMatches({ data, setOnSuccess, admin, home }) {
-  console.log(
-    "dddddddaaaaaaaaaata,data",
-    home && home.tournament_details.game_name_id
-  );
+  console.log("dddddddaaaaaaaaaata,data", data);
 
   const router = useRouter();
   const { tid } = router.query;
@@ -111,6 +108,11 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
           message: constants.Error,
           description: `${labels["Maximum participants no match"]}`,
         });
+      } else {
+        notification.error({
+          message: constants.Error,
+          description: res.data.message_en,
+        });
       }
 
       console.log("generate", res);
@@ -138,12 +140,13 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
     });
   };
 
-  const handleModalShow = (match, teamA, teamB) => {
+  const handleModalShow = (match, teamA, teamB, status) => {
     if (isIdExist) {
       setVisible(true);
       setMatchId(match);
       setTeamAid(teamA);
       setTeamBid(teamB);
+      setMatchStatus(status);
     }
   };
   const showStadiumModalHandler = (match) => {
@@ -180,7 +183,7 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
         team_a_id: teamAid,
         team_b_id: teamBid,
         game_type: home && home.tournament_details.game_name_id,
-        category_game: home && home.tournament_details.tournament_category, 
+        category_game: home && home.tournament_details.tournament_category,
       };
     } else if (type === "stadium") {
       updatedMatch = {
@@ -434,7 +437,9 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
                             src={`${constants.port}${content.team_A_logo}`}
                             className="clubs"
                           ></img>
-                        ):'Team A?'}
+                        ) : (
+                          "Team A?"
+                        )}
                         <p className="team1">{content.team_A} </p>
                       </div>
 
@@ -444,24 +449,31 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
                             src={`${constants.port}${content.team_B_logo}`}
                             className="clubs"
                           ></img>
-                        ):'Team B?'}
+                        ) : (
+                          "Team B?"
+                        )}
                         <p className="team2">{content.team_B}</p>
                       </div>
                     </Link>
-                    <div className="live-watch1 " style={{cursor:'ponter'}}>
+                    <div className="live-watch1 " style={{ cursor: "ponter" }}>
                       <p
                         onClick={() =>
                           handleModalShow(
-                            content.id, 
+                            content.id,
                             content.team_A_id,
-                            content.team_B_id
+                            content.team_B_id,
+                            content.match_status
                           )
                         }
                         className="space-line"
                       >
-                        {content.team_A_score !=null ? content.team_A_score : "____"}
+                        {content.team_A_score != null
+                          ? content.team_A_score
+                          : "____"}
                         &nbsp;-&nbsp;
-                        {content.team_B_score !=null? content.team_B_score : "____"}
+                        {content.team_B_score != null
+                          ? content.team_B_score
+                          : "____"}
                       </p>
                       <p
                         onClick={() => showDateModalHandler(content.id)}
@@ -488,7 +500,7 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
                           <i className="bi bi-clock "></i>
                         )}
                       </p>
-                      
+
                       <button
                         type="button"
                         className=" btn-outline-secondary left-time"

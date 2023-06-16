@@ -165,7 +165,16 @@ function PlayGroundPage() {
           <>
             <div key={index} className="row game">
               <div className="col-md-6">
-                <button type="button" className="notification-btn ">
+                <button
+                  type="button"
+                  className="notification-btn "
+                  onClick={() =>
+                    router.push({
+                      pathname: "/games/all-games",
+                      query: { tab: "invited" },
+                    })
+                  }
+                >
                   <svg
                     width="31"
                     height="22"
@@ -219,8 +228,17 @@ function PlayGroundPage() {
                 </button>
               </div>
               <div className="col-md-6">
-                <button type="button" className="notification1-btn ">
-                  You have {contents.invitation_count} upcoming bookings
+                <button
+                  type="button"
+                  className="notification1-btn "
+                  onClick={() =>
+                    router.push({
+                      pathname: "/games/all-games",
+                      query: { tab: "games" },
+                    })
+                  }
+                >
+                  You have {contents.my_upcoming_bookings} upcoming bookings
                 </button>
               </div>
             </div>
@@ -246,9 +264,9 @@ function PlayGroundPage() {
                     >
                       Games near me
                     </h5>
-                    <p className="float-end" style={{ color: "#959595" }}>
+                    {/* <p className="float-end" style={{ color: "#959595" }}>
                       View all
-                    </p>
+                    </p> */}
                   </div>
                 </section>
                 <section className="game-scroll">

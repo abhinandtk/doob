@@ -39,7 +39,9 @@ function AdminAllOrders() {
       console.log("allorders,", res);
     });
   }, [visible]);
-  const showUpdateHandler = (id) => {
+  const showUpdateHandler = (id,pay,order) => {
+    setPaymentStatus(pay)
+    setOrderStatus(order)
     setVisible(true);
     setOrderId(id);
   };
@@ -114,6 +116,7 @@ function AdminAllOrders() {
                 background: "#eeeeee",
                 color: "#959595",
               }}
+              value={paymentStatus}
               onChange={(e) => setPaymentStatus(e.target.value)}
             >
               <option value="" style={{ color: "#959595" }}>
@@ -137,6 +140,7 @@ function AdminAllOrders() {
                 background: "#eeeeee",
                 color: "#959595",
               }}
+              value={orderStatus}
               onChange={(e) => setOrderStatus(e.target.value)}
             >
               <option value="" style={{ color: "#959595" }}>
@@ -192,7 +196,7 @@ function AdminAllOrders() {
                       #{item.order_id_m}
                       <span>
                         <Button
-                          onClick={() => showUpdateHandler(item.order_id_m)}
+                          onClick={() => showUpdateHandler(item.order_id_m,item.payment_status,item.order_status)}
                           type="button"
                           className="order-btn "
                         >
