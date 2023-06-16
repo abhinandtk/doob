@@ -98,7 +98,7 @@ function GameParticipantsList({ participants,setOnSuccess }) {
            {router.asPath}
           </span>
         </p>
-        <span onClick={()=>handleShare()}>
+        <span onClick={()=>handleShare()} style={{cursor:"pointer"}}>
         <svg
           width="16"
           className="float-end"

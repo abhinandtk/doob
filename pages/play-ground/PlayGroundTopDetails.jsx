@@ -1,15 +1,22 @@
 import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState } from "react";
 import { Fragment } from "react";
 import Axios from 'axios'
 import apis from "@/public/data/my-constants/Apis";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { notification } from "antd";
+import ReviewPlayground from "@/components/playGround/review/ReviewPlayground";
 function PlayGroundTopDetails({ details }) {
   const router = useRouter();
   const { pgid } = router.query;
   const labels=Labels()
+  const [visible,setVisible]=useState(false)
+
+  const toggleModal = () => {
+    setVisible(!visible);
+  };
+  
   const handleShareFieldPost = () => {
     Axios.post(
       apis.shareFieldToPost,
@@ -33,6 +40,7 @@ function PlayGroundTopDetails({ details }) {
   //   console.log("qqqqqqqqqqqqqqq45", details.city.region_name);
   return (
     <Fragment>
+      {visible && <ReviewPlayground setVisible={setVisible} />}
       {details && (
         <>
           <div className="banner my-3">
@@ -82,10 +90,11 @@ function PlayGroundTopDetails({ details }) {
             {details.location},{details.city && details.city.region_name}
           </p>
           <div className="clearfix rating">
-            {/* <span className="float-start ml-5">
+            <span className="float-start ml-5" onClick={toggleModal}>
               <i className="bi bi-star-fill" style={{ color: "yellow" }}></i>
               <span className="mx-2">{details.rating}</span>
-            </span> */}
+            </span>
+            
             <p
               className="float-end"
               style={{ fontWeight: "700", color: "#17A803" }}

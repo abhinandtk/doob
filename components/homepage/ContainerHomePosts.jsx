@@ -166,7 +166,7 @@ function ContainerHomePosts() {
                               {item.user_detail.account_type === "star" ? (
                                 <span>
                                   <img
-                                    src="/images/star.png"
+                                    src="/images/Star.png"
                                     className="mx-1 mb-1"
                                   ></img>
                                 </span>
@@ -246,7 +246,7 @@ function ContainerHomePosts() {
                             {item.user_detail.account_type === "star" ? (
                               <span>
                                 <img
-                                  src="/images/star.png"
+                                  src="/images/Star.png"
                                   className="mx-1 mb-1"
                                 ></img>
                               </span>
@@ -271,7 +271,7 @@ function ContainerHomePosts() {
                             "star" ? (
                               <span>
                                 <img
-                                  src="/images/star.png"
+                                  src="/images/Star.png"
                                   className="mx-1 mb-1"
                                 ></img>
                               </span>

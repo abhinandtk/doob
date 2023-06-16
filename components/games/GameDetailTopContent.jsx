@@ -50,12 +50,14 @@ function GameDetailTopContent({ details, setOnSuccess }) {
           description: `${labels["Joined game"]}`,
         });
         setOnSuccess((prev) => !prev);
+      } else {
+        notification.error({
+          message: constants.Error,
+          description: res.data.message_en,
+        });
+        setOnSuccess((prev) => !prev);
       }
-      console.log("jjjj4joingame", res, {
-        user_id: [id],
-        game_slug: gameId,
-        type: "join",
-      });
+      
     });
   };
   const leftGameHandler = (id) => {
@@ -184,7 +186,8 @@ function GameDetailTopContent({ details, setOnSuccess }) {
                           Leave
                         </button>
                       ) : details.is_joined === "Left" ||
-                        details.is_joined === "Invitation Declined" || "No user exist" ? (
+                        details.is_joined === "Invitation Declined" ||
+                        "No user exist" ? (
                         <button
                           type="button"
                           onClick={() => joinGameHandler(constants.user_id)}

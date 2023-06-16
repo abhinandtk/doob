@@ -169,6 +169,9 @@ const apis = {
     'adminAllBookings': `${constants.port}/playground/api/ad_list_all_booking`,
     'adminBookingStatusChange': `${constants.port}/playground/api/booking_status_change`,
     'groundmanageSummary': `${constants.port}/playground/api/ad_playground_management`,
+    'stadiumReviewView': `${constants.port}/playground/api/show_stadium_review`,
+    'stadiumReviewAdd': `${constants.port}/playground/api/create_stadium_review`,
+    'stadiumReviewRemove': `${constants.port}/playground/api/remove_stadium_review`,
 
     //Tournament
 
