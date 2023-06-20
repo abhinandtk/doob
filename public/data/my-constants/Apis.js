@@ -187,6 +187,7 @@ const apis = {
     'matchDetail': `${constants.port}/tournament/api/match_detail`,
     'createTimeline': `${constants.port}/tournament/api/create_match_point`,
     'leagueTable': `${constants.port}/tournament/api/league_table`,
+    'doubleEliminationMatchUpdate': `${constants.port}/tournament/api/double_elimination_match_status`,
 
 
 

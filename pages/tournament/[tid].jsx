@@ -47,10 +47,14 @@ function TournamentDetailPage() {
         },
       }
     ).then((res) => {
-      setHomeTabData(res.data.data.home);
-      setTeamsTabData(res.data.data.teams);
-      setMatchesTabData(res.data.data.matches);
-      setAdminList(res.data.data.home.tournament_details.tournament_admin_name);
+      if (res.data.data) {
+        setHomeTabData(res.data.data.home);
+        setTeamsTabData(res.data.data.teams);
+        setMatchesTabData(res.data.data.matches);
+        setAdminList(
+          res.data.data.home.tournament_details.tournament_admin_name
+        );
+      }
       console.log("response", res);
     });
   }, [tid, onSuccess]);
@@ -75,8 +79,8 @@ function TournamentDetailPage() {
   };
 
   const tabButton = (tabKey) => (
-    <button
-      type="button"
+    <div
+      // type="button"
       className={`${
         activeTab === tabKey
           ? "btn btn-outline-secondary match2"
@@ -84,7 +88,7 @@ function TournamentDetailPage() {
       }`}
     >
       {getTabButtonName(tabKey)}
-    </button>
+    </div>
   );
   return (
     <div>
@@ -103,7 +107,7 @@ function TournamentDetailPage() {
                   alt="Card image cap"
                 />
                 <div className="live-icon1">
-                  <span onClick={()=>handleShare()}>
+                  <span onClick={() => handleShare()} style={{cursor:'pointer'}}>
                     <svg
                       width="16"
                       height="19"
@@ -253,13 +257,14 @@ function TournamentDetailPage() {
                 data={matchesTabData}
                 setOnSuccess={setOnSuccess}
                 admin={adminList}
+                home={homeTabData}
+
               />
             </Tab>
           </Tabs>
         </div>
       </div>
       <MobileFooter />
-
     </div>
   );
 }

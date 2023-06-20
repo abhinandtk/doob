@@ -94,7 +94,7 @@ function SelectGround({ details, setSuccess, setDateSelected }) {
         className="game-choose1"
         footer={
           <Button onClick={() => setVisible(false)} key="submit" type="primary">
-            Submit
+            Select
           </Button>
         }
       >

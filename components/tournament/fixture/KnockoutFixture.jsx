@@ -45,7 +45,7 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
                             match.team_B_score <= match.team_A_score
                               ? "group-two"
                               : "group-one"
-                          }`} 
+                          }`}
                         >
                           {match.team_B}
                         </div>
@@ -56,13 +56,9 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
                       </div>
                     </div>
                   </div>
-                  
                 ))}
               </div>
-
-              
             ) : item.match_type === "Round of 16" ? (
-              
               <div key={index} className="round">
                 {item.matches.map((match, index) => (
                   <div key={index} className="match">
@@ -107,7 +103,6 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
                   </div>
                 ))}
               </div>
-            
             ) : item.match_type === "Quater Finals" ? (
               <div key={index} className="round">
                 {item.matches.map((match, index) => (
@@ -124,7 +119,7 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
                             className="group-image"
                           ></img>
                         </div>
-                      )} 
+                      )}
                       <div className="fix">
                         <div
                           className={`${
@@ -133,7 +128,7 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
                               : "group-two"
                           }`}
                         >
-                          {match.team_A} 
+                          {match.team_A}
                         </div>
                         <div
                           className={`${
@@ -187,18 +182,20 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
                 <div className="round">
                   {item.matches.map((match, index_) => (
                     <div key={index_} className="match">
-                      <div className="team">
+                      <div className="team" style={{ height: "115px" }}>
                         {match.team_A_logo && match.team_B_logo && (
-                          <div className="fix-image">
-                            <img
-                              src={`${constants.port}${match.team_A_logo}`}
-                              className="group-image"
-                            ></img>
-                            <img
-                              src={`${constants.port}${match.team_B_logo}`}
-                              className="group-image"
-                            ></img>
-                          </div>
+                          <>
+                            <div className="fix-image">
+                              <img
+                                src={`${constants.port}${match.team_A_logo}`}
+                                className="group-image"
+                              ></img>
+                              <img
+                                src={`${constants.port}${match.team_B_logo}`}
+                                className="group-image"
+                              ></img>
+                            </div>
+                          </>
                         )}
                         <div className="fix">
                           <div className="group-one-final">{match.team_A}</div>
@@ -210,6 +207,14 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
                           </div>
                           <div className="group-two-final">
                             {match.team_B_score}
+                          </div>
+                        </div>
+                        <div className="fix1">
+                          <div className="group-two-final">
+                          {match.team_A_score > match.team_B_score && <i className="bi bi-trophy" />}
+                          </div>
+                          <div className="group-two-final">
+                          {match.team_B_score > match.team_A_score && <i className="bi bi-trophy" />}
                           </div>
                         </div>
                       </div>

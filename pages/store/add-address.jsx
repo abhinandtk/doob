@@ -164,7 +164,7 @@ function AddAddressPage() {
                 }}
               >
                 <i className="bi bi-grid "></i>
-                <span className="mx-1">Thirty Party</span>
+                <span className="mx-1">Third Party</span>
               </button>
             </div>
             {addressType === "home" && (

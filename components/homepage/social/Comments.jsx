@@ -235,7 +235,7 @@ function Comments({ setVisibleComment, postId, slug }) {
                   </Form.Group>
                   <p
                     className="mx-2"
-                    style={{ color: "black", textDecoration: "none" }}
+                    style={{ color: "black", textDecoration: "none",cursor:'pointer' }}
                     onClick={commentPostHandler}
                   >
                     Post

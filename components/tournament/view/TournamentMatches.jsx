@@ -20,7 +20,7 @@ import { Labels } from "@/public/data/my-constants/Labels";
 import moment from "moment";
 import Link from "next/link";
 function TournamentMatches({ data, setOnSuccess, admin, home }) {
-  console.log("dddddddaaaaaaaaaata,data", data);
+  console.log("dddddddaaaaaaaaaata,data", home);
 
   const router = useRouter();
   const { tid } = router.query;
@@ -206,11 +206,17 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
     }
     console.log("inpuuuut", updatedMatch);
 
-    Axios.post(apis.updateMatchResult, updatedMatch, {
-      headers: {
-        Authorization: `Token ${constants.token_id}`,
-      },
-    }).then((res) => {
+    Axios.post(
+      home.tournament_details.match_mode === "Double-Elimination"
+        ? apis.doubleEliminationMatchUpdate
+        : apis.updateMatchResult,
+      updatedMatch,
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
       if (res.data.status === 1) {
         notification.success({
           message: constants.Success,
@@ -420,7 +426,7 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
               className="my-4"
               style={{ fontSize: "15px", fontWeight: "600" }}
             >
-              {item.match_type}
+              {item.match_type.replace(/_/g, " ")}
             </h6>
 
             {item.matches.map((content, index_) => (
