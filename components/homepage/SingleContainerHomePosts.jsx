@@ -13,6 +13,7 @@ import { useSelector } from "react-redux";
 import SharedPostHeaders from "./social/ModuleSharedPostHeaders";
 import ModuleSharedPostImage from "./social/ModuleSharedPostImage";
 import ModuleSharedPostDetails from "./social/ModuleSharedPostDetails";
+import { useRouter } from "next/router";
 function SingleContainerHomePosts() {
   const apiSuccess = useSelector((state) => state.api);
   const [visibleComment, setVisibleComment] = useState(false);
@@ -24,20 +25,28 @@ function SingleContainerHomePosts() {
   const [postId, setPostId] = useState(null);
   const [slug, setSlug] = useState(null);
   const [onSuccess, setOnSuccess] = useState(true);
+  const router = useRouter();
+  const { postSlug } = router.query;
+  console.log("sluuuuuug", postSlug);
   useEffect(() => {
+    const headers = {};
+
+    if (constants.token_id) {
+      headers.Authorization = `Token ${constants.token_id}`;
+    }
     Axios.post(
       apis.SinglePostView,
       {
-        slug_post: "shabeen_muhammed-a-1e9f5eb4-e82b-4",
+        slug_post: postSlug,
       },
       {
-        headers: {
-          Authorization: `Token ${constants.token_id}`,
-        },
+        headers: headers,
       }
     )
       .then((res) => {
-        console.log("we3", res);
+        console.log("we3", res, {
+          slug_post: postSlug,
+        });
         const updatedPosts = res.data.data.map((post) => ({
           ...post,
           liked: post.is_liked === 1 ? true : false,
@@ -46,10 +55,10 @@ function SingleContainerHomePosts() {
         setPostsData(updatedPosts);
       })
       .catch((error) => {
-        localStorage.removeItem("user-login-tokens");
+        // localStorage.removeItem("user-login-tokens");
         console.error(error);
       });
-  }, [onSuccess, apiSuccess, visibleComment]);
+  }, [onSuccess, apiSuccess, visibleComment, postSlug]);
 
   console.log("weweweee", postsData);
 
@@ -113,13 +122,23 @@ function SingleContainerHomePosts() {
     const timeString = timeDiff.humanize() + " ago";
     return timeString;
   }
+  console.log(
+    "yyyyyyyyy",
+    postsData.length != 0,
+    (postsData[0] && !postsData[0].is_private) ||
+      (postsData[0] && postsData[0].is_private === 1)
+  );
+  const loginUser = constants.user_id;
   return (
     <Fragment>
       {/* <div className="text_followers" >My Followers</div> */}
       <div className="ms-1">
         <b>My Followers</b>
       </div>
-      {postsData.length != 0 ? (
+      {postsData.length != 0 &&
+      ((postsData[0] && !postsData[0].is_private) ||
+        (postsData[0] && postsData[0].is_private === 1) ||
+        (postsData[0] && postsData[0].user_detail.id === loginUser)) ? (
         postsData.map((item, index) => (
           <div key={index} className="posts">
             <article className="post">
@@ -526,7 +545,10 @@ function SingleContainerHomePosts() {
           </div>
         ))
       ) : (
-        <div style={{ height: "400px" }}>&nbsp;</div>
+        <div className="profile-private">
+          {/* <h5 className="text-center">This Account is Private</h5> */}
+          <p className="text-center">This Post is Unavailable</p>
+        </div>
       )}
       {visibleComment && (
         <Comments
@@ -615,7 +637,7 @@ function SingleContainerHomePosts() {
         <div className="post__medias" style={{ marginTop: "9px" }}>
           <img
             className="post__media"
-            src="../images/Group 13.png"
+            src="/images/Group 13.png"
             alt="Post Content"
           />
         </div>

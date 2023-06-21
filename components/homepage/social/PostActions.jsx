@@ -16,6 +16,8 @@ export default function PostActions({
   const [visible, setVisible] = useState(false);
   const [reason, setReason] = useState("");
   const labels = Labels();
+  console.log("pppppppppppaaaaaaaaaaaaaaaaa", data);
+
   const postReportHandler = (e) => {
     console.log("ppppppppppp", postId);
     e.preventDefault();
@@ -58,6 +60,14 @@ export default function PostActions({
       });
     });
     setVisible(false);
+  };
+  const handleSend = async (slug) => {
+    try {
+      await navigator.share({ url: `${window.location.href}page/post/${slug}` });
+      console.log("Shared successfully!");
+    } catch (error) {
+      console.error("Error sharing:", error);
+    }
   };
 
   return (
@@ -146,6 +156,9 @@ export default function PostActions({
               Share
             </Dropdown.Item>
           )}
+          <Dropdown.Item onClick={() => handleSend(data.slug)}>
+            Send
+          </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
     </>

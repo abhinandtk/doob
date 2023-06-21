@@ -8,6 +8,7 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import moment from "moment";
 import UserProfileActivityTab from "../homepage/social/UserProfileActivityTab";
+import Link from "next/link";
 function ProfileDetails() {
   const [key, SetKey] = useState(1);
   const [userDetials, setUserDetails] = useState([]);
@@ -59,12 +60,14 @@ function ProfileDetails() {
                       className="col-lg-4 col-md-6 col-sm-4 col-xs-2"
                       tabindex="0"
                     >
-                      <img
-                        src={`${constants.port}${item.image}`}
-                        className="image"
-                        alt=""
-                        style={{ objectFit: "cover" }}
-                      />
+                      <Link href={`/page/post/${item.slug}`}>
+                        <img
+                          src={`${constants.port}${item.image}`}
+                          className="image"
+                          alt=""
+                          style={{ objectFit: "cover" }}
+                        />
+                      </Link>
                     </div>
                   );
                 })}
@@ -77,8 +80,6 @@ function ProfileDetails() {
           </Tabs>
         </section>
       </div>
-
-     
     </Fragment>
   );
 }

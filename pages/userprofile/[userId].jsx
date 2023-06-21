@@ -9,6 +9,7 @@ import apis from "@/public/data/my-constants/Apis";
 import OtherProfileHeaderDetails from "@/components/profile/OtherProfileHeaderDetails";
 import { useEffect } from "react";
 import UserProfileActivityTab from "@/components/homepage/social/UserProfileActivityTab";
+import Link from "next/link";
 function OtherUserAccount() {
   const router = useRouter();
   const { userId } = router.query;
@@ -40,7 +41,7 @@ function OtherUserAccount() {
         console.log("Error:", error);
         // Handle any errors here
       });
-  }, [isSuccess]);
+  }, [isSuccess, userId]);
 
   return (
     <Fragment>
@@ -66,12 +67,14 @@ function OtherUserAccount() {
                 <div className="row images">
                   {postDetails.map((item, index) => (
                     <div key={index} className="col-md-4" tabindex="0">
-                      <img
-                        src={`${constants.port}${item.image}`}
-                        style={{ objectFit: "cover" }}
-                        className="image"
-                        alt=""
-                      />
+                      <Link href={`/page/post/${item.slug}`}>
+                        <img
+                          src={`${constants.port}${item.image}`}
+                          style={{ objectFit: "cover" }}
+                          className="image"
+                          alt=""
+                        />
+                      </Link>
                     </div>
                   ))}
                 </div>

@@ -232,7 +232,7 @@ function OtherProfileHeaderDetails({ data, id, isPrivate, setIsSuccess }) {
                       className="side-menu__suggestion-buttons "
                       style={{ backgroundColor: "grey" }}
                     >
-                      Request{" "}
+                      {data.is_requested == 0 ?'Request':'Requested'}
                     </button>
                   ) : (
                     <button
