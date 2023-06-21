@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateStoreCartCount } from "@/Redux/cartsCount";
 import { useRouter } from "next/router";
 import { updateGroundCartCount } from "@/Redux/playgroundCartCount";
+import { updateNotificationCount } from "@/Redux/notificationCount";
 
 function MainHeader({ title }) {
   const router = useRouter();
@@ -25,6 +26,7 @@ function MainHeader({ title }) {
   const storeCount = useSelector((state) => state.storeCartCount.storeCount);
   const groundCart = useSelector((state) => state.groundCartCount.groundCount);
   const updateState = useSelector((state) => state.navbarUpdate.update);
+  const notificationCount = useSelector((state)=>state.notificationCount.notification)
   const dispatch = useDispatch();
 
   console.log("storreCount", storeCount, updateState);
@@ -39,6 +41,7 @@ function MainHeader({ title }) {
     }).then((res) => {
       dispatch(updateStoreCartCount(res.data.data.cart_count));
       dispatch(updateGroundCartCount(res.data.data.playground));
+      dispatch(updateNotificationCount(res.data.data.notification_count))
       setUser(res.data.data.user_type);
       console.log("count", res);
     });
@@ -321,7 +324,7 @@ function MainHeader({ title }) {
               <Nav.Link>
                 <div>
                   <div className="  greens1">
-                    <div className="numbers">0</div>
+                    <div className="numbers">{notificationCount}</div>
                   </div>
                   <svg
                     onClick={() => setNotificationShow(!notificationShow)}

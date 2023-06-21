@@ -158,6 +158,13 @@ function OtherProfileHeaderDetails({ data, id, isPrivate, setIsSuccess }) {
               <div className="profile-stats">
                 <ul>
                   <h1 className="profile-user-name">{data.name}</h1>
+                  {data.account_type === "star" ? (
+                  <span>
+                    <img src="/images/Star.png" className="mx-1 mb-1"></img>
+                  </span>
+                ) : (
+                  ""
+                )}
                   <br></br>
                   <h1 className="profile-user-names">@{data.username}</h1>
                   <br></br>

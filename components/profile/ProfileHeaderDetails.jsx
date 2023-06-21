@@ -180,13 +180,13 @@ function ProfileHeaderDetails({ data, setSuccess }) {
                     />
                   ) : data.user_image ? (
                     <img
-                      style={{ borderRadius: "50%",objectFit:'cover' }}
+                      style={{ borderRadius: "50%", objectFit: "cover" }}
                       src={`${constants.port}${data.user_image}`}
                       alt=""
                     ></img>
                   ) : (
                     <img
-                      style={{ borderRadius: "50%",objectFit:'cover' }}
+                      style={{ borderRadius: "50%", objectFit: "cover" }}
                       src="/images/accounts/user_default.png"
                       alt=""
                     ></img>
@@ -201,10 +201,24 @@ function ProfileHeaderDetails({ data, setSuccess }) {
                   <ul>
                     <h1 className="profile-user-name">
                       {data.name}
+                      <span>
+                        {data.account_type === "star" ? (
+                          <span>
+                            <img
+                              src="/images/Star.png"
+                              className="mx-1 mb-1"
+                            ></img>
+                          </span>
+                        ) : (
+                          ""
+                        )}
+                      </span>
                       {/* <span>
-                      <img src='../images/accounts/stars.png' className='mx-1 mb-1'>
-                      </img></span><span><img src='../images/accounts/iconoir_help-circles.png' className=' mb-1'></img>
-                    </span> */}
+                        <img
+                          src="../images/accounts/iconoir_help-circles.png"
+                          className=" mb-1"
+                        ></img>
+                      </span> */}
                     </h1>
                     <br></br>
                     <h1 className="profile-user-names">@{data.username}</h1>
@@ -224,7 +238,7 @@ function ProfileHeaderDetails({ data, setSuccess }) {
                       </span>{" "}
                       <span style={{ color: "#959595" }}>followers</span>
                     </li>
-                    <li >
+                    <li>
                       <span
                         onClick={() => setFollowingListShow(true)}
                         className="profile-stat-count"
@@ -274,7 +288,10 @@ function ProfileHeaderDetails({ data, setSuccess }) {
             </div>
 
             {followersListShow && (
-              <FollowersList setFollowersListShow={setFollowersListShow} setSuccess={setSuccess}/>
+              <FollowersList
+                setFollowersListShow={setFollowersListShow}
+                setSuccess={setSuccess}
+              />
             )}
             {followingListShow && (
               <FollowingList setFollowingListShow={setFollowingListShow} />

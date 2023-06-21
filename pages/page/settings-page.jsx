@@ -168,7 +168,7 @@ function StoreSettingsPage() {
                     <label></label>{" "}
                   </div>
                   <Link
-                    href="/shop/offer-management"
+                    href="/page/user-password-change"
                     style={{ textDecoration: "none", color: "inherit" }}
                   >
                     <h6 className="my-4">

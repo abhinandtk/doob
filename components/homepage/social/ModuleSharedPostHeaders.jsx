@@ -51,7 +51,7 @@ function SharedPostHeaders({ data }) {
                   {data.user_detail.name}
                   {data.user_detail.account_type === "star" ? (
                     <span>
-                      <img src="/images/star.png" className="mx-1 mb-1"></img>
+                      <img src="/images/Star.png" className="mx-1 mb-1"></img>
                     </span>
                   ) : (
                     ""

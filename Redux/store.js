@@ -5,6 +5,7 @@ import storeCartCountReducer from "./cartsCount";
 import groundCartCountReducer from './playgroundCartCount'
 import apiReducer from "./apiSuccess";
 import updateNavbarReducer from "./updateNavbar";
+import notificationReducer from './notificationCount';
 
 export const store = configureStore({
   reducer: {
@@ -14,5 +15,6 @@ export const store = configureStore({
     groundCartCount: groundCartCountReducer,
     navbarUpdate: updateNavbarReducer,
     api: apiReducer,
+    notificationCount:notificationReducer,
   },
 });

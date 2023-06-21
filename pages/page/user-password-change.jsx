@@ -23,7 +23,10 @@ import constants from "@/public/data/my-constants/Constants";
 import PagesSideBar from "@/components/stores/pages/PagesSideBar";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
+import { useRouter } from "next/router";
 function UserPasswordChange() {
+
+  const router=useRouter()
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
 
@@ -48,6 +51,7 @@ function UserPasswordChange() {
           message: constants.Success,
           description: `${labels["Password Changed Successfully"]}`,
         });
+        router.back()
       } else {
         notification.error({
           message: constants.Error,

@@ -17,6 +17,16 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
       });
 
       apiData.forEach((item) => {
+        if (item.match_type === "loser_round_7") {
+          modifiedData.push(item);
+        }
+      });
+      apiData.forEach((item) => {
+        if (item.match_type === "loser_round_6") {
+          modifiedData.push(item);
+        }
+      });
+      apiData.forEach((item) => {
         if (item.match_type === "loser_round_5") {
           modifiedData.push(item);
         }
@@ -71,6 +81,12 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
       });
 
       apiData.forEach((item) => {
+        if (item.match_type === "winner_round_4") {
+          modifiedData.push(item);
+        }
+      });
+
+      apiData.forEach((item) => {
         if (item.match_type === "final_round") {
           modifiedData.push(item);
         }
@@ -119,6 +135,150 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                               className="group-image"
                             ></img>
                           </div>
+                        </div>
+                      )}
+                      <div className="fix">
+                        <div
+                          className={`${
+                            match.team_A_score >= match.team_B_score
+                              ? "group-one"
+                              : "group-two"
+                          }`}
+                        >
+                          {match.team_A}
+                        </div>
+                        <div
+                          className={`${
+                            match.team_B_score >= match.team_A_score
+                              ? "group-one"
+                              : "group-two"
+                          }`}
+                        >
+                          {match.team_B}
+                        </div>
+                      </div>
+                      <div className="fix1">
+                        <div
+                          className={`${
+                            match.team_A_score >= match.team_B_score
+                              ? "group-one"
+                              : "group-two"
+                          }`}
+                        >
+                          {match.team_A_score}
+                        </div>
+                        <div
+                          className={`${
+                            match.team_B_score >= match.team_A_score
+                              ? "group-one"
+                              : "group-two"
+                          }`}
+                        >
+                          {match.team_B_score}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : item.match_type === "loser_round_7" ? (
+              <div
+                key={index}
+                className="round"
+                style={{ position: "relative" }}
+              >
+                <div
+                  className="round-name"
+                  style={{ position: "absolute", top: "0" }}
+                >
+                  {item.match_type.replace(/_/g, " ")}
+                </div>
+
+                {item.matches.map((match, index) => (
+                  <div key={index} className="match">
+                    <div className="team">
+                      {match.team_A_logo && match.team_B_logo && (
+                        <div className="fix-image">
+                          <img
+                            src={`${constants.port}${match.team_A_logo}`}
+                            className="group-image"
+                          ></img>
+                          <img
+                            src={`${constants.port}${match.team_B_logo}`}
+                            className="group-image"
+                          ></img>
+                        </div>
+                      )}
+                      <div className="fix">
+                        <div
+                          className={`${
+                            match.team_A_score >= match.team_B_score
+                              ? "group-one"
+                              : "group-two"
+                          }`}
+                        >
+                          {match.team_A}
+                        </div>
+                        <div
+                          className={`${
+                            match.team_B_score >= match.team_A_score
+                              ? "group-one"
+                              : "group-two"
+                          }`}
+                        >
+                          {match.team_B}
+                        </div>
+                      </div>
+                      <div className="fix1">
+                        <div
+                          className={`${
+                            match.team_A_score >= match.team_B_score
+                              ? "group-one"
+                              : "group-two"
+                          }`}
+                        >
+                          {match.team_A_score}
+                        </div>
+                        <div
+                          className={`${
+                            match.team_B_score >= match.team_A_score
+                              ? "group-one"
+                              : "group-two"
+                          }`}
+                        >
+                          {match.team_B_score}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : item.match_type === "loser_round_6" ? (
+              <div
+                key={index}
+                className="round"
+                style={{ position: "relative" }}
+              >
+                <div
+                  className="round-name"
+                  style={{ position: "absolute", top: "0" }}
+                >
+                  {item.match_type.replace(/_/g, " ")}
+                </div>
+
+                {item.matches.map((match, index) => (
+                  <div key={index} className="match">
+                    <div className="team">
+                      {match.team_A_logo && match.team_B_logo && (
+                        <div className="fix-image">
+                          <img
+                            src={`${constants.port}${match.team_A_logo}`}
+                            className="group-image"
+                          ></img>
+                          <img
+                            src={`${constants.port}${match.team_B_logo}`}
+                            className="group-image"
+                          ></img>
                         </div>
                       )}
                       <div className="fix">
