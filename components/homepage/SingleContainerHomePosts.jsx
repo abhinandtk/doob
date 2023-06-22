@@ -487,14 +487,14 @@ function SingleContainerHomePosts() {
                             }}
                           >
                             {item.post_type === "Product" && (
-                              <s>{item.product.Display_Prize}&nbsp;KD</s>
+                              <s>{item.products.Display_Prize}&nbsp;KD</s>
                             )}
                           </span>
                           <span style={{ color: "#17A803", fontWeight: "600" }}>
                             {item.post_type === "Product"
-                              ? `${item.product.Selling_Prize} KD`
+                              ? `${item.products.Selling_Prize} KD`
                               : item.post_type === "Field"
-                              ? `${item.stadium.amount} KD`
+                              ? `${item.stadiums.amount} KD`
                               : ""}
                           </span>
                         </a>

@@ -32,6 +32,8 @@ function ProductDetailFullWidth({ product,setApiSuccess }) {
   console.log("det32 prvarId first", prVarientId);
   console.log("sdcsdcsdcsdc", product);
   let priceView;
+  let productStock;
+  let varientStatus;;
   // useEffect(() => {
   product &&
     Array.isArray(product) &&
@@ -42,12 +44,14 @@ function ProductDetailFullWidth({ product,setApiSuccess }) {
         ? item.multivarient.map((item_, index_) => {
           console.log('det32 secondvarId',prVarientId)
             if (item_.slug_id === prVarientId) {
+              productStock = item_.stock;
+              varientStatus=item_.status,
               priceView = (
                 <p
                   className="price"
                   style={{ color: "gray", fontWeight: "400" }}
                 >
-                  <s>{item_.cut_prize}</s>
+                  <s>{item_.cut_prize} KD</s>
                   <span
                     className="mx-2"
                     style={{
@@ -56,7 +60,7 @@ function ProductDetailFullWidth({ product,setApiSuccess }) {
                       color: "#17a803",
                     }}
                   >
-                    {item_.actual_prize}
+                    {item_.actual_prize} KD
                   </span>
                   <span></span>
                 </p>
@@ -71,9 +75,11 @@ function ProductDetailFullWidth({ product,setApiSuccess }) {
         console.log('det32 item.varent_idsingle',item.varent_id,'var==id',prVarientId),
 
       item.slug_id === prVarientId &&
-        (priceView = (
+        (productStock = item.stock,
+          varientStatus=item.status,
+          priceView = (
           <p style={{ color: "gray", fontWeight: "400" }}>
-            <s>{item.cut_prize}</s>
+            <s>{item.cut_prize} KD</s>
             <span
               className="mx-2"
               style={{
@@ -82,7 +88,7 @@ function ProductDetailFullWidth({ product,setApiSuccess }) {
                 color: "#17a803",
               }}
             >
-              {item.actual_prize}
+              {item.actual_prize} KD
             </span>
             <span></span>
           </p>
@@ -159,7 +165,14 @@ function ProductDetailFullWidth({ product,setApiSuccess }) {
                 <ModuleVariants product={product} />
                 <ModuleSecondVariants product={product} />
                 <br></br>
-
+                
+                {productStock <=0 ?
+                <p className="my-1" style={{ color: "red" }}>Out of stock</p>:
+                product.Product_Brand.status === 'Active' &&
+                product.Product_Category.status == true && 
+                product.status === 'Active' && 
+                varientStatus === 'Active'?
+                <div>
                 {priceView}
                 <div className="qty">
                   <div
@@ -191,6 +204,7 @@ function ProductDetailFullWidth({ product,setApiSuccess }) {
                 >
                   Add to Cart
                 </Button>
+                </div>:<p className="my-1" style={{ color: "red" }}>Currently Unavailable</p>}
               </div>
             </div>
           </>

@@ -36,6 +36,11 @@ export function Labels() {
         'Offers added successfully': 'Offers added successfully',
         'Offer deleted successfully': 'Offer deleted successfully',
         'Offer edited successfully': 'Offer edited successfully',
+        'Banner added successfully': 'Banner added successfully',
+        'Banner deleted successfully': 'Banner deleted successfully',
+        'Banner edited successfully': 'Banner edited successfully',
+
+
 
 
         //Play Ground 

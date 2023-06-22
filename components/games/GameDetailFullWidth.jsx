@@ -11,8 +11,6 @@ import GameOthersParticipants from "./GameOthersParticipants";
 function GameDetailFullWidth() {
   const router = useRouter();
   const { gameId } = router.query;
-  console.log("popi", gameId);
-
   const [gameDetials, setGameDetails] = useState(null);
   const [onSuccess, setOnSuccess] = useState(false);
   // const [participantsList, setParticipantsList] = useState([]);
@@ -36,17 +34,36 @@ function GameDetailFullWidth() {
   }, [gameId, onSuccess]);
   return (
     <Fragment>
-      <GameDetailTopContent details={gameDetials} setOnSuccess={setOnSuccess}/>
-      {gameDetials &&
-      gameDetials.created_by.created_by_id == constants.user_id ? (
-        <GameParticipantsList
-          participants={gameDetials.participants}
-          setOnSuccess={setOnSuccess}
-        />
-      ) : (<>
-      {gameDetials && 
-        <GameOthersParticipants participants={gameDetials.participants} setOnSuccess={setOnSuccess}/>}</>
-      )}
+      {gameDetials ? (
+        gameDetials.visible_to !== "private" ||
+        gameDetials.is_joined === "Accepted" ||
+        gameDetials.is_joined === "Invited" ||
+        gameDetials.is_joined === "Left" ||
+        gameDetials.created_by.created_by_id == constants.user_id ? (
+          <div>
+            <GameDetailTopContent
+              details={gameDetials}
+              setOnSuccess={setOnSuccess}
+            />
+            {gameDetials.created_by.created_by_id == constants.user_id ? (
+              <GameParticipantsList
+                participants={gameDetials.participants}
+                setOnSuccess={setOnSuccess}
+              />
+            ) : (
+              <GameOthersParticipants
+                participants={gameDetials.participants}
+                setOnSuccess={setOnSuccess}
+              />
+            )}
+          </div>
+        ) : (
+          <div className="profile-private">
+            <h5 className="text-center">This Game is Private</h5>
+            <p className="text-center">Currently unavailable</p>
+          </div>
+        )
+      ) : null}
     </Fragment>
   );
 }

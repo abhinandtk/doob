@@ -10,13 +10,13 @@ function ModuleSharedPostImage({ data }) {
         <Link
           href={
             data.post_type === "Product"
-              ? `/store/product/${data.product.slug_product_varient}`
+              ? `/store/product/${data.products.slug_product_varient}`
               : data.post_type === "Store"
-              ? `/store/${data.store.slug_store}`
+              ? `/store/${data.stores.slug_store}`
               : data.post_type === "Field"
               ? {
-                  pathname: `/play-ground/${data.stadium.slug_field}`,
-                  query: { stadium_id: data.stadium.id, date: moment().format("YYYY-MM-DD") }, // Add your query parameters here
+                  pathname: `/play-ground/${data.stadiums.slug_field}`,
+                  query: { stadium_id: data.stadiums.id, date: moment().format("YYYY-MM-DD") }, // Add your query parameters here
                 }
               : ""
           }

@@ -20,7 +20,7 @@ import MobileFooter from "@/components/shared/MobileFooter";
 import Link from "next/link";
 function FavoriteProducts() {
   const [favLists, setFavLists] = useState([]);
-  const [apiSuccess,setApiSuccess]=useState(false)
+  const [apiSuccess, setApiSuccess] = useState(false);
   useEffect(() => {
     Axios.get(apis.viewwishlist, {
       headers: {
@@ -35,7 +35,7 @@ function FavoriteProducts() {
       );
       console.log("vvvvvvvvvvvvvvvvvvvvvvvvvvview", res);
     });
-  },[apiSuccess]);
+  }, [apiSuccess]);
   const favoriteHandler = (id, favorite) => {
     const api = favorite ? apis.removewishlist : apis.addwishlist;
     Axios.post(
@@ -49,7 +49,7 @@ function FavoriteProducts() {
         },
       }
     ).then((res) => {
-      setApiSuccess(prev=>!prev)
+      setApiSuccess((prev) => !prev);
       if (res.data.status === 1) {
       }
 
@@ -124,21 +124,33 @@ function FavoriteProducts() {
                             >
                               {item.Name}
                             </div>
-
-                            <div style={{ color: "#000", fontSize: "16px" }}>
-                              <s>{item.display_price} KD</s>
-                              <span>
-                                <p
-                                  style={{
-                                    fontSize: "16px",
-                                    color: "#17A803",
-                                    fontWeight: "700",
-                                  }}
-                                >
-                                  {item.selling_price} KD
-                                </p>
-                              </span>
-                            </div>
+                            {item.product_stock <= 0 ? (
+                              <p className="my-1" style={{ color: "red" }}>
+                                Out of Stock
+                              </p>
+                            ) : item.product_brand_status === "Active" &&
+                              item.product_category_status == true &&
+                              item.product_status === "Active" &&
+                              item.product_varient_status === "Active" ? (
+                              <div style={{ color: "#000", fontSize: "16px" }}>
+                                <s>{item.display_price} KD</s>
+                                <span>
+                                  <p
+                                    style={{
+                                      fontSize: "16px",
+                                      color: "#17A803",
+                                      fontWeight: "700",
+                                    }}
+                                  >
+                                    {item.selling_price} KD
+                                  </p>
+                                </span>
+                              </div>
+                            ) : (
+                              <p className="my-1" style={{ color: "red" }}>
+                                Currently Unavailable
+                              </p>
+                            )}
                           </Link>
                         </div>
                       </Card.Body>
@@ -148,7 +160,6 @@ function FavoriteProducts() {
                 ))}
             </div>
           </div>
-          
         </div>
       </div>
       <MobileFooter />

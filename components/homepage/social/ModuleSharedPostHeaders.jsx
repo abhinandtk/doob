@@ -65,10 +65,10 @@ function SharedPostHeaders({ data }) {
                   style={{ fontWeight: "500" }}
                 >
                   {data.post_type === "Product"
-                    ? data.product.product_name
+                    ? data.products.product_name
                     : data.post_type === "Store"
-                    ? data.store.title
-                    : data.post_type === "Field" && data.stadium.stadium_name}
+                    ? data.stores.title
+                    : data.post_type === "Field" && data.stadiums.stadium_name}
                 </span>
               </div>
             </div>

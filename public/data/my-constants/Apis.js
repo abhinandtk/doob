@@ -136,8 +136,11 @@ const apis = {
     'updateOffer': `${constants.port}/store/api/update_offer `,
     'offers_view_get': `${constants.port}/store/api/list_offers_view `,
 
-
-
+    'bannerView': `${constants.port}/store/api/list_user_banner `,
+    'addBanner': `${constants.port}/store/api/add_banner_table `,
+    'editBanner': `${constants.port}/store/api/update_banner`,
+    'deleteBanner': `${constants.port}/store/api/banner_delete`,
+    'getbyIdBanner': `${constants.port}/store/api/single_banner_list`,
 
     //Play ground
 

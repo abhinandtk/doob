@@ -8,11 +8,11 @@ import { Labels } from "@/public/data/my-constants/Labels";
 import { useDispatch } from "react-redux";
 import { toggle } from "@/Redux/updateNavbar";
 function OrderList({ product, setOnSuccess }) {
-  console.log("rrrrrrrrrrrrrrrrrrr", product.quantity);
+  console.log("rrrrrrrrrrrrrrrrrrr", product);
   const [quantity, setQuantity] = useState(parseInt(product.quantity));
 
-  const labels=Labels()
-  const dispatch=useDispatch()
+  const labels = Labels();
+  const dispatch = useDispatch();
 
   const handleCartUpdate = (slug, qty) => {
     console.log("ututututuutututu", slug, qty);
@@ -61,11 +61,11 @@ function OrderList({ product, setOnSuccess }) {
       }
     ).then((res) => {
       setOnSuccess((prev) => !prev);
-      dispatch(toggle())
+      dispatch(toggle());
       notification.success({
-        message:constants.Success,
-        description:`${labels['Item removed from cart successfully']}`
-      })
+        message: constants.Success,
+        description: `${labels["Item removed from cart successfully"]}`,
+      });
       console.log("removeweeeeeeeeeeeeeee", res);
     });
   };
@@ -84,9 +84,24 @@ function OrderList({ product, setOnSuccess }) {
                   className="pixels-png"
                 ></img>
               </div>
-              <div className=" add-left" style={{maxWidth:'45%'}}>
+              <div className=" add-left" style={{ maxWidth: "45%" }}>
                 <h6>{product.Name}</h6>
-                <p className="address-card-price">{product.selling_prize} KD</p>
+                {product.product_stock <= 0 ? (
+                  <p className="my-1" style={{ color: "red" }}>
+                    Out of Stock
+                  </p>
+                ) : product.product_brand_status === "Active" &&
+                  product.product_category_status === "True" &&
+                  product.product_status === "Active" &&
+                  product.product_varient_status === "Active" ? (
+                  <p className="address-card-price">
+                    {product.selling_prize} KD
+                  </p>
+                ) : (
+                  <p className="my-1" style={{ color: "red",width:'250px' }}>
+                    Product is currently unavailable
+                  </p>
+                )}
               </div>
             </div>
             <div className="trash">
@@ -101,22 +116,25 @@ function OrderList({ product, setOnSuccess }) {
             </div>
           </div>
 
-                 
-          <div className="qty1">
-            <div onClick={()=>handleIncreaseQty()} className="plus">
-              +
+          {product.product_stock !== 0 ? (
+            <div className="qty1">
+              <div onClick={() => handleIncreaseQty()} className="plus">
+                +
+              </div>
+              <input
+                type="number"
+                className="count"
+                name="qty1"
+                value={quantity}
+                disabled
+              />
+              <div onClick={() => handleDecreaseQty()} className="minus ">
+                -
+              </div>
             </div>
-            <input
-              type="number"
-              className="count"
-              name="qty1"
-              value={quantity}
-              disabled
-            />
-            <div onClick={() => handleDecreaseQty()} className="minus ">
-              -
-            </div>
-          </div>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </Fragment>
