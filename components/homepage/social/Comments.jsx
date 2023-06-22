@@ -18,6 +18,8 @@ function Comments({ setVisibleComment, postId, slug }) {
 
   const [loginUserImg, setLoginUser] = useState([]);
 
+  const [successApi, setSuccessApi] = useState(false);
+
   const inputRef = useRef();
   useEffect(() => {
     Axios.post(
@@ -36,7 +38,7 @@ function Comments({ setVisibleComment, postId, slug }) {
       setLoginUser(res.data.data.login_user);
       setShowComments(res.data.data.comments);
     });
-  });
+  }, [successApi]);
   const onHideHandler = () => {
     setShow(false);
     setVisibleComment(false);
@@ -53,6 +55,7 @@ function Comments({ setVisibleComment, postId, slug }) {
         "Content-Type": "application/json",
       },
     }).then((res) => {
+      setSuccessApi((prev) => !prev);
       inputRef.current.value = "";
       setReplayTo(null);
     });
@@ -66,6 +69,10 @@ function Comments({ setVisibleComment, postId, slug }) {
     const timeString = timeDiff.humanize() + " ago";
     return timeString;
   };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault(); // Prevent the default form submission behavior
+  //   commentPostHandler(e); // Call the function to handle form submission
+  // };
 
   return (
     <div style={{ position: "relative" }}>
@@ -86,13 +93,21 @@ function Comments({ setVisibleComment, postId, slug }) {
                   <CardImg
                     className="rounded-circle shadow-1-strong "
                     src={`${constants.port}/media/${item.user.image}`}
-                    style={{ width: "44px", height: "44px",objectFit:'cover' }}
+                    style={{
+                      width: "44px",
+                      height: "44px",
+                      objectFit: "cover",
+                    }}
                   ></CardImg>
                 ) : (
                   <CardImg
                     className="rounded-circle shadow-1-strong "
                     src="../images/accounts/user_default.png"
-                    style={{ width: "44px", height: "44px",objectFit:'cover' }}
+                    style={{
+                      width: "44px",
+                      height: "44px",
+                      objectFit: "cover",
+                    }}
                   ></CardImg>
                 )}
               </div>
@@ -130,7 +145,7 @@ function Comments({ setVisibleComment, postId, slug }) {
                       <a onClick={() => handleReply(item.id)}>Reply</a>
                     </span>
                     <span className="ms-3">
-                      <CommentActions user={item.user.id} commentId={item.id} />
+                      <CommentActions user={item.user.id} commentId={item.id} setSuccessApi={setSuccessApi}/>
                     </span>
                   </div>
 
@@ -140,17 +155,21 @@ function Comments({ setVisibleComment, postId, slug }) {
                           key={index}
                           className="ms-auto mt-2 d-flex align-items-start"
                         >
-                          {item.user.image ? (
+                          {reply.user_details.image ? (
                             <CardImg
                               className="rounded-circle shadow-1-strong me-3"
-                              src={`${constants.port}/media/${item.user.image}`}
+                              src={`${constants.port}${reply.user_details.image}`}
                               style={{ width: "44px", height: "44px" }}
                             ></CardImg>
                           ) : (
                             <CardImg
                               className="rounded-circle shadow-1-strong me-3"
                               src="/images/accounts/user_default.png"
-                              style={{ width: "44px", height: "44px",objectFit:'cover' }}
+                              style={{
+                                width: "44px",
+                                height: "44px",
+                                objectFit: "cover",
+                              }}
                             ></CardImg>
                           )}
                           <div className="d-flex flex-column justify-content-between">
@@ -182,6 +201,7 @@ function Comments({ setVisibleComment, postId, slug }) {
                                 <CommentActions
                                   user={reply.user_details.id}
                                   commentId={reply.id}
+                                  setSuccessApi={setSuccessApi}
                                 />
                               </span>
                             </div>
@@ -218,7 +238,7 @@ function Comments({ setVisibleComment, postId, slug }) {
             style={{ marginBottom: "-24px" }}
           >
             <div>
-              <Form>
+              <Form onSubmit={commentPostHandler}>
                 <div className="d-flex justify-content-between align-items-center">
                   <Form.Group
                     className="mb-3 w-100"
@@ -235,7 +255,11 @@ function Comments({ setVisibleComment, postId, slug }) {
                   </Form.Group>
                   <p
                     className="mx-2"
-                    style={{ color: "black", textDecoration: "none",cursor:'pointer' }}
+                    style={{
+                      color: "black",
+                      textDecoration: "none",
+                      cursor: "pointer",
+                    }}
                     onClick={commentPostHandler}
                   >
                     Post

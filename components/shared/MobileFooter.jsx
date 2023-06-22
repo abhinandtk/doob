@@ -7,13 +7,16 @@ import constants from "@/public/data/my-constants/Constants";
 import { useDispatch, useSelector } from "react-redux";
 import { updateStoreCartCount } from "@/Redux/cartsCount";
 import { useRouter } from "next/router";
+import UploadFiles from "./headers/modules/UploadFiles";
 
 function MobileFooter() {
   const router = useRouter();
   const { asPath } = router;
   const storeCount = useSelector((state) => state.storeCartCount.storeCount);
   const dispatch = useDispatch();
-  console.log("storreCount", storeCount);
+  console.log("storreCount44", asPath);
+
+  const [uploadShow, setUploadShow] = useState(false);
 
   const [user, setUser] = useState("");
 
@@ -92,10 +95,7 @@ function MobileFooter() {
         </svg>
       </Link>
 
-      <Link
-        href="/store"
-        className="navbar__button1"
-      >
+      <Link href="/store" className="navbar__button1">
         <svg
           width="19"
           height="20"
@@ -135,6 +135,25 @@ function MobileFooter() {
           />
         </svg>
       </Link>
+      {asPath === "/" && (
+        <>
+          <div
+            style={{
+              padding: "1rem",
+              borderRadius: "50%",
+              height: "auto",
+              position: "fixed",
+              right: "3vw",
+              bottom: "10vh",
+            }}
+          >
+            <div onClick={() => setUploadShow(true)}>
+              <img src="/images/Group453.png" />
+            </div>
+          </div>
+          {uploadShow && <UploadFiles setUploadShow={setUploadShow} />}
+        </>
+      )}
     </nav>
   );
 }

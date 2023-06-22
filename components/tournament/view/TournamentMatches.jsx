@@ -20,7 +20,7 @@ import { Labels } from "@/public/data/my-constants/Labels";
 import moment from "moment";
 import Link from "next/link";
 function TournamentMatches({ data, setOnSuccess, admin, home }) {
-  console.log("dddddddaaaaaaaaaata,data", home);
+  console.log("dddddddaaaaaaaaaata,data", data);
 
   const router = useRouter();
   const { tid } = router.query;
@@ -140,13 +140,15 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
     });
   };
 
-  const handleModalShow = (match, teamA, teamB, status) => {
+  const handleModalShow = (match, teamA, teamB, status, scoreA, scoreB) => {
     if (isIdExist) {
       setVisible(true);
       setMatchId(match);
       setTeamAid(teamA);
       setTeamBid(teamB);
-      setMatchStatus(status);
+      setMatchStatus(status === "end" ? 0 : "");
+      setTeamAScore(scoreA);
+      setTeamBScore(scoreB);
     }
   };
   const showStadiumModalHandler = (match) => {
@@ -468,7 +470,9 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
                             content.id,
                             content.team_A_id,
                             content.team_B_id,
-                            content.match_status
+                            content.match_status,
+                            content.team_A_score,
+                            content.team_B_score
                           )
                         }
                         className="space-line"

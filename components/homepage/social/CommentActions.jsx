@@ -6,7 +6,7 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { Labels } from "@/public/data/my-constants/Labels";
 
-function CommentActions({ user, commentId }) {
+function CommentActions({ user, commentId, setSuccessApi }) {
   const [show, setShow] = useState(false);
   const [visible, setVisible] = useState(false);
   const [reason, setReason] = useState("");
@@ -27,6 +27,7 @@ function CommentActions({ user, commentId }) {
         },
       }
     ).then((res) => {
+      setSuccessApi((prev) => !prev)
       setShow(false);
       notification.success({
         message: constants.Success,
@@ -48,6 +49,7 @@ function CommentActions({ user, commentId }) {
       }
     ).then((res) => {
       setVisible(false);
+      setSuccessApi((prev) => !prev);
       notification.success({
         message: constants.Success,
         description: `${labels["Comment deleted successfully"]}`,

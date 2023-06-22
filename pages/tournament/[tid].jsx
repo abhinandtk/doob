@@ -96,7 +96,7 @@ function TournamentDetailPage() {
       <MobileHeader />
       <MainSidebarFixed />
 
-      <div className="tour-container">
+      <div className="tour-container" style={{minHeight:'600px'}}>
         <div className="row ">
           <div className="col-lg-7 col-md-12">
             {homeTabData && homeTabData.tournament_details && (
