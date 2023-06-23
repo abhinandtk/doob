@@ -6,6 +6,7 @@ const apis = {
     //commmon Api
     "commonList": `${constants.port}/API/common_list_api`,
     "countDisplay": `${constants.port}/API/count_display_api`,
+    "sponsers": `${constants.port}/API/sponsor_page`,
 
 
     // user module

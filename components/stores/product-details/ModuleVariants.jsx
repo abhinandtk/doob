@@ -4,12 +4,14 @@ import {
   setProVarient,
 } from "@/Redux/productDetail";
 import constants from "@/public/data/my-constants/Constants";
+import { useRouter } from "next/router";
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 function ModuleVariants({ product }) {
   console.log("tttttttttttt45", product);
+  const router=useRouter()
   const dispatch = useDispatch();
   const [primaryIndex, setPrimaryIndex] = useState(
     useSelector((state) => state.product.proPrimaryVarientId)
@@ -39,6 +41,7 @@ function ModuleVariants({ product }) {
     dispatch(setProPrimaryVarientId(varent_id));
     dispatch(setProVarient(secondVarientSlug));
     dispatch(setProSecondaryVarientId(secondVarientSlug));
+    router.push(`/store/product/${secondVarientSlug}`, `/store/product/${secondVarientSlug}`, { shallow: true });
   };
 
   return (

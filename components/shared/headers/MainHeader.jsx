@@ -446,7 +446,7 @@ function MainHeader({ title }) {
                         <span className="mx-2"> Favourite Store</span>
                       </Link>
                     </div>
-                    {user && user === "Store" && (
+                    {((user && user === "Store") || (user && user === "Pro")) && (
                       <div className="my-4">
                         <Link
                           href="/shop/shop-management"
@@ -474,7 +474,7 @@ function MainHeader({ title }) {
                         </Link>
                       </div>
                     )}
-                    {user && user === "Field" && (
+                    {((user && user === "Field") || (user && user === "Pro"))&& (
                       <div className="my-4">
                         <Link
                           href="/play-ground/playground-management"

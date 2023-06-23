@@ -1,14 +1,17 @@
 import { setProVarient } from "@/Redux/productDetail";
+import { useRouter } from "next/router";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 function ModuleSecondVariants({ product }) {
   const dispatch = useDispatch();
 
+  const router = useRouter();
+
   const primaryIndex = useSelector(
     (state) => state.product.proPrimaryVarientId
   );
-  console.log("test1primaryIndex", primaryIndex);
+  console.log("test1primaryIndex", product);
   const multiItems = [];
   const prVarientId = useSelector((state) => state.product.proVarient);
 
@@ -22,6 +25,13 @@ function ModuleSecondVariants({ product }) {
       }
     });
   });
+
+  const handleButtonActions = (slug) => {
+    dispatch(setProVarient(slug));
+    // router.push(`/store/product/${slug}`, `/store/product/${slug}`, {
+    //   shallow: true,
+    // });
+  };
 
   console.log("oooooo", product);
   console.log("multiitems", multiItems);
@@ -39,9 +49,11 @@ function ModuleSecondVariants({ product }) {
               aria-label="Second group"
             >
               <button
-                onClick={() => dispatch(setProVarient(item.slug))}
+                onClick={() => handleButtonActions(item.slug)}
                 type="button"
-                className={`btn btn-secondary ${prVarientId === item.slug ? 'outlocks' : 'outlock'}`}
+                className={`btn btn-secondary ${
+                  prVarientId === item.slug ? "outlocks" : "outlock"
+                }`}
               >
                 {item.value}
               </button>
