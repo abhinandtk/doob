@@ -27,7 +27,7 @@ function StoreSettingsPage() {
   const [userStatus, setUserStatus] = useState(true);
   const [onSuccess, setOnSuccess] = useState(false);
   const [visible, setVisible] = useState(false);
-  const router=useRouter()
+  const router = useRouter();
 
   useEffect(() => {
     Axios.get(apis.settings, {
@@ -81,7 +81,6 @@ function StoreSettingsPage() {
         },
       }
     ).then((res) => {
-      
       if (res.data.status === 1) {
         setOnSuccess((prev) => !prev);
         notification.success({
@@ -130,7 +129,7 @@ function StoreSettingsPage() {
             Cancel
           </Button>,
           <Button
-            style={{ backgroundColor: "#17A803"}}
+            style={{ backgroundColor: "#17A803" }}
             key="submit"
             type="primary"
             onClick={deleteAccountHandler}
@@ -168,6 +167,30 @@ function StoreSettingsPage() {
                     <label></label>{" "}
                   </div>
                   <Link
+                    href="/page/convert-store"
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                  <h6 className="my-4">
+                    Convert to store
+                    <span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        className="bi bi-chevron-right arrow-icon"
+                        viewBox="0 0 16 16"
+                        style={{ marginRight: "50px" }}
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+                        />
+                      </svg>
+                    </span>
+                  </h6>
+                  </Link>
+                  <Link
                     href="/page/user-password-change"
                     style={{ textDecoration: "none", color: "inherit" }}
                   >
@@ -192,7 +215,7 @@ function StoreSettingsPage() {
                     </h6>
                   </Link>
                   <div onClick={() => setVisible(true)}>
-                    <h6 className="my-4" style={{cursor:'pointer'}}>
+                    <h6 className="my-4" style={{ cursor: "pointer" }}>
                       Delete Account{" "}
                       <span>
                         <svg

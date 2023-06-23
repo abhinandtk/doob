@@ -39,6 +39,7 @@ export function Labels() {
         'Banner added successfully': 'Banner added successfully',
         'Banner deleted successfully': 'Banner deleted successfully',
         'Banner edited successfully': 'Banner edited successfully',
+        'Requested successfully': 'Requested successfully',
 
 
 

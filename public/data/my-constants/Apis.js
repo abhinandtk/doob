@@ -88,6 +88,8 @@ const apis = {
     'addStoreReview': `${constants.port}/store/api/add_store_review`,
     'removeStoreReview': `${constants.port}/store/api/remove_review_store`,
 
+    'requestStore': `${constants.port}/store/api/request_store_api`,
+
     //shop management
 
     'allImagesUpload': `${constants.port}/store/api/upload_image`,
