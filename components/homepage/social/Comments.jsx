@@ -102,7 +102,7 @@ function Comments({ setVisibleComment, postId, slug }) {
                 ) : (
                   <CardImg
                     className="rounded-circle shadow-1-strong "
-                    src="../images/accounts/user_default.png"
+                    src="/images/accounts/user_default.png"
                     style={{
                       width: "44px",
                       height: "44px",

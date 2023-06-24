@@ -8,6 +8,10 @@ const apis = {
     "countDisplay": `${constants.port}/API/count_display_api`,
     "sponsers": `${constants.port}/API/sponsor_page`,
 
+    //support
+    "supportView": `${constants.port}/API/support_list_api`,
+    "supportDetail": `${constants.port}/API/ticket_details`,
+    "userSupportMsg": `${constants.port}/API/add_ticket_message`,
 
     // user module
     "country": `${constants.port}/API/country-api`,
