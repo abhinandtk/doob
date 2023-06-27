@@ -71,9 +71,23 @@ function BannerManagement() {
             {listBanners.length > 0 &&
               listBanners.map((item, index) => (
                 <div key={index}>
-                  <p className="banner-names" style={{}}>
-                    {item.Banner_name}
-                  </p>{" "}
+                  <div className="banner-names" style={{}}>
+                    <span>
+                    <img
+                      src={`${constants.port}${item.Banner_image}`}
+                      alt="User Picture"
+                      style={{
+                        objectFit: "cover",
+                        width: "50px",
+                        height: "50px",
+                        // borderRadius: "50%",
+                      }}
+                    />
+                    &nbsp;&nbsp;{item.Banner_name}
+                    </span>
+
+                    
+                  </div>{" "}
                   <span
                     onClick={() => deleteBannerHandler(item.slug_banner)}
                     style={{ cursor: "pointer" }}

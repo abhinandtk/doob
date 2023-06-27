@@ -10,6 +10,7 @@ import FollowingList from "./FollowingList";
 function ProfileHeaderDetails({ data, setSuccess }) {
   const [visible, setVisible] = useState(false);
   const [uploadImageUrl, setUploadImageUrl] = useState(null);
+  console.log("4444", data);
 
   const [followersListShow, setFollowersListShow] = useState(false);
   const [followingListShow, setFollowingListShow] = useState(false);
@@ -67,7 +68,7 @@ function ProfileHeaderDetails({ data, setSuccess }) {
   return (
     <Fragment>
       <Modal
-        title=""
+        title="Rank"
         open={showRank}
         onCancel={() => setShowRank(false)}
         closable
@@ -88,15 +89,7 @@ function ProfileHeaderDetails({ data, setSuccess }) {
           <span
             style={{ fontWeight: "600", fontSize: "16px", marginLeft: "300px" }}
           >
-            #200
-          </span>
-        </div>
-        <div style={{ fontWeight: "400", fontSize: "16px" }}>
-          Basketball
-          <span
-            style={{ fontWeight: "600", fontSize: "16px", marginLeft: "285px" }}
-          >
-            #1200
+            #{data.user_rank}
           </span>
         </div>
       </Modal>
@@ -170,7 +163,12 @@ function ProfileHeaderDetails({ data, setSuccess }) {
           <Card.Body>
             <div className="row">
               <div className="col-md-6">
-                {/* <button onClick={()=>setShowRank(true)} className="btn profile-edit-btn">Rank</button> */}
+                <button
+                  onClick={() => setShowRank(true)}
+                  className="btn profile-edit-btn"
+                >
+                  Rank
+                </button>
                 <div className="profile-image">
                   {loading ? (
                     <Spin
@@ -229,18 +227,16 @@ function ProfileHeaderDetails({ data, setSuccess }) {
                       </span>{" "}
                       <span style={{ color: "#959595" }}>posts</span>
                     </li>
-                    <li>
+                    <li onClick={() => setFollowersListShow(true)}>
                       <span
-                        onClick={() => setFollowersListShow(true)}
                         className="profile-stat-count"
                       >
                         {data.followers_count}
                       </span>{" "}
                       <span style={{ color: "#959595" }}>followers</span>
                     </li>
-                    <li>
+                    <li onClick={() => setFollowingListShow(true)}>
                       <span
-                        onClick={() => setFollowingListShow(true)}
                         className="profile-stat-count"
                       >
                         {data.following_count}
@@ -301,6 +297,13 @@ function ProfileHeaderDetails({ data, setSuccess }) {
 
         <Card className="ceed">
           <Card.Body>
+            <button
+              onClick={() => setShowRank(true)}
+              className="btn profile-edit-btn"
+            >
+              Rank
+            </button>
+
             {/* <button className=" profile-edits-btn">Rank</button>
                 <button className="profile-edit-btn2">Edit</button>  */}
             <div className="avatar">

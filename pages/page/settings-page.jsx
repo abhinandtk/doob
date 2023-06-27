@@ -22,11 +22,16 @@ import { useEffect } from "react";
 import constants from "@/public/data/my-constants/Constants";
 import PagesSideBar from "@/components/stores/pages/PagesSideBar";
 import { useRouter } from "next/router";
+import { Labels } from "@/public/data/my-constants/Labels";
 function StoreSettingsPage() {
+
+  const labels=Labels()
   const [accountStatus, setAccountStatus] = useState(false);
   const [userStatus, setUserStatus] = useState(true);
   const [onSuccess, setOnSuccess] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [blockedShow, setBlockedShow] = useState(false);
+  const [blockedList, setBlockedList] = useState([]);
   const router = useRouter();
 
   useEffect(() => {
@@ -38,6 +43,15 @@ function StoreSettingsPage() {
       setAccountStatus(res.data.data.is_private);
       setUserStatus(res.data.data.userStatus);
       console.log("storeset", res, res.data.data.is_private);
+    });
+
+    Axios.get(apis.listUserBlock, {
+      headers: {
+        Authorization: `Token ${constants.token_id}`,
+      },
+    }).then((res) => {
+      setBlockedList(res.data.data)
+      console.log("console.log", res);
     });
   }, [onSuccess]);
   console.log("resstatus", accountStatus);
@@ -112,11 +126,97 @@ function StoreSettingsPage() {
       }
     });
   };
+
+  const unBlockUserHandler = (id) => {
+    Axios.post(
+      apis.unblockUser,
+      {
+        user_id: id,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      setOnSuccess((prev) => !prev);
+      if (res.data.status === 1) {
+        notification.success({
+          message: constants.Success,
+          description: `${labels["Unblocked user successfully"]}`,
+        });
+      } else {
+        notification.error({
+          message: constants.Error,
+          description: res.data.message_en,
+        });
+      }
+      console.log("result", res);
+    });
+  };
+
   return (
     <div>
       <MainHeader title="Doob" />
       <MobileHeader />
       <MainSidebarFixed />
+      <Modal
+        open={blockedShow}
+        onCancel={() => setBlockedShow(false)}
+        footer={null}
+        width={500}
+        closable
+        maskClosable
+        centered
+        bodyStyle={{ maxHeight: "50vh", overflowY: "scroll" }}
+        title="Blocked users"
+      >
+        <div style={{ padding: "16px" }}>
+          {blockedList &&
+            blockedList.map((item, index) => (
+              <div key={index} className="side-menu__suggestion">
+                <div className="side-menu__suggestion-avatar">
+                  {item.user_image ? (
+                    <CardImg
+                      className="rounded-circle shadow-1-strong "
+                      src={`${constants.port}${item.user_image}`}
+                      style={{
+                        width: "46px",
+                        height: "46px",
+                        objectFit: "cover",
+                      }}
+                    ></CardImg>
+                  ) : (
+                    <CardImg
+                      className="rounded-circle shadow-1-strong "
+                      src="/images/accounts/user_default.png"
+                      style={{
+                        width: "46px",
+                        height: "46px",
+                        objectFit: "cover",
+                      }}
+                    ></CardImg>
+                  )}
+                </div>
+                <div className="side-menu__suggestion-info">
+                  <p>
+                    <b>{item.name}</b>
+                    <br></br>
+                    {item.username}
+                  </p>
+                </div>
+                <button
+                  onClick={() => unBlockUserHandler(item.user_id)}
+                  className="side-menu__suggestion-buttons"
+                  style={{ backgroundColor: "#EFEFEF", color: "#000000" }}
+                >
+                  {" "}
+                  Unblock
+                </button>
+              </div>
+            ))}
+        </div>
+      </Modal>
       <Modal
         title="Are you sure to delete this account?"
         open={visible}
@@ -170,25 +270,25 @@ function StoreSettingsPage() {
                     href="/page/convert-store"
                     style={{ textDecoration: "none", color: "inherit" }}
                   >
-                  <h6 className="my-4">
-                    Convert to store
-                    <span>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        className="bi bi-chevron-right arrow-icon"
-                        viewBox="0 0 16 16"
-                        style={{ marginRight: "50px" }}
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-                        />
-                      </svg>
-                    </span>
-                  </h6>
+                    <h6 className="my-4">
+                      Convert to store
+                      <span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          className="bi bi-chevron-right arrow-icon"
+                          viewBox="0 0 16 16"
+                          style={{ marginRight: "50px" }}
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+                          />
+                        </svg>
+                      </span>
+                    </h6>
                   </Link>
                   <Link
                     href="/page/user-password-change"
@@ -214,6 +314,28 @@ function StoreSettingsPage() {
                       </span>
                     </h6>
                   </Link>
+                  <div onClick={()=>setBlockedShow(true)} style={{cursor:'pointer'}}
+                  >
+                    <h6 className="my-4">
+                      Blocked users
+                      <span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          className="bi bi-chevron-right arrow-icon"
+                          viewBox="0 0 16 16"
+                          style={{ marginRight: "50px" }}
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+                          />
+                        </svg>
+                      </span>
+                    </h6>
+                  </div>
                   <div onClick={() => setVisible(true)}>
                     <h6 className="my-4" style={{ cursor: "pointer" }}>
                       Delete Account{" "}

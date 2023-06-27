@@ -18,6 +18,8 @@ function OtherUserAccount() {
   const [profileDetails, setProfileDetials] = useState([]);
   const [activityData, setActivityData] = useState([]);
   const [isPrivate, setIsPrivate] = useState(null);
+  const [blockedby, setBlockedby] = useState(null);
+  const [blockedfrom, setBlockedfrom] = useState(null);
   const [isSuccess, setIsSuccess] = useState(false);
   useEffect(() => {
     Axios.post(
@@ -32,6 +34,8 @@ function OtherUserAccount() {
       .then((res) => {
         console.log("Response:", res);
         setIsPrivate(res.data.data.is_private);
+        setBlockedby(res.data.data.blocked_by);
+        setBlockedfrom(res.data.data.blocked_from);
         setProfileDetials(res.data.data.user_details);
         setPostDetails(res.data.data.post_details);
         setActivityData(res.data.data.activity_serializer);
@@ -53,6 +57,8 @@ function OtherUserAccount() {
           data={profileDetails}
           id={userId}
           isPrivate={isPrivate}
+          blockedby={blockedby}
+          blockedfrom={blockedfrom}
           setIsSuccess={setIsSuccess}
         />
         {profileDetails.is_following === 1 || !isPrivate ? (
@@ -87,9 +93,9 @@ function OtherUserAccount() {
           </section>
         ) : (
           <div className="profile-private">
-            <h5 className="text-center">This Account is Private</h5>
+            <h5 className="text-center">{blockedfrom || blockedby ? 'Currently unavailable':'This Account is Private'}</h5>
             <p className="text-center">
-              Follow to see their photos and videos.
+            {(!blockedfrom && !blockedby) ? "Follow to see their photos and videos" : null}
             </p>
           </div>
         )}

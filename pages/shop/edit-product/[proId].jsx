@@ -61,7 +61,7 @@ function ProductEditPage() {
         message: "Success",
         description: "Product Edited successfully",
       });
-      console.log("product succccccccessssssssssssss", res, apis.addProduct, {
+      console.log("product8id", res, apis.addProduct, {
         product_id: id,
         name: formData.name,
         arabic_translator: formData.nameArabic,
@@ -70,9 +70,9 @@ function ProductEditPage() {
         varient_type_id: formData.primary,
         multivarient_id: formData.secondary,
         product_brand_id: formData.brand,
-        product_category_id: formData.category,
+        // product_category_id: formData.category,
         thumbnail_image: formData.thumbnail,
-        // sub_category_id: formData.subCategory,
+        product_category_id: formData.subCategory,
         tags: formData.tag,
         status: formData.status,
         variants: variants,

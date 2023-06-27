@@ -77,26 +77,32 @@ function StoreSettingsPage() {
               </h6>
               <div className="my-4 mx-4 ">
                 <div className="basic">
-                  {/* <h6>
-                    Basic Details{" "}
-                    <span>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        className="bi bi-chevron-right arrow-icon"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-                        />
-                      </svg>
-                    </span>
-                  </h6> */}
-                  {/* <Link
-                    href=""
+                  <Link
+                    href="/shop/store-edit"
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    <h6>
+                      Edit Details{" "}
+                      <span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          className="bi bi-chevron-right arrow-icon"
+                          viewBox="0 0 16 16"
+                          style={{ marginRight: "50px" }}
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+                          />
+                        </svg>
+                      </span>
+                    </h6>
+                  </Link>
+                  <Link
+                    href="/shop/banner-management"
                     style={{ textDecoration: "none", color: "inherit" }}
                   >
                     <h6 className="my-4">
@@ -109,6 +115,7 @@ function StoreSettingsPage() {
                           fill="currentColor"
                           className="bi bi-chevron-right arrow-icon"
                           viewBox="0 0 16 16"
+                          style={{ marginRight: "50px" }}
                         >
                           <path
                             fill-rule="evenodd"
@@ -117,7 +124,7 @@ function StoreSettingsPage() {
                         </svg>
                       </span>
                     </h6>
-                  </Link> */}
+                  </Link>
                   <Link
                     href="/shop/offer-management"
                     style={{ textDecoration: "none", color: "inherit" }}
@@ -132,7 +139,7 @@ function StoreSettingsPage() {
                           fill="currentColor"
                           className="bi bi-chevron-right arrow-icon"
                           viewBox="0 0 16 16"
-                          style={{marginRight:'50px'}}
+                          style={{ marginRight: "50px" }}
                         >
                           <path
                             fill-rule="evenodd"
@@ -143,7 +150,7 @@ function StoreSettingsPage() {
                     </h6>
                   </Link>
                   <h6 className="m">Store Status</h6>{" "}
-                  <div className="toggle1" style={{marginRight:'50px'}}>
+                  <div className="toggle1" style={{ marginRight: "50px" }}>
                     {" "}
                     <input
                       placeholder="Active"

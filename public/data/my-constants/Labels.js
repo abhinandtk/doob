@@ -19,6 +19,8 @@ export function Labels() {
         "Password Changed Successfully": "Password Changed Successfully",
         "Current password is incorrect": "Current password is incorrect",
         "Accepted successfully": "Accepted successfully",
+        "Blocked user successfully": "Blocked user successfully",
+        "Unblocked user successfully": "Unblocked user successfully",
 
         //Store Messages
 
@@ -29,6 +31,7 @@ export function Labels() {
         "Item removed from cart successfully": "Item removed from cart successfully",
         "Product shared": "Product shared successfully",
         "Store shared": "Store shared successfully",
+        "Support added": "Support added successfully",
 
         //shop
 
@@ -40,6 +43,7 @@ export function Labels() {
         'Banner deleted successfully': 'Banner deleted successfully',
         'Banner edited successfully': 'Banner edited successfully',
         'Requested successfully': 'Requested successfully',
+        'Store edited successfully': 'Store edited successfully',
 
 
 

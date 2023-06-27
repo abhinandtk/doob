@@ -12,6 +12,7 @@ const apis = {
     "supportView": `${constants.port}/API/support_list_api`,
     "supportDetail": `${constants.port}/API/ticket_details`,
     "userSupportMsg": `${constants.port}/API/add_ticket_message`,
+    "createSupport": `${constants.port}/API/create_support`,
 
     // user module
     "country": `${constants.port}/API/country-api`,
@@ -57,6 +58,10 @@ const apis = {
     'shareFieldToPost': `${constants.port}/social/Api/share_field`,
     'acceptRequest': `${constants.port}/social/Api/follow_request_accept`,
 
+    'blockUser': `${constants.port}/social/Api/user_block_api`,
+    'unblockUser': `${constants.port}/social/Api/user_unblock_api`,
+    'listUserBlock': `${constants.port}/social/Api/list_user_block_api`,
+
 
     //store module
 
@@ -93,6 +98,7 @@ const apis = {
     'removeStoreReview': `${constants.port}/store/api/remove_review_store`,
 
     'requestStore': `${constants.port}/store/api/request_store_api`,
+    'editStore': `${constants.port}/store/api/edit_store_api`,
 
     //shop management
 

@@ -1,11 +1,18 @@
 import React, { Fragment, useState } from "react";
-import { Tab, Tabs, Card, CardImg } from "react-bootstrap";
+import { Tab, Tabs, Card, CardImg, Dropdown } from "react-bootstrap";
 import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { Button, Modal, notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
-function OtherProfileHeaderDetails({ data, id, isPrivate, setIsSuccess }) {
+function OtherProfileHeaderDetails({
+  data,
+  id,
+  isPrivate,
+  setIsSuccess,
+  blockedfrom,
+  blockedby,
+}) {
   const [show, setShow] = useState(false);
   const [showRank, setShowRank] = useState(false);
   console.log("daaata", data, isPrivate);
@@ -53,6 +60,64 @@ function OtherProfileHeaderDetails({ data, id, isPrivate, setIsSuccess }) {
         console.error("handleUnfollow error:", error);
       });
   };
+
+  const blockUserHandler = () => {
+    console.log("resultBlock", id);
+
+    Axios.post(
+      apis.blockUser,
+      {
+        user_id: id,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      setIsSuccess((prev) => !prev);
+      if (res.data.status === 1) {
+        notification.success({
+          message: constants.Success,
+          description: `${labels["Blocked user successfully"]}`,
+        });
+      } else {
+        notification.error({
+          message: constants.Error,
+          description: res.data.message_en,
+        });
+      }
+      console.log("resultBlock", res);
+    });
+  };
+
+  const unBlockUserHandler = () => {
+    Axios.post(
+      apis.unblockUser,
+      {
+        user_id: id,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      setIsSuccess((prev) => !prev);
+      if (res.data.status === 1) {
+        notification.success({
+          message: constants.Success,
+          description: `${labels["Unblocked user successfully"]}`,
+        });
+      } else {
+        notification.error({
+          message: constants.Error,
+          description: res.data.message_en,
+        });
+      }
+      console.log("result", res);
+    });
+  };
   return (
     <Fragment>
       <Modal
@@ -99,7 +164,7 @@ function OtherProfileHeaderDetails({ data, id, isPrivate, setIsSuccess }) {
         </div>
       </Modal>
       <Modal
-        title=" "
+        title=""
         open={showRank}
         onCancel={() => setShowRank(false)}
         closable
@@ -120,24 +185,17 @@ function OtherProfileHeaderDetails({ data, id, isPrivate, setIsSuccess }) {
           <span
             style={{ fontWeight: "600", fontSize: "16px", marginLeft: "300px" }}
           >
-            #200
+            #{data.user_rank}
           </span>
         </div>
-        <div style={{ fontWeight: "400", fontSize: "16px" }}>
-          Basketball
-          <span
-            style={{ fontWeight: "600", fontSize: "16px", marginLeft: "285px" }}
-          >
-            #1200
-          </span>
-        </div>
+       
       </Modal>
 
       <Card className="cord">
         <Card.Body>
           <div className="row">
             <div className="col-md-6">
-              {/* <button onClick={()=>setShowRank(true)} className="btn profile-edit-btn">Rank</button> */}
+              <button onClick={()=>setShowRank(true)} className="btn profile-edit-btn">Rank</button>
               <div className="profile-image">
                 {data.user_image ? (
                   <img
@@ -218,7 +276,17 @@ function OtherProfileHeaderDetails({ data, id, isPrivate, setIsSuccess }) {
                   </li>
 
                   <br></br>
-                  {data.is_following === 1 ? (
+                  {blockedby ? (
+                    <button
+                      onClick={() => unBlockUserHandler()}
+                      className="side-menu__suggestion-buttons "
+                      style={{ backgroundColor: "#EFEFEF", color: "#000000" }}
+                    >
+                      Unblock
+                    </button>
+                  ) : blockedfrom ? (
+                    ""
+                  ) : data.is_following === 1 ? (
                     <button
                       onClick={() => setShow(true)}
                       className="side-menu__suggestion-buttons "
@@ -245,6 +313,30 @@ function OtherProfileHeaderDetails({ data, id, isPrivate, setIsSuccess }) {
                   {/* <button className="side-menu__suggestion-button3 ">Message</button> */}
                 </ul>
               </div>
+              <Dropdown className="Drop">
+                <Dropdown.Toggle
+                  variant=""
+                  id="dropdown-basic"
+                  style={{
+                    color: "black",
+                    borderColor: "transparent",
+                    background: "transparent",
+                  }}
+                >
+                  <i className="bi bi-three-dots-vertical"></i>
+                </Dropdown.Toggle>
+                <Dropdown.Menu align="center" className="Menu">
+                  {blockedby ? (
+                    <Dropdown.Item onClick={() => unBlockUserHandler()}>
+                      Unblock
+                    </Dropdown.Item>
+                  ) : (
+                    <Dropdown.Item onClick={() => blockUserHandler()}>
+                      Block
+                    </Dropdown.Item>
+                  )}
+                </Dropdown.Menu>
+              </Dropdown>
             </div>
           </div>
         </Card.Body>

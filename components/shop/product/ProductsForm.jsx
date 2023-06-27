@@ -104,6 +104,7 @@ function ProductsForm({ handleProductAdd, editData }) {
           },
         }
       ).then((res) => {
+        console.log("uuouoououououououo", res);
         if (res.data.status == 1) {
           const variants = res.data.data[0].variants.map((variant) => ({
             sku: variant.sku_code,
@@ -163,6 +164,7 @@ function ProductsForm({ handleProductAdd, editData }) {
     formData.category,
     categoryData,
     formData.primary,
+    formData.secondary,
     variantData,
   ]);
 
@@ -245,15 +247,20 @@ function ProductsForm({ handleProductAdd, editData }) {
     newVariants.splice(index, 1);
     setFormData({
       ...formData,
-      variants: [newVariants],
+      variants: newVariants,
     });
   };
 
   const duplicateVariant = (index) => {
     const variantToDuplicate = formData.variants[index];
-    const duplicatedVariant = { ...variantToDuplicate }; 
-    formData.variants.splice(index + 1, 0, duplicatedVariant); 
-    setFormData({ ...formData }); 
+    const duplicatedVariant = {
+      ...variantToDuplicate,
+      formFile: [...variantToDuplicate.formFile],
+    };
+    delete duplicatedVariant.slug;
+    console.log("product8id", duplicatedVariant.slug);
+    formData.variants.splice(index + 1, 0, duplicatedVariant);
+    setFormData({ ...formData });
   };
 
   const submitHandler = (e) => {
@@ -622,6 +629,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                           }}
                         />
                         <button
+                          type="button"
                           onClick={() => removeImage(index, imageIndex)}
                           style={{
                             position: "absolute",

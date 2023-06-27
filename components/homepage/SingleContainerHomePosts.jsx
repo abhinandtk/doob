@@ -132,9 +132,9 @@ function SingleContainerHomePosts() {
   return (
     <Fragment>
       {/* <div className="text_followers" >My Followers</div> */}
-      <div className="ms-1">
+      {/* <div className="ms-1">
         <b>My Followers</b>
-      </div>
+      </div> */}
       {postsData.length != 0 &&
       ((postsData[0] && !postsData[0].is_private) ||
         (postsData[0] && postsData[0].is_private === 1) ||
@@ -191,7 +191,7 @@ function SingleContainerHomePosts() {
                               {item.user_detail.account_type === "star" ? (
                                 <span>
                                   <img
-                                    src="/images/star.png"
+                                    src="/images/Star.png"
                                     className="mx-1 mb-1"
                                   ></img>
                                 </span>
@@ -271,7 +271,7 @@ function SingleContainerHomePosts() {
                             {item.user_detail.account_type === "star" ? (
                               <span>
                                 <img
-                                  src="/images/star.png"
+                                  src="/images/Star.png"
                                   className="mx-1 mb-1"
                                 ></img>
                               </span>
@@ -296,7 +296,7 @@ function SingleContainerHomePosts() {
                             "star" ? (
                               <span>
                                 <img
-                                  src="/images/star.png"
+                                  src="/images/Star.png"
                                   className="mx-1 mb-1"
                                 ></img>
                               </span>
@@ -633,7 +633,7 @@ function SingleContainerHomePosts() {
         </article>
       </div> */}
 
-      <div className="post__content">
+      {/* <div className="post__content">
         <div className="post__medias" style={{ marginTop: "9px" }}>
           <img
             className="post__media"
@@ -641,7 +641,7 @@ function SingleContainerHomePosts() {
             alt="Post Content"
           />
         </div>
-      </div>
+      </div> */}
       <MobileFooter />
     </Fragment>
   );

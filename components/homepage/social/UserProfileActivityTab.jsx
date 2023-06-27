@@ -27,19 +27,19 @@ function UserProfileActivityTab({ activityData }) {
                 {item_.type === "Bookings" && item_.booking ? (
                   <>
                     <div key={index_} className="d-flex flex-start mt-3 mx-5">
-                      <a className="me-2" href="">
-                        {item_.booking && (
-                          <CardImg
-                            src={`${constants.port}${item_.booking.image}`}
-                            style={{
-                              width: "64px",
-                              height: "64px",
-                              borderRadius: "0px",
-                              objectFit: "cover",
-                            }}
-                          ></CardImg>
-                        )}
-                      </a>
+                      {/* <a className="me-2" href=""> */}
+                      {item_.booking && (
+                        <CardImg
+                          src={`${constants.port}${item_.booking.image}`}
+                          style={{
+                            width: "64px",
+                            height: "64px",
+                            borderRadius: "0px",
+                            objectFit: "cover",
+                          }}
+                        ></CardImg>
+                      )}
+                      {/* </a> */}
                       <div
                         className="flex-grow-1 flex-shrink-1 mx-2 mt-2 "
                         style={{ marginBottom: "-24px" }}
@@ -61,19 +61,19 @@ function UserProfileActivityTab({ activityData }) {
                 ) : item_.type === "Like" ? (
                   <>
                     <div key={index_} className="d-flex flex-start mt-3 mx-5">
-                      <a className="me-2" href="">
-                        {item_.post && (
-                          <CardImg
-                            src={`${constants.port}${item_.post.image}`}
-                            style={{
-                              width: "64px",
-                              height: "64px",
-                              borderRadius: "0px",
-                              objectFit: "cover",
-                            }}
-                          ></CardImg>
-                        )}
-                      </a>
+                      {/* <a className="me-2" href=""> */}
+                      {item_.post && (
+                        <CardImg
+                          src={`${constants.port}${item_.post.image}`}
+                          style={{
+                            width: "64px",
+                            height: "64px",
+                            borderRadius: "0px",
+                            objectFit: "cover",
+                          }}
+                        ></CardImg>
+                      )}
+                      {/* </a> */}
                       <div
                         className="flex-grow-1 flex-shrink-1 mx-2 mt-2 "
                         style={{ marginBottom: "-24px" }}
@@ -92,22 +92,24 @@ function UserProfileActivityTab({ activityData }) {
                     </div>
                     <hr className=" line1 mx-5"></hr>
                   </>
-                ) : item_.type === "Share" || item_.type === "Post" || item_.type === "Shared"? (
+                ) : item_.type === "Share" ||
+                  item_.type === "Post" ||
+                  item_.type === "Shared" ? (
                   <>
                     <div key={index_} className="d-flex flex-start mt-3 mx-5">
-                      <a className="me-2" href="">
-                        {item_.post && (
-                          <CardImg
-                            src={`${constants.port}${item_.post.image}`}
-                            style={{
-                              width: "64px",
-                              height: "64px",
-                              borderRadius: "0px",
-                              objectFit: "cover",
-                            }}
-                          ></CardImg>
-                        )}
-                      </a>
+                      {/* <a className="me-2" href=""> */}
+                      {item_.post && (
+                        <CardImg
+                          src={`${constants.port}${item_.post.image}`}
+                          style={{
+                            width: "64px",
+                            height: "64px",
+                            borderRadius: "0px",
+                            objectFit: "cover",
+                          }}
+                        ></CardImg>
+                      )}
+                      {/* </a> */}
                       <div
                         className="flex-grow-1 flex-shrink-1 mx-2 mt-2 "
                         style={{ marginBottom: "-24px" }}
@@ -131,19 +133,19 @@ function UserProfileActivityTab({ activityData }) {
                 ) : item_.type === "Follow" || item_.type === "Unfollow" ? (
                   <>
                     <div key={index_} className="d-flex flex-start mt-3 mx-5">
-                      <a className="me-2" href="">
-                        {item_.post && (
-                          <CardImg
-                            src={`${constants.port}${item_.post.image}`}
-                            style={{
-                              width: "64px",
-                              height: "64px",
-                              borderRadius: "0px",
-                              objectFit: "cover",
-                            }}
-                          ></CardImg>
-                        )}
-                      </a>
+                      {/* <a className="me-2" href=""> */}
+                      {item_.post && (
+                        <CardImg
+                          src={`${constants.port}${item_.post.image}`}
+                          style={{
+                            width: "64px",
+                            height: "64px",
+                            borderRadius: "0px",
+                            objectFit: "cover",
+                          }}
+                        ></CardImg>
+                      )}
+                      {/* </a> */}
                       <div
                         className="flex-grow-1 flex-shrink-1 mx-2 mt-2 "
                         style={{ marginBottom: "-24px" }}
@@ -151,6 +153,38 @@ function UserProfileActivityTab({ activityData }) {
                         <div>
                           <div className="d-flex justify-content-between align-items-center">
                             <p className=" Book">{item_.title}</p>
+                          </div>
+                          <p className="small-time ">
+                            {moment(item_.created_at).format("hh:mm A")}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <hr className=" line1 mx-5"></hr>
+                  </>
+                ) : item_.type === "Login" || item_.type === "Logout" ? (
+                  <>
+                    <div key={index_} className="d-flex flex-start mt-3 mx-5">
+                      {/* <a className="me-2" href=""> */}
+                      {item_.post && (
+                        <CardImg
+                          src={`${constants.port}${item_.post.image}`}
+                          style={{
+                            width: "64px",
+                            height: "64px",
+                            borderRadius: "0px",
+                            objectFit: "cover",
+                          }}
+                        ></CardImg>
+                      )}
+                      {/* </a> */}
+                      <div
+                        className="flex-grow-1 flex-shrink-1 mx-2 mt-2 "
+                        style={{ marginBottom: "-24px" }}
+                      >
+                        <div>
+                          <div className="d-flex justify-content-between align-items-center">
+                            <p className=" Book">You &nbsp;{item_.title}</p>
                           </div>
                           <p className="small-time ">
                             {moment(item_.created_at).format("hh:mm A")}

@@ -25,14 +25,11 @@ function UploadFiles({ setUploadShow }) {
   };
 
   const uploadSubmitHandler = () => {
-    console.log('Eroorssinput',{
-        caption: caption,
-        image: file,
-      })
+    
     Axios.post(
       apis.homepageapi,
       {
-        caption: "",
+        caption:caption,
         image: file,
       },
       {

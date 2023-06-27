@@ -4,7 +4,6 @@ import {
   Nav,
   Navbar,
   Dropdown,
-  Carousel,
   Card,
   Button,
 } from "react-bootstrap";
@@ -24,7 +23,8 @@ import moment from "moment";
 import MobileHeader from "@/components/MobileHeader";
 import MobileFooter from "@/components/shared/MobileFooter";
 import StoreProductsCard from "@/components/stores/StoreProductsCard";
-
+import { Carousel } from "antd";
+import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 function StoreDetailPage() {
   const router = useRouter();
   const { sid } = router.query;
@@ -34,6 +34,7 @@ function StoreDetailPage() {
   const [storeDetails, setStoreDetails] = useState([]);
   const [storeCategory, setStoreCategory] = useState([]);
   const [offersData, setOffersData] = useState([]);
+  const [storeBanners, setStoreBanners] = useState([]);
   useEffect(() => {
     Axios.post(
       apis.storeview,
@@ -46,13 +47,14 @@ function StoreDetailPage() {
         },
       }
     ).then((res) => {
-      console.log("res6666", {
+      console.log("res6666", res, {
         store_id: sid,
       });
       if (res.data.data) {
         setStoreDetails(res.data.data.store[0]);
         setStoreCategory(res.data.data.store[0].categories);
         setOffersData(res.data.data.offers);
+        setStoreBanners(res.data.data.mid_banner);
       }
     });
   }, [success, sid]);
@@ -112,18 +114,27 @@ function StoreDetailPage() {
         <StoreTopDetails data={storeDetails} setSuccess={setSuccess} />
 
         {/* <StoreBannerCard /> */}
-
-        {/* <section>
-  <div className='row store'>
-       <div className='col-lg-4 col-md-5  '>
-      <img src='../images/store/17.png'  ></img>
-      </div>
-      <div className='col-lg-4 col-md-5 '>
-      <img src='../images/store/ww.png'  ></img>
-      </div>
- 
-    </div>
-</section> */}
+        {storeBanners.length > 0 && (
+          <section>
+            <Carousel
+              prevArrow={
+                <Button className="carousel-arrow" icon={<LeftOutlined />} />
+              }
+              nextArrow={
+                <Button className="carousel-arrow" icon={<RightOutlined />} />
+              }
+            >
+              {storeBanners.map((ban, index) => (
+                <div key={index}>
+                  <img
+                    src={`${constants.port}${ban.Banner_image}`}
+                    style={{ width: "100%" }}
+                  />
+                </div>
+              ))}
+            </Carousel>
+          </section>
+        )}
 
         {storeCategory.length >= 1 && (
           <SearchCategory category={storeCategory} />

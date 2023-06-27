@@ -13,12 +13,14 @@ import { useRouter } from "next/router";
 
 import SupportMessages from "@/components/shop/support/SupportMessages";
 import { useState } from "react";
+import moment from "moment";
 
 function SupportDetailsPage() {
   const router = useRouter();
   const { spId } = router.query;
-  const [supportDetails,setSupportDetails]=useState([])
-  const [success,setSuccess]=useState(false)
+  const [supportDetails, setSupportDetails] = useState();
+  const [supportMessages, setSupportMessages] = useState([]);
+  const [success, setSuccess] = useState(false);
   useEffect(() => {
     Axios.post(
       apis.supportDetail,
@@ -29,9 +31,12 @@ function SupportDetailsPage() {
         },
       }
     ).then((res) => {
-      setSupportDetails(res.data.data)
+      if (res.data.data) {
+        setSupportDetails(res.data.data.ticket_details);
+        setSupportMessages(res.data.data.message);
+      }
     });
-  }, [spId,success]);
+  }, [spId, success]);
   return (
     <Fragment>
       <MainHeader title="Doob" />
@@ -53,8 +58,56 @@ function SupportDetailsPage() {
               >
                 Ticket Details
               </h6>
+              {supportDetails && (
+                <div className="my-3">
+                  
 
-              <SupportMessages data={supportDetails} setSuccess={setSuccess}/>
+                  <hr className="mx-auto" style={{ width: "90%" }}></hr>
+                  <div
+                    className="p-2 mx-auto d-flex justify-content-between align-items-center"
+                    style={{ width: "90%" }}
+                  >
+                    <span style={{ color: "#959595" }}>Ticket No</span>
+                    <span style={{ color: "#959595" }}>{supportDetails.ticket_no}</span>
+                  </div>
+                  <div
+                    className="p-2 mx-auto d-flex justify-content-between align-items-center"
+                    style={{ width: "90%" }}
+                  >
+                    <span style={{ color: "#959595" }}>User name</span>
+                    <span style={{ color: "#959595" }}>{supportDetails.user?.username}</span>
+                  </div>
+                  <div
+                    className="p-2 mx-auto d-flex justify-content-between align-items-center"
+                    style={{ width: "90%" }}
+                  >
+                    <span style={{ color: "#959595" }}>Description</span>
+                    <span className="address-admin" style={{ color: "#959595" }}>{supportDetails.description}</span>
+                  </div>
+
+                  <div
+                    className="p-2   mx-auto d-flex justify-content-between align-items-center"
+                    style={{ width: "90%" }}
+                  >
+                    <span style={{ color: "#959595" }}>
+                      Date
+                    </span>
+                    <span style={{ color: "#959595" }}>
+                      {moment(supportDetails.created_at).format("DD-MMM-YYYY")}
+                    </span>
+                  </div>
+                  <div
+                    className="p-2 mx-auto d-flex justify-content-between align-items-center"
+                    style={{ width: "90%" }}
+                  >
+                    <span style={{ color: "#959595" }}>Status</span>
+                    <span>{supportDetails.status ? "Active" : "Closed"}</span>
+                  </div>
+                  
+                </div>
+              )}
+
+              <SupportMessages data={supportMessages} setSuccess={setSuccess} />
             </div>
           </div>
         </div>

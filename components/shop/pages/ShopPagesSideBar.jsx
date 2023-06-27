@@ -243,7 +243,7 @@ function ShopPagesSideBar({ currentPage }) {
         </span>
       </Link>
 
-      <a href="#clients">
+      <Link href="/shop/support" style={{ textDecoration: "none" }}>
         <svg
           width="18"
           height="24"
@@ -260,15 +260,12 @@ function ShopPagesSideBar({ currentPage }) {
 
         <span
           className="customs"
-          style={{ color: `${currentPage === "settings" ? "#17A803" : ""}` }}
+          style={{ color: `${currentPage === "support" ? "#17A803" : ""}` }}
         >
           {" "}
           Support{" "}
         </span>
-      </a>
-
-      {/* 
-          <p className="shop-manage">Brands</p> */}
+        </Link>
     </div>
   );
 }

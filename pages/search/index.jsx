@@ -63,7 +63,7 @@ function SearchPage() {
       });
     }
   };
-  console.log('searchInput',searchInput)
+  console.log("searchInput", searchInput);
 
   return (
     <Fragment>
@@ -91,7 +91,7 @@ function SearchPage() {
             <Tab eventKey={1} title="Feeds">
               <hr className="col-md-12 line"></hr>
 
-              <div className="row images">
+              <div className="row images" style={{ minHeight: "700px" }}>
                 {error ? (
                   <p style={{ color: "#A2A2A2" }}>No results found...</p>
                 ) : (
@@ -110,64 +110,65 @@ function SearchPage() {
             </Tab>
             <Tab eventKey={2} title="Profiles">
               <hr className="col-md-12 line"></hr>
+              <div style={{ minHeight: "700px" }}>
+                {error ? (
+                  <p style={{ color: "#A2A2A2" }}>No results found...</p>
+                ) : (
+                  searchResult.map((item, index) => (
+                    <Link
+                      key={index}
+                      href={`/userprofile/${item.id}`}
+                      style={{ textDecoration: "none" }}
+                    >
+                      <div className="d-flex flex-start mt-4 mx-2">
+                        <a className="me-2" href="">
+                          <CardImg
+                            className="rounded-circle shadow-1-strong "
+                            src={`${constants.port}/media/${item.image}`}
+                            style={{
+                              width: "44px",
+                              height: "44px",
+                              objectFit: "cover",
+                            }}
+                          ></CardImg>
+                        </a>
+                        <div
+                          className="flex-grow-1 flex-shrink-1 "
+                          style={{ marginBottom: "-24px" }}
+                        >
+                          <div>
+                            <div className="d-flex justify-content-between align-items-center">
+                              <p
+                                className="mb-0"
+                                style={{
+                                  fontWeight: "600",
+                                  color: "#000",
+                                  fontSize: "15px",
+                                }}
+                              >
+                                {item.name}
+                              </p>
+                            </div>
 
-              {error ? (
-                <p style={{ color: "#A2A2A2" }}>No results found...</p>
-              ) : (
-                searchResult.map((item, index) => (
-                  <Link
-                    key={index}
-                    href={`/userprofile/${item.id}`}
-                    style={{ textDecoration: "none" }}
-                  >
-                    <div className="d-flex flex-start mt-4 mx-2">
-                      <a className="me-2" href="">
-                        <CardImg
-                          className="rounded-circle shadow-1-strong "
-                          src={`${constants.port}/media/${item.image}`}
-                          style={{
-                            width: "44px",
-                            height: "44px",
-                            objectFit: "cover",
-                          }}
-                        ></CardImg>
-                      </a>
-                      <div
-                        className="flex-grow-1 flex-shrink-1 "
-                        style={{ marginBottom: "-24px" }}
-                      >
-                        <div>
-                          <div className="d-flex justify-content-between align-items-center">
                             <p
-                              className="mb-0"
+                              className="small "
                               style={{
-                                fontWeight: "600",
                                 color: "#000",
-                                fontSize: "15px",
+                                fontWeight: "400",
+                                fontSize: "14px",
+                                marginTop: "-3px",
+                                float: "left",
                               }}
                             >
-                              {item.name}
+                              @{item.username}
                             </p>
                           </div>
-
-                          <p
-                            className="small "
-                            style={{
-                              color: "#000",
-                              fontWeight: "400",
-                              fontSize: "14px",
-                              marginTop: "-3px",
-                              float: "left",
-                            }}
-                          >
-                            @{item.username}
-                          </p>
                         </div>
                       </div>
-                    </div>
-                  </Link>
-                ))
-              )}
+                    </Link>
+                  ))
+                )}
+              </div>
             </Tab>
           </Tabs>
         </section>

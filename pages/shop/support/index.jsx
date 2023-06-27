@@ -16,8 +16,11 @@ import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import ShopPagesSideBar from "@/components/shop/pages/ShopPagesSideBar";
 import MobileFooter from "@/components/shared/MobileFooter";
 import Link from "next/link";
+import { useRouter } from "next/router";
 const { Option } = Select;
 function SupportPage() {
+
+  const router =useRouter()
   const [supportList, setSupportList] = useState([]);
   useEffect(() => {
     Axios.get(apis.supportView, {
@@ -50,7 +53,7 @@ function SupportPage() {
               >
                 Support
                 <span>
-                  <Button type="button" className="order-btn ">
+                  <Button onClick={()=>router.push('/shop/support/add-support')} type="button" className="order-btn ">
                     Add support
                   </Button>
                 </span>

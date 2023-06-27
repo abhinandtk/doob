@@ -1,8 +1,3 @@
-import MobileHeader from "@/components/MobileHeader";
-import MobileFooter from "@/components/shared/MobileFooter";
-import MainHeader from "@/components/shared/headers/MainHeader";
-import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
-import PagesSideBar from "@/components/stores/pages/PagesSideBar";
 import apis from "@/public/data/my-constants/Apis";
 import React, { useState } from "react";
 import Axios from "axios";
@@ -10,7 +5,14 @@ import constants from "@/public/data/my-constants/Constants";
 import { notification } from "antd";
 import { useRouter } from "next/router";
 import { Labels } from "@/public/data/my-constants/Labels";
-function ConvertStoreForm() {
+import MainHeader from "@/components/shared/headers/MainHeader";
+import MobileHeader from "@/components/MobileHeader";
+import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
+import ShopPagesSideBar from "@/components/shop/pages/ShopPagesSideBar";
+import MobileFooter from "@/components/shared/MobileFooter";
+import { useEffect } from "react";
+function StoreEditPage() {
+  const [slug, setSlug] = useState("");
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -23,13 +25,29 @@ function ConvertStoreForm() {
     cover: "",
     start: "",
     end: "",
-    tradeName: "",
-    licenseNo: "",
-    foundYear: "",
-    contractNo: "",
-    signature: "",
-    sponsorship: "",
   });
+  useEffect(() => {
+    Axios.get(apis.storeSettings, {
+      headers: {
+        Authorization: `Token ${constants.token_id}`,
+      },
+    }).then((res) => {
+      console.log("editstore", res);
+      setSlug(res.data.data.slug_store)
+      setFormData({
+        title: res.data.data.title,
+        description: res.data.data.description,
+        address: res.data.data.address,
+        location: res.data.data.location,
+        contact: res.data.data.contact_no,
+        email: res.data.data.store_email,
+        // logo: res.data.data.logo,
+        // cover: res.data.data.cover_photo,
+        start: res.data.data.start_time,
+        end: res.data.data.end_time,
+      });
+    });
+  }, []);
 
   const router = useRouter();
   const labels = Labels();
@@ -41,9 +59,11 @@ function ConvertStoreForm() {
   };
 
   const changeHandlerFile = (e) => {
+    console.log('file')
     const newFormData = { ...formData };
     newFormData[e.target.id] = e.target.files[0];
     setFormData({ ...newFormData });
+    console.log('files',e.target.files[0])
     // const formdata = new FormData();
     // formdata.append("file_field_name", e.target.files[0]);
     // Axios.post(apis.allImagesUpload, formdata, {
@@ -60,35 +80,30 @@ function ConvertStoreForm() {
   const submitHandler = (e) => {
     e.preventDefault();
     const formdata = new FormData();
+    formdata.append("slug_store", slug);
     formdata.append("title", formData.title);
     formdata.append("description", formData.description);
     formdata.append("address", formData.address);
     formdata.append("location", formData.location);
-    formdata.append("doob_map_location", formData.gmap);
     formdata.append("contact_no", formData.contact);
     formdata.append("store_email", formData.email);
     formdata.append("start_time", formData.start);
     formdata.append("end_time", formData.end);
-    formdata.append("trade_name", formData.tradeName);
-    formdata.append("trade_license", formData.licenseNo);
-    formdata.append("official_founding_year", formData.foundYear);
-    formdata.append("foundation_contract", formData.contractNo);
-    formdata.append("logo", formData.logo);
-    formdata.append("cover_photo", formData.cover);
-    formdata.append("authorized_signature_copy", formData.signature);
-    formdata.append("sponosor_shipagreement", formData.sponsorship);
+    formData.logo && formdata.append("logo", formData.logo);
+    formData.cover && formdata.append("cover_photo", formData.cover);
     console.log("resultof store", formData);
 
-    Axios.post(apis.requestStore, formdata, {
+    Axios.put(apis.editStore, formdata, {
       headers: {
         Authorization: `Token ${constants.token_id}`,
       },
     }).then((res) => {
       console.log("resultfrom", res);
       if (res.data.status === 1) {
+        router.back();
         notification.success({
           message: constants.Success,
-          description: `${labels["Requested successfully"]}`,
+          description: `${labels["Store edited successfully"]}`,
         });
       } else {
         notification.error({
@@ -96,7 +111,7 @@ function ConvertStoreForm() {
           description: res.data.message_en,
         });
       }
-      router.push("/page/settings-page");
+      
     });
   };
   return (
@@ -107,7 +122,7 @@ function ConvertStoreForm() {
 
       <div className="store-container">
         <div className="bottom">
-          <PagesSideBar currentPage="settings" />
+          <ShopPagesSideBar currentPage="settings" />
           <div className="content-topics ">
             <h6
               className=" my-4"
@@ -132,7 +147,7 @@ function ConvertStoreForm() {
                       color: "grey",
                     }}
                     id="title"
-                    // value={formData.title}
+                    value={formData.title}
                     onChange={(e) => changeHandler(e)}
                   />
                 </div>
@@ -149,7 +164,7 @@ function ConvertStoreForm() {
                     }}
                     rows={3}
                     id="description"
-                    // value={formData.description}
+                    value={formData.description}
                     onChange={(e) => changeHandler(e)}
                   />
                 </div>
@@ -166,7 +181,7 @@ function ConvertStoreForm() {
                     }}
                     rows={3}
                     id="address"
-                    // value={formData.address}
+                    value={formData.address}
                     onChange={(e) => changeHandler(e)}
                   />
                 </div>
@@ -182,28 +197,11 @@ function ConvertStoreForm() {
                       color: "grey",
                     }}
                     id="location"
-                    // value={formData.location}
+                    value={formData.location}
                     onChange={(e) => changeHandler(e)}
                   />
                 </div>
-                <div className="form-group my-2 ">
-                  <label for="exampleFormControlInput1">
-                    Google Map Location
-                  </label>
-                  <input
-                    required
-                    type="text"
-                    className="form-control p-2"
-                    style={{
-                      border: "0px",
-                      background: "#eeeeee",
-                      color: "grey",
-                    }}
-                    id="gmap"
-                    // value={formData.gmap}
-                    onChange={(e) => changeHandler(e)}
-                  />
-                </div>
+
                 <div className="form-group my-2">
                   <label for="exampleFormControlInput1">Contact No</label>
                   <input
@@ -216,7 +214,7 @@ function ConvertStoreForm() {
                       color: "grey",
                     }}
                     id="contact"
-                    // value={formData.contact}
+                    value={formData.contact}
                     onChange={(e) => changeHandler(e)}
                   />
                 </div>
@@ -232,14 +230,14 @@ function ConvertStoreForm() {
                       color: "grey",
                     }}
                     id="email"
-                    // value={formData.email}
+                    value={formData.email}
                     onChange={(e) => changeHandler(e)}
                   />
                 </div>
                 <div className="form-group my-2">
                   <label for="exampleFormControlInput1">Logo</label>
                   <input
-                    required
+                    
                     type="file"
                     className="form-control p-2"
                     style={{
@@ -248,14 +246,13 @@ function ConvertStoreForm() {
                       color: "grey",
                     }}
                     id="logo"
-                    // value={formData.logo}
                     onChange={(e) => changeHandlerFile(e)}
                   />
                 </div>
                 <div className="form-group my-2 ">
                   <label for="exampleFormControlInput1">Cover Photo</label>
                   <input
-                    required
+                    
                     type="file"
                     className="form-control p-2"
                     style={{
@@ -264,7 +261,6 @@ function ConvertStoreForm() {
                       color: "grey",
                     }}
                     id="cover"
-                    // value={formData.cover}
                     onChange={(e) => changeHandlerFile(e)}
                   />
                 </div>
@@ -281,7 +277,7 @@ function ConvertStoreForm() {
                       color: "grey",
                     }}
                     id="start"
-                    // value={formData.start}
+                    value={formData.start}
                     onChange={(e) => changeHandler(e)}
                   />
                 </div>
@@ -297,115 +293,11 @@ function ConvertStoreForm() {
                       color: "grey",
                     }}
                     id="end"
-                    // value={formData.end}
+                    value={formData.end}
                     onChange={(e) => changeHandler(e)}
                   />
                 </div>
 
-                <div className="form-group my-2">
-                  <label for="exampleFormControlInput1">Trade Name</label>
-                  <input
-                    required
-                    type="text"
-                    className="form-control p-2"
-                    style={{
-                      border: "0px",
-                      background: "#eeeeee",
-                      color: "grey",
-                    }}
-                    id="tradeName"
-                    // value={formData.tradeName}
-                    onChange={(e) => changeHandler(e)}
-                  />
-                </div>
-                <div className="form-group my-2">
-                  <label for="exampleFormControlInput1">Trade License No</label>
-                  <input
-                    required
-                    type="text"
-                    className="form-control p-2"
-                    style={{
-                      border: "0px",
-                      background: "#eeeeee",
-                      color: "grey",
-                    }}
-                    id="licenseNo"
-                    // value={formData.licenseNo}
-                    onChange={(e) => changeHandler(e)}
-                  />
-                </div>
-                <div className="form-group my-2 ">
-                  <label for="exampleFormControlInput1">
-                    Official Founding Year
-                  </label>
-                  <input
-                    required
-                    type="text"
-                    className="form-control p-2"
-                    style={{
-                      border: "0px",
-                      background: "#eeeeee",
-                      color: "grey",
-                    }}
-                    id="foundYear"
-                    // value={formData.foundYear}
-                    onChange={(e) => changeHandler(e)}
-                  />
-                </div>
-                <div className="form-group my-2">
-                  <label for="exampleFormControlInput1">
-                    Foundation Contract No
-                  </label>
-                  <input
-                    required
-                    type="text"
-                    className="form-control p-2"
-                    style={{
-                      border: "0px",
-                      background: "#eeeeee",
-                      color: "grey",
-                    }}
-                    id="contractNo"
-                    // value={formData.contractNo}
-                    onChange={(e) => changeHandler(e)}
-                  />
-                </div>
-                <div className="form-group my-2 ">
-                  <label for="exampleFormControlInput1">
-                    Authorized Signature Copy
-                  </label>
-                  <input
-                    required
-                    type="file"
-                    className="form-control p-2"
-                    style={{
-                      border: "0px",
-                      background: "#eeeeee",
-                      color: "grey",
-                    }}
-                    id="signature"
-                    // value={formData.signature}
-                    onChange={(e) => changeHandlerFile(e)}
-                  />
-                </div>
-                <div className="form-group my-2">
-                  <label for="exampleFormControlInput1">
-                    Sponsorship Agreement
-                  </label>
-                  <input
-                    required
-                    type="file"
-                    className="form-control p-2"
-                    style={{
-                      border: "0px",
-                      background: "#eeeeee",
-                      color: "grey",
-                    }}
-                    id="sponsorship"
-                    // value={formData.sponsorship}
-                    onChange={(e) => changeHandlerFile(e)}
-                  />
-                </div>
                 <div className="product-submit my-3">
                   <button type="submit" className="submit-cart-btn">
                     Submit
@@ -428,4 +320,4 @@ function ConvertStoreForm() {
   );
 }
 
-export default ConvertStoreForm;
+export default StoreEditPage;

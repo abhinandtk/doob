@@ -109,7 +109,7 @@ function MobileHeader() {
                   </Dropdown.Menu>
                 </Dropdown>
               </Nav.Link>
-              {/* <Nav.Link href="/search">
+              <Nav.Link href="/search">
                 <svg
                   width="24"
                   height="20"
@@ -123,7 +123,7 @@ function MobileHeader() {
                     fill="black"
                   />
                 </svg>
-              </Nav.Link> */}
+              </Nav.Link>
 
               {/* <Nav.Link>
                 <svg
