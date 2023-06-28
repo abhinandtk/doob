@@ -24,7 +24,7 @@ function SideMenuFooter() {
           </li>
           <br></br>
           {sponsersData &&
-            sponsersData.map((item, index) => (
+            sponsersData.slice(0,12).map((item, index) => (
               <li key={index} className="side-menu__footer-item ">
                 <a className="side-menu__footer-link mx-1 ">
                   <img

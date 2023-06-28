@@ -19,8 +19,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 const { Option } = Select;
 function SupportPage() {
-
-  const router =useRouter()
+  const router = useRouter();
   const [supportList, setSupportList] = useState([]);
   useEffect(() => {
     Axios.get(apis.supportView, {
@@ -33,7 +32,7 @@ function SupportPage() {
   }, []);
   return (
     <Fragment>
-      <MainHeader title='Doob'/>
+      <MainHeader title="Doob" />
       <MobileHeader />
       <MainSidebarFixed />
 
@@ -53,7 +52,11 @@ function SupportPage() {
               >
                 Support
                 <span>
-                  <Button onClick={()=>router.push('/shop/support/add-support')} type="button" className="order-btn ">
+                  <Button
+                    onClick={() => router.push("/page/support/add-support")}
+                    type="button"
+                    className="order-btn "
+                  >
                     Add support
                   </Button>
                 </span>
@@ -69,7 +72,13 @@ function SupportPage() {
                       <span style={{ fontWeight: "500" }}>
                         #{item.ticket_no}
                       </span>
-                      <span>{item.status ? "Active" : "Closed"}</span>
+                      <span>
+                        {item.status == 0
+                          ? "Open"
+                          : item.status == 1
+                          ? "Resolved"
+                          : "Closed"}
+                      </span>
                     </div>
 
                     <hr className="mx-auto" style={{ width: "90%" }}></hr>
@@ -94,13 +103,20 @@ function SupportPage() {
                       className="p-2   mx-auto d-flex justify-content-between align-items-center"
                       style={{ width: "90%" }}
                     >
-                      <span style={{ color: "#959595" }}>
-                        
-                      </span>
-                      <Link href={`/shop/support/${item.ticket_no}`} style={{textDecoration:'none'}}>
-                      <span style={{ color: "#17A803",fontWeight: "500",cursor:"pointer"  }}>
-                        View More
-                      </span>
+                      <span style={{ color: "#959595" }}></span>
+                      <Link
+                        href={`/page/support/${item.ticket_no}`}
+                        style={{ textDecoration: "none" }}
+                      >
+                        <span
+                          style={{
+                            color: "#17A803",
+                            fontWeight: "500",
+                            cursor: "pointer",
+                          }}
+                        >
+                          View More
+                        </span>
                       </Link>
                     </div>
                   </div>

@@ -17,7 +17,7 @@ import { useDispatch } from "react-redux";
 
 function StoreProductsCard({ products, title }) {
   const dispatch = useDispatch();
-  console.log('reere',products)
+  console.log("reere", products);
 
   const [updatedStore, setUpdatedStore] = useState(
     products.map((item) => ({
@@ -48,7 +48,9 @@ function StoreProductsCard({ products, title }) {
         };
       }
       setUpdatedStore((prevStore) =>
-        prevStore.map((item) => (item.slug_product_varient === id ? updatedItem : item))
+        prevStore.map((item) =>
+          item.slug_product_varient === id ? updatedItem : item
+        )
       );
 
       console.log("wishlisttttttttttttttttttttttttttttttttttttt", res);
@@ -79,7 +81,9 @@ function StoreProductsCard({ products, title }) {
                   style={{ textDecoration: "none" }}
                 >
                   <Card.Img
-                    onClick={() => dispatch(setProVarient(item.slug_product_varient))}
+                    onClick={() =>
+                      dispatch(setProVarient(item.slug_product_varient))
+                    }
                     style={{
                       borderRadius: "0px 0px 0px 0px",
                       width: "100%",
@@ -100,7 +104,10 @@ function StoreProductsCard({ products, title }) {
                     </span>
                     <span
                       onClick={() =>
-                        addWishlistHandler(item.slug_product_varient, item.isWish)
+                        addWishlistHandler(
+                          item.slug_product_varient,
+                          item.isWish
+                        )
                       }
                       style={{ float: "right" }}
                     >
@@ -130,26 +137,41 @@ function StoreProductsCard({ products, title }) {
                           textOverflow: "ellipsis",
                           height: "35px",
                         }}
-                        onClick={() => dispatch(setProVarient(item.slug_product_varient))}
+                        onClick={() =>
+                          dispatch(setProVarient(item.slug_product_varient))
+                        }
                       >
                         {item.Name}
                       </p>
                     </Link>
 
-                    <p style={{ color: "#fff", fontSize: "15px" }}>
-                      <s>{item.Display_Prize} KD</s>
-                      <span>
-                        <p
-                          style={{
-                            fontSize: "16px",
-                            color: "#17A803",
-                            fontWeight: "700",
-                          }}
-                        >
-                          {item.Selling_Prize} KD
-                        </p>
-                      </span>
-                    </p>
+                    {item.product_stock <= 0 ? (
+                      <p className="my-1" style={{ color: "red" }}>
+                        Out of stock
+                      </p>
+                    ) : item.product_brand === "Active" &&
+                      item.product_category == true &&
+                      item.product_status === "Active" &&
+                      item.product_varient_status === "Active" ? (
+                      <p style={{ color: "#fff", fontSize: "15px" }}>
+                        <s>{item.Display_Prize} KD</s>
+                        <span>
+                          <p
+                            style={{
+                              fontSize: "16px",
+                              color: "#17A803",
+                              fontWeight: "700",
+                            }}
+                          >
+                            {item.Selling_Prize} KD
+                          </p>
+                        </span>
+                      </p>
+                    ) : (
+                      <p className="my-1" style={{ color: "red" }}>
+                        Currrently unavailable
+                      </p>
+                    )}
                   </div>
                 </Card.Body>
               </Card>

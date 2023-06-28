@@ -565,83 +565,9 @@ function SingleContainerHomePosts() {
         />
       )}
 
-      {/* <div className="posts">
-        <article className="post">
-          <div className="post__header">
-            <div className="post__profile">
-              <a href="#" className="post__avatar">
-                <img src="../images/sulthan.png" alt="User Picture" />
-              </a>
-              <div className="users">
-                <div className="post__likes">
-                  <a href="" className="post__user">
-                    Sulthan
-                    <span className="mx-1" style={{ color: "#616661" }}>
-                      Shared
-                    </span>{" "}
-                    SHAKU Ath05 Football
-                  </a>
-                </div>
-                <div className="time">2 hours ago</div>
-              </div>
-            </div>
-            <button className="post__more-options">
-              <img src="../images/More_Vertical.png"></img>
-            </button>
-          </div>
+      
 
-          <div className="post__content">
-            <div className="post__medias">
-              <img
-                className="post__media"
-                src="../images/post-football.png"
-                alt="Post Content"
-              />
-            </div>
-          </div>
-
-          <div className="post__footer">
-            <div className="post__buttons">
-              <button className="post__button post__button--align-right">
-                <a>
-                  <span
-                    className="me-2"
-                    style={{
-                      color: "#959595",
-                      fontWeight: "550",
-                      fontSize: "14px",
-                    }}
-                  >
-                    <s>10.315 KD</s>
-                  </span>
-                  <span style={{ color: "#17A803", fontWeight: "600" }}>
-                    8.300 KD
-                  </span>
-                </a>
-              </button>
-            </div>
-            <div className="post__info">
-              <div className="post__likes">
-                <h6 style={{ fontWeight: "600" }}>SHAKU Ath05 Football</h6>
-              </div>
-              <div className="comments col-md-8">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industrys....
-              </div>
-            </div>
-          </div>
-        </article>
-      </div> */}
-
-      {/* <div className="post__content">
-        <div className="post__medias" style={{ marginTop: "9px" }}>
-          <img
-            className="post__media"
-            src="/images/Group 13.png"
-            alt="Post Content"
-          />
-        </div>
-      </div> */}
+      
       <MobileFooter />
     </Fragment>
   );

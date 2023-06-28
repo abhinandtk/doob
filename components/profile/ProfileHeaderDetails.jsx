@@ -228,17 +228,13 @@ function ProfileHeaderDetails({ data, setSuccess }) {
                       <span style={{ color: "#959595" }}>posts</span>
                     </li>
                     <li onClick={() => setFollowersListShow(true)}>
-                      <span
-                        className="profile-stat-count"
-                      >
+                      <span className="profile-stat-count">
                         {data.followers_count}
                       </span>{" "}
                       <span style={{ color: "#959595" }}>followers</span>
                     </li>
                     <li onClick={() => setFollowingListShow(true)}>
-                      <span
-                        className="profile-stat-count"
-                      >
+                      <span className="profile-stat-count">
                         {data.following_count}
                       </span>{" "}
                       <span style={{ color: "#959595" }}>following</span>
@@ -290,7 +286,10 @@ function ProfileHeaderDetails({ data, setSuccess }) {
               />
             )}
             {followingListShow && (
-              <FollowingList setFollowingListShow={setFollowingListShow} />
+              <FollowingList
+                setFollowingListShow={setFollowingListShow}
+                setSuccess={setSuccess}
+              />
             )}
           </Card.Body>
         </Card>

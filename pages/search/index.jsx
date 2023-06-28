@@ -50,11 +50,18 @@ function SearchPage() {
     } else {
       console.log("2222222222222222222222222", activeTab);
       setSearchInput(e.target.value);
-      Axios.post(apis.usersearch, {
-        user_input: searchInput,
-      }).then((res) => {
+      Axios.post(
+        apis.usersearch,
+        {
+          user_input: searchInput,
+        },
+        {
+          headers: {
+            Authorization: `Token ${constants.token_id}`,
+          },
+        }
+      ).then((res) => {
         if (res.data.status === 1) {
-          console.log(res);
           setSearchResult(res.data.data.results);
           setError(false);
         } else {

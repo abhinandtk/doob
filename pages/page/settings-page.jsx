@@ -255,7 +255,7 @@ function StoreSettingsPage() {
                   <h6 className="my-4">Private Account</h6>{" "}
                   <div
                     className="toggle1"
-                    style={{ marginRight: "50px", marginTop: "-33px" }}
+                    style={{ marginRight: "50px", marginTop: "-40px" }}
                   >
                     {" "}
                     <input
@@ -271,7 +271,7 @@ function StoreSettingsPage() {
                     style={{ textDecoration: "none", color: "inherit" }}
                   >
                     <h6 className="my-4">
-                      Convert to store
+                      Request for manage store
                       <span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"

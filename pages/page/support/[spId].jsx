@@ -31,6 +31,7 @@ function SupportDetailsPage() {
         },
       }
     ).then((res) => {
+      console.log("resrt", res);
       if (res.data.data) {
         setSupportDetails(res.data.data.ticket_details);
         setSupportMessages(res.data.data.message);
@@ -60,38 +61,43 @@ function SupportDetailsPage() {
               </h6>
               {supportDetails && (
                 <div className="my-3">
-                  
-
                   <hr className="mx-auto" style={{ width: "90%" }}></hr>
                   <div
                     className="p-2 mx-auto d-flex justify-content-between align-items-center"
                     style={{ width: "90%" }}
                   >
                     <span style={{ color: "#959595" }}>Ticket No</span>
-                    <span style={{ color: "#959595" }}>{supportDetails.ticket_no}</span>
+                    <span style={{ color: "#959595" }}>
+                      {supportDetails.ticket_no}
+                    </span>
                   </div>
                   <div
                     className="p-2 mx-auto d-flex justify-content-between align-items-center"
                     style={{ width: "90%" }}
                   >
                     <span style={{ color: "#959595" }}>User name</span>
-                    <span style={{ color: "#959595" }}>{supportDetails.user?.username}</span>
+                    <span style={{ color: "#959595" }}>
+                      {supportDetails.user?.username}
+                    </span>
                   </div>
                   <div
                     className="p-2 mx-auto d-flex justify-content-between align-items-center"
                     style={{ width: "90%" }}
                   >
                     <span style={{ color: "#959595" }}>Description</span>
-                    <span className="address-admin" style={{ color: "#959595" }}>{supportDetails.description}</span>
+                    <span
+                      className="address-admin"
+                      style={{ color: "#959595" }}
+                    >
+                      {supportDetails.description}
+                    </span>
                   </div>
 
                   <div
                     className="p-2   mx-auto d-flex justify-content-between align-items-center"
                     style={{ width: "90%" }}
                   >
-                    <span style={{ color: "#959595" }}>
-                      Date
-                    </span>
+                    <span style={{ color: "#959595" }}>Date</span>
                     <span style={{ color: "#959595" }}>
                       {moment(supportDetails.created_at).format("DD-MMM-YYYY")}
                     </span>
@@ -101,13 +107,22 @@ function SupportDetailsPage() {
                     style={{ width: "90%" }}
                   >
                     <span style={{ color: "#959595" }}>Status</span>
-                    <span>{supportDetails.status ? "Active" : "Closed"}</span>
+                    <span>
+                      {supportDetails.status == 0
+                        ? "Open"
+                        : supportDetails.status == 1
+                        ? "Resolved"
+                        : "Closed"}
+                    </span>
                   </div>
-                  
                 </div>
               )}
 
-              <SupportMessages data={supportMessages} setSuccess={setSuccess} />
+              <SupportMessages
+                data={supportMessages}
+                status={supportDetails && supportDetails.status}
+                setSuccess={setSuccess}
+              />
             </div>
           </div>
         </div>

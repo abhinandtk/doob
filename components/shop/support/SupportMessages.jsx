@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import { CardImg } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Axios from "axios";
-function SupportMessages({ data,setSuccess }) {
+function SupportMessages({ data, setSuccess, status }) {
   const router = useRouter();
   const { spId } = router.query;
   const inputRef = useRef();
@@ -32,7 +32,7 @@ function SupportMessages({ data,setSuccess }) {
       }
     ).then((res) => {
       setSuccess((prev) => !prev);
-      inputRef.current.value="";
+      inputRef.current.value = "";
       console.log("result,res", res);
     });
   };
@@ -106,34 +106,37 @@ function SupportMessages({ data,setSuccess }) {
         <div className="post-message-input">
           <div className="message-avatar">{/* Render avatar */}</div>
           <div className="message-input">
-            <Form onSubmit={supportMessageHandler}>
-              <div className="d-flex justify-content-between align-items-center">
-                <Form.Group
-                  className="mb-3 w-100"
-                  controlId="formBasicPassword"
-                >
-                  <Form.Control
-                    type=""
-                    placeholder="Add a comment"
-                    className="mark"
-                    style={{ fontSize: "13px", height: "37px" }}
-                    onChange={(e) => setComment(e.target.value)}
-                    ref={inputRef}
-                  />
-                </Form.Group>
-                <p
-                  className="mx-2"
-                  style={{
-                    color: "black",
-                    textDecoration: "none",
-                    cursor: "pointer",
-                  }}
-                  onClick={supportMessageHandler}
-                >
-                  Post
-                </p>
-              </div>
-            </Form>
+            {status != 2 && (
+              <Form onSubmit={supportMessageHandler}>
+                <div className="d-flex justify-content-between align-items-center">
+                  <Form.Group
+                    className="mb-3 w-100"
+                    controlId="formBasicPassword"
+                  >
+                    <Form.Control
+                      type=""
+                      placeholder="Add a comment"
+                      className="mark"
+                      style={{ fontSize: "13px", height: "37px" }}
+                      onChange={(e) => setComment(e.target.value)}
+                      ref={inputRef}
+                    />
+                  </Form.Group>
+
+                  <p
+                    className="mx-2"
+                    style={{
+                      color: "black",
+                      textDecoration: "none",
+                      cursor: "pointer",
+                    }}
+                    onClick={supportMessageHandler}
+                  >
+                    Post
+                  </p>
+                </div>
+              </Form>
+            )}
           </div>
         </div>
         {/* End of post message input */}

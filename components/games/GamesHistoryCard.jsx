@@ -52,9 +52,9 @@ function GamesHistoryCard({ data }) {
                   <div className="book-content">
                     <div className="book-date">
                       <h5 style={{ color: "#17A803", fontWeight: "700" }}>
-                        {moment(item.date).format("D")}
+                        {moment(item.stadium_details.date).format("D")}
                       </h5>
-                      <p>{moment(item.date).format("MMM")}</p>
+                      <p>{moment(item.stadium_details.date).format("MMM")}</p>
                     </div>
                     <div className="book-details">
                       <h5 className="card-texts">

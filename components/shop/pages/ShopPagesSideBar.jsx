@@ -243,7 +243,7 @@ function ShopPagesSideBar({ currentPage }) {
         </span>
       </Link>
 
-      <Link href="/shop/support" style={{ textDecoration: "none" }}>
+      <Link href="/page/support" style={{ textDecoration: "none" }}>
         <svg
           width="18"
           height="24"

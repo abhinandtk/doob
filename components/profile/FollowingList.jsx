@@ -7,12 +7,12 @@ import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 
-function FollowingList({ setFollowingListShow }) {
+function FollowingList({ setFollowingListShow, setSuccess }) {
   const [visible, setVisible] = useState(true);
   const [following, setFollowing] = useState([]);
 
   // const [showFollow, setShowFollow] = useState(true);
-  const [apiSuccess,setApiSuccess]=useState(false)
+  const [apiSuccess, setApiSuccess] = useState(false);
 
   useEffect(() => {
     Axios.get(apis.followinglist, {
@@ -31,7 +31,8 @@ function FollowingList({ setFollowingListShow }) {
       headers: { Authorization: `Token ${constants.token_id}` },
     })
       .then((response) => {
-        setApiSuccess(prev=>!prev)
+        setApiSuccess((prev) => !prev);
+        setSuccess((prev) => !prev);
         setFollowing((prevFollowing) => {
           const updatedFollowing = [...prevFollowing];
           updatedFollowing[index].showFollow = false;
@@ -68,13 +69,21 @@ function FollowingList({ setFollowingListShow }) {
                   <CardImg
                     className="rounded-circle shadow-1-strong "
                     src={`${constants.port}${item.image}`}
-                    style={{ width: "46px", height: "46px",objectFit:'cover' }}
+                    style={{
+                      width: "46px",
+                      height: "46px",
+                      objectFit: "cover",
+                    }}
                   ></CardImg>
                 ) : (
                   <CardImg
                     className="rounded-circle shadow-1-strong "
                     src="/images/accounts/user_default.png"
-                    style={{ width: "46px", height: "46px",objectFit:'cover' }}
+                    style={{
+                      width: "46px",
+                      height: "46px",
+                      objectFit: "cover",
+                    }}
                   ></CardImg>
                 )}
               </div>

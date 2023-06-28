@@ -43,7 +43,7 @@ function Notifications({ setNotificationShow }) {
       }
     ).then((res) => {
       setFollowStatus(!followStatus);
-      console.log(res);
+      console.log('reefollow request',res);
     });
   };
   const acceptRequestHandler = (id) => {
@@ -58,14 +58,14 @@ function Notifications({ setNotificationShow }) {
         },
       }
     ).then((res) => {
+      setFollowStatus(!followStatus);
       if (res.data.status === 1) {
-        setFollowStatus(!followStatus);
         notification.success({
           message: constants.Success,
           description: `${labels["Accepted successfully"]}`,
         });
       }
-      console.log("opppop", res);
+      console.log("reeacccept", res);
     });
   };
 
@@ -144,6 +144,14 @@ function Notifications({ setNotificationShow }) {
                         >
                           Following
                         </button>
+                      ) : item.is_requested == 1 ? (
+                        <button
+                          type="button"
+                          style={{ backgroundColor: "grey" }}
+                          className="side-suggestion-button2"
+                        >
+                          Requested
+                        </button>
                       ) : (
                         <button
                           onClick={() => followAccount(item.user_id)}
@@ -183,7 +191,7 @@ function Notifications({ setNotificationShow }) {
                             className="ms-1 text-black"
                             style={{ fontSize: "12px" }}
                           >
-                            requested <br></br>you.<span></span>
+                            requested to follow<br></br>you.<span></span>
                             {notificationTime(item.created_at)}
                           </span>
                         </a>

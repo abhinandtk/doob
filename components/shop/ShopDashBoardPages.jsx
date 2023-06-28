@@ -244,7 +244,10 @@ function ShopDashBoardPages() {
             <p className="shop-manage">Settings</p>
           </div>
         </Link>
-
+        <Link
+          href="/page/support"
+          style={{ textDecoration: "none", color: "#212529" }}
+        >
         <div className="documents ">
           <svg
             width="18"
@@ -262,6 +265,7 @@ function ShopDashBoardPages() {
 
           <p className="shop-manage">Support</p>
         </div>
+        </Link>
       </div>
     </Fragment>
   );
