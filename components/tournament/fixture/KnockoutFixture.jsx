@@ -42,17 +42,33 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
                         </div>
                         <div
                           className={`${
-                            match.team_B_score <= match.team_A_score
-                              ? "group-two"
-                              : "group-one"
+                            match.team_B_score >= match.team_A_score
+                              ? "group-one"
+                              : "group-two"
                           }`}
                         >
                           {match.team_B}
                         </div>
                       </div>
                       <div className="fix1">
-                        <div className="group-one">{match.team_A_score}</div>
-                        <div className="group-one ">{match.team_B_score}</div>
+                        <div
+                          className={`${
+                            match.team_A_score >= match.team_B_score
+                              ? "group-one"
+                              : "group-two"
+                          }`}
+                        >
+                          {match.team_A_score}
+                        </div>
+                        <div
+                          className={`${
+                            match.team_B_score >= match.team_A_score
+                              ? "group-one"
+                              : "group-two"
+                          }`}
+                        >
+                          {match.team_B_score}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -87,17 +103,33 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
                         </div>
                         <div
                           className={`${
-                            match.team_B_score <= match.team_A_score
-                              ? "group-two"
-                              : "group-one"
+                            match.team_B_score >= match.team_A_score
+                              ? "group-one"
+                              : "group-two"
                           }`}
                         >
                           {match.team_B}
                         </div>
                       </div>
                       <div className="fix1">
-                        <div className="group-one">{match.team_A_score}</div>
-                        <div className="group-one ">{match.team_B_score}</div>
+                        <div
+                          className={`${
+                            match.team_A_score >= match.team_B_score
+                              ? "group-one"
+                              : "group-two"
+                          }`}
+                        >
+                          {match.team_A_score}
+                        </div>
+                        <div
+                          className={`${
+                            match.team_B_score >= match.team_A_score
+                              ? "group-one"
+                              : "group-two"
+                          }`}
+                        >
+                          {match.team_B_score}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -132,17 +164,33 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
                         </div>
                         <div
                           className={`${
-                            match.team_B_score <= match.team_A_score
-                              ? "group-two"
-                              : "group-one"
+                            match.team_B_score >= match.team_A_score
+                              ? "group-one"
+                              : "group-two"
                           }`}
                         >
                           {match.team_B}
                         </div>
                       </div>
                       <div className="fix1">
-                        <div className="group-one">{match.team_A_score}</div>
-                        <div className="group-one ">{match.team_B_score}</div>
+                        <div
+                          className={`${
+                            match.team_A_score >= match.team_B_score
+                              ? "group-one"
+                              : "group-two"
+                          }`}
+                        >
+                          {match.team_A_score}
+                        </div>
+                        <div
+                          className={`${
+                            match.team_B_score >= match.team_A_score
+                              ? "group-one"
+                              : "group-two"
+                          }`}
+                        >
+                          {match.team_B_score}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -166,12 +214,44 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
                         </div>
                       )}
                       <div className="fix">
-                        <div className="group-one">{match.team_A}</div>
-                        <div className="group-two ">{match.team_B}</div>
+                        <div
+                          className={`${
+                            match.team_A_score >= match.team_B_score
+                              ? "group-one"
+                              : "group-two"
+                          }`}
+                        >
+                          {match.team_A}
+                        </div>
+                        <div
+                          className={`${
+                            match.team_B_score >= match.team_A_score
+                              ? "group-one"
+                              : "group-two"
+                          }`}
+                        >
+                          {match.team_B}
+                        </div>
                       </div>
                       <div className="fix1">
-                        <div className="group-one">{match.team_A_score}</div>
-                        <div className="group-two ">{match.team_B_score}</div>
+                        <div
+                          className={`${
+                            match.team_A_score >= match.team_B_score
+                              ? "group-one"
+                              : "group-two"
+                          }`}
+                        >
+                          {match.team_A_score}
+                        </div>
+                        <div
+                          className={`${
+                            match.team_B_score >= match.team_A_score
+                              ? "group-one"
+                              : "group-two"
+                          }`}
+                        >
+                          {match.team_B_score}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -198,23 +278,55 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
                           </>
                         )}
                         <div className="fix">
-                          <div className="group-one-final">{match.team_A}</div>
-                          <div className="group-two-final">{match.team_B}</div>
+                          <div
+                            className={`${
+                              match.team_A_score >= match.team_B_score
+                                ? "group-one"
+                                : "group-two"
+                            }`}
+                          >
+                            {match.team_A}
+                          </div>
+                          <div
+                            className={`${
+                              match.team_B_score >= match.team_A_score
+                                ? "group-one"
+                                : "group-two"
+                            }`}
+                          >
+                            {match.team_B}
+                          </div>
                         </div>
                         <div className="fix1">
-                          <div className="group-two-final">
+                          <div
+                            className={`${
+                              match.team_A_score >= match.team_B_score
+                                ? "group-one"
+                                : "group-two"
+                            }`}
+                          >
                             {match.team_A_score}
                           </div>
-                          <div className="group-two-final">
+                          <div
+                            className={`${
+                              match.team_B_score >= match.team_A_score
+                                ? "group-one"
+                                : "group-two"
+                            }`}
+                          >
                             {match.team_B_score}
                           </div>
                         </div>
                         <div className="fix1">
                           <div className="group-two-final">
-                          {match.team_A_score > match.team_B_score && <i className="bi bi-trophy" />}
+                            {match.team_A_score > match.team_B_score && (
+                              <i className="bi bi-trophy" />
+                            )}
                           </div>
                           <div className="group-two-final">
-                          {match.team_B_score > match.team_A_score && <i className="bi bi-trophy" />}
+                            {match.team_B_score > match.team_A_score && (
+                              <i className="bi bi-trophy" />
+                            )}
                           </div>
                         </div>
                       </div>

@@ -19,7 +19,7 @@ function SideExplorePlayers() {
       },
     }).then((res) => {
       setExploreData(res.data.data);
-      console.log("", res);
+      console.log("55555555555", res);
     });
   }, [success]);
 

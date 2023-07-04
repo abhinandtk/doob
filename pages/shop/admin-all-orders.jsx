@@ -69,7 +69,7 @@ function AdminAllOrders() {
 
   return (
     <Fragment>
-      <MainHeader />
+      <MainHeader title='Doob'/>
       <MobileHeader />
       <MainSidebarFixed />
 

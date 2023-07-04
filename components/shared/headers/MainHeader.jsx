@@ -130,7 +130,7 @@ function MainHeader({ title }) {
                       backgroundColor: "#17A803",
                     }}
                   >
-                    Create <i className="bi bi-chevron-down "></i>
+                    Create&nbsp;<i className="bi bi-chevron-down "></i>
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu

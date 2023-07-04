@@ -36,8 +36,8 @@ function BookingDetailsCard({ details, setSuccess }) {
         });
       } else {
         setSuccess((prev) => !prev);
-        notification.success({
-          message: constants.success,
+        notification.error({
+          message: constants.Error,
           description: res.data.message_en,
         });
       }

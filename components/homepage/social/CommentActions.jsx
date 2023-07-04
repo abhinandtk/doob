@@ -100,7 +100,7 @@ function CommentActions({ user, commentId, setSuccessApi }) {
       </Modal>
       <Modal
         zIndex={1100}
-        title="Are you sure to delete this post??"
+        title="Are you sure to delete this comment??"
         open={visible}
         centered
         closable

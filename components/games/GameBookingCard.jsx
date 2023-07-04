@@ -1,18 +1,22 @@
 import constants from "@/public/data/my-constants/Constants";
 import moment from "moment";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useRef } from "react";
 import { Fragment } from "react";
 
 function GameBookingCard({ data }) {
   console.log("ffffffffffff", data);
   const router = useRouter();
+  const useRef = useRef();
+  const handleScroll = () => {
+    useRef.current.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <Fragment>
       {data &&
         data.map((value, index) => (
-          <div key={index} className="card  book">
+          <div ref={useRef} key={index} className="card  book">
             <div className="card-body">
               <div className="clearfix  dot-web">
                 <div className="float-end dots">
@@ -99,7 +103,11 @@ function GameBookingCard({ data }) {
                   Do you want to invite people?
                 </p>
               </div>
-              <button type="button" className="yes-btn float-end mx-1">
+              <button
+                type="button"
+                className="yes-btn float-end mx-1"
+                onClick={() => handleScroll()}
+              >
                 No
               </button>{" "}
               <button

@@ -332,7 +332,7 @@ function PlayGroundPage() {
               <Tab eventKey={1} title="Fields">
                 <MapPlayGround data={contents.playgrounds_near_me} />
               </Tab>
-              <Tab eventKey={2} title="Game">
+              <Tab eventKey={2} title="Games">
                 <MapGame data={contents.games_near_me} />
               </Tab>
             </Tabs>

@@ -67,8 +67,8 @@ function GroundCartItems({ data, setSuccess }) {
       {data && (
         <div className="col-md-6">
           <div className="clearfix numbers">
-            <h5 className="float-start">Slots</h5>
-            <p className="float-end">Total&nbsp;{data.cart_count}&nbsp;items</p>
+            <h5 className="float-start" style={{color:'black'}}>Slots</h5>
+            <p className="float-end" style={{color:'black'}}>Total&nbsp;{data.cart_count}&nbsp;items</p>
           </div>
           {data.cart_details.map((slot, index_) => (
             <div key={index_} className="card carts1 my-3">
@@ -92,6 +92,7 @@ function GroundCartItems({ data, setSuccess }) {
                     <div
                       className="float-end trashs"
                       onClick={() => removeCartItemHandler(slot.cart_id)}
+                      style={{cursor:'pointer'}}
                     >
                       <img src="/images/store/trash.png"></img>
                     </div>

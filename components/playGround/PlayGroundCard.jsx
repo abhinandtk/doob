@@ -16,7 +16,7 @@ function PlayGroundCard({ content }) {
           className="float-start"
           style={{ fontWeight: "700", fontSize: "19px", marginLeft: "-6px" }}
         >
-          Playground
+          Playgrounds near me
         </h5>
         <p className="float-end" style={{ color: "#959595" }}>
           {/* View all */}
