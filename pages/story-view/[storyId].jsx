@@ -3,9 +3,6 @@ import {Container,Nav,Navbar,Dropdown,Modal,Button,CardImg} from 'react-bootstra
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import React, { Fragment, useEffect, useState } from 'react';
 import Form from 'react-bootstrap/Form';
-import MainHeader from '@/components/shared/headers/MainHeader';
-import MainSidebarFixed from '@/components/shared/sidebar/MainSidebarFixed';
-import StoriesMainPage from '@/components/homepage/StoriesMainPage';
 import SideExplorePlayers from '@/components/homepage/SideExplorePlayers';
 import ContainerHomePosts from '@/components/homepage/ContainerHomePosts';
 import axios from 'axios';
@@ -18,17 +15,17 @@ import RegisterOtpVerification from '@/components/user/RegisterOtpVerification';
 import ForgetOtp from '@/components/user/ForgetOtp';
 import PasswordChange from '@/components/user/PasswordChange';
 import SsoRegister from '@/components/user/SsoRegister';
-import MobileHeader from '@/components/MobileHeader';
 import SharedConfirmation from '@/components/homepage/social/SharedConfirmation';
+import MainHeader from '@/components/shared/headers/MainHeader';
+import MobileHeader from '@/components/MobileHeader';
+import MainSidebarFixed from '@/components/shared/sidebar/MainSidebarFixed';
 import SingleContainerHomePosts from '@/components/homepage/SingleContainerHomePosts';
-function HomePage ()  {
+import StoriesMainPage from '@/components/homepage/StoriesMainPage';
+function StoriesView ()  {
 
-  const [countryModalShow, setCountryModalShow] = useState(true);
   const [countryData,setCountryData] = useState([])
-  const [regionData,setRegionData] = useState([])
   
 
-  const [activemodal,setActiveModal]=useState(null)
   
   
 
@@ -48,11 +45,11 @@ function HomePage ()  {
       <main className="main-container">
         <section className="content-container">
           <div className="content">
+            {/* <StoriesMainPage /> */}
           
-            <SingleContainerHomePosts />
+            <SingleContainerHomePosts story={true}/>
           
           </div>
-            {/* <SideExplorePlayers /> */}
         </section>
       </main>
            
@@ -62,4 +59,4 @@ function HomePage ()  {
 }
 
 
-export default HomePage
+export default StoriesView

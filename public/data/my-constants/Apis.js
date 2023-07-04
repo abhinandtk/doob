@@ -61,6 +61,9 @@ const apis = {
     'blockUser': `${constants.port}/social/Api/user_block_api`,
     'unblockUser': `${constants.port}/social/Api/user_unblock_api`,
     'listUserBlock': `${constants.port}/social/Api/list_user_block_api`,
+    'userStoryList': `${constants.port}/social/Api/user_post_story`,
+    'singleUserStory': `${constants.port}/social/Api/single_user_story_list`,
+    'addPostActivity': `${constants.port}/social/Api/add_post_activity`,
 
 
     //store module

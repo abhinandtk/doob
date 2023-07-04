@@ -56,7 +56,7 @@ function SideExplorePlayers() {
               <div href="#" className="side-menu__suggestion-avatar">
                 {item.image ? (
                 <img
-                  src={`${constants.port}${item.image}`}
+                  src={`${item.image}`}
                   style={{ objectFit: "cover", width: "44px" }}
                   alt="User Picture"
                 />):(<img
