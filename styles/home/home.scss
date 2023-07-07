@@ -582,9 +582,10 @@ body{
   left: 50%;
   transform: translate(-50%, -50%);
 
-  width: 66px;
-  height: 66px;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
+  border:2px solid #17A803;
   overflow: hidden;
 }
 .story__picture::after {

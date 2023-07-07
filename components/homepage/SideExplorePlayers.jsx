@@ -41,6 +41,12 @@ function SideExplorePlayers() {
           message: constants.Success,
           description: `${labels["Followed successfully"]}`,
         });
+      } else if (res.data.status === 3) {
+        setSuccess((prev) => !prev);
+        notification.success({
+          message: constants.Success,
+          description: `${labels["Requested successfully"]}`,
+        });
       }
     });
   };
@@ -55,19 +61,26 @@ function SideExplorePlayers() {
             <div key={index} className="side-menu__suggestion">
               <div href="#" className="side-menu__suggestion-avatar">
                 {item.image ? (
-                <img
-                  src={`${item.image}`}
-                  style={{ objectFit: "cover", width: "44px" }}
-                  alt="User Picture"
-                />):(<img
+                  <img
+                    src={`${item.image}`}
+                    style={{
+                      objectFit: "cover",
+                      width: "44px",
+                      height: "44px",
+                    }}
+                    alt="User Picture"
+                  />
+                ) : (
+                  <img
                     src="/images/accounts/user_default.png"
                     alt="User Picture"
                     style={{
                       objectFit: "cover",
-                      width: "44px"
-                    //   height: "100%",
+                      width: "44px",
+                      height: "44px",
                     }}
-                  />)}
+                  />
+                )}
               </div>
               <Link
                 href={`/userprofile/${item.id}`}
@@ -75,19 +88,25 @@ function SideExplorePlayers() {
               >
                 <div className="side-menu__suggestion-info">
                   <a> {item.name}</a>
-                  <span>Followed by Muhammhad Alsalah and 12 more</span>
+                  {item.latest_mutual_user && item.mutual_user_count && (
+                    <span>
+                      Followed by {item.latest_mutual_user} and{" "}
+                      {item.mutual_user_count} more
+                    </span>
+                  )}
                 </div>
               </Link>
               <button
                 onClick={() => exploreFollowHandler(item.id)}
                 className="side-menu__suggestion-button"
+                style={{ marginLeft: "auto" }}
               >
                 Follow
               </button>
             </div>
           ))}
         </div>
-        <img src="../images/Group 1000003423.png"></img>
+        <img src="/images/Group 1000003423.png"></img>
       </div>
     </section>
   );

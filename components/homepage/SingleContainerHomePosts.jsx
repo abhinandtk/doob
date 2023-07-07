@@ -16,6 +16,7 @@ import ModuleSharedPostDetails from "./social/ModuleSharedPostDetails";
 import { useRouter } from "next/router";
 import StoriesMainPage from "./StoriesMainPage";
 import VisibilitySensor from "react-visibility-sensor";
+import { Skeleton } from "antd";
 
 function SingleContainerHomePosts({ story }) {
   const apiSuccess = useSelector((state) => state.api);
@@ -89,7 +90,7 @@ function SingleContainerHomePosts({ story }) {
           console.error(error);
         });
     }
-  }, [onSuccess, apiSuccess, visibleComment, postSlug]);
+  }, [onSuccess, apiSuccess, visibleComment, postSlug, user_id]);
 
   console.log("weweweee", postsData);
 
@@ -188,7 +189,8 @@ function SingleContainerHomePosts({ story }) {
     <Fragment>
       {/* <div className="text_followers" >My Followers</div> */}
       {/* <div className="ms-1">
-        <b>My Followers</b>
+        <b>My Follow
+        ers</b>
       </div> */}
       {postsData.length != 0 &&
       ((postsData[0] && !postsData[0].is_private) ||
@@ -609,11 +611,9 @@ function SingleContainerHomePosts({ story }) {
             </div>
           </VisibilitySensor>
         ))
-      ) : (
-        <div className="profile-private">
-          {/* <h5 className="text-center">This Account is Private</h5> */}
-          <p className="text-center">This Post is Unavailable</p>
-        </div>
+      ) : (<></>
+        
+          // <Skeleton avatar active  />
       )}
       {visibleComment && (
         <Comments

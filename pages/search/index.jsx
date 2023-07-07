@@ -129,15 +129,27 @@ function SearchPage() {
                     >
                       <div className="d-flex flex-start mt-4 mx-2">
                         <a className="me-2" href="">
-                          <CardImg
-                            className="rounded-circle shadow-1-strong "
-                            src={`${constants.port}/media/${item.image}`}
-                            style={{
-                              width: "44px",
-                              height: "44px",
-                              objectFit: "cover",
-                            }}
-                          ></CardImg>
+                          {item.image && item.image !=="" ? (
+                            <CardImg
+                              className="rounded-circle shadow-1-strong "
+                              src={`${constants.port}/media/${item.image}`}
+                              style={{
+                                width: "44px",
+                                height: "44px",
+                                objectFit: "cover",
+                              }}
+                            ></CardImg>
+                          ) : (
+                            <CardImg
+                              className="rounded-circle shadow-1-strong "
+                              src="/images/accounts/user_default.png"
+                              style={{
+                                width: "44px",
+                                height: "44px",
+                                objectFit: "cover",
+                              }}
+                            ></CardImg>
+                          )}
                         </a>
                         <div
                           className="flex-grow-1 flex-shrink-1 "

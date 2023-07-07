@@ -19,7 +19,10 @@ function StoriesMainPage() {
   }, []);
 
   return (
-    <div className="stories">
+    <div
+      className="stories"
+      style={{ height: `${storyList.length <= 0 ? "0px" : ""}` }}
+    >
       {/* <div className="text_follower">My Followers</div> */}
       <button className="stories__left-button">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -31,7 +34,7 @@ function StoriesMainPage() {
       </button>
 
       <div className="stories__content">
-        <button className="story story--has-story">
+        {/* <button className="story story--has-story">
           <div className="story__avatar">
             <div className="story__border">
               <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
@@ -61,7 +64,7 @@ function StoriesMainPage() {
               />
             </div>
           </div>
-        </button>
+        </button> */}
         {storyList &&
           storyList.map((item, index) => (
             <button
@@ -100,59 +103,7 @@ function StoriesMainPage() {
               </div>
             </button>
           ))}
-        {/* <button className="story story--has-story">
-                <div className="story__avatar">
-                  <div className="story__border">
-                    <svg
-                      width="64"
-                      height="64"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <circle r="31" cy="32" cx="32" />
-                    </svg>
-                  </div>
-                  <div className="story__picture">
-                    <img src="../images/str3.png" alt="User Picture" />
-                  </div>
-                </div>
-            
-              </button> */}
-        <button className="story">
-          <div className="story__avatar">
-            <div className="story__border">
-              <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-                <circle r="31" cy="32" cx="32" />
-              </svg>
-            </div>
-            <div className="story__picture">
-              <img src="../images/str4.png" alt="User Picture" />
-            </div>
-          </div>
-        </button>
-        <button className="story">
-          <div className="story__avatar">
-            <div className="story__border">
-              <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-                <circle r="31" cy="32" cx="32" />
-              </svg>
-            </div>
-            <div className="story__picture">
-              <img src="../images/str5.png" alt="User Picture" />
-            </div>
-          </div>
-        </button>
-        <button className="story">
-          <div className="story__avatar">
-            <div className="story__border">
-              <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-                <circle r="31" cy="32" cx="32" />
-              </svg>
-            </div>
-            <div className="story__picture">
-              <img src="../images/str6.png" alt="User Picture" />
-            </div>
-          </div>
-        </button>
+
         {/* <button className="story">
           <div className="story__avatar">
             <div className="story__border">

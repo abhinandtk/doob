@@ -1,4 +1,4 @@
-import { Modal } from "antd";
+import { Modal, notification } from "antd";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { Fragment } from "react";
@@ -6,10 +6,12 @@ import { CardImg } from "react-bootstrap";
 import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
+import { Labels } from "@/public/data/my-constants/Labels";
 
 function FollowingList({ setFollowingListShow, setSuccess }) {
   const [visible, setVisible] = useState(true);
   const [following, setFollowing] = useState([]);
+  const labels=Labels()
 
   // const [showFollow, setShowFollow] = useState(true);
   const [apiSuccess, setApiSuccess] = useState(false);
@@ -38,6 +40,12 @@ function FollowingList({ setFollowingListShow, setSuccess }) {
           updatedFollowing[index].showFollow = false;
           return updatedFollowing;
         });
+        if(response.data.status===1){
+          notification.success({
+            message:constants.Success,
+            description:`${labels['Unfollowed successfully']}`
+          })
+        }
         console.log("response:", response);
       })
       .catch((error) => {

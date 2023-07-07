@@ -10,6 +10,7 @@ export function Labels() {
         "Post shared successfully": "Post shared successfully",
         "Comment deleted successfully": "Comment deleted successfully",
         "Followed successfully": "Followed successfully",
+        "Unfollowed successfully": "Unfollowed successfully",
         "Requested successfully": "Requested successfully",
         "Remove user": "Remove user successfully",
         "Email address does not exist": "User with this email address does not exist",

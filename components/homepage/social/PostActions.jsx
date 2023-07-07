@@ -16,7 +16,6 @@ export default function PostActions({
   const [visible, setVisible] = useState(false);
   const [reason, setReason] = useState("");
   const labels = Labels();
-  console.log("pppppppppppaaaaaaaaaaaaaaaaa", data);
 
   const postReportHandler = (e) => {
     console.log("ppppppppppp", postId);
