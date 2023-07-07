@@ -23,13 +23,22 @@ function UploadFiles({ setUploadShow }) {
       setFile(e.fileList[0].originFileObj);
     }
   };
+  const handleCaptionChange = (e) => {
+    if (e.target.value.length < 300) {
+      setCaption(e.target.value);
+    } else {
+      notification.error({
+        message: constants.Error,
+        description: "Character limit exceeded ",
+      });
+    }
+  };
 
   const uploadSubmitHandler = () => {
-    
     Axios.post(
       apis.homepageapi,
       {
-        caption:caption,
+        caption: caption,
         image: file,
       },
       {
@@ -57,10 +66,10 @@ function UploadFiles({ setUploadShow }) {
           message: "error",
           description: "Please upload image less than 1 mb ",
         });
-        console.log("Eroorss:", error,{
-            caption: caption,
-            image: file,
-          });
+        console.log("Eroorss:", error, {
+          caption: caption,
+          image: file,
+        });
       });
     setShow(false);
     setUploadShow(false);
@@ -123,7 +132,8 @@ function UploadFiles({ setUploadShow }) {
               <TextArea
                 rows={4}
                 value={caption}
-                onChange={(e) => setCaption(e.target.value)}
+                onChange={(e) => handleCaptionChange(e)}
+                maxLength={300}
               />
             </Form.Item>
           </div>

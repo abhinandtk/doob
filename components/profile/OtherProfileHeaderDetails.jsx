@@ -3,8 +3,10 @@ import { Tab, Tabs, Card, CardImg, Dropdown } from "react-bootstrap";
 import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
-import { Button, Modal, notification } from "antd";
+import { Button, List, Modal, notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
+import { useRouter } from "next/router";
+import moment from "moment";
 function OtherProfileHeaderDetails({
   data,
   id,
@@ -12,11 +14,15 @@ function OtherProfileHeaderDetails({
   setIsSuccess,
   blockedfrom,
   blockedby,
+  storeDetail,
+  groundDetail,
 }) {
   const [show, setShow] = useState(false);
   const [showRank, setShowRank] = useState(false);
-  console.log("daaata", data, isPrivate);
+  const [showField, setShowField] = useState(false);
+  console.log("daaata", data, groundDetail);
   const labels = Labels();
+  const router = useRouter();
 
   const followHandler = () => {
     Axios.post(
@@ -164,7 +170,7 @@ function OtherProfileHeaderDetails({
         </div>
       </Modal>
       <Modal
-        title=""
+        title="Rank"
         open={showRank}
         onCancel={() => setShowRank(false)}
         closable
@@ -172,30 +178,121 @@ function OtherProfileHeaderDetails({
         centered
         footer={null}
       >
-        <div style={{ fontWeight: "600", fontSize: "16px" }}>
-          Game
-          <span
-            style={{ fontWeight: "600", fontSize: "16px", marginLeft: "310px" }}
-          >
-            Rank
-          </span>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            fontWeight: "600",
+            fontSize: "16px",
+            marginBottom: "10px",
+          }}
+        >
+          <div>Game</div>
+          <div style={{ textAlign: "right" }}>Rank</div>
         </div>
-        <div style={{ fontWeight: "400", fontSize: "16px" }}>
-          Football
-          <span
-            style={{ fontWeight: "600", fontSize: "16px", marginLeft: "300px" }}
-          >
-            #{data.user_rank}
-          </span>
-        </div>
-       
+        {data.user_rank &&
+          data.user_rank.map((item, index) => (
+            <div
+              key={index}
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                fontWeight: "400",
+                fontSize: "16px",
+                marginBottom: "10px",
+              }}
+            >
+              <div>{item.game}</div>
+              <div style={{ textAlign: "right" }}>#{item.rank}</div>
+            </div>
+          ))}
+      </Modal>
+      <Modal
+        title="Fields"
+        open={showField}
+        onCancel={() => setShowField(false)}
+        closable
+        maskClosable
+        centered
+        footer={null}
+      >
+        <List
+          dataSource={groundDetail}
+          renderItem={(item, index) => (
+            <List.Item
+              key={index}
+              style={{ padding: "5px", cursor: "pointer" }}
+              onClick={() =>
+                router.push({
+                  pathname: `/play-ground/${item.slug_field}`,
+                  query: {
+                    stadium_id: item.id,
+                    date: moment().format("YYYY-MM-DD"),
+                  },
+                })
+              }
+            >
+              <div className="d-flex flex-start mt-4 mx-2">
+                <a className="me-2" href="">
+                  <CardImg
+                    className="rounded-circle shadow-1-strong "
+                    src={`${constants.port}${item.stadium_image}`}
+                    style={{
+                      width: "44px",
+                      height: "44px",
+                      objectFit: "cover",
+                    }}
+                  ></CardImg>
+                </a>
+                <div
+                  className="flex-grow-1 flex-shrink-1 "
+                  style={{ marginBottom: "-24px" }}
+                >
+                  <div>
+                    <div className="d-flex justify-content-between align-items-center">
+                      <p
+                        className="mb-0"
+                        style={{
+                          fontWeight: "600",
+                          color: "#000",
+                          fontSize: "15px",
+                        }}
+                      >
+                        {item.stadium_name}
+                      </p>
+                    </div>
+
+                    <p
+                      className="small "
+                      style={{
+                        color: "#000",
+                        fontWeight: "400",
+                        fontSize: "14px",
+                        marginTop: "-3px",
+                        float: "left",
+                      }}
+                    >
+                      @{item.location}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </List.Item>
+          )}
+          style={{ height: "250px", overflowY: "auto" }}
+        />
       </Modal>
 
       <Card className="cord">
         <Card.Body>
           <div className="row">
             <div className="col-md-6">
-              <button onClick={()=>setShowRank(true)} className="btn profile-edit-btn">Rank</button>
+              <button
+                onClick={() => setShowRank(true)}
+                className="btn profile-edit-btn"
+              >
+                Rank
+              </button>
               <div className="profile-image">
                 {data.user_image ? (
                   <img
@@ -310,6 +407,28 @@ function OtherProfileHeaderDetails({
                       Follow{" "}
                     </button>
                   )}
+                  {(data.usertype === "Pro" || data.usertype === "Store") && (
+                    <button
+                      className="side-menu__suggestion-button3 "
+                      style={{ backgroundColor: "#17A803" }}
+                      onClick={() =>
+                        router.push(
+                          `/store/${storeDetail && storeDetail.slug_store}`
+                        )
+                      }
+                    >
+                      Shop Now
+                    </button>
+                  )}
+                  {(data.usertype === "Pro" || data.usertype === "Field") && (
+                    <button
+                      className="side-menu__suggestion-button3 "
+                      style={{ backgroundColor: "#17A803" }}
+                      onClick={() => setShowField(true)}
+                    >
+                      Book Now
+                    </button>
+                  )}
                   {/* <button className="side-menu__suggestion-button3 ">Message</button> */}
                 </ul>
               </div>
@@ -412,6 +531,28 @@ function OtherProfileHeaderDetails({
                   className="side-menu__suggestion-buttons "
                 >
                   Follow{" "}
+                </button>
+              )}
+              {(data.usertype === "Pro" || data.usertype === "Store") && (
+                <button
+                  className="side-menu__suggestion-button3 "
+                  style={{ backgroundColor: "#17A803" }}
+                  onClick={() =>
+                    router.push(
+                      `/store/${storeDetail && storeDetail.slug_store}`
+                    )
+                  }
+                >
+                  Shop Now
+                </button>
+              )}
+              {(data.usertype === "Pro" || data.usertype === "Field") && (
+                <button
+                  className="side-menu__suggestion-button3 "
+                  style={{ backgroundColor: "#17A803" }}
+                  onClick={() => setShowField(true)}
+                >
+                  Book Now
                 </button>
               )}
               {/* <button className="side-menu__suggestion-button3 ">Message</button> */}

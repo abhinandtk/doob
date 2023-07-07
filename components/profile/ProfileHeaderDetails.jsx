@@ -76,22 +76,34 @@ function ProfileHeaderDetails({ data, setSuccess }) {
         centered
         footer={null}
       >
-        <div style={{ fontWeight: "600", fontSize: "16px" }}>
-          Game
-          <span
-            style={{ fontWeight: "600", fontSize: "16px", marginLeft: "310px" }}
-          >
-            Rank
-          </span>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            fontWeight: "600",
+            fontSize: "16px",
+            marginBottom: "10px",
+          }}
+        >
+          <div>Game</div>
+          <div style={{ textAlign: "right" }}>Rank</div>
         </div>
-        <div style={{ fontWeight: "400", fontSize: "16px" }}>
-          Football
-          <span
-            style={{ fontWeight: "600", fontSize: "16px", marginLeft: "300px" }}
-          >
-            #{data.user_rank}
-          </span>
-        </div>
+        {data.user_rank &&
+          data.user_rank.map((item, index) => (
+            <div
+              key={index}
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                fontWeight: "400",
+                fontSize: "16px",
+                marginBottom: "10px",
+              }}
+            >
+              <div>{item.game}</div>
+              <div style={{ textAlign: "right" }}>#{item.rank}</div>
+            </div>
+          ))}
       </Modal>
 
       <Modal
@@ -179,7 +191,7 @@ function ProfileHeaderDetails({ data, setSuccess }) {
                   ) : data.user_image ? (
                     <img
                       style={{ borderRadius: "50%", objectFit: "cover" }}
-                      src={`${constants.port}${data.user_image}`}
+                      src={`${constants.port}/media/${data.user_image}`}
                       alt=""
                     ></img>
                   ) : (

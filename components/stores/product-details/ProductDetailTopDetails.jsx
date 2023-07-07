@@ -86,6 +86,14 @@ function ProductDetailTopDetails({ product, setApiSuccess }) {
       // setApiSuccess((prev) => !prev);
     });
   };
+  const handleSend = async () => {
+    try {
+      await navigator.share({ url: `${window.location.href}page/post/${prVarientId}` });
+      console.log("Shared successfully!");
+    } catch (error) {
+      console.error("Error sharing:", error);
+    }
+  };
 
   return (
     <Fragment>
@@ -140,7 +148,7 @@ function ProductDetailTopDetails({ product, setApiSuccess }) {
           </svg>
         </span>
         <span>
-          {/* <Dropdown className="Drodp">
+          <Dropdown className="" style={{display:"inline-block",marginLeft:'-10px'}}>
             <Dropdown.Toggle
               variant=""
               id="dropdown-basic"
@@ -151,63 +159,43 @@ function ProductDetailTopDetails({ product, setApiSuccess }) {
               }}
             >
               <svg
-                width="2"
-                height="14"
-                className="mx-4"
-                viewBox="0 0 2 14"
+                width="22"
+                height="20"
+                viewBox="0 0 22 20"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M0.416016 0.958333C0.416016 0.429061 0.752798 0 1.16824 0C1.58368 0 1.92046 0.429061 1.92046 0.958333C1.92046 1.48761 1.58368 1.91667 1.16824 1.91667C0.752798 1.91667 0.416016 1.48761 0.416016 0.958333Z"
-                  fill="black"
+                  d="M10.3735 14.9998C10.3735 14.5396 10.7629 14.1665 11.2431 14.1665C11.7233 14.1665 12.1127 14.5396 12.1127 14.9998C12.1127 15.4601 11.7233 15.8332 11.2431 15.8332C10.7629 15.8332 10.3735 15.4601 10.3735 14.9998Z"
+                  stroke="black"
+                  stroke-width="0.814796"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
                 />
                 <path
-                  d="M0.416016 6.70833C0.416016 6.17906 0.752798 5.75 1.16824 5.75C1.58368 5.75 1.92046 6.17906 1.92046 6.70833C1.92046 7.23761 1.58368 7.66667 1.16824 7.66667C0.752798 7.66667 0.416016 7.23761 0.416016 6.70833Z"
-                  fill="black"
+                  d="M10.3735 10.0003C10.3735 9.54009 10.7629 9.16699 11.2431 9.16699C11.7233 9.16699 12.1127 9.54009 12.1127 10.0003C12.1127 10.4606 11.7233 10.8337 11.2431 10.8337C10.7629 10.8337 10.3735 10.4606 10.3735 10.0003Z"
+                  stroke="black"
+                  stroke-width="0.814796"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
                 />
                 <path
-                  d="M0.416016 12.4583C0.416016 11.9291 0.752798 11.5 1.16824 11.5C1.58368 11.5 1.92046 11.9291 1.92046 12.4583C1.92046 12.9876 1.58368 13.4167 1.16824 13.4167C0.752798 13.4167 0.416016 12.9876 0.416016 12.4583Z"
-                  fill="black"
+                  d="M10.3735 4.99984C10.3735 4.5396 10.7629 4.1665 11.2431 4.1665C11.7233 4.1665 12.1127 4.5396 12.1127 4.99984C12.1127 5.46007 11.7233 5.83317 11.2431 5.83317C10.7629 5.83317 10.3735 5.46007 10.3735 4.99984Z"
+                  stroke="black"
+                  stroke-width="0.814796"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
                 />
               </svg>
             </Dropdown.Toggle>
 
             <Dropdown.Menu align="center" className="Menu">
-              <Dropdown.Item onClick={() => deleteTeamHandler(item.user_id)}>
-                Delete
+              <Dropdown.Item onClick={() => handleSend()}>
+                Send
               </Dropdown.Item>
             </Dropdown.Menu>
-          </Dropdown> */}
-          <svg
-            width="22"
-            height="20"
-            viewBox="0 0 22 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M10.3735 14.9998C10.3735 14.5396 10.7629 14.1665 11.2431 14.1665C11.7233 14.1665 12.1127 14.5396 12.1127 14.9998C12.1127 15.4601 11.7233 15.8332 11.2431 15.8332C10.7629 15.8332 10.3735 15.4601 10.3735 14.9998Z"
-              stroke="black"
-              stroke-width="0.814796"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M10.3735 10.0003C10.3735 9.54009 10.7629 9.16699 11.2431 9.16699C11.7233 9.16699 12.1127 9.54009 12.1127 10.0003C12.1127 10.4606 11.7233 10.8337 11.2431 10.8337C10.7629 10.8337 10.3735 10.4606 10.3735 10.0003Z"
-              stroke="black"
-              stroke-width="0.814796"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M10.3735 4.99984C10.3735 4.5396 10.7629 4.1665 11.2431 4.1665C11.7233 4.1665 12.1127 4.5396 12.1127 4.99984C12.1127 5.46007 11.7233 5.83317 11.2431 5.83317C10.7629 5.83317 10.3735 5.46007 10.3735 4.99984Z"
-              stroke="black"
-              stroke-width="0.814796"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
+          </Dropdown>
+         
         </span>
       </span>
       <h5 className="col-md-9 headings ">

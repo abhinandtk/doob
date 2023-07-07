@@ -44,7 +44,7 @@ function ModuleSharedPostImage({ data }) {
     
           </div>
            
-      <img src="../images/locks.png" className="locks "></img>
+      <img src="/images/locks.png" className="locks "></img>
 
         </Link>
       )}

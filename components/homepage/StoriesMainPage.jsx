@@ -21,9 +21,8 @@ function StoriesMainPage() {
   return (
     <div
       className="stories"
-      style={{ height: `${storyList.length <= 0 ? "0px" : ""}` }}
-    >
-      {/* <div className="text_follower">My Followers</div> */}
+      style={{ height: `${storyList.length <= 0 ? "0px" : ""}` }}>
+      {storyList.length > 0 && <div className="ms-1" style={{fontWeight:500}}>My Followers</div>}
       <button className="stories__left-button">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
           <path

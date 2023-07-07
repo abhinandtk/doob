@@ -53,11 +53,17 @@ function ContainerHomePosts() {
   const likeHandler = (postId, index, isSharedPost) => {
     // e.preventDefault()
     const updatedPosts = [...postsData];
-    // const postToUpdate = isSharedPost
-    //   ? updatedPosts.find(
-    //       (post) => post.post_id === postId
-    //     )
-    //   : updatedPosts[index];
+    const post = updatedPosts[index];
+
+    if (post.liked) {
+      post.liked = false;
+      post.totalLike--;
+    } else {
+      post.liked = true;
+      post.totalLike++;
+    }
+    setPostsData(updatedPosts);
+
     Axios.post(
       apis.likepost,
       {
@@ -69,29 +75,7 @@ function ContainerHomePosts() {
         },
       }
     ).then((res) => {
-      if (res.data.data.status === 1) {
-        updatedPosts[index].liked = true;
-        updatedPosts[index].totalLike++;
-      } else {
-        updatedPosts[index].liked = false;
-        updatedPosts[index].totalLike = res.data.data.total_like;
-      }
-      // if (res.data.data.status === 1) {
-      //   postToUpdate.liked = true;
-      //   postToUpdate.totalLike++;
-      // } else {
-      //   postToUpdate.liked = false;
-      //   postToUpdate.totalLike = res.data.data.total_like;
-      // }
-
-      setPostsData(updatedPosts);
-      console.log(
-        "this is result",
-        {
-          post_id: postId,
-        },
-        res
-      );
+      console.log("this is result", res);
     });
   };
 
@@ -138,9 +122,9 @@ function ContainerHomePosts() {
   return (
     <Fragment>
       {/* <div className="text_followers" >My Followers</div> */}
-      <div className="ms-1">
+      {/* <div className="ms-1">
         <b>My Followers</b>
-      </div>
+      </div> */}
       {postsData.length != 0 ? (
         postsData.map((item, index) => (
           <VisibilitySensor

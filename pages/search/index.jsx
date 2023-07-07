@@ -32,8 +32,9 @@ function SearchPage() {
   };
 
   console.log("uiiiiiiiiiiiiiiiiii", activeTab);
-  const userSearchResult = (e) => {
-    setSearchInput(e.target.value);
+  // const userSearchResult = (e) => {
+  //   setSearchInput(e.target.value);
+  useEffect(() => {
     if (activeTab === "1") {
       console.log("uiiiiiiiiiiiiiiiiii", activeTab);
 
@@ -49,7 +50,7 @@ function SearchPage() {
       });
     } else {
       console.log("2222222222222222222222222", activeTab);
-      setSearchInput(e.target.value);
+      // setSearchInput(e.target.value);
       Axios.post(
         apis.usersearch,
         {
@@ -69,7 +70,7 @@ function SearchPage() {
         }
       });
     }
-  };
+  },[searchInput,activeTab]);
   console.log("searchInput", searchInput);
 
   return (
@@ -83,7 +84,7 @@ function SearchPage() {
             className="nosubmit"
             type="search"
             placeholder="Search"
-            onChange={(e) => userSearchResult(e)}
+            onChange={(e) => setSearchInput(e.target.value)}
           />
         </form>
 
@@ -129,7 +130,7 @@ function SearchPage() {
                     >
                       <div className="d-flex flex-start mt-4 mx-2">
                         <a className="me-2" href="">
-                          {item.image && item.image !=="" ? (
+                          {item.image && item.image !== "" ? (
                             <CardImg
                               className="rounded-circle shadow-1-strong "
                               src={`${constants.port}/media/${item.image}`}
