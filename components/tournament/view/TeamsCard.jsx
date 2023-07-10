@@ -37,6 +37,7 @@ function TeamsCard({ teamsData, setOnSuccess, admin }) {
   };
 
   const handleSelect = (id) => {
+    console.log("console", id);
     Axios.post(
       apis.createTeam,
       {
@@ -51,7 +52,7 @@ function TeamsCard({ teamsData, setOnSuccess, admin }) {
     ).then((res) => {
       setVisible(false);
       setOnSuccess((prev) => !prev);
-      console.log('resy',res)
+      console.log("resy", res);
       if (res.data.status === 1) {
         notification.success({
           message: constants.Success,
@@ -70,13 +71,14 @@ function TeamsCard({ teamsData, setOnSuccess, admin }) {
       }
     });
   };
-  const deleteTeamHandler = (id) => {
+  const deleteTeamHandler = (first, second) => {
     Axios.delete(apis.deleteTeam, {
       headers: {
         Authorization: `Token ${constants.token_id}`,
       },
       data: {
-        user_id: id,
+        user_id: first,
+        user_id_2: second,
         tournament_slug: tid,
       },
     })
@@ -118,15 +120,27 @@ function TeamsCard({ teamsData, setOnSuccess, admin }) {
             >
               <div className="d-flex flex-start mt-4 mx-2">
                 <a className="me-2" href="">
-                  <CardImg
-                    className="rounded-circle shadow-1-strong "
-                    src={`${constants.port}/media/${item.image}`}
-                    style={{
-                      width: "44px",
-                      height: "44px",
-                      objectFit: "cover",
-                    }}
-                  ></CardImg>
+                  {item.image ? (
+                    <CardImg
+                      className="rounded-circle shadow-1-strong "
+                      src={`${constants.port}/media/${item.image}`}
+                      style={{
+                        width: "44px",
+                        height: "44px",
+                        objectFit: "cover",
+                      }}
+                    ></CardImg>
+                  ) : (
+                    <CardImg
+                      className="rounded-circle shadow-1-strong "
+                      src="/images/accounts/user_default.png"
+                      style={{
+                        width: "44px",
+                        height: "44px",
+                        objectFit: "cover",
+                      }}
+                    ></CardImg>
+                  )}
                 </a>
                 <div
                   className="flex-grow-1 flex-shrink-1 "
@@ -177,11 +191,18 @@ function TeamsCard({ teamsData, setOnSuccess, admin }) {
               className=" mb-2 mx-3"
               style={{ fontWeight: "500", fontSize: "14px" }}
             >
-              <img
-                src={`${constants.port}${item.team_logo}`}
-                className="club1"
-              ></img>{" "}
-              &nbsp;{item.team_name}
+              {item.team_logo.team_logo ? (
+                <img
+                  src={`${constants.port}${item.team_logo.team_logo}`}
+                  className="club1"
+                ></img>
+              ) : (
+                <img
+                  src="/images/accounts/user_default.png"
+                  className="club1"
+                ></img>
+              )}{" "}
+              &nbsp;{item.team_name.team_name}
             </p>
             {isIdExist && (
               <div className="ms-auto top-teams-dot">
@@ -220,7 +241,12 @@ function TeamsCard({ teamsData, setOnSuccess, admin }) {
 
                   <Dropdown.Menu align="center" className="Menu">
                     <Dropdown.Item
-                      onClick={() => deleteTeamHandler(item.user_id)}
+                      onClick={() =>
+                        deleteTeamHandler(
+                          item.user_id.user_id,
+                          item.user_id.user_id_2
+                        )
+                      }
                     >
                       Delete
                     </Dropdown.Item>

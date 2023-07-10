@@ -2,7 +2,7 @@ import constants from "@/public/data/my-constants/Constants";
 import moment from "moment";
 import React, { Fragment } from "react";
 
-function MatchCards({ data }) {
+function DoublesMatchCard({ data }) {
   console.log("livematch", data);
 
   const getMatchTime = (time, date) => {
@@ -43,14 +43,25 @@ function MatchCards({ data }) {
         <div className="card football">
           <div className="card-body p-5 mx-4">
             <div className="live1">
-              <div className=" watch1 ">
-                {data.team_A_logo.team_A_logo && (
-                  <img
-                    src={`${constants.port}${data.team_A_logo.team_A_logo}`}
-                    className="clubs"
-                  ></img>
-                )}
-                <p className="team2">{data.team_A.team_A} </p>
+              <div className=" watch1 d-flex">
+                <div>
+                  {data.team_A_logo.team_A_logo && (
+                    <img
+                      src={`${constants.port}${data.team_A_logo.team_A_logo}`}
+                      className="clubs"
+                    ></img>
+                  )}
+                  <p className="team2">{data.team_A.team_A} </p>
+                </div>
+                <div>
+                  {data.team_A_logo.team_A_logo_2 && (
+                    <img
+                      src={`${constants.port}${data.team_A_logo.team_A_logo_2}`}
+                      className="clubs"
+                    ></img>
+                  )}
+                  <p className="team2">{data.team_A.team_A_2} </p>
+                </div>
               </div>
 
               <div className="live-watch  ">
@@ -85,14 +96,25 @@ function MatchCards({ data }) {
                 </button>
               </div>
 
-              <div className="watch2 ">
-                {data.team_B_logo.team_B_logo && (
-                  <img
-                    src={`${constants.port}${data.team_B_logo.team_B_logo}`}
-                    className="clubs"
-                  ></img>
-                )}
-                <p className="team2">{data.team_B.team_B} </p>
+              <div className="watch2 d-flex">
+                <div>
+                  {data.team_B_logo.team_B_logo && (
+                    <img
+                      src={`${constants.port}${data.team_B_logo.team_B_logo}`}
+                      className="clubs"
+                    ></img>
+                  )}
+                  <p className="team2">{data.team_B.team_B} </p>
+                </div>
+                <div>
+                  {data.team_B_logo.team_B_logo_2 && (
+                    <img
+                      src={`${constants.port}${data.team_B_logo.team_B_logo_2}`}
+                      className="clubs"
+                    ></img>
+                  )}
+                  <p className="team2">{data.team_B.team_B_2} </p>
+                </div>
               </div>
             </div>
             <div className="watch-play">
@@ -121,4 +143,4 @@ function MatchCards({ data }) {
   );
 }
 
-export default MatchCards;
+export default DoublesMatchCard;

@@ -70,7 +70,7 @@ function SearchPage() {
         }
       });
     }
-  },[searchInput,activeTab]);
+  }, [searchInput, activeTab]);
   console.log("searchInput", searchInput);
 
   return (
@@ -103,6 +103,7 @@ function SearchPage() {
                 {error ? (
                   <p style={{ color: "#A2A2A2" }}>No results found...</p>
                 ) : (
+                  feedResult &&
                   feedResult.map((item, index) => (
                     <div key={index} className="col-md-4" tabindex="0">
                       <img
@@ -122,6 +123,7 @@ function SearchPage() {
                 {error ? (
                   <p style={{ color: "#A2A2A2" }}>No results found...</p>
                 ) : (
+                  searchResult &&
                   searchResult.map((item, index) => (
                     <Link
                       key={index}

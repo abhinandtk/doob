@@ -1,7 +1,7 @@
 import React from "react";
 import constants from "@/public/data/my-constants/Constants";
 
-function KnockoutFixture({ data, setOnSuccess, admin }) {
+function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
   console.log("fixtureDtaa", data);
 
   return (
@@ -14,23 +14,36 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index) => (
                   <div key={index} className="match">
                     <div className="team">
-                      {match.team_A_logo.team_A_logo &&
-                        match.team_B_logo.team_B_logo && (
-                          <div>
-                            {index > 0 && <div className="connector"></div>}
-                            {index > 1 && <div className="connector2"></div>}
-                            <div className="fix-image">
-                              <img
-                                src={`${constants.port}${match.team_A_logo.team_A_logo}`}
-                                className="group-image"
-                              ></img>
-                              <img
-                                src={`${constants.port}${match.team_B_logo.team_B_logo}`}
-                                className="group-image"
-                              ></img>
-                            </div>
-                          </div>
-                        )}
+                      <div className="fix-image">
+                        <div>
+                          {match.team_A_logo.team_A_logo && (
+                            <img
+                              src={`${constants.port}${match.team_A_logo.team_A_logo}`}
+                              className="group-image"
+                            ></img>
+                          )}
+                          {match.team_A_logo.team_A_logo_2 && (
+                            <img
+                              src={`${constants.port}${match.team_A_logo.team_A_logo_2}`}
+                              className="group-image"
+                            ></img>
+                          )}
+                        </div>
+                        <div>
+                          {match.team_B_logo.team_B_logo && (
+                            <img
+                              src={`${constants.port}${match.team_B_logo.team_B_logo}`}
+                              className="group-image"
+                            ></img>
+                          )}
+                          {match.team_B_logo.team_B_logo_2 && (
+                            <img
+                              src={`${constants.port}${match.team_B_logo.team_B_logo_2}`}
+                              className="group-image"
+                            ></img>
+                          )}
+                        </div>
+                      </div>
                       <div className="fix">
                         <div
                           className={`${
@@ -80,19 +93,36 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index) => (
                   <div key={index} className="match">
                     <div className="team">
-                      {match.team_A_logo.team_A_logo &&
-                        match.team_B_logo.team_B_logo && (
-                          <div className="fix-image">
+                      <div className="fix-image">
+                        <div>
+                          {match.team_A_logo.team_A_logo && (
                             <img
                               src={`${constants.port}${match.team_A_logo.team_A_logo}`}
                               className="group-image"
                             ></img>
+                          )}
+                          {match.team_A_logo.team_A_logo_2 && (
+                            <img
+                              src={`${constants.port}${match.team_A_logo.team_A_logo_2}`}
+                              className="group-image"
+                            ></img>
+                          )}
+                        </div>
+                        <div>
+                          {match.team_B_logo.team_B_logo && (
                             <img
                               src={`${constants.port}${match.team_B_logo.team_B_logo}`}
                               className="group-image"
                             ></img>
-                          </div>
-                        )}
+                          )}
+                          {match.team_B_logo.team_B_logo_2 && (
+                            <img
+                              src={`${constants.port}${match.team_B_logo.team_B_logo_2}`}
+                              className="group-image"
+                            ></img>
+                          )}
+                        </div>
+                      </div>
                       <div className="fix">
                         <div
                           className={`${
@@ -142,20 +172,36 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index) => (
                   <div key={index} className="match">
                     <div className="team">
-                      {match.team_A_logo.team_A_logo &&
-                        match.team_B_logo.team_B_logo && (
-                          <div className="fix-image">
+                      <div className="fix-image">
+                        <div>
+                          {match.team_A_logo.team_A_logo && (
                             <img
                               src={`${constants.port}${match.team_A_logo.team_A_logo}`}
                               className="group-image"
                             ></img>
-
+                          )}
+                          {match.team_A_logo.team_A_logo_2 && (
+                            <img
+                              src={`${constants.port}${match.team_A_logo.team_A_logo_2}`}
+                              className="group-image"
+                            ></img>
+                          )}
+                        </div>
+                        <div>
+                          {match.team_B_logo.team_B_logo && (
                             <img
                               src={`${constants.port}${match.team_B_logo.team_B_logo}`}
                               className="group-image"
                             ></img>
-                          </div>
-                        )}
+                          )}
+                          {match.team_B_logo.team_B_logo_2 && (
+                            <img
+                              src={`${constants.port}${match.team_B_logo.team_B_logo_2}`}
+                              className="group-image"
+                            ></img>
+                          )}
+                        </div>
+                      </div>
                       <div className="fix">
                         <div
                           className={`${
@@ -165,6 +211,7 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
                           }`}
                         >
                           {match.team_A.team_A}
+                          {match.team_A.team_A_2}
                         </div>
                         <div
                           className={`${
@@ -174,6 +221,7 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
                           }`}
                         >
                           {match.team_B.team_B}
+                          {match.team_B.team_B_2}
                         </div>
                       </div>
                       <div className="fix1">
@@ -205,19 +253,36 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index_) => (
                   <div key={index_} className="match">
                     <div className="team">
-                      {match.team_A_logo.team_A_logo &&
-                        match.team_B_logo.team_B_logo && (
-                          <div className="fix-image">
+                    <div className="fix-image">
+                        <div>
+                          {match.team_A_logo.team_A_logo && (
                             <img
                               src={`${constants.port}${match.team_A_logo.team_A_logo}`}
                               className="group-image"
                             ></img>
+                          )}
+                          {match.team_A_logo.team_A_logo_2 && (
+                            <img
+                              src={`${constants.port}${match.team_A_logo.team_A_logo_2}`}
+                              className="group-image"
+                            ></img>
+                          )}
+                        </div>
+                        <div>
+                          {match.team_B_logo.team_B_logo && (
                             <img
                               src={`${constants.port}${match.team_B_logo.team_B_logo}`}
                               className="group-image"
                             ></img>
-                          </div>
-                        )}
+                          )}
+                          {match.team_B_logo.team_B_logo_2 && (
+                            <img
+                              src={`${constants.port}${match.team_B_logo.team_B_logo_2}`}
+                              className="group-image"
+                            ></img>
+                          )}
+                        </div>
+                      </div>
                       <div className="fix">
                         <div
                           className={`${
@@ -227,6 +292,7 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
                           }`}
                         >
                           {match.team_A.team_A}
+                          {match.team_A.team_A_2}
                         </div>
                         <div
                           className={`${
@@ -236,6 +302,7 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
                           }`}
                         >
                           {match.team_B.team_B}
+                          {match.team_B.team_B_2}
                         </div>
                       </div>
                       <div className="fix1">
@@ -268,21 +335,37 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
                   {item.matches.map((match, index_) => (
                     <div key={index_} className="match">
                       <div className="team" style={{ height: "115px" }}>
-                        {match.team_A_logo.team_A_logo &&
-                          match.team_B_logo.team_B_logo && (
-                            <>
-                              <div className="fix-image">
-                                <img
-                                  src={`${constants.port}${match.team_A_logo.team_A_logo}`}
-                                  className="group-image"
-                                ></img>
-                                <img
-                                  src={`${constants.port}${match.team_B_logo.team_B_logo}`}
-                                  className="group-image"
-                                ></img>
-                              </div>
-                            </>
-                          )}
+                        <div className="fix-image">
+                          <div>
+                            {match.team_A_logo.team_A_logo && (
+                              <img
+                                src={`${constants.port}${match.team_A_logo.team_A_logo}`}
+                                className="group-image"
+                              ></img>
+                            )}
+                            {match.team_A_logo.team_A_logo_2 && (
+                              <img
+                                src={`${constants.port}${match.team_A_logo.team_A_logo_2}`}
+                                className="group-image"
+                              ></img>
+                            )}
+                          </div>
+                          <div>
+                            {match.team_B_logo.team_B_logo && (
+                              <img
+                                src={`${constants.port}${match.team_B_logo.team_B_logo}`}
+                                className="group-image"
+                              ></img>
+                            )}
+                            {match.team_B_logo.team_B_logo_2 && (
+                              <img
+                                src={`${constants.port}${match.team_B_logo.team_B_logo_2}`}
+                                className="group-image"
+                              ></img>
+                            )}
+                          </div>
+                        </div>
+
                         <div className="fix">
                           <div
                             className={`${
@@ -347,4 +430,4 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
   );
 }
 
-export default KnockoutFixture;
+export default KnockoutFixtureDoubles;

@@ -14,6 +14,8 @@ import TeamsCard from "@/components/tournament/view/TeamsCard";
 import TournamentMatches from "@/components/tournament/view/TournamentMatches";
 import FixtureView from "@/components/tournament/view/FixtureView";
 import MobileFooter from "@/components/shared/MobileFooter";
+import DoublesMatchCard from "@/components/tournament/view/DoublesMatchCard";
+import DoublesTeamsCard from "@/components/tournament/view/DoublesTeamCard";
 
 function TournamentDetailPage() {
   const router = useRouter();
@@ -96,7 +98,7 @@ function TournamentDetailPage() {
       <MobileHeader />
       <MainSidebarFixed />
 
-      <div className="tour-container" style={{minHeight:'600px'}}>
+      <div className="tour-container" style={{ minHeight: "600px" }}>
         <div className="row ">
           <div className="col-lg-7 col-md-12">
             {homeTabData && homeTabData.tournament_details && (
@@ -107,7 +109,10 @@ function TournamentDetailPage() {
                   alt="Card image cap"
                 />
                 <div className="live-icon1">
-                  <span onClick={() => handleShare()} style={{cursor:'pointer'}}>
+                  <span
+                    onClick={() => handleShare()}
+                    style={{ cursor: "pointer" }}
+                  >
                     <svg
                       width="16"
                       height="19"
@@ -220,8 +225,13 @@ function TournamentDetailPage() {
                   >
                     Next Match
                   </h6>
-
-                  <MatchCards data={homeTabData.next_match} />
+                  {homeTabData &&
+                  homeTabData.tournament_details.tournament_type ===
+                    "Single" ? (
+                    <MatchCards data={homeTabData.next_match} />
+                  ) : (
+                    <DoublesMatchCard data={homeTabData.next_match} />
+                  )}
                 </>
               )}
               {homeTabData && homeTabData.last_match && (
@@ -232,17 +242,31 @@ function TournamentDetailPage() {
                   >
                     Last Match
                   </h6>
-
-                  <MatchCards data={homeTabData.last_match} />
+                  {homeTabData &&
+                  homeTabData.tournament_details.tournament_type ===
+                    "Single" ? (
+                    <MatchCards data={homeTabData.last_match} />
+                  ) : (
+                    <DoublesMatchCard data={homeTabData.last_match} />
+                  )}
                 </>
               )}
             </Tab>
             <Tab eventKey="Teams" title={tabButton("Teams")}>
-              <TeamsCard
-                teamsData={teamsTabData}
-                setOnSuccess={setOnSuccess}
-                admin={adminList}
-              />
+              {homeTabData &&
+              homeTabData.tournament_details.tournament_type === "Single" ? (
+                <TeamsCard
+                  teamsData={teamsTabData}
+                  setOnSuccess={setOnSuccess}
+                  admin={adminList}
+                />
+              ) : (
+                <DoublesTeamsCard
+                  teamsData={teamsTabData}
+                  setOnSuccess={setOnSuccess}
+                  admin={adminList}
+                />
+              )}
             </Tab>
             <Tab eventKey="Matches" title={tabButton("Matches")}>
               <TournamentMatches
@@ -258,7 +282,6 @@ function TournamentDetailPage() {
                 setOnSuccess={setOnSuccess}
                 admin={adminList}
                 home={homeTabData}
-
               />
             </Tab>
           </Tabs>
