@@ -441,28 +441,29 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
                     >
                       <div className=" watch1 d-flex">
                         <div>
-                          {content.team_A_logo.team_A_logo !== null ? (
-                            <img
-                              src={`${constants.port}${content.team_A_logo.team_A_logo}`}
-                              className="clubs"
-                            ></img>
-                          ) : (
-                            "Team A?"
-                          )}
+                          <img
+                            src={
+                              content.team_A_logo.team_A_logo
+                                ? `${constants.port}${content.team_A_logo.team_A_logo}`
+                                : "/images/accounts/user_default.png"
+                            }
+                            className="clubs"
+                          ></img>
                           <p className="team1">{content.team_A.team_A} </p>
                         </div>
                         {home &&
                           home.tournament_details.tournament_type ===
                             "Double" && (
                             <div>
-                              {content.team_A_logo.team_A_logo_2 !== null ? (
-                                <img
-                                  src={`${constants.port}${content.team_A_logo.team_A_logo_2}`}
-                                  className="clubs"
-                                ></img>
-                              ) : (
-                                "Team A?"
-                              )}
+                              <img
+                                src={
+                                  content.team_A_logo.team_A_logo_2
+                                    ? `${constants.port}${content.team_A_logo.team_A_logo_2}`
+                                    : "/images/accounts/user_default.png"
+                                }
+                                className="clubs"
+                              ></img>
+
                               <p className="team1">
                                 {content.team_A.team_A_2}{" "}
                               </p>
@@ -472,28 +473,30 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
 
                       <div className="watch2 d-flex">
                         <div>
-                          {content.team_B_logo.team_B_logo !== null ? (
-                            <img
-                              src={`${constants.port}${content.team_B_logo.team_B_logo}`}
-                              className="clubs"
-                            ></img>
-                          ) : (
-                            "Team B?"
-                          )}
+                          <img
+                            src={
+                              content.team_B_logo.team_B_logo
+                                ? `${constants.port}${content.team_B_logo.team_B_logo}`
+                                : "/images/accounts/user_default.png"
+                            }
+                            className="clubs"
+                          ></img>
+
                           <p className="team2">{content.team_B.team_B}</p>
                         </div>
                         {home &&
                           home.tournament_details.tournament_type ===
                             "Double" && (
                             <div>
-                              {content.team_B_logo.team_B_logo_2 !== null ? (
-                                <img
-                                  src={`${constants.port}${content.team_B_logo.team_B_logo_2}`}
-                                  className="clubs"
-                                ></img>
-                              ) : (
-                                "Team B?"
-                              )}
+                              <img
+                                src={
+                                  content.team_B_logo.team_B_logo_2
+                                    ? `${constants.port}${content.team_B_logo.team_B_logo_2}`
+                                    : "/images/accounts/user_default.png"
+                                }
+                                className="clubs"
+                              ></img>
+
                               <p className="team2">{content.team_B.team_B_2}</p>
                             </div>
                           )}

@@ -123,20 +123,24 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index) => (
                   <div key={index} className="match">
                     <div className="team">
-                      {match.team_A_logo && match.team_B_logo && (
-                        <div>
-                          <div className="fix-image">
-                            <img
-                              src={`${constants.port}${match.team_A_logo}`}
-                              className="group-image"
-                            ></img>
-                            <img
-                              src={`${constants.port}${match.team_B_logo}`}
-                              className="group-image"
-                            ></img>
-                          </div>
-                        </div>
-                      )}
+                      <div className="fix-image">
+                        <img
+                          src={
+                            match.team_A_logo.team_A_logo
+                              ? `${constants.port}${match.team_A_logo.team_A_logo}`
+                              : "/images/accounts/user_default.png"
+                          }
+                          className="group-image"
+                        ></img>
+                        <img
+                          src={
+                            match.team_B_logo.team_B_logo
+                              ? `${constants.port}${match.team_B_logo.team_B_logo}`
+                              : "/images/accounts/user_default.png"
+                          }
+                          className="group-image"
+                        ></img>
+                      </div>
                       <div className="fix">
                         <div
                           className={`${
@@ -145,7 +149,7 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                               : "group-two"
                           }`}
                         >
-                          {match.team_A}
+                          {match.team_A.team_A}
                         </div>
                         <div
                           className={`${
@@ -154,7 +158,7 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                               : "group-two"
                           }`}
                         >
-                          {match.team_B}
+                          {match.team_B.team_B}
                         </div>
                       </div>
                       <div className="fix1">
@@ -197,18 +201,24 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index) => (
                   <div key={index} className="match">
                     <div className="team">
-                      {match.team_A_logo && match.team_B_logo && (
-                        <div className="fix-image">
-                          <img
-                            src={`${constants.port}${match.team_A_logo}`}
-                            className="group-image"
-                          ></img>
-                          <img
-                            src={`${constants.port}${match.team_B_logo}`}
-                            className="group-image"
-                          ></img>
-                        </div>
-                      )}
+                      <div className="fix-image">
+                        <img
+                          src={
+                            match.team_A_logo.team_A_logo
+                              ? `${constants.port}${match.team_A_logo.team_A_logo}`
+                              : "/images/accounts/user_default.png"
+                          }
+                          className="group-image"
+                        ></img>
+                        <img
+                          src={
+                            match.team_B_logo.team_B_logo
+                              ? `${constants.port}${match.team_B_logo.team_B_logo}`
+                              : "/images/accounts/user_default.png"
+                          }
+                          className="group-image"
+                        ></img>
+                      </div>
                       <div className="fix">
                         <div
                           className={`${
@@ -217,7 +227,7 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                               : "group-two"
                           }`}
                         >
-                          {match.team_A}
+                          {match.team_A.team_A}
                         </div>
                         <div
                           className={`${
@@ -226,7 +236,7 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                               : "group-two"
                           }`}
                         >
-                          {match.team_B}
+                          {match.team_B.team_B}
                         </div>
                       </div>
                       <div className="fix1">
@@ -269,18 +279,24 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index) => (
                   <div key={index} className="match">
                     <div className="team">
-                      {match.team_A_logo && match.team_B_logo && (
-                        <div className="fix-image">
-                          <img
-                            src={`${constants.port}${match.team_A_logo}`}
-                            className="group-image"
-                          ></img>
-                          <img
-                            src={`${constants.port}${match.team_B_logo}`}
-                            className="group-image"
-                          ></img>
-                        </div>
-                      )}
+                      <div className="fix-image">
+                        <img
+                          src={
+                            match.team_A_logo.team_A_logo
+                              ? `${constants.port}${match.team_A_logo.team_A_logo}`
+                              : "/images/accounts/user_default.png"
+                          }
+                          className="group-image"
+                        ></img>
+                        <img
+                          src={
+                            match.team_B_logo.team_B_logo
+                              ? `${constants.port}${match.team_B_logo.team_B_logo}`
+                              : "/images/accounts/user_default.png"
+                          }
+                          className="group-image"
+                        ></img>
+                      </div>
                       <div className="fix">
                         <div
                           className={`${
@@ -289,7 +305,7 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                               : "group-two"
                           }`}
                         >
-                          {match.team_A}
+                          {match.team_A.team_A}
                         </div>
                         <div
                           className={`${
@@ -298,7 +314,7 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                               : "group-two"
                           }`}
                         >
-                          {match.team_B}
+                          {match.team_B.team_B}
                         </div>
                       </div>
                       <div className="fix1">
@@ -341,18 +357,24 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index) => (
                   <div key={index} className="match">
                     <div className="team">
-                      {match.team_A_logo && match.team_B_logo && (
-                        <div className="fix-image">
-                          <img
-                            src={`${constants.port}${match.team_A_logo}`}
-                            className="group-image"
-                          ></img>
-                          <img
-                            src={`${constants.port}${match.team_B_logo}`}
-                            className="group-image"
-                          ></img>
-                        </div>
-                      )}
+                      <div className="fix-image">
+                        <img
+                          src={
+                            match.team_A_logo.team_A_logo
+                              ? `${constants.port}${match.team_A_logo.team_A_logo}`
+                              : "/images/accounts/user_default.png"
+                          }
+                          className="group-image"
+                        ></img>
+                        <img
+                          src={
+                            match.team_B_logo.team_B_logo
+                              ? `${constants.port}${match.team_B_logo.team_B_logo}`
+                              : "/images/accounts/user_default.png"
+                          }
+                          className="group-image"
+                        ></img>
+                      </div>
                       <div className="fix">
                         <div
                           className={`${
@@ -361,7 +383,7 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                               : "group-two"
                           }`}
                         >
-                          {match.team_A}
+                          {match.team_A.team_A}
                         </div>
                         <div
                           className={`${
@@ -370,7 +392,7 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                               : "group-two"
                           }`}
                         >
-                          {match.team_B}
+                          {match.team_B.team_B}
                         </div>
                       </div>
                       <div className="fix1">
@@ -413,18 +435,24 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index) => (
                   <div key={index} className="match">
                     <div className="team">
-                      {match.team_A_logo && match.team_B_logo && (
-                        <div className="fix-image">
-                          <img
-                            src={`${constants.port}${match.team_A_logo}`}
-                            className="group-image"
-                          ></img>
-                          <img
-                            src={`${constants.port}${match.team_B_logo}`}
-                            className="group-image"
-                          ></img>
-                        </div>
-                      )}
+                      <div className="fix-image">
+                        <img
+                          src={
+                            match.team_A_logo.team_A_logo
+                              ? `${constants.port}${match.team_A_logo.team_A_logo}`
+                              : "/images/accounts/user_default.png"
+                          }
+                          className="group-image"
+                        ></img>
+                        <img
+                          src={
+                            match.team_B_logo.team_B_logo
+                              ? `${constants.port}${match.team_B_logo.team_B_logo}`
+                              : "/images/accounts/user_default.png"
+                          }
+                          className="group-image"
+                        ></img>
+                      </div>
                       <div className="fix">
                         <div
                           className={`${
@@ -433,7 +461,7 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                               : "group-two"
                           }`}
                         >
-                          {match.team_A}
+                          {match.team_A.team_A}
                         </div>
                         <div
                           className={`${
@@ -442,7 +470,7 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                               : "group-two"
                           }`}
                         >
-                          {match.team_B}
+                          {match.team_B.team_B}
                         </div>
                       </div>
                       <div className="fix1">
@@ -485,18 +513,24 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index) => (
                   <div key={index} className="match">
                     <div className="team">
-                      {match.team_A_logo && match.team_B_logo && (
-                        <div className="fix-image">
-                          <img
-                            src={`${constants.port}${match.team_A_logo}`}
-                            className="group-image"
-                          ></img>
-                          <img
-                            src={`${constants.port}${match.team_B_logo}`}
-                            className="group-image"
-                          ></img>
-                        </div>
-                      )}
+                      <div className="fix-image">
+                        <img
+                          src={
+                            match.team_A_logo.team_A_logo
+                              ? `${constants.port}${match.team_A_logo.team_A_logo}`
+                              : "/images/accounts/user_default.png"
+                          }
+                          className="group-image"
+                        ></img>
+                        <img
+                          src={
+                            match.team_B_logo.team_B_logo
+                              ? `${constants.port}${match.team_B_logo.team_B_logo}`
+                              : "/images/accounts/user_default.png"
+                          }
+                          className="group-image"
+                        ></img>
+                      </div>
                       <div className="fix">
                         <div
                           className={`${
@@ -505,7 +539,7 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                               : "group-two"
                           }`}
                         >
-                          {match.team_A}
+                          {match.team_A.team_A}
                         </div>
                         <div
                           className={`${
@@ -514,7 +548,7 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                               : "group-two"
                           }`}
                         >
-                          {match.team_B}
+                          {match.team_B.team_B}
                         </div>
                       </div>
                       <div className="fix1">
@@ -557,18 +591,24 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index) => (
                   <div key={index} className="match">
                     <div className="team">
-                      {match.team_A_logo && match.team_B_logo && (
-                        <div className="fix-image">
-                          <img
-                            src={`${constants.port}${match.team_A_logo}`}
-                            className="group-image"
-                          ></img>
-                          <img
-                            src={`${constants.port}${match.team_B_logo}`}
-                            className="group-image"
-                          ></img>
-                        </div>
-                      )}
+                      <div className="fix-image">
+                        <img
+                          src={
+                            match.team_A_logo.team_A_logo
+                              ? `${constants.port}${match.team_A_logo.team_A_logo}`
+                              : "/images/accounts/user_default.png"
+                          }
+                          className="group-image"
+                        ></img>
+                        <img
+                          src={
+                            match.team_B_logo.team_B_logo
+                              ? `${constants.port}${match.team_B_logo.team_B_logo}`
+                              : "/images/accounts/user_default.png"
+                          }
+                          className="group-image"
+                        ></img>
+                      </div>
                       <div className="fix">
                         <div
                           className={`${
@@ -577,7 +617,7 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                               : "group-two"
                           }`}
                         >
-                          {match.team_A}
+                          {match.team_A.team_A}
                         </div>
                         <div
                           className={`${
@@ -586,7 +626,7 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                               : "group-two"
                           }`}
                         >
-                          {match.team_B}
+                          {match.team_B.team_B}
                         </div>
                       </div>
                       <div className="fix1">
@@ -624,18 +664,24 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index_) => (
                   <div key={index_} className="match">
                     <div className="team">
-                      {match.team_A_logo && match.team_B_logo && (
-                        <div className="fix-image">
-                          <img
-                            src={`${constants.port}${match.team_A_logo}`}
-                            className="group-image"
-                          ></img>
-                          <img
-                            src={`${constants.port}${match.team_B_logo}`}
-                            className="group-image"
-                          ></img>
-                        </div>
-                      )}
+                      <div className="fix-image">
+                        <img
+                          src={
+                            match.team_A_logo.team_A_logo
+                              ? `${constants.port}${match.team_A_logo.team_A_logo}`
+                              : "/images/accounts/user_default.png"
+                          }
+                          className="group-image"
+                        ></img>
+                        <img
+                          src={
+                            match.team_B_logo.team_B_logo
+                              ? `${constants.port}${match.team_B_logo.team_B_logo}`
+                              : "/images/accounts/user_default.png"
+                          }
+                          className="group-image"
+                        ></img>
+                      </div>
                       <div className="fix">
                         <div
                           className={`${
@@ -644,7 +690,7 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                               : "group-two"
                           }`}
                         >
-                          {match.team_A}
+                          {match.team_A.team_A}
                         </div>
                         <div
                           className={`${
@@ -653,7 +699,7 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                               : "group-two"
                           }`}
                         >
-                          {match.team_B}
+                          {match.team_B.team_B}
                         </div>
                       </div>
                       <div className="fix1">
@@ -691,18 +737,24 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index_) => (
                   <div key={index_} className="match">
                     <div className="team">
-                      {match.team_A_logo && match.team_B_logo && (
-                        <div className="fix-image">
-                          <img
-                            src={`${constants.port}${match.team_A_logo}`}
-                            className="group-image"
-                          ></img>
-                          <img
-                            src={`${constants.port}${match.team_B_logo}`}
-                            className="group-image"
-                          ></img>
-                        </div>
-                      )}
+                      <div className="fix-image">
+                        <img
+                          src={
+                            match.team_A_logo.team_A_logo
+                              ? `${constants.port}${match.team_A_logo.team_A_logo}`
+                              : "/images/accounts/user_default.png"
+                          }
+                          className="group-image"
+                        ></img>
+                        <img
+                          src={
+                            match.team_B_logo.team_B_logo
+                              ? `${constants.port}${match.team_B_logo.team_B_logo}`
+                              : "/images/accounts/user_default.png"
+                          }
+                          className="group-image"
+                        ></img>
+                      </div>
                       <div className="fix">
                         <div
                           className={`${
@@ -711,7 +763,7 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                               : "group-two"
                           }`}
                         >
-                          {match.team_A}
+                          {match.team_A.team_A}
                         </div>
                         <div
                           className={`${
@@ -720,7 +772,7 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                               : "group-two"
                           }`}
                         >
-                          {match.team_B}
+                          {match.team_B.team_B}
                         </div>
                       </div>
                       <div className="fix1">
@@ -758,18 +810,24 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index_) => (
                   <div key={index_} className="match">
                     <div className="team">
-                      {match.team_A_logo && match.team_B_logo && (
-                        <div className="fix-image">
-                          <img
-                            src={`${constants.port}${match.team_A_logo}`}
-                            className="group-image"
-                          ></img>
-                          <img
-                            src={`${constants.port}${match.team_B_logo}`}
-                            className="group-image"
-                          ></img>
-                        </div>
-                      )}
+                      <div className="fix-image">
+                        <img
+                          src={
+                            match.team_A_logo.team_A_logo
+                              ? `${constants.port}${match.team_A_logo.team_A_logo}`
+                              : "/images/accounts/user_default.png"
+                          }
+                          className="group-image"
+                        ></img>
+                        <img
+                          src={
+                            match.team_B_logo.team_B_logo
+                              ? `${constants.port}${match.team_B_logo.team_B_logo}`
+                              : "/images/accounts/user_default.png"
+                          }
+                          className="group-image"
+                        ></img>
+                      </div>
                       <div className="fix">
                         <div
                           className={`${
@@ -778,7 +836,7 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                               : "group-two"
                           }`}
                         >
-                          {match.team_A}
+                          {match.team_A.team_A}
                         </div>
                         <div
                           className={`${
@@ -787,7 +845,7 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                               : "group-two"
                           }`}
                         >
-                          {match.team_B}
+                          {match.team_B.team_B}
                         </div>
                       </div>
                       <div className="fix1">
@@ -825,18 +883,24 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index_) => (
                   <div key={index_} className="match">
                     <div className="team">
-                      {match.team_A_logo && match.team_B_logo && (
-                        <div className="fix-image">
-                          <img
-                            src={`${constants.port}${match.team_A_logo}`}
-                            className="group-image"
-                          ></img>
-                          <img
-                            src={`${constants.port}${match.team_B_logo}`}
-                            className="group-image"
-                          ></img>
-                        </div>
-                      )}
+                      <div className="fix-image">
+                        <img
+                          src={
+                            match.team_A_logo.team_A_logo
+                              ? `${constants.port}${match.team_A_logo.team_A_logo}`
+                              : "/images/accounts/user_default.png"
+                          }
+                          className="group-image"
+                        ></img>
+                        <img
+                          src={
+                            match.team_B_logo.team_B_logo
+                              ? `${constants.port}${match.team_B_logo.team_B_logo}`
+                              : "/images/accounts/user_default.png"
+                          }
+                          className="group-image"
+                        ></img>
+                      </div>
                       <div className="fix">
                         <div
                           className={`${
@@ -845,7 +909,7 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                               : "group-two"
                           }`}
                         >
-                          {match.team_A}
+                          {match.team_A.team_A}
                         </div>
                         <div
                           className={`${
@@ -854,7 +918,7 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                               : "group-two"
                           }`}
                         >
-                          {match.team_B}
+                          {match.team_B.team_B}
                         </div>
                       </div>
                       <div className="fix1">
@@ -881,7 +945,7 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                   </div>
                 ))}
               </div>
-            ) : item.match_type === "winner_round_2" ? (
+            ) : item.match_type === "winner_round_3" ? (
               <div className="round" style={{ position: "relative" }}>
                 <div
                   className="round-name"
@@ -892,18 +956,24 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index_) => (
                   <div key={index_} className="match">
                     <div className="team">
-                      {match.team_A_logo && match.team_B_logo && (
-                        <div className="fix-image">
-                          <img
-                            src={`${constants.port}${match.team_A_logo}`}
-                            className="group-image"
-                          ></img>
-                          <img
-                            src={`${constants.port}${match.team_B_logo}`}
-                            className="group-image"
-                          ></img>
-                        </div>
-                      )}
+                      <div className="fix-image">
+                        <img
+                          src={
+                            match.team_A_logo.team_A_logo
+                              ? `${constants.port}${match.team_A_logo.team_A_logo}`
+                              : "/images/accounts/user_default.png"
+                          }
+                          className="group-image"
+                        ></img>
+                        <img
+                          src={
+                            match.team_B_logo.team_B_logo
+                              ? `${constants.port}${match.team_B_logo.team_B_logo}`
+                              : "/images/accounts/user_default.png"
+                          }
+                          className="group-image"
+                        ></img>
+                      </div>
                       <div className="fix">
                         <div
                           className={`${
@@ -912,7 +982,7 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                               : "group-two"
                           }`}
                         >
-                          {match.team_A}
+                          {match.team_A.team_A}
                         </div>
                         <div
                           className={`${
@@ -921,7 +991,80 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                               : "group-two"
                           }`}
                         >
-                          {match.team_B}
+                          {match.team_B.team_B}
+                        </div>
+                      </div>
+                      <div className="fix1">
+                        <div
+                          className={`${
+                            match.team_A_score >= match.team_B_score
+                              ? "group-one"
+                              : "group-two"
+                          }`}
+                        >
+                          {match.team_A_score}
+                        </div>
+                        <div
+                          className={`${
+                            match.team_B_score >= match.team_A_score
+                              ? "group-one"
+                              : "group-two"
+                          }`}
+                        >
+                          {match.team_B_score}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : item.match_type === "winner_round_4" ? (
+              <div className="round" style={{ position: "relative" }}>
+                <div
+                  className="round-name"
+                  style={{ position: "absolute", top: "0" }}
+                >
+                  {item.match_type.replace(/_/g, " ")}
+                </div>
+                {item.matches.map((match, index_) => (
+                  <div key={index_} className="match">
+                    <div className="team">
+                      <div className="fix-image">
+                        <img
+                          src={
+                            match.team_A_logo.team_A_logo
+                              ? `${constants.port}${match.team_A_logo.team_A_logo}`
+                              : "/images/accounts/user_default.png"
+                          }
+                          className="group-image"
+                        ></img>
+                        <img
+                          src={
+                            match.team_B_logo.team_B_logo
+                              ? `${constants.port}${match.team_B_logo.team_B_logo}`
+                              : "/images/accounts/user_default.png"
+                          }
+                          className="group-image"
+                        ></img>
+                      </div>
+                      <div className="fix">
+                        <div
+                          className={`${
+                            match.team_A_score >= match.team_B_score
+                              ? "group-one"
+                              : "group-two"
+                          }`}
+                        >
+                          {match.team_A.team_A}
+                        </div>
+                        <div
+                          className={`${
+                            match.team_B_score >= match.team_A_score
+                              ? "group-one"
+                              : "group-two"
+                          }`}
+                        >
+                          {match.team_B.team_B}
                         </div>
                       </div>
                       <div className="fix1">
@@ -961,20 +1104,24 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                   {item.matches.map((match, index_) => (
                     <div key={index_} className="match">
                       <div className="team" style={{ height: "115px" }}>
-                        {match.team_A_logo && match.team_B_logo && (
-                          <>
-                            <div className="fix-image">
-                              <img
-                                src={`${constants.port}${match.team_A_logo}`}
-                                className="group-image"
-                              ></img>
-                              <img
-                                src={`${constants.port}${match.team_B_logo}`}
-                                className="group-image"
-                              ></img>
-                            </div>
-                          </>
-                        )}
+                        <div className="fix-image">
+                          <img
+                            src={
+                              match.team_A_logo.team_A_logo
+                                ? `${constants.port}${match.team_A_logo.team_A_logo}`
+                                : "/images/accounts/user_default.png"
+                            }
+                            className="group-image"
+                          ></img>
+                          <img
+                            src={
+                              match.team_B_logo.team_B_logo
+                                ? `${constants.port}${match.team_B_logo.team_B_logo}`
+                                : "/images/accounts/user_default.png"
+                            }
+                            className="group-image"
+                          ></img>
+                        </div>
                         <div className="fix">
                           <div
                             className={`${
@@ -983,7 +1130,7 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                                 : "group-two"
                             }`}
                           >
-                            {match.team_A}
+                            {match.team_A.team_A}
                           </div>
                           <div
                             className={`${
@@ -992,7 +1139,7 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                                 : "group-two"
                             }`}
                           >
-                            {match.team_B}
+                            {match.team_B.team_B}
                           </div>
                         </div>
                         <div className="fix1">

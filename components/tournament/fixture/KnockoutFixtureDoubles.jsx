@@ -13,63 +13,81 @@ function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
               <div key={index} className="round">
                 {item.matches.map((match, index) => (
                   <div key={index} className="match">
-                    <div className="team">
+                    <div className="team-double">
                       <div className="fix-image">
                         <div>
-                          {match.team_A_logo.team_A_logo && (
-                            <img
-                              src={`${constants.port}${match.team_A_logo.team_A_logo}`}
-                              className="group-image"
-                            ></img>
-                          )}
-                          {match.team_A_logo.team_A_logo_2 && (
-                            <img
-                              src={`${constants.port}${match.team_A_logo.team_A_logo_2}`}
-                              className="group-image"
-                            ></img>
-                          )}
+                          <img
+                            src={
+                              match.team_A_logo.team_A_logo
+                                ? `${constants.port}${match.team_A_logo.team_A_logo}`
+                                : "/images/accounts/user_default.png"
+                            }
+                            className="group-image"
+                          ></img>
+                          <img
+                            src={
+                              match.team_A_logo.team_A_logo_2
+                                ? `${constants.port}${match.team_A_logo.team_A_logo_2}`
+                                : "/images/accounts/user_default.png"
+                            }
+                            className="group-image"
+                          ></img>
                         </div>
                         <div>
-                          {match.team_B_logo.team_B_logo && (
-                            <img
-                              src={`${constants.port}${match.team_B_logo.team_B_logo}`}
-                              className="group-image"
-                            ></img>
-                          )}
-                          {match.team_B_logo.team_B_logo_2 && (
-                            <img
-                              src={`${constants.port}${match.team_B_logo.team_B_logo_2}`}
-                              className="group-image"
-                            ></img>
-                          )}
+                          <img
+                            src={
+                              match.team_B_logo.team_B_logo
+                                ? `${constants.port}${match.team_B_logo.team_B_logo}`
+                                : "/images/accounts/user_default.png"
+                            }
+                            className="group-image"
+                          ></img>
+                          <img
+                            src={
+                              match.team_B_logo.team_B_logo_2
+                                ? `${constants.port}${match.team_B_logo.team_B_logo_2}`
+                                : "/images/accounts/user_default.png"
+                            }
+                            className="group-image"
+                          ></img>
                         </div>
                       </div>
                       <div className="fix">
                         <div
                           className={`${
                             match.team_A_score >= match.team_B_score
-                              ? "group-one"
-                              : "group-two"
+                              ? "group-one-double"
+                              : "group-two-double"
                           }`}
                         >
-                          {match.team_A.team_A}
+                          <div className="double-team-name">
+                            {match.team_A.team_A}
+                          </div>
+                          <div className="double-team-name">
+                            {match.team_A.team_A_2}
+                          </div>
                         </div>
                         <div
                           className={`${
                             match.team_B_score >= match.team_A_score
-                              ? "group-one"
-                              : "group-two"
+                              ? "group-one-double"
+                              : "group-two-double"
                           }`}
                         >
-                          {match.team_B.team_B}
+                          <div className="double-team-name">
+                            {match.team_B.team_B}
+                          </div>
+                          <div className="double-team-name">
+                            {match.team_B.team_B_2}
+                          </div>
                         </div>
                       </div>
                       <div className="fix1">
                         <div
                           className={`${
                             match.team_A_score >= match.team_B_score
-                              ? "group-one"
-                              : "group-two"
+                              ? "group-one-double"
+                              : "group-two-double"
                           }`}
                         >
                           {match.team_A_score}
@@ -77,8 +95,8 @@ function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
                         <div
                           className={`${
                             match.team_B_score >= match.team_A_score
-                              ? "group-one"
-                              : "group-two"
+                              ? "group-one-double"
+                              : "group-two-double"
                           }`}
                         >
                           {match.team_B_score}
@@ -92,63 +110,81 @@ function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
               <div key={index} className="round">
                 {item.matches.map((match, index) => (
                   <div key={index} className="match">
-                    <div className="team">
+                    <div className="team-double">
                       <div className="fix-image">
                         <div>
-                          {match.team_A_logo.team_A_logo && (
-                            <img
-                              src={`${constants.port}${match.team_A_logo.team_A_logo}`}
-                              className="group-image"
-                            ></img>
-                          )}
-                          {match.team_A_logo.team_A_logo_2 && (
-                            <img
-                              src={`${constants.port}${match.team_A_logo.team_A_logo_2}`}
-                              className="group-image"
-                            ></img>
-                          )}
+                          <img
+                            src={
+                              match.team_A_logo.team_A_logo
+                                ? `${constants.port}${match.team_A_logo.team_A_logo}`
+                                : "/images/accounts/user_default.png"
+                            }
+                            className="group-image"
+                          ></img>
+                          <img
+                            src={
+                              match.team_A_logo.team_A_logo_2
+                                ? `${constants.port}${match.team_A_logo.team_A_logo_2}`
+                                : "/images/accounts/user_default.png"
+                            }
+                            className="group-image"
+                          ></img>
                         </div>
                         <div>
-                          {match.team_B_logo.team_B_logo && (
-                            <img
-                              src={`${constants.port}${match.team_B_logo.team_B_logo}`}
-                              className="group-image"
-                            ></img>
-                          )}
-                          {match.team_B_logo.team_B_logo_2 && (
-                            <img
-                              src={`${constants.port}${match.team_B_logo.team_B_logo_2}`}
-                              className="group-image"
-                            ></img>
-                          )}
+                          <img
+                            src={
+                              match.team_B_logo.team_B_logo
+                                ? `${constants.port}${match.team_B_logo.team_B_logo}`
+                                : "/images/accounts/user_default.png"
+                            }
+                            className="group-image"
+                          ></img>
+                          <img
+                            src={
+                              match.team_B_logo.team_B_logo_2
+                                ? `${constants.port}${match.team_B_logo.team_B_logo_2}`
+                                : "/images/accounts/user_default.png"
+                            }
+                            className="group-image"
+                          ></img>
                         </div>
                       </div>
                       <div className="fix">
                         <div
                           className={`${
                             match.team_A_score >= match.team_B_score
-                              ? "group-one"
-                              : "group-two"
+                              ? "group-one-double"
+                              : "group-two-double"
                           }`}
                         >
-                          {match.team_A.team_A}
+                          <div className="double-team-name">
+                            {match.team_A.team_A}
+                          </div>
+                          <div className="double-team-name">
+                            {match.team_A.team_A_2}
+                          </div>
                         </div>
                         <div
                           className={`${
                             match.team_B_score >= match.team_A_score
-                              ? "group-one"
-                              : "group-two"
+                              ? "group-one-double"
+                              : "group-two-double"
                           }`}
                         >
-                          {match.team_B.team_B}
+                          <div className="double-team-name">
+                            {match.team_B.team_B}
+                          </div>
+                          <div className="double-team-name">
+                            {match.team_B.team_B_2}
+                          </div>
                         </div>
                       </div>
                       <div className="fix1">
                         <div
                           className={`${
                             match.team_A_score >= match.team_B_score
-                              ? "group-one"
-                              : "group-two"
+                              ? "group-one-double"
+                              : "group-two-double"
                           }`}
                         >
                           {match.team_A_score}
@@ -156,8 +192,8 @@ function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
                         <div
                           className={`${
                             match.team_B_score >= match.team_A_score
-                              ? "group-one"
-                              : "group-two"
+                              ? "group-one-double"
+                              : "group-two-double"
                           }`}
                         >
                           {match.team_B_score}
@@ -171,65 +207,81 @@ function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
               <div key={index} className="round">
                 {item.matches.map((match, index) => (
                   <div key={index} className="match">
-                    <div className="team">
+                    <div className="team-double">
                       <div className="fix-image">
                         <div>
-                          {match.team_A_logo.team_A_logo && (
-                            <img
-                              src={`${constants.port}${match.team_A_logo.team_A_logo}`}
-                              className="group-image"
-                            ></img>
-                          )}
-                          {match.team_A_logo.team_A_logo_2 && (
-                            <img
-                              src={`${constants.port}${match.team_A_logo.team_A_logo_2}`}
-                              className="group-image"
-                            ></img>
-                          )}
+                          <img
+                            src={
+                              match.team_A_logo.team_A_logo
+                                ? `${constants.port}${match.team_A_logo.team_A_logo}`
+                                : "/images/accounts/user_default.png"
+                            }
+                            className="group-image"
+                          ></img>
+                          <img
+                            src={
+                              match.team_A_logo.team_A_logo_2
+                                ? `${constants.port}${match.team_A_logo.team_A_logo_2}`
+                                : "/images/accounts/user_default.png"
+                            }
+                            className="group-image"
+                          ></img>
                         </div>
                         <div>
-                          {match.team_B_logo.team_B_logo && (
-                            <img
-                              src={`${constants.port}${match.team_B_logo.team_B_logo}`}
-                              className="group-image"
-                            ></img>
-                          )}
-                          {match.team_B_logo.team_B_logo_2 && (
-                            <img
-                              src={`${constants.port}${match.team_B_logo.team_B_logo_2}`}
-                              className="group-image"
-                            ></img>
-                          )}
+                          <img
+                            src={
+                              match.team_B_logo.team_B_logo
+                                ? `${constants.port}${match.team_B_logo.team_B_logo}`
+                                : "/images/accounts/user_default.png"
+                            }
+                            className="group-image"
+                          ></img>
+                          <img
+                            src={
+                              match.team_B_logo.team_B_logo_2
+                                ? `${constants.port}${match.team_B_logo.team_B_logo_2}`
+                                : "/images/accounts/user_default.png"
+                            }
+                            className="group-image"
+                          ></img>
                         </div>
                       </div>
                       <div className="fix">
                         <div
                           className={`${
                             match.team_A_score >= match.team_B_score
-                              ? "group-one"
-                              : "group-two"
+                              ? "group-one-double"
+                              : "group-two-double"
                           }`}
                         >
-                          {match.team_A.team_A}
-                          {match.team_A.team_A_2}
+                          <div className="double-team-name">
+                            {match.team_A.team_A}
+                          </div>
+                          <div className="double-team-name">
+                            {match.team_A.team_A_2}
+                          </div>
                         </div>
                         <div
                           className={`${
                             match.team_B_score >= match.team_A_score
-                              ? "group-one"
-                              : "group-two"
+                              ? "group-one-double"
+                              : "group-two-double"
                           }`}
                         >
-                          {match.team_B.team_B}
-                          {match.team_B.team_B_2}
+                          <div className="double-team-name">
+                            {match.team_B.team_B}
+                          </div>
+                          <div className="double-team-name">
+                            {match.team_B.team_B_2}
+                          </div>
                         </div>
                       </div>
                       <div className="fix1">
                         <div
                           className={`${
                             match.team_A_score >= match.team_B_score
-                              ? "group-one"
-                              : "group-two"
+                              ? "group-one-double"
+                              : "group-two-double"
                           }`}
                         >
                           {match.team_A_score}
@@ -237,8 +289,8 @@ function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
                         <div
                           className={`${
                             match.team_B_score >= match.team_A_score
-                              ? "group-one"
-                              : "group-two"
+                              ? "group-one-double"
+                              : "group-two-double"
                           }`}
                         >
                           {match.team_B_score}
@@ -252,65 +304,81 @@ function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
               <div className="round">
                 {item.matches.map((match, index_) => (
                   <div key={index_} className="match">
-                    <div className="team">
-                    <div className="fix-image">
+                    <div className="team-double">
+                      <div className="fix-image">
                         <div>
-                          {match.team_A_logo.team_A_logo && (
-                            <img
-                              src={`${constants.port}${match.team_A_logo.team_A_logo}`}
-                              className="group-image"
-                            ></img>
-                          )}
-                          {match.team_A_logo.team_A_logo_2 && (
-                            <img
-                              src={`${constants.port}${match.team_A_logo.team_A_logo_2}`}
-                              className="group-image"
-                            ></img>
-                          )}
+                          <img
+                            src={
+                              match.team_A_logo.team_A_logo
+                                ? `${constants.port}${match.team_A_logo.team_A_logo}`
+                                : "/images/accounts/user_default.png"
+                            }
+                            className="group-image"
+                          ></img>
+                          <img
+                            src={
+                              match.team_A_logo.team_A_logo_2
+                                ? `${constants.port}${match.team_A_logo.team_A_logo_2}`
+                                : "/images/accounts/user_default.png"
+                            }
+                            className="group-image"
+                          ></img>
                         </div>
                         <div>
-                          {match.team_B_logo.team_B_logo && (
-                            <img
-                              src={`${constants.port}${match.team_B_logo.team_B_logo}`}
-                              className="group-image"
-                            ></img>
-                          )}
-                          {match.team_B_logo.team_B_logo_2 && (
-                            <img
-                              src={`${constants.port}${match.team_B_logo.team_B_logo_2}`}
-                              className="group-image"
-                            ></img>
-                          )}
+                          <img
+                            src={
+                              match.team_B_logo.team_B_logo
+                                ? `${constants.port}${match.team_B_logo.team_B_logo}`
+                                : "/images/accounts/user_default.png"
+                            }
+                            className="group-image"
+                          ></img>
+                          <img
+                            src={
+                              match.team_B_logo.team_B_logo_2
+                                ? `${constants.port}${match.team_B_logo.team_B_logo_2}`
+                                : "/images/accounts/user_default.png"
+                            }
+                            className="group-image"
+                          ></img>
                         </div>
                       </div>
                       <div className="fix">
                         <div
                           className={`${
                             match.team_A_score >= match.team_B_score
-                              ? "group-one"
-                              : "group-two"
+                              ? "group-one-double"
+                              : "group-two-double"
                           }`}
                         >
-                          {match.team_A.team_A}
-                          {match.team_A.team_A_2}
+                          <div className="double-team-name">
+                            {match.team_A.team_A}
+                          </div>
+                          <div className="double-team-name">
+                            {match.team_A.team_A_2}
+                          </div>
                         </div>
                         <div
                           className={`${
                             match.team_B_score >= match.team_A_score
-                              ? "group-one"
-                              : "group-two"
+                              ? "group-one-double"
+                              : "group-two-double"
                           }`}
                         >
-                          {match.team_B.team_B}
-                          {match.team_B.team_B_2}
+                          <div className="double-team-name">
+                            {match.team_B.team_B}
+                          </div>
+                          <div className="double-team-name">
+                            {match.team_B.team_B_2}
+                          </div>
                         </div>
                       </div>
                       <div className="fix1">
                         <div
                           className={`${
                             match.team_A_score >= match.team_B_score
-                              ? "group-one"
-                              : "group-two"
+                              ? "group-one-double"
+                              : "group-two-double"
                           }`}
                         >
                           {match.team_A_score}
@@ -318,8 +386,8 @@ function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
                         <div
                           className={`${
                             match.team_B_score >= match.team_A_score
-                              ? "group-one"
-                              : "group-two"
+                              ? "group-one-double"
+                              : "group-two-double"
                           }`}
                         >
                           {match.team_B_score}
@@ -334,35 +402,43 @@ function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
                 <div className="round">
                   {item.matches.map((match, index_) => (
                     <div key={index_} className="match">
-                      <div className="team" style={{ height: "115px" }}>
+                      <div className="team-double" style={{ height: "150px" }}>
                         <div className="fix-image">
                           <div>
-                            {match.team_A_logo.team_A_logo && (
-                              <img
-                                src={`${constants.port}${match.team_A_logo.team_A_logo}`}
-                                className="group-image"
-                              ></img>
-                            )}
-                            {match.team_A_logo.team_A_logo_2 && (
-                              <img
-                                src={`${constants.port}${match.team_A_logo.team_A_logo_2}`}
-                                className="group-image"
-                              ></img>
-                            )}
+                            <img
+                              src={
+                                match.team_A_logo.team_A_logo
+                                  ? `${constants.port}${match.team_A_logo.team_A_logo}`
+                                  : "/images/accounts/user_default.png"
+                              }
+                              className="group-image"
+                            ></img>
+                            <img
+                              src={
+                                match.team_A_logo.team_A_logo_2
+                                  ? `${constants.port}${match.team_A_logo.team_A_logo_2}`
+                                  : "/images/accounts/user_default.png"
+                              }
+                              className="group-image"
+                            ></img>
                           </div>
                           <div>
-                            {match.team_B_logo.team_B_logo && (
-                              <img
-                                src={`${constants.port}${match.team_B_logo.team_B_logo}`}
-                                className="group-image"
-                              ></img>
-                            )}
-                            {match.team_B_logo.team_B_logo_2 && (
-                              <img
-                                src={`${constants.port}${match.team_B_logo.team_B_logo_2}`}
-                                className="group-image"
-                              ></img>
-                            )}
+                            <img
+                              src={
+                                match.team_B_logo.team_B_logo
+                                  ? `${constants.port}${match.team_B_logo.team_B_logo}`
+                                  : "/images/accounts/user_default.png"
+                              }
+                              className="group-image"
+                            ></img>
+                            <img
+                              src={
+                                match.team_B_logo.team_B_logo_2
+                                  ? `${constants.port}${match.team_B_logo.team_B_logo_2}`
+                                  : "/images/accounts/user_default.png"
+                              }
+                              className="group-image"
+                            ></img>
                           </div>
                         </div>
 
@@ -370,28 +446,38 @@ function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
                           <div
                             className={`${
                               match.team_A_score >= match.team_B_score
-                                ? "group-one"
-                                : "group-two"
+                                ? "group-one-double"
+                                : "group-two-double"
                             }`}
                           >
-                            {match.team_A.team_A}
+                            <div className="double-team-name">
+                              {match.team_A.team_A}
+                            </div>
+                            <div className="double-team-name">
+                              {match.team_A.team_A_2}
+                            </div>
                           </div>
                           <div
                             className={`${
                               match.team_B_score >= match.team_A_score
-                                ? "group-one"
-                                : "group-two"
+                                ? "group-one-double"
+                                : "group-two-double"
                             }`}
                           >
-                            {match.team_B.team_B}
+                            <div className="double-team-name">
+                              {match.team_B.team_B}
+                            </div>
+                            <div className="double-team-name">
+                              {match.team_B.team_B_2}
+                            </div>
                           </div>
                         </div>
                         <div className="fix1">
                           <div
                             className={`${
                               match.team_A_score >= match.team_B_score
-                                ? "group-one"
-                                : "group-two"
+                                ? "group-one-double"
+                                : "group-two-double"
                             }`}
                           >
                             {match.team_A_score}
@@ -399,8 +485,8 @@ function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
                           <div
                             className={`${
                               match.team_B_score >= match.team_A_score
-                                ? "group-one"
-                                : "group-two"
+                                ? "group-one-double"
+                                : "group-two-double"
                             }`}
                           >
                             {match.team_B_score}

@@ -563,7 +563,7 @@ function SingleContainerHomePosts({ story }) {
                         onClick={() => {
                           commentClick(
                             item.owner_user_detail.orginal_post_id,
-                            item.slug
+                            item.owner_user_detail.orginal_post_slug,
                           );
                         }}
                         className="post__button post__button--align-right"

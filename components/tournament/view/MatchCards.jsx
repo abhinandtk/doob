@@ -44,19 +44,21 @@ function MatchCards({ data }) {
           <div className="card-body p-5 mx-4">
             <div className="live1">
               <div className=" watch1 ">
-                {data.team_A_logo.team_A_logo && (
-                  <img
-                    src={`${constants.port}${data.team_A_logo.team_A_logo}`}
-                    className="clubs"
-                  ></img>
-                )}
+                <img
+                  src={
+                    data.team_A_logo.team_A_logo
+                      ? `${constants.port}${data.team_A_logo.team_A_logo}`
+                      : "/images/accounts/user_default.png"
+                  }
+                  className="clubs"
+                ></img>
                 <p className="team2">{data.team_A.team_A} </p>
               </div>
 
               <div className="live-watch  ">
                 <p className="club-wins">
-                  {data.team_A_score ? data.team_A_score : "___"} -{" "}
-                  {data.team_B_score ? data.team_B_score : "___"}
+                  {data.team_A_score != null ? data.team_A_score : "___"} -{" "}
+                  {data.team_B_score != null ? data.team_B_score : "___"}
                 </p>
                 <p className="date-wins">
                   {data.match_date ? (
@@ -86,12 +88,15 @@ function MatchCards({ data }) {
               </div>
 
               <div className="watch2 ">
-                {data.team_B_logo.team_B_logo && (
-                  <img
-                    src={`${constants.port}${data.team_B_logo.team_B_logo}`}
-                    className="clubs"
-                  ></img>
-                )}
+                <img
+                  src={
+                    data.team_B_logo.team_B_logo
+                      ? `${constants.port}${data.team_B_logo.team_B_logo}`
+                      : "/images/accounts/user_default.png"
+                  }
+                  className="clubs"
+                ></img>
+
                 <p className="team2">{data.team_B.team_B} </p>
               </div>
             </div>

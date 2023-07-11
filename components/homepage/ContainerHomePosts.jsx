@@ -239,7 +239,7 @@ function ContainerHomePosts() {
                           />
                         ) : (
                           <img
-                            src="/images/accounts/user_default.png"
+                            src="/images/accounts/user_.png"
                             alt="User Picture"
                             style={{
                               objectFit: "cover",

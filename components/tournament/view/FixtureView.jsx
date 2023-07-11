@@ -5,6 +5,7 @@ import KnockoutFixture from "../fixture/KnockoutFixture";
 import LeaguePointTable from "../fixture/LeaguePointTable";
 import DoubleEliminationFixture from "../fixture/DoubleEliminationFixture";
 import KnockoutFixtureDoubles from "../fixture/KnockoutFixtureDoubles";
+import TeamDoubleEliminationFixture from "../fixture/TeamDoubleEliminationFixture";
 
 function FixtureView({ data, setOnSuccess, admin, home }) {
   console.log("fixtureDtaa", data[0]);
@@ -28,13 +29,20 @@ function FixtureView({ data, setOnSuccess, admin, home }) {
               />
             ))}
           {home &&
-            home.tournament_details.match_mode === "Double-Elimination" && (
+            home.tournament_details.match_mode === "Double-Elimination" &&
+            (home && home.tournament_details.tournament_type === "Single" ? (
               <DoubleEliminationFixture
                 data={data}
                 setOnSuccess={setOnSuccess}
                 admin={admin}
               />
-            )}
+            ) : (
+              <TeamDoubleEliminationFixture
+                data={data}
+                setOnSuccess={setOnSuccess}
+                admin={admin}
+              />
+            ))}
           {home && home.tournament_details.match_mode === "League" && (
             <LeaguePointTable />
           )}

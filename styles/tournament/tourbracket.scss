@@ -4,12 +4,12 @@
 }
 
 .round {
-	flex: 1 ;
- 
-	display: flex;
-	margin-right: 40px;
-	flex-direction: column;
-	justify-content: space-around;
+  flex: 1;
+
+  display: flex;
+  margin-right: 40px;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .match {
@@ -24,6 +24,14 @@
   background-color: #eeeeee;
   width: 190px;
   height: 95px;
+  border-radius: 6px;
+}
+.team-double {
+  color: #000000;
+  padding: 14px 23px;
+  background-color: #eeeeee;
+  width: 210px;
+  height: 120px;
   border-radius: 6px;
 }
 
@@ -70,7 +78,7 @@
   margin-right: 310px;
 }
 .group-one-final {
-  color: #17A803;
+  color: #17a803;
   text-align: center;
   font-size: 14px;
   font-weight: 500;
@@ -148,6 +156,28 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.group-one-double {
+  color: #17a803;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  width: 50%;
+  
+}
+.group-two-double {
+  color: black;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  width: 50%;
+}
+.double-team-name {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .group-image {
   width: 34px;
   height: 34px;
@@ -210,8 +240,7 @@
 //   left:32%;
 // }
 
-
-@media (max-width: 527px){
+@media (max-width: 527px) {
   .stadium-name {
     font-weight: 500;
     display: -webkit-box;
@@ -222,11 +251,9 @@
     font-size: 15px;
     width: 140px;
     color: #000000;
-
+  }
 }
-
-}
-@media (max-width: 320px){
+@media (max-width: 320px) {
   .stadium-name {
     font-weight: 500;
     display: -webkit-box;
@@ -237,8 +264,5 @@
     font-size: 15px;
     width: 120px;
     color: #000000;
-
+  }
 }
-
-}
-

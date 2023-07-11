@@ -45,29 +45,33 @@ function DoublesMatchCard({ data }) {
             <div className="live1">
               <div className=" watch1 d-flex">
                 <div>
-                  {data.team_A_logo.team_A_logo && (
-                    <img
-                      src={`${constants.port}${data.team_A_logo.team_A_logo}`}
-                      className="clubs"
-                    ></img>
-                  )}
+                  <img
+                    src={
+                      data.team_A_logo.team_A_logo
+                        ? `${constants.port}${data.team_A_logo.team_A_logo}`
+                        : "/images/accounts/user_default.png"
+                    }
+                    className="clubs"
+                  ></img>
                   <p className="team2">{data.team_A.team_A} </p>
                 </div>
                 <div>
-                  {data.team_A_logo.team_A_logo_2 && (
-                    <img
-                      src={`${constants.port}${data.team_A_logo.team_A_logo_2}`}
-                      className="clubs"
-                    ></img>
-                  )}
+                  <img
+                    src={
+                      data.team_A_logo.team_A_logo_2
+                        ? `${constants.port}${data.team_A_logo.team_A_logo_2}`
+                        : "/images/accounts/user_default.png"
+                    }
+                    className="clubs"
+                  ></img>
                   <p className="team2">{data.team_A.team_A_2} </p>
                 </div>
               </div>
 
               <div className="live-watch  ">
                 <p className="club-wins">
-                  {data.team_A_score ? data.team_A_score : "___"} -{" "}
-                  {data.team_B_score ? data.team_B_score : "___"}
+                  {data.team_A_score != null ? data.team_A_score : "___"} -{" "}
+                  {data.team_B_score != null ? data.team_B_score : "___"}
                 </p>
                 <p className="date-wins">
                   {data.match_date ? (
@@ -98,21 +102,25 @@ function DoublesMatchCard({ data }) {
 
               <div className="watch2 d-flex">
                 <div>
-                  {data.team_B_logo.team_B_logo && (
-                    <img
-                      src={`${constants.port}${data.team_B_logo.team_B_logo}`}
-                      className="clubs"
-                    ></img>
-                  )}
+                  <img
+                    src={
+                      data.team_B_logo.team_B_logo
+                        ? `${constants.port}${data.team_B_logo.team_B_logo}`
+                        : "/images/accounts/user_default.png"
+                    }
+                    className="clubs"
+                  ></img>
                   <p className="team2">{data.team_B.team_B} </p>
                 </div>
                 <div>
-                  {data.team_B_logo.team_B_logo_2 && (
-                    <img
-                      src={`${constants.port}${data.team_B_logo.team_B_logo_2}`}
-                      className="clubs"
-                    ></img>
-                  )}
+                  <img
+                    src={
+                      data.team_B_logo.team_B_logo_2
+                        ? `${constants.port}${data.team_B_logo.team_B_logo_2}`
+                        : "/images/accounts/user_default.png"
+                    }
+                    className="clubs"
+                  ></img>
                   <p className="team2">{data.team_B.team_B_2} </p>
                 </div>
               </div>

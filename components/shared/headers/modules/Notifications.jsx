@@ -43,7 +43,7 @@ function Notifications({ setNotificationShow }) {
       }
     ).then((res) => {
       setFollowStatus(!followStatus);
-      console.log('reefollow request',res);
+      console.log("reefollow request", res);
     });
   };
   const acceptRequestHandler = (id) => {
@@ -207,11 +207,24 @@ function Notifications({ setNotificationShow }) {
                   ) : (
                     <div className="side-menu__suggestions">
                       <a href="#" className="side-menu__suggestion-avatars">
-                        <img
-                          src={`${constants.port}/media/${item.image}`}
-                          style={{ objectFit: "cover" }}
-                          alt="User Picture"
-                        />
+                        {item.image ? (
+                          <img
+                            src={`${constants.port}/media/${item.image}`}
+                            style={{ objectFit: "cover" }}
+                            alt="User Picture"
+                          />
+                        ) : (
+                          <img
+                            src="/images/accounts/user_default.png"
+                            alt="User Picture"
+                            style={{
+                              objectFit: "cover",
+                              // width: "30px",
+                              // height: "30px",
+                              // borderRadius: "50%",
+                            }}
+                          />
+                        )}
                       </a>
                       <div className="side-menu__suggestion-infos">
                         <a href="#">
