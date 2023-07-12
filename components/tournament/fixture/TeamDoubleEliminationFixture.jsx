@@ -161,7 +161,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                           ></img>
                         </div>
                       </div>
-                      <div className="fix">
+                      {/* <div className="fix">
                         <div
                           className={`${
                             match.team_A_score >= match.team_B_score
@@ -191,7 +191,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                             {match.team_B.team_B_2}
                           </div>
                         </div>
-                      </div>
+                      </div> */}
                       <div className="fix1">
                         <div
                           className={`${

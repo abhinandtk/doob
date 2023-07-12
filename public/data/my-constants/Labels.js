@@ -22,6 +22,7 @@ export function Labels() {
         "Accepted successfully": "Accepted successfully",
         "Blocked user successfully": "Blocked user successfully",
         "Unblocked user successfully": "Unblocked user successfully",
+        "Share post user": "Post shared successfully,chat feature will be available soon",
 
         //Store Messages
 
@@ -77,6 +78,7 @@ export function Labels() {
         'Maximum participants no match': 'Number of teams does not match the maximum participants allowed',
         'Match generated': 'Match generated successfully',
         'Match details created': 'Match details created successfully',
+        'Match draw created': 'Match draw created successfully',
 
     }
     return labels

@@ -8,10 +8,17 @@ import { CardImg, Dropdown } from "react-bootstrap";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { useRouter } from "next/router";
 
-function TeamsCard({ teamsData, setOnSuccess, admin }) {
+function TeamsCard({
+  teamsData,
+  setOnSuccess,
+  admin,
+  temp,
+  maxTeam,
+  matchGenerate,
+}) {
   const router = useRouter();
   const { tid } = router.query;
-  console.log("teamData", admin);
+  console.log("teamData", maxTeam * 2);
   const [visible, setVisible] = useState(false);
   const [searchResult, setSearchResult] = useState([]);
   const [names, setNames] = useState("");
@@ -21,6 +28,12 @@ function TeamsCard({ teamsData, setOnSuccess, admin }) {
   if (typeof localStorage !== "undefined") {
     loginId = localStorage.getItem("login-userId");
   }
+  let showDraw;
+
+  if (maxTeam) {
+    showDraw = maxTeam * 2 === teamsData.length;
+  }
+  console.log("teamDatar78", showDraw);
 
   const isIdExist = admin && admin.some((item) => item.id == loginId);
 
@@ -39,7 +52,7 @@ function TeamsCard({ teamsData, setOnSuccess, admin }) {
   const handleSelect = (id) => {
     console.log("console", id);
     Axios.post(
-      apis.createTeam,
+      temp ? apis.createTeamTemp : apis.createTeam,
       {
         user_id: id,
         tournament_slug: tid,
@@ -71,14 +84,13 @@ function TeamsCard({ teamsData, setOnSuccess, admin }) {
       }
     });
   };
-  const deleteTeamHandler = (first, second) => {
-    Axios.delete(apis.deleteTeam, {
+  const deleteTeamHandler = (id) => {
+    Axios.delete(temp ? apis.deleteTeamTemp : apis.deleteTeam, {
       headers: {
         Authorization: `Token ${constants.token_id}`,
       },
       data: {
-        user_id: first,
-        user_id_2: second,
+        user_id: id,
         tournament_slug: tid,
       },
     })
@@ -95,6 +107,34 @@ function TeamsCard({ teamsData, setOnSuccess, admin }) {
       .catch((error) => {
         console.error("Error:", error);
       });
+  };
+
+  const drawPartnerHandler = () => {
+    Axios.post(
+      apis.drawPartner,
+      {
+        tournament_slug: tid,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      console.log("responsedraw", res);
+      setOnSuccess((prev) => !prev);
+      if (res.data.status === 1) {
+        notification.success({
+          message: constants.Success,
+          description: `${labels["Match draw created"]}`,
+        });
+      } else {
+        notification.error({
+          message: constants.Error,
+          description: res.data.message_en,
+        });
+      }
+    });
   };
   return (
     <Fragment>
@@ -115,7 +155,7 @@ function TeamsCard({ teamsData, setOnSuccess, admin }) {
           renderItem={(item, index) => (
             <List.Item
               key={index}
-              style={{ padding: "0px" }}
+              style={{ padding: "0px", cursor: "pointer" }}
               onClick={() => handleSelect(item.id)}
             >
               <div className="d-flex flex-start mt-4 mx-2">
@@ -204,7 +244,7 @@ function TeamsCard({ teamsData, setOnSuccess, admin }) {
               )}{" "}
               &nbsp;{item.team_name.team_name}
             </p>
-            {isIdExist && (
+            {isIdExist && !matchGenerate && (
               <div className="ms-auto top-teams-dot">
                 <Dropdown className="Drop">
                   <Dropdown.Toggle
@@ -241,12 +281,7 @@ function TeamsCard({ teamsData, setOnSuccess, admin }) {
 
                   <Dropdown.Menu align="center" className="Menu">
                     <Dropdown.Item
-                      onClick={() =>
-                        deleteTeamHandler(
-                          item.user_id.user_id,
-                          item.user_id.user_id_2
-                        )
-                      }
+                      onClick={() => deleteTeamHandler(item.user_id.user_id)}
                     >
                       Delete
                     </Dropdown.Item>
@@ -256,15 +291,25 @@ function TeamsCard({ teamsData, setOnSuccess, admin }) {
             )}
           </div>
         ))}
-      {isIdExist && (
-        <button
-          onClick={() => setVisible(true)}
-          type="button"
-          className="teams-btn my-4"
-        >
-          Add
-        </button>
-      )}
+      {isIdExist &&
+        !matchGenerate &&
+        (showDraw && temp ? (
+          <button
+            onClick={() => drawPartnerHandler()}
+            type="button"
+            className="teams-btn my-4"
+          >
+            Draw
+          </button>
+        ) : (
+          <button
+            onClick={() => setVisible(true)}
+            type="button"
+            className="teams-btn my-4"
+          >
+            Add
+          </button>
+        ))}
     </Fragment>
   );
 }

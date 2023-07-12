@@ -198,7 +198,9 @@ const apis = {
     'allTournament': `${constants.port}/tournament/api/all_tournament`,
     'tournamentDetails': `${constants.port}/tournament/api/tournament_details`,
     'createTeam': `${constants.port}/tournament/api/create_team`,
+    'createTeamTemp': `${constants.port}/tournament/api/create_team_temporary`,
     'deleteTeam': `${constants.port}/tournament/api/delete_team`,
+    'deleteTeamTemp': `${constants.port}/tournament/api/delete_team_temporary`,
     'playerDetails': `${constants.port}/tournament/api/player_details_api`,
     'updateMatchResult': `${constants.port}/tournament/api/update_match_result`,
     'tourStadiumSearch': `${constants.port}/tournament/api/stadium_serach_view`,
@@ -207,6 +209,7 @@ const apis = {
     'createTimeline': `${constants.port}/tournament/api/create_match_point`,
     'leagueTable': `${constants.port}/tournament/api/league_table`,
     'doubleEliminationMatchUpdate': `${constants.port}/tournament/api/double_elimination_match_status`,
+    'drawPartner': `${constants.port}/tournament/api/draw_your_partner`,
 
 
 

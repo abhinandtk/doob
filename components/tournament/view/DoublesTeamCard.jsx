@@ -8,7 +8,13 @@ import { Button, CardImg, Dropdown } from "react-bootstrap";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { useRouter } from "next/router";
 
-function DoublesTeamsCard({ teamsData, setOnSuccess, admin }) {
+function DoublesTeamsCard({
+  teamsData,
+  setOnSuccess,
+  admin,
+  temp,
+  matchGenerate,
+}) {
   const router = useRouter();
   const { tid } = router.query;
   console.log("teamData", admin);
@@ -104,13 +110,14 @@ function DoublesTeamsCard({ teamsData, setOnSuccess, admin }) {
       }
     });
   };
-  const deleteTeamHandler = (id) => {
+  const deleteTeamHandler = (first, second) => {
     Axios.delete(apis.deleteTeam, {
       headers: {
         Authorization: `Token ${constants.token_id}`,
       },
       data: {
-        user_id: id,
+        user_id: first,
+        user_id_2: second,
         tournament_slug: tid,
       },
     })
@@ -158,7 +165,7 @@ function DoublesTeamsCard({ teamsData, setOnSuccess, admin }) {
               renderItem={(item, index) => (
                 <List.Item
                   key={index}
-                  style={{ padding: "0px" }}
+                  style={{ padding: "0px", cursor: "pointer" }}
                   onClick={() => handleSelectFirst(item.id)}
                 >
                   <div className="d-flex flex-start mt-4 mx-2">
@@ -235,7 +242,7 @@ function DoublesTeamsCard({ teamsData, setOnSuccess, admin }) {
               renderItem={(item, index) => (
                 <List.Item
                   key={index}
-                  style={{ padding: "0px" }}
+                  style={{ padding: "0px", cursor: "pointer" }}
                   onClick={() => handleSelectSecond(item.id)}
                 >
                   <div className="d-flex flex-start mt-4 mx-2">
@@ -311,7 +318,7 @@ function DoublesTeamsCard({ teamsData, setOnSuccess, admin }) {
           >
             <p
               className=" mb-2 mx-3"
-              style={{ fontWeight: "500", fontSize: "14px",width:"50%" }}
+              style={{ fontWeight: "500", fontSize: "14px", width: "50%" }}
             >
               {item.team_logo.team_logo ? (
                 <img
@@ -328,7 +335,7 @@ function DoublesTeamsCard({ teamsData, setOnSuccess, admin }) {
             </p>
             <p
               className=" mb-2 mx-3"
-              style={{ fontWeight: "500", fontSize: "14px",width:"50%" }}
+              style={{ fontWeight: "500", fontSize: "14px", width: "50%" }}
             >
               {item.team_logo.team_logo_2 ? (
                 <img
@@ -343,7 +350,7 @@ function DoublesTeamsCard({ teamsData, setOnSuccess, admin }) {
               )}{" "}
               &nbsp;{item.team_name.team_name_2}
             </p>
-            {isIdExist && (
+            {isIdExist && !temp && !matchGenerate && (
               <div className="ms-auto top-teams-dot">
                 <Dropdown className="Drop">
                   <Dropdown.Toggle
@@ -380,7 +387,12 @@ function DoublesTeamsCard({ teamsData, setOnSuccess, admin }) {
 
                   <Dropdown.Menu align="center" className="Menu">
                     <Dropdown.Item
-                      onClick={() => deleteTeamHandler(item.user_id.user_id)}
+                      onClick={() =>
+                        deleteTeamHandler(
+                          item.user_id.user_id,
+                          item.user_id.user_id_2
+                        )
+                      }
                     >
                       Delete
                     </Dropdown.Item>
@@ -390,7 +402,7 @@ function DoublesTeamsCard({ teamsData, setOnSuccess, admin }) {
             )}
           </div>
         ))}
-      {isIdExist && (
+      {isIdExist && !temp && !matchGenerate && (
         <button
           onClick={() => setVisible(true)}
           type="button"

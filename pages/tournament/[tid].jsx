@@ -33,6 +33,7 @@ function TournamentDetailPage() {
   const [activeTab, setActiveTab] = useState("Home");
   const [homeTabData, setHomeTabData] = useState(null);
   const [teamsTabData, setTeamsTabData] = useState([]);
+  const [teamsTempTabData, setTeamsTempTabData] = useState([]);
   const [adminList, setAdminList] = useState([]);
   const [matchesTabData, setMatchesTabData] = useState([]);
   const [onSuccess, setOnSuccess] = useState(false);
@@ -53,6 +54,7 @@ function TournamentDetailPage() {
         setHomeTabData(res.data.data.home);
         setTeamsTabData(res.data.data.teams);
         setMatchesTabData(res.data.data.matches);
+        setTeamsTempTabData(res.data.data.temporary_team);
         setAdminList(
           res.data.data.home.tournament_details.tournament_admin_name
         );
@@ -60,6 +62,10 @@ function TournamentDetailPage() {
       console.log("response", res);
     });
   }, [tid, onSuccess]);
+
+  let matchGenerate = matchesTabData.length > 0;
+  console.log("56r7", matchGenerate);
+
 
   const handleTabChange = (selected) => {
     setActiveTab(selected);
@@ -259,12 +265,37 @@ function TournamentDetailPage() {
                   teamsData={teamsTabData}
                   setOnSuccess={setOnSuccess}
                   admin={adminList}
+                  matchGenerate={matchGenerate}
                 />
+              ) : homeTabData &&
+                homeTabData.tournament_details.tournament_type ===
+                  "Draw_Partner" ? (
+                teamsTabData.length <= 0 ? (
+                  <TeamsCard
+                    teamsData={teamsTempTabData}
+                    setOnSuccess={setOnSuccess}
+                    admin={adminList}
+                    temp={true}
+                    maxTeam={
+                      homeTabData &&
+                      homeTabData.tournament_details.maximum_participants
+                    }
+                  />
+                ) : (
+                  <DoublesTeamsCard
+                    teamsData={teamsTabData}
+                    setOnSuccess={setOnSuccess}
+                    admin={adminList}
+                    temp={true}
+                  />
+                )
               ) : (
                 <DoublesTeamsCard
                   teamsData={teamsTabData}
                   setOnSuccess={setOnSuccess}
                   admin={adminList}
+                  matchGenerate={matchGenerate}
+
                 />
               )}
             </Tab>
