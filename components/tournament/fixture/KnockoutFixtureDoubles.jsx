@@ -14,7 +14,7 @@ function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index) => (
                   <div key={index} className="match">
                     <div className="team-double">
-                      <div className="fix-image">
+                      {/* <div className="fix-image">
                         <div>
                           <img
                             src={
@@ -51,7 +51,7 @@ function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
                             className="group-image"
                           ></img>
                         </div>
-                      </div>
+                      </div> */}
                       <div className="fix">
                         <div
                           className={`${
@@ -111,7 +111,7 @@ function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index) => (
                   <div key={index} className="match">
                     <div className="team-double">
-                      <div className="fix-image">
+                      {/* <div className="fix-image">
                         <div>
                           <img
                             src={
@@ -148,7 +148,7 @@ function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
                             className="group-image"
                           ></img>
                         </div>
-                      </div>
+                      </div> */}
                       <div className="fix">
                         <div
                           className={`${
@@ -208,7 +208,7 @@ function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index) => (
                   <div key={index} className="match">
                     <div className="team-double">
-                      <div className="fix-image">
+                      {/* <div className="fix-image">
                         <div>
                           <img
                             src={
@@ -245,7 +245,7 @@ function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
                             className="group-image"
                           ></img>
                         </div>
-                      </div>
+                      </div> */}
                       <div className="fix">
                         <div
                           className={`${
@@ -305,7 +305,7 @@ function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index_) => (
                   <div key={index_} className="match">
                     <div className="team-double">
-                      <div className="fix-image">
+                      {/* <div className="fix-image">
                         <div>
                           <img
                             src={
@@ -342,7 +342,7 @@ function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
                             className="group-image"
                           ></img>
                         </div>
-                      </div>
+                      </div> */}
                       <div className="fix">
                         <div
                           className={`${
@@ -403,7 +403,7 @@ function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
                   {item.matches.map((match, index_) => (
                     <div key={index_} className="match">
                       <div className="team-double" style={{ height: "150px" }}>
-                        <div className="fix-image">
+                        {/* <div className="fix-image">
                           <div>
                             <img
                               src={
@@ -440,7 +440,7 @@ function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
                               className="group-image"
                             ></img>
                           </div>
-                        </div>
+                        </div> */}
 
                         <div className="fix">
                           <div

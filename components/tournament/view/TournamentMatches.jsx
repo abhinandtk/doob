@@ -452,8 +452,8 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
                           <p className="team1">{content.team_A.team_A} </p>
                         </div>
                         {home &&
-                          home.tournament_details.tournament_type ===
-                            "Double" && (
+                          home.tournament_details.tournament_type !==
+                            "Single" && (
                             <div>
                               <img
                                 src={
@@ -485,8 +485,8 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
                           <p className="team2">{content.team_B.team_B}</p>
                         </div>
                         {home &&
-                          home.tournament_details.tournament_type ===
-                            "Double" && (
+                          home.tournament_details.tournament_type !==
+                            "Single" && (
                             <div>
                               <img
                                 src={

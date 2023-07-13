@@ -17,6 +17,7 @@ import { useRouter } from "next/router";
 import StoriesMainPage from "./StoriesMainPage";
 import VisibilitySensor from "react-visibility-sensor";
 import { Skeleton } from "antd";
+import SharePostToUser from "./social/share/SharePostToUser";
 
 function SingleContainerHomePosts({ story }) {
   const apiSuccess = useSelector((state) => state.api);
@@ -426,7 +427,7 @@ function SingleContainerHomePosts({ story }) {
                               />
                             </svg>
                           </button>
-                          <button
+                          {/* <button
                             onClick={() => {
                               sharedClick(item.post_id);
                             }}
@@ -455,7 +456,8 @@ function SingleContainerHomePosts({ story }) {
                                 stroke-linejoin="round"
                               />
                             </svg>
-                          </button>
+                          </button> */}
+                          <SharePostToUser />
                         </>
                       )
                     ) : (

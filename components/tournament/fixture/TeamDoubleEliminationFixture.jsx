@@ -123,7 +123,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index) => (
                   <div key={index} className="match">
                     <div className="team-double">
-                      <div className="fix-image">
+                      {/* <div className="fix-image">
                         <div>
                           <img
                             src={
@@ -160,8 +160,8 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                             className="group-image"
                           ></img>
                         </div>
-                      </div>
-                      {/* <div className="fix">
+                      </div> */}
+                      <div className="fix">
                         <div
                           className={`${
                             match.team_A_score >= match.team_B_score
@@ -191,7 +191,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                             {match.team_B.team_B_2}
                           </div>
                         </div>
-                      </div> */}
+                      </div>
                       <div className="fix1">
                         <div
                           className={`${
@@ -232,7 +232,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index) => (
                   <div key={index} className="match">
                     <div className="team-double">
-                      <div className="fix-image">
+                      {/* <div className="fix-image">
                         <div>
                           <img
                             src={
@@ -269,7 +269,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                             className="group-image"
                           ></img>
                         </div>
-                      </div>
+                      </div> */}
                       <div className="fix">
                         <div
                           className={`${
@@ -340,7 +340,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index) => (
                   <div key={index} className="match">
                     <div className="team-double">
-                      <div className="fix-image">
+                      {/* <div className="fix-image">
                         <div>
                           <img
                             src={
@@ -377,7 +377,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                             className="group-image"
                           ></img>
                         </div>
-                      </div>
+                      </div> */}
                       <div className="fix">
                         <div
                           className={`${
@@ -448,7 +448,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index) => (
                   <div key={index} className="match">
                     <div className="team-double">
-                      <div className="fix-image">
+                      {/* <div className="fix-image">
                         <div>
                           <img
                             src={
@@ -485,7 +485,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                             className="group-image"
                           ></img>
                         </div>
-                      </div>
+                      </div> */}
                       <div className="fix">
                         <div
                           className={`${
@@ -556,7 +556,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index) => (
                   <div key={index} className="match">
                     <div className="team-double">
-                      <div className="fix-image">
+                      {/* <div className="fix-image">
                         <div>
                           <img
                             src={
@@ -593,7 +593,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                             className="group-image"
                           ></img>
                         </div>
-                      </div>
+                      </div> */}
                       <div className="fix">
                         <div
                           className={`${
@@ -664,7 +664,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index) => (
                   <div key={index} className="match">
                     <div className="team-double">
-                      <div className="fix-image">
+                      {/* <div className="fix-image">
                         <div>
                           <img
                             src={
@@ -701,7 +701,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                             className="group-image"
                           ></img>
                         </div>
-                      </div>
+                      </div> */}
                       <div className="fix">
                         <div
                           className={`${
@@ -772,7 +772,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index) => (
                   <div key={index} className="match">
                     <div className="team-double">
-                      <div className="fix-image">
+                      {/* <div className="fix-image">
                         <div>
                           <img
                             src={
@@ -809,7 +809,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                             className="group-image"
                           ></img>
                         </div>
-                      </div>
+                      </div> */}
                       <div className="fix">
                         <div
                           className={`${
@@ -875,7 +875,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index_) => (
                   <div key={index_} className="match">
                     <div className="team-double">
-                      <div className="fix-image">
+                      {/* <div className="fix-image">
                         <div>
                           <img
                             src={
@@ -912,7 +912,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                             className="group-image"
                           ></img>
                         </div>
-                      </div>
+                      </div> */}
                       <div className="fix">
                         <div
                           className={`${
@@ -978,7 +978,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index_) => (
                   <div key={index_} className="match">
                     <div className="team-double">
-                      <div className="fix-image">
+                      {/* <div className="fix-image">
                         <div>
                           <img
                             src={
@@ -1015,7 +1015,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                             className="group-image"
                           ></img>
                         </div>
-                      </div>
+                      </div> */}
                       <div className="fix">
                         <div
                           className={`${
@@ -1081,7 +1081,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index_) => (
                   <div key={index_} className="match">
                     <div className="team-double">
-                      <div className="fix-image">
+                      {/* <div className="fix-image">
                         <div>
                           <img
                             src={
@@ -1118,7 +1118,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                             className="group-image"
                           ></img>
                         </div>
-                      </div>
+                      </div> */}
                       <div className="fix">
                         <div
                           className={`${
@@ -1184,7 +1184,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index_) => (
                   <div key={index_} className="match">
                     <div className="team-double">
-                      <div className="fix-image">
+                      {/* <div className="fix-image">
                         <div>
                           <img
                             src={
@@ -1221,7 +1221,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                             className="group-image"
                           ></img>
                         </div>
-                      </div>
+                      </div> */}
                       <div className="fix">
                         <div
                           className={`${
@@ -1287,7 +1287,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index_) => (
                   <div key={index_} className="match">
                     <div className="team-double">
-                      <div className="fix-image">
+                      {/* <div className="fix-image">
                         <div>
                           <img
                             src={
@@ -1324,7 +1324,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                             className="group-image"
                           ></img>
                         </div>
-                      </div>
+                      </div> */}
                       <div className="fix">
                         <div
                           className={`${
@@ -1390,7 +1390,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                 {item.matches.map((match, index_) => (
                   <div key={index_} className="match">
                     <div className="team-double">
-                      <div className="fix-image">
+                      {/* <div className="fix-image">
                         <div>
                           <img
                             src={
@@ -1427,7 +1427,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                             className="group-image"
                           ></img>
                         </div>
-                      </div>
+                      </div> */}
                       <div className="fix">
                         <div
                           className={`${
@@ -1495,7 +1495,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                   {item.matches.map((match, index_) => (
                     <div key={index_} className="match">
                       <div className="team-double" style={{ height: "150px" }}>
-                        <div className="fix-image">
+                        {/* <div className="fix-image">
                           <div>
                             <img
                               src={
@@ -1532,7 +1532,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                               className="group-image"
                             ></img>
                           </div>
-                        </div>
+                        </div> */}
                         <div className="fix">
                           <div
                             className={`${

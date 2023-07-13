@@ -7,7 +7,7 @@ import { Fragment } from "react";
 function RankingTable({ data }) {
   console.log("rrrrrrrrreeeeeeeeeeeee", data);
 
-  const router = useRouter()
+  const router = useRouter();
   return (
     <Fragment>
       {data && (
@@ -29,7 +29,11 @@ function RankingTable({ data }) {
 
                   <span className="ahmed">
                     <img
-                      src={`${constants.port}${item.image}`}
+                      src={
+                        item.image
+                          ? `${constants.port}${item.image}`
+                          : "/images/accounts/user_default.png"
+                      }
                       className="tour_rank_img"
                     ></img>
                   </span>
@@ -38,7 +42,7 @@ function RankingTable({ data }) {
                     className="col col-8 name mt-3"
                     data-label="Customer Name"
                   >
-                    {item.name} 
+                    {item.name}
                   </span>
                   <div
                     className="col col-1 mt-3 views "
@@ -66,7 +70,11 @@ function RankingTable({ data }) {
                     <span className="ahmed1">
                       <img
                         className="tour_rank_img1"
-                        src={`${constants.port}${item.image}`}
+                        src={
+                          item.image
+                            ? `${constants.port}${item.image}`
+                            : "/images/accounts/user_default.png"
+                        }
                       ></img>
                     </span>
                   </Link>
@@ -74,7 +82,7 @@ function RankingTable({ data }) {
                   <span
                     className="col col-8 name1 mt-3"
                     data-label="Customer Name"
-                  >  
+                  >
                     {item.name}
                   </span>
 

@@ -7,6 +7,7 @@ import { Button, List, Modal, notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { useRouter } from "next/router";
 import moment from "moment";
+import StarInfo from "./StarInfo";
 function OtherProfileHeaderDetails({
   data,
   id,
@@ -318,7 +319,7 @@ function OtherProfileHeaderDetails({
                       <img src="/images/Star.png" className="mx-1 mb-1"></img>
                     </span>
                   ) : (
-                    ""
+                    <StarInfo />
                   )}
                   <br></br>
                   <h1 className="profile-user-names">@{data.username}</h1>

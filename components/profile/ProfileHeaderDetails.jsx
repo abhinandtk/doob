@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { Modal, Button, Upload, message, Icon, Spin } from "antd";
+import { Modal, Button, Upload, message, Icon, Spin, Tooltip } from "antd";
 import { Card, Tab, Tabs, CardImg } from "react-bootstrap";
 import { PlusOutlined, LoadingOutlined } from "@ant-design/icons";
 import Axios from "axios";
@@ -7,6 +7,7 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import FollowersList from "./FollowersList";
 import FollowingList from "./FollowingList";
+import StarInfo from "./StarInfo";
 function ProfileHeaderDetails({ data, setSuccess }) {
   const [visible, setVisible] = useState(false);
   const [uploadImageUrl, setUploadImageUrl] = useState(null);
@@ -220,15 +221,9 @@ function ProfileHeaderDetails({ data, setSuccess }) {
                             ></img>
                           </span>
                         ) : (
-                          ""
+                          <StarInfo />
                         )}
                       </span>
-                      {/* <span>
-                        <img
-                          src="../images/accounts/iconoir_help-circles.png"
-                          className=" mb-1"
-                        ></img>
-                      </span> */}
                     </h1>
                     <br></br>
                     <h1 className="profile-user-names">@{data.username}</h1>

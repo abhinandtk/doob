@@ -45,7 +45,11 @@ function PlayerDetailsPage() {
                   <div className="card-body">
                     <div className="green-content">
                       <img
-                        src={`${constants.port}${rankDetails.image}`}
+                        src={
+                          rankDetails.image
+                            ? `${constants.port}${rankDetails.image}`
+                            : "/images/accounts/user_default.png"
+                        }
                         className="green-imx"
                       ></img>
                       <div className="green-details">

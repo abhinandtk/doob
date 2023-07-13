@@ -73,17 +73,21 @@ function LeaguePointTable() {
     },
   ];
 
-  const data = tableData && tableData.map((item, index) => ({
-    key: index + 1, // Provide a unique key for each table row
-    position: index + 1,
-    team: item.team,
-    matches: item.matches,
-    won: item.won,
-    drawn: item.drawn,
-    lost: item.lost,
-    goals: item.goals,
-    points: item.points,
-  }));
+  const data =
+    tableData &&
+    tableData.map((item, index) => ({
+      key: index + 1, // Provide a unique key for each table row
+      position: index + 1,
+      team: `${item.team.team} ${
+        item.team.team_2 ? " & " + item.team.team_2 : ""
+      }`,
+      matches: item.matches,
+      won: item.won,
+      drawn: item.drawn,
+      lost: item.lost,
+      goals: item.goals,
+      points: item.points,
+    }));
 
   // Add more teams here
 
