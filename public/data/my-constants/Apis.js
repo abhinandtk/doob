@@ -170,6 +170,7 @@ const apis = {
     'inviteUser': `${constants.port}/playground/api/invite_user`,
     'removeUser': `${constants.port}/playground/api/remove_user`,
     'addPlayground': `${constants.port}/playground/api/ad_add_playground`,
+    'requestPlayground': `${constants.port}/playground/api/request_stadium_api`,
     'playgroundCheckout': `${constants.port}/playground/api/checkout`,
 
     'listAllGames': `${constants.port}/playground/api/list_games`,

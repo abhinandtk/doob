@@ -39,9 +39,9 @@ function AdminAllOrders() {
       console.log("allorders,", res);
     });
   }, [visible]);
-  const showUpdateHandler = (id,pay,order) => {
-    setPaymentStatus(pay)
-    setOrderStatus(order)
+  const showUpdateHandler = (id, pay, order) => {
+    setPaymentStatus(pay);
+    setOrderStatus(order);
     setVisible(true);
     setOrderId(id);
   };
@@ -69,7 +69,7 @@ function AdminAllOrders() {
 
   return (
     <Fragment>
-      <MainHeader title='Doob'/>
+      <MainHeader title="Doob" />
       <MobileHeader />
       <MainSidebarFixed />
 
@@ -196,7 +196,13 @@ function AdminAllOrders() {
                       #{item.order_id_m}
                       <span>
                         <Button
-                          onClick={() => showUpdateHandler(item.order_id_m,item.payment_status,item.order_status)}
+                          onClick={() =>
+                            showUpdateHandler(
+                              item.order_id_m,
+                              item.payment_status,
+                              item.order_status
+                            )
+                          }
                           type="button"
                           className="order-btn "
                         >
@@ -276,17 +282,24 @@ function AdminAllOrders() {
 
                     <OrderProductCard products={item.products} />
 
-                    {/* <div
+                    <div
                       className=" mx-auto d-flex justify-content-between align-items-center "
                       style={{ width: "90%" }}
                     >
-                      <p
+                      <a
                         className="mx-2"
-                        style={{ borderBottom: "1px solid black" }}
+                        href={`${constants.port}/store/Print_invoice/${item.order_id_m}`}
+                        style={{
+                          borderBottom: "1px solid black",
+                          textDecoration: "none",
+                          color: "inherit",
+                          cursor: "pointer",
+                        }}
+                        download
                       >
                         Download Invoice
-                      </p>
-                    </div> */}
+                      </a>
+                    </div>
                   </>
                 ))
               ) : (

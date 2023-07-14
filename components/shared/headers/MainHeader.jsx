@@ -296,7 +296,7 @@ function MainHeader({ title }) {
                   </svg>
                 </div>
               </Nav.Link>
-              <Nav.Link>
+              <Nav.Link href="/chat/messages">
                 <div>
                   {/* <div className="  greens">
                     <div className="numbers">35</div>

@@ -432,7 +432,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
           <div>
             <span className="float-start">
               <img
-                src={`${constants.port}/media/${data.logo}`}
+                src={`${constants.port}${data.logo}`}
                 style={{ width: "18px", height: "18px", objectFit: "cover" }}
               />
               <span className="mx-1">{data.name}</span>
@@ -563,7 +563,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
         <button type="submit" className="play-sub-btn">
           Submit
         </button>
-        <button type="button" className="play-cancel-btn">
+        <button onClick={()=>router.back()} type="button" className="play-cancel-btn">
           Cancel
         </button>
       </div>

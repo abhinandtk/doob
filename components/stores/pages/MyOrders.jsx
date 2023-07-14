@@ -6,25 +6,28 @@ import constants from "@/public/data/my-constants/Constants";
 import { useState } from "react";
 import OrderProductCard from "../OrderProductCard";
 import moment from "moment";
+import { useEffect } from "react";
 function MyOrders() {
   const [showItems, setShowItems] = useState(false);
   const [ordersList, setOrdersList] = useState([]);
   const [expandedItemIndex, setExpandedItemIndex] = useState(null);
 
-  Axios.post(
-    apis.orderList,
-    {
-      offset: "",
-    },
-    {
-      headers: {
-        Authorization: `Token ${constants.token_id}`,
+  useEffect(() => {
+    Axios.post(
+      apis.orderList,
+      {
+        offset: "",
       },
-    }
-  ).then((res) => {
-    setOrdersList(res.data.data);
-    console.log("ordeeeeeeeeeeeeers", res);
-  });
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      setOrdersList(res.data.data);
+      console.log("ordeeeeeeeeeeeeers", res);
+    });
+  }, []);
 
   const toggleOrderItem = (index) => {
     if (expandedItemIndex === index) {
@@ -33,6 +36,7 @@ function MyOrders() {
       setExpandedItemIndex(index);
     }
   };
+
   return (
     <Fragment>
       <div class="content-topic ">
@@ -97,20 +101,29 @@ function MyOrders() {
                 ) : (
                   <i className="bi bi-chevron-down "></i>
                 )}
-               
               </div>
               {expandedItemIndex === index && (
                 <OrderProductCard products={item.products} />
               )}
 
-              {/* <div
+              <div
                 className="   mx-auto d-flex justify-content-between align-items-center"
                 style={{ width: "90%" }}
               >
-                <p className="mx-2" style={{ borderBottom: "1px solid black" }}>
+                <a
+                  className="mx-2"
+                  href={`${constants.port}/store/Print_invoice/${item.order_id_m}`}
+                  style={{
+                    borderBottom: "1px solid black",
+                    textDecoration: "none",
+                    color: "inherit",
+                    cursor:"pointer"
+                  }}
+                  download
+                >
                   Download Invoice
-                </p>
-              </div> */}
+                </a>
+              </div>
               <br></br>
             </div>
           );
