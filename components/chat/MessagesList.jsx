@@ -6,9 +6,13 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { useState } from "react";
 import moment from "moment";
-function MessagesList({ onChatSelect }) {
+import { useSelector } from "react-redux";
+function MessagesList({ onChatSelect, onNewMsg }) {
   const router = useRouter();
   const [inboxUsers, setInboxUsers] = useState([]);
+
+  const updateChat = useSelector((state) => state.chatUsers.chatUpdate);
+  console.log("updateChat");
   useEffect(() => {
     Axios.get(apis.inboxUser, {
       headers: {
@@ -17,7 +21,7 @@ function MessagesList({ onChatSelect }) {
     }).then((res) => {
       setInboxUsers(res.data.data);
     });
-  }, []);
+  }, [updateChat]);
   return (
     <Fragment>
       <div className="leftSide">
@@ -41,7 +45,7 @@ function MessagesList({ onChatSelect }) {
               marginRight: "8px",
               cursor: "pointer",
             }}
-            onClick={() => router.push("/chat/new-chat")}
+            onClick={() => onNewMsg(true)}
           >
             New Message
           </h6>
@@ -53,7 +57,11 @@ function MessagesList({ onChatSelect }) {
         </div>
         <div className="chatlist">
           {inboxUsers.map((item, index) => (
-            <div key={index} onClick={()=>onChatSelect(item.reciepient.user_id)} className="block active">
+            <div
+              key={index}
+              onClick={() => onChatSelect(item.reciepient.user_id)}
+              className="block active"
+            >
               <div className="imgBox">
                 <img
                   src={
@@ -101,7 +109,7 @@ function MessagesList({ onChatSelect }) {
                       ></img>
                     </span>
                   </p>
-                  <b>1</b>
+                  <b>{item.latest_message_count}</b>
                 </div>
                 <div className="message_p">
                   <p>{item.last_message}</p>
@@ -110,7 +118,6 @@ function MessagesList({ onChatSelect }) {
               </div>
             </div>
           ))}
-          
         </div>
       </div>
     </Fragment>

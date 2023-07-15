@@ -1,9 +1,33 @@
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState } from "react";
 import { Fragment } from "react";
-
-function NewMessageList() {
+import Axios from "axios";
+import apis from "@/public/data/my-constants/Apis";
+import constants from "@/public/data/my-constants/Constants";
+function NewMessageList({ onChatSelect,onNewMsg }) {
   const router = useRouter();
+  const [searchInput, setSearchInput] = useState("");
+  const [searchResult, setSearchResult] = useState([]);
+
+  const searchChangeHandler = (e) => {
+    setSearchInput(e.target.value);
+    Axios.post(
+      apis.usersearch,
+      {
+        user_input: searchInput,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      if (res.data.status === 1) {
+        setSearchResult(res.data.data.results);
+      }
+    });
+  };
+
   return (
     <Fragment>
       <div className="leftSide">
@@ -17,7 +41,10 @@ function NewMessageList() {
               }}
             >
               {" "}
-              <span onClick={() => router.back()} style={{cursor:"pointer"}}>
+              <span
+                onClick={() => onNewMsg(false)}
+                style={{ cursor: "pointer" }}
+              >
                 <svg
                   width="15"
                   height="14"
@@ -38,7 +65,11 @@ function NewMessageList() {
         </div>
         <div className="search_chat">
           <div>
-            <input type="text" placeholder="Search Contacts"></input>
+            <input
+              type="text"
+              onChange={(e) => searchChangeHandler(e)}
+              placeholder="Search Contacts"
+            ></input>
           </div>
         </div>
         <div className="chatlist">
@@ -77,290 +108,54 @@ function NewMessageList() {
               </h6>
             </span>
           </div>
-          <div className="block active">
-            <div className="imgBox">
-              <img src="../images/Rec.png" className="cover" alt="" />
-              <svg
-                width="10"
-                height="10"
-                style={{
-                  marginLeft: "30px",
-                  marginTop: "35px",
-                  position: "absolute",
-                }}
-                viewBox="0 0 10 10"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+          {searchResult &&
+            searchResult.map((item, index) => (
+              <div
+                key={index}
+                onClick={() => onChatSelect(item.id)}
+                className="block active"
               >
-                <ellipse
-                  cx="4.82459"
-                  cy="5.16357"
-                  rx="4.66443"
-                  ry="4.83643"
-                  fill="#17A803"
-                />
-              </svg>
-            </div>
-            <div className="details">
-              <div className="listHead">
-                <p>
-                  Ayman Alruwaished
-                  <span>
-                    <img
-                      src="../images/star.png"
-                      className=" mb-1"
-                      style={{
-                        width: "10px",
-                        height: "10px",
-                        marginLeft: "1px",
-                      }}
-                    ></img>
-                  </span>
-                </p>
+                <div className="imgBox">
+                  <img
+                    src={
+                      item.image
+                        ? `${constants.port}/media/${item.image}`
+                        : "/images/accounts/user_default.png"
+                    }
+                    className="cover"
+                    alt=""
+                  />
+                  <svg
+                    width="10"
+                    height="10"
+                    style={{
+                      marginLeft: "30px",
+                      marginTop: "35px",
+                      position: "absolute",
+                    }}
+                    viewBox="0 0 10 10"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <ellipse
+                      cx="4.82459"
+                      cy="5.16357"
+                      rx="4.66443"
+                      ry="4.83643"
+                      fill="#17A803"
+                    />
+                  </svg>
+                </div>
+                <div className="details">
+                  <div className="listHead">
+                    <p>{item.name}</p>
+                  </div>
+                  <div className="message_p">
+                    <p className="note">@{item.username}</p>
+                  </div>
+                </div>
               </div>
-              <div className="message_p">
-                <p className="note">@ayman_alruwaished</p>
-              </div>
-            </div>
-          </div>
-          <div className="block active">
-            <div className="imgBox">
-              <img src="../images/Rec.png" className="cover" alt="" />
-              <svg
-                width="10"
-                height="10"
-                style={{
-                  marginLeft: "30px",
-                  marginTop: "35px",
-                  position: "absolute",
-                }}
-                viewBox="0 0 10 10"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <ellipse
-                  cx="4.82459"
-                  cy="5.16357"
-                  rx="4.66443"
-                  ry="4.83643"
-                  fill="#17A803"
-                />
-              </svg>
-            </div>
-            <div className="details">
-              <div className="listHead">
-                <p>
-                  Ayman Alruwaished
-                  <span>
-                    <img
-                      src="../images/star.png"
-                      className=" mb-1"
-                      style={{
-                        width: "10px",
-                        height: "10px",
-                        marginLeft: "1px",
-                      }}
-                    ></img>
-                  </span>
-                </p>
-              </div>
-              <div className="message_p">
-                <p className="note">@ayman_alruwaished</p>
-              </div>
-            </div>
-          </div>
-          <div className="block active">
-            <div className="imgBox">
-              <img src="../images/Rec.png" className="cover" alt="" />
-              <svg
-                width="10"
-                height="10"
-                style={{
-                  marginLeft: "30px",
-                  marginTop: "35px",
-                  position: "absolute",
-                }}
-                viewBox="0 0 10 10"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <ellipse
-                  cx="4.82459"
-                  cy="5.16357"
-                  rx="4.66443"
-                  ry="4.83643"
-                  fill="#17A803"
-                />
-              </svg>
-            </div>
-            <div className="details">
-              <div className="listHead">
-                <p>
-                  Ayman Alruwaished
-                  <span>
-                    <img
-                      src="../images/star.png"
-                      className=" mb-1"
-                      style={{
-                        width: "10px",
-                        height: "10px",
-                        marginLeft: "1px",
-                      }}
-                    ></img>
-                  </span>
-                </p>
-              </div>
-              <div className="message_p">
-                <p className="note">@ayman_alruwaished</p>
-              </div>
-            </div>
-          </div>
-          <div className="block active">
-            <div className="imgBox">
-              <img src="../images/Rec.png" className="cover" alt="" />
-              <svg
-                width="10"
-                height="10"
-                style={{
-                  marginLeft: "30px",
-                  marginTop: "35px",
-                  position: "absolute",
-                }}
-                viewBox="0 0 10 10"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <ellipse
-                  cx="4.82459"
-                  cy="5.16357"
-                  rx="4.66443"
-                  ry="4.83643"
-                  fill="#17A803"
-                />
-              </svg>
-            </div>
-            <div className="details">
-              <div className="listHead">
-                <p>
-                  Ayman Alruwaished
-                  <span>
-                    <img
-                      src="../images/star.png"
-                      className=" mb-1"
-                      style={{
-                        width: "10px",
-                        height: "10px",
-                        marginLeft: "1px",
-                      }}
-                    ></img>
-                  </span>
-                </p>
-              </div>
-              <div className="message_p">
-                <p className="note">@ayman_alruwaished</p>
-              </div>
-            </div>
-          </div>
-          <div className="block active">
-            <div className="imgBox">
-              <img src="../images/Rec.png" className="cover" alt="" />
-              <svg
-                width="10"
-                height="10"
-                style={{
-                  marginLeft: "30px",
-                  marginTop: "35px",
-                  position: "absolute",
-                }}
-                viewBox="0 0 10 10"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <ellipse
-                  cx="4.82459"
-                  cy="5.16357"
-                  rx="4.66443"
-                  ry="4.83643"
-                  fill="#17A803"
-                />
-              </svg>
-            </div>
-            <div className="details">
-              <div className="listHead">
-                <p>Ayman Alruwaished</p>
-              </div>
-              <div className="message_p">
-                <p className="note">@ayman_alruwaished</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="block active">
-            <div className="imgBox">
-              <img src="../images/Rec.png" className="cover" alt="" />
-              <svg
-                width="10"
-                height="10"
-                style={{
-                  marginLeft: "30px",
-                  marginTop: "35px",
-                  position: "absolute",
-                }}
-                viewBox="0 0 10 10"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <ellipse
-                  cx="4.82459"
-                  cy="5.16357"
-                  rx="4.66443"
-                  ry="4.83643"
-                  fill="#17A803"
-                />
-              </svg>
-            </div>
-            <div className="details">
-              <div className="listHead">
-                <p>Ayman Alruwaished</p>
-              </div>
-              <div className="message_p">
-                <p className="note">@ayman_alruwaished</p>
-              </div>
-            </div>
-          </div>
-          <div className="block active">
-            <div className="imgBox">
-              <img src="../images/Rec.png" className="cover" alt="" />
-              <svg
-                width="10"
-                height="10"
-                style={{
-                  marginLeft: "30px",
-                  marginTop: "35px",
-                  position: "absolute",
-                }}
-                viewBox="0 0 10 10"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <ellipse
-                  cx="4.82459"
-                  cy="5.16357"
-                  rx="4.66443"
-                  ry="4.83643"
-                  fill="#17A803"
-                />
-              </svg>
-            </div>
-            <div className="details">
-              <div className="listHead">
-                <p>Ayman Alruwaished</p>
-              </div>
-              <div className="message_p">
-                <p className="note">@ayman_alruwaished</p>
-              </div>
-            </div>
-          </div>
+            ))}
         </div>
       </div>
     </Fragment>

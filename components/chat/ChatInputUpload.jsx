@@ -3,8 +3,11 @@ import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { useState } from "react";
-function ChatInputUpload({ selectedId, setOnSuccess }) {
+import { useDispatch } from "react-redux";
+import { toggleChat } from "@/Redux/chatRefresh";
+function ChatInputUpload({ selectedId, setOnSuccess,onNewMsg }) {
   const [messages, setMessages] = useState("");
+  const dispatch = useDispatch();
   const handleSendMessage = () => {
     Axios.post(
       apis.sendMessage,
@@ -19,7 +22,9 @@ function ChatInputUpload({ selectedId, setOnSuccess }) {
       }
     ).then((res) => {
       setOnSuccess((prev) => !prev);
-      setMessages("")
+      dispatch(toggleChat());
+      onNewMsg(false)
+      setMessages("");
     });
   };
 
@@ -32,7 +37,7 @@ function ChatInputUpload({ selectedId, setOnSuccess }) {
           placeholder="Write your message"
           value={messages}
         />
-        <span onClick={handleSendMessage} style={{cursor:"pointer"}}>
+        <span onClick={() => handleSendMessage()} style={{ cursor: "pointer" }}>
           <svg
             width="28"
             height="26"

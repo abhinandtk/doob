@@ -7,7 +7,10 @@ const updateSlice = createSlice({
     },
     reducers: {
         toggle: (state) => {
-            return !state.update;
+            return {
+                ...state,
+                update: !state.update
+            };
         },
     },
 });

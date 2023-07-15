@@ -8,11 +8,16 @@ import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MessagesList from "@/components/chat/MessagesList";
 import DefaultChatBox from "@/components/chat/DefaultChatBox";
 import ChatBox from "@/components/chat/ChatBox";
+import NewMessageList from "@/components/chat/NewMessageList";
 
 function MessagesPage() {
   const [selectedChatId, setSelectedChatId] = useState(null);
+  const [showNewMsg, setShowNewMsg] = useState(false);
   const showChatHandler = (id) => {
     setSelectedChatId(id);
+  };
+  const showNewMsgHandler = (state) => {
+    setShowNewMsg(state);
   };
   return (
     <div>
@@ -21,9 +26,19 @@ function MessagesPage() {
       <MainSidebarFixed />
 
       <div className="container">
-        <MessagesList onChatSelect={showChatHandler} />
+        {showNewMsg ? (
+          <NewMessageList
+            onChatSelect={showChatHandler}
+            onNewMsg={showNewMsgHandler}
+          />
+        ) : (
+          <MessagesList
+            onChatSelect={showChatHandler}
+            onNewMsg={showNewMsgHandler}
+          />
+        )}
         {selectedChatId ? (
-          <ChatBox selectedId={selectedChatId} />
+          <ChatBox selectedId={selectedChatId} onNewMsg={showNewMsgHandler}/>
         ) : (
           <DefaultChatBox />
         )}

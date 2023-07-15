@@ -9,7 +9,7 @@ import constants from "@/public/data/my-constants/Constants";
 import { useState } from "react";
 import moment from "moment";
 import ChatInputUpload from "./ChatInputUpload";
-function ChatBox({ selectedId }) {
+function ChatBox({ selectedId,onNewMsg }) {
   const [chatHeader, setChatHeader] = useState(null);
   const [chatList, setChatList] = useState([]);
   const [onSuccess, setOnSuccess] = useState(false);
@@ -43,7 +43,7 @@ function ChatBox({ selectedId }) {
           Today
         </button>
         {chatList.map((item, index) => (
-          <div className="chatbox">
+          <div key={index} className="chatbox">
             {item.chat.is_sender == true ? (
               <div>
                 <div className="message my_message">
@@ -74,7 +74,7 @@ function ChatBox({ selectedId }) {
 
         {/* sajin chat end  */}
 
-        <ChatInputUpload selectedId={selectedId} setOnSuccess={setOnSuccess}/>
+        <ChatInputUpload selectedId={selectedId} setOnSuccess={setOnSuccess} onNewMsg={onNewMsg}/>
       </div>
     </Fragment>
   );
