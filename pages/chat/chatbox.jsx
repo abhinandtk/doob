@@ -763,7 +763,7 @@ function HomePage() {
                   <b>1</b>
                 </div>
                 <div className="message_p">
-                  <p>Can't wait to try it out!</p>
+                  <p>Cant wait to try it out!</p>
                   <p className="time">12:34</p>
                 </div>
               </div>
@@ -798,7 +798,7 @@ function HomePage() {
                   <b>1</b>
                 </div>
                 <div className="message_p">
-                  <p>Can't wait to try it out!</p>
+                  <p>Cant wait to try it out!</p>
                   <p className="time">12:34</p>
                 </div>
               </div>
@@ -833,7 +833,7 @@ function HomePage() {
                   <b>1</b>
                 </div>
                 <div className="message_p">
-                  <p>Can't wait to try it out!</p>
+                  <p>Cant wait to try it out!</p>
                   <p className="time">12:34</p>
                 </div>
               </div>
@@ -868,7 +868,7 @@ function HomePage() {
                   <b>1</b>
                 </div>
                 <div className="message_p">
-                  <p>Can't wait to try it out!</p>
+                  <p>Cant wait to try it out!</p>
                   <p className="time">12:34</p>
                 </div>
               </div>
@@ -903,7 +903,7 @@ function HomePage() {
                   <b>1</b>
                 </div>
                 <div className="message_p">
-                  <p>Can't wait to try it out!</p>
+                  <p>Cant wait to try it out!</p>
                   <p className="time">12:34</p>
                 </div>
               </div>
@@ -938,7 +938,7 @@ function HomePage() {
                   <b>1</b>
                 </div>
                 <div className="message_p">
-                  <p>Can't wait to try it out!</p>
+                  <p>Cant wait to try it out!</p>
                   <p className="time">12:34</p>
                 </div>
               </div>
@@ -973,7 +973,7 @@ function HomePage() {
                   <b>1</b>
                 </div>
                 <div className="message_p">
-                  <p>Can't wait to try it out!</p>
+                  <p>Cant wait to try it out!</p>
                   <p className="time">12:34</p>
                 </div>
               </div>
@@ -1007,7 +1007,7 @@ function HomePage() {
                   <p>Ayman Alruwaished</p>
                 </div>
                 <div className="message_p">
-                  <p>Can't wait to try it out!</p>
+                  <p>Cant wait to try it out!</p>
                   <p className="time">12:34</p>
                 </div>
               </div>
@@ -1258,7 +1258,7 @@ function HomePage() {
               <p>
                 helloke fkekeshkskgsek kg kgkhs kgsgkksgghe ekhts hfsgfAJBS kgfa
                 agwfa ug fkagksfhsvfs jwvfjgg bjj gg fawa wbdad geuuerykwfh
-                kgf'ashd fsv jav<br></br>
+                kgf\ashd fsv jav<br></br>
               </p>
             </div>
             <div className="frnd_chatam">12:15 AM</div>

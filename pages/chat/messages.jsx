@@ -10,9 +10,10 @@ import DefaultChatBox from "@/components/chat/DefaultChatBox";
 import ChatBox from "@/components/chat/ChatBox";
 
 function MessagesPage() {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const [selectedChatId, setSelectedChatId] = useState(null);
+  const showChatHandler = (id) => {
+    setSelectedChatId(id);
+  };
   return (
     <div>
       <MainHeader title="Doob" />
@@ -20,9 +21,12 @@ function MessagesPage() {
       <MainSidebarFixed />
 
       <div className="container">
-        <MessagesList />
-        {/* <DefaultChatBox /> */}
-        <ChatBox />
+        <MessagesList onChatSelect={showChatHandler} />
+        {selectedChatId ? (
+          <ChatBox selectedId={selectedChatId} />
+        ) : (
+          <DefaultChatBox />
+        )}
       </div>
       <MobileFooter />
     </div>

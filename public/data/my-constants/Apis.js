@@ -30,6 +30,13 @@ const apis = {
     "update_delete_account": `${constants.port}/API/update_user_status`,
     "changePasswordSettings": `${constants.port}/API/change_password`,
 
+    //chat module
+    'inboxUser': `${constants.port}/social/Api/inbox`,
+    'chatView': `${constants.port}/social/Api/get_full_chat`,
+    'sendMessage': `${constants.port}/social/Api/send_message`,
+    'clearChat': `${constants.port}/social/Api/clear_chat`,
+
+
     // social module
 
     'homepageapi': `${constants.port}/social/Api/home_page_api/`,
@@ -73,7 +80,7 @@ const apis = {
     'storeview': `${constants.port}/store/api/store_view`,
 
     'storesearch': `${constants.port}/store/api/search_products`,
-    'searchbyCategory': `${constants.port}/store/api/category_list`,
+    'searchbyCategory': `${constants.port}/store/api/category_list`,    
 
     'viewwishlist': `${constants.port}/store/api/view_wishlist_product`,
     'addwishlist': `${constants.port}/store/api/create_product_wishlist`,
