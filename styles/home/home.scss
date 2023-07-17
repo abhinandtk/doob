@@ -1849,7 +1849,7 @@ body{
    margin-bottom: -22px;
   position: relative;
 }
-.message_p p {
+.message_p p.last_msg {
   color: #aaa;
   display: -webkit-box;
   -webkit-line-clamp: 1;
@@ -1857,6 +1857,7 @@ body{
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  width: 70%;
 }
 .message_p p.time {
   color: #000000;
@@ -1869,6 +1870,8 @@ body{
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  width: 30%;
+  text-align: right;
 }
 
 .imgText {

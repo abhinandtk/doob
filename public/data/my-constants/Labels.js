@@ -23,6 +23,7 @@ export function Labels() {
         "Blocked user successfully": "Blocked user successfully",
         "Unblocked user successfully": "Unblocked user successfully",
         "Share post user": "Post shared successfully,chat feature will be available soon",
+        "User already selected": "User already selected",
 
         //Store Messages
 

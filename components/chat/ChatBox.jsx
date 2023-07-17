@@ -43,7 +43,7 @@ function ChatBox({ selectedId, onNewMsg }) {
           style={{ color: "grey", width: "95%" }}
           className="col-md-7 mx-3"
         ></hr>
-        <div className="chat-container">
+        <div className="chat-container" style={{height:'70%',overflow:"auto"}}>
           <button type="button" class="btn btn-success btn-sm">
             Today
           </button>

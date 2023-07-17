@@ -24,7 +24,6 @@ $primary-color: #17a803;
   }
 }
 
-
 //support message
 
 .message-section {
@@ -95,5 +94,14 @@ $primary-color: #17a803;
   flex-grow: 1;
 }
 
-
-
+//chat
+.right-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  background-color: #17A803;
+  cursor: "pointer";
+}

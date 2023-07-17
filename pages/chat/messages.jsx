@@ -25,7 +25,7 @@ function MessagesPage() {
       <MobileFooter />
       <MainSidebarFixed />
 
-      <div className="container">
+      <div className="container" style={{height:"calc(100vh - 110px)"}}>
         {showNewMsg ? (
           <NewMessageList
             onChatSelect={showChatHandler}

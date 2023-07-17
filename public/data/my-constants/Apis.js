@@ -35,6 +35,7 @@ const apis = {
     'chatView': `${constants.port}/social/Api/get_full_chat`,
     'sendMessage': `${constants.port}/social/Api/send_message`,
     'clearChat': `${constants.port}/social/Api/clear_chat`,
+    'createChat': `${constants.port}/social/Api/create_chat`,
 
 
     // social module

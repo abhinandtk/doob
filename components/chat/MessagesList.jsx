@@ -114,7 +114,7 @@ function MessagesList({ onChatSelect, onNewMsg }) {
                   )}
                 </div>
                 <div className="message_p">
-                  <p>{item.last_message}</p>
+                  <p className="last_msg">{item.last_message}</p>
                   <p className="time">{moment(item.date).format("hh:mm A")}</p>
                 </div>
               </div>
