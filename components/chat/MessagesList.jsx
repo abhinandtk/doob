@@ -109,7 +109,9 @@ function MessagesList({ onChatSelect, onNewMsg }) {
                       ></img>
                     </span>
                   </p>
-                  <b>{item.latest_message_count}</b>
+                  {item.latest_message_count && (
+                    <b>{item.latest_message_count}</b>
+                  )}
                 </div>
                 <div className="message_p">
                   <p>{item.last_message}</p>
