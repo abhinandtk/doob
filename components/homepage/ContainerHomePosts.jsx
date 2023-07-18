@@ -92,7 +92,7 @@ function ContainerHomePosts() {
 
   function timeSincePost(posted) {
     const timeDiff = moment.duration(moment().diff(moment(posted)));
-    const timeString = timeDiff.humanize() + " ago";
+    const timeString = timeDiff.() + " ago";
     return timeString;
   }
   const [isVisible, setIsVisible] = useState(false);

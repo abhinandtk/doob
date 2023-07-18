@@ -1913,7 +1913,7 @@ body{
   right: 0;
   text-align: left;
   max-width: 65%;
-  padding: 12px;
+  padding: 0 12px 12px;
   background: #17A803;
   color: #fff;
   border-radius: 10px;
@@ -1974,6 +1974,13 @@ body{
   width: 20px;
   height:20px;
   background: linear-gradient(225deg,#343C42 0%,#343C42 50%,transparent 50%,transparent);
+}
+
+.grp-user-img{
+  height: 25px;
+  width: 25px;
+  object-fit:cover;
+  border-radius:50%;
 }
 ///sajin chatbox end///
 

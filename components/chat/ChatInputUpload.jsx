@@ -12,7 +12,7 @@ function ChatInputUpload({ selectedId, setOnSuccess,onNewMsg }) {
     Axios.post(
       apis.sendMessage,
       {
-        to_user: selectedId,
+        chat_id: selectedId,
         body: messages,
       },
       {

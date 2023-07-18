@@ -5,7 +5,7 @@ import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 
-function NewSingleChat({ onChatSelect,onNewMsg ,onGrpShow}) {
+function NewSingleChat({ onChatSelect, onNewMsg, onGrpShow }) {
   const router = useRouter();
   const [searchInput, setSearchInput] = useState("");
   const [searchResult, setSearchResult] = useState([]);
@@ -27,6 +27,23 @@ function NewSingleChat({ onChatSelect,onNewMsg ,onGrpShow}) {
         setSearchResult(res.data.data.results);
       }
     });
+  };
+
+  const selectUserHandler = (id) => {
+    Axios.post(
+      apis.createChat,
+      {
+        type: "single",
+        user: id,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res)=>{
+      onChatSelect(res.data.data.id)
+    })
   };
 
   return (
@@ -104,7 +121,7 @@ function NewSingleChat({ onChatSelect,onNewMsg ,onGrpShow}) {
                   fontSize: "17px",
                   marginLeft: "13px",
                 }}
-                onClick={()=>onGrpShow(true)}
+                onClick={() => onGrpShow(true)}
               >
                 Add new group
               </h6>
@@ -114,7 +131,7 @@ function NewSingleChat({ onChatSelect,onNewMsg ,onGrpShow}) {
             searchResult.map((item, index) => (
               <div
                 key={index}
-                onClick={() => onChatSelect(item.id)}
+                onClick={() => selectUserHandler(item.id)}
                 className="block active"
               >
                 <div className="imgBox">

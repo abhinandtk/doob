@@ -3,22 +3,34 @@ import { Dropdown } from "react-bootstrap";
 import ChatHeaderActions from "./ChatHeaderActions";
 import constants from "@/public/data/my-constants/Constants";
 
-function ChatBoxHeader({ details ,selectedId,setOnSuccess}) {
+function ChatBoxHeader({ details, selectedId, setOnSuccess }) {
   return (
     <Fragment>
       {details && (
         <div className="header">
           <div className="imgText">
             <div className="userimg">
-              <img
-                src={
-                  details.image
-                    ? `${constants.port}/media/${details.image}`
-                    : "/images/accounts/user_default.png"
-                }
-                alt=""
-                className="pic"
-              ></img>
+              {details.type === "group" ? (
+                <img
+                  src={
+                    details.user_image
+                      ? `${constants.port}${details.user_image}`
+                      : "/images/accounts/user_default.png"
+                  }
+                  alt=""
+                  className="pic"
+                ></img>
+              ) : (
+                <img
+                  src={
+                    details.image
+                      ? `${constants.port}/media/${details.image}`
+                      : "/images/accounts/user_default.png"
+                  }
+                  alt=""
+                  className="pic"
+                ></img>
+              )}
 
               <p
                 style={{
@@ -63,7 +75,10 @@ function ChatBoxHeader({ details ,selectedId,setOnSuccess}) {
             </svg>
           </div>
 
-          <ChatHeaderActions selectedId={selectedId} setOnSuccess={setOnSuccess}/>
+          <ChatHeaderActions
+            selectedId={selectedId}
+            setOnSuccess={setOnSuccess}
+          />
         </div>
       )}
     </Fragment>

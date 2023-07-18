@@ -5,11 +5,7 @@ import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { Upload, Avatar, Button, Input, Modal, List, notification } from "antd";
-import {
-  UserOutlined,
-  DeleteOutlined,
-  ArrowRightOutlined,
-} from "@ant-design/icons";
+import { UserOutlined, DeleteOutlined, CheckOutlined } from "@ant-design/icons";
 import { CardImg } from "react-bootstrap";
 import { Labels } from "@/public/data/my-constants/Labels";
 
@@ -17,11 +13,14 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
   const [searchInput, setSearchInput] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [groupProfilePic, setGroupProfilePic] = useState(null);
+  const [groupProfilePicLink, setGroupProfilePicLink] = useState("");
   const [visible, setVisible] = useState(false);
   const labels = Labels();
 
   const [selectedUser, setSelectedUser] = useState([]);
+  const [selectedUserId, setSelectedUserId] = useState([]);
   const [names, setNames] = useState("");
+  const [grpName, setGrpName] = useState("");
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -44,13 +43,69 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
       });
     } else {
       setSelectedUser((prev) => [...prev, selected]);
+      setSelectedUserId((prev) => [...prev, selected.id]);
     }
     setVisible(false);
   };
   const removeUserHandler = (id) => {
     setSelectedUser(selectedUser.filter((item) => item.id != id));
+    setSelectedUserId(selectedUserId.filter((item) => item != id));
   };
-  console.log("selectedUser", selectedUser);
+  console.log("selectedUser", selectedUser, selectedUserId);
+
+  const handleUpload = (file) => {
+    console.log("imagetyu");
+    const formData = new FormData();
+    formData.append("file_field_name", file);
+
+    Axios.post(apis.allImagesUpload, formData, {
+      headers: {
+        Authorization: `Token ${constants.token_id}`,
+      },
+    }).then((res) => {
+      console.log("imagetyu", res);
+      setGroupProfilePicLink(res.data.image_url);
+      setGroupProfilePic(file);
+    });
+  };
+
+  const createGroupHandler = () => {
+    console.log("input", {
+      type: "group",
+      image: groupProfilePicLink,
+      name: grpName,
+      users: selectedUserId,
+    });
+    Axios.post(
+      apis.createChat,
+      {
+        type: "group",
+        image: groupProfilePicLink,
+        name: grpName,
+        users: selectedUserId,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      console.log("res", res);
+      if (res.data.status === 1) {
+        notification.success({
+          message: constants.Success,
+          description: res.data.message_en,
+        });
+        onChatSelect(res.data.data.chat_id);
+        onNewMsg(false);
+      } else {
+        notification.error({
+          message: constants.Error,
+          description: res.data.message_en,
+        });
+      }
+    });
+  };
   return (
     <Fragment>
       <Modal
@@ -182,12 +237,13 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
             </div> */}
             <Upload
               beforeUpload={(file) => {
-                // Perform validation, e.g., file type and size
-                // Set the group profile picture
-                setGroupProfilePic(file);
-                return false; // Prevent file upload
+                // setGroupProfilePic(file);
+                return true; // Prevent file upload
               }}
               showUploadList={false}
+              customRequest={({ file }) => {
+                handleUpload(file);
+              }}
             >
               {groupProfilePic ? (
                 <div>
@@ -199,7 +255,10 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
                     type="text"
                     shape="circle"
                     icon={<DeleteOutlined />}
-                    onClick={() => setGroupProfilePic(null)}
+                    onClick={() => {
+                      setGroupProfilePic(null);
+                      setGroupProfilePicLink("");
+                    }}
                   />
                 </div>
               ) : (
@@ -209,6 +268,7 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
             <Input
               className="my-2"
               placeholder="Group Name"
+              onChange={(e) => setGrpName(e.target.value)}
               style={{
                 border: "none",
                 borderBottom: "1px solid #17A803",
@@ -266,9 +326,11 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
               ))}
           </div>
           <center>
-            <div className="right-arrow">
-              <ArrowRightOutlined />
-            </div>
+            {grpName.length > 0 && (
+              <div className="right-arrow" onClick={() => createGroupHandler()}>
+                <CheckOutlined />
+              </div>
+            )}
           </center>
         </div>
       </div>

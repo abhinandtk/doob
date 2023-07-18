@@ -15,10 +15,13 @@ function NewMessageList({ onChatSelect, onNewMsg }) {
 
   return (
     <Fragment>
-      <CreateGroupChat onGrpShow={createGroupShowHandler} />
+      {/* <CreateGroupChat onGrpShow={createGroupShowHandler} /> */}
 
-      {/* {showCreateGroup ? (
-        <CreateGroupChat onGrpShow={createGroupShowHandler}
+      {showCreateGroup ? (
+        <CreateGroupChat
+          onGrpShow={createGroupShowHandler}
+          onChatSelect={onChatSelect}
+          onNewMsg={onNewMsg}
         />
       ) : (
         <NewSingleChat
@@ -26,7 +29,7 @@ function NewMessageList({ onChatSelect, onNewMsg }) {
           onNewMsg={onNewMsg}
           onGrpShow={createGroupShowHandler}
         />
-      )} */}
+      )}
     </Fragment>
   );
 }

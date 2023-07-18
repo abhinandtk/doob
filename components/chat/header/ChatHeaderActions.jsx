@@ -34,6 +34,63 @@ function ChatHeaderActions({ selectedId, setOnSuccess }) {
       }
     });
   };
+  const blockUserHandler = () => {
+    console.log("resultBlock", id);
+
+    Axios.post(
+      apis.blockUser,
+      {
+        user_id: id,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      setIsSuccess((prev) => !prev);
+      if (res.data.status === 1) {
+        notification.success({
+          message: constants.Success,
+          description: `${labels["Blocked user successfully"]}`,
+        });
+      } else {
+        notification.error({
+          message: constants.Error,
+          description: res.data.message_en,
+        });
+      }
+      console.log("resultBlock", res);
+    });
+  };
+
+  const unBlockUserHandler = () => {
+    Axios.post(
+      apis.unblockUser,
+      {
+        user_id: id,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      setIsSuccess((prev) => !prev);
+      if (res.data.status === 1) {
+        notification.success({
+          message: constants.Success,
+          description: `${labels["Unblocked user successfully"]}`,
+        });
+      } else {
+        notification.error({
+          message: constants.Error,
+          description: res.data.message_en,
+        });
+      }
+      console.log("result", res);
+    });
+  };
   return (
     <Fragment>
       <Modal
@@ -130,6 +187,12 @@ function ChatHeaderActions({ selectedId, setOnSuccess }) {
           <Dropdown.Menu align="center" className="Menu">
             <Dropdown.Item onClick={() => setVisible(true)}>
               Clear chat
+            </Dropdown.Item>
+            <Dropdown.Item >
+              Edit profile
+            </Dropdown.Item>
+            <Dropdown.Item >
+              Exit group
             </Dropdown.Item>
             <Dropdown.Item>Block</Dropdown.Item>
           </Dropdown.Menu>
