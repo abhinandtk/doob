@@ -36,6 +36,11 @@ const apis = {
     'sendMessage': `${constants.port}/social/Api/send_message`,
     'clearChat': `${constants.port}/social/Api/clear_chat`,
     'createChat': `${constants.port}/social/Api/create_chat`,
+    'exitGroup': `${constants.port}/social/Api/leave_group`,
+    'addMemberGroup': `${constants.port}/social/Api/add_member_group`,
+    'groupInfo': `${constants.port}/social/Api/group_members`,
+    'editGroup': `${constants.port}/social/Api/edit_group`,
+    'removeMemberGroup': `${constants.port}/social/Api/remove_member_group`,
 
 
     // social module

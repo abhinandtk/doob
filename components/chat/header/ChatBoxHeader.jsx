@@ -2,8 +2,9 @@ import React, { Fragment } from "react";
 import { Dropdown } from "react-bootstrap";
 import ChatHeaderActions from "./ChatHeaderActions";
 import constants from "@/public/data/my-constants/Constants";
+import ChatHeaderActionsGroup from "./ChatHeaderActionsGroup";
 
-function ChatBoxHeader({ details, selectedId, setOnSuccess }) {
+function ChatBoxHeader({ details, selectedId, setOnSuccess,onNewMsg }) {
   return (
     <Fragment>
       {details && (
@@ -74,11 +75,20 @@ function ChatBoxHeader({ details, selectedId, setOnSuccess }) {
               />
             </svg>
           </div>
-
-          <ChatHeaderActions
-            selectedId={selectedId}
-            setOnSuccess={setOnSuccess}
-          />
+          {details.type === "group" ? (
+            <ChatHeaderActionsGroup
+              details={details}
+              selectedId={selectedId}
+              setOnSuccess={setOnSuccess}
+              onNewMsg={onNewMsg}
+            />
+          ) : (
+            <ChatHeaderActions
+              selectedId={selectedId}
+              setOnSuccess={setOnSuccess}
+              details={details}
+            />
+          )}
         </div>
       )}
     </Fragment>

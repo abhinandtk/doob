@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 function MessagesList({ onChatSelect, onNewMsg }) {
   const router = useRouter();
   const [inboxUsers, setInboxUsers] = useState([]);
+  const [currentId, setCurrentId] = useState(null);
 
   const updateChat = useSelector((state) => state.chatUsers.chatUpdate);
   console.log("updateChat");
@@ -45,7 +46,7 @@ function MessagesList({ onChatSelect, onNewMsg }) {
               marginRight: "8px",
               cursor: "pointer",
             }}
-            onClick={() => onNewMsg(true)}
+            onClick={() => onNewMsg("new")}
           >
             New Message
           </h6>
@@ -60,8 +61,12 @@ function MessagesList({ onChatSelect, onNewMsg }) {
             inboxUsers.map((item, index) => (
               <div
                 key={index}
-                onClick={() => onChatSelect(item.chat.id)}
+                onClick={() => {
+                  onChatSelect(item.chat.id);
+                  setCurrentId(item.chat.id);
+                }}
                 className="block active"
+                style={{ backgroundColor: item.chat.id === currentId ? '#e3f3e3' : 'transparent' }}
               >
                 <div className="imgBox">
                   <img

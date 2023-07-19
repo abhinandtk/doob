@@ -25,6 +25,12 @@ export function Labels() {
         "Share post user": "Post shared successfully,chat feature will be available soon",
         "User already selected": "User already selected",
 
+        //chat
+
+        "Left group": "You left the group",
+        "Add members": " The user has been successfully added to the group",
+        "Remove members": " The user has been successfully Remove from the group",
+
         //Store Messages
 
         "Added to cart": "Item added to cart",

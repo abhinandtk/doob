@@ -9,26 +9,34 @@ import MessagesList from "@/components/chat/MessagesList";
 import DefaultChatBox from "@/components/chat/DefaultChatBox";
 import ChatBox from "@/components/chat/ChatBox";
 import NewMessageList from "@/components/chat/NewMessageList";
+import GroupInfo from "@/components/chat/GroupInfo";
 
 function MessagesPage() {
   const [selectedChatId, setSelectedChatId] = useState(null);
-  const [showNewMsg, setShowNewMsg] = useState(false);
+  const [showNewMsg, setShowNewMsg] = useState(null);
   const showChatHandler = (id) => {
     setSelectedChatId(id);
   };
   const showNewMsgHandler = (state) => {
     setShowNewMsg(state);
   };
+  console.log("selectedChatId", selectedChatId);
   return (
     <div>
       <MainHeader title="Doob" />
       <MobileFooter />
       <MainSidebarFixed />
 
-      <div className="container" style={{height:"calc(100vh - 110px)"}}>
-        {showNewMsg ? (
+      <div className="container" style={{ height: "calc(100vh - 110px)" }}>
+        {showNewMsg === "new" ? (
           <NewMessageList
             onChatSelect={showChatHandler}
+            onNewMsg={showNewMsgHandler}
+          />
+        ) : showNewMsg === "info" ? (
+          <GroupInfo
+            selectedId={selectedChatId}
+            // onChatSelect={showChatHandler}
             onNewMsg={showNewMsgHandler}
           />
         ) : (
@@ -38,7 +46,7 @@ function MessagesPage() {
           />
         )}
         {selectedChatId ? (
-          <ChatBox selectedId={selectedChatId} onNewMsg={showNewMsgHandler}/>
+          <ChatBox selectedId={selectedChatId} onNewMsg={showNewMsgHandler} />
         ) : (
           <DefaultChatBox />
         )}

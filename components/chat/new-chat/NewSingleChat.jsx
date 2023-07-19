@@ -60,7 +60,7 @@ function NewSingleChat({ onChatSelect, onNewMsg, onGrpShow }) {
             >
               {" "}
               <span
-                onClick={() => onNewMsg(false)}
+                onClick={() => onNewMsg(null)}
                 style={{ cursor: "pointer" }}
               >
                 <svg

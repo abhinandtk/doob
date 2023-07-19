@@ -23,7 +23,7 @@ function ChatInputUpload({ selectedId, setOnSuccess,onNewMsg }) {
     ).then((res) => {
       setOnSuccess((prev) => !prev);
       dispatch(toggleChat());
-      onNewMsg(false)
+      onNewMsg(null)
       setMessages("");
     });
   };

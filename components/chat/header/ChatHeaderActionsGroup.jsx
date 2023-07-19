@@ -1,15 +1,22 @@
-import { Button, Modal, notification } from "antd";
+import { Button, Input, List, Modal, notification } from "antd";
 import React, { Fragment } from "react";
 import { useState } from "react";
-import { Dropdown } from "react-bootstrap";
+import { CardImg, Dropdown } from "react-bootstrap";
 import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
+import CreateGroupChat from "../new-chat/CreateGroupChat";
 import { Labels } from "@/public/data/my-constants/Labels";
-function ChatHeaderActions({ selectedId, setOnSuccess, details }) {
+function ChatHeaderActionsGroup({
+  selectedId,
+  setOnSuccess,
+  details,
+  onNewMsg,
+}) {
   const labels = Labels();
   const [visible, setVisible] = useState(false);
-  const [blockShow, setBlockShow] = useState(false);
+  const [leftVisible, setLeftVisible] = useState(false);
+
   const clearChatHandler = () => {
     Axios.post(
       apis.clearChat,
@@ -37,11 +44,12 @@ function ChatHeaderActions({ selectedId, setOnSuccess, details }) {
       }
     });
   };
-  const blockUserHandler = () => {
+
+  const exitGroupHandler = () => {
     Axios.post(
-      apis.blockUser,
+      apis.exitGroup,
       {
-        user_id: details.id,
+        chat_id: details.id,
       },
       {
         headers: {
@@ -49,12 +57,10 @@ function ChatHeaderActions({ selectedId, setOnSuccess, details }) {
         },
       }
     ).then((res) => {
-      setOnSuccess((prev) => !prev);
-      setBlockShow(false)
       if (res.data.status === 1) {
         notification.success({
           message: constants.Success,
-          description: `${labels["Blocked user successfully"]}`,
+          description: `${labels["Left group"]}`,
         });
       } else {
         notification.error({
@@ -62,37 +68,9 @@ function ChatHeaderActions({ selectedId, setOnSuccess, details }) {
           description: res.data.message_en,
         });
       }
-      console.log("resultBlock", res);
     });
   };
 
-  const unBlockUserHandler = () => {
-    Axios.post(
-      apis.unblockUser,
-      {
-        user_id: details.id,
-      },
-      {
-        headers: {
-          Authorization: `Token ${constants.token_id}`,
-        },
-      }
-    ).then((res) => {
-      setOnSuccess((prev) => !prev);
-      if (res.data.status === 1) {
-        notification.success({
-          message: constants.Success,
-          description: `${labels["Unblocked user successfully"]}`,
-        });
-      } else {
-        notification.error({
-          message: constants.Error,
-          description: res.data.message_en,
-        });
-      }
-      console.log("result", res);
-    });
-  };
   return (
     <Fragment>
       <Modal
@@ -117,26 +95,27 @@ function ChatHeaderActions({ selectedId, setOnSuccess, details }) {
         ]}
       ></Modal>
       <Modal
-        title="Are you sure to block this user?"
-        open={blockShow}
+        title="Are you sure to exit the group?"
+        open={leftVisible}
         centered
         closable
         maskClosable
-        onCancel={() => setBlockShow(false)}
+        onCancel={() => setLeftVisible(false)}
         footer={[
-          <Button key="back" onClick={() => setBlockShow(false)}>
+          <Button key="back" onClick={() => setLeftVisible(false)}>
             Cancel
           </Button>,
           <Button
             style={{ backgroundColor: "#17A803" }}
             key="submit"
             type=""
-            onClick={blockUserHandler}
+            onClick={exitGroupHandler}
           >
             Submit
           </Button>,
         ]}
       ></Modal>
+
       <ul className="nav_icons" style={{ marginTop: "35px" }}>
         <svg
           width="23"
@@ -211,15 +190,13 @@ function ChatHeaderActions({ selectedId, setOnSuccess, details }) {
             <Dropdown.Item onClick={() => setVisible(true)}>
               Clear chat
             </Dropdown.Item>
-            {details.is_block ? (
-              <Dropdown.Item onClick={() => unBlockUserHandler()}>
-                Unblock
-              </Dropdown.Item>
-            ) : (
-              <Dropdown.Item onClick={() => setBlockShow(true)}>
-                Block
-              </Dropdown.Item>
-            )}
+
+            <Dropdown.Item onClick={() => onNewMsg("info")}>
+              Group info
+            </Dropdown.Item>
+            <Dropdown.Item onClick={() => setLeftVisible(true)}>
+              Exit group
+            </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </ul>
@@ -227,4 +204,4 @@ function ChatHeaderActions({ selectedId, setOnSuccess, details }) {
   );
 }
 
-export default ChatHeaderActions;
+export default ChatHeaderActionsGroup;

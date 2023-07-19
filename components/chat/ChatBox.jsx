@@ -25,6 +25,7 @@ function ChatBox({ selectedId, onNewMsg }) {
         },
       }
     ).then((res) => {
+      console.log('check4566')
       if (res.data.data) {
         setChatHeader(res.data.data.user_header);
         setChatList(res.data.data.messages);
@@ -52,6 +53,7 @@ function ChatBox({ selectedId, onNewMsg }) {
           details={chatHeader}
           selectedId={selectedId}
           setOnSuccess={setOnSuccess}
+          onNewMsg={onNewMsg}
         />
         <hr
           style={{ color: "grey", width: "95%" }}

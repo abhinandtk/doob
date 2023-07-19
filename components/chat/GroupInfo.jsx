@@ -8,19 +8,45 @@ import { Upload, Avatar, Button, Input, Modal, List, notification } from "antd";
 import { UserOutlined, DeleteOutlined, CheckOutlined } from "@ant-design/icons";
 import { CardImg } from "react-bootstrap";
 import { Labels } from "@/public/data/my-constants/Labels";
+import { useEffect } from "react";
 
-function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
-  const [searchInput, setSearchInput] = useState("");
+function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
+  const [apiSuccess, setApiSuccess] = useState(false);
   const [searchResult, setSearchResult] = useState([]);
   const [groupProfilePic, setGroupProfilePic] = useState(null);
-  const [groupProfilePicLink, setGroupProfilePicLink] = useState("");
   const [visible, setVisible] = useState(false);
+  const [showEditName, setShowEditName] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(null);
   const labels = Labels();
 
   const [selectedUser, setSelectedUser] = useState([]);
   const [selectedUserId, setSelectedUserId] = useState([]);
   const [names, setNames] = useState("");
   const [grpName, setGrpName] = useState("");
+
+  const [profileDetails, setProfileDetails] = useState(null);
+
+  useEffect(() => {
+    Axios.post(
+      apis.groupInfo,
+      {
+        chat_id: selectedId,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      setProfileDetails(res.data.data);
+      setGrpName(res.data.data.group.name);
+      setGroupProfilePic(res.data.data.group.user_image);
+      setSelectedUser(res.data.data.members);
+      setIsAdmin(res.data.data.group.is_admin);
+
+      console.log("rest", res);
+    });
+  }, [selectedId, apiSuccess]);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -35,21 +61,62 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
   };
 
   const handleSelect = (id) => {
-    const selected = searchResult.find((item) => item.id === id);
-    if (selectedUser.includes(selected)) {
-      notification.info({
-        message: constants.Info,
-        description: `${labels["User already selected"]}`,
-      });
-    } else {
-      setSelectedUser((prev) => [...prev, selected]);
-      setSelectedUserId((prev) => [...prev, selected.id]);
-    }
+    Axios.post(
+      apis.addMemberGroup,
+      {
+        chat_id: selectedId,
+        user_id: id,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      console.log("rescon", res);
+      if (res.data.status === 1) {
+        setApiSuccess((prev) => !prev);
+        notification.success({
+          message: constants.Success,
+          description: `${labels["Add members"]}`,
+        });
+      } else {
+        notification.error({
+          message: constants.Error,
+          description: res.data.message_en,
+        });
+      }
+    });
+
     setVisible(false);
   };
   const removeUserHandler = (id) => {
-    setSelectedUser(selectedUser.filter((item) => item.id != id));
-    setSelectedUserId(selectedUserId.filter((item) => item != id));
+    Axios.post(
+      apis.removeMemberGroup,
+      {
+        chat_id: selectedId,
+        user_id: id,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      console.log("rescon", res);
+      if (res.data.status === 1) {
+        setApiSuccess((prev) => !prev);
+        notification.success({
+          message: constants.Success,
+          description: `${labels["Remove members"]}`,
+        });
+      } else {
+        notification.error({
+          message: constants.Error,
+          description: res.data.message_en,
+        });
+      }
+    });
   };
   console.log("selectedUser", selectedUser, selectedUserId);
 
@@ -64,25 +131,17 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
       },
     }).then((res) => {
       console.log("imagetyu", res);
-      setGroupProfilePicLink(res.data.image_url);
-      setGroupProfilePic(file);
+      setGroupProfilePic(res.data.image_url);
     });
   };
 
-  const createGroupHandler = () => {
-    console.log("input", {
-      type: "group",
-      image: groupProfilePicLink,
-      name: grpName,
-      users: selectedUserId,
-    });
+  const editGroupHandler = () => {
     Axios.post(
-      apis.createChat,
+      apis.editGroup,
       {
-        type: "group",
-        image: groupProfilePicLink,
-        name: grpName,
-        users: selectedUserId,
+        chat_id: selectedId,
+        group_image: groupProfilePic,
+        group_name: grpName,
       },
       {
         headers: {
@@ -96,7 +155,7 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
           message: constants.Success,
           description: res.data.message_en,
         });
-        onChatSelect(res.data.data.chat_id);
+        // onChatSelect(res.data.data.chat_id);
         onNewMsg(null);
       } else {
         notification.error({
@@ -105,6 +164,16 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
         });
       }
     });
+  };
+  const beforeUpload = (file) => {
+    if (!isAdmin) {
+      notification.error({
+        message: constants.Error,
+        description: "only admin can change profile",
+      });
+      return false; // Prevent file upload
+    }
+    // return true; // Allow file upload
   };
   return (
     <Fragment>
@@ -194,7 +263,7 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
             >
               {" "}
               <span
-                onClick={() => onGrpShow(false)}
+                onClick={() =>onNewMsg(null)}
                 style={{ cursor: "pointer" }}
               >
                 <svg
@@ -211,8 +280,20 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
                   />
                 </svg>
               </span>
-              Create Group
+              Group Info
             </h6>
+          </div>
+          <div className="mx-2">
+            {isAdmin && (
+              <Button
+                key="save"
+                type="primary"
+                style={{ backgroundColor: "#17A803" }}
+                onClick={() => editGroupHandler()}
+              >
+                Save
+              </Button>
+            )}
           </div>
         </div>
 
@@ -225,21 +306,10 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
               alignItems: "center",
             }}
           >
-            {/* <div
-              style={{
-                margin: "8px",
-                fontSize: "18px",
-                width: "100%",
-                textAlign: "center",
-              }}
-            >
-             
-            </div> */}
             <Upload
-              beforeUpload={(file) => {
-                return true; // Prevent file upload
-              }}
+              beforeUpload={beforeUpload}
               showUploadList={false}
+              showUploadButton={false}
               customRequest={({ file }) => {
                 handleUpload(file);
               }}
@@ -248,33 +318,46 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
                 <div>
                   <Avatar
                     size={128}
-                    src={URL.createObjectURL(groupProfilePic)}
+                    src={`${constants.port}${groupProfilePic}`}
                   />
-                  <Button
-                    type="text"
-                    shape="circle"
-                    icon={<DeleteOutlined />}
-                    onClick={() => {
-                      setGroupProfilePic(null);
-                      setGroupProfilePicLink("");
-                    }}
-                  />
+                  {isAdmin && (
+                    <Button
+                      type="text"
+                      key="submit"
+                      shape="circle"
+                      icon={<DeleteOutlined />}
+                      onClick={() => {
+                        setGroupProfilePic(null);
+                      }}
+                    />
+                  )}
                 </div>
               ) : (
                 <Avatar size={128} icon={<UserOutlined />} />
               )}
             </Upload>
-            <Input
-              className="my-2"
-              placeholder="Group Name"
-              onChange={(e) => setGrpName(e.target.value)}
-              style={{
-                border: "none",
-                borderBottom: "1px solid #17A803",
-                borderRadius: "0",
-                backgroundColor: "transparent",
-              }}
-            />
+            <div>
+              {grpName}
+              {isAdmin && (
+                <span onClick={() => setShowEditName(true)}>
+                  <i className="bi bi-pencil-fill" style={{ color: "grey" }} />
+                </span>
+              )}
+            </div>
+            {showEditName && (
+              <Input
+                className="my-2"
+                placeholder="Group Name"
+                onChange={(e) => setGrpName(e.target.value)}
+                value={grpName}
+                style={{
+                  border: "none",
+                  borderBottom: "1px solid #17A803",
+                  borderRadius: "0",
+                  backgroundColor: "transparent",
+                }}
+              />
+            )}
           </div>
           <div
             style={{
@@ -284,16 +367,21 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
             }}
           >
             <p style={{ width: "50%" }}>Group members</p>
-            <div className="mx-2" style={{ width: "50%", textAlign: "right" }}>
-              <Button
-                type="primary"
-                key="add"
-                style={{ backgroundColor: "#17A803" }}
-                onClick={() => setVisible(true)}
+            {isAdmin && (
+              <div
+                className="mx-2"
+                style={{ width: "50%", textAlign: "right" }}
               >
-                Add members
-              </Button>
-            </div>
+                <Button
+                  type="primary"
+                  key="add"
+                  style={{ backgroundColor: "#17A803" }}
+                  onClick={() => setVisible(true)}
+                >
+                  Add members
+                </Button>
+              </div>
+            )}
           </div>
           <div style={{ height: "50%", overflow: "auto" }}>
             {selectedUser &&
@@ -302,8 +390,8 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
                   <div className="imgBox">
                     <img
                       src={
-                        item.image
-                          ? `${constants.port}/media/${item.image}`
+                        item.user.image
+                          ? `${constants.port}/media/${item.user.image}`
                           : "/images/accounts/user_default.png"
                       }
                       className="cover"
@@ -312,29 +400,24 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
                   </div>
                   <div className="details">
                     <div className="listHead">
-                      <p>{item.name}</p>
+                      <p>{item.user.name}</p>
                     </div>
                     <div className="message_p">
-                      <p className="note">@{item.username}</p>
+                      <p className="note">@{item.user.username}</p>
                     </div>
                   </div>
-                  <p onClick={() => removeUserHandler(item.id)}>
-                    <i className="bi bi-x" style={{ fontSize: "20px" }} />
-                  </p>
+                  {isAdmin && (
+                    <p onClick={() => removeUserHandler(item.user.id)}>
+                      <i className="bi bi-x" style={{ fontSize: "20px" }} />
+                    </p>
+                  )}
                 </div>
               ))}
           </div>
-          <center>
-            {grpName.length > 0 && (
-              <div className="right-arrow" onClick={() => createGroupHandler()}>
-                <CheckOutlined />
-              </div>
-            )}
-          </center>
         </div>
       </div>
     </Fragment>
   );
 }
 
-export default CreateGroupChat;
+export default GroupInfo;

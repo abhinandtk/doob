@@ -15,8 +15,6 @@ function NewMessageList({ onChatSelect, onNewMsg }) {
 
   return (
     <Fragment>
-      {/* <CreateGroupChat onGrpShow={createGroupShowHandler} /> */}
-
       {showCreateGroup ? (
         <CreateGroupChat
           onGrpShow={createGroupShowHandler}
