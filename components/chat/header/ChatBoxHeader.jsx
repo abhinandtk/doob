@@ -16,7 +16,7 @@ function ChatBoxHeader({ details, selectedId, setOnSuccess,onNewMsg }) {
                   src={
                     details.user_image
                       ? `${constants.port}${details.user_image}`
-                      : "/images/accounts/user_default.png"
+                      :"/images/accounts/group_default.png"
                   }
                   alt=""
                   className="pic"

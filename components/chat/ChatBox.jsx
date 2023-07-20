@@ -9,10 +9,12 @@ import constants from "@/public/data/my-constants/Constants";
 import { useState } from "react";
 import moment from "moment";
 import ChatInputUpload from "./ChatInputUpload";
+import { useRef } from "react";
 function ChatBox({ selectedId, onNewMsg }) {
   const [chatHeader, setChatHeader] = useState(null);
   const [chatList, setChatList] = useState([]);
   const [onSuccess, setOnSuccess] = useState(false);
+  const currentUser = constants.user_id;
   useEffect(() => {
     Axios.post(
       apis.chatView,
@@ -25,7 +27,7 @@ function ChatBox({ selectedId, onNewMsg }) {
         },
       }
     ).then((res) => {
-      console.log('check4566')
+      console.log("check4566");
       if (res.data.data) {
         setChatHeader(res.data.data.user_header);
         setChatList(res.data.data.messages);
@@ -43,6 +45,21 @@ function ChatBox({ selectedId, onNewMsg }) {
       return "Yesterday";
     } else {
       return date;
+    }
+  };
+
+  const divRef = useRef(null);
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [chatList]); // Add chatList as a dependency to trigger the effect when it changes
+
+  const scrollToBottom = () => {
+    if (divRef.current) {
+      const lastElement = divRef.current.lastElementChild;
+      if (lastElement) {
+        lastElement.scrollIntoView({ behavior: "auto", block: "end" });
+      }
     }
   };
 
@@ -64,67 +81,92 @@ function ChatBox({ selectedId, onNewMsg }) {
           style={{ height: "70%", overflow: "auto" }}
         >
           {chatList.map((item, index) => (
-            <div key={index} className="chatbox">
+            <div ref={divRef} key={index} className="chatbox">
               <button type="button" class="btn btn-success btn-sm">
                 {formatDate(item.date)}
               </button>
               {item.messages.map((msg, index_) => (
-                <div key={index_}>
-                  {msg.chat.is_sender == true ? (
-                    <div>
-                      <div className="message my_message">
-                        <p>
-                          {msg.body}
-                          <br></br>
-                        </p>
-                      </div>
-                      <div className="my_chatam">
-                        {moment(msg.date).format("hh:mm A")}
-                      </div>
+                <>
+                  {msg.message_type === "create" ? (
+                    <div className="create-msg">
+                      <p className="px-1 my-2">
+                        {`${
+                          currentUser == msg.chat.id ? "You" : msg.chat.name
+                        }`}
+                        &nbsp;{msg.body}
+                      </p>
                     </div>
                   ) : (
-                    <div>
-                      <div className="message frnd_message">
-                        {chatHeader.type === "group" && (
-                          <img
-                            src={
-                              msg.chat.user_image
-                                ? `${constants.port}${msg.chat.user_image}`
-                                : "/images/accounts/user_default.png"
-                            }
-                            className="grp-user-img mx-2"
-                          />
-                        )}
-                        <p>
-                          {chatHeader.type === "group" && (
-                            <span
-                              style={{ fontSize: "smaller", color: "#17A803" }}
-                            >
-                              {msg.chat.name}
-                            </span>
-                          )}
-                          <br></br>
-                          {msg.body}
-                          <br></br>
-                        </p>
-                      </div>
-                      <div className="frnd_chatam">
-                        {moment(msg.date).format("hh:mm A")}
-                      </div>
+                    <div key={index_}>
+                      {msg.chat.is_sender == true ? (
+                        <div>
+                          <div className="message my_message">
+                            <p>
+                              {msg.body}
+                              <br></br>
+                            </p>
+                          </div>
+                          <div className="my_chatam">
+                            {moment(msg.date).format("hh:mm A")}
+                          </div>
+                        </div>
+                      ) : (
+                        <div>
+                          <div className="message frnd_message">
+                            {chatHeader.type === "group" && (
+                              <img
+                                src={
+                                  msg.chat.user_image
+                                    ? `${constants.port}${msg.chat.user_image}`
+                                    : "/images/accounts/user_default.png"
+                                }
+                                className="grp-user-img mx-2"
+                              />
+                            )}
+                            <p>
+                              {chatHeader.type === "group" && (
+                                <span
+                                  style={{
+                                    fontSize: "smaller",
+                                    color: "#17A803",
+                                  }}
+                                >
+                                  {msg.chat.name}
+                                </span>
+                              )}
+                              <br></br>
+                              {msg.body}
+                              <br></br>
+                            </p>
+                          </div>
+                          <div className="frnd_chatam">
+                            {moment(msg.date).format("hh:mm A")}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   )}
-                </div>
+                </>
               ))}
             </div>
           ))}
 
           {/* sajin chat end  */}
         </div>
-        <ChatInputUpload
-          selectedId={selectedId}
-          setOnSuccess={setOnSuccess}
-          onNewMsg={onNewMsg}
-        />
+        {chatHeader && chatHeader !== undefined ? (
+          chatHeader.is_left ? (
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              You cant send messages to this group because you are no longer in
+              this group
+            </div>
+          ) : (
+            <ChatInputUpload
+              selectedId={selectedId}
+              setOnSuccess={setOnSuccess}
+              onNewMsg={onNewMsg}
+            />
+          )
+        ) : null}
       </div>
     </Fragment>
   );

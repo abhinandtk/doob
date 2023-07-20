@@ -70,12 +70,7 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
   };
 
   const createGroupHandler = () => {
-    console.log("input", {
-      type: "group",
-      image: groupProfilePicLink,
-      name: grpName,
-      users: selectedUserId,
-    });
+    console.log("inputsdcd");
     Axios.post(
       apis.createChat,
       {

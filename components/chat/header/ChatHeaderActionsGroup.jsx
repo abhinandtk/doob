@@ -21,7 +21,7 @@ function ChatHeaderActionsGroup({
     Axios.post(
       apis.clearChat,
       {
-        recipient_id: selectedId,
+        chat_id: selectedId,
       },
       {
         headers: {
@@ -57,6 +57,7 @@ function ChatHeaderActionsGroup({
         },
       }
     ).then((res) => {
+      setLeftVisible(false);
       if (res.data.status === 1) {
         notification.success({
           message: constants.Success,
@@ -70,6 +71,10 @@ function ChatHeaderActionsGroup({
       }
     });
   };
+
+  const modalMessage = details.is_admin
+    ? "Are you sure to close this group"
+    : "Are you sure to exit this group";
 
   return (
     <Fragment>
@@ -95,7 +100,7 @@ function ChatHeaderActionsGroup({
         ]}
       ></Modal>
       <Modal
-        title="Are you sure to exit the group?"
+        title={modalMessage}
         open={leftVisible}
         centered
         closable
@@ -194,9 +199,15 @@ function ChatHeaderActionsGroup({
             <Dropdown.Item onClick={() => onNewMsg("info")}>
               Group info
             </Dropdown.Item>
-            <Dropdown.Item onClick={() => setLeftVisible(true)}>
-              Exit group
-            </Dropdown.Item>
+            {details.is_admin ? (
+              <Dropdown.Item onClick={() => setLeftVisible(true)}>
+                Close group
+              </Dropdown.Item>
+            ) : (
+              <Dropdown.Item onClick={() => setLeftVisible(true)}>
+                Exit group
+              </Dropdown.Item>
+            )}
           </Dropdown.Menu>
         </Dropdown>
       </ul>

@@ -14,7 +14,7 @@ function ChatHeaderActions({ selectedId, setOnSuccess, details }) {
     Axios.post(
       apis.clearChat,
       {
-        recipient_id: selectedId,
+        chat_id: selectedId,
       },
       {
         headers: {

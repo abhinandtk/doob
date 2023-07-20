@@ -66,13 +66,18 @@ function MessagesList({ onChatSelect, onNewMsg }) {
                   setCurrentId(item.chat.id);
                 }}
                 className="block active"
-                style={{ backgroundColor: item.chat.id === currentId ? '#e3f3e3' : 'transparent' }}
+                style={{
+                  backgroundColor:
+                    item.chat.id === currentId ? "#e3f3e3" : "transparent",
+                }}
               >
                 <div className="imgBox">
                   <img
                     src={
                       item.recipeint.user_image
                         ? `${constants.port}${item.recipeint.user_image}`
+                        : item.recipeint.type === "group"
+                        ? "/images/accounts/group_default.png"
                         : "/images/accounts/user_default.png"
                     }
                     className="cover"

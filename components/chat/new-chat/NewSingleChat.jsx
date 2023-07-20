@@ -4,6 +4,7 @@ import { Fragment } from "react";
 import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
+import { notification } from "antd";
 
 function NewSingleChat({ onChatSelect, onNewMsg, onGrpShow }) {
   const router = useRouter();
@@ -41,9 +42,17 @@ function NewSingleChat({ onChatSelect, onNewMsg, onGrpShow }) {
           Authorization: `Token ${constants.token_id}`,
         },
       }
-    ).then((res)=>{
-      onChatSelect(res.data.data.id)
-    })
+    ).then((res) => {
+      onChatSelect(res.data.data.id);
+      if (res.data.status === 1) {
+        onChatSelect(res.data.data.id);
+      } else {
+        notification.error({
+          message: constants.Error,
+          description: res.data.message_en,
+        });
+      }
+    });
   };
 
   return (

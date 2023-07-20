@@ -1982,6 +1982,16 @@ body{
   object-fit:cover;
   border-radius:50%;
 }
+
+.create-msg{
+  display: flex;
+  justify-content: center;
+  p{
+    background-color: #afb3b3;
+    border-radius: 10px;
+  }
+  
+}
 ///sajin chatbox end///
 
 
