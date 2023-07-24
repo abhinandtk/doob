@@ -156,7 +156,7 @@ function ChatBox({ selectedId, onNewMsg }) {
         {chatHeader && chatHeader !== undefined ? (
           chatHeader.is_left ? (
             <div style={{ display: "flex", justifyContent: "center" }}>
-              You cant send messages to this group because you are no longer in
+              You can&apos;t send messages to this group because you are no longer in
               this group
             </div>
           ) : (

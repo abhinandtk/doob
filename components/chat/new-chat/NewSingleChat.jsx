@@ -44,14 +44,6 @@ function NewSingleChat({ onChatSelect, onNewMsg, onGrpShow }) {
       }
     ).then((res) => {
       onChatSelect(res.data.data.id);
-      if (res.data.status === 1) {
-        onChatSelect(res.data.data.id);
-      } else {
-        notification.error({
-          message: constants.Error,
-          description: res.data.message_en,
-        });
-      }
     });
   };
 

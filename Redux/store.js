@@ -6,6 +6,7 @@ import groundCartCountReducer from './playgroundCartCount'
 import apiReducer from "./apiSuccess";
 import updateNavbarReducer from "./updateNavbar";
 import notificationReducer from './notificationCount';
+import messagesReducer from './messagesCount';
 import chatUpdateReducer from "./chatRefresh"
 export const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ export const store = configureStore({
     navbarUpdate: updateNavbarReducer,
     api: apiReducer,
     notificationCount: notificationReducer,
+    chatCount: messagesReducer,
     chatUsers: chatUpdateReducer,
   },
 });

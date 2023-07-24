@@ -11,18 +11,35 @@ function MessagesList({ onChatSelect, onNewMsg }) {
   const router = useRouter();
   const [inboxUsers, setInboxUsers] = useState([]);
   const [currentId, setCurrentId] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const updateChat = useSelector((state) => state.chatUsers.chatUpdate);
   console.log("updateChat");
   useEffect(() => {
-    Axios.get(apis.inboxUser, {
-      headers: {
-        Authorization: `Token ${constants.token_id}`,
-      },
-    }).then((res) => {
-      setInboxUsers(res.data.data);
-    });
-  }, [updateChat]);
+    if (searchQuery.trim() === "") {
+      Axios.get(apis.inboxUser, {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }).then((res) => {
+        setInboxUsers(res.data.data);
+      });
+    } else {
+      Axios.post(
+        apis.chatInboxSearch,
+        {
+          user_input: searchQuery,
+        },
+        {
+          headers: {
+            Authorization: `Token ${constants.token_id}`,
+          },
+        }
+      ).then((res) => {
+        setInboxUsers(res.data.data);
+      });
+    }
+  }, [updateChat,searchQuery]);
   return (
     <Fragment>
       <div className="leftSide">
@@ -53,7 +70,11 @@ function MessagesList({ onChatSelect, onNewMsg }) {
         </div>
         <div className="search_chat">
           <div>
-            <input type="text" placeholder="Search Contacts"></input>
+            <input
+              type="text"
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search Contacts"
+            ></input>
           </div>
         </div>
         <div className="chatlist">

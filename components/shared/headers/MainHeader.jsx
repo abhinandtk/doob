@@ -14,6 +14,7 @@ import { updateStoreCartCount } from "@/Redux/cartsCount";
 import { useRouter } from "next/router";
 import { updateGroundCartCount } from "@/Redux/playgroundCartCount";
 import { updateNotificationCount } from "@/Redux/notificationCount";
+import { updateMessageCount } from "@/Redux/messagesCount";
 
 function MainHeader({ title }) {
   const router = useRouter();
@@ -29,6 +30,7 @@ function MainHeader({ title }) {
   const notificationCount = useSelector(
     (state) => state.notificationCount.notification
   );
+  const chatCount = useSelector((state) => state.chatCount.chatNotification);
   const dispatch = useDispatch();
 
   console.log("storreCount", storeCount, updateState);
@@ -44,6 +46,7 @@ function MainHeader({ title }) {
       dispatch(updateStoreCartCount(res.data.data.cart_count));
       dispatch(updateGroundCartCount(res.data.data.playground));
       dispatch(updateNotificationCount(res.data.data.notification_count));
+      dispatch(updateMessageCount(res.data.data.message_count));
       setUser(res.data.data.user_type);
       console.log("count", res);
     });
@@ -298,9 +301,9 @@ function MainHeader({ title }) {
               </Nav.Link>
               <Nav.Link href="/chat/messages">
                 <div>
-                  {/* <div className="  greens">
-                    <div className="numbers">35</div>
-                  </div> */}
+                  <div className="  greens">
+                    <div className="numbers">{chatCount}</div>
+                  </div>
                   <svg
                     width="30"
                     height="30"

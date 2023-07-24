@@ -41,6 +41,7 @@ const apis = {
     'groupInfo': `${constants.port}/social/Api/group_members`,
     'editGroup': `${constants.port}/social/Api/edit_group`,
     'removeMemberGroup': `${constants.port}/social/Api/remove_member_group`,
+    'chatInboxSearch': `${constants.port}/social/Api/chat_inbox_serach`,
 
 
     // social module

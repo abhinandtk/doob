@@ -25,9 +25,17 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
   const handleChange = (e) => {
     e.preventDefault();
     setNames(e.target.value);
-    Axios.post(apis.usersearch, {
-      user_input: names,
-    }).then((res) => {
+    Axios.post(
+      apis.usersearch,
+      {
+        user_input: names,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
       if (res.data.status === 1) {
         setSearchResult(res.data.data.results);
       }
@@ -124,7 +132,7 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
               onClick={() => handleSelect(item.id)}
             >
               <div className="d-flex flex-start mt-4 mx-2">
-                <a className="me-2" href="">
+                <span className="me-2" >
                   <CardImg
                     className="rounded-circle shadow-1-strong "
                     src={
@@ -138,7 +146,7 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
                       objectFit: "cover",
                     }}
                   ></CardImg>
-                </a>
+                </span>
                 <div
                   className="flex-grow-1 flex-shrink-1 "
                   style={{ marginBottom: "-24px" }}

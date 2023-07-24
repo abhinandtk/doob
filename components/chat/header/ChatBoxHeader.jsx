@@ -4,7 +4,7 @@ import ChatHeaderActions from "./ChatHeaderActions";
 import constants from "@/public/data/my-constants/Constants";
 import ChatHeaderActionsGroup from "./ChatHeaderActionsGroup";
 
-function ChatBoxHeader({ details, selectedId, setOnSuccess,onNewMsg }) {
+function ChatBoxHeader({ details, selectedId, setOnSuccess, onNewMsg }) {
   return (
     <Fragment>
       {details && (
@@ -16,7 +16,7 @@ function ChatBoxHeader({ details, selectedId, setOnSuccess,onNewMsg }) {
                   src={
                     details.user_image
                       ? `${constants.port}${details.user_image}`
-                      :"/images/accounts/group_default.png"
+                      : "/images/accounts/group_default.png"
                   }
                   alt=""
                   className="pic"
@@ -39,6 +39,7 @@ function ChatBoxHeader({ details, selectedId, setOnSuccess,onNewMsg }) {
                   marginTop: "36px",
                   fontWeight: "600",
                   fontSize: "14px",
+                  minWidth: "100px",
                 }}
               >
                 {details.name}

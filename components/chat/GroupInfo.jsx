@@ -48,12 +48,22 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
     });
   }, [selectedId, apiSuccess]);
 
+  const currentUser = constants.user_id;
+
   const handleChange = (e) => {
     e.preventDefault();
     setNames(e.target.value);
-    Axios.post(apis.usersearch, {
-      user_input: names,
-    }).then((res) => {
+    Axios.post(
+      apis.usersearch,
+      {
+        user_input: names,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
       if (res.data.status === 1) {
         setSearchResult(res.data.data.results);
       }
@@ -198,7 +208,7 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
               onClick={() => handleSelect(item.id)}
             >
               <div className="d-flex flex-start mt-4 mx-2">
-                <a className="me-2" href="">
+                <span className="me-2" >
                   <CardImg
                     className="rounded-circle shadow-1-strong "
                     src={
@@ -212,7 +222,7 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
                       objectFit: "cover",
                     }}
                   ></CardImg>
-                </a>
+                </span>
                 <div
                   className="flex-grow-1 flex-shrink-1 "
                   style={{ marginBottom: "-24px" }}
@@ -263,7 +273,7 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
             >
               {" "}
               <span
-                onClick={() =>onNewMsg(null)}
+                onClick={() => onNewMsg(null)}
                 style={{ cursor: "pointer" }}
               >
                 <svg
@@ -340,7 +350,10 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
               {grpName}
               {isAdmin && (
                 <span onClick={() => setShowEditName(true)}>
-                  <i className="bi bi-pencil-fill" style={{ color: "grey" }} />
+                  <i
+                    className="bi bi-pencil-fill mx-2"
+                    style={{ color: "grey" }}
+                  />
                 </span>
               )}
             </div>
@@ -406,7 +419,10 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
                       <p className="note">@{item.user.username}</p>
                     </div>
                   </div>
-                  {isAdmin && (
+                  {item.user.is_admin && (
+                    <p className="grp-admin-label mx-2">Group Admin</p>
+                  )}
+                  {isAdmin && currentUser != item.user.id && (
                     <p onClick={() => removeUserHandler(item.user.id)}>
                       <i className="bi bi-x" style={{ fontSize: "20px" }} />
                     </p>

@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useRef } from "react";
 import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
@@ -8,33 +8,42 @@ import { toggleChat } from "@/Redux/chatRefresh";
 import { notification } from "antd";
 function ChatInputUpload({ selectedId, setOnSuccess, onNewMsg }) {
   const [messages, setMessages] = useState("");
+  const [isSending, setIsSending] = useState(false);
   const dispatch = useDispatch();
+  const sendRef = useRef();
   const handleSendMessage = (e) => {
     e.preventDefault();
-    Axios.post(
-      apis.sendMessage,
-      {
-        chat_id: selectedId,
-        body: messages,
-      },
-      {
-        headers: {
-          Authorization: `Token ${constants.token_id}`,
+    if (isSending) {
+      return;
+    }
+    if (messages) {
+      setIsSending(true);
+      Axios.post(
+        apis.sendMessage,
+        {
+          chat_id: selectedId,
+          body: messages,
         },
-      }
-    ).then((res) => {
-      setOnSuccess((prev) => !prev);
-      if (res.data.status === 1) {
-        dispatch(toggleChat());
-        onNewMsg(null);
-        setMessages("");
-      } else {
-        notification.error({
-          message: constants.Error,
-          description: res.data.message_en,
-        });
-      }
-    });
+        {
+          headers: {
+            Authorization: `Token ${constants.token_id}`,
+          },
+        }
+      ).then((res) => {
+        setOnSuccess((prev) => !prev);
+        setIsSending(false);
+        if (res.data.status === 1) {
+          dispatch(toggleChat());
+          onNewMsg(null);
+          setMessages("");
+        } else {
+          notification.error({
+            message: constants.Error,
+            description: res.data.message_en,
+          });
+        }
+      });
+    }
   };
 
   return (
@@ -48,7 +57,11 @@ function ChatInputUpload({ selectedId, setOnSuccess, onNewMsg }) {
             value={messages}
           />
 
-          <span onClick={handleSendMessage} style={{ cursor: "pointer" }}>
+          <span
+            onClick={handleSendMessage}
+            ref={sendRef}
+            style={{ cursor: "pointer" }}
+          >
             <svg
               width="28"
               height="26"
