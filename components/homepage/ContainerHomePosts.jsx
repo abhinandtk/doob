@@ -16,8 +16,10 @@ import ModuleSharedPostDetails from "./social/ModuleSharedPostDetails";
 import "intersection-observer";
 import VisibilitySensor from "react-visibility-sensor";
 import SharePostToUser from "./social/share/SharePostToUser";
-
+import { useTheme } from 'next-themes';
 function ContainerHomePosts() {
+
+  const { theme } = useTheme();
   const apiSuccess = useSelector((state) => state.api);
   const [visibleComment, setVisibleComment] = useState(false);
   const [visibleShared, setVisibleShared] = useState(false);

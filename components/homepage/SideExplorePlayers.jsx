@@ -6,7 +6,10 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
+import { useTheme } from "next-themes";
+
 function SideExplorePlayers() {
+  const { theme } = useTheme();
   const [exploreData, setExploreData] = useState([]);
 
   const labels = Labels();
@@ -59,7 +62,7 @@ function SideExplorePlayers() {
         <div className="side-menu__suggestions-content">
           {exploreData.slice(0, 5).map((item, index) => (
             <div key={index} className="side-menu__suggestion">
-              <div href="#" className="side-menu__suggestion-avatar">
+              <div className="side-menu__suggestion-avatar">
                 {item.image ? (
                   <img
                     src={`${item.image}`}
@@ -84,7 +87,10 @@ function SideExplorePlayers() {
               </div>
               <Link
                 href={`/userprofile/${item.id}`}
-                style={{ textDecoration: "none", color: "black" }}
+                style={{
+                  textDecoration: "none",
+                  color: theme === "dark" ? "#FFF" : "black",
+                }}
               >
                 <div className="side-menu__suggestion-info">
                   <a> {item.name}</a>

@@ -10,11 +10,15 @@ import '@/styles/tournament/tourbracket.scss'
 import '@/styles/home/modals.scss'
 import { Provider } from 'react-redux';
 import { store } from '@/Redux/store';
+import { ThemeProvider } from 'next-themes';
 export default function App({ Component, pageProps }) {
+  
   return (
     <Provider store={store}>
+      <ThemeProvider defaultTheme="light" attribute="data-theme" >
 
-      <Component {...pageProps} />
+        <Component {...pageProps} />
+      </ThemeProvider>
     </Provider>
 
   )

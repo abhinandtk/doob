@@ -9,6 +9,7 @@ import constants from "@/public/data/my-constants/Constants";
 import apis from "@/public/data/my-constants/Apis";
 import CommentActions from "./CommentActions";
 import moment from "moment";
+import { useTheme } from "next-themes";
 
 function Comments({ setVisibleComment, postId, slug }) {
   const [show, setShow] = useState(true);
@@ -17,6 +18,7 @@ function Comments({ setVisibleComment, postId, slug }) {
   const [replayTo, setReplayTo] = useState(null);
 
   const [loginUserImg, setLoginUser] = useState([]);
+  const { theme } = useTheme();
 
   const [successApi, setSuccessApi] = useState(false);
 
@@ -117,7 +119,10 @@ function Comments({ setVisibleComment, postId, slug }) {
               >
                 <div>
                   <div className="d-flex justify-content-between align-items-center">
-                    <p className="mb-0" style={{ fontWeight: "600" }}>
+                    <p
+                      className="dark-color mb-0"
+                      style={{ fontWeight: "600" }}
+                    >
                       {item.user.username}&nbsp;
                       <span
                         className="small"
@@ -131,7 +136,7 @@ function Comments({ setVisibleComment, postId, slug }) {
                       </span>
                     </p>
                   </div>
-                  <p className="small mb-0">{item.content}</p>
+                  <p className="dark-color small mb-0">{item.content}</p>
 
                   <div
                     className="small d-flex align-items-center"
@@ -145,7 +150,11 @@ function Comments({ setVisibleComment, postId, slug }) {
                       <a onClick={() => handleReply(item.id)}>Reply</a>
                     </span>
                     <span className="ms-3">
-                      <CommentActions user={item.user.id} commentId={item.id} setSuccessApi={setSuccessApi}/>
+                      <CommentActions
+                        user={item.user.id}
+                        commentId={item.id}
+                        setSuccessApi={setSuccessApi}
+                      />
                     </span>
                   </div>
 
@@ -248,7 +257,11 @@ function Comments({ setVisibleComment, postId, slug }) {
                       type=""
                       placeholder="Add a comment"
                       className="mark"
-                      style={{ fontSize: "13px", height: "37px" }}
+                      style={{
+                        fontSize: "13px",
+                        height: "37px",
+                        backgroundColor: theme === "dark" ? "#343C42" : "",
+                      }}
                       onChange={(e) => setComment(e.target.value)}
                       ref={inputRef}
                     />
@@ -256,7 +269,7 @@ function Comments({ setVisibleComment, postId, slug }) {
                   <p
                     className="mx-2"
                     style={{
-                      color: "black",
+                      color: theme === "dark" ? "#17A803" :"black",
                       textDecoration: "none",
                       cursor: "pointer",
                     }}

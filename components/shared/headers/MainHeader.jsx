@@ -15,6 +15,8 @@ import { useRouter } from "next/router";
 import { updateGroundCartCount } from "@/Redux/playgroundCartCount";
 import { updateNotificationCount } from "@/Redux/notificationCount";
 import { updateMessageCount } from "@/Redux/messagesCount";
+import { useTheme } from "next-themes";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 function MainHeader({ title }) {
   const router = useRouter();
@@ -115,6 +117,8 @@ function MainHeader({ title }) {
         style={{ zIndex: 100 }}
       >
         <Container fluid>
+          
+          <ThemeSwitcher />
           <Navbar.Brand href="/">
             <img
               src="/images/Contract Doob before sign 13-40-2 (1).png"

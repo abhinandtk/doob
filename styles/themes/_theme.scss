@@ -1,0 +1,48 @@
+[data-theme="light"] {
+  --background: rgb(208, 18, 18);
+  --foreground: white;
+}
+
+[data-theme="dark"] {
+  //main
+  --primary: #192126;
+  --secondary: #343c42;
+  --white-color: #ffffff;
+  --sidebar-color: #ffffff;
+
+  //modals
+
+  .ant-modal {
+    .ant-modal-content {
+      background-color: var(--primary);
+      .ant-modal-close-x {
+        color: var(--white-color);
+      }
+      .ant-modal-body {
+        .form-control {
+          border: none;
+        }
+      }
+      .ant-modal-header {
+        background-color: var(--primary);
+        .ant-modal-title {
+          color: var(--white-color);
+        }
+      }
+    }
+  }
+  .dark-color {
+    color: var(--white-color);
+  }
+
+  //footer
+  --side-footer-color: #ffffff;
+  //posts
+  --posts-bg: #343c42;
+  --posts-color: #ffffff;
+  .three-dots {
+    color: #ffffff !important;
+  }
+  --background: black;
+  --foreground: white;
+}

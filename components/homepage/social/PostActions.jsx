@@ -134,7 +134,7 @@ export default function PostActions({
             background: "transparent",
           }}
         >
-          <i className="bi bi-three-dots-vertical"></i>
+          <i className="three-dots bi bi-three-dots-vertical"></i>
         </Dropdown.Toggle>
 
         <Dropdown.Menu align="center" className="Menu">

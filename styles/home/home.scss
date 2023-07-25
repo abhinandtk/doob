@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Poppins:wght@300&display=swap");
-
+@import "themes/theme";
 $primary-color: #17a803;
 
 body {
@@ -45,6 +45,8 @@ body {
   border-right: 0px solid #dbdbdb;
   transition: 0.3s;
   margin-top: -23px;
+  color: var(--sidebar-color);
+  
 }
 
 .sidebar-header {
@@ -144,6 +146,8 @@ body {
 .side-menu__footer-list {
   list-style: none;
   padding: 0 12px;
+  color: var(--side-footer-color);
+
 }
 .side-menu__footer-list a {
   font-size: 11px;
@@ -575,11 +579,15 @@ input.nosubmit1 {
   border: 1px solid var(--img-border);
   border-radius: 50%;
 }
+.dropdown-toggle btn{
+  color:white;
+}
 
 .posts {
-  background: white;
+  background: var(--posts-bg);
   margin-top: 9px;
   border: 1px #eeeeee;
+  color: var(--posts-color);
 }
 .post {
   width: 100%;
@@ -589,7 +597,7 @@ input.nosubmit1 {
 }
 
 .post__header {
-  background-color: var(--primary);
+  background-color: var(--posts-bg);
   border-bottom: 1px solid var(--border);
 
   display: flex;
@@ -678,7 +686,7 @@ input.nosubmit1 {
 }
 
 .post__footer {
-  background-color: var(--primary);
+  background-color: var(--posts-bg);
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -881,7 +889,7 @@ input.nosubmit1 {
   font-size: 16px;
   font-weight: 600;
   /* color: var(--text-light); */
-  color: #000;
+  color: var(--sidebar-color);
 }
 .side-menu__suggestions-headers h2 {
   font-size: 19px;
