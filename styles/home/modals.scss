@@ -103,6 +103,18 @@ $primary-color: #17a803;
   border-radius: 50%;
   width: 32px;
   height: 32px;
-  background-color: #17A803;
+  background-color: #17a803;
   cursor: "pointer";
+}
+
+.profile-rank-modal {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: var(--font-theme-color);
+}
+.star-info-content{
+  color:var(--font-theme-color)
 }

@@ -9,17 +9,7 @@ function UserProfileActivityTab({ activityData }) {
       <Card className="card-tab">
         {activityData.map((item, index) => (
           <div key={index}>
-            <h6
-              key={index}
-              style={{
-                color: "#000",
-                fontWeight: "600",
-                fontSize: "18px",
-                marginLeft: "43px",
-                marginTop: "44px",
-                textAlign: "left",
-              }}
-            >
+            <h6 key={index} className="activity-date">
               {item.date}
             </h6>
             {item.data.map((item_, index_) => (
@@ -216,7 +206,13 @@ function UserProfileActivityTab({ activityData }) {
                       >
                         <div>
                           <div className="d-flex justify-content-between align-items-center">
-                            <p className=" Book" style={{textAlign:'start',width:'100%'}}> {item_.title}&nbsp;{item_.order.product_name}</p>
+                            <p
+                              className=" Book"
+                              style={{ textAlign: "start", width: "100%" }}
+                            >
+                              {" "}
+                              {item_.title}&nbsp;{item_.order.product_name}
+                            </p>
                           </div>
                           <p className="small-time ">
                             {moment(item_.created_at).format("hh:mm A")}

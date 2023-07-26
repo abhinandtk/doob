@@ -78,6 +78,7 @@ const apis = {
     'userStoryList': `${constants.port}/social/Api/user_post_story`,
     'singleUserStory': `${constants.port}/social/Api/single_user_story_list`,
     'addPostActivity': `${constants.port}/social/Api/add_post_activity`,
+    'editProfile': `${constants.port}/social/Api/edit_profile_api`,
 
 
     //store module

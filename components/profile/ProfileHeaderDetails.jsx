@@ -8,6 +8,8 @@ import constants from "@/public/data/my-constants/Constants";
 import FollowersList from "./FollowersList";
 import FollowingList from "./FollowingList";
 import StarInfo from "./StarInfo";
+import { useTheme } from "next-themes";
+import ProfileEdit from "./ProfileEdit";
 function ProfileHeaderDetails({ data, setSuccess }) {
   const [visible, setVisible] = useState(false);
   const [uploadImageUrl, setUploadImageUrl] = useState(null);
@@ -20,6 +22,7 @@ function ProfileHeaderDetails({ data, setSuccess }) {
   const [showUpload, setShowUpload] = useState(false);
 
   const [loading, setLoading] = useState(false);
+  const { theme } = useTheme();
 
   const uploadButton = (
     <div>
@@ -78,12 +81,9 @@ function ProfileHeaderDetails({ data, setSuccess }) {
         footer={null}
       >
         <div
+          className="profile-rank-modal"
           style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
             fontWeight: "600",
-            fontSize: "16px",
-            marginBottom: "10px",
           }}
         >
           <div>Game</div>
@@ -93,12 +93,9 @@ function ProfileHeaderDetails({ data, setSuccess }) {
           data.user_rank.map((item, index) => (
             <div
               key={index}
+              className="profile-rank-modal"
               style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
                 fontWeight: "400",
-                fontSize: "16px",
-                marginBottom: "10px",
               }}
             >
               <div>{item.game}</div>
@@ -118,6 +115,7 @@ function ProfileHeaderDetails({ data, setSuccess }) {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            color: theme === "dark" ? "#FFFF" : "",
           }}
         >
           <div
@@ -149,8 +147,9 @@ function ProfileHeaderDetails({ data, setSuccess }) {
               customRequest={({ file }) => {
                 handleUpload(file);
               }}
+              style={{color:"#FFFF" }}
             >
-              Add photo
+              <span style={{color:theme === "dark" ? "#FFFF" : ""}}>Add photo</span>
             </Upload>
           </div>
 
@@ -282,7 +281,7 @@ function ProfileHeaderDetails({ data, setSuccess }) {
                     </li>
                   </ul>
                 </div>
-                {/* <button className=" btn profile-edit-btn1">Edit</button> */}
+                <ProfileEdit data={data}/>
               </div>
             </div>
 

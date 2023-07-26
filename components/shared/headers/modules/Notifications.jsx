@@ -125,15 +125,15 @@ function Notifications({ setNotificationShow }) {
                         )}
                       </a>
                       <div className="side-menu__suggestion-infos">
-                        <a href="#">
+                        <a href="#" style={{ textDecoration: "none" }}>
                           {" "}
                           {item.name}
                           <span
-                            className="ms-1 text-black"
+                            className="ms-1 dark-theme-color"
                             style={{ fontSize: "12px" }}
                           >
-                            Started Following <br></br>you.<span></span>
-                            {notificationTime(item.created_at)}
+                            Started Following <br></br>you.
+                            <span>{notificationTime(item.created_at)}</span>
                           </span>
                         </a>
                       </div>
@@ -184,15 +184,15 @@ function Notifications({ setNotificationShow }) {
                         )}
                       </a>
                       <div className="side-menu__suggestion-infos">
-                        <a href="#">
+                        <a href="#" style={{ textDecoration: "none" }}>
                           {" "}
                           {item.name}
                           <span
-                            className="ms-1 text-black"
+                            className="ms-1 dark-theme-color"
                             style={{ fontSize: "12px" }}
                           >
-                            requested to follow<br></br>you.<span></span>
-                            {notificationTime(item.created_at)}
+                            requested to follow<br></br>you.
+                            <span>{notificationTime(item.created_at)}</span>
                           </span>
                         </a>
                       </div>
@@ -227,15 +227,15 @@ function Notifications({ setNotificationShow }) {
                         )}
                       </a>
                       <div className="side-menu__suggestion-infos">
-                        <a href="#">
+                        <a href="#" style={{ textDecoration: "none" }}>
                           {" "}
                           {item.name}
                           <span
-                            className="ms-1 text-black"
+                            className="ms-1 dark-theme-color"
                             style={{ fontSize: "12px" }}
                           >
-                            Liked your photo.<span></span>
-                            {notificationTime(item.created_at)}
+                            Liked your photo.
+                            <span>{notificationTime(item.created_at)}</span>
                           </span>
                         </a>
                       </div>

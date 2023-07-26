@@ -8,6 +8,7 @@ import { Labels } from "@/public/data/my-constants/Labels";
 import { useRouter } from "next/router";
 import moment from "moment";
 import StarInfo from "./StarInfo";
+import { useTheme } from "next-themes";
 function OtherProfileHeaderDetails({
   data,
   id,
@@ -24,6 +25,7 @@ function OtherProfileHeaderDetails({
   console.log("daaata", data, groundDetail);
   const labels = Labels();
   const router = useRouter();
+  const {theme}=useTheme()
 
   const followHandler = () => {
     Axios.post(
@@ -388,7 +390,7 @@ function OtherProfileHeaderDetails({
                     <button
                       onClick={() => setShow(true)}
                       className="side-menu__suggestion-buttons "
-                      style={{ backgroundColor: "#EFEFEF", color: "#000000" }}
+                      style={{ backgroundColor: theme==='dark'?"#EFEFEF":"#EFEFEF", color: "#000000" }}
                     >
                       Following <i className="bi bi-chevron-down "></i>
                     </button>

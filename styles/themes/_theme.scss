@@ -1,14 +1,30 @@
 [data-theme="light"] {
   --background: rgb(208, 18, 18);
   --foreground: white;
+  --primary: #ffffff;
+  --font-theme-color:#000;
+  --user-name-color: #000;
+  --profile-btn-rank: #eeeeee;
+
+  .dark-theme-color {
+    color: #000;
+  }
 }
 
 [data-theme="dark"] {
   //main
+
   --primary: #192126;
   --secondary: #343c42;
   --white-color: #ffffff;
   --sidebar-color: #ffffff;
+  --font-theme-color: #ffffff;
+
+  //profile
+
+  --user-name-color: #959595;
+  --profile-btn-rank: #192126;
+
 
   //modals
 
@@ -19,6 +35,7 @@
         color: var(--white-color);
       }
       .ant-modal-body {
+        color:#FFFF;
         .form-control {
           border: none;
         }
@@ -31,7 +48,7 @@
       }
     }
   }
-  .dark-color {
+  .dark-theme-color {
     color: var(--white-color);
   }
 

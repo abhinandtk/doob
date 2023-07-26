@@ -1,8 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Poppins:wght@300&display=swap");
+@import "themes/theme";
 $primary-color: #17a803;
 
 body {
-  background: #f1f2f6;
+  background: var(--primary);
 }
 .tour-container {
   width: 900px;
@@ -2368,6 +2369,9 @@ td {
 //   height: 120px;
 
 // }
+input.nosubmit {
+  background-color:var(--secondary);
+}
 
 input.nosubmit1 {
   border: 0px solid #eeeeee;

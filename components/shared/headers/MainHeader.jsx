@@ -48,7 +48,7 @@ function MainHeader({ title }) {
       dispatch(updateStoreCartCount(res.data.data.cart_count));
       dispatch(updateGroundCartCount(res.data.data.playground));
       dispatch(updateNotificationCount(res.data.data.notification_count));
-      dispatch(updateMessageCount(res.data.data.message_count));
+      dispatch(updateMessageCount(res.data.data.total_count));
       setUser(res.data.data.user_type);
       console.log("count", res);
     });

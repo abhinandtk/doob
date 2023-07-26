@@ -246,7 +246,7 @@ body {
   width: 360px;
 }
 .dot {
-  width: 70px;
+  width: 40%;
   color: black;
   margin-right: 10px;
 }
@@ -973,7 +973,7 @@ input.nosubmit1 {
 .side-menu__suggestion-infos a {
   font-size: 14px;
   font-weight: 600;
-  color: var(--text-dark);
+  color: var(--font-theme-color);
   text-decoration: none;
   max-width: 200px;
   text-overflow: ellipsis;

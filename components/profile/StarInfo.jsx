@@ -16,7 +16,7 @@ function StarInfo() {
         centered
         footer={null}
       >
-        <div>
+        <div className="star-info-content">
           <p>To become a Star User, unlock special recognition!</p>
           <ul>
             <li>

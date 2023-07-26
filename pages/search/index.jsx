@@ -161,10 +161,10 @@ function SearchPage() {
                           <div>
                             <div className="d-flex justify-content-between align-items-center">
                               <p
-                                className="mb-0"
+                                className="dark-theme-color mb-0"
                                 style={{
                                   fontWeight: "600",
-                                  color: "#000",
+                                  // color: "#000",
                                   fontSize: "15px",
                                 }}
                               >
@@ -173,9 +173,9 @@ function SearchPage() {
                             </div>
 
                             <p
-                              className="small "
+                              className="dark-theme-color small "
                               style={{
-                                color: "#000",
+                                // color: "#000",
                                 fontWeight: "400",
                                 fontSize: "14px",
                                 marginTop: "-3px",

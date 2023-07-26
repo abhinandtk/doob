@@ -120,7 +120,7 @@ function Comments({ setVisibleComment, postId, slug }) {
                 <div>
                   <div className="d-flex justify-content-between align-items-center">
                     <p
-                      className="dark-color mb-0"
+                      className="dark-theme-color mb-0"
                       style={{ fontWeight: "600" }}
                     >
                       {item.user.username}&nbsp;
@@ -136,7 +136,7 @@ function Comments({ setVisibleComment, postId, slug }) {
                       </span>
                     </p>
                   </div>
-                  <p className="dark-color small mb-0">{item.content}</p>
+                  <p className="dark-theme-color small mb-0">{item.content}</p>
 
                   <div
                     className="small d-flex align-items-center"
