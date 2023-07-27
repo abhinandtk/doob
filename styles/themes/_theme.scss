@@ -1,13 +1,19 @@
 [data-theme="light"] {
-  --background: rgb(208, 18, 18);
-  --foreground: white;
-  --primary: #ffffff;
-  --font-theme-color:#000;
+  // --background: rgb(208, 18, 18);
+  // --foreground: white;
+  --primary: #EEEEEE;
+  --font-theme-color: #000;
   --user-name-color: #000;
   --profile-btn-rank: #eeeeee;
 
   .dark-theme-color {
     color: #000;
+  }
+  .dark-theme-gd {
+    color: #212529;
+  }
+  .input-theme-sw {
+    color: #EEEEEE;
   }
 }
 
@@ -16,17 +22,27 @@
 
   --primary: #192126;
   --secondary: #343c42;
-  --white-color: #ffffff;
-  --sidebar-color: #ffffff;
-  --font-theme-color: #ffffff;
+  --white-color: #EEEEEE;
+  --sidebar-color: #EEEEEE;
+  --font-theme-color: #EEEEEE;
 
   //profile
 
   --user-name-color: #959595;
   --profile-btn-rank: #192126;
 
-
   //modals
+  .ant-card{
+    background-color: var(--secondary);
+    border:none;
+    .ant-card-body{
+      .ant-card-meta{
+        .ant-card-meta-title{
+          color: var(--white-color);
+        }
+      }
+    }
+  }
 
   .ant-modal {
     .ant-modal-content {
@@ -35,7 +51,7 @@
         color: var(--white-color);
       }
       .ant-modal-body {
-        color:#FFFF;
+        color: #ffff;
         .form-control {
           border: none;
         }
@@ -48,18 +64,28 @@
       }
     }
   }
+
+  // class names
+
   .dark-theme-color {
     color: var(--white-color);
   }
+  .dark-theme-gd {
+    color: grey;
+  }
+  .input-theme-sw {
+    color: var(--secondary);
+  }
+  
 
-  //footer
-  --side-footer-color: #ffffff;
   //posts
   --posts-bg: #343c42;
-  --posts-color: #ffffff;
+  --posts-color: #EEEEEE;
   .three-dots {
-    color: #ffffff !important;
+    color: #EEEEEE !important;
   }
+  //footer
+  --side-footer-color: #EEEEEE;
   --background: black;
   --foreground: white;
 }

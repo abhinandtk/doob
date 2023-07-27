@@ -14,6 +14,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { setProVarient } from "@/Redux/productDetail";
 import { useDispatch } from "react-redux";
+import { useTheme } from "next-themes";
 
 function StoreProductsCard({ products, title }) {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ function StoreProductsCard({ products, title }) {
     }))
   );
   // products = updatedStore
+  const { theme } = useTheme();
   const addWishlistHandler = (id, favorite) => {
     const api = favorite ? apis.removewishlist : apis.addwishlist;
     Axios.post(
@@ -58,9 +60,7 @@ function StoreProductsCard({ products, title }) {
   };
   return (
     <div>
-      {console.log("wetrrtrtweeee()))()", updatedStore)}
-
-      <h5>
+      <h5 style={{ color: theme === "dark" ? "#FFFF" : "#212529" }}>
         {title}
         {/* <span className="view">View All</span> */}
       </h5>

@@ -63,7 +63,7 @@ function ShippingAddress({ data, setOnSuccess }) {
         />
       </Modal>
 
-      <h6 className="mt-3 ">Shipping Address</h6>
+      <h6 className="mt-3 dark-theme-color">Shipping Address</h6>
       {data.length !== 0 ? (
         data.map((item, index) => (
           <div key={index} className="card mb-2 ">

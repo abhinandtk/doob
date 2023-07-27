@@ -6,7 +6,7 @@ function SearchCategory({ category, }) {
   return (
     <Fragment>
       <div className="my-2 " >
-        <h5>Category</h5>
+        <h5 className="dark-theme-color">Category</h5>
          <div className="game-scroll ">
         
         {category.map((item, index) => (

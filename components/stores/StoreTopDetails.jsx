@@ -159,7 +159,7 @@ function StoreTopDetails({ data, setSuccess }) {
       <div className="my-3">
         <div className="row">
           <div className="col-md-6">
-            <h5>{data.title}</h5>
+            <h5 className="dark-theme-color">{data.title}</h5>
             <p style={{ fontSize: "13px", color: "gray" }}>{data.address}</p>
             <span>
               <p className="mx-1" onClick={()=>router.push(`/store/store-review/${sid}`)}>
@@ -167,7 +167,7 @@ function StoreTopDetails({ data, setSuccess }) {
                 {data.review_average_rating} <span style={{ color: "grey" }}>({data.review_count} reviews)</span>
               </p>
             </span>
-            <p>
+            <p className="dark-theme-color">
               <i className="bi bi-clock"></i>
               <span className="mx-2">
                 {moment(data.start_time, "HH:mm:ss").format("hh:mm A")} -
@@ -190,8 +190,8 @@ function StoreTopDetails({ data, setSuccess }) {
           {descShow && ( 
             <div className="text">
               <div className="description">
-                <h5>Description</h5>
-                <p className="col-md-12">{data.description}</p>
+                <h5 className="dark-theme-color">Description</h5>
+                <p className="col-md-12 dark-theme-gd">{data.description}</p>
               </div>
             </div>
           )}

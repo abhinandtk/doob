@@ -60,7 +60,7 @@ function ProductDetailPage() {
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col">
               <div className="card cart">
-                <div className="card-body p-4">
+                <div className="card-body p-4 ">
                   <div className="row ">
                     <ProductDetailFullWidth product={productDetails} setApiSuccess={setApiSuccess}/>
                   </div>

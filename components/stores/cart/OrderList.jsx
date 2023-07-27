@@ -117,7 +117,7 @@ function OrderList({ product, setOnSuccess }) {
           </div>
 
           {product.product_stock !== 0 ? (
-            <div className="qty1">
+            <div className="qty1 " >
               <div onClick={() => handleIncreaseQty()} className="plus">
                 +
               </div>

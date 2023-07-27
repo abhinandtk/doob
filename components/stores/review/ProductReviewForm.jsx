@@ -57,9 +57,13 @@ function ProductReviewForm({ setOnSuccess, userImg }) {
   return (
     <div className="col-lg-12">
       <h5 className="mb-3">
-        <a href="#!" className="text-body">
+        <a href="#" className="text-body">
           <img
-            src={`${constants.port}${userImg}`}
+            src={
+              userImg
+                ? `${constants.port}${userImg}`
+                : "/images/accounts/user_default.png"
+            }
             style={{
               width: "44px",
               height: "44px",
@@ -78,7 +82,6 @@ function ProductReviewForm({ setOnSuccess, userImg }) {
           <textarea
             className="form-control op p-4  "
             style={{
-              backgroundColor: "#EEEEEE",
               border: "0px",
             }}
             placeholder="Share your Review "
