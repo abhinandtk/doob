@@ -47,8 +47,8 @@ function StockPage() {
           <div class="content-topics ">
             <div className="bottom">
               <h6
-                className=" ms-4 mb-4"
-                style={{ color: "#17a803", fontWeight: "700" }}
+                className="dark-theme-color-grw ms-4 mb-4"
+                style={{ fontWeight: "700" }}
               >
                 Stock
               </h6>
@@ -62,7 +62,7 @@ function StockPage() {
                   {stockData.map((item, index) => (
                     <div
                       key={index}
-                      className=" d-flex justify-content-between  customer my-3"
+                      className="input-theme-prod d-flex justify-content-between  customer my-3"
                     >
                       <span className="sales-report-name">{item.variant_name}&nbsp;{item.varient_value}&nbsp;{item.multivarient}</span>
                       <span className="sales-order-price">{item.stock}</span>

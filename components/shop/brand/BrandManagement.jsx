@@ -43,7 +43,7 @@ function BrandManagement() {
   return (
     <div className="content-topics ">
       <div className="bottom">
-        <h6 className=" ms-4" style={{ color: "#17a803", fontWeight: "700" }}>
+        <h6 className="dark-theme-color-grw ms-4" style={{  fontWeight: "700" }}>
           Brand Management
         </h6>
 

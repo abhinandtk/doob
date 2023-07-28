@@ -40,11 +40,11 @@ function MyOrders() {
   return (
     <Fragment>
       <div class="content-topic ">
-        <h5 className="mt-4 ms-4">Order History</h5>
+        <h5 className="mt-4 ms-4 dark-theme-color">Order History</h5>
         {ordersList.map((item, index) => {
           return (
-            <div key={index}>
-              <p className="mx-auto order-code ">#{item.order_id_m}</p>
+            <div key={index} className="dark-theme-color">
+              <p className="mx-auto order-code dark-theme-color">#{item.order_id_m}</p>
               <hr className="mx-auto" style={{ width: "90%" }}></hr>
               <div
                 className="p-2 mx-auto d-flex justify-content-between align-items-center"
@@ -53,46 +53,35 @@ function MyOrders() {
                 <span style={{ color: "#959595" }}>Order Date</span>
                 <span>{moment(item.order_date).format("DD-MM-YYYY")}</span>
               </div>
-              <div
-                className="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center"
-                style={{
-                  background: "#eeeeee",
-                  borderRadius: "10px",
-                  width: "90%",
-                }}
-              >
+              <div className="order-list-alt p-2 mt-2 mx-auto d-flex justify-content-between align-items-center">
                 <span style={{ color: "#959595" }}>Price</span>
                 <span>{item.order_total} KD</span>
               </div>
               <div
-                className="p-2   mx-auto d-flex justify-content-between align-items-center"
+                className="p-2 mx-auto d-flex justify-content-between align-items-center"
                 style={{ width: "90%" }}
               >
                 <span style={{ color: "#959595" }}>Payment Mode</span>
                 <span>{item.mode}</span>
               </div>
-              <div
-                className="p-2  mx-auto d-flex justify-content-between align-items-center"
-                style={{
-                  background: "#eeeeee",
-                  borderRadius: "10px",
-                  width: "90%",
-                }}
-              >
+              <div className="order-list-alt p-2 mx-auto d-flex justify-content-between align-items-center">
                 <span style={{ color: "#959595" }}>Payment Status</span>
-                <span style={{ color: "#FF640D" }}>{item.payment_status}</span>
+                <span style={{ color:item.payment_status==="Received"?"#17A803": "#FF640D" }}>
+                  {item.payment_status}
+                </span>
               </div>
 
               <div
                 className="p-2   mx-auto d-flex justify-content-between align-items-center"
                 style={{ width: "90%" }}
               >
-                <span style={{ color: "#959595" }}>Order Status</span>
-                <span style={{ color: "#FF640D" }}>{item.order_status}</span>
+                <span style={{ color:"#959595" }}>Order Status</span>
+                <span style={{ color:item.order_status==="delivered"?"#17A803": "#FF640D" }}>
+                  {item.order_status}
+                </span>
               </div>
               <div
-                className="p-2 mx-auto d-flex justify-content-between align-items-center"
-                style={{ width: "90%" }}
+                className="order-list-alt p-2 mx-auto d-flex justify-content-between align-items-center"
                 onClick={() => toggleOrderItem(index)}
               >
                 <span style={{ color: "#959595" }}>Items</span>
@@ -117,7 +106,7 @@ function MyOrders() {
                     borderBottom: "1px solid black",
                     textDecoration: "none",
                     color: "inherit",
-                    cursor:"pointer"
+                    cursor: "pointer",
                   }}
                   download
                 >

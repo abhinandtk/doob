@@ -48,7 +48,7 @@ function OrderProductCard({ products }) {
                     <small class="option__value_prices">{item.product_selling_price} KD x {item.count}</small>
                   </div>
                   <div>
-                    <small class="option__value ">{item.product_selling_price * item.count} KD</small>
+                    <small class="option__value ">{(item.product_selling_price * item.count).toFixed(3)} KD</small>
                   </div>
                 </div>
               </div>

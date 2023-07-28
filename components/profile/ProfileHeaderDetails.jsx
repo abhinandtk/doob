@@ -281,7 +281,7 @@ function ProfileHeaderDetails({ data, setSuccess }) {
                     </li>
                   </ul>
                 </div>
-                <ProfileEdit data={data}/>
+                <ProfileEdit data={data} setSuccess={setSuccess}/>
               </div>
             </div>
 

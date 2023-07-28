@@ -70,8 +70,8 @@ function StoreSettingsPage() {
           <div className="content-topics ">
             <div className="bottom">
               <h6
-                className=" ms-4"
-                style={{ color: "#17a803", fontWeight: "700" }}
+                className="dark-theme-color-grw ms-4"
+                style={{ fontWeight: "700" }}
               >
                 Store Settings
               </h6>

@@ -174,11 +174,10 @@ function AdminAllOrders() {
           <ShopPagesSideBar currentPage="allOrders" />
 
           <div className="content-topic  ">
-            <div className="bottom">
+            <div className="bottom dark-theme-color">
               <h6
-                className="All-order"
+                className="All-order dark-theme-color-grw"
                 style={{
-                  color: "#17a803",
                   fontWeight: "700",
                   marginBottom: "30px",
                 }}
@@ -219,14 +218,7 @@ function AdminAllOrders() {
                       <span style={{ color: "#959595" }}>Customer Name</span>
                       <span>{item.username}</span>
                     </div>
-                    <div
-                      className="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center"
-                      style={{
-                        background: "#eeeeee",
-                        borderRadius: "10px",
-                        width: "90%",
-                      }}
-                    >
+                    <div className="order-list-alt p-2 mt-2 mx-auto d-flex justify-content-between align-items-center">
                       <span style={{ color: "#959595" }}>Address</span>
                       <span className="address-admin"> {item.address} </span>
                     </div>
@@ -239,14 +231,7 @@ function AdminAllOrders() {
                         {moment(item.order_date).format("DD MMM YYYY")}
                       </span>
                     </div>
-                    <div
-                      className="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center"
-                      style={{
-                        background: "#eeeeee",
-                        borderRadius: "10px",
-                        width: "90%",
-                      }}
-                    >
+                    <div className="order-list-alt p-2 mt-2 mx-auto d-flex justify-content-between align-items-center">
                       <span style={{ color: "#959595" }}>Price</span>
                       <span> {item.order_total} KD </span>
                     </div>
@@ -257,14 +242,7 @@ function AdminAllOrders() {
                       <span style={{ color: "#959595" }}>Payment Mode</span>
                       <span> {item.mode} </span>
                     </div>
-                    <div
-                      className="p-2  mx-auto d-flex justify-content-between align-items-center"
-                      style={{
-                        background: "#eeeeee",
-                        borderRadius: "10px",
-                        width: "90%",
-                      }}
-                    >
+                    <div className=" order-list-alt p-2  mx-auto d-flex justify-content-between align-items-center">
                       <span style={{ color: "#959595" }}>Payment Status</span>
                       <span style={{ color: "#FF640D" }}>
                         {item.payment_status}

@@ -207,7 +207,7 @@ function EarningsReport() {
                     earningsData.per_day_earnings.map((item, index) => (
                       <div
                         key={index}
-                        className="p-3 d-flex justify-content-between  customer"
+                        className="input-theme-prod p-3 d-flex justify-content-between  customer"
                       >
                         <span className="sales-report-name">{item.date}</span>
                         <span>{item.price} KD</span>

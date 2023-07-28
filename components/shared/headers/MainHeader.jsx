@@ -71,20 +71,23 @@ function MainHeader({ title }) {
       .then((res) => {
         if (res.data.status === 1) {
           localStorage.removeItem("user-login-tokens");
+          localStorage.removeItem('hasReloaded')
+
           notification.success({
             message: " Success",
             description: "Logout Successfully",
           });
           router.push("/");
-          window.location.reload(false);
+          // window.location.reload();
         } else {
           localStorage.removeItem("user-login-tokens");
+          localStorage.removeItem('hasReloaded')
           notification.success({
             message: " Success",
             description: "Logout Successfully",
           });
           router.push("/");
-          window.location.reload(false);
+          // window.location.reload();
           console.log("error loading");
         }
       })

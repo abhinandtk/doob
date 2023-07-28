@@ -1,19 +1,34 @@
 [data-theme="light"] {
   // --background: rgb(208, 18, 18);
   // --foreground: white;
-  --primary: #EEEEEE;
+  --primary: #f1f2f6;
+
   --font-theme-color: #000;
   --user-name-color: #000;
   --profile-btn-rank: #eeeeee;
+  --posts-bg: #ffffff;
+  --contents-bg: #ffffff;
+
+  //store
+
+  --row-list-alt: #eeeeee;
+  --ad-input-form-color:#eeeeee;
+
 
   .dark-theme-color {
     color: #000;
+  }
+  .dark-theme-color-grw {
+    color: #17a803;
   }
   .dark-theme-gd {
     color: #212529;
   }
   .input-theme-sw {
-    color: #EEEEEE;
+    color: #eeeeee;
+  }
+  .input-theme-prod {
+    background-color: #eeeeee;
   }
 }
 
@@ -22,22 +37,27 @@
 
   --primary: #192126;
   --secondary: #343c42;
-  --white-color: #EEEEEE;
-  --sidebar-color: #EEEEEE;
-  --font-theme-color: #EEEEEE;
+  --white-color: #eeeeee;
+  --sidebar-color: #eeeeee;
+  --font-theme-color: #eeeeee;
+  --contents-bg: #343c42;
 
   //profile
 
   --user-name-color: #959595;
   --profile-btn-rank: #192126;
 
+  //store
+  --row-list-alt: #3b444a;
+  --ad-input-form-color:#192126;
+
   //modals
-  .ant-card{
+  .ant-card {
     background-color: var(--secondary);
-    border:none;
-    .ant-card-body{
-      .ant-card-meta{
-        .ant-card-meta-title{
+    border: none;
+    .ant-card-body {
+      .ant-card-meta {
+        .ant-card-meta-title {
           color: var(--white-color);
         }
       }
@@ -70,22 +90,27 @@
   .dark-theme-color {
     color: var(--white-color);
   }
+  .dark-theme-color-grw {
+    color: var(--white-color);
+  }
   .dark-theme-gd {
     color: grey;
   }
   .input-theme-sw {
     color: var(--secondary);
   }
-  
+  .input-theme-prod {
+    background-color: #3B444A;
+  }
 
   //posts
   --posts-bg: #343c42;
-  --posts-color: #EEEEEE;
+  --posts-color: #eeeeee;
   .three-dots {
-    color: #EEEEEE !important;
+    color: #eeeeee !important;
   }
   //footer
-  --side-footer-color: #EEEEEE;
+  --side-footer-color: #eeeeee;
   --background: black;
   --foreground: white;
 }

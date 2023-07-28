@@ -49,7 +49,10 @@ function BookingDetailsCard({ details, setSuccess }) {
       {details &&
         details.map((item, index) => (
           <div key={index}>
-            <p className="order-code " style={{ fontWeight: "500" }}>
+            <p
+              className="order-code dark-theme-color"
+              style={{ fontWeight: "500" }}
+            >
               #{item.id}
             </p>
             <hr className="mx-auto" style={{ width: "90%" }}></hr>
@@ -63,8 +66,6 @@ function BookingDetailsCard({ details, setSuccess }) {
             <div
               className="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center"
               style={{
-                background: "#eeeeee",
-                borderRadius: "10px",
                 width: "90%",
               }}
             >
@@ -72,7 +73,7 @@ function BookingDetailsCard({ details, setSuccess }) {
               <span> {moment(item.date).format("DD MMM YYYY")} </span>
             </div>
             <div
-              className="p-2   mx-auto d-flex justify-content-between align-items-center"
+              className="p-2 order-list-alt mx-auto d-flex justify-content-between align-items-center"
               style={{ width: "90%" }}
             >
               <span style={{ color: "#959595" }}>Slot </span>
@@ -89,8 +90,6 @@ function BookingDetailsCard({ details, setSuccess }) {
             <div
               className="p-2 mt-1 mx-auto d-flex justify-content-between align-items-center"
               style={{
-                background: "#eeeeee",
-                borderRadius: "10px",
                 width: "90%",
               }}
             >
@@ -99,7 +98,7 @@ function BookingDetailsCard({ details, setSuccess }) {
             </div>
 
             <div
-              className="p-2  mx-auto d-flex justify-content-between align-items-center"
+              className="p-2 order-list-alt mx-auto d-flex justify-content-between align-items-center"
               style={{ width: "90%" }}
             >
               <span style={{ color: "#959595" }}>Price</span>
@@ -109,8 +108,6 @@ function BookingDetailsCard({ details, setSuccess }) {
             <div
               className="p-2   mx-auto d-flex justify-content-between align-items-center"
               style={{
-                background: "#eeeeee",
-                borderRadius: "10px",
                 width: "90%",
               }}
             >
@@ -118,7 +115,7 @@ function BookingDetailsCard({ details, setSuccess }) {
               <span> {item.payment_method} </span>
             </div>
             <div
-              className="p-2  mx-auto d-flex justify-content-between align-items-center"
+              className="p-2 order-list-alt mx-auto d-flex justify-content-between align-items-center"
               style={{ width: "90%" }}
             >
               <span style={{ color: "#959595" }}>Payment Status</span>
@@ -127,8 +124,6 @@ function BookingDetailsCard({ details, setSuccess }) {
             <div
               className="p-2   mx-auto d-flex justify-content-between align-items-center"
               style={{
-                background: "#eeeeee",
-                borderRadius: "10px",
                 width: "90%",
               }}
             >
@@ -140,7 +135,7 @@ function BookingDetailsCard({ details, setSuccess }) {
               >{`${item.status === true ? "Success" : "Cancelled"}`}</span>
             </div>
             <div
-              className="p-2 mt-3  mx-auto d-flex justify-content-between align-items-center"
+              className="p-2  mt-3  mx-auto d-flex justify-content-between align-items-center"
               style={{ width: "90%" }}
             >
               <span style={{ color: "#959595" }}></span>

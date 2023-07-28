@@ -116,6 +116,7 @@ function StoreDetailPage() {
         {/* <StoreBannerCard /> */}
         {storeBanners.length > 0 && (
           <section>
+            
             <Carousel
               prevArrow={
                 <Button className="carousel-arrow" icon={<LeftOutlined />} />

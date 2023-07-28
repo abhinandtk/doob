@@ -38,51 +38,51 @@ function AllTournamentPage() {
           <h5 className=" my-4" style={{ fontWeight: "600" }}>
             Tournaments
           </h5>
-
-          <div
-            className="btn-group mx-1"
-            role="group"
-            aria-label="Second group"
-          >
-            <button
-              type="button"
-              onClick={() => setSelectedStatus("ongoing")}
-              className={`btn btn-outline-secondary ${
-                selectedStatus === "ongoing" ? "match1" : "match2"
-              } `}
+          <div className="top-head-tour">
+            <div
+              className="btn-group mx-1"
+              role="group"
+              aria-label="Second group"
             >
-              Ongoing
-            </button>
-          </div>
-          <div
-            onClick={() => setSelectedStatus("future")}
-            className="btn-group mx-2"
-            role="group"
-            aria-label="Second group"
-          >
-            <button
-              type="button"
-              className={`btn btn-outline-secondary ${
-                selectedStatus === "future" ? "match1" : "match2"
-              } `}
+              <button
+                type="button"
+                onClick={() => setSelectedStatus("ongoing")}
+                className={`btn btn-outline-secondary ${
+                  selectedStatus === "ongoing" ? "match1" : "match2"
+                } `}
+              >
+                Ongoing
+              </button>
+            </div>
+            <div
+              onClick={() => setSelectedStatus("future")}
+              className="btn-group mx-2"
+              role="group"
+              aria-label="Second group"
             >
-              Future
-            </button>
-          </div>
-
-          <div className="topnav my-2">
-            <span
-              onClick={() => setSelectedType("ranked")}
-              className={`${selectedType === "ranked" ? "active" : ""}`}
-            >
-              Ranked
-            </span>
-            <span
-              className={` ${selectedType === "unranked" ? "active" : ""}`}
-              onClick={() => setSelectedType("unranked")}
-            >
-              Unranked
-            </span>
+              <button
+                type="button"
+                className={`btn btn-outline-secondary ${
+                  selectedStatus === "future" ? "match1" : "match2"
+                } `}
+              >
+                Future
+              </button>
+            </div>
+            <div className="topnav my-2">
+              <span
+                onClick={() => setSelectedType("ranked")}
+                className={`${selectedType === "ranked" ? "active" : ""}`}
+              >
+                Ranked
+              </span>
+              <span
+                className={` ${selectedType === "unranked" ? "active" : ""}`}
+                onClick={() => setSelectedType("unranked")}
+              >
+                Unranked
+              </span>
+            </div>
           </div>
           <br></br>
 

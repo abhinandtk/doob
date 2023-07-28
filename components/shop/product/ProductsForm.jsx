@@ -270,8 +270,8 @@ function ProductsForm({ handleProductAdd, editData }) {
 
   return (
     <div className="content-topic  ">
-      <div className="bottom">
-        <h6 className=" ms-4" style={{ color: "#17a803", fontWeight: "700" }}>
+      <div className="bottom dark-theme-color">
+        <h6 className="dark-theme-color-grw ms-4" style={{ fontWeight: "700" }}>
           {editData === "true" ? "Edit Products" : "Add Products"}
         </h6>
 
@@ -282,12 +282,7 @@ function ProductsForm({ handleProductAdd, editData }) {
               <label for="exampleFormControlInput1">Name</label>
               <input
                 type="text"
-                className="form-control p-2"
-                style={{
-                  border: "0px",
-                  background: "#eeeeee",
-                  color: "grey",
-                }}
+                className="add-prod-input add-prod-input form-control p-2"
                 id="name"
                 value={formData.name}
                 onChange={(e) => handleChange(e)}
@@ -297,12 +292,7 @@ function ProductsForm({ handleProductAdd, editData }) {
               <label for="exampleFormControlInput1">Name in Arabic</label>
               <input
                 type="text"
-                className="form-control p-2"
-                style={{
-                  border: "0px",
-                  background: "#eeeeee",
-                  color: "grey",
-                }}
+                className="add-prod-input form-control p-2"
                 id="nameArabic"
                 value={formData.nameArabic}
                 onChange={(e) => handleChange(e)}
@@ -311,12 +301,7 @@ function ProductsForm({ handleProductAdd, editData }) {
             <div className="form-group my-2">
               <label for="exampleFormControlSelect1">Brand</label>
               <select
-                className="form-control p-2"
-                style={{
-                  border: "0px",
-                  background: "#eeeeee",
-                  color: "grey",
-                }}
+                className="add-prod-input form-control p-2"
                 id="brand"
                 value={formData.brand}
                 onChange={(e) => handleChange(e)}
@@ -337,12 +322,7 @@ function ProductsForm({ handleProductAdd, editData }) {
             <div className="form-group my-2">
               <label for="exampleFormControlSelect1">Category</label>
               <select
-                className="form-control p-2"
-                style={{
-                  border: "0px",
-                  background: "#eeeeee",
-                  color: "grey",
-                }}
+                className="add-prod-input form-control p-2"
                 id="category"
                 onChange={(e) => handleChange(e)}
               >
@@ -363,12 +343,7 @@ function ProductsForm({ handleProductAdd, editData }) {
             <div className="form-group my-2">
               <label for="exampleFormControlSelect1">Sub Category</label>
               <select
-                className="form-control p-2"
-                style={{
-                  border: "0px",
-                  background: "#eeeeee",
-                  color: "grey",
-                }}
+                className="add-prod-input form-control p-2"
                 id="subCategory"
                 onChange={(e) => handleChange(e)}
                 value={formData.subCategory}
@@ -394,12 +369,7 @@ function ProductsForm({ handleProductAdd, editData }) {
               <input
                 type="file"
                 id="thumbnail"
-                className="form-control  p-2 "
-                style={{
-                  border: "0px",
-                  background: "#eeeeee",
-                  color: "grey",
-                }}
+                className="add-prod-input form-control  p-2 "
                 placeholder="No file choosen"
                 onChange={(e) => handleChange(e)}
               />
@@ -408,12 +378,7 @@ function ProductsForm({ handleProductAdd, editData }) {
               <label for="exampleFormControlInput1">Tag</label>
               <input
                 type="text"
-                className="form-control p-2"
-                style={{
-                  border: "0px",
-                  background: "#eeeeee",
-                  color: "grey",
-                }}
+                className="add-prod-input form-control p-2"
                 id="tag"
                 value={formData.tag}
                 onChange={(e) => handleChange(e)}
@@ -423,12 +388,7 @@ function ProductsForm({ handleProductAdd, editData }) {
             <div className="form-group my-2">
               <label for="exampleFormControlSelect1">Primary Variant</label>
               <select
-                className="form-control p-2"
-                style={{
-                  border: "0px",
-                  background: "#eeeeee",
-                  color: "grey",
-                }}
+                className="add-prod-input form-control p-2"
                 id="primary"
                 onChange={(e) => handleChange(e)}
               >
@@ -449,12 +409,7 @@ function ProductsForm({ handleProductAdd, editData }) {
             <div className="form-group my-2">
               <label for="exampleFormControlSelect1">Secondary Variant</label>
               <select
-                className="form-control p-2"
-                style={{
-                  border: "0px",
-                  background: "#eeeeee",
-                  color: "grey",
-                }}
+                className="add-prod-input form-control p-2"
                 id="secondary"
                 onChange={(e) => handleChange(e)}
               >
@@ -476,12 +431,7 @@ function ProductsForm({ handleProductAdd, editData }) {
             <div className="form-group my-2 ">
               <label for="exampleFormControlTextarea1">Description</label>
               <textarea
-                className="form-control"
-                style={{
-                  border: "0px",
-                  background: "#eeeeee",
-                  color: "grey",
-                }}
+                className="add-prod-input form-control"
                 id="description"
                 rows="3"
                 value={formData.description}
@@ -493,12 +443,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                 Description in Arabic
               </label>
               <textarea
-                className="form-control"
-                style={{
-                  border: "0px",
-                  background: "#eeeeee",
-                  color: "grey",
-                }}
+                className="add-prod-input form-control"
                 id="description_ar"
                 rows="3"
                 value={formData.description_ar}
@@ -509,7 +454,7 @@ function ProductsForm({ handleProductAdd, editData }) {
               <div className="form-group my-2">
                 <label for="exampleFormControlSelect1">Product Status</label>
                 <select
-                  className="form-control p-2"
+                  className="add-prod-input form-control p-2"
                   style={{
                     border: "0px",
                     background: "#eeeeee",
@@ -543,12 +488,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                   <label for="exampleFormControlInput1">SKU</label>
                   <input
                     type="text"
-                    className="form-control p-2"
-                    style={{
-                      border: "0px",
-                      background: "#eeeeee",
-                      color: "grey",
-                    }}
+                    className="add-prod-input form-control p-2"
                     id="sku"
                     value={item.sku}
                     onChange={(e) => handleVariantChange(e, index)}
@@ -558,12 +498,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                   <label for="exampleFormControlInput1">Quantity</label>
                   <input
                     type="text"
-                    className="form-control p-2"
-                    style={{
-                      border: "0px",
-                      background: "#eeeeee",
-                      color: "grey",
-                    }}
+                    className="add-prod-input form-control p-2"
                     id="quantity"
                     value={item.quantity}
                     onChange={(e) => handleVariantChange(e, index)}
@@ -577,12 +512,8 @@ function ProductsForm({ handleProductAdd, editData }) {
                   <input
                     type="file"
                     id="formFile"
-                    className="form-control p-2 "
-                    style={{
-                      border: "0px",
-                      background: "#eeeeee",
-                      color: "grey",
-                    }}
+                    className="add-prod-input form-control p-2 "
+                    
                     placeholder="No file choosen"
                     onChange={(e) => handleVariantChange(e, index)}
                   />
@@ -595,12 +526,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                   <input
                     type="file"
                     id="formFile"
-                    className="form-control p-2 "
-                    style={{
-                      border: "0px",
-                      background: "#eeeeee",
-                      color: "grey",
-                    }}
+                    className="add-prod-input form-control p-2 "
                     placeholder="No file choosen"
                     onChange={(e) => handleImageChange(e, index)}
                     multiple // Allow selecting multiple images
@@ -649,12 +575,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                 <div className="form-group my-2">
                   <label for="exampleFormControlSelect1">Color</label>
                   <select
-                    className="form-control p-2"
-                    style={{
-                      border: "0px",
-                      background: "#eeeeee",
-                      color: "grey",
-                    }}
+                    className="add-prod-input form-control p-2"
                     id="color"
                     onChange={(e) => handleVariantChange(e, index)}
                   >
@@ -673,12 +594,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                 <div className="form-group my-2">
                   <label for="exampleFormControlSelect1">Size</label>
                   <select
-                    className="form-control p-2"
-                    style={{
-                      border: "0px",
-                      background: "#eeeeee",
-                      color: "grey",
-                    }}
+                    className="add-prod-input form-control p-2"
                     id="size"
                     onChange={(e) => handleVariantChange(e, index)}
                   >
@@ -700,12 +616,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                   </label>
                   <input
                     type="text"
-                    className="form-control p-2"
-                    style={{
-                      border: "0px",
-                      background: "#eeeeee",
-                      color: "grey",
-                    }}
+                    className="add-prod-input form-control p-2"
                     id="actualPrize"
                     value={item.actualPrize}
                     onChange={(e) => handleVariantChange(e, index)}
@@ -717,8 +628,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                   </label>
                   <input
                     type="text"
-                    className="form-control p-2"
-                    style={{ border: "0px", background: "#eeeeee" }}
+                    className="add-prod-input form-control p-2"
                     id="sellingPrice"
                     value={item.sellingPrice}
                     onChange={(e) => handleVariantChange(e, index)}
@@ -730,12 +640,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                       Variant Status
                     </label>
                     <select
-                      className="form-control p-2"
-                      style={{
-                        border: "0px",
-                        background: "#eeeeee",
-                        color: "grey",
-                      }}
+                      className="add-prod-input form-control p-2"
                       id="varStatus"
                       onChange={(e) => handleVariantChange(e, index)}
                       value={item.varStatus}

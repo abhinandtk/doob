@@ -7,7 +7,7 @@ import { useState } from "react";
 import Axios from "axios";
 import Form from "react-bootstrap/Form";
 
-function ProfileEdit({ data }) {
+function ProfileEdit({ data, setSuccess }) {
   const [showEdit, setShowEdit] = useState(false);
   const [countryData, setCountryData] = useState([]);
   console.log("444478", data);
@@ -66,6 +66,7 @@ function ProfileEdit({ data }) {
     ).then((res) => {
       console.log("resreg", res);
       if (res.data.status === 1) {
+        setSuccess((prev) => !prev);
         setShowEdit(false);
         notification.success({
           message: constants.Success,
@@ -210,6 +211,7 @@ function ProfileEdit({ data }) {
               required
             />
           </Form.Group>
+          
         </Form>
       </Modal>
       <button

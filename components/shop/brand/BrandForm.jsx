@@ -43,12 +43,8 @@ function BrandForm({handleBrandForm,editDetails}) {
           <label for="exampleFormControlInput1">Brand Name</label>
           <input
             type="text"
-            class="form-control p-2"
-            style={{
-              border: "0px",
-              background: "#eeeeee",
-              color: "grey",
-            }}
+            class="ad-input-form form-control p-2"
+            
             id="name"
             onChange={(e) => handleChange(e)}
             value={formData.name}
@@ -58,12 +54,8 @@ function BrandForm({handleBrandForm,editDetails}) {
           <label for="exampleFormControlInput1">Brand Name in Arabic</label>
           <input
             type="text"
-            class="form-control p-2"
-            style={{
-              border: "0px",
-              background: "#eeeeee",
-              color: "grey",
-            }}
+            class="ad-input-form form-control p-2"
+            
             id="nameArabic"
             onChange={(e) => handleChange(e)}
             value={formData.nameArabic}
@@ -76,12 +68,8 @@ function BrandForm({handleBrandForm,editDetails}) {
           <input
             type="file"
             id="formFile"
-            class="form-control p-2 grey"
-            style={{
-              border: "0px",
-              background: "#eeeeee",
-              color: "grey",
-            }}
+            class="ad-input-form form-control p-2 grey"
+            
             placeholder="No file choosen"
             onChange={(e) => handleChange(e)}
             value={formData.formFile}
@@ -92,12 +80,8 @@ function BrandForm({handleBrandForm,editDetails}) {
           <label for="exampleFormControlInput1">Display Order</label>
           <input
             type="text"
-            class="form-control p-2"
-            style={{
-              border: "0px",
-              background: "#eeeeee",
-              color: "grey",
-            }}
+            class="ad-input-form form-control p-2"
+            
             id="display"
             onChange={(e) => handleChange(e)}
             value={formData.display}

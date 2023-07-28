@@ -24,7 +24,7 @@ function ProductManagement() {
   return (
     <div className="content-topic  ">
       <div className="bottom">
-        <h6 className=" mx-4" style={{ color: "#17a803", fontWeight: "700" }}>
+        <h6 className="dark-theme-color-grw mx-4" style={{ color: "#17a803", fontWeight: "700" }}>
           Products
         </h6>
         <Button
@@ -36,7 +36,7 @@ function ProductManagement() {
         </Button>
         {productList && productList.length > 0 ? (
           productList.map((item, index) => (
-            <div key={index} className="my-5">
+            <div key={index} className="dark-theme-color my-5">
               <div
                 className="   mx-auto d-flex justify-content-between align-items-center"
                 style={{ width: "90%" }}
@@ -85,9 +85,8 @@ function ProductManagement() {
                 <span>{item.brand_name}</span>
               </div>
               <div
-                className="p-2  mx-auto d-flex justify-content-between align-items-center"
+                className="p-2 input-theme-prod mx-auto d-flex justify-content-between align-items-center"
                 style={{
-                  background: "#eeeeee",
                   borderRadius: "10px",
                   width: "90%",
                 }}
@@ -103,9 +102,8 @@ function ProductManagement() {
                 <span>{item.subcategory_name}</span>
               </div>
               <div
-                className="p-2  mx-auto d-flex justify-content-between align-items-center"
+                className="p-2 input-theme-prod mx-auto d-flex justify-content-between align-items-center"
                 style={{
-                  background: "#eeeeee",
                   borderRadius: "10px",
                   width: "90%",
                 }}

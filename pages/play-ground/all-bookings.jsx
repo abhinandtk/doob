@@ -40,8 +40,8 @@ function AllBookingPage() {
           <div className="play-topic  ">
             <div className="bottoms">
               <h6
-                className=" mx-4"
-                style={{ color: "#17a803", fontWeight: "700" }}
+                className="dark-theme-color mx-4"
+                style={{  fontWeight: "700" }}
               >
                 Bookings
               </h6>

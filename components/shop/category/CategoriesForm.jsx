@@ -10,7 +10,7 @@ import { notification } from "antd";
 function CategoriesForm({ categorySubmitHandler, editData }) {
   const router = useRouter();
 
-  console.log('cattttttttttttttttttttttsada',editData)
+  console.log("cattttttttttttttttttttttsada", editData);
   const [categoryList, setCategoryList] = useState([]);
   const [formData, setFormData] = useState({
     name: "",
@@ -51,7 +51,7 @@ function CategoriesForm({ categorySubmitHandler, editData }) {
   };
 
   return (
-    <div class="content-topics ">
+    <div className="content-topics ">
       <div className="bottom">
         <h6 className=" ms-4" style={{ color: "#17a803", fontWeight: "700" }}>
           Add Categories
@@ -62,12 +62,7 @@ function CategoriesForm({ categorySubmitHandler, editData }) {
               <label for="exampleFormControlInput1">Category Name</label>
               <input
                 type="text"
-                class="form-control p-2"
-                style={{
-                  border: "0px",
-                  background: "#eeeeee",
-                  color: "grey",
-                }}
+                className="ad-input-form form-control p-2"
                 id="name"
                 value={formData.name}
                 onChange={(e) => handleCategoryChange(e)}
@@ -79,26 +74,16 @@ function CategoriesForm({ categorySubmitHandler, editData }) {
               </label>
               <input
                 type="text"
-                class="form-control p-2"
-                style={{
-                  border: "0px",
-                  background: "#eeeeee",
-                  color: "grey",
-                }}
+                className="ad-input-form form-control p-2"
                 id="nameArabic"
                 value={formData.nameArabic}
                 onChange={(e) => handleCategoryChange(e)}
               />
             </div>
-            <div class="form-group my-2">
+            <div className="form-group my-2">
               <label for="exampleFormControlSelect1">Parent Category</label>
               <select
-                class="form-control   "
-                style={{
-                  border: "0px",
-                  background: "#eeeeee",
-                  color: "grey",
-                }}
+                className="ad-input-form form-control   "
                 id="parentCat"
                 onChange={(e) => handleCategoryChange(e)}
               >
@@ -118,12 +103,7 @@ function CategoriesForm({ categorySubmitHandler, editData }) {
               <label for="exampleFormControlInput1">Display Order</label>
               <input
                 type="text"
-                class="form-control p-2"
-                style={{
-                  border: "0px",
-                  background: "#eeeeee",
-                  color: "grey",
-                }}
+                className="ad-input-form form-control p-2"
                 id="display"
                 value={formData.display}
                 onChange={(e) => handleCategoryChange(e)}

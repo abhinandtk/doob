@@ -187,7 +187,7 @@ body {
   margin-left: 240px;
   padding: 1px 6px;
   height: 100%;
-  background: white;
+  background: var(--contents-bg);
   width: 75%;
 }
 .play-topics {
@@ -1472,10 +1472,15 @@ td {
   text-overflow: ellipsis;
   width: 120px;
 }
+// .top-head-tour{
+//   background-color: var(--secondary);
+//   width: 547px;
 
+// }
 .topnav {
   overflow: hidden;
   background-color: transparent;
+  width: 547px;
 }
 
 .topnav span {
