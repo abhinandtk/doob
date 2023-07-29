@@ -22,6 +22,7 @@ function AdminAllOrders() {
   const [orderId, setOrderId] = useState(null);
   const [orderStatus, setOrderStatus] = useState("");
   const [paymentStatus, setPaymentStatus] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     Axios.post(
@@ -36,6 +37,7 @@ function AdminAllOrders() {
       }
     ).then((res) => {
       setAllOrders(res.data.data);
+      setLoading(false);
       console.log("allorders,", res);
     });
   }, [visible]);
@@ -184,117 +186,119 @@ function AdminAllOrders() {
               >
                 All Orders
               </h6>
-              {allOrders.length !== 0 ? (
-                allOrders.map((item, index) => (
-                  <>
-                    <p
-                      key={index}
-                      className="order-code pode "
-                      style={{ fontWeight: "500" }}
-                    >
-                      #{item.order_id_m}
-                      <span>
-                        <Button
-                          onClick={() =>
-                            showUpdateHandler(
-                              item.order_id_m,
-                              item.payment_status,
-                              item.order_status
-                            )
-                          }
-                          type="button"
-                          className="order-btn "
-                        >
-                          Update status
-                        </Button>
-                      </span>
-                    </p>
-
-                    <hr className="mx-auto" style={{ width: "90%" }}></hr>
-                    <div
-                      class="   mx-auto d-flex justify-content-between align-items-center"
-                      style={{ width: "90%" }}
-                    >
-                      <span style={{ color: "#959595" }}>Customer Name</span>
-                      <span>{item.username}</span>
-                    </div>
-                    <div className="order-list-alt p-2 mt-2 mx-auto d-flex justify-content-between align-items-center">
-                      <span style={{ color: "#959595" }}>Address</span>
-                      <span className="address-admin"> {item.address} </span>
-                    </div>
-                    <div
-                      className="p-2   mx-auto d-flex justify-content-between align-items-center"
-                      style={{ width: "90%" }}
-                    >
-                      <span style={{ color: "#959595" }}>Order Date</span>
-                      <span>
-                        {moment(item.order_date).format("DD MMM YYYY")}
-                      </span>
-                    </div>
-                    <div className="order-list-alt p-2 mt-2 mx-auto d-flex justify-content-between align-items-center">
-                      <span style={{ color: "#959595" }}>Price</span>
-                      <span> {item.order_total} KD </span>
-                    </div>
-                    <div
-                      className="p-2   mx-auto d-flex justify-content-between align-items-center"
-                      style={{ width: "90%" }}
-                    >
-                      <span style={{ color: "#959595" }}>Payment Mode</span>
-                      <span> {item.mode} </span>
-                    </div>
-                    <div className=" order-list-alt p-2  mx-auto d-flex justify-content-between align-items-center">
-                      <span style={{ color: "#959595" }}>Payment Status</span>
-                      <span style={{ color: "#FF640D" }}>
-                        {item.payment_status}
-                      </span>
-                    </div>
-                    <div
-                      className="p-2   mx-auto d-flex justify-content-between align-items-center"
-                      style={{ width: "90%" }}
-                    >
-                      <span style={{ color: "#959595" }}>Order Status</span>
-                      <span style={{ color: "#FF640D" }}>
-                        {item.order_status}
-                      </span>
-                    </div>
-
-                    <OrderProductCard products={item.products} />
-
-                    <div
-                      className=" mx-auto d-flex justify-content-between align-items-center "
-                      style={{ width: "90%" }}
-                    >
-                      <a
-                        className="mx-2"
-                        href={`${constants.port}/store/Print_invoice/${item.order_id_m}`}
-                        style={{
-                          borderBottom: "1px solid black",
-                          textDecoration: "none",
-                          color: "inherit",
-                          cursor: "pointer",
-                        }}
-                        download
+              {!loading ? (
+                allOrders.length !== 0 ? (
+                  allOrders.map((item, index) => (
+                    <>
+                      <p
+                        key={index}
+                        className="order-code pode "
+                        style={{ fontWeight: "500" }}
                       >
-                        Download Invoice
-                      </a>
-                    </div>
-                  </>
-                ))
-              ) : (
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    height: "60vh",
-                    padding: "0 20px",
-                  }}
-                >
-                  <p style={{ textAlign: "center", fontWeight: "500" }}>
-                    No orders found .......
-                  </p>
-                </div>
-              )}
+                        #{item.order_id_m}
+                        <span>
+                          <Button
+                            onClick={() =>
+                              showUpdateHandler(
+                                item.order_id_m,
+                                item.payment_status,
+                                item.order_status
+                              )
+                            }
+                            type="button"
+                            className="order-btn "
+                          >
+                            Update status
+                          </Button>
+                        </span>
+                      </p>
+
+                      <hr className="mx-auto" style={{ width: "90%" }}></hr>
+                      <div
+                        class="   mx-auto d-flex justify-content-between align-items-center"
+                        style={{ width: "90%" }}
+                      >
+                        <span style={{ color: "#959595" }}>Customer Name</span>
+                        <span>{item.username}</span>
+                      </div>
+                      <div className="order-list-alt p-2 mt-2 mx-auto d-flex justify-content-between align-items-center">
+                        <span style={{ color: "#959595" }}>Address</span>
+                        <span className="address-admin"> {item.address} </span>
+                      </div>
+                      <div
+                        className="p-2   mx-auto d-flex justify-content-between align-items-center"
+                        style={{ width: "90%" }}
+                      >
+                        <span style={{ color: "#959595" }}>Order Date</span>
+                        <span>
+                          {moment(item.order_date).format("DD MMM YYYY")}
+                        </span>
+                      </div>
+                      <div className="order-list-alt p-2 mt-2 mx-auto d-flex justify-content-between align-items-center">
+                        <span style={{ color: "#959595" }}>Price</span>
+                        <span> {item.order_total} KD </span>
+                      </div>
+                      <div
+                        className="p-2   mx-auto d-flex justify-content-between align-items-center"
+                        style={{ width: "90%" }}
+                      >
+                        <span style={{ color: "#959595" }}>Payment Mode</span>
+                        <span> {item.mode} </span>
+                      </div>
+                      <div className=" order-list-alt p-2  mx-auto d-flex justify-content-between align-items-center">
+                        <span style={{ color: "#959595" }}>Payment Status</span>
+                        <span style={{ color: "#FF640D" }}>
+                          {item.payment_status}
+                        </span>
+                      </div>
+                      <div
+                        className="p-2   mx-auto d-flex justify-content-between align-items-center"
+                        style={{ width: "90%" }}
+                      >
+                        <span style={{ color: "#959595" }}>Order Status</span>
+                        <span style={{ color: "#FF640D" }}>
+                          {item.order_status}
+                        </span>
+                      </div>
+
+                      <OrderProductCard products={item.products} />
+
+                      <div
+                        className=" mx-auto d-flex justify-content-between align-items-center "
+                        style={{ width: "90%" }}
+                      >
+                        <a
+                          className="mx-2"
+                          href={`${constants.port}/store/Print_invoice/${item.order_id_m}`}
+                          style={{
+                            borderBottom: "1px solid black",
+                            textDecoration: "none",
+                            color: "inherit",
+                            cursor: "pointer",
+                          }}
+                          download
+                        >
+                          Download Invoice
+                        </a>
+                      </div>
+                    </>
+                  ))
+                ) : (
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      height: "60vh",
+                      padding: "0 20px",
+                    }}
+                  >
+                    <p style={{ textAlign: "center", fontWeight: "500" }}>
+                      No orders found .......
+                    </p>
+                  </div>
+                )
+              ) : null}
             </div>
           </div>
         </div>

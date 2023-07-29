@@ -1118,12 +1118,16 @@ input.tour {
   height: 327px;
   border: 0px;
   border-radius: 5px;
+  background-color: var(--secondary);
+  color: var(--font-theme-color);
 }
 .tournament2 {
   width: 590px;
   height: 350px;
   border: 0px;
   border-radius: 5px;
+  background-color: var(--secondary);
+  color: var(--font-theme-color);
 }
 
 .tournament3 {
@@ -1132,6 +1136,8 @@ input.tour {
   border-radius: 5px;
   height: 100%;
   margin-top: -26px;
+  background-color: var(--contents-bg);
+  color:var(--font-theme-color);
 }
 
 .tournament4 {
@@ -1381,9 +1387,10 @@ td {
 }
 
 .top-teams {
-  background: #eeeeee;
+  background: var(--dark-sec-white);
   width: 65%;
   height: 45px;
+  color: var(--font-theme-color);
 }
 .team1 {
   display: -webkit-box;
@@ -1472,11 +1479,10 @@ td {
   text-overflow: ellipsis;
   width: 120px;
 }
-// .top-head-tour{
-//   background-color: var(--secondary);
-//   width: 547px;
-
-// }
+.top-head-tour {
+  background-color: var(--secondary);
+  width: 547px;
+}
 .topnav {
   overflow: hidden;
   background-color: transparent;
@@ -1789,6 +1795,10 @@ td {
   border: 0px;
   border-radius: 5px;
   margin-top: -12px;
+  .card-body {
+    background-color: var(--secondary);
+    color: var(--font-theme-color);
+  }
 }
 .football1 {
   width: 591px;
@@ -1796,6 +1806,8 @@ td {
   border: 0px;
   border-radius: 5px;
   margin-top: -12px;
+  background-color: var(--secondary);
+  color: var(--font-theme-color);
 }
 .live1 {
   display: flex;
@@ -2375,7 +2387,7 @@ td {
 
 // }
 input.nosubmit {
-  background-color:var(--secondary);
+  background-color: var(--secondary);
 }
 
 input.nosubmit1 {

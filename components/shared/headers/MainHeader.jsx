@@ -35,7 +35,9 @@ function MainHeader({ title }) {
   const chatCount = useSelector((state) => state.chatCount.chatNotification);
   const dispatch = useDispatch();
 
-  console.log("storreCount", storeCount, updateState);
+  const isHomePage = router.pathname === "/";
+
+  console.log("storreCount", isHomePage, asPath);
 
   const [user, setUser] = useState("");
 
@@ -71,23 +73,29 @@ function MainHeader({ title }) {
       .then((res) => {
         if (res.data.status === 1) {
           localStorage.removeItem("user-login-tokens");
-          localStorage.removeItem('hasReloaded')
+          localStorage.removeItem("hasReloaded");
 
           notification.success({
             message: " Success",
             description: "Logout Successfully",
           });
           router.push("/");
-          // window.location.reload();
+          if (isHomePage) {
+            localStorage.setItem("hasReloaded", true);
+            window.location.reload();
+          }
         } else {
           localStorage.removeItem("user-login-tokens");
-          localStorage.removeItem('hasReloaded')
+          localStorage.removeItem("hasReloaded");
           notification.success({
             message: " Success",
             description: "Logout Successfully",
           });
           router.push("/");
-          // window.location.reload();
+          if (isHomePage) {
+            localStorage.setItem("hasReloaded", true);
+            window.location.reload();
+          }
           console.log("error loading");
         }
       })
@@ -120,7 +128,6 @@ function MainHeader({ title }) {
         style={{ zIndex: 100 }}
       >
         <Container fluid>
-          
           <ThemeSwitcher />
           <Navbar.Brand href="/">
             <img

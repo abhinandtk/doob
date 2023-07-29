@@ -132,7 +132,7 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
               onClick={() => handleSelect(item.id)}
             >
               <div className="d-flex flex-start mt-4 mx-2">
-                <span className="me-2" >
+                <span className="me-2">
                   <CardImg
                     className="rounded-circle shadow-1-strong "
                     src={
@@ -240,7 +240,17 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
             </div> */}
             <Upload
               beforeUpload={(file) => {
-                return true; // Prevent file upload
+                const fileSizeInMB = file.size / 1024 / 1024;
+                const maxSizeInMB = 1;
+                if (fileSizeInMB > maxSizeInMB) {
+                  notification.error({
+                    message: constants.Error,
+                    description: "Please upload image with size less than 1 mb",
+                  });
+                  return false;
+                }
+
+                return true;
               }}
               showUploadList={false}
               customRequest={({ file }) => {

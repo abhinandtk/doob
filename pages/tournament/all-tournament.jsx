@@ -35,10 +35,10 @@ function AllTournamentPage() {
       <MainSidebarFixed />
       {tournaments && (
         <div className="tour-container">
-          <h5 className=" my-4" style={{ fontWeight: "600" }}>
-            Tournaments
-          </h5>
           <div className="top-head-tour">
+            <h5 className="dark-theme-color my-4" style={{ fontWeight: "600" }}>
+              Tournaments
+            </h5>
             <div
               className="btn-group mx-1"
               role="group"

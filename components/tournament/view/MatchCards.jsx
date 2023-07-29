@@ -41,7 +41,7 @@ function MatchCards({ data }) {
       </h6> */}
       {data && (
         <div className="card football">
-          <div className="card-body p-5 mx-4">
+          <div className="card-body p-5 ">
             <div className="live1">
               <div className=" watch1 ">
                 <img

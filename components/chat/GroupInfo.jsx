@@ -356,7 +356,7 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
                   />
                 </span>
               )}
-            </div>
+            </div><p>{selectedUser.length}&nbsp; Participants</p>
             {showEditName && (
               <Input
                 className="my-2"

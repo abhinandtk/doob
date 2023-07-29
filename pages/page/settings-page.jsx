@@ -271,7 +271,7 @@ function StoreSettingsPage() {
                     style={{ textDecoration: "none", color: "inherit" }}
                   >
                     <h6 className="my-4">
-                      Request for manage store
+                      Request for Manage Store
                       <span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -295,7 +295,7 @@ function StoreSettingsPage() {
                     style={{ textDecoration: "none", color: "inherit" }}
                   >
                     <h6 className="my-4">
-                      Request for manage field
+                      Request for Manage Field
                       <span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -341,7 +341,7 @@ function StoreSettingsPage() {
                   <div onClick={()=>setBlockedShow(true)} style={{cursor:'pointer'}}
                   >
                     <h6 className="my-4">
-                      Blocked users
+                      Blocked Users
                       <span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"

@@ -225,7 +225,7 @@ function TeamsCard({
         teamsData.map((item, index) => (
           <div
             key={index}
-            className="rounded border-0 d-flex p-1 top-teams   my-3"
+            className="rounded border-0 d-flex p-1 top-teams  my-3"
           >
             <p
               className=" mb-2 mx-3"

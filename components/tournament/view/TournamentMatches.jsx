@@ -432,8 +432,8 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
             </h6>
 
             {item.matches.map((content, index_) => (
-              <div key={index_} className="card football1">
-                <div className="card-body p-5 mx-4">
+              <div key={index_} className="card football1 my-4">
+                <div className="card-body p-5  ">
                   <div className="live1">
                     <Link
                       href={`/tournament/match/${content.id}`}
