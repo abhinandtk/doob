@@ -10,7 +10,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 function ModuleVariants({ product }) {
-  console.log("tttttttttttt45", product);
+  console.log("ttt-product123", product);
   const router=useRouter()
   const dispatch = useDispatch();
   const [primaryIndex, setPrimaryIndex] = useState(
@@ -18,6 +18,8 @@ function ModuleVariants({ product }) {
   );
   const prVarientId = useSelector((state) => state.product.proVarient);
   const items = [];
+  console.log("ttt-productitems", product.Product_Items);
+
 
   product.Product_Items.map((item, index) => {
     const isExist = (obj) => obj.varent_id === item.varent_id;
@@ -34,14 +36,14 @@ function ModuleVariants({ product }) {
     }
   });
 
-  console.log("items module", items);
+  console.log("ttt-items module", items);
 
   const handleButtonActions = (varent_id, secondVarientSlug) => {
     setPrimaryIndex(varent_id);
     dispatch(setProPrimaryVarientId(varent_id));
     dispatch(setProVarient(secondVarientSlug));
     dispatch(setProSecondaryVarientId(secondVarientSlug));
-    router.push(`/store/product/${secondVarientSlug}`, `/store/product/${secondVarientSlug}`, { shallow: true });
+    // router.push(`/store/product/${secondVarientSlug}`, `/store/product/${secondVarientSlug}`, { shallow: true });
   };
 
   return (

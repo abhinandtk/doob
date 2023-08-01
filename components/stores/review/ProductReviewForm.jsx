@@ -4,6 +4,7 @@ import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
 
 function ProductReviewForm({ setOnSuccess, userImg }) {
   console.log("rwd", userImg);
@@ -14,6 +15,10 @@ function ProductReviewForm({ setOnSuccess, userImg }) {
     description: "",
     image: "",
   });
+  const prVarientId = useSelector((state) => state.product.proVarient);
+  console.log("slugreview-form", prVarientId);
+
+
 
   const handleStarChange = (value) => {
     setCount(value);
@@ -32,19 +37,21 @@ function ProductReviewForm({ setOnSuccess, userImg }) {
 
   const handleProductReview = (e) => {
     e.preventDefault();
-    console.log("result74", reviewForm);
+    console.log("d", reviewForm);
     let formdata = new FormData();
     formdata.append("language", "");
     formdata.append("rating", count);
     formdata.append("title", "");
     formdata.append("description", reviewForm.description);
-    formdata.append("productSlugId", rid);
+    formdata.append("productSlugId", prVarientId);
     formdata.append("image", reviewForm.image);
     Axios.post(apis.addReview, formdata, {
       headers: {
         Authorization: `Token ${constants.token_id}`,
       },
     }).then((res) => {
+      console.log("result74", res);
+
       setCount(0);
       setReviewForm({
         description: "",
@@ -82,6 +89,7 @@ function ProductReviewForm({ setOnSuccess, userImg }) {
           <textarea
             className="form-control op p-4  "
             style={{
+              backgroundColor: "#EEEEEE",
               border: "0px",
             }}
             placeholder="Share your Review "

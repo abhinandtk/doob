@@ -7,16 +7,16 @@ import { Fragment } from "react";
 function GameBookingCard({ data }) {
   console.log("ffffffffffff", data);
   const router = useRouter();
-  const useRef = useRef();
+  const scrollRef = useRef();
   const handleScroll = () => {
-    useRef.current.scrollIntoView({ behavior: "smooth" });
+    scrollRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <Fragment>
       {data &&
         data.map((value, index) => (
-          <div ref={useRef} key={index} className="card  book">
+          <div ref={scrollRef} key={index} className="card  book">
             <div className="card-body">
               <div className="clearfix  dot-web">
                 <div className="float-end dots">

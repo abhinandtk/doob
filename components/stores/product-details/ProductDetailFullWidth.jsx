@@ -124,7 +124,7 @@ function ProductDetailFullWidth({ product,setApiSuccess }) {
         },
       }
     ).then((res) => {
-      console.log('storreCountres',res)
+      console.log('storreCountries',res)
       dispatch(toggle())
       if(res.data.status==1){
         notification.success({

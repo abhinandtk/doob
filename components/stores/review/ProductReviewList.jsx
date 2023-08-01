@@ -29,7 +29,7 @@ function ProductReviewList({ reviewData, setOnSuccess }) {
 
   return (
     <Fragment>
-      {reviewData && 
+      {reviewData &&
         reviewData.map((content, index) => (
           <>
             {content.logined_user &&
@@ -41,7 +41,11 @@ function ProductReviewList({ reviewData, setOnSuccess }) {
                   <a className="me-2" href="">
                     <CardImg
                       className="rounded-circle shadow-1-strong "
-                      src={`${constants.port}${item.user_image}`}
+                      src={
+                        item.user_image
+                          ? `${constants.port}${item.user_image}`
+                          : "/images/accounts/user_default.png"
+                      }
                       style={{
                         width: "44px",
                         height: "44px",
@@ -107,7 +111,11 @@ function ProductReviewList({ reviewData, setOnSuccess }) {
                 <a className="me-2" href="">
                   <CardImg
                     className="rounded-circle shadow-1-strong "
-                    src={`${constants.port}${item.user_image}`}
+                    src={
+                      item.user_image
+                        ? `${constants.port}${item.user_image}`
+                        : "/images/accounts/user_default.png"
+                    }
                     style={{
                       width: "44px",
                       height: "44px",

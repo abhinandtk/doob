@@ -24,10 +24,9 @@ import PagesSideBar from "@/components/stores/pages/PagesSideBar";
 import { useRouter } from "next/router";
 import { Labels } from "@/public/data/my-constants/Labels";
 function StoreSettingsPage() {
-
-  const labels=Labels()
+  const labels = Labels();
   const [accountStatus, setAccountStatus] = useState(false);
-  const [userStatus, setUserStatus] = useState(true);
+  const [userType, setUserType] = useState(null);
   const [onSuccess, setOnSuccess] = useState(false);
   const [visible, setVisible] = useState(false);
   const [blockedShow, setBlockedShow] = useState(false);
@@ -41,7 +40,7 @@ function StoreSettingsPage() {
       },
     }).then((res) => {
       setAccountStatus(res.data.data.is_private);
-      setUserStatus(res.data.data.userStatus);
+      setUserType(res.data.data.user_type);
       console.log("storeset", res, res.data.data.is_private);
     });
 
@@ -50,7 +49,7 @@ function StoreSettingsPage() {
         Authorization: `Token ${constants.token_id}`,
       },
     }).then((res) => {
-      setBlockedList(res.data.data)
+      setBlockedList(res.data.data);
       console.log("console.log", res);
     });
   }, [onSuccess]);
@@ -266,54 +265,62 @@ function StoreSettingsPage() {
                     />
                     <label></label>{" "}
                   </div>
-                  <Link
-                    href="/page/convert-store"
-                    style={{ textDecoration: "none", color: "inherit" }}
-                  >
-                    <h6 className="my-4">
-                      Request for Manage Store
-                      <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="currentColor"
-                          className="bi bi-chevron-right arrow-icon"
-                          viewBox="0 0 16 16"
-                          style={{ marginRight: "50px" }}
+                  {userType !== "Pro" && (
+                    <>
+                      {userType !== "Store" && (
+                        <Link
+                          href="/page/convert-store"
+                          style={{ textDecoration: "none", color: "inherit" }}
                         >
-                          <path
-                            fill-rule="evenodd"
-                            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-                          />
-                        </svg>
-                      </span>
-                    </h6>
-                  </Link>
-                  <Link
-                    href="/page/convert-field"
-                    style={{ textDecoration: "none", color: "inherit" }}
-                  >
-                    <h6 className="my-4">
-                      Request for Manage Field
-                      <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="currentColor"
-                          className="bi bi-chevron-right arrow-icon"
-                          viewBox="0 0 16 16"
-                          style={{ marginRight: "50px" }}
+                          <h6 className="my-4">
+                            Request for Manage Store
+                            <span>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                fill="currentColor"
+                                className="bi bi-chevron-right arrow-icon"
+                                viewBox="0 0 16 16"
+                                style={{ marginRight: "50px" }}
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+                                />
+                              </svg>
+                            </span>
+                          </h6>
+                        </Link>
+                      )}
+                      {userType !== "Field" && (
+                        <Link
+                          href="/page/convert-field"
+                          style={{ textDecoration: "none", color: "inherit" }}
                         >
-                          <path
-                            fill-rule="evenodd"
-                            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-                          />
-                        </svg>
-                      </span>
-                    </h6>
-                  </Link>
+                          <h6 className="my-4">
+                            Request for Manage Field
+                            <span>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                fill="currentColor"
+                                className="bi bi-chevron-right arrow-icon"
+                                viewBox="0 0 16 16"
+                                style={{ marginRight: "50px" }}
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+                                />
+                              </svg>
+                            </span>
+                          </h6>
+                        </Link>
+                      )}
+                    </>
+                  )}
                   <Link
                     href="/page/user-password-change"
                     style={{ textDecoration: "none", color: "inherit" }}
@@ -338,7 +345,9 @@ function StoreSettingsPage() {
                       </span>
                     </h6>
                   </Link>
-                  <div onClick={()=>setBlockedShow(true)} style={{cursor:'pointer'}}
+                  <div
+                    onClick={() => setBlockedShow(true)}
+                    style={{ cursor: "pointer" }}
                   >
                     <h6 className="my-4">
                       Blocked Users

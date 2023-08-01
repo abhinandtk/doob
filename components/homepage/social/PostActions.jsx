@@ -5,16 +5,19 @@ import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { Labels } from "@/public/data/my-constants/Labels";
+import { useRouter } from "next/router";
 export default function PostActions({
   postId,
   user,
   setOnSuccess,
   sharedClick,
   data,
+  singlePost,
 }) {
   const [show, setShow] = useState(false);
   const [visible, setVisible] = useState(false);
   const [reason, setReason] = useState("");
+  const router = useRouter();
   const labels = Labels();
 
   const postReportHandler = (e) => {
@@ -57,12 +60,17 @@ export default function PostActions({
         message: constants.Success,
         description: `${labels["Post deleted successfully"]}`,
       });
+      if (singlePost) {
+        router.back();
+      }
     });
     setVisible(false);
   };
   const handleSend = async (slug) => {
     try {
-      await navigator.share({ url: `${window.location.href}page/post/${slug}` });
+      await navigator.share({
+        url: `${window.location.href}page/post/${slug}`,
+      });
       console.log("Shared successfully!");
     } catch (error) {
       console.error("Error sharing:", error);

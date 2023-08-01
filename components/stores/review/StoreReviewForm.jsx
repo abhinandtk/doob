@@ -8,7 +8,8 @@ import { useRouter } from "next/router";
 function StoreReviewForm({ setOnSuccess, userImg }) {
   console.log("rwd", userImg);
   const router = useRouter();
-  const { rSlug } = router.query;
+  const { sid } = router.query;
+
   const [count, setCount] = useState(0);
   const [reviewForm, setReviewForm] = useState({
     description: "",
@@ -33,7 +34,7 @@ function StoreReviewForm({ setOnSuccess, userImg }) {
   const handleStoreReview = (e) => {
     e.preventDefault();
     let formdata = new FormData();
-    formdata.append("store_slug", rSlug);
+    formdata.append("store_slug", sid);
     formdata.append("description", reviewForm.description);
     formdata.append("title", "");
     formdata.append("rating", count);

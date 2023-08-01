@@ -9,11 +9,13 @@ import constants from "@/public/data/my-constants/Constants";
 import moment from "moment";
 import UserProfileActivityTab from "../homepage/social/UserProfileActivityTab";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 function ProfileDetails() {
   const [key, SetKey] = useState(1);
   const [userDetials, setUserDetails] = useState([]);
   const [postDetails, setPostDetails] = useState([]);
   const [activityData, setActivityData] = useState([]);
+  const apiSuccess = useSelector((state) => state.api);
 
   const [success, setSuccess] = useState(true);
   useEffect(() => {
@@ -27,7 +29,7 @@ function ProfileDetails() {
       setActivityData(res.data.data.activity_serializer);
       console.log("POsts result=-----------------------", res);
     });
-  }, [success]);
+  }, [success, apiSuccess]);
 
   // Axios.get(apis.activity, {
   //   headers: {
@@ -62,6 +64,7 @@ function ProfileDetails() {
                     >
                       <Link href={`/page/post/${item.slug}`}>
                         <img
+                          key={index}
                           src={`${constants.port}${item.image}`}
                           className="image"
                           alt=""

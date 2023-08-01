@@ -15,9 +15,10 @@ import MobileFooter from "@/components/shared/MobileFooter";
 function CategorySearchPage() {
   const [searchInput, setSearchInput] = useState("");
   const [subCategoriesData, setSubCategoriesData] = useState([]);
-  const [subCategoyProduct, setSubCategoyProduct] = useState([]);
+  const [subCategoryProduct, setSubCategoryProduct] = useState([]);
 
   const [subCatInput, setSubcatInput] = useState("");
+  const [loading, setLoading] = useState(true);
 
   const [selectedSubcategory, setSelectedSubcategory] = useState(null);
 
@@ -29,7 +30,7 @@ function CategorySearchPage() {
       apis.searchbyCategory,
       {
         category_id: id,
-        keyword: "",
+        keyword: searchInput,
         subcategory_id: subCatInput,
       },
       {
@@ -40,16 +41,16 @@ function CategorySearchPage() {
     ).then((res) => {
       // setResultProduct(res);
       setSubCategoriesData(res.data.data.subcategories);
-      setSubCategoyProduct(res.data.data.category_products);
+      setSubCategoryProduct(res.data.data.category_products);
+      setLoading(false);
       console.log("888888", res, {
         category_id: id,
         keyword: "",
         subcategory_id: subCatInput,
       });
-      
     });
-  }, [id,subCatInput]);
-  console.log("hihii", subCategoyProduct);
+  }, [id, subCatInput,searchInput]);
+  console.log("hihii", subCategoryProduct);
 
   return (
     <Fragment>
@@ -57,14 +58,14 @@ function CategorySearchPage() {
       <MobileHeader />
       <MainSidebarFixed />
       <div className="store-container">
-        {/* <form className="nosubmit ">
+        <form className="nosubmit ">
           <input
-            // onChange={searchResult}
+            onChange={(e)=>setSearchInput(e.target.value)}
             className="nosubmit-shop"
             type="search"
             placeholder="Search"
           />
-        </form> */}
+        </form>
 
         {/* <div className="my-2 "> */}
         {/* <SearchCategory /> */}
@@ -73,7 +74,7 @@ function CategorySearchPage() {
           <div
             className="btn-group me-2 "
             role="group"
-            aria-label="Second group" 
+            aria-label="Second group"
           >
             <button
               type="button"
@@ -81,32 +82,38 @@ function CategorySearchPage() {
               style={{ padding: "5px 35px" }}
               onClick={() => setSubcatInput("")}
             >
-              All 
+              All
             </button>
           </div>
-          {subCategoriesData.length >0 &&
-            subCategoriesData.map((item, index) => (
-              <div
-                key={index}
-                className="btn-group me-2"
-                role="group"
-                aria-label="Second group"
-                onClick={() => setSubcatInput(item.id)}
-              >
-                <button type="button" className="btn btn-secondary">
-                  {item.title}
-                </button>
-              </div>
-            ))}
-          
+          {!loading
+            ? subCategoriesData && subCategoriesData.length > 0 &&
+              subCategoriesData.map((item, index) => (
+                <div
+                  key={index}
+                  className="btn-group me-2"
+                  role="group"
+                  aria-label="Second group"
+                  onClick={() => setSubcatInput(item.id)}
+                >
+                  <button type="button" className="btn btn-secondary">
+                    {item.title}
+                  </button>
+                </div>
+              ))
+            : null}
         </section>
-        {subCategoyProduct.length >0 ? (
-          <>
-            <StoreProductsCard key={subCategoyProduct.length} products={subCategoyProduct} />
-          </>
-        ) : (
-          <div>No products Found...</div>
-        )}
+        {!loading ? (
+          subCategoryProduct &&  subCategoryProduct.length > 0 ? (
+            <>
+              <StoreProductsCard
+                key={subCategoryProduct.length}
+                products={subCategoryProduct}
+              />
+            </>
+          ) : (
+            <div className="dark-theme-color">No products Found...</div>
+          )
+        ) : null}
       </div>
       <MobileFooter />
     </Fragment>

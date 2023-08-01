@@ -28,7 +28,7 @@ function PlayGroundReviewList({ reviewData, setOnSuccess }) {
 
   return (
     <Fragment>
-      {reviewData && 
+      {reviewData &&
         reviewData.map((content, index) => (
           <>
             {content.logged_user &&
@@ -40,7 +40,11 @@ function PlayGroundReviewList({ reviewData, setOnSuccess }) {
                   <a className="me-2" href="">
                     <CardImg
                       className="rounded-circle shadow-1-strong "
-                      src={`${constants.port}/media/${item.user_image}`}
+                      src={
+                        item.user_image
+                          ? `${constants.port}${item.user_image}`
+                          : "/images/accounts/user_default.png"
+                      }
                       style={{
                         width: "44px",
                         height: "44px",
@@ -62,7 +66,7 @@ function PlayGroundReviewList({ reviewData, setOnSuccess }) {
                             fontSize: "15px",
                           }}
                         >
-                          {item.user_name} <br></br>
+                          {item.customer_name} <br></br>
                           <span>
                             <Rate disabled value={item.rating} />
                           </span>
@@ -108,7 +112,11 @@ function PlayGroundReviewList({ reviewData, setOnSuccess }) {
                 <a className="me-2" href="">
                   <CardImg
                     className="rounded-circle shadow-1-strong "
-                    src={`${constants.port}/media/${item.user_image}`}
+                    src={
+                      item.user_image
+                        ? `${constants.port}${item.user_image}`
+                        : "/images/accounts/user_default.png"
+                    }
                     style={{
                       width: "44px",
                       height: "44px",

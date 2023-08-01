@@ -15,6 +15,8 @@ function ProductsForm({ handleProductAdd, editData }) {
   const [subCategory, setSubCategory] = useState([]);
   const [primaryValues, setPrimaryValues] = useState([]);
   const [secondaryValues, setSecondaryValues] = useState([]);
+  const [primaryName, setPrimaryName] = useState("");
+  const [secondaryName, setSecondaryName] = useState("");
 
   const [image, setImage] = useState(null);
   const router = useRouter();
@@ -148,6 +150,7 @@ function ProductsForm({ handleProductAdd, editData }) {
     if (editData === "true" && formData.primary) {
       const primaryData = variantData.find((pid) => pid.id == formData.primary);
       if (primaryData && primaryData.variant_value) {
+        setPrimaryName(primaryData.Varient_Name);
         setPrimaryValues(primaryData.variant_value);
       }
     }
@@ -156,6 +159,7 @@ function ProductsForm({ handleProductAdd, editData }) {
         (pid) => pid.id == formData.secondary
       );
       if (secondaryData && secondaryData.variant_value) {
+        setSecondaryName(secondaryData.Varient_Name);
         setSecondaryValues(secondaryData.variant_value);
       }
     }
@@ -184,6 +188,7 @@ function ProductsForm({ handleProductAdd, editData }) {
       const primaryData = variantData.find((pid) => pid.id == primaryId);
 
       if (primaryData && primaryData.variant_value) {
+        setPrimaryName(primaryData.Varient_Name);
         setPrimaryValues(primaryData.variant_value);
       }
     }
@@ -192,6 +197,7 @@ function ProductsForm({ handleProductAdd, editData }) {
       const secondaryData = variantData.find((pid) => pid.id == secondaryId);
 
       if (secondaryData && secondaryData.variant_value) {
+        setSecondaryName(secondaryData.Varient_Name);
         setSecondaryValues(secondaryData.variant_value);
       }
     }
@@ -286,6 +292,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                 id="name"
                 value={formData.name}
                 onChange={(e) => handleChange(e)}
+                required
               />
             </div>
             <div className="form-group my-2">
@@ -296,6 +303,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                 id="nameArabic"
                 value={formData.nameArabic}
                 onChange={(e) => handleChange(e)}
+                required
               />
             </div>
             <div className="form-group my-2">
@@ -305,6 +313,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                 id="brand"
                 value={formData.brand}
                 onChange={(e) => handleChange(e)}
+                required
               >
                 <option value="">--Selelct--</option>
                 {brandData.map((item, index) => (
@@ -325,6 +334,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                 className="add-prod-input form-control p-2"
                 id="category"
                 onChange={(e) => handleChange(e)}
+                required
               >
                 <option value="">--Selelct--</option>
                 {categoryData.map((item, index) => (
@@ -346,6 +356,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                 className="add-prod-input form-control p-2"
                 id="subCategory"
                 onChange={(e) => handleChange(e)}
+                required
                 value={formData.subCategory}
               >
                 <option value="">--Select--</option>
@@ -372,6 +383,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                 className="add-prod-input form-control  p-2 "
                 placeholder="No file choosen"
                 onChange={(e) => handleChange(e)}
+                required
               />
             </div>
             <div className="form-group my-2">
@@ -382,6 +394,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                 id="tag"
                 value={formData.tag}
                 onChange={(e) => handleChange(e)}
+                required
               />
             </div>
 
@@ -391,6 +404,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                 className="add-prod-input form-control p-2"
                 id="primary"
                 onChange={(e) => handleChange(e)}
+                required
               >
                 <option value="">--Select--</option>
                 {variantData.map((item, index) => (
@@ -436,6 +450,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                 rows="3"
                 value={formData.description}
                 onChange={(e) => handleChange(e)}
+                required
               ></textarea>
             </div>
             <div className="form-group my-2 ">
@@ -448,6 +463,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                 rows="3"
                 value={formData.description_ar}
                 onChange={(e) => handleChange(e)}
+                required
               ></textarea>
             </div>
             {editData === "true" && (
@@ -462,6 +478,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                   }}
                   id="status"
                   onChange={(e) => handleChange(e)}
+                  required
                   value={formData.status}
                 >
                   <option value="Active">Active</option>
@@ -492,6 +509,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                     id="sku"
                     value={item.sku}
                     onChange={(e) => handleVariantChange(e, index)}
+                    required
                   />
                 </div>
                 <div className="form-group my-2">
@@ -502,6 +520,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                     id="quantity"
                     value={item.quantity}
                     onChange={(e) => handleVariantChange(e, index)}
+                    required
                   />
                 </div>
 
@@ -516,6 +535,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                     
                     placeholder="No file choosen"
                     onChange={(e) => handleVariantChange(e, index)}
+required
                   />
                 </div> */}
                 <div className="form-group  my-2">
@@ -530,6 +550,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                     placeholder="No file choosen"
                     onChange={(e) => handleImageChange(e, index)}
                     multiple // Allow selecting multiple images
+                    required
                   />
                 </div>
                 <div
@@ -572,44 +593,56 @@ function ProductsForm({ handleProductAdd, editData }) {
                       </div>
                     ))}
                 </div>
-                <div className="form-group my-2">
-                  <label for="exampleFormControlSelect1">Color</label>
-                  <select
-                    className="add-prod-input form-control p-2"
-                    id="color"
-                    onChange={(e) => handleVariantChange(e, index)}
-                  >
-                    <option value="">--Select--</option>
-                    {primaryValues.map((item_, index) => (
-                      <option
-                        selected={editData === "true" && item.color == item_.id}
-                        key={index}
-                        value={item_.id}
-                      >
-                        {item_.Varient_Values}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div className="form-group my-2">
-                  <label for="exampleFormControlSelect1">Size</label>
-                  <select
-                    className="add-prod-input form-control p-2"
-                    id="size"
-                    onChange={(e) => handleVariantChange(e, index)}
-                  >
-                    <option value="">--Select--</option>
-                    {secondaryValues.map((item_, index) => (
-                      <option
-                        selected={editData === "true" && item.size == item_.id}
-                        key={index}
-                        value={item_.id}
-                      >
-                        {item_.Varient_Values}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+                {primaryName && (
+                  <div className="form-group my-2">
+                    <label for="exampleFormControlSelect1">{primaryName}</label>
+                    <select
+                      className="add-prod-input form-control p-2"
+                      id="color"
+                      onChange={(e) => handleVariantChange(e, index)}
+                      required
+                    >
+                      <option value="">--Select--</option>
+                      {primaryValues.map((item_, index) => (
+                        <option
+                          selected={
+                            editData === "true" && item.color == item_.id
+                          }
+                          key={index}
+                          value={item_.id}
+                        >
+                          {item_.Varient_Values}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                )}
+                {secondaryName && (
+                  <div className="form-group my-2">
+                    <label for="exampleFormControlSelect1">
+                      {secondaryName}
+                    </label>
+                    <select
+                      className="add-prod-input form-control p-2"
+                      id="size"
+                      onChange={(e) => handleVariantChange(e, index)}
+                      
+                    >
+                      <option value="">--Select--</option>
+                      {secondaryValues.map((item_, index) => (
+                        <option
+                          selected={
+                            editData === "true" && item.size == item_.id
+                          }
+                          key={index}
+                          value={item_.id}
+                        >
+                          {item_.Varient_Values}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                )}
                 <div className="form-group my-2">
                   <label for="exampleFormControlInput1">
                     Actual Price in KD
@@ -620,6 +653,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                     id="actualPrize"
                     value={item.actualPrize}
                     onChange={(e) => handleVariantChange(e, index)}
+                    required
                   />
                 </div>
                 <div className="form-group my-2">
@@ -632,6 +666,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                     id="sellingPrice"
                     value={item.sellingPrice}
                     onChange={(e) => handleVariantChange(e, index)}
+                    required
                   />
                 </div>
                 {editData === "true" && (
@@ -643,6 +678,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                       className="add-prod-input form-control p-2"
                       id="varStatus"
                       onChange={(e) => handleVariantChange(e, index)}
+                      required
                       value={item.varStatus}
                     >
                       <option value="Active">Active</option>

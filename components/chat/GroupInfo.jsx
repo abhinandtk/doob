@@ -208,7 +208,7 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
               onClick={() => handleSelect(item.id)}
             >
               <div className="d-flex flex-start mt-4 mx-2">
-                <span className="me-2" >
+                <span className="me-2">
                   <CardImg
                     className="rounded-circle shadow-1-strong "
                     src={
@@ -316,36 +316,38 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
               alignItems: "center",
             }}
           >
-            <Upload
-              beforeUpload={beforeUpload}
-              showUploadList={false}
-              showUploadButton={false}
-              customRequest={({ file }) => {
-                handleUpload(file);
-              }}
-            >
-              {groupProfilePic ? (
-                <div>
-                  <Avatar
-                    size={128}
-                    src={`${constants.port}${groupProfilePic}`}
-                  />
-                  {isAdmin && (
-                    <Button
-                      type="text"
-                      key="submit"
-                      shape="circle"
-                      icon={<DeleteOutlined />}
-                      onClick={() => {
-                        setGroupProfilePic(null);
-                      }}
+            <div className="flex">
+              <Upload
+                beforeUpload={beforeUpload}
+                showUploadList={false}
+                showUploadButton={false}
+                customRequest={({ file }) => {
+                  handleUpload(file);
+                }}
+              >
+                {groupProfilePic ? (
+                  <div>
+                    <Avatar
+                      size={128}
+                      src={`${constants.port}${groupProfilePic}`}
                     />
-                  )}
-                </div>
-              ) : (
-                <Avatar size={128} icon={<UserOutlined />} />
+                  </div>
+                ) : (
+                  <Avatar size={128} src="/images/accounts/group_default.png" />
+                )}
+              </Upload>
+              {isAdmin && groupProfilePic && (
+                <Button
+                  type="text"
+                  key="submit"
+                  shape="circle"
+                  icon={<DeleteOutlined />}
+                  onClick={() => {
+                    setGroupProfilePic(null);
+                  }}
+                />
               )}
-            </Upload>
+            </div>
             <div>
               {grpName}
               {isAdmin && (
@@ -356,7 +358,8 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
                   />
                 </span>
               )}
-            </div><p>{selectedUser.length}&nbsp; Participants</p>
+            </div>
+            <p>{selectedUser.length}&nbsp; Participants</p>
             {showEditName && (
               <Input
                 className="my-2"

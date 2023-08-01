@@ -43,6 +43,7 @@ function PlayGroundReviewForm({ setOnSuccess, userImg }) {
         Authorization: `Token ${constants.token_id}`,
       },
     }).then((res) => {
+      console.log('addreview',res)
       setCount(0);
       setReviewForm({
         description: "",
@@ -57,7 +58,11 @@ function PlayGroundReviewForm({ setOnSuccess, userImg }) {
       <h5 className="mb-3">
         <a href="#!" className="text-body">
           <img
-            src={`${constants.port}/media/${userImg}`}
+            src={
+              userImg
+                ? `${constants.port}/media/${userImg}`
+                : "/images/accounts/user_default.png"
+            }
             style={{
               width: "44px",
               height: "44px",

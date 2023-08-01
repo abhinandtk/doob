@@ -7,6 +7,7 @@ import apis from "@/public/data/my-constants/Apis";
 import moment from "moment";
 import { useRouter } from "next/router";
 import { Labels } from "@/public/data/my-constants/Labels";
+import ReviewStore from "./review/ReviewStore";
 const { Panel } = Collapse;
 
 function StoreTopDetails({ data, setSuccess }) {
@@ -161,12 +162,8 @@ function StoreTopDetails({ data, setSuccess }) {
           <div className="col-md-6">
             <h5 className="dark-theme-color">{data.title}</h5>
             <p style={{ fontSize: "13px", color: "gray" }}>{data.address}</p>
-            <span>
-              <p className="mx-1" onClick={()=>router.push(`/store/store-review/${sid}`)}>
-                <i className="bi bi-star-fill" style={{ color: "yellow" }}></i>
-                {data.review_average_rating} <span style={{ color: "grey" }}>({data.review_count} reviews)</span>
-              </p>
-            </span>
+            
+              <ReviewStore data={data}/>
             <p className="dark-theme-color">
               <i className="bi bi-clock"></i>
               <span className="mx-2">

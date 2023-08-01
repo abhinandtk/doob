@@ -367,6 +367,7 @@ function SingleContainerHomePosts({ story }) {
                       user={item.user_detail.id}
                       sharedClick={sharedClick}
                       setOnSuccess={setOnSuccess}
+                      singlePost={true}
                     />
                   </button>
                 </div>

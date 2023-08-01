@@ -8,11 +8,14 @@ import constants from "@/public/data/my-constants/Constants";
 import apis from "@/public/data/my-constants/Apis";
 import moment from "moment";
 import { Labels } from "@/public/data/my-constants/Labels";
+import { toggle } from "@/Redux/updateNavbar";
+import { useDispatch } from "react-redux";
 function Notifications({ setNotificationShow }) {
   const [show, setShow] = useState(true);
   const [notificationData, setNotificationData] = useState([]);
   const [followStatus, setFollowStatus] = useState(false);
   const labels = Labels();
+  const dispatch=useDispatch()
   useEffect(() => {
     Axios.get(apis.notification, {
       headers: {
@@ -20,6 +23,7 @@ function Notifications({ setNotificationShow }) {
       },
     }).then((res) => {
       console.log("reerererrererererr", res);
+      dispatch(toggle())
       setNotificationData(res.data.data);
     });
   }, [followStatus]);

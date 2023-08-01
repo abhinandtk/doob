@@ -39,7 +39,7 @@ function TournamentTabContent({data}) {
   };
   return (
     <Fragment>
-      <h6 className="my-2" style={{ fontWeight: "600" }}>
+      <h6 className="my-2 dark-theme-color" style={{ fontWeight: "600" }}>
         Live Tournament
       </h6>
       <div className="row ">

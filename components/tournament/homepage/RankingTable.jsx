@@ -12,7 +12,7 @@ function RankingTable({ data }) {
     <Fragment>
       {data && (
         <div className="tables">
-          <ul className="responsive-table">
+          <ul className="responsive-table ">
             {data.map((item, index) =>
               index === 0 ? (
                 <li

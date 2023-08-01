@@ -9,6 +9,7 @@ import { useState } from "react";
 import { Fragment } from "react";
 import { Dropdown } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import ReviewProduct from "../review/ReviewProduct";
 
 function ProductDetailTopDetails({ product, setApiSuccess }) {
   console.log("===============", product);
@@ -67,8 +68,6 @@ function ProductDetailTopDetails({ product, setApiSuccess }) {
   };
 
   const wishlistHandler = () => {
-    console.log("weeeeeeeeeeeeeeeeeeeeee", wishlistStatus);
-    console.log("weeeeeeeeeeeeeeeeeeeeee", !wishlistStatus);
     const api = wishlistStatus ? apis.removewishlist : apis.addwishlist;
     Axios.post(
       api,
@@ -88,7 +87,9 @@ function ProductDetailTopDetails({ product, setApiSuccess }) {
   };
   const handleSend = async () => {
     try {
-      await navigator.share({ url: `${window.location.href}page/post/${prVarientId}` });
+      await navigator.share({
+        url: `${window.location.href}page/post/${prVarientId}`,
+      });
       console.log("Shared successfully!");
     } catch (error) {
       console.error("Error sharing:", error);
@@ -148,7 +149,10 @@ function ProductDetailTopDetails({ product, setApiSuccess }) {
           </svg>
         </span>
         <span>
-          <Dropdown className="" style={{display:"inline-block",marginLeft:'-10px'}}>
+          <Dropdown
+            className=""
+            style={{ display: "inline-block", marginLeft: "-10px" }}
+          >
             <Dropdown.Toggle
               variant=""
               id="dropdown-basic"
@@ -190,31 +194,17 @@ function ProductDetailTopDetails({ product, setApiSuccess }) {
             </Dropdown.Toggle>
 
             <Dropdown.Menu align="center" className="Menu">
-              <Dropdown.Item onClick={() => handleSend()}>
-                Send
-              </Dropdown.Item>
+              <Dropdown.Item onClick={() => handleSend()}>Send</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-         
         </span>
       </span>
       <h5 className="col-md-9 headings ">
         {product.Name}
         {productNameExtension}
       </h5>
-      <p
-        className="mx-1 mb-2  "
-        style={{ cursor: "pointer" }}
-        onClick={() => router.push(`/store/product/review/${prVarientId}`)}
-      >
-        <i className="bi bi-star-fill me-1" style={{ color: "yellow" }}></i>
-        {product.product_review.average_rating
-          ? product.product_review.average_rating
-          : "0"}
-        <span className="mx-2" style={{ color: "grey" }}>
-          ({product.product_review.count} reviews)
-        </span>
-      </p>
+      <ReviewProduct product={product} />
+
       <p style={{ fontSize: "14px", fontWeight: "400" }}>
         {product.Description}
       </p>

@@ -21,8 +21,13 @@ function StoriesMainPage() {
   return (
     <div
       className="stories"
-      style={{ height: `${storyList.length <= 0 ? "0px" : ""}` }}>
-      {storyList.length > 0 && <div className="ms-1" style={{fontWeight:500}}>My Followers</div>}
+      style={{ height: `${storyList.length <= 0 ? "0px" : ""}` }}
+    >
+      {storyList.length > 0 && (
+        <div className="ms-1" style={{ fontWeight: 500 }}>
+          My Followers
+        </div>
+      )}
       <button className="stories__left-button">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
           <path
@@ -90,7 +95,11 @@ function StoriesMainPage() {
                 </div>
                 <div className="story__picture">
                   <img
-                    src={`${constants.port}/media/${item.user_detail.image}`}
+                    src={
+                      item.user_detail.image
+                        ? `${constants.port}/media/${item.user_detail.image}`
+                        : "/images/accounts/user_default.png"
+                    }
                     style={{
                       width: "100%",
                       height: "100%",

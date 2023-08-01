@@ -34,7 +34,7 @@ function PlayerDetailsPage() {
       <MobileHeader />
       <MainSidebarFixed />
       <div className="tour-container">
-        <h5 className="my-3" style={{ fontWeight: "700" }}>
+        <h5 className="my-3 dark-theme-color" style={{ fontWeight: "700" }}>
           Rank Details
         </h5>
         {rankDetails && (

@@ -113,6 +113,7 @@ function StoreReviewList({ reviewData, setOnSuccess }) {
                   <div
                     onClick={() => deleteReview(item.id)}
                     className="comment-options"
+                    style={{ cursor: "pointer" }}
                   >
                     <i class="bi bi-trash " style={{ fontSize: "1rem" }}></i>
                   </div>

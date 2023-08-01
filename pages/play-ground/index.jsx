@@ -255,7 +255,7 @@ function PlayGroundPage() {
                 <section>
                   <div className="clearfix near ">
                     <h5
-                      className="float-start"
+                      className="float-start dark-theme-color"
                       style={{
                         fontWeight: "700",
                         fontSize: "19px",
@@ -324,18 +324,19 @@ function PlayGroundPage() {
               <></>
             )}
 
-            <h5 style={{ fontWeight: "700" }} className="my-3">
+            <h5 style={{ fontWeight: "700" }} className="my-3 dark-theme-color">
               Doob Map
             </h5>
-
-            <Tabs style={{ display: "flex", justifyContent: "space-evenly" }}>
-              <Tab eventKey={1} title="Fields">
-                <MapPlayGround data={contents.playgrounds_near_me} />
-              </Tab>
-              <Tab eventKey={2} title="Games">
-                <MapGame data={contents.games_near_me} />
-              </Tab>
-            </Tabs>
+            <div className="field-maps">
+              <Tabs style={{ display: "flex", justifyContent: "space-evenly" }}>
+                <Tab eventKey={1} title="Fields">
+                  <MapPlayGround data={contents.playgrounds_near_me} />
+                </Tab>
+                <Tab eventKey={2} title="Games">
+                  <MapGame data={contents.games_near_me} />
+                </Tab>
+              </Tabs>
+            </div>
           </>
         ))}
       </div>

@@ -14,7 +14,7 @@ import MobileFooter from "@/components/shared/MobileFooter";
 function TournamentHomePage() {
   const [liveTourData, setLiveTourData] = useState([]);
   const [rankData, setRankData] = useState([]);
-  const [activeTab, setActiveTab] = useState('tournaments');
+  const [activeTab, setActiveTab] = useState("tournaments");
   useEffect(() => {
     Axios.get(apis.tournamentHome, {
       headers: {
@@ -25,7 +25,7 @@ function TournamentHomePage() {
       setRankData(res.data.data.ranks);
       console.log("ddddddata", res.data.data.setLiveTourData);
     });
-  },[]);
+  }, []);
 
   return (
     <div>
@@ -33,22 +33,32 @@ function TournamentHomePage() {
       <MobileHeader />
       <MainSidebarFixed />
       <div className="tour-container">
-        <h5 className=" my-4" style={{ fontWeight: "600" }}>
-          Tournaments
-        </h5>
-        <div className="topnav">
-          <span onClick={()=>setActiveTab('tournaments')} className={`${activeTab === 'tournaments' ? 'active':''}`}>
+        <div className="top-head-tour dark-theme-color">
+          <h5 className=" my-4" style={{ fontWeight: "600" }}>
             Tournaments
-          </span>
-          <span onClick={()=>setActiveTab('ranks')} className={`${activeTab === 'ranks' ? 'active':''}`}>
-            Ranks
-          </span>
+          </h5>
+          <div className="topnav">
+            <span
+              onClick={() => setActiveTab("tournaments")}
+              className={`${activeTab === "tournaments" ? "active" : ""} dark-theme-color`}
+            >
+              Tournaments
+            </span>
+            <span
+              onClick={() => setActiveTab("ranks")}
+              className={`${activeTab === "ranks" ? "active" : ""} dark-theme-color`}
+            >
+              Ranks
+            </span>
+          </div>
         </div>
-        {activeTab === 'tournaments' && <TournamentTabContent data={liveTourData} />}
-        {activeTab === 'ranks' && <RankTabContent data={rankData}/>}
+        {activeTab === "tournaments" && (
+          <TournamentTabContent data={liveTourData} />
+        )}
+        {activeTab === "ranks" && <RankTabContent data={rankData} />}
       </div>
-      <MobileFooter />
 
+      <MobileFooter />
     </div>
   );
 }

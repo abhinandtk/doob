@@ -282,6 +282,7 @@ input.nosubmit2 {
   width: 85px;
   height: 60px;
   z-index: 1;
+  object-fit: cover;
   // position: inherit;
   // right: 65px;
   // top: -17px;
@@ -854,7 +855,7 @@ input:disabled {
   background-color: #343c42;
   border-radius: 0%;
   border: 0px;
-  height: auto;
+  height: 170px;
 }
 
 .dough {

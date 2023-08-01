@@ -76,7 +76,7 @@ function MyOrders() {
                 style={{ width: "90%" }}
               >
                 <span style={{ color:"#959595" }}>Order Status</span>
-                <span style={{ color:item.order_status==="delivered"?"#17A803": "#FF640D" }}>
+                <span style={{ color:item.order_status==="Delivered"?"#17A803": "#FF640D" }}>
                   {item.order_status}
                 </span>
               </div>

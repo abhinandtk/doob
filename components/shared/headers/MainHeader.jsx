@@ -285,11 +285,17 @@ function MainHeader({ title }) {
                 }`}
               >
                 <div>
-                  <div className="  greens">
-                    <div className="numbers">
-                      {asPath.includes("store") ? storeCount : groundCart}
-                    </div>
-                  </div>
+                  {asPath.includes("store")
+                    ? storeCount > 0 && (
+                        <div className="  greens">
+                          <div className="numbers">{storeCount}</div>
+                        </div>
+                      )
+                    : groundCart > 0 && (
+                        <div className="  greens">
+                          <div className="numbers">{groundCart}</div>
+                        </div>
+                      )}
                   <svg
                     width="26"
                     height="35"
@@ -315,9 +321,11 @@ function MainHeader({ title }) {
               </Nav.Link>
               <Nav.Link href="/chat/messages">
                 <div>
-                  <div className="  greens">
-                    <div className="numbers">{chatCount}</div>
-                  </div>
+                  {chatCount > 0 && (
+                    <div className="  greens">
+                      <div className="numbers">{chatCount}</div>
+                    </div>
+                  )}
                   <svg
                     width="30"
                     height="30"
@@ -342,9 +350,11 @@ function MainHeader({ title }) {
               </Nav.Link>
               <Nav.Link>
                 <div>
-                  <div className="  greens1">
-                    <div className="numbers">{notificationCount}</div>
-                  </div>
+                  {notificationCount > 0 && (
+                    <div className="  greens1">
+                      <div className="numbers">{notificationCount}</div>
+                    </div>
+                  )}
                   <svg
                     onClick={() => setNotificationShow(!notificationShow)}
                     width="24"

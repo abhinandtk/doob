@@ -151,22 +151,22 @@ function AdminAllOrders() {
               <option value="Ordered" style={{ color: "#959595" }}>
                 Ordered
               </option>
-              <option value="failed" style={{ color: "#959595" }}>
+              <option value="Failed" style={{ color: "#959595" }}>
                 Failed
               </option>
-              <option value="processing" style={{ color: "#959595" }}>
+              <option value="Processing" style={{ color: "#959595" }}>
                 Processing
               </option>
-              <option value="shipped" style={{ color: "#959595" }}>
+              <option value="Shipped" style={{ color: "#959595" }}>
                 Shipped
               </option>
-              <option value="out for delivery" style={{ color: "#959595" }}>
+              <option value="Out for delivery" style={{ color: "#959595" }}>
                 Out for delivery
               </option>
-              <option value="delivered" style={{ color: "#959595" }}>
+              <option value="Delivered" style={{ color: "#959595" }}>
                 Delivered
               </option>
-              <option value="cancelled" style={{ color: "#959595" }}>
+              <option value="Cancelled" style={{ color: "#959595" }}>
                 Cancelled
               </option>
             </select>
@@ -247,7 +247,14 @@ function AdminAllOrders() {
                       </div>
                       <div className=" order-list-alt p-2  mx-auto d-flex justify-content-between align-items-center">
                         <span style={{ color: "#959595" }}>Payment Status</span>
-                        <span style={{ color: "#FF640D" }}>
+                        <span
+                          style={{
+                            color:
+                              item.payment_status === "Received"
+                                ? "#17A803"
+                                : "#FF640D",
+                          }}
+                        >
                           {item.payment_status}
                         </span>
                       </div>
@@ -256,7 +263,14 @@ function AdminAllOrders() {
                         style={{ width: "90%" }}
                       >
                         <span style={{ color: "#959595" }}>Order Status</span>
-                        <span style={{ color: "#FF640D" }}>
+                        <span
+                          style={{
+                            color:
+                              item.order_status === "Delivered"
+                                ? "#17A803"
+                                : "#FF640D",
+                          }}
+                        >
                           {item.order_status}
                         </span>
                       </div>

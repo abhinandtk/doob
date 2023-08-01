@@ -90,7 +90,7 @@ function NewGameForm({ game, country }) {
       <section>
         <div className="game_clearfix">
           <h5
-            className="float-start"
+            className="float-start dark-theme-color"
             style={{ fontWeight: "700", fontSize: "19px" }}
           >
             Games

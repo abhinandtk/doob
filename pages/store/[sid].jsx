@@ -122,6 +122,7 @@ function StoreDetailPage() {
                 <Button className="carousel-arrow" icon={<LeftOutlined />} />
               }
               nextArrow={
+                
                 <Button className="carousel-arrow" icon={<RightOutlined />} />
               }
             >
