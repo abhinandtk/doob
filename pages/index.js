@@ -20,11 +20,24 @@ import PasswordChange from '@/components/user/PasswordChange';
 import SsoRegister from '@/components/user/SsoRegister';
 import MobileHeader from '@/components/MobileHeader';
 import SharedConfirmation from '@/components/homepage/social/SharedConfirmation';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useRouter } from 'next/router';
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['translation'])),
+    },
+  }
+}
 function HomePage() {
+  const router = useRouter()
+  const { locale } = useRouter()
 
   const [countryModalShow, setCountryModalShow] = useState(true);
   const [countryData, setCountryData] = useState([])
   const [regionData, setRegionData] = useState([])
+
 
 
   const [activemodal, setActiveModal] = useState(null)
@@ -167,3 +180,6 @@ function HomePage() {
 
 
 export default HomePage
+
+
+

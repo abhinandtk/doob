@@ -3,9 +3,11 @@ import React from "react";
 import SideMenuFooter from "./SideMenuFooter";
 import MobileFooter from "../MobileFooter";
 import { useTheme } from "next-themes";
+import { useTranslation } from "next-i18next";
 
 function MainSidebarFixed() {
-    const {theme}=useTheme()
+  const { theme } = useTheme();
+  const { t } = useTranslation();
   return (
     <aside className="sidebar">
       <nav>
@@ -28,7 +30,7 @@ function MainSidebarFixed() {
               />
             </svg>
             <i className="uil uil-home" />
-            <span className="nav_head">Home</span>
+            <span className="nav_head">{t("Home")}</span>
           </span>
         </Link>
         <Link href="/play-ground" style={{ textDecoration: "none" }}>
@@ -49,7 +51,7 @@ function MainSidebarFixed() {
               />
             </svg>
             <i className="uil uil-explore" />
-            <span className="nav_head">Bookings</span>
+            <span className="nav_head">{t("Bookings")}</span>
           </span>
         </Link>
         <Link href="/tournament" style={{ textDecoration: "none" }}>
@@ -73,7 +75,7 @@ function MainSidebarFixed() {
                 fill={`${theme === "dark" ? "white" : "black"}`}
               />
             </svg>
-            <span className="nav_head mx-2">Tournaments</span>
+            <span className="nav_head mx-2">{t("Tournaments")}</span>
           </span>
         </Link>
         <Link href="/store" style={{ textDecoration: "none" }}>
@@ -95,7 +97,7 @@ function MainSidebarFixed() {
               />
             </svg>
             <i className="uil uil-location-arrow" />
-            <span className="nav_head">Stores</span>
+            <span className="nav_head">{t("Stores")}</span>
           </span>
         </Link>
         <Link href="/profile" style={{ textDecoration: "none" }}>
@@ -122,7 +124,7 @@ function MainSidebarFixed() {
               />
             </svg>
             <i className="uil uil-profile"></i>
-            <span className="nav_head">Profile</span>
+            <span className="nav_head">{t("Profile")}</span>
           </span>
         </Link>
         <SideMenuFooter />

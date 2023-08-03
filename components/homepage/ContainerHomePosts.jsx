@@ -17,7 +17,10 @@ import "intersection-observer";
 import VisibilitySensor from "react-visibility-sensor";
 import SharePostToUser from "./social/share/SharePostToUser";
 import { useTheme } from 'next-themes';
+import { useTranslation } from "next-i18next";
+
 function ContainerHomePosts() {
+  const { t } = useTranslation();
 
   const { theme } = useTheme();
   const apiSuccess = useSelector((state) => state.api);
@@ -504,7 +507,7 @@ function ContainerHomePosts() {
                           }}
                           className="post__button post__button--align-right"
                         >
-                          {item.comment_count} comments
+                          {item.comment_count} {t("Comments")}
                         </button>
                       )
                     ) : (
@@ -517,7 +520,7 @@ function ContainerHomePosts() {
                         }}
                         className="post__button post__button--align-right"
                       >
-                        {item.comment_count} comments
+                        {item.comment_count} {t("Comments")}
                       </button>
                     )}
                   </div>
@@ -532,7 +535,7 @@ function ContainerHomePosts() {
                     ) : (
                       <>
                         <div className="post__likes">
-                          <h6 className="post-names">{item.totalLike} likes</h6>
+                          <h6 className="post-names">{item.totalLike} {t("Likes")}</h6>
                         </div>
                         <div className="comments">{item.caption}</div>
                       </>

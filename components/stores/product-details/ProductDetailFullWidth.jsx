@@ -20,7 +20,10 @@ import { useEffect } from "react";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { toggle } from "@/Redux/updateNavbar";
-function ProductDetailFullWidth({ product,setApiSuccess }) {
+import { useTranslation } from "next-i18next";
+
+function ProductDetailFullWidth({ product, setApiSuccess }) {
+  const { t } = useTranslation();
   const labels = Labels();
   const dispatch = useDispatch();
   const router = useRouter();
@@ -33,7 +36,7 @@ function ProductDetailFullWidth({ product,setApiSuccess }) {
   console.log("sdcsdcsdcsdc", product);
   let priceView;
   let productStock;
-  let varientStatus;;
+  let varientStatus;
   // useEffect(() => {
   product &&
     Array.isArray(product) &&
@@ -42,57 +45,61 @@ function ProductDetailFullWidth({ product,setApiSuccess }) {
     product[0].Product_Items.map((item, index) => {
       item.multivarient.length !== 0
         ? item.multivarient.map((item_, index_) => {
-          console.log('det32 secondvarId',prVarientId)
+            console.log("det32 secondvarId", prVarientId);
             if (item_.slug_id === prVarientId) {
               productStock = item_.stock;
-              varientStatus=item_.status,
-              priceView = (
-                <p
-                  className="price"
-                  style={{ color: "gray", fontWeight: "400" }}
-                >
-                  <s>{item_.cut_prize} KD</s>
-                  <span
-                    className="mx-2"
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "500",
-                      color: "#17a803",
-                    }}
+              (varientStatus = item_.status),
+                (priceView = (
+                  <p
+                    className="price"
+                    style={{ color: "gray", fontWeight: "400" }}
                   >
-                    {item_.actual_prize} KD
-                  </span>
-                  <span></span>
-                </p>
-              );
-             
+                    <s>{item_.cut_prize} KD</s>
+                    <span
+                      className="mx-2"
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "500",
+                        color: "#17a803",
+                      }}
+                    >
+                      {item_.actual_prize} KD
+                    </span>
+                    <span></span>
+                  </p>
+                ));
+
               dispatch(setProPrimaryVarientId(item.varent_id));
               dispatch(setProSecondaryVarientId(item_.slug_id));
               // setSuccess(true);
             }
           })
         : dispatch(setProPrimaryVarientId(item.varent_id));
-        console.log('det32 item.varent_idsingle',item.varent_id,'var==id',prVarientId),
-
-      item.slug_id === prVarientId &&
-        (productStock = item.stock,
-          varientStatus=item.status,
-          priceView = (
-          <p style={{ color: "gray", fontWeight: "400" }}>
-            <s>{item.cut_prize} KD</s>
-            <span
-              className="mx-2"
-              style={{
-                fontSize: "20px",
-                fontWeight: "500",
-                color: "#17a803",
-              }}
-            >
-              {item.actual_prize} KD
-            </span>
-            <span></span>
-          </p>
-        ));
+      console.log(
+        "det32 item.varent_idsingle",
+        item.varent_id,
+        "var==id",
+        prVarientId
+      ),
+        item.slug_id === prVarientId &&
+          ((productStock = item.stock),
+          (varientStatus = item.status),
+          (priceView = (
+            <p style={{ color: "gray", fontWeight: "400" }}>
+              <s>{item.cut_prize} KD</s>
+              <span
+                className="mx-2"
+                style={{
+                  fontSize: "20px",
+                  fontWeight: "500",
+                  color: "#17a803",
+                }}
+              >
+                {item.actual_prize} KD
+              </span>
+              <span></span>
+            </p>
+          )));
     });
   // }, []);
   console.log("det32 firstloading,,", proPrimaryVarientId);
@@ -124,19 +131,18 @@ function ProductDetailFullWidth({ product,setApiSuccess }) {
         },
       }
     ).then((res) => {
-      console.log('storreCountries',res)
-      dispatch(toggle())
-      if(res.data.status==1){
+      console.log("storreCountries", res);
+      dispatch(toggle());
+      if (res.data.status == 1) {
         notification.success({
-          message:'Success',
-          description:`${labels['Added to cart']}`
-        })
-      }else{
+          message: "Success",
+          description: `${labels["Added to cart"]}`,
+        });
+      } else {
         notification.error({
-          message:constants.Error,
-          description:res.data.message_en
-        })
-
+          message: constants.Error,
+          description: res.data.message_en,
+        });
       }
       //  if(res.data.status == 1){
 
@@ -161,50 +167,60 @@ function ProductDetailFullWidth({ product,setApiSuccess }) {
             <ProductDetailImages product={product} />
             <div className="col-md-5 shop-cart ">
               <div className=" justify-content-between align-items-center ">
-                <ProductDetailTopDetails product={product} setApiSuccess={setApiSuccess}/>
+                <ProductDetailTopDetails
+                  product={product}
+                  setApiSuccess={setApiSuccess}
+                />
                 <ModuleVariants product={product} />
                 <ModuleSecondVariants product={product} />
                 <br></br>
-                
-                {productStock <=0 ?
-                <p className="my-1" style={{ color: "red" }}>Out of stock</p>:
-                product.Product_Brand.status === 'Active' &&
-                product.Product_Category.status == true && 
-                product.status === 'Active' && 
-                varientStatus === 'Active'?
-                <div>
-                {priceView}
-                <div className="qty">
-                  <div
-                    onClick={(e) => handleDecreaseQty(e)}
-                    className="minus "
-                    style={{ backgroundColor: "#959595" }}
-                  >
-                    _
+
+                {productStock <= 0 ? (
+                  <p className="my-1" style={{ color: "red" }}>
+                    Out of stock
+                  </p>
+                ) : product.Product_Brand.status === "Active" &&
+                  product.Product_Category.status == true &&
+                  product.status === "Active" &&
+                  varientStatus === "Active" ? (
+                  <div>
+                    {priceView}
+                    <div className="qty">
+                      <div
+                        onClick={(e) => handleDecreaseQty(e)}
+                        className="minus "
+                        style={{ backgroundColor: "#959595" }}
+                      >
+                        _
+                      </div>
+                      <input
+                        type="number"
+                        className="count"
+                        name="qty"
+                        value={quantity}
+                        disabled
+                      />
+                      <div
+                        onClick={(e) => handleIncreaseQty(e)}
+                        className="plus"
+                        style={{ backgroundColor: "#959595" }}
+                      >
+                        +
+                      </div>
+                    </div>
+                    <Button
+                      type="submit"
+                      onClick={(e) => addToCartHandler(e)}
+                      className="add-cart-btn "
+                    >
+                      {t("Add to Cart")}
+                    </Button>
                   </div>
-                  <input
-                    type="number"
-                    className="count"
-                    name="qty"
-                    value={quantity}
-                    disabled
-                  />
-                  <div
-                    onClick={(e) => handleIncreaseQty(e)}
-                    className="plus"
-                    style={{ backgroundColor: "#959595" }}
-                  >
-                    +
-                  </div>
-                </div>
-                <Button
-                  type="submit"
-                  onClick={(e) => addToCartHandler(e)}
-                  className="add-cart-btn "
-                >
-                  Add to Cart
-                </Button>
-                </div>:<p className="my-1" style={{ color: "red" }}>Currently Unavailable</p>}
+                ) : (
+                  <p className="my-1" style={{ color: "red" }}>
+                    Currently Unavailable
+                  </p>
+                )}
               </div>
             </div>
           </>

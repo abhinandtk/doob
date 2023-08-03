@@ -7,8 +7,11 @@ import { useEffect } from "react";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { useTheme } from "next-themes";
+import { useTranslation } from "next-i18next";
 
 function SideExplorePlayers() {
+  const { t } = useTranslation();
+
   const { theme } = useTheme();
   const [exploreData, setExploreData] = useState([]);
 
@@ -57,7 +60,7 @@ function SideExplorePlayers() {
     <section className="side-menu-section ">
       <div className="side-menu__suggestions-section">
         <div className="side-menu__suggestions-header">
-          <h2>Explore New Player&apos;s</h2>
+          <h2>{t("Explore New Player's")}</h2>
         </div>
         <div className="side-menu__suggestions-content">
           {exploreData.slice(0, 5).map((item, index) => (
@@ -96,8 +99,8 @@ function SideExplorePlayers() {
                   <a> {item.name}</a>
                   {item.latest_mutual_user && item.mutual_user_count && (
                     <span>
-                      Followed by {item.latest_mutual_user} and{" "}
-                      {item.mutual_user_count} more
+                      {t("Followed by")} {item.latest_mutual_user} {t("and")}{" "}
+                      {item.mutual_user_count} {t("more")}
                     </span>
                   )}
                 </div>

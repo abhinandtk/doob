@@ -6,6 +6,7 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 export default function PostActions({
   postId,
   user,
@@ -14,6 +15,7 @@ export default function PostActions({
   data,
   singlePost,
 }) {
+  const { t } = useTranslation();
   const [show, setShow] = useState(false);
   const [visible, setVisible] = useState(false);
   const [reason, setReason] = useState("");
@@ -147,7 +149,9 @@ export default function PostActions({
 
         <Dropdown.Menu align="center" className="Menu">
           {constants.user_id !== user ? (
-            <Dropdown.Item onClick={() => setShow(true)}>Report</Dropdown.Item>
+            <Dropdown.Item onClick={() => setShow(true)}>
+              {t("Report")}
+            </Dropdown.Item>
           ) : (
             <Dropdown.Item onClick={() => setVisible(true)}>
               Delete
@@ -164,7 +168,7 @@ export default function PostActions({
             </Dropdown.Item>
           )}
           <Dropdown.Item onClick={() => handleSend(data.slug)}>
-            Send
+          {t("Send")}
           </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>

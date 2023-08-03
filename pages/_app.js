@@ -11,8 +11,9 @@ import '@/styles/home/modals.scss'
 import { Provider } from 'react-redux';
 import { store } from '@/Redux/store';
 import { ThemeProvider } from 'next-themes';
-export default function App({ Component, pageProps }) {
-  
+import { appWithTranslation } from 'next-i18next'
+function App({ Component, pageProps }) {
+
   return (
     <Provider store={store}>
       <ThemeProvider defaultTheme="light" attribute="data-theme" >
@@ -22,7 +23,6 @@ export default function App({ Component, pageProps }) {
     </Provider>
 
   )
-
-
 }
+export default appWithTranslation(App)
 

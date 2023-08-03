@@ -10,9 +10,12 @@ import { Fragment } from "react";
 import { Dropdown } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import ReviewProduct from "../review/ReviewProduct";
+import { useTranslation } from "next-i18next";
 
 function ProductDetailTopDetails({ product, setApiSuccess }) {
   console.log("===============", product);
+  const { t } = useTranslation();
+
   const router = useRouter();
 
   const labels = Labels();
@@ -194,7 +197,9 @@ function ProductDetailTopDetails({ product, setApiSuccess }) {
             </Dropdown.Toggle>
 
             <Dropdown.Menu align="center" className="Menu">
-              <Dropdown.Item onClick={() => handleSend()}>Send</Dropdown.Item>
+              <Dropdown.Item onClick={() => handleSend()}>
+                {t("Send")}
+              </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </span>

@@ -5,8 +5,10 @@ import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { Labels } from "@/public/data/my-constants/Labels";
+import { useTranslation } from "next-i18next";
 
 function CommentActions({ user, commentId, setSuccessApi }) {
+  const { t } = useTranslation();
   const [show, setShow] = useState(false);
   const [visible, setVisible] = useState(false);
   const [reason, setReason] = useState("");
@@ -27,7 +29,7 @@ function CommentActions({ user, commentId, setSuccessApi }) {
         },
       }
     ).then((res) => {
-      setSuccessApi((prev) => !prev)
+      setSuccessApi((prev) => !prev);
       setShow(false);
       notification.success({
         message: constants.Success,
@@ -136,7 +138,7 @@ function CommentActions({ user, commentId, setSuccessApi }) {
 
         <Dropdown.Menu align="center" className="Menu">
           {constants.user_id !== user ? (
-            <Dropdown.Item onClick={() => setShow(true)}>Report</Dropdown.Item>
+            <Dropdown.Item onClick={() => setShow(true)}>{t("Report")}</Dropdown.Item>
           ) : (
             <Dropdown.Item onClick={() => setVisible(true)}>
               Delete

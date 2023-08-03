@@ -2,14 +2,16 @@ import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
+import { useTranslation } from "next-i18next";
 function SideMenuFooter() {
   const [sponsersData, setSponsersData] = useState([]);
+  const { t } = useTranslation();
   useEffect(() => {
     Axios.get(apis.sponsers).then((res) => {
       setSponsersData(res.data.data);
       console.log("resspons", res);
     });
-  },[]);
+  }, []);
   return (
     <div className="side-menu__footer">
       <div className="side-menu__footer-links next ">
@@ -19,12 +21,12 @@ function SideMenuFooter() {
               className="side-menu__footer-link mx-1 "
               style={{ fontSize: "13px" }}
             >
-              Sponsers
+              {t("Sponsers")}
             </a>
           </li>
           <br></br>
           {sponsersData &&
-            sponsersData.slice(0,12).map((item, index) => (
+            sponsersData.slice(0, 12).map((item, index) => (
               <li key={index} className="side-menu__footer-item ">
                 <a className="side-menu__footer-link mx-1 ">
                   <img
@@ -34,24 +36,23 @@ function SideMenuFooter() {
                 </a>
               </li>
             ))}
-
         </ul>
       </div>
       <div className="side-menu__footer-links">
         <ul className="side-menu__footer-list back">
           <li className="side-menu__footer-item">
             <a className="side-menu__footer-link" href="#">
-              About
+              {t("About")}
             </a>
           </li>
           <li className="side-menu__footer-item">
             <a className="side-menu__footer-link" href="#">
-              Tournament
+            {t("Tournaments")}
             </a>
           </li>
           <li className="side-menu__footer-item">
             <a className="side-menu__footer-link" href="#">
-              Rank
+             {t("Rank")}
             </a>
           </li>
           <li className="side-menu__footer-item">

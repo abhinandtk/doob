@@ -7,7 +7,11 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { CardImg } from "react-bootstrap";
+import { useTranslation } from "next-i18next";
+
 function SharePostToUser() {
+  const { t } = useTranslation();
+
   const [visible, setVisible] = useState(false);
   const [searchResult, setSearchResult] = useState([]);
   const [selectedItems, setSelectedItems] = useState([]);
@@ -144,7 +148,7 @@ function SharePostToUser() {
               </div>
               <div className="mx-2">
                 {selectedItems.includes(item.id) ? (
-                  <div>Send</div>
+                  <div>{t("Send")}</div>
                 ) : (
                   <svg
                     width="20"

@@ -12,6 +12,15 @@ import MobileHeader from "@/components/MobileHeader";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { useDispatch } from "react-redux";
 import { setProVarient } from "@/Redux/productDetail";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+export async function getServerSideProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 
 function ProductDetailPage() {
   const [productDetails, setProductDetails] = useState([]);
@@ -37,7 +46,7 @@ function ProductDetailPage() {
       setProductDetails([res.data.data[0]]);
       console.log("productttttttttttttttttttttttt", res);
     });
-  }, [pid,apiSuccess]);
+  }, [pid, apiSuccess]);
 
   return (
     <>
@@ -62,7 +71,10 @@ function ProductDetailPage() {
               <div className="card cart">
                 <div className="card-body p-4 ">
                   <div className="row ">
-                    <ProductDetailFullWidth product={productDetails} setApiSuccess={setApiSuccess}/>
+                    <ProductDetailFullWidth
+                      product={productDetails}
+                      setApiSuccess={setApiSuccess}
+                    />
                   </div>
                 </div>
               </div>

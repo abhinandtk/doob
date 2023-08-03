@@ -18,8 +18,11 @@ import StoriesMainPage from "./StoriesMainPage";
 import VisibilitySensor from "react-visibility-sensor";
 import { Skeleton } from "antd";
 import SharePostToUser from "./social/share/SharePostToUser";
+import { useTranslation } from "next-i18next";
 
 function SingleContainerHomePosts({ story }) {
+  const { t } = useTranslation();
+
   const apiSuccess = useSelector((state) => state.api);
   const [visibleComment, setVisibleComment] = useState(false);
   const [visibleShared, setVisibleShared] = useState(false);
@@ -558,7 +561,7 @@ function SingleContainerHomePosts({ story }) {
                           }}
                           className="post__button post__button--align-right"
                         >
-                          {item.comment_count} comments
+                          {item.comment_count} {t("Comments")}
                         </button>
                       )
                     ) : (
@@ -566,12 +569,12 @@ function SingleContainerHomePosts({ story }) {
                         onClick={() => {
                           commentClick(
                             item.owner_user_detail.orginal_post_id,
-                            item.owner_user_detail.orginal_post_slug,
+                            item.owner_user_detail.orginal_post_slug
                           );
                         }}
                         className="post__button post__button--align-right"
                       >
-                        {item.comment_count} comments
+                        {item.comment_count} {t("Comments")}
                       </button>
                     )}
                   </div>
@@ -586,7 +589,9 @@ function SingleContainerHomePosts({ story }) {
                     ) : (
                       <>
                         <div className="post__likes">
-                          <h6 className="post-names">{item.totalLike} likes</h6>
+                          <h6 className="post-names">
+                            {item.totalLike} {t("Likes")}
+                          </h6>
                         </div>
                         <div className="comments">{item.caption}</div>
                       </>

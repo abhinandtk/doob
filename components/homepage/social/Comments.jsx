@@ -10,8 +10,11 @@ import apis from "@/public/data/my-constants/Apis";
 import CommentActions from "./CommentActions";
 import moment from "moment";
 import { useTheme } from "next-themes";
+import { useTranslation } from "next-i18next";
 
 function Comments({ setVisibleComment, postId, slug }) {
+  const { t } = useTranslation();
+
   const [show, setShow] = useState(true);
   const [comment, setComment] = useState("");
   const [showComments, setShowComments] = useState([]);
@@ -79,7 +82,7 @@ function Comments({ setVisibleComment, postId, slug }) {
   return (
     <div style={{ position: "relative" }}>
       <Modal
-        title="Comments"
+        title={t("Comments")}
         open={show}
         className="index"
         closable

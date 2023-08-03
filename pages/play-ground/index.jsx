@@ -18,8 +18,18 @@ import MobileFooter from "@/components/shared/MobileFooter";
 import { useRouter } from "next/router";
 import MapPlayGround from "@/components/playGround/MapPlayground";
 import MapGame from "@/components/playGround/MapGames";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 function PlayGroundPage() {
+  const { t } = useTranslation();
   const [game, setGame] = useState([]);
   const [amenity, setAmenity] = useState([]);
   const [country, setCountry] = useState([]);
@@ -224,7 +234,7 @@ function PlayGroundPage() {
                       fill="#FFC850"
                     />
                   </svg>
-                  {contents.invitation_count} New Invitations
+                  {contents.invitation_count} {t("New Invitations")}
                 </button>
               </div>
               <div className="col-md-6">

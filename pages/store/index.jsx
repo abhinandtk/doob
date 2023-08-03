@@ -20,10 +20,21 @@ import StoreBannerCard from "@/components/stores/StoreBannerCard";
 import constants from "@/public/data/my-constants/Constants";
 import MobileHeader from "@/components/MobileHeader";
 import MobileFooter from "@/components/shared/MobileFooter";
+import { useTranslation } from "react-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 
 function StorePage() {
   const [storeData, setStoreData] = useState([]);
   const [banners, setBanners] = useState([]);
+  const { t } = useTranslation();
+
   useEffect(() => {
     Axios.get(apis.stores, {
       headers: {
@@ -64,26 +75,26 @@ function StorePage() {
             <div key={index}>
               <StoreMainBanner banners={content.top_banners} />
               <br></br>
-              <Stores storeData={content.stores} title="Store" />
+              <Stores storeData={content.stores} title={t("Stores")} />
               <br></br>
               <StoreBannerCard banners={content.mid_banners} />
               <br></br>
               {content.favorite_store.length >= 1 && (
                 <Stores
                   storeData={content.favorite_store}
-                  title="Favorite Store"
+                  title={t("Favourite Stores")}
                 />
               )}
               <br></br>
               <StoreProductsCard
                 products={content.popular_products}
-                title="Popular Products"
+                title={t("Popular Products")}
               />{" "}
               <br></br>
               {content.favorite_products.length >= 1 && (
                 <StoreProductsCard
                   products={content.favorite_products}
-                  title="Favorite Products"
+                  title={t("Favourite Products")}
                 />
               )}
             </div>

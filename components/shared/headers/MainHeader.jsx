@@ -17,9 +17,12 @@ import { updateNotificationCount } from "@/Redux/notificationCount";
 import { updateMessageCount } from "@/Redux/messagesCount";
 import { useTheme } from "next-themes";
 import ThemeSwitcher from "./ThemeSwitcher";
-
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useTranslation } from "next-i18next";
 function MainHeader({ title }) {
+  const { t } = useTranslation();
   const router = useRouter();
+  const { locale } = useRouter();
   const { asPath } = router;
   const [show, setShow] = useState(false);
   const [confirmLogout, setConfirmLogout] = useState(false);
@@ -37,7 +40,7 @@ function MainHeader({ title }) {
 
   const isHomePage = router.pathname === "/";
 
-  console.log("storreCount", isHomePage, asPath);
+  console.log("storreCount54", isHomePage, locale);
 
   const [user, setUser] = useState("");
 
@@ -128,6 +131,8 @@ function MainHeader({ title }) {
         style={{ zIndex: 100 }}
       >
         <Container fluid>
+          <h1>{locale}</h1>
+
           <ThemeSwitcher />
           <Navbar.Brand href="/">
             <img
@@ -174,7 +179,7 @@ function MainHeader({ title }) {
                           stroke-width="0.303194"
                         />
                       </svg>
-                      Post
+                      {t("Post")}
                     </Dropdown.Item>
                     {/* <Dropdown.Item
                       href="#"
@@ -242,24 +247,7 @@ function MainHeader({ title }) {
                 </Dropdown>
               </Nav.Link>
               <Nav.Link>
-                <Dropdown className="Drop">
-                  <Dropdown.Toggle
-                    variant=""
-                    id="dropdown-basic"
-                    style={{
-                      color: "black",
-                      borderColor: "transparent",
-                      background: "transparent",
-                    }}
-                  >
-                    EN <i className="bi bi-chevron-down "></i>
-                  </Dropdown.Toggle>
-
-                  <Dropdown.Menu align="center" className="Menu">
-                    <Dropdown.Item href="#">English</Dropdown.Item>
-                    {/* <Dropdown.Item href="#">Arabic</Dropdown.Item> */}
-                  </Dropdown.Menu>
-                </Dropdown>
+                <LanguageSwitcher />
               </Nav.Link>
               <Nav.Link href="/search">
                 <svg
@@ -445,7 +433,7 @@ function MainHeader({ title }) {
                             stroke-width="1.3039"
                           />
                         </svg>
-                        <span className="mx-2"> Wallet</span>
+                        <span className="mx-2"> {t("Wallet")}</span>
                       </Link>
                     </div>
 
@@ -472,7 +460,7 @@ function MainHeader({ title }) {
                             stroke-width="1.10069"
                           />
                         </svg>
-                        <span className="mx-2"> Favourite Store</span>
+                        <span className="mx-2"> {t("Favourite Stores")}</span>
                       </Link>
                     </div>
                     {((user && user === "Store") ||
@@ -500,7 +488,7 @@ function MainHeader({ title }) {
                               stroke-width="1.10069"
                             />
                           </svg>
-                          <span className="mx-2"> Manage Store</span>
+                          <span className="mx-2"> {t("Manage Store")}</span>
                         </Link>
                       </div>
                     )}
@@ -529,7 +517,7 @@ function MainHeader({ title }) {
                               stroke-width="1.10069"
                             />
                           </svg>
-                          <span className="mx-2"> Manage Ground</span>
+                          <span className="mx-2"> {t("Manage Field")}</span>
                         </Link>
                       </div>
                     )}
@@ -550,7 +538,7 @@ function MainHeader({ title }) {
                             fill="black"
                           />
                         </svg>
-                        <span className="mx-2"> Favourite Product</span>
+                        <span className="mx-2"> {t("Favourite Products")}</span>
                       </Link>
                     </div>
 
@@ -573,7 +561,7 @@ function MainHeader({ title }) {
                             stroke-width="0.239706"
                           />
                         </svg>
-                        <span className="mx-3">Bookings</span>
+                        <span className="mx-3">{t("Bookings")}</span>
                       </Link>
                     </div>
 
@@ -594,7 +582,7 @@ function MainHeader({ title }) {
                             fill="black"
                           />
                         </svg>
-                        <span className="mx-3">My Orders</span>
+                        <span className="mx-3">{t("My Orders")}</span>
                       </Link>
                     </div>
 
@@ -615,7 +603,7 @@ function MainHeader({ title }) {
                             fill="black"
                           />
                         </svg>
-                        <span className="mx-3">Feedback</span>
+                        <span className="mx-3">{t("Feedback")}</span>
                       </Link>
                     </div>
                     <div className="my-4">
@@ -636,7 +624,7 @@ function MainHeader({ title }) {
                             fill="black"
                           />
                         </svg>
-                        <span className="mx-3">Settings</span>
+                        <span className="mx-3">{t("Settings")}</span>
                       </Link>
                     </div>
 
@@ -660,7 +648,7 @@ function MainHeader({ title }) {
                           fill="#080808"
                         />
                       </svg>
-                      <span className="mx-3">Logout</span>
+                      <span className="mx-3">{t("Logout")}</span>
                     </div>
                   </Offcanvas.Body>
                 </Offcanvas>
