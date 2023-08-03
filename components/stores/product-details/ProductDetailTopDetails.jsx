@@ -17,6 +17,7 @@ function ProductDetailTopDetails({ product, setApiSuccess }) {
   const { t } = useTranslation();
 
   const router = useRouter();
+  const { locale } = router;
 
   const labels = Labels();
   let productStock;
@@ -205,13 +206,13 @@ function ProductDetailTopDetails({ product, setApiSuccess }) {
         </span>
       </span>
       <h5 className="col-md-9 headings ">
-        {product.Name}
+        {locale === "en" ? product.Name : product.arabic_translator}
         {productNameExtension}
       </h5>
       <ReviewProduct product={product} />
 
       <p style={{ fontSize: "14px", fontWeight: "400" }}>
-        {product.Description}
+        {locale === "en" ? product.Description : product.arabic_description}
       </p>
     </Fragment>
   );

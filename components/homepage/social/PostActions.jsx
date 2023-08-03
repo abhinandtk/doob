@@ -20,7 +20,7 @@ export default function PostActions({
   const [visible, setVisible] = useState(false);
   const [reason, setReason] = useState("");
   const router = useRouter();
-  const labels = Labels();
+  const labels = Labels('en');
 
   const postReportHandler = (e) => {
     console.log("ppppppppppp", postId);

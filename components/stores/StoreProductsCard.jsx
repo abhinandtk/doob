@@ -15,9 +15,12 @@ import Link from "next/link";
 import { setProVarient } from "@/Redux/productDetail";
 import { useDispatch } from "react-redux";
 import { useTheme } from "next-themes";
+import { useRouter } from "next/router";
 
 function StoreProductsCard({ products, title }) {
   const dispatch = useDispatch();
+  const router = useRouter();
+  const { locale } = router;
   console.log("reere", products);
 
   const [updatedStore, setUpdatedStore] = useState(
@@ -141,7 +144,7 @@ function StoreProductsCard({ products, title }) {
                           dispatch(setProVarient(item.slug_product_varient))
                         }
                       >
-                        {item.Name}
+                        {locale === "en" ? item.Name : item.arabic_translator}
                       </p>
                     </Link>
 

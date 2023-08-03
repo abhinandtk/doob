@@ -1,3 +1,4 @@
+
 let token_id;
 let user_id;
 if (typeof window !== 'undefined') {
@@ -11,10 +12,16 @@ if (typeof window !== 'undefined') {
 
 
 
+// export function getLocale() {
+//     const router = useRouter();
+//     return router.locale
+// }
+// const locale = getLocale();
+// console.log("8888888888888888888878778", locale)
 const constants = {
 
 
-    port : "https://doob.9pc.in",
+    port: "https://doob.9pc.in",
     // port: "https://doobapi.9pc.in",
     // port : "http://64.227.146.95",
     // port : "http://165.22.213.124",
