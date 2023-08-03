@@ -2,21 +2,24 @@ import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { Fragment } from "react";
-import Axios from 'axios'
+import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { notification } from "antd";
 import ReviewPlayground from "@/components/playGround/review/ReviewPlayground";
+import { useTranslation } from "next-i18next";
 function PlayGroundTopDetails({ details }) {
+  const { t } = useTranslation();
+
   const router = useRouter();
   const { pgid } = router.query;
-  const labels=Labels()
-  const [visible,setVisible]=useState(false)
+  const labels = Labels();
+  const [visible, setVisible] = useState(false);
 
   const toggleModal = () => {
     setVisible(!visible);
   };
-  
+
   const handleShareFieldPost = () => {
     Axios.post(
       apis.shareFieldToPost,
@@ -94,7 +97,7 @@ function PlayGroundTopDetails({ details }) {
               <i className="bi bi-star-fill" style={{ color: "yellow" }}></i>
               <span className="mx-2">{details.rating}</span>
             </span>
-            
+
             <p
               className="float-end"
               style={{ fontWeight: "700", color: "#17A803" }}
@@ -122,7 +125,9 @@ function PlayGroundTopDetails({ details }) {
           <br></br>
 
           <hr></hr>
-          <h5 style={{ fontWeight: "700", fontSize: "15px" }}>Description</h5>
+          <h5 style={{ fontWeight: "700", fontSize: "15px" }}>
+            {t("Description")}
+          </h5>
           <p className="col-md-12">{details.description}</p>
         </>
       )}

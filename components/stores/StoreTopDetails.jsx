@@ -9,14 +9,17 @@ import { useRouter } from "next/router";
 import { Labels } from "@/public/data/my-constants/Labels";
 import ReviewStore from "./review/ReviewStore";
 const { Panel } = Collapse;
+import { useTranslation } from "next-i18next";
 
 function StoreTopDetails({ data, setSuccess }) {
+  const { t } = useTranslation();
+
   const [descShow, setDescShow] = useState(false);
   const router = useRouter();
-  console.log('dat',data)
+  console.log("dat", data);
   const { sid } = router.query;
 
-  const labels=Labels()
+  const labels = Labels();
 
   const handleShare = async () => {
     try {
@@ -53,15 +56,15 @@ function StoreTopDetails({ data, setSuccess }) {
           Authorization: `Token ${constants.token_id}`,
         },
       }
-    ).then((res)=>{
-      if(res.data.status===1){
+    ).then((res) => {
+      if (res.data.status === 1) {
         notification.success({
-          message:constants.Success,
-          description:`${labels['Store shared']}`
-        })
+          message: constants.Success,
+          description: `${labels["Store shared"]}`,
+        });
       }
-      console.log('res@@',res)
-    })
+      console.log("res@@", res);
+    });
   };
 
   return (
@@ -72,7 +75,7 @@ function StoreTopDetails({ data, setSuccess }) {
           className="img-fluid"
           style={{ width: "100%", aspectRatio: "2.2", objectFit: "cover" }}
         ></img>
-          <img src={`${constants.port}${data.logo}`} className="foot-png"></img>
+        <img src={`${constants.port}${data.logo}`} className="foot-png"></img>
         <span className="span-icon">
           <svg
             onClick={() =>
@@ -153,17 +156,15 @@ function StoreTopDetails({ data, setSuccess }) {
             </svg>
           </span>
         </span>
-      
       </div>
-      
 
       <div className="my-3">
         <div className="row">
           <div className="col-md-6">
             <h5 className="dark-theme-color">{data.title}</h5>
             <p style={{ fontSize: "13px", color: "gray" }}>{data.address}</p>
-            
-              <ReviewStore data={data}/>
+
+            <ReviewStore data={data} />
             <p className="dark-theme-color">
               <i className="bi bi-clock"></i>
               <span className="mx-2">
@@ -180,14 +181,14 @@ function StoreTopDetails({ data, setSuccess }) {
                 <i className="bi bi-chevron-down "></i>
               ) : (
                 <i className="bi bi-chevron-right "></i>
-              )} 
+              )}
             </div>
           </div>
-          <hr className="line "></hr> 
-          {descShow && ( 
+          <hr className="line "></hr>
+          {descShow && (
             <div className="text">
               <div className="description">
-                <h5 className="dark-theme-color">Description</h5>
+                <h5 className="dark-theme-color">{t("Description")}</h5>
                 <p className="col-md-12 dark-theme-gd">{data.description}</p>
               </div>
             </div>

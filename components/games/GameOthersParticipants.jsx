@@ -1,11 +1,16 @@
 import constants from "@/public/data/my-constants/Constants";
 import React from "react";
 import { Fragment } from "react";
+import { useTranslation } from "next-i18next";
 
 function GameOthersParticipants({ participants }) {
+  const { t } = useTranslation();
+
   return (
     <Fragment>
-      <h5 style={{ fontWeight: "700", fontSize: "15px" }}>Participants</h5>
+      <h5 style={{ fontWeight: "700", fontSize: "15px" }}>
+        {t("Participants")}
+      </h5>
       <div class="route d-flex ">
         {participants.map((item, index) => (
           <img
@@ -16,7 +21,9 @@ function GameOthersParticipants({ participants }) {
           ></img>
         ))}
         <span className="mx-4" style={{ color: "#959595" }}>
-          {participants.participants_total_count - 4 >0 ?  `${participants.participants_total_count -4} more participants`:'' } 
+          {participants.participants_total_count - 4 > 0
+            ? `${participants.participants_total_count - 4} more participants`
+            : ""}
         </span>{" "}
       </div>
     </Fragment>

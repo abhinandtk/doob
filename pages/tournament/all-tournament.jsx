@@ -10,7 +10,19 @@ import constants from "@/public/data/my-constants/Constants";
 import { useState } from "react";
 import { Labels } from "@/public/data/my-constants/Labels";
 import MobileFooter from "@/components/shared/MobileFooter";
+import { useTranslation } from "next-i18next";
+
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 function AllTournamentPage() {
+  const { t } = useTranslation();
+
   const [tournaments, setTournaments] = useState([]);
   const [selectedStatus, setSelectedStatus] = useState("ongoing");
   const [selectedType, setSelectedType] = useState("ranked");
@@ -37,7 +49,7 @@ function AllTournamentPage() {
         <div className="tour-container">
           <div className="top-head-tour">
             <h5 className="dark-theme-color my-4" style={{ fontWeight: "600" }}>
-              Tournaments
+              {t("Tournaments")}
             </h5>
             <div
               className="btn-group mx-1"
@@ -51,7 +63,7 @@ function AllTournamentPage() {
                   selectedStatus === "ongoing" ? "match1" : "match2"
                 } `}
               >
-                Ongoing
+                {t("Ongoing")}
               </button>
             </div>
             <div
@@ -66,7 +78,7 @@ function AllTournamentPage() {
                   selectedStatus === "future" ? "match1" : "match2"
                 } `}
               >
-                Future
+                {t("Future")}
               </button>
             </div>
             <div className="topnav my-2">
@@ -74,13 +86,13 @@ function AllTournamentPage() {
                 onClick={() => setSelectedType("ranked")}
                 className={`${selectedType === "ranked" ? "active" : ""}`}
               >
-                Ranked
+                {t("Ranked")}
               </span>
               <span
                 className={` ${selectedType === "unranked" ? "active" : ""}`}
                 onClick={() => setSelectedType("unranked")}
               >
-                Unranked
+                {t("Unranked")}
               </span>
             </div>
           </div>

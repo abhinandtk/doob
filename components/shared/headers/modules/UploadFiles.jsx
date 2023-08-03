@@ -9,9 +9,12 @@ import { InboxOutlined } from "@ant-design/icons";
 import { useDispatch } from "react-redux";
 import { apiCallSuccess } from "@/Redux/apiSuccess";
 const { TextArea } = Input;
+import { useTranslation } from "next-i18next";
 
 function UploadFiles({ setUploadShow }) {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
+
 
   const [file, setFile] = useState(null);
   const [caption, setCaption] = useState("");
@@ -127,7 +130,7 @@ function UploadFiles({ setUploadShow }) {
             </Upload.Dragger>
           </div>
           <div style={{ width: "100%", marginTop: "1rem" }}>
-            Description
+            {t("Description")}
             <Form.Item>
               <TextArea
                 rows={4}

@@ -12,16 +12,23 @@ import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { useRouter } from "next/router";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 function AllGamesPage() {
-  const router=useRouter()
-  const {tab}=router.query
+  const router = useRouter();
+  const { tab } = router.query;
   const [myGames, setMyGames] = useState([]);
   const [gamesJoined, setGamesJoined] = useState([]);
   const [gamesInvited, setGamesInvited] = useState([]);
   const [activeTab, setActiveTab] = useState(tab);
   const [selectedCategory, setSelectedCategory] = useState(null);
-
-  
 
   const getTabName = (tabKey) => {
     if (tabKey === "games") {
@@ -117,7 +124,6 @@ function AllGamesPage() {
                   <GamesHistoryCard key={index} data={item.my_games} />
                 ) : null
               )}
-              
             </Tab>
 
             <Tab eventKey="joined" title={tabButton("joined")}>
@@ -187,8 +193,6 @@ function AllGamesPage() {
             </Tab>
           </Tabs>
         </div>
-
-        
       </div>
       <MobileFooter />
     </div>

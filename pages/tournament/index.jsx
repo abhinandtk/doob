@@ -10,8 +10,17 @@ import MainHeader from "@/components/shared/headers/MainHeader";
 import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileFooter from "@/components/shared/MobileFooter";
-
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 function TournamentHomePage() {
+  const { t } = useTranslation();
   const [liveTourData, setLiveTourData] = useState([]);
   const [rankData, setRankData] = useState([]);
   const [activeTab, setActiveTab] = useState("tournaments");
@@ -35,20 +44,24 @@ function TournamentHomePage() {
       <div className="tour-container">
         <div className="top-head-tour dark-theme-color">
           <h5 className=" my-4" style={{ fontWeight: "600" }}>
-            Tournaments
+            {t("Tournaments")}
           </h5>
           <div className="topnav">
             <span
               onClick={() => setActiveTab("tournaments")}
-              className={`${activeTab === "tournaments" ? "active" : ""} dark-theme-color`}
+              className={`${
+                activeTab === "tournaments" ? "active" : ""
+              } dark-theme-color`}
             >
-              Tournaments
+              {t("Tournaments")}
             </span>
             <span
               onClick={() => setActiveTab("ranks")}
-              className={`${activeTab === "ranks" ? "active" : ""} dark-theme-color`}
+              className={`${
+                activeTab === "ranks" ? "active" : ""
+              } dark-theme-color`}
             >
-              Ranks
+              {t("Ranks")}
             </span>
           </div>
         </div>

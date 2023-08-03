@@ -7,7 +7,11 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
+import { useTranslation } from "next-i18next";
+
 function CreateGameForm() {
+  const { t } = useTranslation();
+
   const router = useRouter();
   const { booking_id } = router.query;
 
@@ -91,7 +95,7 @@ function CreateGameForm() {
           message: constants.Success,
           description: `${labels["Game created"]}`,
         });
-        router.push('/play-ground')
+        router.push("/play-ground");
       }
 
       console.log("add game", res, formdata);
@@ -154,7 +158,7 @@ function CreateGameForm() {
           </select>
         </div>
         <div className="form-group my-3">
-          <label for="exampleFormControlTextarea1">Description</label>
+          <label for="exampleFormControlTextarea1">{t("Description")}</label>
           <textarea
             className="form-control"
             style={{

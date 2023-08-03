@@ -7,6 +7,7 @@ import { Input, List, Modal, notification } from "antd";
 import { CardImg, Dropdown } from "react-bootstrap";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 
 function TeamsCard({
   teamsData,
@@ -16,6 +17,7 @@ function TeamsCard({
   maxTeam,
   matchGenerate,
 }) {
+  const { t } = useTranslation();
   const router = useRouter();
   const { tid } = router.query;
   console.log("teamData", maxTeam * 2);
@@ -283,7 +285,7 @@ function TeamsCard({
                     <Dropdown.Item
                       onClick={() => deleteTeamHandler(item.user_id.user_id)}
                     >
-                      Delete
+                      {t("Delete")}
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>

@@ -7,6 +7,7 @@ import { Input, List, Modal, notification } from "antd";
 import { Button, CardImg, Dropdown } from "react-bootstrap";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 
 function DoublesTeamsCard({
   teamsData,
@@ -15,6 +16,8 @@ function DoublesTeamsCard({
   temp,
   matchGenerate,
 }) {
+  const { t } = useTranslation();
+
   const router = useRouter();
   const { tid } = router.query;
   console.log("teamData", admin);
@@ -394,7 +397,7 @@ function DoublesTeamsCard({
                         )
                       }
                     >
-                      Delete
+                      {t("Delete")}
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>

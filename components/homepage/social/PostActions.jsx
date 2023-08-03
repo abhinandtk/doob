@@ -154,7 +154,7 @@ export default function PostActions({
             </Dropdown.Item>
           ) : (
             <Dropdown.Item onClick={() => setVisible(true)}>
-              Delete
+              {t("Delete")}
             </Dropdown.Item>
           )}
           {data.post_type === "Product" ||

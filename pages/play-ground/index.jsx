@@ -248,7 +248,7 @@ function PlayGroundPage() {
                     })
                   }
                 >
-                  You have {contents.my_upcoming_bookings} upcoming bookings
+                  {t("You have")} {contents.my_upcoming_bookings} {t("upcoming bookings")}
                 </button>
               </div>
             </div>
@@ -272,7 +272,7 @@ function PlayGroundPage() {
                         marginLeft: "-6px",
                       }}
                     >
-                      Games near me
+                      {t("Games near me")}
                     </h5>
                     {/* <p className="float-end" style={{ color: "#959595" }}>
                       View all
@@ -335,14 +335,14 @@ function PlayGroundPage() {
             )}
 
             <h5 style={{ fontWeight: "700" }} className="my-3 dark-theme-color">
-              Doob Map
+              {t("Doob Map")}
             </h5>
             <div className="field-maps">
               <Tabs style={{ display: "flex", justifyContent: "space-evenly" }}>
-                <Tab eventKey={1} title="Fields">
+                <Tab eventKey={1} title={t("Fields")}>
                   <MapPlayGround data={contents.playgrounds_near_me} />
                 </Tab>
-                <Tab eventKey={2} title="Games">
+                <Tab eventKey={2} title={t("Games")}>
                   <MapGame data={contents.games_near_me} />
                 </Tab>
               </Tabs>

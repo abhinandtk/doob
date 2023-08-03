@@ -3,9 +3,12 @@ import moment from "moment";
 import { useRouter } from "next/router";
 import React, { useRef } from "react";
 import { Fragment } from "react";
+import { useTranslation } from "next-i18next";
 
 function GameBookingCard({ data }) {
   console.log("ffffffffffff", data);
+  const { t } = useTranslation();
+
   const router = useRouter();
   const scrollRef = useRef();
   const handleScroll = () => {
@@ -95,7 +98,7 @@ function GameBookingCard({ data }) {
                     />
                   )}
                   <span className="mx-2">
-                    <span style={{ color: "#17A803" }}>Hosted by</span>
+                    <span style={{ color: "#17A803" }}>{t("Hosted by")}</span>
                     &nbsp;{value.hosted_by.hosted_by}
                   </span>
                 </span>

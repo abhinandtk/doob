@@ -7,8 +7,11 @@ import apis from "@/public/data/my-constants/Apis";
 import { useRouter } from "next/router";
 import { message, notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
+import { useTranslation } from "next-i18next";
+
 function GameDetailTopContent({ details, setOnSuccess }) {
   console.log("jjjj4909090909", details);
+  const { t } = useTranslation();
 
   const labels = Labels();
   const router = useRouter();
@@ -57,7 +60,6 @@ function GameDetailTopContent({ details, setOnSuccess }) {
         });
         setOnSuccess((prev) => !prev);
       }
-      
     });
   };
   const leftGameHandler = (id) => {
@@ -119,7 +121,7 @@ function GameDetailTopContent({ details, setOnSuccess }) {
                       src={`${constants.port}${details.created_by.profile_pic}`}
                       className="game-imgs"
                     ></img>
-                    <span className="mx-1 game-host">Hosted by</span>
+                    <span className="mx-1 game-host">{t("Hosted by")}</span>
                     <span className="gamer">
                       {details.created_by.hosted_by}
                     </span>
@@ -217,7 +219,7 @@ function GameDetailTopContent({ details, setOnSuccess }) {
             </div>
           </div>
           <div className="field-content">
-            <h5 style={{ fontWeight: "700", fontSize: "15px" }}>Description</h5>
+            <h5 style={{ fontWeight: "700", fontSize: "15px" }}>{t("Description")}</h5>
             <p className="col-md-12 game-description">{details.description}</p>
           </div>
           {/* <div>

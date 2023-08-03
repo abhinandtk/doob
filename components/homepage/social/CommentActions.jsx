@@ -141,7 +141,7 @@ function CommentActions({ user, commentId, setSuccessApi }) {
             <Dropdown.Item onClick={() => setShow(true)}>{t("Report")}</Dropdown.Item>
           ) : (
             <Dropdown.Item onClick={() => setVisible(true)}>
-              Delete
+              {t("Delete")}
             </Dropdown.Item>
           )}
         </Dropdown.Menu>

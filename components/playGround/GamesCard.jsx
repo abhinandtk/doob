@@ -2,7 +2,11 @@ import constants from "@/public/data/my-constants/Constants";
 import Link from "next/link";
 import React, { Fragment } from "react";
 import moment from "moment";
+import { useTranslation } from "next-i18next";
+
 function GamesCard({ data }) {
+  const { t } = useTranslation();
+
   console.log("daaaaaaaaaaaaaaa", data);
   return (
     <Fragment>
@@ -132,7 +136,7 @@ function GamesCard({ data }) {
                         }}
                       ></img>
                       <span className="mx-2 ">
-                        <span className="hosts">Hosted by</span>
+                        <span className="hosts">{t("Hosted by")}</span>
                         <span className="host-name">
                           {" "}
                           &nbsp;{item.hosted_by.hosted_by}
@@ -142,7 +146,7 @@ function GamesCard({ data }) {
                   </div>
                   {item.created_by != constants.user_id && (
                     <button type="button" className="Join-btn float-end">
-                      View
+                      {t("View")}
                     </button>
                   )}
                 </div>

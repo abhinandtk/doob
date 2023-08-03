@@ -28,36 +28,44 @@ import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileHeader from "@/components/MobileHeader";
 import { useRouter } from "next/router";
 import MobileFooter from "@/components/shared/MobileFooter";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
+export async function getServerSideProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 function PlayGroundDetailPage() {
-    const router =useRouter()
-    const inputData = router.query
-    const [groundData,setGroundData]=useState([])
-    const [amenitiesData,setAmenitiesData]=useState([])
-    console.log('ggggggggggggggg',inputData,{
-      stadium_id:inputData.stadium_id, 
-      date:inputData.date
-    })
-    const [dateSelected,setDateSelected]=useState(inputData.date)
-    useEffect(() => {
-      Axios.post(
-        apis.stadiumDetailView,
-        {
-          stadium_slug:inputData.pgid, 
-          date:dateSelected
+  const router = useRouter();
+  const inputData = router.query;
+  const [groundData, setGroundData] = useState([]);
+  const [amenitiesData, setAmenitiesData] = useState([]);
+  console.log("ggggggggggggggg", inputData, {
+    stadium_id: inputData.stadium_id,
+    date: inputData.date,
+  });
+  const [dateSelected, setDateSelected] = useState(inputData.date);
+  useEffect(() => {
+    Axios.post(
+      apis.stadiumDetailView,
+      {
+        stadium_slug: inputData.pgid,
+        date: dateSelected,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
         },
-        {
-          headers: {
-            'Authorization': `Token ${constants.token_id}`,
-          }
-        }
-      ).then((res)=>{
-        setGroundData(res.data.data.stadium_details)
-        setAmenitiesData(res.data.data.stadium_details.amnities)
-        
-          console.log('trrtrtrtop879',res)
-      })
-    },[inputData,dateSelected])
+      }
+    ).then((res) => {
+      setGroundData(res.data.data.stadium_details);
+      setAmenitiesData(res.data.data.stadium_details.amnities);
+
+      console.log("trrtrtrtop879", res);
+    });
+  }, [inputData, dateSelected]);
 
   return (
     <Fragment>
@@ -75,9 +83,9 @@ function PlayGroundDetailPage() {
           </span>
         </form> */}
 
-        <PlayGroundTopDetails details={groundData}/>
-        <AmenitiesList amenitiesData={amenitiesData}/>
-        <SelectGround details={groundData} setDateSelected={setDateSelected}/>
+        <PlayGroundTopDetails details={groundData} />
+        <AmenitiesList amenitiesData={amenitiesData} />
+        <SelectGround details={groundData} setDateSelected={setDateSelected} />
       </div>
       <MobileFooter />
     </Fragment>

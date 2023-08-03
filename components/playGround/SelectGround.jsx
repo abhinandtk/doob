@@ -11,7 +11,10 @@ import moment from "moment";
 import { Button, Modal, notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { toggle } from "@/Redux/updateNavbar";
+import { useTranslation } from "next-i18next";
+
 function SelectGround({ details, setSuccess, setDateSelected }) {
+  const { t } = useTranslation();
   const router = useRouter();
   const inputData = router.query;
   const labels = Labels();
@@ -62,7 +65,7 @@ function SelectGround({ details, setSuccess, setDateSelected }) {
         }
       ).then((res) => {
         console.log("resultcart", res);
-        dispatch(toggle())
+        dispatch(toggle());
         if (res.data.status === 1) {
           notification.success({
             message: constants.Success,
@@ -83,14 +86,14 @@ function SelectGround({ details, setSuccess, setDateSelected }) {
   const handleDateChange = (e) => {
     setDate(e.target.value);
     setDateSelected(e.target.value);
-    dispatch(selectSlots([]))
+    dispatch(selectSlots([]));
   };
   return (
     <Fragment>
       <Modal
         open={visible}
         onCancel={() => setVisible(false)}
-        title="Please select game"
+        title={t("Please select game")}
         className="game-choose1"
         footer={
           <Button onClick={() => setVisible(false)} key="submit" type="primary">
@@ -99,7 +102,7 @@ function SelectGround({ details, setSuccess, setDateSelected }) {
         }
       >
         <div className="form-group my-2">
-          <label for="exampleFormControlSelect1">Games</label>
+          <label for="exampleFormControlSelect1">{t("Games")}</label>
           <select
             placeholder="order stsu"
             className="form-control p-2 "
@@ -131,7 +134,7 @@ function SelectGround({ details, setSuccess, setDateSelected }) {
         <div className="card-body p-4">
           <div className="row">
             <div className="col-md-6">
-              <h5 style={{ fontWeight: "600" }}>Date</h5>
+              <h5 style={{ fontWeight: "600" }}>{t("Date")}</h5>
               <div className=" d-flex   ground-customer">
                 <input
                   type="date"
@@ -150,7 +153,7 @@ function SelectGround({ details, setSuccess, setDateSelected }) {
                 className="my-4"
                 style={{ fontSize: "15px", fontWeight: "700" }}
               >
-                Available time slots
+                {t("Available time slots")}
               </h5>
               <div className="Available-slot">
                 {details.timeslot && details.timeslot.length > 0 ? (

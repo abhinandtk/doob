@@ -2,8 +2,10 @@ import constants from "@/public/data/my-constants/Constants";
 import moment from "moment";
 import Link from "next/link";
 import React, { Fragment } from "react";
-
+import { useTranslation } from "next-i18next";
 function GamesHistoryCard({ data }) {
+  const { t } = useTranslation();
+
   console.log("data/*89", data);
   return (
     <Fragment>
@@ -98,7 +100,7 @@ function GamesHistoryCard({ data }) {
                     </div>
                   ) : (
                     <span className="mx-4" style={{ color: "#959595" }}>
-                      0 Participants
+                      0 {t("Participants")}
                     </span>
                   )}
                   <hr></hr>
@@ -115,7 +117,9 @@ function GamesHistoryCard({ data }) {
                           }}
                         ></img>{" "}
                         <span className="mx-2">
-                          <span style={{ color: "#17A803" }}>Hosted by</span>{" "}
+                          <span style={{ color: "#17A803" }}>
+                            {t("Hosted by")}
+                          </span>{" "}
                           {item.hosted_by.hosted_by}
                         </span>
                       </span>

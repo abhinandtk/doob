@@ -16,8 +16,18 @@ import FixtureView from "@/components/tournament/view/FixtureView";
 import MobileFooter from "@/components/shared/MobileFooter";
 import DoublesMatchCard from "@/components/tournament/view/DoublesMatchCard";
 import DoublesTeamsCard from "@/components/tournament/view/DoublesTeamCard";
-
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+export async function getServerSideProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 function TournamentDetailPage() {
+  const { t } = useTranslation();
+
   const router = useRouter();
   const { tid } = router.query;
 
@@ -66,7 +76,6 @@ function TournamentDetailPage() {
   let matchGenerate = matchesTabData.length > 0;
   console.log("56r7", matchGenerate);
 
-
   const handleTabChange = (selected) => {
     setActiveTab(selected);
 
@@ -75,13 +84,13 @@ function TournamentDetailPage() {
 
   const getTabButtonName = (tabKey) => {
     if (tabKey === "Home") {
-      return "Home";
+      return t("Home");
     } else if (tabKey === "Teams") {
-      return "Teams";
+      return t("Teams");
     } else if (tabKey === "Matches") {
-      return "Matches";
+      return t("Matches");
     } else if (tabKey === "Fixture") {
-      return "Fixture";
+      return t("Fixture");
     }
     return "";
   };
@@ -295,7 +304,6 @@ function TournamentDetailPage() {
                   setOnSuccess={setOnSuccess}
                   admin={adminList}
                   matchGenerate={matchGenerate}
-
                 />
               )}
             </Tab>

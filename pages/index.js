@@ -20,8 +20,8 @@ import PasswordChange from '@/components/user/PasswordChange';
 import SsoRegister from '@/components/user/SsoRegister';
 import MobileHeader from '@/components/MobileHeader';
 import SharedConfirmation from '@/components/homepage/social/SharedConfirmation';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useRouter } from 'next/router';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 export async function getStaticProps({ locale }) {
   return {

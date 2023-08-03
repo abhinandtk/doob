@@ -8,7 +8,11 @@ import constants from "@/public/data/my-constants/Constants";
 import { Modal } from "antd";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
+
 function NewGameForm({ game, country }) {
+  const { t } = useTranslation();
+
   const router = useRouter();
   const [visible, setVisible] = useState(false);
   const [area, setArea] = useState([]);
@@ -93,20 +97,20 @@ function NewGameForm({ game, country }) {
             className="float-start dark-theme-color"
             style={{ fontWeight: "700", fontSize: "19px" }}
           >
-            Games
+            {t("Games")}
           </h5>
           <button
             onClick={() => setVisible(true)}
             type="button"
             className="newGame-btn float-end"
           >
-            New Game
+            {t("New Game")}
           </button>
         </div>
       </section>
 
       <Modal
-        title="Create Game"
+        title={t("Create Game")}
         open={visible}
         onCancel={() => setVisible(false)}
         maskClosable
