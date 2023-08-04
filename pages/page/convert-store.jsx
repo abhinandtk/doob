@@ -11,6 +11,15 @@ import { notification } from "antd";
 import { useRouter } from "next/router";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['translation'])),
+    },
+  }
+}
 function ConvertStoreForm() {
   const { t } = useTranslation();
   const [formData, setFormData] = useState({

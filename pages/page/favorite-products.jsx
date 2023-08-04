@@ -18,6 +18,15 @@ import { useEffect } from "react";
 import MobileHeader from "@/components/MobileHeader";
 import MobileFooter from "@/components/shared/MobileFooter";
 import Link from "next/link";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['translation'])),
+    },
+  }
+}
 function FavoriteProducts() {
   const [favLists, setFavLists] = useState([]);
   const [apiSuccess, setApiSuccess] = useState(false);

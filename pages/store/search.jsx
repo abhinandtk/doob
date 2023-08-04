@@ -10,7 +10,15 @@ import StoreProductsCard from "@/components/stores/StoreProductsCard";
 import SearchCategory from "@/components/stores/SearchCategory";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 function StoreSearchPage() {
   const router = useRouter();
 

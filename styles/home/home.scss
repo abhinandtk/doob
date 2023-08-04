@@ -8,7 +8,6 @@ body {
 .dropdown-toggle::after {
   display: none !important;
 }
-
 .Drop {
   position: relative;
   margin-left: -15px;
@@ -46,7 +45,6 @@ body {
   transition: 0.3s;
   margin-top: -23px;
   color: var(--sidebar-color);
-  
 }
 
 .sidebar-header {
@@ -147,7 +145,6 @@ body {
   list-style: none;
   padding: 0 12px;
   color: var(--side-footer-color);
-
 }
 .side-menu__footer-list a {
   font-size: 11px;
@@ -579,8 +576,8 @@ input.nosubmit1 {
   border: 1px solid var(--img-border);
   border-radius: 50%;
 }
-.dropdown-toggle btn{
-  color:white;
+.dropdown-toggle btn {
+  color: white;
 }
 
 .posts {
@@ -2167,7 +2164,7 @@ p.note {
   padding: 0px 5px;
   margin-top: 58px;
   background-color: var(--contents-bg);
-  color:var(--font-theme-color);
+  color: var(--font-theme-color);
   width: 650px;
   height: 100%;
   min-height: 500px;

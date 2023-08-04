@@ -13,6 +13,15 @@ import { notification } from "antd";
 import MobileFooter from "@/components/shared/MobileFooter";
 import OffersForm from "@/components/shop/offer/OffersForm";
 import { Labels } from "@/public/data/my-constants/Labels";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+export async function getServerSideProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 function EditOffersPage() {
   const router = useRouter();
   const {slugId}=router.query

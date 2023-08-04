@@ -15,6 +15,15 @@ import SupportMessages from "@/components/shop/support/SupportMessages";
 import { useState } from "react";
 import moment from "moment";
 import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+export async function getServerSideProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 function SupportDetailsPage() {
   const { t } = useTranslation();
   const router = useRouter();

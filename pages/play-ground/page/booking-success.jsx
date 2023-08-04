@@ -17,7 +17,15 @@ import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import { useRouter } from "next/router";
 import MobileFooter from "@/components/shared/MobileFooter";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['translation'])),
+    },
+  }
+}
 function BookingSuccessPage() {
   const router = useRouter();
   const { booking_id } = router.query;

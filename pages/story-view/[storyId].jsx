@@ -21,6 +21,15 @@ import MobileHeader from '@/components/MobileHeader';
 import MainSidebarFixed from '@/components/shared/sidebar/MainSidebarFixed';
 import SingleContainerHomePosts from '@/components/homepage/SingleContainerHomePosts';
 import StoriesMainPage from '@/components/homepage/StoriesMainPage';
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+export async function getServerSideProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 function StoriesView ()  {
 
   const [countryData,setCountryData] = useState([])

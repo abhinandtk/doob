@@ -8,7 +8,15 @@ import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import EditBrand from "@/components/shop/brand/EditBrand";
 import { useRouter } from "next/router";
 import MobileFooter from "@/components/shared/MobileFooter";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
+export async function getServerSideProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 function EditBrandPage() {
   const router = useRouter()
   // const {id} = router.query

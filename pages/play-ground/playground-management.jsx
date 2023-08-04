@@ -20,6 +20,15 @@ import MobileFooter from "@/components/shared/MobileFooter";
 import constants from "@/public/data/my-constants/Constants";
 import apis from "@/public/data/my-constants/Apis";
 import Axios from "axios";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['translation'])),
+    },
+  }
+}
 function PlaygroundManagementPage() {
   const [show, setShow] = useState(false);
 

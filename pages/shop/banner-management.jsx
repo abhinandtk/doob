@@ -7,8 +7,16 @@ import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileFooter from "@/components/shared/MobileFooter";
 import BannerManagement from "@/components/shop/banner/BannerManagement";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-function OfferManagementPage() {
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
+function BannerManagementPage() {
   return (
     <Fragment>
       <MainHeader title="Doob" />
@@ -25,4 +33,4 @@ function OfferManagementPage() {
   );
 }
 
-export default OfferManagementPage;
+export default BannerManagementPage;

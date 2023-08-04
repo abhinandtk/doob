@@ -21,6 +21,15 @@ import Axios from "axios";
 import { notification } from "antd";
 import { useEffect } from "react";
 import constants from "@/public/data/my-constants/Constants";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 function StoreSettingsPage() {
   const [storeStatus, setStoreStatus] = useState(true);
   const [onSuccess, setOnSuccess] = useState(false);

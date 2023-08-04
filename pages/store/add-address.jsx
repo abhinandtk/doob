@@ -15,7 +15,15 @@ import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { useEffect } from "react";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 function AddAddressPage() {
   const router = useRouter();
 

@@ -10,6 +10,15 @@ import constants from "@/public/data/my-constants/Constants";
 import Axios from "axios";
 import { Image } from "antd";
 import MobileFooter from "@/components/shared/MobileFooter";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['translation'])),
+    },
+  }
+}
 function StadiumListPage() {
   const router = useRouter();
   const data = router.query;

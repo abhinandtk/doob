@@ -18,7 +18,15 @@ import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 import PlayGroundSideBar from "@/components/playGround/PlayGroundSideBar";
 Chart.register(CategoryScale);
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['translation'])),
+    },
+  }
+}
 function BookingReport() {
   const [selectedDays, setSelectedDays] = useState(30);
   const [bookingData, setBookingData] = useState([]);

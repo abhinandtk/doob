@@ -12,6 +12,15 @@ import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
 import { notification } from "antd";
 import MobileFooter from "@/components/shared/MobileFooter";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+export async function getServerSideProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 function ProductEditPage() {
   const router = useRouter();
   const { id } = router.query;

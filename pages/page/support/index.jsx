@@ -18,6 +18,15 @@ import MobileFooter from "@/components/shared/MobileFooter";
 import Link from "next/link";
 import { useRouter } from "next/router";
 const { Option } = Select;
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['translation'])),
+    },
+  }
+}
 function SupportPage() {
   const router = useRouter();
   const [supportList, setSupportList] = useState([]);

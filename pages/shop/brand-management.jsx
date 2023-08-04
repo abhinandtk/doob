@@ -7,9 +7,17 @@ import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import BrandManagement from "@/components/shop/brand/BrandManagement";
 import MobileFooter from "@/components/shared/MobileFooter";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 
-function CategoryManagementPage() {
+function BrandManagementPage() {
   return (
     <Fragment>
       <MainHeader title="Doob" />
@@ -27,4 +35,4 @@ function CategoryManagementPage() {
   );
 }
 
-export default CategoryManagementPage;
+export default BrandManagementPage;

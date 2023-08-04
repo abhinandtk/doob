@@ -19,7 +19,16 @@ import { useRouter } from "next/router";
 import { Labels } from "@/public/data/my-constants/Labels";
 const { Option } = Select;
 import { useTranslation } from "next-i18next";
-function SupportPage() {
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['translation'])),
+    },
+  }
+}
+function SupportAddPage() {
   const [supportList, setSupportList] = useState([]);
   const { t } = useTranslation();
   const router = useRouter();
@@ -143,4 +152,4 @@ function SupportPage() {
   );
 }
 
-export default SupportPage;
+export default SupportAddPage;

@@ -4,10 +4,17 @@ import {Container,Nav,Navbar,Dropdown,Carousel,Card,Button, Form,CardImg} from '
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import React, { useState } from 'react';
 
-  
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 
-function HomePage ()  {
+function ReviewStorePage ()  {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -441,4 +448,4 @@ Arabic</Dropdown.Item>
 }
 
 
-export default HomePage
+export default ReviewStorePage

@@ -17,6 +17,15 @@ import MobileFooter from "@/components/shared/MobileFooter";
 import { Labels } from "@/public/data/my-constants/Labels";
 import moment from "moment";
 import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 function CategorySalesReport() {
   const { t } = useTranslation();
   const [categoryReportData, setCategoryReportData] = useState([]);

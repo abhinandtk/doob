@@ -10,6 +10,15 @@ import OtherProfileHeaderDetails from "@/components/profile/OtherProfileHeaderDe
 import { useEffect } from "react";
 import UserProfileActivityTab from "@/components/homepage/social/UserProfileActivityTab";
 import Link from "next/link";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+export async function getServerSideProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 function OtherUserAccount() {
   const router = useRouter();
   const { userId } = router.query;

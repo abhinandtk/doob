@@ -17,6 +17,15 @@ import { Fragment } from "react";
 import MobileFooter from "@/components/shared/MobileFooter";
 const { Option } = Select;
 import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 function AdminAllOrders() {
   const { t } = useTranslation();
   const [allOrders, setAllOrders] = useState([]);

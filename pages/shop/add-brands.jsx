@@ -7,6 +7,15 @@ import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import AddBrand from "@/components/shop/brand/AddBrand";
 import MobileFooter from "@/components/shared/MobileFooter";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 
 function AddBrandPage() {
   return (

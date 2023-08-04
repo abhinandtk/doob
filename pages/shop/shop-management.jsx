@@ -7,7 +7,15 @@ import ShopDashBoardTop from "@/components/shop/ShopDashBoardTop";
 import ShopDashBoardPages from "@/components/shop/ShopDashBoardPages";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { useTheme } from "next-themes";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 function ShopManagementPage() {
   const {theme}=useTheme()
   

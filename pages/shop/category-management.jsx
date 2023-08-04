@@ -7,8 +7,16 @@ import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import AddCategoriesForm from "@/components/shop/category/CategoriesForm";
 import CategoryManagement from "@/components/shop/category/CategoryManagement";
-import MobileFooter from "@/components/shared/MobileFooter";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
+import MobileFooter from "@/components/shared/MobileFooter";
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 function CategoryManagementPage() {
   return (
     <Fragment>

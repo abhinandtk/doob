@@ -15,7 +15,15 @@ import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import PagesSideBar from "@/components/stores/pages/PagesSideBar";
 import MyOrders from "@/components/stores/pages/MyOrders";
 import MobileFooter from "@/components/shared/MobileFooter";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['translation'])),
+    },
+  }
+}
 function MyOrdersPage() {
   return (
     <div>

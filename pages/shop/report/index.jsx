@@ -6,7 +6,15 @@ import ShopPagesSideBar from "@/components/shop/pages/ShopPagesSideBar";
 import Link from "next/link";
 import React from "react";
 import { Fragment } from "react";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 function ReportPage() {
   return (
     <Fragment>

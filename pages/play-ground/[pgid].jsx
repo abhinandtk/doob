@@ -17,7 +17,7 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import React, { useState } from "react";
 import SelectGround from "@/components/playGround/SelectGround";
 import AmenitiesList from "@/components/playGround/AmenitiesList";
-import PlayGroundTopDetails from "./PlayGroundTopDetails";
+import PlayGroundTopDetails from "../../components/playGround/PlayGroundTopDetails";
 import { Fragment } from "react";
 import Axios from "axios";
 import { useEffect } from "react";

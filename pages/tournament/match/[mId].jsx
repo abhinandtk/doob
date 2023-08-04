@@ -13,6 +13,15 @@ import { Button, Input, Modal, Select, notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+export async function getServerSideProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 function MatchTimelinePage() {
   const { t } = useTranslation();
   const router = useRouter();

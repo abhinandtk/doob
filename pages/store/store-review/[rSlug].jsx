@@ -14,6 +14,15 @@ import { useRouter } from "next/router";
 import MobileFooter from "@/components/shared/MobileFooter";
 import StoreReviewForm from "@/components/stores/review/StoreReviewForm";
 import StoreReviewList from "@/components/stores/review/StoreReviewList";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+export async function getServerSideProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 function ReviewPage() {
   const [reviewData, setReviewData] = useState([]);
   const [reviewAdded, setReviewAdded] = useState([]);

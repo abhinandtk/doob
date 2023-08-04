@@ -13,6 +13,15 @@ import MobileHeader from "@/components/MobileHeader";
 import PlayGroundSideBar from "@/components/playGround/PlayGroundSideBar";
 import MobileFooter from "@/components/shared/MobileFooter";
 import PagesSideBar from "@/components/stores/pages/PagesSideBar";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['translation'])),
+    },
+  }
+}
 function AllBookingPage() {
   const [bookingList, setBookingList] = useState([]);
 

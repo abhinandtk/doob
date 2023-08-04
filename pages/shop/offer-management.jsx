@@ -9,7 +9,15 @@ import AddCategoriesForm from "@/components/shop/category/CategoriesForm";
 import CategoryManagement from "@/components/shop/category/CategoryManagement";
 import MobileFooter from "@/components/shared/MobileFooter";
 import OfferManagement from "@/components/shop/offer/OfferManagement";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 function OfferManagementPage() {
   return (
     <Fragment>

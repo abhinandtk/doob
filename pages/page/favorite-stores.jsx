@@ -10,6 +10,15 @@ import constants from "@/public/data/my-constants/Constants";
 import MobileHeader from "@/components/MobileHeader";
 import MobileFooter from "@/components/shared/MobileFooter";
 import Link from "next/link";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['translation'])),
+    },
+  }
+}
 
 function FavoriteStores() {
   const [storeFavList, setStoreFavList] = useState([]);

@@ -25,6 +25,15 @@ import MobileFooter from "@/components/shared/MobileFooter";
 import StoreProductsCard from "@/components/stores/StoreProductsCard";
 import { Carousel } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+export async function getServerSideProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 function StoreDetailPage() {
   const router = useRouter();
   const { sid } = router.query;

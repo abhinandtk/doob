@@ -12,6 +12,15 @@ import { notification } from "antd";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { Labels } from "@/public/data/my-constants/Labels";
 import BannerForm from "@/components/shop/banner/BannerForm";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+export async function getServerSideProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 function EditBannerPage() {
   const router = useRouter();
   const { bannerId } = router.query;

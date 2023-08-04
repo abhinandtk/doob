@@ -11,6 +11,15 @@ import CategoriesForm from "@/components/shop/category/CategoriesForm";
 import { useRouter } from "next/router";
 import { notification } from "antd";
 import MobileFooter from "@/components/shared/MobileFooter";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 function AddCategoryPage() {
 
   const router=useRouter()

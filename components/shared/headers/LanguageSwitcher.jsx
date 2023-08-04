@@ -5,8 +5,9 @@ import { useRouter } from "next/router";
 
 function LanguageSwitcher() {
   const router = useRouter();
+  const { pathname, query } = router;
   const changeLanguage = (lang) => {
-    router.push(router.pathname, undefined, { locale: lang });
+    router.push({ pathname, query }, undefined, { locale: lang });
   };
   return (
     <Dropdown className="Drop">

@@ -10,6 +10,15 @@ import constants from "@/public/data/my-constants/Constants";
 import { notification } from "antd";
 import PagesSideBar from "@/components/stores/pages/PagesSideBar";
 import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 function FeedbackPage() {
   const { t } = useTranslation();
   const [formData, setFormData] = useState({

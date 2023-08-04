@@ -18,7 +18,15 @@ import constants from "@/public/data/my-constants/Constants";
 import Link from "next/link";
 import MobileHeader from "@/components/MobileHeader";
 import MobileFooter from "@/components/shared/MobileFooter";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 function SearchPage() {
   const [activeTab, setActiveTab] = useState("1");
   const [error, setError] = useState(false);

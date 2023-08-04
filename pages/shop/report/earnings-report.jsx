@@ -18,7 +18,15 @@ import MobileFooter from "@/components/shared/MobileFooter";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 Chart.register(CategoryScale);
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 function EarningsReport() {
   const [selectedDays, setSelectedDays] = useState(30);
   const [earningsData, setEarningsData] = useState([]);

@@ -11,7 +11,15 @@ import { useRouter } from "next/router";
 import StoreProductsCard from "@/components/stores/StoreProductsCard";
 import MobileHeader from "@/components/MobileHeader";
 import MobileFooter from "@/components/shared/MobileFooter";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 function CategorySearchPage() {
   const [searchInput, setSearchInput] = useState("");
   const [subCategoriesData, setSubCategoriesData] = useState([]);

@@ -21,7 +21,16 @@ import SsoRegister from '@/components/user/SsoRegister';
 import MobileHeader from '@/components/MobileHeader';
 import SharedConfirmation from '@/components/homepage/social/SharedConfirmation';
 import SingleContainerHomePosts from '@/components/homepage/SingleContainerHomePosts';
-function HomePage ()  {
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+export async function getServerSideProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
+function SingleHomePage ()  {
 
   const [countryModalShow, setCountryModalShow] = useState(true);
   const [countryData,setCountryData] = useState([])
@@ -62,4 +71,4 @@ function HomePage ()  {
 }
 
 
-export default HomePage
+export default SingleHomePage
