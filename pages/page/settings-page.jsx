@@ -23,7 +23,9 @@ import constants from "@/public/data/my-constants/Constants";
 import PagesSideBar from "@/components/stores/pages/PagesSideBar";
 import { useRouter } from "next/router";
 import { Labels } from "@/public/data/my-constants/Labels";
+import { useTranslation } from "next-i18next";
 function StoreSettingsPage() {
+  const { t } = useTranslation();
   const labels = Labels();
   const [accountStatus, setAccountStatus] = useState(false);
   const [userType, setUserType] = useState(null);
@@ -225,7 +227,7 @@ function StoreSettingsPage() {
         onCancel={() => setVisible(false)}
         footer={[
           <Button key="back" onClick={() => setVisible(false)}>
-            Cancel
+            {t("Cancel")}
           </Button>,
           <Button
             style={{ backgroundColor: "#17A803" }}
@@ -233,7 +235,7 @@ function StoreSettingsPage() {
             type="primary"
             onClick={deleteAccountHandler}
           >
-            Submit
+            {t("Submit")}
           </Button>,
         ]}
       ></Modal>

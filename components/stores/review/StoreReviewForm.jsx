@@ -4,8 +4,9 @@ import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
-
+import { useTranslation } from "next-i18next";
 function StoreReviewForm({ setOnSuccess, userImg }) {
+  const { t } = useTranslation();
   console.log("rwd", userImg);
   const router = useRouter();
   const { sid } = router.query;
@@ -107,7 +108,7 @@ function StoreReviewForm({ setOnSuccess, userImg }) {
           />
         </div>
         <button type="submit" className="submits-cart-btn ">
-          Submit
+          {t("Submit")}
         </button>
       </form>
     </div>

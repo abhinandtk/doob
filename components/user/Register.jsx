@@ -13,7 +13,9 @@ import axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import { notification } from "antd";
 import constants from "@/public/data/my-constants/Constants";
+import { useTranslation } from "next-i18next";
 function Register({ setActiveModal, countries }) {
+  const { t } = useTranslation();
   const [show, setShow] = useState(true);
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -83,7 +85,7 @@ function Register({ setActiveModal, countries }) {
         <Modal.Body>
           <Form onSubmit={(e) => registerSubmit(e)}>
             <Form.Group className="mb-1 white" controlId="formBasicEmail">
-              <Form.Label>Name*</Form.Label>
+              <Form.Label>{t("Name")}*</Form.Label>
               <Form.Control
                 id="name"
                 type="text"
@@ -236,7 +238,7 @@ function Register({ setActiveModal, countries }) {
 
             <Modal.Footer>
               <Button type="submit" className="mx-auto text-white submit1 ">
-                Submit
+                {t("Submit")}
               </Button>
             </Modal.Footer>
           </Form>

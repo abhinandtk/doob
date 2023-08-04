@@ -9,7 +9,9 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { notification } from "antd";
 import PagesSideBar from "@/components/stores/pages/PagesSideBar";
+import { useTranslation } from "next-i18next";
 function FeedbackPage() {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     title: "",
     email: "",
@@ -239,13 +241,13 @@ function FeedbackPage() {
                 style={{ width: "90%", height: "190px" }}
                 id="description"
                 rows="3"
-                placeholder="Description"
+                placeholder={t("Description")}
                 value={formData.description}
                 onChange={(e) => changeHandler(e)}
               ></textarea>
             </Form.Group>
             <button type="submit" className="side-menus__suggestions-btns">
-              Submit
+              {t("Submit")}
             </button>
           </Form>
         </div>

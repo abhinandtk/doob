@@ -11,7 +11,9 @@ import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import MobileFooter from "@/components/shared/MobileFooter";
+import { useTranslation } from "next-i18next";
 function PlaygroundPageAdmin() {
+  const { t } = useTranslation();
   const router = useRouter();
 
   const [groundView, setGroundView] = useState([]);
@@ -107,7 +109,7 @@ function PlaygroundPageAdmin() {
                         width: "90%",
                       }}
                     >
-                      <span> Status</span>
+                      <span> {t("Status")}</span>
                       <span style={{ color: "#17A803" }}>{`${
                         item.status === true ? "Active" : "InActive"
                       }`}</span>

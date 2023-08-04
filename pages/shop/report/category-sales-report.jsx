@@ -16,7 +16,9 @@ import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { Labels } from "@/public/data/my-constants/Labels";
 import moment from "moment";
+import { useTranslation } from "next-i18next";
 function CategorySalesReport() {
+  const { t } = useTranslation();
   const [categoryReportData, setCategoryReportData] = useState([]);
   const [selectedDays, setSelectedDays] = useState(30);
   const [slugId, setSlugId] = useState("");
@@ -164,7 +166,7 @@ function CategorySalesReport() {
                 </div>
                 <div className="customer-sale">
                   <div className="report-section">
-                    <div>Category</div>
+                    <div>{t("Category")}</div>
                     <div>Order Count</div>
                     <div>Total Amount</div>
                   </div>

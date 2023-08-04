@@ -2,8 +2,9 @@ import { useTheme } from "next-themes";
 import Link from "next/link";
 import React from "react";
 import { Fragment } from "react";
-
+import { useTranslation } from "next-i18next";
 function ShopDashBoardPages() {
+  const { t } = useTranslation();
   const { theme } = useTheme();
   return (
     <Fragment>
@@ -40,7 +41,7 @@ function ShopDashBoardPages() {
                 fill={`${theme === "dark" ? "white" : "black"}`}
               />
             </svg>
-            <p className="shop-manage">Category</p>
+            <p className="shop-manage">{t("Category")}</p>
           </div>
         </Link>
         <Link
@@ -65,7 +66,7 @@ function ShopDashBoardPages() {
                 stroke-linejoin="round"
               />
             </svg>
-            <p className="shop-manage">Brands</p>
+            <p className="shop-manage">{t("Brands")}</p>
           </div>
         </Link>
         <Link
@@ -90,7 +91,7 @@ function ShopDashBoardPages() {
                 stroke-linejoin="round"
               />
             </svg>
-            <p className="shop-manage">Products</p>
+            <p className="shop-manage">{t("Products")}</p>
           </div>
         </Link>
         <Link
@@ -168,7 +169,7 @@ function ShopDashBoardPages() {
                 fill={`${theme === "dark" ? "white" : "black"}`}
               />
             </svg>
-            <p className="shop-manage">All Orders</p>
+            <p className="shop-manage">{t("All Orders")}</p>
           </div>
         </Link>
         <Link

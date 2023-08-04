@@ -12,7 +12,9 @@ import moment from "moment";
 import PlayGroundSideBar from "@/components/playGround/PlayGroundSideBar";
 import { Modal, notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
+import { useTranslation } from "next-i18next";
 function AdminGroundBookings() {
+  const { t } = useTranslation();
   const [bookingList, setBookingList] = useState([]);
   const [visible, setVisible] = useState(false);
   const [bookingStatus, setBookingStatus] = useState("");
@@ -65,7 +67,7 @@ function AdminGroundBookings() {
       <Modal
         open={visible}
         onCancel={() => setVisible(false)}
-        title="Update Status"
+        title={t("Update Status")}
         footer={
           <Button
             style={{ backgroundColor: "#17A803" }}
@@ -73,7 +75,7 @@ function AdminGroundBookings() {
             type="primary"
             onClick={(e) => statusUpdateHandler(e)}
           >
-            Submit
+            {t("Submit")}
           </Button>
         }
       >
@@ -96,7 +98,7 @@ function AdminGroundBookings() {
               Success
             </option>
             <option value={0} style={{ color: "#959595" }}>
-              Cancel
+              {t("Cancel")}
             </option>
           </select>
         </div>
@@ -139,7 +141,7 @@ function AdminGroundBookings() {
                         width: "90%",
                       }}
                     >
-                      <span style={{ color: "#959595" }}>Customer Name</span>
+                      <span style={{ color: "#959595" }}>{t("Customer Name")}</span>
                       <span>{item.customer_name}</span>
                     </div>
                     <div
@@ -189,7 +191,7 @@ function AdminGroundBookings() {
                         width: "90%",
                       }}
                     >
-                      <span style={{ color: "#959595" }}>Price</span>
+                      <span style={{ color: "#959595" }}>{t("Price")}</span>
                       <span> {item.price}KD</span>
                     </div>
 
@@ -197,7 +199,7 @@ function AdminGroundBookings() {
                       className="p-2   mx-auto d-flex justify-content-between align-items-center"
                       style={{ width: "90%" }}
                     >
-                      <span style={{ color: "#959595" }}>Payment Mode</span>
+                      <span style={{ color: "#959595" }}>{t("Payment Mode")}</span>
                       <span> {item.payment_method} </span>
                     </div>
                     <div
@@ -208,7 +210,7 @@ function AdminGroundBookings() {
                         width: "90%",
                       }}
                     >
-                      <span style={{ color: "#959595" }}>Payment Status</span>
+                      <span style={{ color: "#959595" }}>{t("Payment Status")}</span>
                       <span style={{ color: "#17A803" }}>
                         {item.payment_status}
                       </span>
@@ -253,7 +255,7 @@ function AdminGroundBookings() {
                       style={{ width: "90%" }}
                     >
                       {/* <p className="mx-2" style={{ borderBottom: "1px solid black" }}>
-                Download Invoice
+                {t("Download Invoice")}
               </p> */}
                     </div>
                   </div>

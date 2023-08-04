@@ -5,8 +5,9 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
-
+import { useTranslation } from "next-i18next";
 function ProductReviewForm({ setOnSuccess, userImg }) {
+  const { t } = useTranslation();
   console.log("rwd", userImg);
   const router = useRouter();
   const { rid } = router.query;
@@ -110,7 +111,7 @@ function ProductReviewForm({ setOnSuccess, userImg }) {
           />
         </div>
         <button type="submit" className="submits-cart-btn ">
-          Submit
+          {t("Submit")}
         </button>
       </form>
     </div>

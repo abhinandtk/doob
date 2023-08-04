@@ -4,8 +4,10 @@ import { Checkbox } from "antd";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import Axios from "axios";
-function HomeAddress({ handleAddAddress,areaData }) {
-    console.log('area',areaData)
+import { useTranslation } from "next-i18next";
+function HomeAddress({ handleAddAddress, areaData }) {
+  const { t } = useTranslation();
+  console.log("area", areaData);
   const [formData, setFormData] = useState({
     name: "",
     area: "",
@@ -17,8 +19,6 @@ function HomeAddress({ handleAddAddress,areaData }) {
     remark: "",
   });
   const [defaultAddress, setDefaultAddress] = useState(true);
-
-  
 
   const handleChange = (e) => {
     const newFormData = { ...formData };
@@ -33,7 +33,7 @@ function HomeAddress({ handleAddAddress,areaData }) {
     <form onSubmit={(e) => submitForm(e)}>
       <div className="my-4">
         <div className="form-group my-2 ">
-          <label for="exampleFormControlInput1">Name</label>
+          <label for="exampleFormControlInput1">{t("Name")}</label>
           <input
             id="name"
             type="text"
@@ -52,11 +52,12 @@ function HomeAddress({ handleAddAddress,areaData }) {
             style={{ border: "0px", background: "#eeeeee" }}
           >
             <option value="">select</option>
-            {areaData.length >=1 && areaData.map((item, index) => (
-              <option key={index} value={item.id}>
-                {item.region_name}
-              </option>
-            ))}
+            {areaData.length >= 1 &&
+              areaData.map((item, index) => (
+                <option key={index} value={item.id}>
+                  {item.region_name}
+                </option>
+              ))}
           </select>
         </div>
         <div className="form-group my-2 ">

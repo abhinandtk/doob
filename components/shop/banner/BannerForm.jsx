@@ -8,8 +8,9 @@ import { useRouter } from "next/router";
 import { notification } from "antd";
 import { Select } from "antd";
 const { Option } = Select;
-
+import { useTranslation } from "next-i18next";
 function BannerForm({ bannerSubmitHandler, editData }) {
+  const { t } = useTranslation();
   const router = useRouter();
   const { bannerId } = router.query;
   const [selectedItems, setSelectedItems] = useState([]);
@@ -22,8 +23,6 @@ function BannerForm({ bannerSubmitHandler, editData }) {
     appImage: "",
     type: "",
   });
-
-  
 
   const handleBannerChange = (e) => {
     e.preventDefault();
@@ -59,16 +58,15 @@ function BannerForm({ bannerSubmitHandler, editData }) {
           },
         }
       ).then((res) => {
-        console.log(";resultgrt", res,res.data.data.Banner_name);
+        console.log(";resultgrt", res, res.data.data.Banner_name);
         setFormData({
           name: res.data.data.Banner_name,
           bannerUrl: res.data.data.Banner_URL,
           display: res.data.data.Banner_Display_Order,
           image: res.data.data.Banner_image,
-          appImage:res.data.data.App_Banner_image,
+          appImage: res.data.data.App_Banner_image,
           type: res.data.data.type,
         });
-        
       });
     }
   }, [bannerId]);
@@ -183,14 +181,14 @@ function BannerForm({ bannerSubmitHandler, editData }) {
             </div>
             <div className="product-submit my-3">
               <button type="submit" className="submit-cart-btn">
-                Submit
+                {t("Submit")}
               </button>
               <button
                 onClick={() => router.back()}
                 type="button"
                 className="sub-cart-btn"
               >
-                Cancel
+                {t("Cancel")}
               </button>
             </div>
           </form>

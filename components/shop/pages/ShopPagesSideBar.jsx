@@ -1,7 +1,9 @@
 import Link from "next/link";
 import React from "react";
 
+import { useTranslation } from "next-i18next";
 function ShopPagesSideBar({ currentPage }) {
+  const { t } = useTranslation();
   return (
     <div className="sides">
       <Link href="/shop/category-management" style={{ textDecoration: "none" }}>
@@ -34,7 +36,7 @@ function ShopPagesSideBar({ currentPage }) {
           className="customs"
           style={{ color: `${currentPage === "category" ? "#17A803" : ""}` }}
         >
-          Category
+          {t("Category")}
         </span>
       </Link>
       <Link href="/shop/brand-management" style={{ textDecoration: "none" }}>
@@ -58,7 +60,7 @@ function ShopPagesSideBar({ currentPage }) {
           className="customs"
           style={{ color: `${currentPage === "brand" ? "#17A803" : ""}` }}
         >
-          Brand
+          {t("Brand")}
         </span>
       </Link>
       <Link href="/shop/product-management" style={{ textDecoration: "none" }}>
@@ -82,7 +84,7 @@ function ShopPagesSideBar({ currentPage }) {
           className="customs"
           style={{ color: `${currentPage === "products" ? "#17A803" : ""}` }}
         >
-          Products
+          {t("Products")}
         </span>
       </Link>
       <Link href="/shop/stocks" style={{ textDecoration: "none" }}>
@@ -128,7 +130,7 @@ function ShopPagesSideBar({ currentPage }) {
           style={{ color: `${currentPage === "settings" ? "#17A803" : ""}` }}
         >
           {" "}
-          Stock
+          {t("Stock")}
         </span>
       </Link>
       <Link href="/shop/admin-all-orders" style={{ textDecoration: "none" }}>
@@ -157,7 +159,7 @@ function ShopPagesSideBar({ currentPage }) {
           className="customs"
           style={{ color: `${currentPage === "allOrders" ? "#17A803" : ""}` }}
         >
-          All Orders
+          {t("All Orders")}
         </span>
       </Link>
       <Link
@@ -265,7 +267,7 @@ function ShopPagesSideBar({ currentPage }) {
           {" "}
           Support{" "}
         </span>
-        </Link>
+      </Link>
     </div>
   );
 }

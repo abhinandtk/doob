@@ -10,7 +10,10 @@ import FollowingList from "./FollowingList";
 import StarInfo from "./StarInfo";
 import { useTheme } from "next-themes";
 import ProfileEdit from "./ProfileEdit";
+import { useTranslation } from "next-i18next";
+
 function ProfileHeaderDetails({ data, setSuccess }) {
+  const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
   const [uploadImageUrl, setUploadImageUrl] = useState(null);
   console.log("4444", data);
@@ -72,7 +75,7 @@ function ProfileHeaderDetails({ data, setSuccess }) {
   return (
     <Fragment>
       <Modal
-        title="Rank"
+        title={t("Rank")}
         open={showRank}
         onCancel={() => setShowRank(false)}
         closable
@@ -147,9 +150,11 @@ function ProfileHeaderDetails({ data, setSuccess }) {
               customRequest={({ file }) => {
                 handleUpload(file);
               }}
-              style={{color:"#FFFF" }}
+              style={{ color: "#FFFF" }}
             >
-              <span style={{color:theme === "dark" ? "#FFFF" : ""}}>Add photo</span>
+              <span style={{ color: theme === "dark" ? "#FFFF" : "" }}>
+                Add photo
+              </span>
             </Upload>
           </div>
 
@@ -165,7 +170,7 @@ function ProfileHeaderDetails({ data, setSuccess }) {
             Remove Photo
           </div>
           <div style={{ cursor: "pointer" }} onClick={() => setVisible(false)}>
-            Cancel
+            {t("Cancel")}
           </div>
         </div>
       </Modal>
@@ -231,19 +236,19 @@ function ProfileHeaderDetails({ data, setSuccess }) {
                       <span className="profile-stat-count">
                         {data.post_count}
                       </span>{" "}
-                      <span style={{ color: "#959595" }}>posts</span>
+                      <span style={{ color: "#959595" }}>{t("Posts")}</span>
                     </li>
                     <li onClick={() => setFollowersListShow(true)}>
                       <span className="profile-stat-count">
                         {data.followers_count}
                       </span>{" "}
-                      <span style={{ color: "#959595" }}>followers</span>
+                      <span style={{ color: "#959595" }}>{t("Followers")}</span>
                     </li>
                     <li onClick={() => setFollowingListShow(true)}>
                       <span className="profile-stat-count">
                         {data.following_count}
                       </span>{" "}
-                      <span style={{ color: "#959595" }}>following</span>
+                      <span style={{ color: "#959595" }}>{t("Following")}</span>
                     </li>
                     <br></br>
                     <li>
@@ -251,7 +256,7 @@ function ProfileHeaderDetails({ data, setSuccess }) {
                         className="profile-stat-count "
                         style={{ color: "#959595" }}
                       >
-                        Age:
+                        {t("Age")}:
                       </span>{" "}
                       <span>{data.age}</span>
                     </li>
@@ -260,7 +265,7 @@ function ProfileHeaderDetails({ data, setSuccess }) {
                         className="profile-stat-count"
                         style={{ color: "#959595" }}
                       >
-                        Gender:
+                        {t("Gender")}:
                       </span>{" "}
                       <span> {data.gender}</span>
                     </li>
@@ -281,7 +286,7 @@ function ProfileHeaderDetails({ data, setSuccess }) {
                     </li>
                   </ul>
                 </div>
-                <ProfileEdit data={data} setSuccess={setSuccess}/>
+                <ProfileEdit data={data} setSuccess={setSuccess} />
               </div>
             </div>
 
@@ -364,8 +369,8 @@ function ProfileHeaderDetails({ data, setSuccess }) {
                 </span>{" "}
               </div>
               <div className="profile-age">
-                Age:<span>{data.age}</span>
-                <span className="mx-2">Gender: {data.gender}</span>
+                {t("Age")}:<span>{data.age}</span>
+                <span className="mx-2">{t("Gender")}: {data.gender}</span>
               </div>
               <div className="profile-country">
                 {" "}

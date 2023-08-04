@@ -7,7 +7,9 @@ import { useState } from "react";
 import OrderProductCard from "../OrderProductCard";
 import moment from "moment";
 import { useEffect } from "react";
+import { useTranslation } from "next-i18next";
 function MyOrders() {
+  const { t } = useTranslation();
   const [showItems, setShowItems] = useState(false);
   const [ordersList, setOrdersList] = useState([]);
   const [expandedItemIndex, setExpandedItemIndex] = useState(null);
@@ -50,22 +52,22 @@ function MyOrders() {
                 className="p-2 mx-auto d-flex justify-content-between align-items-center"
                 style={{ width: "90%" }}
               >
-                <span style={{ color: "#959595" }}>Order Date</span>
+                <span style={{ color: "#959595" }}>{t("Order Date")}</span>
                 <span>{moment(item.order_date).format("DD-MM-YYYY")}</span>
               </div>
               <div className="order-list-alt p-2 mt-2 mx-auto d-flex justify-content-between align-items-center">
-                <span style={{ color: "#959595" }}>Price</span>
+                <span style={{ color: "#959595" }}>{t("Price")}</span>
                 <span>{item.order_total} KD</span>
               </div>
               <div
                 className="p-2 mx-auto d-flex justify-content-between align-items-center"
                 style={{ width: "90%" }}
               >
-                <span style={{ color: "#959595" }}>Payment Mode</span>
+                <span style={{ color: "#959595" }}>{t("Payment Mode")}</span>
                 <span>{item.mode}</span>
               </div>
               <div className="order-list-alt p-2 mx-auto d-flex justify-content-between align-items-center">
-                <span style={{ color: "#959595" }}>Payment Status</span>
+                <span style={{ color: "#959595" }}>{t("Payment Status")}</span>
                 <span style={{ color:item.payment_status==="Received"?"#17A803": "#FF640D" }}>
                   {item.payment_status}
                 </span>
@@ -75,7 +77,7 @@ function MyOrders() {
                 className="p-2   mx-auto d-flex justify-content-between align-items-center"
                 style={{ width: "90%" }}
               >
-                <span style={{ color:"#959595" }}>Order Status</span>
+                <span style={{ color:"#959595" }}>{t("Order Status")}</span>
                 <span style={{ color:item.order_status==="Delivered"?"#17A803": "#FF640D" }}>
                   {item.order_status}
                 </span>
@@ -110,7 +112,7 @@ function MyOrders() {
                   }}
                   download
                 >
-                  Download Invoice
+                  {t("Download Invoice")}
                 </a>
               </div>
               <br></br>

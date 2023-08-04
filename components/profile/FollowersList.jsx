@@ -8,8 +8,9 @@ import { CardImg } from "react-bootstrap";
 import Axios from "axios";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { useEffect } from "react";
-
+import { useTranslation } from "next-i18next";
 function FollowersList({ setFollowersListShow, setSuccess }) {
+  const { t } = useTranslation();
   const [visible, setVisible] = useState(true);
   const [followers, setFollowers] = useState([]);
   const labels = Labels();
@@ -36,7 +37,7 @@ function FollowersList({ setFollowersListShow, setSuccess }) {
       .then((res) => {
         console.log("rest", res);
         if (res.data.status === 1) {
-          setSuccess(prev => !prev);
+          setSuccess((prev) => !prev);
           notification.success({
             message: constants.Success,
             description: `${labels["Remove user"]}`,
@@ -104,7 +105,7 @@ function FollowersList({ setFollowersListShow, setSuccess }) {
                   style={{ backgroundColor: "#EFEFEF", color: "#000000" }}
                 >
                   {" "}
-                  Remove
+                  {t("Remove")}
                 </button>
               </div>
             ))}

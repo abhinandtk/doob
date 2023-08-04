@@ -11,7 +11,9 @@ import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import ShopPagesSideBar from "@/components/shop/pages/ShopPagesSideBar";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { useEffect } from "react";
+import { useTranslation } from "next-i18next";
 function StoreEditPage() {
+  const { t } = useTranslation();
   const [slug, setSlug] = useState("");
   const [formData, setFormData] = useState({
     title: "",
@@ -152,7 +154,7 @@ function StoreEditPage() {
                   />
                 </div>
                 <div className="form-group my-2">
-                  <label for="exampleFormControlInput1">Description</label>
+                  <label for="exampleFormControlInput1">{t("Description")}</label>
                   <textarea
                     required
                     type="text"
@@ -169,7 +171,7 @@ function StoreEditPage() {
                   />
                 </div>
                 <div className="form-group my-2 ">
-                  <label for="exampleFormControlInput1">Address</label>
+                  <label for="exampleFormControlInput1">{t("Address")}</label>
                   <textarea
                     required
                     type="text"
@@ -300,14 +302,14 @@ function StoreEditPage() {
 
                 <div className="product-submit my-3">
                   <button type="submit" className="submit-cart-btn">
-                    Submit
+                    {t("Submit")}
                   </button>
                   <button
                     onClick={() => router.back()}
                     type="button"
                     className="sub-cart-btn"
                   >
-                    Cancel
+                    {t("Cancel")}
                   </button>
                 </div>
               </form>

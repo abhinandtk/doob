@@ -1,8 +1,9 @@
 import { Checkbox } from "antd";
 import React from "react";
 import { useState } from "react";
-
+import { useTranslation } from "next-i18next";
 function ApartmentAddress({ handleAddAddress,areaData }) {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     area: "",
@@ -29,7 +30,7 @@ function ApartmentAddress({ handleAddAddress,areaData }) {
     <form onSubmit={(e) => submitForm(e)}>
       <div className="my-4">
         <div className="form-group my-2 ">
-          <label for="exampleFormControlInput1">Name</label>
+          <label for="exampleFormControlInput1">{t("Name")}</label>
           <input
             id="name"
             type="text"

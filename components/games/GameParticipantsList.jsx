@@ -7,7 +7,9 @@ import { CardImg } from "react-bootstrap";
 import constants from "@/public/data/my-constants/Constants";
 import GameInviteUser from "./GameInviteUser";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 function GameParticipantsList({ participants,setOnSuccess }) {
+  const { t } = useTranslation();
   console.log("result6567", participants);
   const router = useRouter();
   const { gameId } = router.query;
@@ -82,7 +84,7 @@ function GameParticipantsList({ participants,setOnSuccess }) {
               className="ms-auto remove"
              
             >
-              Remove
+              {t("Remove")}
             </p>
           )}
           </span>

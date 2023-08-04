@@ -7,12 +7,14 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import CreateGroupChat from "../new-chat/CreateGroupChat";
 import { Labels } from "@/public/data/my-constants/Labels";
+import { useTranslation } from "next-i18next";
 function ChatHeaderActionsGroup({
   selectedId,
   setOnSuccess,
   details,
   onNewMsg,
 }) {
+  const { t } = useTranslation();
   const labels = Labels();
   const [visible, setVisible] = useState(false);
   const [leftVisible, setLeftVisible] = useState(false);
@@ -87,7 +89,7 @@ function ChatHeaderActionsGroup({
         onCancel={() => setVisible(false)}
         footer={[
           <Button key="back" onClick={() => setVisible(false)}>
-            Cancel
+            {t("Cancel")}
           </Button>,
           <Button
             style={{ backgroundColor: "#17A803" }}
@@ -95,7 +97,7 @@ function ChatHeaderActionsGroup({
             type=""
             onClick={clearChatHandler}
           >
-            Submit
+            {t("Submit")}
           </Button>,
         ]}
       ></Modal>
@@ -108,7 +110,7 @@ function ChatHeaderActionsGroup({
         onCancel={() => setLeftVisible(false)}
         footer={[
           <Button key="back" onClick={() => setLeftVisible(false)}>
-            Cancel
+            {t("Cancel")}
           </Button>,
           <Button
             style={{ backgroundColor: "#17A803" }}
@@ -116,7 +118,7 @@ function ChatHeaderActionsGroup({
             type=""
             onClick={exitGroupHandler}
           >
-            Submit
+            {t("Submit")}
           </Button>,
         ]}
       ></Modal>

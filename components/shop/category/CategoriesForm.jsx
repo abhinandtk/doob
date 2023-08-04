@@ -6,10 +6,10 @@ import constants from "@/public/data/my-constants/Constants";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { notification } from "antd";
-
+import { useTranslation } from "next-i18next";
 function CategoriesForm({ categorySubmitHandler, editData }) {
   const router = useRouter();
-
+  const { t } = useTranslation();
   console.log("cattttttttttttttttttttttsada", editData);
   const [categoryList, setCategoryList] = useState([]);
   const [formData, setFormData] = useState({
@@ -111,14 +111,14 @@ function CategoriesForm({ categorySubmitHandler, editData }) {
             </div>
             <div className="product-submit my-3">
               <button type="submit" className="submit-cart-btn">
-                Submit
+                {t("Submit")}
               </button>
               <button
                 onClick={() => router.back()}
                 type="button"
                 className="sub-cart-btn"
               >
-                Cancel
+                {t("Cancel")}
               </button>
             </div>
           </form>

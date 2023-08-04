@@ -110,7 +110,7 @@ function CommentActions({ user, commentId, setSuccessApi }) {
         onCancel={() => setVisible(false)}
         footer={[
           <Button key="back" onClick={() => setVisible(false)}>
-            Cancel
+            {t("Cancel")}
           </Button>,
           <Button
             style={{ backgroundColor: "#17A803" }}
@@ -118,7 +118,7 @@ function CommentActions({ user, commentId, setSuccessApi }) {
             type=""
             onClick={deleteCommentHandler}
           >
-            Submit
+            {t("Submit")}
           </Button>,
         ]}
       ></Modal>

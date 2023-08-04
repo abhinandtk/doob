@@ -12,8 +12,9 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import React, { useState } from "react";
 import MainHeader from "@/components/shared/headers/MainHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
-
+import { useTranslation } from "next-i18next";
 function store() {
+  const { t } = useTranslation();
   return (
     <div>
       <MainHeader />
@@ -60,7 +61,7 @@ function store() {
                   fill="black"
                 />
               </svg>
-              <span className="mx-2">All Orders</span>
+              <span className="mx-2">{t("All Orders")}</span>
             </a>
             <a href="#clients">
               <svg
@@ -106,7 +107,7 @@ function store() {
                   stroke-linejoin="round"
                 />
               </svg>
-              <span className="mx-2">Products</span>
+              <span className="mx-2">{t("Products")}</span>
             </a>
             <a href="#home">
               <svg
@@ -146,7 +147,7 @@ function store() {
                   stroke-linejoin="round"
                 />
               </svg>
-              <span className="mx-2">Stock</span>
+              <span className="mx-2">{t("Stock")}</span>
             </a>
             <a href="#services">
               <svg
@@ -211,172 +212,278 @@ function store() {
                   fill="black"
                 />
               </svg>
-              <span className="mx-2">Category</span>
+              <span className="mx-2">{t("Category")}</span>
             </a>
           </div>
 
-  <div className="content-topic  ">
-  <div className='bottom'>
-    
-  <h6 className='All-order' style={{color:'#17a803',fontWeight:'700'}}>New Orders</h6>
-  <p className='order-code ' style={{fontWeight:'500'}}>#12454<span  style={{float:'right'}}> <Button type="submit" className='order-btn ' > Update status </Button></span></p>
-  
-  <hr className='mx-auto' style={{width:'90%'}}></hr>
-  <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-  <span style={{color:'#959595'}}>Customer Name</span>
-  <span >Faisal</span>
-  </div>
-  <div className="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
-  <span style={{color:'#959595'}}>Address</span>
-  <span> P.O.Box: 1446, Safat,13015 </span>
-  </div>
-  <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-  <span style={{color:'#959595'}}>Order Date</span>
-  <span > 20 Jan, 2023</span>
-  </div>
-   <div className="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
-  <span style={{color:'#959595'}}>Price</span>
-  <span> 14.340 KD </span>
-  </div>
-  <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-  <span style={{color:'#959595'}}>Payment Mode</span>
-  <span > Cash on delivery </span>
-  </div>
-  <div className="p-2  mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
-  <span style={{color:'#959595'}}>Payment Status</span>
-  <span style={{color:'#FF640D'}}>Pending</span>
-  </div>    
-  <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-  <span style={{color:'#959595'}}>Other Status</span>
-  <span style={{color:'#FF640D'}}>Pending</span>
-  </div>
- 
-  
-   <div className="  mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-   <div class="item_clearfix">
-      <img src='../images/store/male-soccer-football-player-training-action-isolated-gradient-studio-neon-light copy.jpg'className='pictures'  ></img> 
-    <div className='shop-content'>
-          <div class="shopping-card__details">
-          <div class="shopping-card__title">
-            Strat with Tremolo HSS Laurel Keyboard Brown Sunburst Electric Guitar
-          </div>
-          <div class="shopping-card__options">
-            <div>
-              <small class="option__key">Quantity: </small>
-              <small class="option__value">Brown</small>
-            </div>
-            <div>
-              <small class="option__key">Size: </small>
-              <small class="option__value">34</small>
-            </div>
-          </div>
-          <div class="shopping-card__options">
-            <div>
-              <small class="option__key">Color: </small>
-              <small class="option__value">British Dark Brown</small>
-            </div>
-            <div>
-              <small class="option__key">SKU: </small>
-              <small class="option__value">PDT-23000-34000</small>
-            </div>
-          </div>
-          <div class="shopping-card__options">
-            <div>
-              <small class="option__key">Price: </small>
-              <small class="option__value">13.000.000 KD </small>
-            </div>
-            <div>
-              <small class="option__value ">34000 KD</small>
-            </div>
-          </div>
-        </div>
-    </div>
-    </div>
-   </div>
-   <div className=" mt-2  mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-   <div class="item1_clearfix">
-      <img src='../images/store/male-soccer-football-player-training-action-isolated-gradient-studio-neon-light copy.jpg'className='pictures'  ></img> 
-    <div className='shop-content'>
-          <div class="shopping-card__details">
-          <div class="shopping-card__title">
-            Strat with Tremolo HSS Laurel Keyboard Brown Sunburst Electric Guitar
-          </div>
-          <div class="shopping-card__options">
-            <div>
-              <small class="option__key">Quantity: </small>
-              <small class="option__value">Brown</small>
-            </div>
-            <div>
-              <small class="option__key">Size: </small>
-              <small class="option__value">34</small>
-            </div>
-          </div>
-          <div class="shopping-card__options">
-            <div>
-              <small class="option__key">Color: </small>
-              <small class="option__value">British Dark Brown</small>
-            </div>
-            <div>
-              <small class="option__key">SKU: </small>
-              <small class="option__value">PDT-23000-34000</small>
-            </div>
-          </div>
-          <div class="shopping-card__options">
-            <div>
-              <small class="option__key">Price: </small>
-              <small class="option__value">13.000.000 KD </small>
-            </div>
-            <div>
-              <small class="option__value ">34000 KD</small>
-            </div>
-          </div>
-        </div>
-    </div>
-    </div>
-   </div>
-   
+          <div className="content-topic  ">
+            <div className="bottom">
+              <h6
+                className="All-order"
+                style={{ color: "#17a803", fontWeight: "700" }}
+              >
+                New Orders
+              </h6>
+              <p className="order-code " style={{ fontWeight: "500" }}>
+                #12454
+                <span style={{ float: "right" }}>
+                  {" "}
+                  <Button type="submit" className="order-btn ">
+                    {" "}
+                    Update status{" "}
+                  </Button>
+                </span>
+              </p>
 
-   <div className=" mx-auto d-flex justify-content-between align-items-center " style={{width:'90%'}}>
-   {/* <p className='mx-2'  style={{borderBottom:'1px solid black'}}>Download Invoice</p> */}
-   </div>
-  
-   <p className='order-code ' style={{fontWeight:'500'}}>#12454<span  style={{float:'right'}}> <Button type="submit" className='order-btn ' > Update status </Button></span></p>
-  <hr className='mx-auto' style={{width:'90%'}}></hr>
-  <div class="   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-  <span style={{color:'#959595'}}>Customer Name</span>
-  <span >Faisal</span>
-  </div>
-  <div className="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
-  <span style={{color:'#959595'}}>Address</span>
-  <span> P.O.Box: 1446, Safat,13015 </span>
-  </div>
-  <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-  <span style={{color:'#959595'}}>Order Date</span>
-  <span > 20 Jan, 2023</span>
-  </div>
-   <div className="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
-  <span style={{color:'#959595'}}>Price</span>
-  <span> 14.340 KD </span>
-  </div>
-  <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-  <span style={{color:'#959595'}}>Payment Mode</span>
-  <span > Cash on delivery </span>
-  </div>
-  <div className="p-2  mx-auto d-flex justify-content-between align-items-center" style={{background:'#eeeeee',borderRadius:'10px',width:'90%'}}>
-  <span style={{color:'#959595'}}>Payment Status</span>
-  <span style={{color:'#FF640D'}}>Pending</span>
-  </div>    
-  <div className="p-2   mx-auto d-flex justify-content-between align-items-center" style={{width:'90%'}}>
-  <span style={{color:'#959595'}}>Other Status</span>
-  <span style={{color:'#FF640D'}}>Pending</span>
-  </div>
-  </div>
-  </div>
-  </div>
-  </div> 
-  </div>
-   
-  )
+              <hr className="mx-auto" style={{ width: "90%" }}></hr>
+              <div
+                class="   mx-auto d-flex justify-content-between align-items-center"
+                style={{ width: "90%" }}
+              >
+                <span style={{ color: "#959595" }}>{t("Customer Name")}</span>
+                <span>Faisal</span>
+              </div>
+              <div
+                className="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center"
+                style={{
+                  background: "#eeeeee",
+                  borderRadius: "10px",
+                  width: "90%",
+                }}
+              >
+                <span style={{ color: "#959595" }}>{t("Address")}</span>
+                <span> P.O.Box: 1446, Safat,13015 </span>
+              </div>
+              <div
+                className="p-2   mx-auto d-flex justify-content-between align-items-center"
+                style={{ width: "90%" }}
+              >
+                <span style={{ color: "#959595" }}>{t("Order Date")}</span>
+                <span> 20 Jan, 2023</span>
+              </div>
+              <div
+                className="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center"
+                style={{
+                  background: "#eeeeee",
+                  borderRadius: "10px",
+                  width: "90%",
+                }}
+              >
+                <span style={{ color: "#959595" }}>{t("Price")}</span>
+                <span> 14.340 KD </span>
+              </div>
+              <div
+                className="p-2   mx-auto d-flex justify-content-between align-items-center"
+                style={{ width: "90%" }}
+              >
+                <span style={{ color: "#959595" }}>{t("Payment Mode")}</span>
+                <span> Cash on delivery </span>
+              </div>
+              <div
+                className="p-2  mx-auto d-flex justify-content-between align-items-center"
+                style={{
+                  background: "#eeeeee",
+                  borderRadius: "10px",
+                  width: "90%",
+                }}
+              >
+                <span style={{ color: "#959595" }}>{t("Payment Status")}</span>
+                <span style={{ color: "#FF640D" }}>Pending</span>
+              </div>
+              <div
+                className="p-2   mx-auto d-flex justify-content-between align-items-center"
+                style={{ width: "90%" }}
+              >
+                <span style={{ color: "#959595" }}>Other Status</span>
+                <span style={{ color: "#FF640D" }}>Pending</span>
+              </div>
+
+              <div
+                className="  mx-auto d-flex justify-content-between align-items-center"
+                style={{ width: "90%" }}
+              >
+                <div class="item_clearfix">
+                  <img
+                    src="../images/store/male-soccer-football-player-training-action-isolated-gradient-studio-neon-light copy.jpg"
+                    className="pictures"
+                  ></img>
+                  <div className="shop-content">
+                    <div class="shopping-card__details">
+                      <div class="shopping-card__title">
+                        Strat with Tremolo HSS Laurel Keyboard Brown Sunburst
+                        Electric Guitar
+                      </div>
+                      <div class="shopping-card__options">
+                        <div>
+                          <small class="option__key">{t("Quantity")}: </small>
+                          <small class="option__value">Brown</small>
+                        </div>
+                        <div>
+                          <small class="option__key">{t("Size")}: </small>
+                          <small class="option__value">34</small>
+                        </div>
+                      </div>
+                      <div class="shopping-card__options">
+                        <div>
+                          <small class="option__key">Color: </small>
+                          <small class="option__value">
+                            British Dark Brown
+                          </small>
+                        </div>
+                        <div>
+                          <small class="option__key">SKU: </small>
+                          <small class="option__value">PDT-23000-34000</small>
+                        </div>
+                      </div>
+                      <div class="shopping-card__options">
+                        <div>
+                          <small class="option__key">{t("Price")}: </small>
+                          <small class="option__value">13.000.000 KD </small>
+                        </div>
+                        <div>
+                          <small class="option__value ">34000 KD</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className=" mt-2  mx-auto d-flex justify-content-between align-items-center"
+                style={{ width: "90%" }}
+              >
+                <div class="item1_clearfix">
+                  <img
+                    src="../images/store/male-soccer-football-player-training-action-isolated-gradient-studio-neon-light copy.jpg"
+                    className="pictures"
+                  ></img>
+                  <div className="shop-content">
+                    <div class="shopping-card__details">
+                      <div class="shopping-card__title">
+                        Strat with Tremolo HSS Laurel Keyboard Brown Sunburst
+                        Electric Guitar
+                      </div>
+                      <div class="shopping-card__options">
+                        <div>
+                          <small class="option__key">: </small>
+                          <small class="option__value">Brown</small>
+                        </div>
+                        <div>
+                          <small class="option__key">{t("Size")}: </small>
+                          <small class="option__value">34</small>
+                        </div>
+                      </div>
+                      <div class="shopping-card__options">
+                        <div>
+                          <small class="option__key">Color: </small>
+                          <small class="option__value">
+                            British Dark Brown
+                          </small>
+                        </div>
+                        <div>
+                          <small class="option__key">SKU: </small>
+                          <small class="option__value">PDT-23000-34000</small>
+                        </div>
+                      </div>
+                      <div class="shopping-card__options">
+                        <div>
+                          <small class="option__key">{t("Price")}: </small>
+                          <small class="option__value">13.000.000 KD </small>
+                        </div>
+                        <div>
+                          <small class="option__value ">34000 KD</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                className=" mx-auto d-flex justify-content-between align-items-center "
+                style={{ width: "90%" }}
+              >
+                {/* <p className='mx-2'  style={{borderBottom:'1px solid black'}}>{t("Download Invoice")}</p> */}
+              </div>
+
+              <p className="order-code " style={{ fontWeight: "500" }}>
+                #12454
+                <span style={{ float: "right" }}>
+                  {" "}
+                  <Button type="submit" className="order-btn ">
+                    {" "}
+                    Update status{" "}
+                  </Button>
+                </span>
+              </p>
+              <hr className="mx-auto" style={{ width: "90%" }}></hr>
+              <div
+                class="   mx-auto d-flex justify-content-between align-items-center"
+                style={{ width: "90%" }}
+              >
+                <span style={{ color: "#959595" }}>{t("Customer Name")}</span>
+                <span>Faisal</span>
+              </div>
+              <div
+                className="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center"
+                style={{
+                  background: "#eeeeee",
+                  borderRadius: "10px",
+                  width: "90%",
+                }}
+              >
+                <span style={{ color: "#959595" }}>{t("Address")}</span>
+                <span> P.O.Box: 1446, Safat,13015 </span>
+              </div>
+              <div
+                className="p-2   mx-auto d-flex justify-content-between align-items-center"
+                style={{ width: "90%" }}
+              >
+                <span style={{ color: "#959595" }}>{t("Order Date")}</span>
+                <span> 20 Jan, 2023</span>
+              </div>
+              <div
+                className="p-2 mt-2 mx-auto d-flex justify-content-between align-items-center"
+                style={{
+                  background: "#eeeeee",
+                  borderRadius: "10px",
+                  width: "90%",
+                }}
+              >
+                <span style={{ color: "#959595" }}>{t("Price")}</span>
+                <span> 14.340 KD </span>
+              </div>
+              <div
+                className="p-2   mx-auto d-flex justify-content-between align-items-center"
+                style={{ width: "90%" }}
+              >
+                <span style={{ color: "#959595" }}>{t("Payment Mode")}</span>
+                <span> Cash on delivery </span>
+              </div>
+              <div
+                className="p-2  mx-auto d-flex justify-content-between align-items-center"
+                style={{
+                  background: "#eeeeee",
+                  borderRadius: "10px",
+                  width: "90%",
+                }}
+              >
+                <span style={{ color: "#959595" }}>{t("Payment Status")}</span>
+                <span style={{ color: "#FF640D" }}>Pending</span>
+              </div>
+              <div
+                className="p-2   mx-auto d-flex justify-content-between align-items-center"
+                style={{ width: "90%" }}
+              >
+                <span style={{ color: "#959595" }}>Other Status</span>
+                <span style={{ color: "#FF640D" }}>Pending</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default store;

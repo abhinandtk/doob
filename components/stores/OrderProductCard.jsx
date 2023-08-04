@@ -1,7 +1,8 @@
 import constants from "@/public/data/my-constants/Constants";
 import React, { Fragment } from "react";
-
+import { useTranslation } from "next-i18next";
 function OrderProductCard({ products }) {
+  const { t } = useTranslation();
   console.log('resw',products)
   return (
     <Fragment>
@@ -22,12 +23,12 @@ function OrderProductCard({ products }) {
                 <div class="shopping-card__title">{item.product_name}</div>
                 <div class="shopping-card__options">
                   <div>
-                    <small class="option__key">Quantity: </small>
+                    <small class="option__key">{t("Quantity")}: </small>
                     <small class="option__value">{item.product_quantity}</small>
                   </div>
                   {item.product_multivarient_name && (
                     <div>
-                      <small class="option__key">Size: </small>
+                      <small class="option__key">{t("Size")}: </small>
                       <small class="option__value">{item.product_multivarient_name}</small>
                     </div>
                   )}
@@ -44,7 +45,7 @@ function OrderProductCard({ products }) {
                 </div>
                 <div class="shopping-card__options">
                   <div>
-                    <small class="option__key_price">Price: </small>
+                    <small class="option__key_price">{t("Price")}: </small>
                     <small class="option__value_prices">{item.product_selling_price} KD x {item.count}</small>
                   </div>
                   <div>

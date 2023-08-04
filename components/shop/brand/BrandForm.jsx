@@ -1,8 +1,9 @@
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import { useState } from "react";
-
+import { useTranslation } from "next-i18next";
 function BrandForm({handleBrandForm,editDetails}) {
+  const { t } = useTranslation();
   console.log('popopooooooooooooooo78',editDetails)
   // console.log('popopooooooooooooooo',editDetails.icon)
   const router=useRouter()
@@ -89,14 +90,14 @@ function BrandForm({handleBrandForm,editDetails}) {
         </div>
         <div className="product-submit my-3">
           <button type="submit" className="submit-cart-btn">
-            Submit
+            {t("Submit")}
           </button>
           <button
             onClick={() => router.back()}
             type="button"
             className="sub-cart-btn"
           >
-            Cancel
+            {t("Cancel")}
           </button>
         </div>
       </form>

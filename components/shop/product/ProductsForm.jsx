@@ -8,7 +8,9 @@ import { useRouter } from "next/router";
 import { notification } from "antd";
 import { Upload, Button, Space } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
+import { useTranslation } from "next-i18next";
 function ProductsForm({ handleProductAdd, editData }) {
+  const { t } = useTranslation();
   const [brandData, setBrandData] = useState([]);
   const [categoryData, setCategoryData] = useState([]);
   const [variantData, setVariantData] = useState([]);
@@ -278,14 +280,14 @@ function ProductsForm({ handleProductAdd, editData }) {
     <div className="content-topic  ">
       <div className="bottom dark-theme-color">
         <h6 className="dark-theme-color-grw ms-4" style={{ fontWeight: "700" }}>
-          {editData === "true" ? "Edit Products" : "Add Products"}
+          {editData === "true" ? t("Edit Products") : t("Add Products")}
         </h6>
 
         <div className="my-4 mx-4 ">
           <h6 style={{ fontSize: "14px", fontWeight: "700" }}>Basic Details</h6>
           <form onSubmit={(e) => submitHandler(e)}>
             <div className="form-group my-2 ">
-              <label for="exampleFormControlInput1">Name</label>
+              <label for="exampleFormControlInput1">{t("Name")}</label>
               <input
                 type="text"
                 className="add-prod-input add-prod-input form-control p-2"
@@ -296,7 +298,7 @@ function ProductsForm({ handleProductAdd, editData }) {
               />
             </div>
             <div className="form-group my-2">
-              <label for="exampleFormControlInput1">Name in Arabic</label>
+              <label for="exampleFormControlInput1">{t("Name in Arabic")}</label>
               <input
                 type="text"
                 className="add-prod-input form-control p-2"
@@ -307,7 +309,7 @@ function ProductsForm({ handleProductAdd, editData }) {
               />
             </div>
             <div className="form-group my-2">
-              <label for="exampleFormControlSelect1">Brand</label>
+              <label for="exampleFormControlSelect1">{t("Brand")}</label>
               <select
                 className="add-prod-input form-control p-2"
                 id="brand"
@@ -329,7 +331,7 @@ function ProductsForm({ handleProductAdd, editData }) {
             </div>
 
             <div className="form-group my-2">
-              <label for="exampleFormControlSelect1">Category</label>
+              <label for="exampleFormControlSelect1">{t("Category")}</label>
               <select
                 className="add-prod-input form-control p-2"
                 id="category"
@@ -351,7 +353,7 @@ function ProductsForm({ handleProductAdd, editData }) {
               </select>
             </div>
             <div className="form-group my-2">
-              <label for="exampleFormControlSelect1">Sub Category</label>
+              <label for="exampleFormControlSelect1">{t("Sub Category")}</label>
               <select
                 className="add-prod-input form-control p-2"
                 id="subCategory"
@@ -375,7 +377,7 @@ function ProductsForm({ handleProductAdd, editData }) {
             </div>
             <div className="form-group  my-2">
               <label for="exampleFormControlInput1" id="thumbnail">
-                Thumbnail Image
+                {t("Thumbnail Image")}
               </label>
               <input
                 type="file"
@@ -387,7 +389,7 @@ function ProductsForm({ handleProductAdd, editData }) {
               />
             </div>
             <div className="form-group my-2">
-              <label for="exampleFormControlInput1">Tag</label>
+              <label for="exampleFormControlInput1">{t("Tag")}</label>
               <input
                 type="text"
                 className="add-prod-input form-control p-2"
@@ -399,7 +401,7 @@ function ProductsForm({ handleProductAdd, editData }) {
             </div>
 
             <div className="form-group my-2">
-              <label for="exampleFormControlSelect1">Primary Variant</label>
+              <label for="exampleFormControlSelect1">{t("Primary Variant")}</label>
               <select
                 className="add-prod-input form-control p-2"
                 id="primary"
@@ -421,7 +423,7 @@ function ProductsForm({ handleProductAdd, editData }) {
               </select>
             </div>
             <div className="form-group my-2">
-              <label for="exampleFormControlSelect1">Secondary Variant</label>
+              <label for="exampleFormControlSelect1">{t("Secondary Variant")}</label>
               <select
                 className="add-prod-input form-control p-2"
                 id="secondary"
@@ -455,7 +457,7 @@ function ProductsForm({ handleProductAdd, editData }) {
             </div>
             <div className="form-group my-2 ">
               <label for="exampleFormControlTextarea1">
-                Description in Arabic
+                {t("Description in Arabic")}
               </label>
               <textarea
                 className="add-prod-input form-control"
@@ -468,7 +470,7 @@ function ProductsForm({ handleProductAdd, editData }) {
             </div>
             {editData === "true" && (
               <div className="form-group my-2">
-                <label for="exampleFormControlSelect1">Product Status</label>
+                <label for="exampleFormControlSelect1">{t("Product Status")}</label>
                 <select
                   className="add-prod-input form-control p-2"
                   style={{
@@ -489,7 +491,7 @@ function ProductsForm({ handleProductAdd, editData }) {
             )}
             <div className="clearfix ">
               <p className="order-code2" style={{ fontWeight: "500" }}>
-                Variants
+                {t("Variants")}
               </p>
               <Button
                 onClick={addVariantFields}
@@ -513,7 +515,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                   />
                 </div>
                 <div className="form-group my-2">
-                  <label for="exampleFormControlInput1">Quantity</label>
+                  <label for="exampleFormControlInput1">{t("Quantity")}</label>
                   <input
                     type="text"
                     className="add-prod-input form-control p-2"
@@ -540,7 +542,7 @@ required
                 </div> */}
                 <div className="form-group  my-2">
                   <label for="exampleFormControlInput1" id="formfile">
-                    Image
+                    {t("Image")}
                   </label>
 
                   <input
@@ -645,7 +647,7 @@ required
                 )}
                 <div className="form-group my-2">
                   <label for="exampleFormControlInput1">
-                    Actual Price in KD
+                    {t("Actual Price in KD")}
                   </label>
                   <input
                     type="text"
@@ -658,7 +660,7 @@ required
                 </div>
                 <div className="form-group my-2">
                   <label for="exampleFormControlInput1">
-                    Selling Price in KD
+                    {t("Selling Price in KD")}
                   </label>
                   <input
                     type="text"
@@ -672,7 +674,7 @@ required
                 {editData === "true" && (
                   <div className="form-group my-2">
                     <label for="exampleFormControlSelect1">
-                      Variant Status
+                      {t("Variant Status")}
                     </label>
                     <select
                       className="add-prod-input form-control p-2"
@@ -689,14 +691,14 @@ required
                 )}
                 <div className="product-submit ">
                   {index > 0 && (
-                    <h6 onClick={() => removeVariantField(index)}>Remove</h6>
+                    <h6 onClick={() => removeVariantField(index)}>{t("Remove")}</h6>
                   )}
                   <span>
                     <h6
                       className="mx-3"
                       onClick={() => duplicateVariant(index)}
                     >
-                      Duplicate
+                      {t("Duplicate")}
                     </h6>
                   </span>
                 </div>
@@ -707,14 +709,14 @@ required
 
             <div className="product-submit my-3">
               <button type="submit" className="submit-cart-btn">
-                Submit
+                {t("Submit")}
               </button>
               <button
                 onClick={() => router.back()}
                 type="button"
                 className="sub-cart-btn"
               >
-                Cancel
+                {t("Cancel")}
               </button>
             </div>
           </form>

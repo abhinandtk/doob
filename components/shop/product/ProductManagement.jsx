@@ -6,8 +6,9 @@ import { useEffect } from "react";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { useState } from "react";
-
+import { useTranslation } from "next-i18next";
 function ProductManagement() {
+  const { t } = useTranslation();
   const router = useRouter();
   const [productList, setProductList] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -31,14 +32,14 @@ function ProductManagement() {
           className="dark-theme-color-grw mx-4"
           style={{ color: "#17a803", fontWeight: "700" }}
         >
-          Products
+          {t("Products")}
         </h6>
         <Button
           onClick={() => router.push("/shop/add-products")}
           type="button"
           className="order1-btn "
         >
-          Add Products
+          {t("Add Products")}
         </Button>
         {!loading ? (
           productList && productList.length > 0 ? (
@@ -88,7 +89,7 @@ function ProductManagement() {
                   className="p-2   mx-auto d-flex justify-content-between align-items-center"
                   style={{ width: "90%" }}
                 >
-                  <span>Brand</span>
+                  <span>{t("Brand")}</span>
                   <span>{item.brand_name}</span>
                 </div>
                 <div
@@ -98,14 +99,14 @@ function ProductManagement() {
                     width: "90%",
                   }}
                 >
-                  <span>Category item</span>
+                  <span>{t("Category item")}</span>
                   <span>{item.category}</span>
                 </div>
                 <div
                   className="p-2   mx-auto d-flex justify-content-between align-items-center"
                   style={{ width: "90%" }}
                 >
-                  <span>Sub Category</span>
+                  <span>{t("Sub Category")}</span>
                   <span>{item.subcategory_name}</span>
                 </div>
                 <div

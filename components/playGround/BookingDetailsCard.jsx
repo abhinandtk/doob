@@ -6,7 +6,9 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { notification } from "antd";
+import { useTranslation } from "next-i18next";
 function BookingDetailsCard({ details, setSuccess }) {
+  const { t } = useTranslation();
   console.log("hai log", details);
 
   const labels = Labels();
@@ -101,7 +103,7 @@ function BookingDetailsCard({ details, setSuccess }) {
               className="p-2 order-list-alt mx-auto d-flex justify-content-between align-items-center"
               style={{ width: "90%" }}
             >
-              <span style={{ color: "#959595" }}>Price</span>
+              <span style={{ color: "#959595" }}>{t("Price")}</span>
               <span> {item.price}KD</span>
             </div>
 
@@ -111,14 +113,14 @@ function BookingDetailsCard({ details, setSuccess }) {
                 width: "90%",
               }}
             >
-              <span style={{ color: "#959595" }}>Payment Mode</span>
+              <span style={{ color: "#959595" }}>{t("Payment Mode")}</span>
               <span> {item.payment_method} </span>
             </div>
             <div
               className="p-2 order-list-alt mx-auto d-flex justify-content-between align-items-center"
               style={{ width: "90%" }}
             >
-              <span style={{ color: "#959595" }}>Payment Status</span>
+              <span style={{ color: "#959595" }}>{t("Payment Status")}</span>
               <span style={{ color: "#17A803" }}>{item.payment_status}</span>
             </div>
             <div
@@ -159,7 +161,7 @@ function BookingDetailsCard({ details, setSuccess }) {
               style={{ width: "90%" }}
             >
               {/* <p className="mx-2" style={{ borderBottom: "1px solid black" }}>
-                Download Invoice
+                {t("Download Invoice")}
               </p> */}
             </div>
           </div>

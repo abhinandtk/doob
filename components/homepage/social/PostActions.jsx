@@ -121,7 +121,7 @@ export default function PostActions({
         onCancel={() => setVisible(false)}
         footer={[
           <Button key="back" onClick={() => setVisible(false)}>
-            Cancel
+            {t("Cancel")}
           </Button>,
           <Button
             style={{ backgroundColor: "#17A803" }}
@@ -129,7 +129,7 @@ export default function PostActions({
             type="primary"
             onClick={deletePostHandler}
           >
-            Submit
+            {t("Submit")}
           </Button>,
         ]}
       ></Modal>
@@ -164,7 +164,7 @@ export default function PostActions({
             ""
           ) : (
             <Dropdown.Item onClick={() => sharedClick(postId)}>
-              Share
+              {t("Share")}
             </Dropdown.Item>
           )}
           <Dropdown.Item onClick={() => handleSend(data.slug)}>

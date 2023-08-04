@@ -149,7 +149,7 @@ function UploadFiles({ setUploadShow }) {
         onCancel={() => setShowModal2(false)}
         footer={[
           <Button key="back" onClick={() => setShowModal2(false)}>
-            Cancel
+            {t("Cancel")}
           </Button>,
           <Button
             style={{ backgroundColor: "#17A803" }}

@@ -5,8 +5,9 @@ import constants from "@/public/data/my-constants/Constants";
 import apis from "@/public/data/my-constants/Apis";
 import { useState } from "react";
 import { notification } from "antd";
-
+import { useTranslation } from "next-i18next";
 function BrandManagement() {
+  const { t } = useTranslation();
   const router = useRouter();
   const [brandData, setBrandData] = useState([]);
   const [onSuccess,setOnSuccess]=useState(false)
@@ -44,12 +45,12 @@ function BrandManagement() {
     <div className="content-topics ">
       <div className="bottom">
         <h6 className="dark-theme-color-grw ms-4" style={{  fontWeight: "700" }}>
-          Brand Management
+          {t("Brand Management")}
         </h6>
 
         <div className="my-4 mx-4 ">
           <div className="clearfix rnt">
-            <p className="order-codes">Brands</p>
+            <p className="order-codes">{t("Brands")}</p>
             <button
               onClick={() => router.push("/shop/add-brands")}
               type="button"

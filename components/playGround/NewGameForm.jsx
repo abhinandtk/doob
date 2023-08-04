@@ -121,7 +121,7 @@ function NewGameForm({ game, country }) {
             type="submit"
             className="modals-btn "
           >
-            Submit
+            {t("Submit")}
           </Button>
         }
       >

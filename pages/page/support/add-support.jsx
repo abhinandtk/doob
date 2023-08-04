@@ -18,8 +18,10 @@ import moment from "moment";
 import { useRouter } from "next/router";
 import { Labels } from "@/public/data/my-constants/Labels";
 const { Option } = Select;
+import { useTranslation } from "next-i18next";
 function SupportPage() {
   const [supportList, setSupportList] = useState([]);
+  const { t } = useTranslation();
   const router = useRouter();
   const labels = Labels();
   const [formData, setFormData] = useState({
@@ -88,7 +90,7 @@ function SupportPage() {
               <div className="my-4 mx-4 ">
                 <form onSubmit={(e) => submitHandler(e)}>
                   <div className="form-group my-2">
-                    <label for="exampleFormControlInput1">Description</label>
+                    <label for="exampleFormControlInput1">{t("Description")}</label>
                     <input
                       type="text"
                       class="form-control p-2"
@@ -103,7 +105,7 @@ function SupportPage() {
                     />
                   </div>
                   <div className="form-group my-2">
-                    <label for="exampleFormControlInput1">Category</label>
+                    <label for="exampleFormControlInput1">{t("Category")}</label>
                     <input
                       type="text"
                       class="form-control p-2"
@@ -120,14 +122,14 @@ function SupportPage() {
 
                   <div className="product-submit my-3">
                     <button type="submit" className="submit-cart-btn">
-                      Submit
+                      {t("Submit")}
                     </button>
                     <button
                       onClick={() => router.back()}
                       type="button"
                       className="sub-cart-btn"
                     >
-                      Cancel
+                      {t("Cancel")}
                     </button>
                   </div>
                 </form>

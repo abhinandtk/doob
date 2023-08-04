@@ -8,8 +8,9 @@ import { useRouter } from "next/router";
 import { notification } from "antd";
 import { Select } from "antd";
 const { Option } = Select;
-
+import { useTranslation } from "next-i18next";
 function OffersForm({ OfferSubmitHandler, editData }) {
+  const { t } = useTranslation();
   const router = useRouter();
   const { slugId } = router.query;
   const [selectedItems, setSelectedItems] = useState([]);
@@ -128,14 +129,14 @@ function OffersForm({ OfferSubmitHandler, editData }) {
             </div>
             <div className="product-submit my-3">
               <button type="submit" className="submit-cart-btn">
-                Submit
+                {t("Submit")}
               </button>
               <button
                 onClick={() => router.back()}
                 type="button"
                 className="sub-cart-btn"
               >
-                Cancel
+                {t("Cancel")}
               </button>
             </div>
           </form>

@@ -8,7 +8,9 @@ import apis from "@/public/data/my-constants/Apis";
 import { EditOutlined, EnvironmentOutlined } from "@ant-design/icons";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 function ShippingAddress({ data, setOnSuccess }) {
+  const { t } = useTranslation();
   console.log('reultadd',data)
   const Router = useRouter();
 
@@ -28,7 +30,7 @@ function ShippingAddress({ data, setOnSuccess }) {
 
   const headerContent = (
     <div>
-      <h3>Address </h3>
+      <h3>{t("Address")} </h3>
       <div
         style={{
           display: "flex",

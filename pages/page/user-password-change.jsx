@@ -24,8 +24,10 @@ import PagesSideBar from "@/components/stores/pages/PagesSideBar";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 function UserPasswordChange() {
-
+  
+  const { t } = useTranslation();
   const router=useRouter()
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
@@ -115,14 +117,14 @@ function UserPasswordChange() {
                 </div>
                 <div className="product-submit my-3">
                   <button type="submit" className="submit-cart-btn">
-                    Submit
+                    {t("Submit")}
                   </button>
                   <button
                     onClick={() => router.back()}
                     type="button"
                     className="sub-cart-btn"
                   >
-                    Cancel
+                    {t("Cancel")}
                   </button>
                 </div>
               </form>

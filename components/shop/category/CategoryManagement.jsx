@@ -4,7 +4,9 @@ import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import { Switch, notification } from "antd";
+import { useTranslation } from "next-i18next";
 function CategoryManagement() {
+  const { t } = useTranslation();
   const router = useRouter();
   const [categoryData, setCategoryData] = useState([]);
   const [checked, setChecked] = useState(false);
@@ -45,7 +47,6 @@ function CategoryManagement() {
     });
   };
   const statusSubHandler = (e, id) => {
-    
     Axios.post(
       apis.subCategoryActive,
       {
@@ -63,19 +64,18 @@ function CategoryManagement() {
         message: "Success",
         description: "Status changed successfully",
       });
-      
     });
   };
   return (
     <div className="content-topics ">
       <div className="bottom">
         <h6 className="dark-theme-color-grw ms-4" style={{ fontWeight: "700" }}>
-          Category Management
+          {t("Category Management")}
         </h6>
 
         <div className="my-4 mx-4 ">
           <div className="clearfix">
-            <p className="order-codes">Categories</p>
+            <p className="order-codes">{t("Categories")}</p>
             <button
               onClick={() => router.push("/shop/add-category")}
               type="button"
@@ -123,9 +123,7 @@ function CategoryManagement() {
                         <div className="toggle">
                           <input
                             placeholder="Active"
-                            onChange={(e) =>
-                              statusSubHandler(e, sub.id, index)
-                            }
+                            onChange={(e) => statusSubHandler(e, sub.id, index)}
                             checked={sub.status === true}
                             type="checkbox"
                           />

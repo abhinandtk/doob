@@ -55,7 +55,7 @@ function SharedConfirmation({ postId, setVisibleShared, setOnSuccess }) {
       centered
       footer={[
         <Button key="cancel" type="secondary" onClick={handleClose}>
-          Cancel
+          {t("Cancel")}
         </Button>,
         <Button
           key="submit"

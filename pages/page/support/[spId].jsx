@@ -14,8 +14,9 @@ import { useRouter } from "next/router";
 import SupportMessages from "@/components/shop/support/SupportMessages";
 import { useState } from "react";
 import moment from "moment";
-
+import { useTranslation } from "next-i18next";
 function SupportDetailsPage() {
+  const { t } = useTranslation();
   const router = useRouter();
   const { spId } = router.query;
   const [supportDetails, setSupportDetails] = useState();
@@ -84,7 +85,7 @@ function SupportDetailsPage() {
                     className="p-2 mx-auto d-flex justify-content-between align-items-center"
                     style={{ width: "90%" }}
                   >
-                    <span style={{ color: "#959595" }}>Description</span>
+                    <span style={{ color: "#959595" }}>{t("Description")}</span>
                     <span
                       className="address-admin"
                       style={{ color: "#959595" }}

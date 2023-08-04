@@ -16,7 +16,9 @@ import { Modal, Select } from "antd";
 import { Fragment } from "react";
 import MobileFooter from "@/components/shared/MobileFooter";
 const { Option } = Select;
+import { useTranslation } from "next-i18next";
 function AdminAllOrders() {
+  const { t } = useTranslation();
   const [allOrders, setAllOrders] = useState([]);
   const [visible, setVisible] = useState(false);
   const [orderId, setOrderId] = useState(null);
@@ -79,7 +81,7 @@ function AdminAllOrders() {
         <Modal
           open={visible}
           onCancel={() => setVisible(false)}
-          title="Update Status"
+          title={t("Update Status")}
           footer={
             <Button
               style={{ backgroundColor: "#17A803" }}
@@ -87,7 +89,7 @@ function AdminAllOrders() {
               type="primary"
               onClick={(e) => statusUpdateHandler(e)}
             >
-              Submit
+              {t("Submit")}
             </Button>
           }
           // footer={[
@@ -109,7 +111,7 @@ function AdminAllOrders() {
           // ]}
         >
           <div className="form-group my-2">
-            <label for="exampleFormControlSelect1">Payment Status</label>
+            <label for="exampleFormControlSelect1">{t("Payment Status")}</label>
             <select
               placeholder="order stsu"
               className="form-control p-2 "
@@ -133,7 +135,7 @@ function AdminAllOrders() {
             </select>
           </div>
           <div className="form-group my-2">
-            <label for="exampleFormControlSelect1">Order Status</label>
+            <label for="exampleFormControlSelect1">{t("Order Status")}</label>
             <select
               placeholder="order stsu"
               className="form-control p-2 "
@@ -184,7 +186,7 @@ function AdminAllOrders() {
                   marginBottom: "30px",
                 }}
               >
-                All Orders
+                {t("All Orders")}
               </h6>
               {!loading ? (
                 allOrders.length !== 0 ? (
@@ -218,35 +220,35 @@ function AdminAllOrders() {
                         class="   mx-auto d-flex justify-content-between align-items-center"
                         style={{ width: "90%" }}
                       >
-                        <span style={{ color: "#959595" }}>Customer Name</span>
+                        <span style={{ color: "#959595" }}>{t("Customer Name")}</span>
                         <span>{item.username}</span>
                       </div>
                       <div className="order-list-alt p-2 mt-2 mx-auto d-flex justify-content-between align-items-center">
-                        <span style={{ color: "#959595" }}>Address</span>
+                        <span style={{ color: "#959595" }}>{t("Address")}</span>
                         <span className="address-admin"> {item.address} </span>
                       </div>
                       <div
                         className="p-2   mx-auto d-flex justify-content-between align-items-center"
                         style={{ width: "90%" }}
                       >
-                        <span style={{ color: "#959595" }}>Order Date</span>
+                        <span style={{ color: "#959595" }}>{t("Order Date")}</span>
                         <span>
                           {moment(item.order_date).format("DD MMM YYYY")}
                         </span>
                       </div>
                       <div className="order-list-alt p-2 mt-2 mx-auto d-flex justify-content-between align-items-center">
-                        <span style={{ color: "#959595" }}>Price</span>
+                        <span style={{ color: "#959595" }}>{t("Price")}</span>
                         <span> {item.order_total} KD </span>
                       </div>
                       <div
                         className="p-2   mx-auto d-flex justify-content-between align-items-center"
                         style={{ width: "90%" }}
                       >
-                        <span style={{ color: "#959595" }}>Payment Mode</span>
+                        <span style={{ color: "#959595" }}>{t("Payment Mode")}</span>
                         <span> {item.mode} </span>
                       </div>
                       <div className=" order-list-alt p-2  mx-auto d-flex justify-content-between align-items-center">
-                        <span style={{ color: "#959595" }}>Payment Status</span>
+                        <span style={{ color: "#959595" }}>{t("Payment Status")}</span>
                         <span
                           style={{
                             color:
@@ -262,7 +264,7 @@ function AdminAllOrders() {
                         className="p-2   mx-auto d-flex justify-content-between align-items-center"
                         style={{ width: "90%" }}
                       >
-                        <span style={{ color: "#959595" }}>Order Status</span>
+                        <span style={{ color: "#959595" }}>{t("Order Status")}</span>
                         <span
                           style={{
                             color:
@@ -292,7 +294,7 @@ function AdminAllOrders() {
                           }}
                           download
                         >
-                          Download Invoice
+                          {t("Download Invoice")}
                         </a>
                       </div>
                     </>

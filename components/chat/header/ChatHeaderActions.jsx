@@ -6,7 +6,9 @@ import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { Labels } from "@/public/data/my-constants/Labels";
+import { useTranslation } from "next-i18next";
 function ChatHeaderActions({ selectedId, setOnSuccess, details }) {
+  const { t } = useTranslation();
   const labels = Labels();
   const [visible, setVisible] = useState(false);
   const [blockShow, setBlockShow] = useState(false);
@@ -104,7 +106,7 @@ function ChatHeaderActions({ selectedId, setOnSuccess, details }) {
         onCancel={() => setVisible(false)}
         footer={[
           <Button key="back" onClick={() => setVisible(false)}>
-            Cancel
+            {t("Cancel")}
           </Button>,
           <Button
             style={{ backgroundColor: "#17A803" }}
@@ -112,7 +114,7 @@ function ChatHeaderActions({ selectedId, setOnSuccess, details }) {
             type=""
             onClick={clearChatHandler}
           >
-            Submit
+            {t("Submit")}
           </Button>,
         ]}
       ></Modal>
@@ -125,7 +127,7 @@ function ChatHeaderActions({ selectedId, setOnSuccess, details }) {
         onCancel={() => setBlockShow(false)}
         footer={[
           <Button key="back" onClick={() => setBlockShow(false)}>
-            Cancel
+            {t("Cancel")}
           </Button>,
           <Button
             style={{ backgroundColor: "#17A803" }}
@@ -133,7 +135,7 @@ function ChatHeaderActions({ selectedId, setOnSuccess, details }) {
             type=""
             onClick={blockUserHandler}
           >
-            Submit
+            {t("Submit")}
           </Button>,
         ]}
       ></Modal>

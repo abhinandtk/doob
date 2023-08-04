@@ -1,35 +1,34 @@
 import { useRouter } from "next/router";
 import React, { Fragment } from "react";
-
-function SearchCategory({ category, }) {
+import { useTranslation } from "next-i18next";
+function SearchCategory({ category }) {
+  const { t } = useTranslation();
   const router = useRouter();
   return (
     <Fragment>
-      <div className="my-2 " >
-        <h5 className="dark-theme-color">Category</h5>
-         <div className="game-scroll ">
-        
-        {category.map((item, index) => (
-          <div
-            key={index}
-            onClick={() =>
-              router.push({
-                pathname: "/store/category-search",
-                query: {
-                  category_id: item.id,
-                },
-              })
-            }
-            className="btn-group me-2"
-            role="group"
-            aria-label="Second group"
-          >
-            <button type="button" className="btn btn-secondary secondary">
-              {item.title}
-            </button>
-          </div>
-       
-        ))}
+      <div className="my-2 ">
+        <h5 className="dark-theme-color">{t("Category")}</h5>
+        <div className="game-scroll ">
+          {category.map((item, index) => (
+            <div
+              key={index}
+              onClick={() =>
+                router.push({
+                  pathname: "/store/category-search",
+                  query: {
+                    category_id: item.id,
+                  },
+                })
+              }
+              className="btn-group me-2"
+              role="group"
+              aria-label="Second group"
+            >
+              <button type="button" className="btn btn-secondary secondary">
+                {item.title}
+              </button>
+            </div>
+          ))}
         </div>
       </div>
     </Fragment>

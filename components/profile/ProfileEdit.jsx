@@ -6,8 +6,10 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Axios from "axios";
 import Form from "react-bootstrap/Form";
+import { useTranslation } from "next-i18next";
 
 function ProfileEdit({ data, setSuccess }) {
+  const { t } = useTranslation();
   const [showEdit, setShowEdit] = useState(false);
   const [countryData, setCountryData] = useState([]);
   console.log("444478", data);
@@ -85,10 +87,10 @@ function ProfileEdit({ data, setSuccess }) {
       <Modal
         open={showEdit}
         onCancel={() => setShowEdit(false)}
-        title="Edit Profile"
+        title={t("Edit Profile")}
         footer={[
           <Button key="back" onClick={() => setShowEdit(false)}>
-            Cancel
+            {t("Cancel")}
           </Button>,
           <Button
             style={{ backgroundColor: "#17A803" }}
@@ -96,13 +98,13 @@ function ProfileEdit({ data, setSuccess }) {
             type="primary"
             onClick={(e) => editProfileSubmit(e)}
           >
-            Submit
+            {t("Submit")}
           </Button>,
         ]}
       >
         <Form onSubmit={(e) => editProfileSubmit(e)}>
           <Form.Group className="mb-1 " controlId="formBasicEmail">
-            <Form.Label>Name*</Form.Label>
+            <Form.Label>{t("Name")}*</Form.Label>
             <Form.Control
               id="name"
               type="text"
@@ -211,14 +213,13 @@ function ProfileEdit({ data, setSuccess }) {
               required
             />
           </Form.Group>
-          
         </Form>
       </Modal>
       <button
         onClick={() => setShowEdit(true)}
         className=" btn profile-edit-btn1"
       >
-        Edit
+        {t("Edit")}
       </button>
     </div>
   );

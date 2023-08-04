@@ -4,7 +4,9 @@ import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import { Button, Modal, notification } from "antd";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 function PagesSideBar({ currentPage }) {
+  const { t } = useTranslation();
   const [show, setShow] = useState(false);
   const router = useRouter();
   const logoutHandle = (e) => {
@@ -61,7 +63,7 @@ function PagesSideBar({ currentPage }) {
             key="cancel"
             type="secondary"
           >
-            Cancel
+            {t("Cancel")}
           </Button>,
           <Button
             className="no-hover-effect"

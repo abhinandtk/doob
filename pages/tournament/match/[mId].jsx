@@ -12,7 +12,9 @@ import TimeLineCard from "@/components/tournament/view/TimeLineCard";
 import { Button, Input, Modal, Select, notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 import MobileFooter from "@/components/shared/MobileFooter";
+import { useTranslation } from "next-i18next";
 function MatchTimelinePage() {
+  const { t } = useTranslation();
   const router = useRouter();
   const { mId } = router.query;
 
@@ -130,7 +132,7 @@ function MatchTimelinePage() {
                 />
               </div>
               <div className="form-group my-2">
-                <label for="exampleFormControlInput1">Description</label>
+                <label for="exampleFormControlInput1">{t("Description")}</label>
                 <input
                   required
                   type="text"
@@ -193,7 +195,7 @@ function MatchTimelinePage() {
                   className="timeline-btn"
                   style={{ backgroundColor: "#17A803" }}
                 >
-                  Submit
+                  {t("Submit")}
                 </button>
               </div>
             </form>

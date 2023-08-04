@@ -7,7 +7,9 @@ import { Modal, TimePicker } from "antd";
 import { Button } from "react-bootstrap";
 import moment from "moment";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 function PlayGroundsForm({ handlePlaygroundForm, editData }) {
+  const { t } = useTranslation();
   const router = useRouter();
   const { id } = router.query;
   const [game, setGame] = useState([]);
@@ -157,13 +159,13 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
             longitude: res.data.data.list.longitude,
             amount: res.data.data.list.amount,
           });
-          setAmenityChecked(res.data.data.list.amnities.map((item)=>item.id))
-          setGameChecked(res.data.data.list.game.map((item)=>item.id))
+          setAmenityChecked(res.data.data.list.amnities.map((item) => item.id));
+          setGameChecked(res.data.data.list.game.map((item) => item.id));
           const newSlots = res.data.data.list.timeslot.map((item) => ({
-            start_time: moment(item.start_time,'hh:mm:ss').format("H:mm"),
-            end_time: moment(item.end_time,'hh:mm:ss').format("H:mm"),
+            start_time: moment(item.start_time, "hh:mm:ss").format("H:mm"),
+            end_time: moment(item.end_time, "hh:mm:ss").format("H:mm"),
           }));
-    
+
           setSlots(newSlots);
         }
       });
@@ -178,7 +180,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
   return (
     <form onSubmit={(e) => submitHandler(e)}>
       <div className="form-group my-2 ">
-        <label for="exampleFormControlInput1">Name*</label>
+        <label for="exampleFormControlInput1">{t("Name")}*</label>
         <input
           required
           type="text"
@@ -290,7 +292,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
 
       <div className="form-group my-2">
         <label for="exampleFormControlInput1" id="formfile">
-          Image
+          {t("Image")}
         </label>
         <input
           type="file"
@@ -561,10 +563,14 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
       </div>
       <div className="product-submit my-3">
         <button type="submit" className="play-sub-btn">
-          Submit
+          {t("Submit")}
         </button>
-        <button onClick={()=>router.back()} type="button" className="play-cancel-btn">
-          Cancel
+        <button
+          onClick={() => router.back()}
+          type="button"
+          className="play-cancel-btn"
+        >
+          {t("Cancel")}
         </button>
       </div>
     </form>

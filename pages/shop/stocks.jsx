@@ -21,8 +21,9 @@ import MobileFooter from "@/components/shared/MobileFooter";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 import moment from "moment";
-
+import { useTranslation } from "next-i18next";
 function StockPage() {
+  const { t } = useTranslation();
   const [stockData, setStockData] = useState([]);
   useEffect(() => {
     Axios.get(apis.stockApi, {
@@ -50,13 +51,13 @@ function StockPage() {
                 className="dark-theme-color-grw ms-4 mb-4"
                 style={{ fontWeight: "700" }}
               >
-                Stock
+                {t("Stock")}
               </h6>
               <div className="my-1 mx-4 ">
                 <div className="customer-sale">
-                <div  className="report-section">
-                    <div >Product</div>
-                   
+                  <div className="report-section">
+                    <div>Product</div>
+
                     <div>stock</div>
                   </div>
                   {stockData.map((item, index) => (
@@ -64,7 +65,10 @@ function StockPage() {
                       key={index}
                       className="input-theme-prod d-flex justify-content-between  customer my-3"
                     >
-                      <span className="sales-report-name">{item.variant_name}&nbsp;{item.varient_value}&nbsp;{item.multivarient}</span>
+                      <span className="sales-report-name">
+                        {item.variant_name}&nbsp;{item.varient_value}&nbsp;
+                        {item.multivarient}
+                      </span>
                       <span className="sales-order-price">{item.stock}</span>
                     </div>
                   ))}

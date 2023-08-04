@@ -19,7 +19,9 @@ import { useRouter } from "next/router";
 import { updateGroundCartCount } from "@/Redux/playgroundCartCount";
 import { updateNotificationCount } from "@/Redux/notificationCount";
 import { updateMessageCount } from "@/Redux/messagesCount";
+import { useTranslation } from "next-i18next";
 function MobileHeader() {
+  const { t } = useTranslation();
   const [show, setShow] = useState(false);
   const [confirmLogout, setConfirmLogout] = useState(false);
 
@@ -552,7 +554,7 @@ function MobileHeader() {
             key="cancel"
             type="secondary"
           >
-            Cancel
+            {t("Cancel")}
           </Button>,
           <Button
             className="no-hover-effect"

@@ -674,7 +674,7 @@ function MainHeader({ title }) {
             key="cancel"
             type="secondary"
           >
-            Cancel
+            {t("Cancel")}
           </Button>,
           <Button
             className="no-hover-effect"
