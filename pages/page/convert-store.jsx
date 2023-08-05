@@ -216,7 +216,7 @@ function ConvertStoreForm() {
                   />
                 </div>
                 <div className="form-group my-2">
-                  <label for="exampleFormControlInput1">Contact No</label>
+                  <label for="exampleFormControlInput1">{t("Contact No")}</label>
                   <input
                     required
                     type="number"
@@ -264,7 +264,7 @@ function ConvertStoreForm() {
                   />
                 </div>
                 <div className="form-group my-2 ">
-                  <label for="exampleFormControlInput1">Cover Photo</label>
+                  <label for="exampleFormControlInput1">{t("Cover Photo")}</label>
                   <input
                     required
                     type="file"
@@ -281,7 +281,7 @@ function ConvertStoreForm() {
                 </div>
 
                 <div className="form-group my-2 ">
-                  <label for="exampleFormControlInput1">Start Time</label>
+                  <label for="exampleFormControlInput1">{t("Start Time")}</label>
                   <input
                     required
                     type="time"
@@ -297,7 +297,7 @@ function ConvertStoreForm() {
                   />
                 </div>
                 <div className="form-group my-2">
-                  <label for="exampleFormControlInput1">End Time</label>
+                  <label for="exampleFormControlInput1">{t("End Time")}</label>
                   <input
                     required
                     type="time"

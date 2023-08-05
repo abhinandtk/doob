@@ -22,6 +22,7 @@ import { notification } from "antd";
 import { useEffect } from "react";
 import constants from "@/public/data/my-constants/Constants";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from "next-i18next";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -31,6 +32,7 @@ export async function getStaticProps({ locale }) {
   };
 }
 function StoreSettingsPage() {
+  const {t}=useTranslation()
   const [storeStatus, setStoreStatus] = useState(true);
   const [onSuccess, setOnSuccess] = useState(false);
 
@@ -91,7 +93,7 @@ function StoreSettingsPage() {
                     style={{ textDecoration: "none", color: "inherit" }}
                   >
                     <h6>
-                      Edit Details{" "}
+                      {t("Edit Details")}{" "}
                       <span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -115,7 +117,7 @@ function StoreSettingsPage() {
                     style={{ textDecoration: "none", color: "inherit" }}
                   >
                     <h6 className="my-4">
-                      Banner Management{" "}
+                      {t("Banner Management")}{" "}
                       <span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -139,7 +141,7 @@ function StoreSettingsPage() {
                     style={{ textDecoration: "none", color: "inherit" }}
                   >
                     <h6 className="my-4">
-                      Offer Management{" "}
+                      {t("Offer Management")}{" "}
                       <span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -158,7 +160,7 @@ function StoreSettingsPage() {
                       </span>
                     </h6>
                   </Link>
-                  <h6 className="m">Store Status</h6>{" "}
+                  <h6 className="m">{t("Store Status")}</h6>{" "}
                   <div className="toggle1" style={{ marginRight: "50px" }}>
                     {" "}
                     <input

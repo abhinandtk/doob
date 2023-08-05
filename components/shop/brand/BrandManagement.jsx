@@ -9,10 +9,10 @@ import { useTranslation } from "next-i18next";
 function BrandManagement() {
   const { t } = useTranslation();
   const router = useRouter();
+  const { locale } = router;
   const [brandData, setBrandData] = useState([]);
-  const [onSuccess,setOnSuccess]=useState(false)
-  useEffect(()=>{
-
+  const [onSuccess, setOnSuccess] = useState(false);
+  useEffect(() => {
     Axios.get(apis.brandView, {
       headers: {
         Authorization: `Token ${constants.token_id}`,
@@ -21,30 +21,34 @@ function BrandManagement() {
       setBrandData(res.data.data);
       console.log("brand vvvvvvvvvvvviewwwwwe", res);
     });
-  },[onSuccess])
+  }, [onSuccess]);
 
-  const statusHandlerChange=(e,id)=>{
-    Axios.post(apis.activeBrand,{
-      brand_id:id,
-      status:e.target.checked == true ? 'Active' : 'Pending'
-    },{
-      headers:{
-        'Authorization':`Token ${constants.token_id}`,
+  const statusHandlerChange = (e, id) => {
+    Axios.post(
+      apis.activeBrand,
+      {
+        brand_id: id,
+        status: e.target.checked == true ? "Active" : "Pending",
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
       }
-    }).then((res)=>{
-      setOnSuccess(prev=>!prev)
+    ).then((res) => {
+      setOnSuccess((prev) => !prev);
       notification.success({
-        message:'Success',
-        description:'Status changed successfully'
-      })
-      console.log('result for active',res)
-    })
-  }
+        message: "Success",
+        description: "Status changed successfully",
+      });
+      console.log("result for active", res);
+    });
+  };
 
   return (
     <div className="content-topics ">
       <div className="bottom">
-        <h6 className="dark-theme-color-grw ms-4" style={{  fontWeight: "700" }}>
+        <h6 className="dark-theme-color-grw ms-4" style={{ fontWeight: "700" }}>
           {t("Brand Management")}
         </h6>
 
@@ -56,23 +60,30 @@ function BrandManagement() {
               type="button"
               className="Add2-btn"
             >
-              
-              Add
+              {t("Add")}
             </button>
             <br></br>
             {brandData.map((item, index) => {
               return (
                 <>
                   <p key={index} className="foot-ball-small">
-                    {item.brand}
+                    {locale==='en' ? item.brand : item.arabic_translator}
                   </p>
                   <div className="toggle">
-                    <input  onChange={(e)=>statusHandlerChange(e,item.id,index)} checked={item.status==='Active'} type="checkbox" />
+                    <input
+                      onChange={(e) => statusHandlerChange(e, item.id, index)}
+                      checked={item.status === "Active"}
+                      type="checkbox"
+                    />
                     <label></label>
-                    <span onClick={()=>router.push({
-                      pathname:`/shop/edit-brands/${item.slug_brand}`,
-                      query:item
-                    })}>
+                    <span
+                      onClick={() =>
+                        router.push({
+                          pathname: `/shop/edit-brands/${item.slug_brand}`,
+                          query: item,
+                        })
+                      }
+                    >
                       <img
                         href="#"
                         src="/images/store/Edit copy.png"

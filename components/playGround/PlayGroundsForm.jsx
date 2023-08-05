@@ -216,7 +216,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
       </div>
 
       <div className="form-group my-2 ">
-        <label for="exampleFormControlInput1">Location*</label>
+        <label for="exampleFormControlInput1">{t("Location")}*</label>
         <input
           required
           type="text"
@@ -496,7 +496,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
             type="button"
             className="open-btn"
           >
-            Add
+            {t("Add")}
           </button>
         </div>
 
@@ -510,7 +510,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
               className="modals-btn "
               onClick={addSlotHandler}
             >
-              Add
+              {t("Add")}
             </Button>
           }
         >
@@ -555,7 +555,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
                   onClick={() => setSlots(slots.filter((s) => s !== item))}
                   className="time-delete"
                 >
-                  Delete
+                  {t("Delete")}
                 </span>
               </div>
             ))}

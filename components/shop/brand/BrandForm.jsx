@@ -41,7 +41,7 @@ function BrandForm({handleBrandForm,editDetails}) {
     <div className="my-4 mx-4 ">
       <form onSubmit={(e) => submitHandler(e)}>
         <div className="form-group my-2">
-          <label for="exampleFormControlInput1">Brand Name</label>
+          <label for="exampleFormControlInput1">{t("Brand Name")}</label>
           <input
             type="text"
             class="ad-input-form form-control p-2"
@@ -52,7 +52,7 @@ function BrandForm({handleBrandForm,editDetails}) {
           />
         </div>
         <div className="form-group my-2">
-          <label for="exampleFormControlInput1">Brand Name in Arabic</label>
+          <label for="exampleFormControlInput1">{t("Brand Name in Arabic")}</label>
           <input
             type="text"
             class="ad-input-form form-control p-2"
@@ -78,7 +78,7 @@ function BrandForm({handleBrandForm,editDetails}) {
         </div> */}
 
         <div className="form-group my-2">
-          <label for="exampleFormControlInput1">Display Order</label>
+          <label for="exampleFormControlInput1">{t("Display Order")}</label>
           <input
             type="text"
             class="ad-input-form form-control p-2"

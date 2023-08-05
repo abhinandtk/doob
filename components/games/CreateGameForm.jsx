@@ -215,10 +215,10 @@ function CreateGameForm() {
               Not Specified
             </option>
             <option style={{ color: "#959595" }} value="1">
-              Male
+              {t("Male")}
             </option>
             <option style={{ color: "#959595" }} value="2">
-              Female
+              {t("Female")}
             </option>
           </select>
         </div>

@@ -21,6 +21,7 @@ import MobileFooter from "@/components/shared/MobileFooter";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 import moment from "moment";
+import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 export async function getStaticProps({ locale }) {
@@ -31,6 +32,7 @@ export async function getStaticProps({ locale }) {
   };
 }
 function CustomerSalesReport() {
+  const { t } = useTranslation();
   const [customerSale, setCustomerSale] = useState([]);
   const [selectedDays, setSelectedDays] = useState(30);
   const [slugId, setSlugId] = useState("");
@@ -88,7 +90,7 @@ function CustomerSalesReport() {
                 className=" ms-4"
                 style={{ color: "#17a803", fontWeight: "700" }}
               >
-                Customer Sales Report
+                {t("Customer Sales Report")}
               </h6>
               <div className="my-1 mx-4 ">
                 <div className="update">
@@ -133,7 +135,7 @@ function CustomerSalesReport() {
                         }}
                         download
                       >
-                        Export
+                        {t("Export")}
                       </a>
                     </button>
                   </span>

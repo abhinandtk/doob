@@ -45,6 +45,9 @@ body {
   transition: 0.3s;
   margin-top: -23px;
   color: var(--sidebar-color);
+  :lang(ar) {
+    direction: rtl;
+  }
 }
 
 .sidebar-header {
@@ -369,6 +372,9 @@ input.nosubmit1 {
 
 .side-menu-section {
   margin-left: 390px;
+  :lang(ar) {
+    direction: rtl;
+  }
 }
 
 .max {
@@ -499,6 +505,9 @@ input.nosubmit1 {
   flex-direction: column;
   flex: 1;
   gap: 8px;
+  :lang(ar) {
+    direction: rtl;
+  }
 }
 
 .stories__left-button,
@@ -1548,6 +1557,7 @@ input.nosubmit1 {
   position: relative;
   flex: 43%;
   border-right: transparent;
+  background: var(--secondary);
 }
 .container .leftSides {
   position: relative;
@@ -1564,12 +1574,17 @@ input.nosubmit1 {
   position: relative;
   flex: 71%;
   background: transparent;
+  .header-full-chat{
+    background-color: var(--secondary);
+    color:var(--font-theme-color)
+  }
 }
 .container .rightSides {
   position: relative;
   flex: 71%;
-  background: #ffffff;
+  background: var(--primary);
   margin-top: -10px;
+  color: var(--font-theme-color);
 }
 
 .header {
@@ -1699,7 +1714,7 @@ input.nosubmit1 {
 .chatlist .block .details .listHead p {
   font-size: 13px;
   font-weight: 500;
-  color: #111;
+  color: var(--font-theme-color);
 }
 
 .chatlist .block .details .listHead .time {

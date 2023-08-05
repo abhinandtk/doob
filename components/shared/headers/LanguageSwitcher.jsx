@@ -9,6 +9,7 @@ function LanguageSwitcher() {
   const changeLanguage = (lang) => {
     router.push({ pathname, query }, undefined, { locale: lang });
   };
+  const { locale } = router;
   return (
     <Dropdown className="Drop">
       <Dropdown.Toggle
@@ -20,7 +21,7 @@ function LanguageSwitcher() {
           background: "transparent",
         }}
       >
-        EN <i className="bi bi-chevron-down "></i>
+        {locale.toUpperCase()} <i className="bi bi-chevron-down "></i>
       </Dropdown.Toggle>
 
       <Dropdown.Menu align="center" className="Menu">

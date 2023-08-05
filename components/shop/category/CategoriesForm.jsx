@@ -54,12 +54,12 @@ function CategoriesForm({ categorySubmitHandler, editData }) {
     <div className="content-topics ">
       <div className="bottom">
         <h6 className=" ms-4" style={{ color: "#17a803", fontWeight: "700" }}>
-          Add Categories
+          {editData ? t("Edit Categories") : t("Add Categories")}
         </h6>
         <div className="my-4 mx-4 ">
           <form onSubmit={(e) => submitHandler(e)}>
             <div className="form-group my-2">
-              <label for="exampleFormControlInput1">Category Name</label>
+              <label for="exampleFormControlInput1">{t("Category Name")}</label>
               <input
                 type="text"
                 className="ad-input-form form-control p-2"
@@ -70,7 +70,7 @@ function CategoriesForm({ categorySubmitHandler, editData }) {
             </div>
             <div className="form-group my-2">
               <label for="exampleFormControlInput1">
-                Category Name in Arabic
+                {t("Category Name in Arabic")}
               </label>
               <input
                 type="text"
@@ -81,7 +81,9 @@ function CategoriesForm({ categorySubmitHandler, editData }) {
               />
             </div>
             <div className="form-group my-2">
-              <label for="exampleFormControlSelect1">Parent Category</label>
+              <label for="exampleFormControlSelect1">
+                {t("Parent Category")}
+              </label>
               <select
                 className="ad-input-form form-control   "
                 id="parentCat"
@@ -100,7 +102,7 @@ function CategoriesForm({ categorySubmitHandler, editData }) {
               </select>
             </div>
             <div className="form-group my-2">
-              <label for="exampleFormControlInput1">Display Order</label>
+              <label for="exampleFormControlInput1">{t("Display Order")}</label>
               <input
                 type="text"
                 className="ad-input-form form-control p-2"

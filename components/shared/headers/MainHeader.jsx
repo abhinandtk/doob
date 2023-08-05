@@ -22,6 +22,7 @@ import { useTranslation } from "next-i18next";
 function MainHeader({ title }) {
   const { t } = useTranslation();
   const router = useRouter();
+  const { theme } = useTheme();
   const { locale } = useRouter();
   const { asPath } = router;
   const [show, setShow] = useState(false);
@@ -39,8 +40,6 @@ function MainHeader({ title }) {
   const dispatch = useDispatch();
 
   const isHomePage = router.pathname === "/";
-
-  console.log("storreCount54", isHomePage, locale);
 
   const [user, setUser] = useState("");
 
@@ -124,16 +123,13 @@ function MainHeader({ title }) {
       <Navbar
         collapseOnSelect
         expand="lg"
-        bg="light"
+        bg={theme === "dark" ? "dark" : "white"}
         variant="dark"
         sticky="top"
         className="web-nav"
         style={{ zIndex: 100 }}
       >
         <Container fluid>
-          <h1>{locale}</h1>
-
-          <ThemeSwitcher />
           <Navbar.Brand href="/">
             <img
               src="/images/Contract Doob before sign 13-40-2 (1).png"
@@ -245,6 +241,10 @@ function MainHeader({ title }) {
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
+              </Nav.Link>
+
+              <Nav.Link>
+                <ThemeSwitcher />
               </Nav.Link>
               <Nav.Link>
                 <LanguageSwitcher />

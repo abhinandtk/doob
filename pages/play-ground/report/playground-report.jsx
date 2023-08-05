@@ -16,6 +16,7 @@ import MobileFooter from "@/components/shared/MobileFooter";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 import PlayGroundSideBar from "@/components/playGround/PlayGroundSideBar";
+import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 export async function getStaticProps({ locale }) {
@@ -27,7 +28,7 @@ export async function getStaticProps({ locale }) {
 }
 function PlaygroundReport() {
   const [selectedDays, setSelectedDays] = useState(30);
-
+  const { t } = useTranslation();
   const labels = Labels();
 
   const [startDate, setStartDate] = useState(
@@ -160,7 +161,7 @@ function PlaygroundReport() {
                         download
                         target="_blank"
                       >
-                        Export
+                        {t("Export")}
                       </a>
                     </button>
                   </span>

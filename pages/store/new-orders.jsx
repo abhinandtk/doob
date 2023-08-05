@@ -46,7 +46,7 @@ function store() {
                   fill="black"
                 />
               </svg>
-              <span className="mx-2">Settings</span>
+              <span className="mx-2">{t("Settings")}</span>
             </a>
             <a href="#services">
               <svg
@@ -97,7 +97,7 @@ function store() {
                   </clipPath>
                 </defs>
               </svg>
-              <span className="mx-2">Earnings</span>
+              <span className="mx-2">{t("Earnings")}</span>
             </a>
             <a href="#contact">
               <svg
@@ -193,7 +193,7 @@ function store() {
                 />
               </svg>
 
-              <span className="mx-2">Support </span>
+              <span className="mx-2">{t("Support")} </span>
             </a>
             <a href="#contact">
               <svg
@@ -231,7 +231,7 @@ function store() {
                 className="All-order"
                 style={{ color: "#17a803", fontWeight: "700" }}
               >
-                New Orders
+                {t("New Orders")}
               </h6>
               <p className="order-code " style={{ fontWeight: "500" }}>
                 #12454

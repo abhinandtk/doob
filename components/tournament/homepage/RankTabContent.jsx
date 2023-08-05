@@ -1,7 +1,10 @@
 import { Tabs, Tab } from "react-bootstrap";
 import React, { Fragment, useState } from "react";
 import RankingTable from "./RankingTable";
+import { useTranslation } from "next-i18next";
+
 function RankTabContent({ data }) {
+  const {t}=useTranslation()
   console.log("dfdata", data);
   const [selectedMatch, setSelectedMatch] = useState(
     data[0]?.game_type || null
@@ -41,17 +44,17 @@ function RankTabContent({ data }) {
                   className="gender2"
                   style={{ justifyContent: "initial", color: "red" }}
                 >
-                  <Tab eventKey="home" title="Male">
+                  <Tab eventKey="home" title={t("Male")}>
                     {content.male.length >= 1 && (
                       <RankingTable data={content.male} />
                     )}
                   </Tab>
-                  <Tab eventKey="profile" title="Female">
+                  <Tab eventKey="profile" title={t("Female")}>
                     {content.female.length >= 1 && (
                       <RankingTable data={content.male} />
                     )}
                   </Tab>
-                  <Tab eventKey="messages" title="Junior">
+                  <Tab eventKey="messages" title={t("Junior")}>
                     {content.junior.length >= 1 && (
                       <RankingTable data={content.male} />
                     )}

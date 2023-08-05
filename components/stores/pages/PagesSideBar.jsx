@@ -245,7 +245,7 @@ function PagesSideBar({ currentPage }) {
             className="mx-2"
             style={{ color: `${currentPage === "settings" ? "#17A803" : ""}` }}
           >
-            Settings{" "}
+            {t("Settings")}{" "}
           </span>
         </Link>
         <span style={{ padding: "16px", cursor: "pointer" }}>

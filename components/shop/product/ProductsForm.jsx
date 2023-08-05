@@ -445,7 +445,7 @@ function ProductsForm({ handleProductAdd, editData }) {
             </div>
 
             <div className="form-group my-2 ">
-              <label for="exampleFormControlTextarea1">Description</label>
+              <label for="exampleFormControlTextarea1">{t("Description")}</label>
               <textarea
                 className="add-prod-input form-control"
                 id="description"
@@ -498,7 +498,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                 type="button"
                 className="Add-btn"
               >
-                Add
+                {t("Add")}
               </Button>
             </div>
             {formData.variants.map((item, index) => (

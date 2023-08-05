@@ -19,9 +19,10 @@ import { CardImg } from "react-bootstrap";
 import { Labels } from "@/public/data/my-constants/Labels";
 import moment from "moment";
 import Link from "next/link";
+import { useTranslation } from "next-i18next";
 function TournamentMatches({ data, setOnSuccess, admin, home }) {
   console.log("dddddddaaaaaaaaaata,data", data);
-
+  const {t}=useTranslation()
   const router = useRouter();
   const { tid } = router.query;
 
@@ -598,7 +599,7 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
             type="button"
             className="matches-btn"
           >
-            Generate Matches
+            {t("Generate Matches")}
           </button>
         </div>
       )}

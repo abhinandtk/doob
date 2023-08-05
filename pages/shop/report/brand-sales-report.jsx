@@ -17,6 +17,7 @@ import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
+import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 export async function getStaticProps({ locale }) {
@@ -28,7 +29,7 @@ export async function getStaticProps({ locale }) {
 }
 function BrandSaleReport() {
   const [selectedDays, setSelectedDays] = useState(30);
-
+  const { t } = useTranslation();
   const labels = Labels();
 
   const [startDate, setStartDate] = useState(
@@ -165,7 +166,7 @@ function BrandSaleReport() {
                         style={{ textDecoration: "none", color: "inherit" }}
                         download
                       >
-                        Export
+                        {t("Export")}
                       </a>
                     </button>
                   </span>

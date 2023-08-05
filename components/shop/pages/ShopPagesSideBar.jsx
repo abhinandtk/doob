@@ -127,7 +127,7 @@ function ShopPagesSideBar({ currentPage }) {
         </svg>
         <span
           className=" customs"
-          style={{ color: `${currentPage === "settings" ? "#17A803" : ""}` }}
+          style={{ color: `${currentPage === "stock" ? "#17A803" : ""}` }}
         >
           {" "}
           {t("Stock")}
@@ -194,7 +194,7 @@ function ShopPagesSideBar({ currentPage }) {
           className="customs"
           style={{ color: `${currentPage === "earnings" ? "#17A803" : ""}` }}
         >
-          Earnings
+          {t("Earnings")}
         </span>
       </Link>
 
@@ -241,7 +241,7 @@ function ShopPagesSideBar({ currentPage }) {
           className="customs"
           style={{ color: `${currentPage === "settings" ? "#17A803" : ""}` }}
         >
-          Settings
+          {t("Settings")}
         </span>
       </Link>
 
@@ -265,7 +265,7 @@ function ShopPagesSideBar({ currentPage }) {
           style={{ color: `${currentPage === "support" ? "#17A803" : ""}` }}
         >
           {" "}
-          Support{" "}
+          {t("Support")}{" "}
         </span>
       </Link>
     </div>

@@ -22,7 +22,7 @@ import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 import moment from "moment";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-
+import { useTranslation } from "next-i18next";
 export async function getStaticProps({ locale }) {
   return {
     props: {
@@ -32,6 +32,7 @@ export async function getStaticProps({ locale }) {
 }
 function ProductSalesReport() {
   const [productSale, setProductSale] = useState([]);
+  const { t } = useTranslation();
   const labels = Labels();
   const [selectedDays, setSelectedDays] = useState(30);
   const [startDate, setStartDate] = useState(
@@ -93,7 +94,7 @@ function ProductSalesReport() {
                 className=" ms-4"
                 style={{ color: "#17a803", fontWeight: "700" }}
               >
-                Product Sales Report
+                {t("Product Sales Report")}
               </h6>
               <div className="my-1 mx-4 ">
                 <div className="update">
@@ -138,7 +139,7 @@ function ProductSalesReport() {
                         }}
                         download
                       >
-                        Export
+                        {t("Export")}
                       </a>
                     </button>
                   </span>

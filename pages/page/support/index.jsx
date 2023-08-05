@@ -18,6 +18,7 @@ import MobileFooter from "@/components/shared/MobileFooter";
 import Link from "next/link";
 import { useRouter } from "next/router";
 const { Option } = Select;
+import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 export async function getStaticProps({ locale }) {
@@ -29,6 +30,8 @@ export async function getStaticProps({ locale }) {
 }
 function SupportPage() {
   const router = useRouter();
+  const { t } = useTranslation();
+
   const [supportList, setSupportList] = useState([]);
   useEffect(() => {
     Axios.get(apis.supportView, {
@@ -59,14 +62,14 @@ function SupportPage() {
                   marginBottom: "30px",
                 }}
               >
-                Support
+                {t("Support")}
                 <span>
                   <Button
                     onClick={() => router.push("/page/support/add-support")}
                     type="button"
                     className="order-btn "
                   >
-                    Add support
+                    {t("Add support")}
                   </Button>
                 </span>
               </h6>
@@ -124,7 +127,7 @@ function SupportPage() {
                             cursor: "pointer",
                           }}
                         >
-                          View More
+                          {t("View More")}
                         </span>
                       </Link>
                     </div>

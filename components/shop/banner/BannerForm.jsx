@@ -79,12 +79,12 @@ function BannerForm({ bannerSubmitHandler, editData }) {
     <div class="content-topics ">
       <div className="bottom">
         <h6 className=" ms-4" style={{ color: "#17a803", fontWeight: "700" }}>
-          Add Banners
+          {editData === "true" ? t("Edit Banners") : t("Add Banners")}
         </h6>
         <div className="my-4 mx-4 ">
           <form onSubmit={(e) => submitHandler(e)}>
             <div className="form-group my-2">
-              <label for="exampleFormControlInput1">Banner Name</label>
+              <label for="exampleFormControlInput1">{t("Banner Name")}</label>
               <input
                 type="text"
                 class="form-control p-2"
@@ -99,7 +99,7 @@ function BannerForm({ bannerSubmitHandler, editData }) {
               />
             </div>
             <div className="form-group my-2">
-              <label for="exampleFormControlInput1">Banner url</label>
+              <label for="exampleFormControlInput1">{t("Banner url")}</label>
               <input
                 type="text"
                 class="form-control p-2"
@@ -114,7 +114,7 @@ function BannerForm({ bannerSubmitHandler, editData }) {
               />
             </div>
             <div className="form-group my-2">
-              <label for="exampleFormControlInput1">Display Order</label>
+              <label for="exampleFormControlInput1">{t("Display Order")}</label>
               <input
                 type="number"
                 class="form-control p-2"
@@ -130,7 +130,7 @@ function BannerForm({ bannerSubmitHandler, editData }) {
             </div>
             <div className="form-group  my-2">
               <label for="exampleFormControlInput1" id="image">
-                Banner Web Image
+                {t("Banner Web Image")}
               </label>
               <input
                 type="file"
@@ -163,7 +163,7 @@ function BannerForm({ bannerSubmitHandler, editData }) {
               />
             </div>
             <div className="form-group my-2">
-              <label for="exampleFormControlSelect1">Banner Type</label>
+              <label for="exampleFormControlSelect1">{t("Banner Type")}</label>
               <select
                 className="form-control p-2"
                 style={{

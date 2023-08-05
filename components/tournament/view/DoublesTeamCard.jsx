@@ -149,7 +149,7 @@ function DoublesTeamsCard({
             type="submit"
             className="modals-btn "
           >
-            Add
+            {t("Add")}
           </Button>
         }
         centered
@@ -411,7 +411,7 @@ function DoublesTeamsCard({
           type="button"
           className="teams-btn my-4"
         >
-          Add
+          {t("Add")}
         </button>
       )}
     </Fragment>

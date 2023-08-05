@@ -6,7 +6,8 @@ import ShopPagesSideBar from "@/components/shop/pages/ShopPagesSideBar";
 import Link from "next/link";
 import React from "react";
 import { Fragment } from "react";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -16,6 +17,7 @@ export async function getStaticProps({ locale }) {
   };
 }
 function ReportPage() {
+  const { t } = useTranslation();
   return (
     <Fragment>
       <MainHeader title="Doob" />
@@ -40,7 +42,7 @@ function ReportPage() {
                     style={{ textDecoration: "none", color: "#212529" }}
                   >
                     <h6>
-                      Sales Report
+                      {t("Sales Report")}
                       <span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +82,7 @@ function ReportPage() {
                     style={{ textDecoration: "none", color: "#212529" }}
                   >
                     <h6 className="my-4">
-                      Category Sales Report
+                      {t("Category Sales Report")}
                       <span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +102,7 @@ function ReportPage() {
                     style={{ textDecoration: "none", color: "#212529" }}
                   >
                     <h6 className="my-4">
-                      Product Sales Report
+                      {t("Product Sales Report")}
                       <span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -120,7 +122,7 @@ function ReportPage() {
                     style={{ textDecoration: "none", color: "#212529" }}
                   >
                     <h6 className="my-4">
-                      Customer Sales Report
+                      {t("Customer Sales Report")}
                       <span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"

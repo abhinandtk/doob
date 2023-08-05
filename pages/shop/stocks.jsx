@@ -65,9 +65,9 @@ function StockPage() {
               <div className="my-1 mx-4 ">
                 <div className="customer-sale">
                   <div className="report-section">
-                    <div>Product</div>
+                    <div>{t("Products")}</div>
 
-                    <div>stock</div>
+                    <div>{t("Stock")}</div>
                   </div>
                   {stockData.map((item, index) => (
                     <div

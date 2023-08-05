@@ -18,6 +18,7 @@ import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 import PlayGroundSideBar from "@/components/playGround/PlayGroundSideBar";
 Chart.register(CategoryScale);
+import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 export async function getStaticProps({ locale }) {
@@ -28,6 +29,7 @@ export async function getStaticProps({ locale }) {
   }
 }
 function EarningReport() {
+  const { t } = useTranslation();
   const [selectedDays, setSelectedDays] = useState(30);
   const [earningData, setEarningData] = useState([]);
   console.log("bookin333", earningData);
@@ -167,7 +169,7 @@ function EarningReport() {
                         download
                         target="_blank"
                       >
-                        Export
+                        {t("Export")}
                       </a>
                     </button>
                   </span>
@@ -190,7 +192,7 @@ function EarningReport() {
                 <br></br>
                 <div className="customer-sale">
                   <p>
-                    <b>Day by Report</b>
+                    <b>{t("Day by Report")}</b>
                   </p>
                   {earningData.playground_report &&
                     earningData.playground_report.map((item, index) => (

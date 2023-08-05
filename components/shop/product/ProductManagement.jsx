@@ -10,6 +10,7 @@ import { useTranslation } from "next-i18next";
 function ProductManagement() {
   const { t } = useTranslation();
   const router = useRouter();
+  const { locale } = router;
   const [productList, setProductList] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -49,7 +50,9 @@ function ProductManagement() {
                   className="   mx-auto d-flex justify-content-between align-items-center"
                   style={{ width: "90%" }}
                 >
-                  <p style={{ fontWeight: "500" }}>{item.name}</p>
+                  <p style={{ fontWeight: "500" }}>
+                    {locale==='en' ? item.name : item.name_ar}
+                  </p>
                   <button
                     onClick={() =>
                       router.push({
@@ -59,7 +62,7 @@ function ProductManagement() {
                     }
                     className="edit-btn mb-2"
                   >
-                    Edit
+                    {t("Edit")}
                   </button>
                 </div>
                 <hr
@@ -125,7 +128,9 @@ function ProductManagement() {
             ))
           ) : (
             <center>
-              <div className="my-5 dark-theme-color">No products found ......</div>
+              <div className="my-5 dark-theme-color">
+                No products found ......
+              </div>
             </center>
           )
         ) : null}

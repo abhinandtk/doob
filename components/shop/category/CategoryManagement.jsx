@@ -8,6 +8,7 @@ import { useTranslation } from "next-i18next";
 function CategoryManagement() {
   const { t } = useTranslation();
   const router = useRouter();
+  const { locale } = router;
   const [categoryData, setCategoryData] = useState([]);
   const [checked, setChecked] = useState(false);
   const [onSuccess, setOnSuccess] = useState();
@@ -81,14 +82,14 @@ function CategoryManagement() {
               type="button"
               className="Add2-btn"
             >
-              Add
+              {t("Add")}
             </button>
             <br></br>
             {categoryData.map((item, index) => {
               return (
                 <>
                   <p key={index} className="foot-ball">
-                    {item.title}
+                    {locale === "en" ? item.title : item.title_arabic}
                   </p>
                   <div className="toggle">
                     <input
@@ -118,8 +119,8 @@ function CategoryManagement() {
                     return (
                       <>
                         <p key={sub} className="foot-ball-small">
-                          {sub.title}
-                        </p>
+                          {locale === "en" ? sub.title : sub.title_arabic}
+                          </p>
                         <div className="toggle">
                           <input
                             placeholder="Active"

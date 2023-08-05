@@ -20,17 +20,19 @@ import MobileFooter from "@/components/shared/MobileFooter";
 import constants from "@/public/data/my-constants/Constants";
 import apis from "@/public/data/my-constants/Apis";
 import Axios from "axios";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['translation'])),
+      ...(await serverSideTranslations(locale, ["translation"])),
     },
-  }
+  };
 }
 function PlaygroundManagementPage() {
   const [show, setShow] = useState(false);
+  const { t } = useTranslation();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -76,7 +78,7 @@ function PlaygroundManagementPage() {
           </span>
         </h5>
         <h6 className="my-4 " style={{ fontWeight: "700" }}>
-          Summary
+          {t("Summary")}
         </h6>
 
         <div className="Top-play">
@@ -224,7 +226,7 @@ function PlaygroundManagementPage() {
                   </clipPath>
                 </defs>
               </svg>
-              <p className="play-manage">Earnings</p>
+              <p className="play-manage">{t("Earnings")}</p>
             </div>
           </Link>
           <Link
@@ -325,7 +327,7 @@ function PlaygroundManagementPage() {
                   fill="black"
                 />
               </svg>
-              <p className="play-manage">Reports</p>
+              <p className="play-manage">{t("Reports")}</p>
             </div>
           </Link>
           <Link
@@ -347,7 +349,7 @@ function PlaygroundManagementPage() {
                 />
               </svg>
 
-              <p className="play-manage">Support</p>
+              <p className="play-manage">{t("Support")}</p>
             </div>
           </Link>
         </div>

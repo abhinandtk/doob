@@ -18,6 +18,7 @@ import MobileFooter from "@/components/shared/MobileFooter";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 Chart.register(CategoryScale);
+import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 export async function getStaticProps({ locale }) {
@@ -28,6 +29,7 @@ export async function getStaticProps({ locale }) {
   };
 }
 function SalesReport() {
+  const { t } = useTranslation();
   const [selectedDays, setSelectedDays] = useState(30);
   const [salesData, setSalesData] = useState([]);
   const [salesGraph, setSalesGraph] = useState([]);
@@ -123,7 +125,7 @@ function SalesReport() {
                 className=" ms-4"
                 style={{ color: "#17a803", fontWeight: "700" }}
               >
-                Sales Report
+                {t("Sales Report")}
               </h6>
               <div className="my-1 mx-4 ">
                 <div className="update">
@@ -160,7 +162,7 @@ function SalesReport() {
                         target="_blank"
                         style={{ textDecoration: "none", color: "inherit" }}
                       >
-                        Export
+                        {t("Export")}
                       </a>
                     </button>
                   </span>

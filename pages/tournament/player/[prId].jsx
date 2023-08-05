@@ -7,6 +7,7 @@ import MainHeader from "@/components/shared/headers/MainHeader";
 import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileFooter from "@/components/shared/MobileFooter";
+import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export async function getServerSideProps({ locale }) {
@@ -17,6 +18,7 @@ export async function getServerSideProps({ locale }) {
   };
 }
 function PlayerDetailsPage() {
+  const {t}=useTranslation()
   const router = useRouter();
   const { prId } = router.query;
 
@@ -43,7 +45,7 @@ function PlayerDetailsPage() {
       <MainSidebarFixed />
       <div className="tour-container">
         <h5 className="my-3 dark-theme-color" style={{ fontWeight: "700" }}>
-          Rank Details
+          {t("Rank Details")}
         </h5>
         {rankDetails && (
           <div className="row ">
@@ -68,11 +70,11 @@ function PlayerDetailsPage() {
 
                         <div className="ranks-content">
                           <div className="rank-detail">
-                            <h6 className="ranks">Rank</h6>
+                            <h6 className="ranks">{t("Rank")}</h6>
                             <p className="ranks-number">#{rankDetails.rank}</p>
                           </div>
                           <div className="rank-detail1">
-                            <h6 className="ranks">Points</h6>
+                            <h6 className="ranks">{t("Points")}</h6>
                             <p className="ranks-number">{rankDetails.points}</p>
                           </div>
                         </div>
@@ -88,13 +90,13 @@ function PlayerDetailsPage() {
                         <h5 className="grey-number">
                           {rankDetails.Matches_Played}
                         </h5>
-                        <p className="grey-match">Matches Played</p>
+                        <p className="grey-match">{t("Matches Played")}</p>
                       </div>
                       <div className="grey-details1">
                         <h5 className="grey-number">
                           {rankDetails.Matches_Won}
                         </h5>
-                        <p className="grey-match">Matches Won</p>
+                        <p className="grey-match">{t("Matches Won")}</p>
                       </div>
                     </div>
                   </div>
@@ -104,13 +106,13 @@ function PlayerDetailsPage() {
                     <div className="grey-content">
                       <div className="grey-details">
                         <h5 className="grey-number">{rankDetails.goal}</h5>
-                        <p className="grey-match">Goals</p>
+                        <p className="grey-match">{t("Goals")}</p>
                       </div>
                       <div className="grey-details2">
                         <h5 className="grey-number">
                           {rankDetails.tournament_played}
                         </h5>
-                        <p className="grey-match">Tournaments Played</p>
+                        <p className="grey-match">{t("Tournaments Played")}</p>
                       </div>
                     </div>
                   </div>
@@ -122,13 +124,13 @@ function PlayerDetailsPage() {
                         <h5 className="grey-number">
                           {rankDetails.final_played}
                         </h5>
-                        <p className="grey-match">Finals Played</p>
+                        <p className="grey-match">{t("Finals Played")}</p>
                       </div>
                       <div className="grey-details3">
                         <h5 className="grey-number">
                           {rankDetails.semifinal_played}
                         </h5>
-                        <p className="grey-match">Semi-finals Played</p>
+                        <p className="grey-match">{t("Semi-finals Played")}</p>
                       </div>
                     </div>
                   </div>
@@ -138,7 +140,7 @@ function PlayerDetailsPage() {
                     <div className="grey-content">
                       <div className="grey-details">
                         <h5 className="grey-number">{rankDetails.final_won}</h5>
-                        <p className="grey-match">Finals Won</p>
+                        <p className="grey-match">{t("Finals Won")}</p>
                       </div>
                     </div>
                   </div>

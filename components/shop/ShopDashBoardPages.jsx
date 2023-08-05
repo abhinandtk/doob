@@ -202,7 +202,7 @@ function ShopDashBoardPages() {
                 </clipPath>
               </defs>
             </svg>
-            <p className="shop-manage">Earnings</p>
+            <p className="shop-manage">{t("Earnings")}</p>
           </div>
         </Link>
 
@@ -229,7 +229,7 @@ function ShopDashBoardPages() {
                 fill={`${theme === "dark" ? "white" : "black"}`}
               />
             </svg>
-            <p className="shop-manage">Reports</p>
+            <p className="shop-manage">{t("Reports")}</p>
           </div>
         </Link>
         <Link
@@ -252,7 +252,7 @@ function ShopDashBoardPages() {
               />
             </svg>
 
-            <p className="shop-manage">Settings</p>
+            <p className="shop-manage">{t("Settings")}</p>
           </div>
         </Link>
         <Link
@@ -275,7 +275,7 @@ function ShopDashBoardPages() {
               />
             </svg>
 
-            <p className="shop-manage">Support</p>
+            <p className="shop-manage">{t("Support")}</p>
           </div>
         </Link>
       </div>

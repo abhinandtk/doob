@@ -6,9 +6,10 @@ import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
 import BrandForm from "./BrandForm";
 import { notification } from "antd";
+import { useTranslation } from "next-i18next";
 
 function AddBrand() {
-
+  const {t}=useTranslation()
   const router = useRouter()
  
   const handleBrandForm=(data)=>{
@@ -36,7 +37,7 @@ function AddBrand() {
     <div class="content-topics ">
       <div className="bottom">
         <h6 className=" ms-4" style={{ color: "#17a803", fontWeight: "700" }}>
-          Add Brands
+          {t("Add Brands")}
         </h6>
         <BrandForm handleBrandForm={handleBrandForm}/>
       </div>

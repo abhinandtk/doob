@@ -18,8 +18,10 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
+import { useTranslation } from "next-i18next";
 
 function OfferManagement() {
+  const {t}=useTranslation()
   const router = useRouter();
 
   const labels = Labels();
@@ -73,7 +75,7 @@ function OfferManagement() {
               className="Add2-btn"
             >
               {" "}
-              Add{" "}
+              {t("Add")}{" "}
             </button>
             <br></br>
             {listOffers.length > 0 &&

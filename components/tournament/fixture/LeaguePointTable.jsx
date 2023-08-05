@@ -7,8 +7,10 @@ import apis from "@/public/data/my-constants/Apis";
 import { useRouter } from "next/router";
 import constants from "@/public/data/my-constants/Constants";
 import { useState } from "react";
+import { useTranslation } from "next-i18next";
 
 function LeaguePointTable() {
+  const {t}=useTranslation()
   const router = useRouter();
   const { tid } = router.query;
   const [tableData, setTableData] = useState([]);
@@ -62,12 +64,12 @@ function LeaguePointTable() {
       key: "lost",
     },
     {
-      title: "Goals",
+      title: t("Goals"),
       dataIndex: "goals",
       key: "goals",
     },
     {
-      title: "Points",
+      title: t("Points"),
       dataIndex: "points",
       key: "points",
     },

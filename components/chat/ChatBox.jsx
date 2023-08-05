@@ -72,10 +72,7 @@ function ChatBox({ selectedId, onNewMsg }) {
           setOnSuccess={setOnSuccess}
           onNewMsg={onNewMsg}
         />
-        <hr
-          style={{ color: "grey", width: "95%" }}
-          className="col-md-7 mx-3"
-        ></hr>
+        
         <div
           className="chat-container"
           style={{ height: "70%", overflow: "auto" }}

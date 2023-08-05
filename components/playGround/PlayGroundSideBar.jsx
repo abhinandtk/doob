@@ -1,7 +1,8 @@
 import Link from "next/link";
 import React from "react";
-
+import { useTranslation } from "next-i18next";
 function PlayGroundSideBar({ currentPage }) {
+  const { t } = useTranslation();
   return (
     <div className="side-play">
       <Link
@@ -65,7 +66,7 @@ function PlayGroundSideBar({ currentPage }) {
             </clipPath>
           </defs>
         </svg>
-        <span className="mx-2">Earnings</span>{" "}
+        <span className="mx-2">{t("Earnings")}</span>{" "}
       </Link>
       <Link
         href="/play-ground/playground-view"
@@ -181,7 +182,7 @@ function PlayGroundSideBar({ currentPage }) {
           />
         </svg>
 
-        <span className="mx-2">Support </span>
+        <span className="mx-2">{t("Support")} </span>
       </Link>
     </div>
   );

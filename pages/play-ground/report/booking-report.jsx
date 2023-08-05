@@ -166,7 +166,7 @@ function BookingReport() {
                         download
                         target="_blank"
                       >
-                        Export
+                        {t("Export")}
                       </a>
                     </button>
                   </span>

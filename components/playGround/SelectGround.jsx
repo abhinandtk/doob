@@ -187,7 +187,7 @@ function SelectGround({ details, setSuccess, setDateSelected }) {
               type="button"
               className=" image-btn"
             >
-              Add to Cart
+              {t("Add to Cart")}
             </button>
           </div>
         </div>

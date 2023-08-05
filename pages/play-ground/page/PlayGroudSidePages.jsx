@@ -1,7 +1,8 @@
 import Link from "next/link";
 import React from "react";
-
+import { useTranslation } from "next-i18next";
 function PlayGroudSidePages({currentPage}) {
+  const { t } = useTranslation();
   return (
     <div className="side-play">
       <Link href="/play-ground/admin-bookings-ground" style={{textDecoration:'none'}}>
@@ -162,7 +163,7 @@ function PlayGroudSidePages({currentPage}) {
           />
         </svg>
 
-        <span className="mx-2">Support </span>
+        <span className="mx-2">{t("Support")} </span>
       </a>
     </div>
   );

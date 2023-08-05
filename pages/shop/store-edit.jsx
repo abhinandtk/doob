@@ -147,7 +147,7 @@ function StoreEditPage() {
               <br></br>
               <form onSubmit={(e) => submitHandler(e)}>
                 <div className="form-group my-2 ">
-                  <label for="exampleFormControlInput1">Title</label>
+                  <label for="exampleFormControlInput1">{t("Title")}</label>
                   <input
                     required
                     type="text"
@@ -197,7 +197,7 @@ function StoreEditPage() {
                   />
                 </div>
                 <div className="form-group my-2">
-                  <label for="exampleFormControlInput1">Location</label>
+                  <label for="exampleFormControlInput1">{t("Location")}</label>
                   <input
                     required
                     type="text"
@@ -214,7 +214,7 @@ function StoreEditPage() {
                 </div>
 
                 <div className="form-group my-2">
-                  <label for="exampleFormControlInput1">Contact No</label>
+                  <label for="exampleFormControlInput1">{t("Contact No")}</label>
                   <input
                     required
                     type="number"
@@ -230,7 +230,7 @@ function StoreEditPage() {
                   />
                 </div>
                 <div className="form-group my-2 ">
-                  <label for="exampleFormControlInput1">Store E-mail</label>
+                  <label for="exampleFormControlInput1">{t("Store E-mail")}</label>
                   <input
                     required
                     type="email"
@@ -246,7 +246,7 @@ function StoreEditPage() {
                   />
                 </div>
                 <div className="form-group my-2">
-                  <label for="exampleFormControlInput1">Logo</label>
+                  <label for="exampleFormControlInput1">{t("Logo")}</label>
                   <input
                     
                     type="file"
@@ -261,7 +261,7 @@ function StoreEditPage() {
                   />
                 </div>
                 <div className="form-group my-2 ">
-                  <label for="exampleFormControlInput1">Cover Photo</label>
+                  <label for="exampleFormControlInput1">{t("Cover Photo")}</label>
                   <input
                     
                     type="file"
@@ -277,7 +277,7 @@ function StoreEditPage() {
                 </div>
 
                 <div className="form-group my-2 ">
-                  <label for="exampleFormControlInput1">Start Time</label>
+                  <label for="exampleFormControlInput1">{t("Start Time")}</label>
                   <input
                     required
                     type="time"
@@ -293,7 +293,7 @@ function StoreEditPage() {
                   />
                 </div>
                 <div className="form-group my-2">
-                  <label for="exampleFormControlInput1">End Time</label>
+                  <label for="exampleFormControlInput1">{t("End Time")}</label>
                   <input
                     required
                     type="time"

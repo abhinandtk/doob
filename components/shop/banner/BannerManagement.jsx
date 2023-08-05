@@ -7,10 +7,11 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
+import { useTranslation } from "next-i18next";
 
 function BannerManagement() {
   const router = useRouter();
-
+  const {t}=useTranslation()
   const labels = Labels();
 
   const [listBanners, setListBanners] = useState([]);
@@ -53,7 +54,7 @@ function BannerManagement() {
     <div class="content-topics ">
       <div className="bottom">
         <h6 className=" ms-4" style={{ color: "#17a803", fontWeight: "700" }}>
-          Banners
+          {t("Banners")}
         </h6>
 
         <div className="my-4 mx-4 ">
@@ -65,7 +66,7 @@ function BannerManagement() {
               className="Add2-btn"
             >
               {" "}
-              Add{" "}
+              {t("Add")}{" "}
             </button>
             <br></br>
             {listBanners.length > 0 &&

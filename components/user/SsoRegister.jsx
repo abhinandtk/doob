@@ -165,8 +165,8 @@ function SsoRegister({ setActiveModal, countries }) {
                 }}
                 value={ssoRegisterForm.gender}
               >
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
+                <option value="Male">{t("Male")}</option>
+                <option value="Female">{t("Female")}</option>
               </Form.Select>
             </Form.Group>
             <Form.Group className="mb-1" style={{ marginLeft: "180px" }}>

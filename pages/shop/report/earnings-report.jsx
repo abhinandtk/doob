@@ -19,6 +19,7 @@ import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 Chart.register(CategoryScale);
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from "next-i18next";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -28,6 +29,7 @@ export async function getStaticProps({ locale }) {
   };
 }
 function EarningsReport() {
+  const {t}=useTranslation();
   const [selectedDays, setSelectedDays] = useState(30);
   const [earningsData, setEarningsData] = useState([]);
   const labels = Labels();
@@ -144,7 +146,7 @@ function EarningsReport() {
                 className=" ms-4"
                 style={{ color: "#17a803", fontWeight: "700" }}
               >
-                My Earnings
+                {t("My Earnings")}
               </h6>
               <div className="my-1 mx-4 ">
                 <div className="update">
@@ -185,7 +187,7 @@ function EarningsReport() {
                         }}
                         download
                       >
-                        Export
+                        {t("Export")}
                       </a>
                     </button>
                   </span>
@@ -209,7 +211,7 @@ function EarningsReport() {
                 <br></br>
                 <div className="customer-sale">
                   <p>
-                    <b>Day by Report</b>
+                    <b>{t("Day by Report")}</b>
                   </p>
                   {earningsData.per_day_earnings &&
                     earningsData.per_day_earnings.map((item, index) => (

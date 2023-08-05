@@ -345,7 +345,7 @@ function MatchTimelinePage() {
                         type="button"
                         className="timeline-btn"
                       >
-                        Add
+                        {t("Add")}
                       </button>
                     </div>
 

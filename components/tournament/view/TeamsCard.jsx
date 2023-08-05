@@ -309,7 +309,7 @@ function TeamsCard({
             type="button"
             className="teams-btn my-4"
           >
-            Add
+            {t("Add")}
           </button>
         ))}
     </Fragment>

@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
-import Axios from 'axios'
+import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
-function ShopDashBoardTop() {
+import { useTranslation } from "next-i18next";
 
-  const [counts,setCounts]=useState('')
-  useEffect(()=>{
-    Axios.get(apis.shopSummary,{
-      headers:{
-        Authorization:`Token ${constants.token_id}`
-      }
-    }).then((res)=>{
-      console.log('res',res)
-      setCounts(res.data.data)
-      
-    })
-  },[])
+function ShopDashBoardTop() {
+  const { t } = useTranslation();
+
+  const [counts, setCounts] = useState("");
+  useEffect(() => {
+    Axios.get(apis.shopSummary, {
+      headers: {
+        Authorization: `Token ${constants.token_id}`,
+      },
+    }).then((res) => {
+      console.log("res", res);
+      setCounts(res.data.data);
+    });
+  }, []);
   return (
     <div className="carl ">
       <div className="document  ">
@@ -42,7 +44,6 @@ function ShopDashBoardTop() {
                 />
               </svg>
               <span>
-                
                 <Card.Subtitle
                   style={{
                     float: "right",
@@ -56,11 +57,8 @@ function ShopDashBoardTop() {
               </span>
             </Card.Title>
 
-            <div
-              className="mt-4"
-              style={{ float: "right", fontSize: "14px" }}
-            >
-              <h5 className="ml-5 new-orders">New Orders</h5>
+            <div className="mt-4" style={{ float: "right", fontSize: "14px" }}>
+              <h5 className="ml-5 new-orders">{t("New Orders")}</h5>
             </div>
           </Card.Body>
         </Card>
@@ -86,7 +84,6 @@ function ShopDashBoardTop() {
                 />
               </svg>
               <span>
-                
                 <Card.Subtitle
                   style={{
                     float: "right",
@@ -100,11 +97,8 @@ function ShopDashBoardTop() {
               </span>
             </Card.Title>
 
-            <div
-              className="mt-4"
-              style={{ float: "right", fontSize: "14px" }}
-            >
-              <h5 className="ml-5 process-order ">Processing Orders</h5>
+            <div className="mt-4" style={{ float: "right", fontSize: "14px" }}>
+              <h5 className="ml-5 process-order ">{t("Processing Orders")}</h5>
             </div>
           </Card.Body>
         </Card>
@@ -126,7 +120,6 @@ function ShopDashBoardTop() {
                 />
               </svg>
               <span>
-                
                 <Card.Subtitle
                   style={{
                     float: "right",
@@ -140,20 +133,13 @@ function ShopDashBoardTop() {
               </span>
             </Card.Title>
 
-            <div
-              className="mt-4"
-              style={{ float: "right", fontSize: "14px" }}
-            >
-              <h5 className="ml-5 dispatch-order">Dispatched Orders</h5>
+            <div className="mt-4" style={{ float: "right", fontSize: "14px" }}>
+              <h5 className="ml-5 dispatch-order">{t("Dispatched Orders")}</h5>
             </div>
           </Card.Body>
         </Card>
       </div>
-
     </div>
-
-
-
   );
 }
 

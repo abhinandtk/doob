@@ -6,11 +6,13 @@ import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
 import BrandForm from "./BrandForm";
 import { notification } from "antd";
+import { useTranslation } from "next-i18next";
 
 function EditBrand() {
   const router = useRouter();
   const { bid } = router.query;
   const editData = router.query;
+  const {t}=useTranslation()
 
   // console.log('id4555555555555555555555',id)
   // console.log('id455555555555555daaaaaaaaata5555555',item)
@@ -45,7 +47,7 @@ function EditBrand() {
     <div class="content-topics ">
       <div className="bottom">
         <h6 className=" ms-4" style={{ color: "#17a803", fontWeight: "700" }}>
-          Edit Brands
+          {t("Edit Brands")}
         </h6>
         <BrandForm handleBrandForm={handleBrandForm} editDetails={editData} />
       </div>

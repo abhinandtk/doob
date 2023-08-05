@@ -7,11 +7,14 @@ import constants from "@/public/data/my-constants/Constants";
 import { useState } from "react";
 import moment from "moment";
 import { useSelector } from "react-redux";
+import { useTheme } from "next-themes";
 function MessagesList({ onChatSelect, onNewMsg }) {
   const router = useRouter();
   const [inboxUsers, setInboxUsers] = useState([]);
   const [currentId, setCurrentId] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
+
+  const { theme } = useTheme();
 
   const updateChat = useSelector((state) => state.chatUsers.chatUpdate);
   console.log("updateChat");
@@ -39,13 +42,14 @@ function MessagesList({ onChatSelect, onNewMsg }) {
         setInboxUsers(res.data.data);
       });
     }
-  }, [updateChat,searchQuery]);
+  }, [updateChat, searchQuery]);
   return (
     <Fragment>
       <div className="leftSide">
         <div className="header">
           <div className="text">
             <h6
+              className="dark-theme-color"
               style={{
                 fontWeight: "600",
                 fontSize: "17px",
@@ -89,7 +93,11 @@ function MessagesList({ onChatSelect, onNewMsg }) {
                 className="block active"
                 style={{
                   backgroundColor:
-                    item.chat.id === currentId ? "#e3f3e3" : "transparent",
+                    item.chat.id === currentId
+                      ? theme === "dark"
+                        ? "#40474c"
+                        : "#e9e9e9"
+                      : "transparent",
                 }}
               >
                 <div className="imgBox">

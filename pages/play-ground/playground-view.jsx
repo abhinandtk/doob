@@ -100,7 +100,7 @@ function PlaygroundPageAdmin() {
                         width: "90%",
                       }}
                     >
-                      <span>Location</span>
+                      <span>{t("Location")}</span>
                       <span className="book-location">{item.location}</span>
                     </div>
                     <div
