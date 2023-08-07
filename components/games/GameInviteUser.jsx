@@ -60,7 +60,7 @@ function GameInviteUser({ setOnSuccess }) {
       } else {
         notification.error({
           message: constants.Error,
-          description:res.data.message_en,
+          description: res.data.message_en,
         });
       }
       console.log("resultinvite", res);
@@ -92,7 +92,11 @@ function GameInviteUser({ setOnSuccess }) {
                 <a className="me-2" href="">
                   <CardImg
                     className="rounded-circle shadow-1-strong "
-                    src={`${constants.port}/media/${item.image}`}
+                    src={
+                      item.image
+                        ? `${constants.port}/media/${item.image}`
+                        : "/images/accounts/user_default.png"
+                    }
                     style={{
                       width: "44px",
                       height: "44px",

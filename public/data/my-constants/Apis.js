@@ -208,6 +208,8 @@ const apis = {
     'stadiumReviewAdd': `${constants.port}/playground/api/create_stadium_review`,
     'stadiumReviewRemove': `${constants.port}/playground/api/remove_stadium_review`,
 
+    'playgroundSearchFilter': `${constants.port}/playground/api/playground_search`,
+
     //Tournament
 
     'tournamentHome': `${constants.port}/tournament/api/tournament_home`,

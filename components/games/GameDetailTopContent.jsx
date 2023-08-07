@@ -118,7 +118,11 @@ function GameDetailTopContent({ details, setOnSuccess }) {
                 <div className="field-info">
                   <span>
                     <img
-                      src={`${constants.port}${details.created_by.profile_pic}`}
+                      src={
+                        details.created_by.profile_pic
+                          ? `${constants.port}${details.created_by.profile_pic}`
+                          : "/images/accounts/user_default.png"
+                      }
                       className="game-imgs"
                     ></img>
                     <span className="mx-1 game-host">{t("Hosted by")}</span>
@@ -219,7 +223,9 @@ function GameDetailTopContent({ details, setOnSuccess }) {
             </div>
           </div>
           <div className="field-content">
-            <h5 style={{ fontWeight: "700", fontSize: "15px" }}>{t("Description")}</h5>
+            <h5 style={{ fontWeight: "700", fontSize: "15px" }}>
+              {t("Description")}
+            </h5>
             <p className="col-md-12 game-description">{details.description}</p>
           </div>
           {/* <div>

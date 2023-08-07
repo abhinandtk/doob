@@ -95,6 +95,7 @@ function AllGamesPage() {
                   onClick={() => setSelectedCategory(null)}
                   style={{
                     color: `${selectedCategory === null ? "#17A803" : ""}`,
+                    cursor: "pointer",
                   }}
                 >
                   All
@@ -107,6 +108,7 @@ function AllGamesPage() {
                       color: `${
                         selectedCategory === item.title ? "#17A803" : ""
                       }`,
+                      cursor: "pointer",
                     }}
                     className="mx-3"
                   >
@@ -132,6 +134,7 @@ function AllGamesPage() {
                   onClick={() => setSelectedCategory(null)}
                   style={{
                     color: `${selectedCategory === null ? "#17A803" : ""}`,
+                    cursor: "pointer",
                   }}
                 >
                   All
@@ -144,6 +147,7 @@ function AllGamesPage() {
                       color: `${
                         selectedCategory === item.title ? "#17A803" : ""
                       }`,
+                      cursor: "pointer",
                     }}
                     className="mx-3"
                   >
@@ -164,6 +168,7 @@ function AllGamesPage() {
                   onClick={() => setSelectedCategory(null)}
                   style={{
                     color: `${selectedCategory === null ? "#17A803" : ""}`,
+                    cursor: "pointer",
                   }}
                 >
                   All
@@ -176,6 +181,7 @@ function AllGamesPage() {
                       color: `${
                         selectedCategory === item.title ? "#17A803" : ""
                       }`,
+                      cursor: "pointer",
                     }}
                     className="mx-3"
                   >

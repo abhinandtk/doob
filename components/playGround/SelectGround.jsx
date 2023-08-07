@@ -156,30 +156,34 @@ function SelectGround({ details, setSuccess, setDateSelected }) {
                 {t("Available time slots")}
               </h5>
               <div className="Available-slot">
-                {details.timeslot && details.timeslot.length > 0 ? (
-                  details.timeslot.map((item, index) => (
-                    <div
-                      key={index}
-                      className={`d-flex my-2 mx-2  ${
-                        item.is_booked
-                          ? "time-slot1"
-                          : selectedSlots.includes(item.id)
-                          ? "time-slot3"
-                          : "time-slot2"
-                      } `}
-                      onClick={() => {
-                        !item.is_booked && handleSlotClick(item.id);
-                      }}
-                    >
-                      <p style={{ marginTop: "13px", marginLeft: "23px" }}>
-                        {moment(item.start_time, "hh:mm:ss").format("hh:mm A")}-
-                        {moment(item.end_time, "hh:mm:ss").format("hh:mm A")}
-                      </p>
-                    </div>
-                  ))
-                ) : (
-                  <>no time slot available</>
-                )}
+                {details.timeslot !== undefined ? (
+                  details.timeslot && details.timeslot.length > 0 ? (
+                    details.timeslot.map((item, index) => (
+                      <div
+                        key={index}
+                        className={`d-flex my-2 mx-2  ${
+                          item.is_booked
+                            ? "time-slot1"
+                            : selectedSlots.includes(item.id)
+                            ? "time-slot3"
+                            : "time-slot2"
+                        } `}
+                        onClick={() => {
+                          !item.is_booked && handleSlotClick(item.id);
+                        }}
+                      >
+                        <p style={{ marginTop: "13px", marginLeft: "23px" }}>
+                          {moment(item.start_time, "hh:mm:ss").format(
+                            "hh:mm A"
+                          )}
+                          -{moment(item.end_time, "hh:mm:ss").format("hh:mm A")}
+                        </p>
+                      </div>
+                    ))
+                  ) : (
+                    <>no time slot available</>
+                  )
+                ) : null}
               </div>
             </div>
             <button

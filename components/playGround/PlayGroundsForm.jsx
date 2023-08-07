@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Axios from "axios";
 import constants from "@/public/data/my-constants/Constants";
 import { useState, useEffect } from "react";
@@ -11,6 +11,7 @@ import { useTranslation } from "next-i18next";
 function PlayGroundsForm({ handlePlaygroundForm, editData }) {
   const { t } = useTranslation();
   const router = useRouter();
+  const btnRef = useRef(null);
   const { id } = router.query;
   const [game, setGame] = useState([]);
   const [amenity, setAmenity] = useState([]);
@@ -174,6 +175,9 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    if (btnRef.current) {
+      btnRef.current.disabled = true;
+    }
     handlePlaygroundForm(formData, gameChecked, amenityChecked, slots);
   };
 
@@ -468,7 +472,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
           Slots
         </h6>
         <div className="play clearfix">
-          <div className="example">
+          {/* <div className="example">
             <label className="radio-button">
               <input
                 type="radio"
@@ -487,10 +491,10 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
                 id="choice1-2"
                 name="choice1"
               />
-              {/* <span className="radio-button__control"></span> */}
-              {/* <span className="radio-button__label">Open time</span> */}
+              <span className="radio-button__control"></span>
+              <span className="radio-button__label">Open time</span>
             </label>
-          </div>
+          </div> */}
           <button
             onClick={() => setVisible(true)}
             type="button"
@@ -562,7 +566,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
         </div>
       </div>
       <div className="product-submit my-3">
-        <button type="submit" className="play-sub-btn">
+        <button type="submit" className="play-sub-btn" ref={btnRef}>
           {t("Submit")}
         </button>
         <button

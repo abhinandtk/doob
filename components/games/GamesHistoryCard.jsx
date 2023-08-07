@@ -9,7 +9,7 @@ function GamesHistoryCard({ data }) {
   console.log("data/*89", data);
   return (
     <Fragment>
-      <div className="top">
+      <div className="">
         {data.length >= 1 &&
           data.map((item, index) => (
             <Link
@@ -24,7 +24,7 @@ function GamesHistoryCard({ data }) {
                       <span>
                         {item.game_image[0] && (
                           <img
-                            src={`${constants.port}${item.game_image[0].image}`}
+                            src={`${constants.port}${item.game_image[0]}`}
                             className="book-img"
                           ></img>
                         )}
@@ -91,7 +91,11 @@ function GamesHistoryCard({ data }) {
                           key={index_}
                           className="rounded-circle default-avatar member-overlap-item"
                           style={{ objectFit: "cover" }}
-                          src={`${constants.port}/media/${part.user__userdetail__image}`}
+                          src={
+                            part.user__userdetail__image
+                              ? `${constants.port}/media/${part.user__userdetail__image}`
+                              : "/images/accounts/user_default.png"
+                          }
                         ></img>
                       ))}
                       <span className="mx-4" style={{ color: "#959595" }}>
@@ -108,7 +112,11 @@ function GamesHistoryCard({ data }) {
                     <div className="book-profile float-start">
                       <span>
                         <img
-                          src={`${constants.port}${item.hosted_by.profile_pic}`}
+                          src={
+                            item.hosted_by.profile_pic
+                              ? `${constants.port}${item.hosted_by.profile_pic}`
+                              : "/images/accounts/user_default.png"
+                          }
                           style={{
                             width: "35px",
                             height: "35px",

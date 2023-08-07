@@ -108,11 +108,11 @@ function GamesCard({ data }) {
                           width: "30px",
                           height: "30px",
                         }}
-                        src={`${constants.port}/media/${
+                        src={
                           img.user__userdetail__image
-                            ? img.user__userdetail__image
-                            : img.image_url
-                        }`}
+                            ? `${constants.port}/media/${img.user__userdetail__image}`
+                            : "/images/accounts/user_default.png"
+                        }
                       ></img>
                     ))}
                   <span className="mx-4 participate">
@@ -127,7 +127,11 @@ function GamesCard({ data }) {
                   <div className="book-profile float-start">
                     <span className="Hosted">
                       <img
-                        src={`${constants.port}/media/${item.hosted_by.profile_pic}`}
+                        src={
+                          item.hosted_by.profile_pic
+                            ? `${constants.port}/media/${item.hosted_by.profile_pic}`
+                            : "/images/accounts/user_default.png"
+                        }
                         style={{
                           width: "30px",
                           height: "30px",

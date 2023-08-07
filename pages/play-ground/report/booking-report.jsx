@@ -18,16 +18,19 @@ import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 import PlayGroundSideBar from "@/components/playGround/PlayGroundSideBar";
 Chart.register(CategoryScale);
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from "next-i18next";
+
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['translation'])),
+      ...(await serverSideTranslations(locale, ["translation"])),
     },
-  }
+  };
 }
 function BookingReport() {
+  const { t } = useTranslation();
   const [selectedDays, setSelectedDays] = useState(30);
   const [bookingData, setBookingData] = useState([]);
   console.log("bookin333", bookingData);
@@ -193,7 +196,7 @@ function BookingReport() {
                     <span>{bookingData.num_customers}</span>
                   </div>
                   <div className="p-3 d-flex justify-content-between my-3 customer">
-                    <span className="sales-report-name">Total Slots</span>
+                    <span className="sales-report-name">Booked Slots</span>
                     <span>{bookingData.num_slots}</span>
                   </div>
                   <div className="p-3 d-flex justify-content-between my-3 customer">

@@ -11,9 +11,6 @@ function GameBookingCard({ data }) {
 
   const router = useRouter();
   const scrollRef = useRef();
-  const handleScroll = () => {
-    scrollRef.current.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <Fragment>
@@ -106,13 +103,7 @@ function GameBookingCard({ data }) {
                   Do you want to invite people?
                 </p>
               </div>
-              <button
-                type="button"
-                className="yes-btn float-end mx-1"
-                onClick={() => handleScroll()}
-              >
-                No
-              </button>{" "}
+
               <button
                 type="button"
                 className="yes1-btn float-end"

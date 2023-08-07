@@ -1,19 +1,4 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
-import {
-  Container,
-  Nav,
-  Navbar,
-  Dropdown,
-  Carousel,
-  Card,
-  Button,
-  Form,
-  CardImg,
-  Tabs,
-  Tab,
-  Modal,
-} from "react-bootstrap";
-import Offcanvas from "react-bootstrap/Offcanvas";
 import React, { useState } from "react";
 import SelectGround from "@/components/playGround/SelectGround";
 import AmenitiesList from "@/components/playGround/AmenitiesList";

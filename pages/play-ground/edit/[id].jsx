@@ -36,7 +36,7 @@ function EditPlaygroundPage() {
   const { id } = router.query;
   const labels = Labels();
   const handlePlaygroundForm = (data, game, amenity, slot) => {
-    console.log("data", data, game, amenity);
+    console.log("data4444", data, game, amenity,slot);
 
     const formData = new FormData();
     formData.append("slug_field", id);

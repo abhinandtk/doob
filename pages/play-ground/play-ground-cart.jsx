@@ -9,19 +9,20 @@ import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import MobileFooter from "@/components/shared/MobileFooter";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['translation'])),
+      ...(await serverSideTranslations(locale, ["translation"])),
     },
-  }
+  };
 }
 function PlayGroundCartPage() {
   const [cartFieldData, setCartFieldData] = useState([]);
   const [cartData, setCartData] = useState([]);
-  const[success,setSuccess]=useState(true)
+  const [success, setSuccess] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     Axios.get(apis.playCart, {
@@ -30,6 +31,7 @@ function PlayGroundCartPage() {
       },
     }).then((res) => {
       setCartData(res.data.data);
+      setIsLoading(false);
     });
   }, [success]);
 
@@ -43,14 +45,16 @@ function PlayGroundCartPage() {
           My Cart
         </h5>
         <div className="row">
-          {cartData.cart_details && cartData.cart_details.length != 0 ? (
-            <>
-              <GroundFieldAddress address={cartData.stadium} />
-              <GroundCartItems data={cartData} setSuccess={setSuccess}/>
-            </>
-          ) : (
-            <div>Cart is empty</div>
-          )}
+          {!isLoading ? (
+            cartData.cart_details && cartData.cart_details.length != 0 ? (
+              <>
+                <GroundFieldAddress address={cartData.stadium} />
+                <GroundCartItems data={cartData} setSuccess={setSuccess} />
+              </>
+            ) : (
+              <div>Cart is empty</div>
+            )
+          ) : null}
         </div>
       </div>
       <MobileFooter />

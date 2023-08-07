@@ -17,7 +17,11 @@ function GameOthersParticipants({ participants }) {
             key={index}
             className="rounded-circle default-avatar member-overlap-item"
             style={{ objectFit: "cover" }}
-            src={`${constants.port}/media/${item.user__userdetail__image}`}
+            src={
+              item.user__userdetail__image
+                ? `${constants.port}/media/${item.user__userdetail__image}`
+                : "/images/accounts/user_default.png"
+            }
           ></img>
         ))}
         <span className="mx-4" style={{ color: "#959595" }}>

@@ -21,17 +21,19 @@ import MainHeader from "@/components/shared/headers/MainHeader";
 import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileFooter from "@/components/shared/MobileFooter";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useRouter } from "next/router";
 
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['translation'])),
+      ...(await serverSideTranslations(locale, ["translation"])),
     },
-  }
+  };
 }
 function AddPlaygroundPage() {
   const labels = Labels();
+  const router = useRouter();
   const handlePlaygroundForm = (data, game, amenity, slot) => {
     console.log("data", data, game, amenity);
 
@@ -71,6 +73,12 @@ function AddPlaygroundPage() {
         notification.success({
           message: constants.Success,
           description: `${labels["PlayGround added"]}`,
+        });
+        router.back();
+      } else {
+        notification.error({
+          message: constants.Error,
+          description: res.data.message_en,
         });
       }
 
