@@ -7,12 +7,12 @@ function ModuleSharedPostDetails({ data }) {
 
   const productDesc =
     locale === "en"
-      ? data.products.Description
-      : data.products.arabic_description;
+      ? data.products?.Description
+      : data.products?.arabic_description;
   const productName =
     locale === "en"
-      ? data.products.product_name
-      : data.products.arabic_translator;
+      ? data.products?.product_name
+      : data.products?.arabic_translator;
   return (
     <div>
       <div className="post__likes">

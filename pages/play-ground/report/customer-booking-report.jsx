@@ -17,14 +17,14 @@ import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 import PlayGroundSideBar from "@/components/playGround/PlayGroundSideBar";
 import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['translation'])),
+      ...(await serverSideTranslations(locale, ["translation"])),
     },
-  }
+  };
 }
 function CustomerBookingReport() {
   const [selectedDays, setSelectedDays] = useState("30 days");
@@ -36,7 +36,9 @@ function CustomerBookingReport() {
   );
 
   const today = moment().format("DD-MM-YYYY");
-  const nextDay = moment(today,'"DD-MM-YYYY"').add(1, "day").format("DD-MM-YYYY");
+  const nextDay = moment(today, '"DD-MM-YYYY"')
+    .add(1, "day")
+    .format("DD-MM-YYYY");
   const [endDate, setEndDate] = useState(nextDay);
   const [dataReport, setDataReport] = useState([]);
   const [chartData, setChartData] = useState({
@@ -72,7 +74,7 @@ function CustomerBookingReport() {
         },
       }
     ).then((res) => {
-      console.log("reportDtaaaaaaa888", res,{
+      console.log("reportDtaaaaaaa888", res, {
         start_date: startDate,
         end_date: endDate,
       });
@@ -81,7 +83,8 @@ function CustomerBookingReport() {
     });
   }, [startDate, endDate]);
   console.log("reportDtaaaaaaa888", dataReport);
-  const url = `${constants.port}/playground/api/ad_customer_report_csv?start_date=${startDate}&end_date=${endDate}&username=${constants.user_id}`;
+  const userId = constants.user_id;
+  const url = `${constants.port}/playground/api/ad_customer_report_csv?start_date=${startDate}&end_date=${endDate}&username=${userId}`;
 
   return (
     <div>
@@ -148,11 +151,11 @@ function CustomerBookingReport() {
 
                 <br></br>
                 <div className="customer-sale">
-                <div  className="report-section">
-                    <div >User</div>
-                    <div >Booking Count</div>
-                    <div >Cancel Count</div>
-                    <div >Wallet Bal</div>
+                  <div className="report-section">
+                    <div>User</div>
+                    <div>Booking Count</div>
+                    <div>Cancel Count</div>
+                    <div>Wallet Bal</div>
                     <div>Total Amount</div>
                   </div>
                   {customerSale &&
@@ -161,9 +164,7 @@ function CustomerBookingReport() {
                         key={index}
                         className=" d-flex justify-content-between  customer my-3"
                       >
-                        <span className="sales-report-name">
-                          {item.User}
-                        </span>
+                        <span className="sales-report-name">{item.User}</span>
                         <span className="sales-order-number">
                           {item.booking_count}
                         </span>

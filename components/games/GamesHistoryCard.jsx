@@ -99,6 +99,9 @@ function GamesHistoryCard({ data }) {
                         ></img>
                       ))}
                       <span className="mx-4" style={{ color: "#959595" }}>
+                        {item.participants.length - 4 >= 1
+                          ? `+${item.participants.length - 4} more ${t("Participants")}`
+                          : ""}
                         {/* +7 more participants */}
                       </span>{" "}
                     </div>

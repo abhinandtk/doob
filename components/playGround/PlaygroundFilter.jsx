@@ -9,6 +9,7 @@ import { Modal } from "antd";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
+import moment from "moment";
 
 function PlaygroundFilter({ playgroundFilterHandler }) {
   const { t } = useTranslation();
@@ -18,6 +19,7 @@ function PlaygroundFilter({ playgroundFilterHandler }) {
   console.log("44444", data);
 
   const [visible, setVisible] = useState(false);
+  const [searchKey, setSearchKey] = useState("");
   const [area, setArea] = useState([]);
   const [amenity, setAmenity] = useState([]);
   const [game, setGame] = useState([]);
@@ -96,7 +98,10 @@ function PlaygroundFilter({ playgroundFilterHandler }) {
   };
   const submitSearchHandler = (e) => {
     e.preventDefault();
-    playgroundFilterHandler(formData, amenityChecked);
+    if (e.target.id === "search") {
+      setSearchKey(e.target.value);
+    }
+    playgroundFilterHandler(formData, amenityChecked,searchKey);
     setVisible(false);
     console.log("44444filter", formData, amenityChecked);
   };
@@ -105,7 +110,13 @@ function PlaygroundFilter({ playgroundFilterHandler }) {
     <Fragment>
       <form className="nosubmit" onSubmit={(e) => submitSearchHandler(e)}>
         <span>
-          <input className="tour" type="search" placeholder="Search" />
+          <input
+            className="tour"
+            id="search"
+            type="search"
+            placeholder="Search"
+            onChange={(e) => submitSearchHandler(e)}
+          />
           <img
             src="/images/tournament/location-icon.png"
             className="location-icon"
@@ -168,7 +179,7 @@ function PlaygroundFilter({ playgroundFilterHandler }) {
               id="date"
               placeholder="Date"
               onChange={(e) => handleChange(e)}
-              defaultValue={formData.date}
+              defaultValue={moment(formData.date).format("YYYY-MM-DD")}
             />
           </div>
           <div class="form-group">

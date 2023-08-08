@@ -98,9 +98,7 @@ function StadiumList({ stadiumData }) {
               <div>No Stadium found..............</div>
             </div>
           )
-        ) : (
-          <div>hai</div>
-        )}
+        ) : null}
       </div>
     </Fragment>
   );

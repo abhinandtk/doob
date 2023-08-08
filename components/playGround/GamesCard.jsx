@@ -116,10 +116,14 @@ function GamesCard({ data }) {
                       ></img>
                     ))}
                   <span className="mx-4 participate">
-                    {/* {item.participants.length-4 >=1 ? `+${item.participants.length-4} more participants` :''} */}
-                    {item.participants.length >= 1
+                    {item.participants.length - 4 >= 1
+                      ? `+${item.participants.length - 4} more ${t(
+                          "Participants"
+                        )}`
+                      : ""}{" "}
+                    {/* {item.participants.length >= 1
                       ? `${item.participants.length} participants`
-                      : ""}
+                      : ""} */}
                   </span>
                 </div>
                 <hr></hr>

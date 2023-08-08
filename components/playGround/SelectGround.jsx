@@ -30,7 +30,7 @@ function SelectGround({ details, setSuccess, setDateSelected }) {
   );
   const [gameId, setGameId] = useState("");
   const [visible, setVisible] = useState(false);
-  console.log("deeeeee", date);
+  console.log("deeeeee", selectedSlots);
 
   const handleSlotClick = (slotId) => {
     dispatch(selectSlots({ slotId }));
@@ -38,16 +38,16 @@ function SelectGround({ details, setSuccess, setDateSelected }) {
   };
 
   const addTocartHandler = () => {
-    console.log("success add to cart", {
+    console.log("resultcartsuccesstttttttttttttttt", {
       time_slots: selectedSlots,
       stadium_name: inputData.stadium_id,
       amount: details.amount,
       slot_type: "static slot",
-      game: inputData.sports_id ? inputData.sports_id : gameId,
+      game: inputData.sports_id ? inputData.sports_id : details.game[0].id,
       date: date,
     });
 
-    if (inputData.sports_id || gameId) {
+    // if (inputData.sports_id || gameId) {
       Axios.post(
         apis.playCart,
         {
@@ -55,7 +55,7 @@ function SelectGround({ details, setSuccess, setDateSelected }) {
           stadium_name: inputData.stadium_id,
           amount: details.amount,
           slot_type: "static slot",
-          game: inputData.sports_id ? inputData.sports_id : gameId,
+          game: inputData.sports_id ? inputData.sports_id : details.game[0].id,
           date: date,
         },
         {
@@ -64,7 +64,14 @@ function SelectGround({ details, setSuccess, setDateSelected }) {
           },
         }
       ).then((res) => {
-        console.log("resultcart", res);
+        console.log("resultcart", res,{
+          time_slots: selectedSlots,
+          stadium_name: inputData.stadium_id,
+          amount: details.amount,
+          slot_type: "static slot",
+          game: inputData.sports_id ? inputData.sports_id : details.game[0].id,
+          date: date,
+        });
         dispatch(toggle());
         if (res.data.status === 1) {
           notification.success({
@@ -78,19 +85,19 @@ function SelectGround({ details, setSuccess, setDateSelected }) {
           });
         }
       });
-    } else {
-      setVisible(true);
-    }
+    // } else {
+    //   setVisible(true);
+    // }
   };
 
   const handleDateChange = (e) => {
     setDate(e.target.value);
     setDateSelected(e.target.value);
-    dispatch(selectSlots([]));
+    // dispatch(selectSlots([]));
   };
   return (
     <Fragment>
-      <Modal
+      {/* <Modal
         open={visible}
         onCancel={() => setVisible(false)}
         title={t("Please select game")}
@@ -129,7 +136,7 @@ function SelectGround({ details, setSuccess, setDateSelected }) {
               ))}
           </select>
         </div>
-      </Modal>
+      </Modal> */}
       <div className="card Grounds">
         <div className="card-body p-4">
           <div className="row">
@@ -146,6 +153,7 @@ function SelectGround({ details, setSuccess, setDateSelected }) {
                   }}
                   id="date"
                   value={date}
+                  min={moment().format("YYYY-MM-DD")}
                   onChange={handleDateChange}
                 />
               </div>

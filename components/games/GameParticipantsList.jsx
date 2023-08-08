@@ -59,7 +59,7 @@ function GameParticipantsList({ participants, setOnSuccess }) {
             }`,
           }}
         >
-          <span className="participants">
+          <div className="participants">
             <img
               src={
                 item.user__userdetail__image
@@ -83,14 +83,24 @@ function GameParticipantsList({ participants, setOnSuccess }) {
                 Left
               </p>
             ) : (
-              <p
-                onClick={() => removeHandler(item.user_id)}
-                className="ms-auto remove"
-              >
-                {t("Remove")}
-              </p>
+              <div className="ms-auto remove" style={{ display: "flex" }}>
+                <p className="mx-2">
+                  {item.participation_status === 1
+                    ? "Joined"
+                    : item.participation_status === 3
+                    ? "Invited"
+                    : ""}
+                </p>
+                <p
+                  className="mx-2"
+                  onClick={() => removeHandler(item.user_id)}
+                  style={{ cursor: "pointer" }}
+                >
+                  <i className="bi bi-x" style={{ fontSize: "20px" }} />
+                </p>
+              </div>
             )}
-          </span>
+          </div>
         </div>
       ))}
 

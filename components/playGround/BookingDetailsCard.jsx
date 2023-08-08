@@ -141,7 +141,19 @@ function BookingDetailsCard({ details, setSuccess }) {
               style={{ width: "90%" }}
             >
               <span style={{ color: "#959595" }}></span>
-              {moment().format("DD MMM YYYY") !==
+
+              {item.status && moment().isBefore(item.date, "day") && (
+                <span
+                  style={{
+                    color: `${item.status === true ? "red" : "grey"} `,
+                    cursor: "pointer",
+                  }}
+                  onClick={() => cancelBookingHandler(item.id)}
+                >
+                  Cancel Booking
+                </span>
+              )}
+              {/* {moment().format("DD MMM YYYY") !==
               moment(item.date).format("DD MMM YYYY") ? (
                 <span
                   style={{
@@ -154,7 +166,7 @@ function BookingDetailsCard({ details, setSuccess }) {
                 </span>
               ) : (
                 <></>
-              )}
+              )} */}
             </div>
             <div
               className=" mx-auto d-flex justify-content-between align-items-center "

@@ -13,7 +13,7 @@ import MobileFooter from "@/components/shared/MobileFooter";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import StadiumList from "@/components/playGround/StadiumList";
 import PlaygroundFilter from "@/components/playGround/PlaygroundFilter";
-
+import { Skeleton } from 'antd';
 export async function getStaticProps({ locale }) {
   return {
     props: {
@@ -26,6 +26,7 @@ function StadiumListPage() {
   const data = router.query;
   console.log("daaaaaaaaaaaata", data);
   const [stadiumData, setStadiumData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     Axios.post(
       apis.listStadium,
@@ -45,6 +46,7 @@ function StadiumListPage() {
 
         // }
         setStadiumData(res.data.data);
+        setIsLoading(false);
 
         console.log("Successssssss stadium list", res, {
           sports_id: data.sports_id,
@@ -57,29 +59,34 @@ function StadiumListPage() {
       });
   }, [data]);
 
-  const playgroundFilterHandler = (formData, amenity) => {
-    Axios.post(
-      apis.playgroundSearchFilter,
-      {
-        area: formData.area,
-        date: formData.date,
-        sports_id: formData.sport,
-        amenities: amenity,
-        keyword: "",
+  const playgroundFilterHandler = (filterData, amenity, searchKey) => {
+    console.log("inputfilter", filterData, amenity, searchKey);
+    const formData = new FormData();
+    formData.append("area", filterData.area);
+    formData.append("date", filterData.date);
+    formData.append("sports_id", filterData.sport);
+    formData.append("keyword", searchKey);
+
+    amenity.map((value) => {
+      formData.append("amnities", value);
+    });
+
+    Axios.post(apis.playgroundSearchFilter, formData, {
+      headers: {
+        Authorization: `Token ${constants.token_id}`,
       },
-      {
-        headers: {
-          Authorization: `Token ${constants.token_id}`,
-        },
+    }).then((res) => {
+      if (res.data.status === 1) {
+        setStadiumData(res.data.data);
+      } else {
+        setStadiumData([]);
       }
-    ).then((res) => {
-      setStadiumData(res.data.data);
-      console.log("res", res, {
-        area: formData.area,
-        date: formData.date,
-        sports_id: formData.sport,
+      console.log("inputfilterres", res, {
+        area: filterData.area,
+        date: filterData.date,
+        sports_id: filterData.sport,
         amenities: amenity,
-        keyword: "",
+        keyword: searchKey,
       });
     });
   };
@@ -91,7 +98,7 @@ function StadiumListPage() {
 
       <div className="tour-container">
         <PlaygroundFilter playgroundFilterHandler={playgroundFilterHandler} />
-        <StadiumList stadiumData={stadiumData} />
+        {!isLoading ? <StadiumList stadiumData={stadiumData} /> :  <Skeleton active paragraph={{ rows: 10 }} className="skeleton-container" style={{ listStyle: 'none', padding: 0, margin: 0 }} />}
       </div>
       <MobileFooter />
     </div>

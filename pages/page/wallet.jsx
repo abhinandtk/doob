@@ -16,17 +16,17 @@ import Axios from "axios";
 import { useEffect } from "react";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
-import moment  from "moment";
+import moment from "moment";
 import MobileFooter from "@/components/shared/MobileFooter";
 import PagesSideBar from "@/components/stores/pages/PagesSideBar";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['translation'])),
+      ...(await serverSideTranslations(locale, ["translation"])),
     },
-  }
+  };
 }
 function WalletPage() {
   const [walletData, setWalletData] = useState([]);
@@ -56,7 +56,7 @@ function WalletPage() {
       <MainSidebarFixed />
       <MobileHeader />
       <div className="side-container">
-        <PagesSideBar currentPage='wallet'/>
+        <PagesSideBar currentPage="wallet" />
 
         <div className="content-pages">
           <br></br>
@@ -69,7 +69,7 @@ function WalletPage() {
                   <svg
                     width="31"
                     height="23"
-                    viewBox="0 0 31 23" 
+                    viewBox="0 0 31 23"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -107,7 +107,10 @@ function WalletPage() {
                 </span>
                 <span className="mx-2">My Wallet</span>{" "}
               </Card.Text>
-              <Card.Title className="text-white "> {totalCount?totalCount:'0.000'} KD</Card.Title>
+              <Card.Title className="text-white ">
+                {" "}
+                {totalCount ? totalCount : "0.000"} KD
+              </Card.Title>
               <Card.Text className="text-white ">
                 Total Wallet
                 <span style={{ float: "right" }}>Transactions History</span>
@@ -122,7 +125,6 @@ function WalletPage() {
                 <CardImg
                   className="rounded-circle shadow-1-strong wallet-img "
                   src={`${constants.port}${item.stadium.stadium_image}`}
-                    
                 ></CardImg>
               </a>
               <div
@@ -138,7 +140,8 @@ function WalletPage() {
                   </div>
 
                   <p className=" expires-date ">
-                    {item.balance} KD expires in 3 days
+                    {item.balance} KD expires in{" "}
+                    {moment(item.expiry_date).diff(moment(), "days")} days
                   </p>
                 </div>
               </div>

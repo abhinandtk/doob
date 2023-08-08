@@ -52,7 +52,7 @@ function GameDetailFullWidth() {
               />
             ) : (
               <GameOthersParticipants
-                participants={gameDetials.participants}
+                participants={gameDetials.joined_participants}
                 setOnSuccess={setOnSuccess}
               />
             )}
