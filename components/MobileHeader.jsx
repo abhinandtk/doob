@@ -20,6 +20,8 @@ import { updateGroundCartCount } from "@/Redux/playgroundCartCount";
 import { updateNotificationCount } from "@/Redux/notificationCount";
 import { updateMessageCount } from "@/Redux/messagesCount";
 import { useTranslation } from "next-i18next";
+import ThemeSwitcher from "./shared/headers/ThemeSwitcher";
+import LanguageSwitcher from "./shared/headers/LanguageSwitcher";
 function MobileHeader() {
   const { t } = useTranslation();
   const [show, setShow] = useState(false);
@@ -104,25 +106,11 @@ function MobileHeader() {
           </Navbar.Brand>
           <Navbar id="responsive-navbar-nav">
             <Nav className=" ms-auto" aria-controls="responsive-navbar-nav">
+            <Nav.Link>
+                <ThemeSwitcher />
+              </Nav.Link>
               <Nav.Link>
-                <Dropdown className="Drop">
-                  <Dropdown.Toggle
-                    variant=""
-                    id="dropdown-basic"
-                    style={{
-                      color: "black",
-                      borderColor: "transparent",
-                      background: "transparent",
-                    }}
-                  >
-                    EN <i className="bi bi-chevron-down "></i>
-                  </Dropdown.Toggle>
-
-                  <Dropdown.Menu align="center" className="Menu">
-                    <Dropdown.Item href="#">English</Dropdown.Item>
-                    {/* <Dropdown.Item href="#">Arabic</Dropdown.Item> */}
-                  </Dropdown.Menu>
-                </Dropdown>
+                <LanguageSwitcher />
               </Nav.Link>
               <Nav.Link href="/search">
                 <svg
@@ -170,7 +158,7 @@ function MobileHeader() {
                 }`}
                 className="navbar__button1"
               >
-                <div>
+                <div className="small-cart">
                   {asPath.includes("store")
                     ? storeCount > 0 && (
                         <div className="  greens">

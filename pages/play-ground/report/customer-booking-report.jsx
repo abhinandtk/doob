@@ -152,11 +152,11 @@ function CustomerBookingReport() {
                 <br></br>
                 <div className="customer-sale">
                   <div className="report-section">
-                    <div>User</div>
-                    <div>Booking Count</div>
-                    <div>Cancel Count</div>
-                    <div>Wallet Bal</div>
-                    <div>Total Amount</div>
+                    <div>User</div> &nbsp; &nbsp; 
+                    <div>Booking Count</div> &nbsp; &nbsp;
+                    <div>Cancel Count</div>  &nbsp;&nbsp;
+                    <div>Wallet Bal</div>  &nbsp; &nbsp;
+                    <div>Total Amount</div>  &nbsp; &nbsp;
                   </div>
                   {customerSale &&
                     customerSale.map((item, index) => (
@@ -164,18 +164,20 @@ function CustomerBookingReport() {
                         key={index}
                         className=" d-flex justify-content-between  customer my-3"
                       >
-                        <span className="sales-report-name">{item.User}</span>
-                        <span className="sales-order-number">
-                          {item.booking_count}
+                        <span className="sales-report-name">{item.User} 
+                        
                         </span>
                         <span className="sales-order-number">
-                          {item.cancel_count}
+                          {item.booking_count} 
                         </span>
                         <span className="sales-order-number">
-                          {item.wallet_bal}
+                          {item.cancel_count}  
+                        </span>
+                        <span className="sales-order-number">
+                          {item.wallet_bal} 
                         </span>
                         <span className="sales-order-price">
-                          {item.total_amount} KD
+                          {item.total_amount} KD 
                         </span>
                       </div>
                     ))}

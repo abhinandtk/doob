@@ -36,7 +36,7 @@ function MobileFooter() {
       className="navbar1"
       style={{
         backgroundColor: "rgba(255, 255, 255, 1)",
-        position: "sticky",
+        position: "fixed",
         bottom: "0",
         marginTop: "4px",
       }}

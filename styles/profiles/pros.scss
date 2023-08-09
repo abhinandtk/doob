@@ -876,7 +876,7 @@ body {
     height: 100px;
     position: relative;
     margin: 0 auto;
-    bottom: -24px;
+    bottom: 0px;
   }
 
   .user-online-indicator {
@@ -1121,6 +1121,13 @@ body {
     height: 37px;
   }
 
+  .avatar {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    margin: 0 auto;
+    bottom: 0px;
+  }
   .container2 {
     padding: 0 20px;
     margin-left: 0px;
@@ -1289,6 +1296,17 @@ body {
     color: #000;
     align-items: center;
   }
+  #tabs {
+    background: transparent;
+    color: #eee;
+    text-align: -webkit-center;
+    margin-left: 0;
+    
+}
+.nav-tabs {
+  border-bottom: 0px solid transparent;
+  margin-top: -12px;
+}
 
   .profile-users-names {
     font-size: 15px;
@@ -1559,6 +1577,17 @@ body {
     margin-top: 0px;
     text-align: left;
   }
+  .avatar {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    margin: 0 auto;
+    bottom: 0px;
+  }
+  .stories {
+
+    margin-top: 23px;
+}
 }
 @media (max-width: 450px) {
   .sidebar {
@@ -1574,7 +1603,14 @@ body {
     width: 100px;
     height: 37px;
   }
+  .avatar {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    margin: 0 auto;
+    bottom: -34px;
 
+  }
   .profile-users-name {
     font-size: 23px;
     font-weight: 600;

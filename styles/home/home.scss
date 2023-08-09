@@ -2856,6 +2856,15 @@ p.note {
   .side-menu__suggestions-section {
     display: none;
   }
+.small-cart{
+  margin-right: 12px;
+  margin-top: -3px;
+}
+  .search {
+    position: relative;
+    margin-right: 9px;
+    margin-bottom: -9px;
+}
   .sidebar {
     display: none;
   }
@@ -3075,6 +3084,11 @@ p.note {
     font-size: 16px;
     margin-left: 22px;
   }
+  
+
+.jet-sports {
+    margin-bottom: 60px;
+}
   .modal-content {
     display: flex;
     flex-direction: column;
@@ -3217,6 +3231,7 @@ p.note {
   }
   .favouite-cards {
     margin-top: -34px;
+    height: 100%;
   }
   .store {
     row-gap: 32px;
@@ -3264,6 +3279,17 @@ p.note {
   .side {
     display: none;
   }
+  .product-name-shared {
+    font-weight: 600;
+    font-size: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+     -webkit-box-orient: vertical; 
+    overflow: hidden;
+     text-overflow: ellipsis; 
+    width:100%;
+    white-space: nowrap;
+}
 }
 
 @media (max-width: 486px) {

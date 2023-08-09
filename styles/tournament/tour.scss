@@ -940,7 +940,7 @@ input.tour {
   width: 100%;
 }
 .cart-place {
-  margin-left: 53px;
+  margin-left: 44px;
   margin-top: -10px;
 }
 .cart-info {
@@ -3123,6 +3123,11 @@ input.nosubmit-shop {
     display: none;
   }
 
+  .carts {
+   
+    margin-bottom: 23px;
+}
+
   .play-icons {
     margin-left: 5px;
     margin-top: 7px;
@@ -3422,8 +3427,15 @@ input.nosubmit-shop {
     line-height: 6px;
     margin-top: 9px;
     font-weight: 600;
-    margin-left: 0px;
+    font-size: 14px;
+    // margin-left: 0px;
   }
+  .carts-img {
+    width: 72px;
+    height: 55px;
+    margin-top: -9px;
+     margin-left:0px; 
+}
   .checks-btn {
     background-color: #17a803;
     font-weight: 600;
@@ -3519,13 +3531,13 @@ input.nosubmit-shop {
     border-radius: 5px;
   }
   .tournament2 {
-    width: 100%;
+    width: 98%;
   }
   .tournament3 {
-    width: 100%;
+    width: 98%;
   }
   .tournament4 {
-    width: 100%;
+    width: 98%;
   }
   .amenties {
     font-weight: 700;
@@ -3576,7 +3588,7 @@ input.nosubmit-shop {
     margin-left: 90px;
   }
   .football {
-    width: 100%;
+    width: 98%;
     height: 220px;
     border: 0px;
     border-radius: 5px;
@@ -3705,7 +3717,7 @@ input.nosubmit-shop {
     background: #656565;
     font-size: 11px;
     width: 100%;
-    height: 38px;
+    height: 32px;
   }
   .match2 {
     color: #000000;
@@ -3713,7 +3725,7 @@ input.nosubmit-shop {
     border: 1px solid black;
     width: 100%;
     font-size: 11px;
-    height: 38px;
+    height: 32px;
   }
 
   .live {
@@ -4461,9 +4473,11 @@ input.nosubmit-shop {
 @media (max-width: 440px) {
   .tour-container {
     width: auto;
+    margin-bottom: 70px;
   }
   .play-container {
     width: auto;
+    margin-bottom: 70px;
   }
   .side-play {
     display: none;
@@ -4550,13 +4564,13 @@ input.nosubmit-shop {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    margin-left: 40px;
+    margin-left: 19px;
     margin-top: -19px;
   }
   .live-watch {
     margin-top: 12px;
     text-align: center;
-    margin-left: 40px;
+    margin-left: 55px;
   }
   .live-watch1 {
     margin-top: 12px;
@@ -4635,6 +4649,13 @@ input.nosubmit-shop {
     margin-top: 18px;
     margin-left: -54px;
   }
+  .clubs {
+    width: 37px;
+    height: 37px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+}
   .watch2 {
     position: absolute;
     margin-top: 18px;
@@ -4687,14 +4708,14 @@ input.nosubmit-shop {
   }
   .cart-place {
     display: -webkit-box;
-    -webkit-line-clamp: 1;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
     font-weight: 400;
     font-size: 16px;
-    width: 180px;
-    margin-left: 34px;
+    width: 221px;
+    margin-right: 0px;
   }
   .book {
     margin-top: 15px;
@@ -5144,12 +5165,12 @@ input.nosubmit-shop {
   .live-watch1 {
     margin-top: 12px;
     text-align: center;
-    margin-left: 24px;
+    margin-left:40px;
   }
   .watch2 {
     position: absolute;
     margin-top: 18px;
-    margin-left: 174px;
+    margin-left: 155px;
   }
   .green-text {
     color: white;
@@ -5203,6 +5224,18 @@ input.nosubmit-shop {
     align-items: flex-start;
     margin-left: 4px;
     margin-top: -19px;
+  }
+
+  .cart-place {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 400;
+    font-size: 16px;
+    width: 200px;
+    margin-right: 0px;
   }
 
   .topnav span.active {

@@ -28,7 +28,7 @@ function  GroundFieldAddress({ address }) {
                 </svg>
                 
 
-                <h5 className="mx-4 text-cart">
+                <h5 className="mx-3 text-cart">
                   {address.stadium_name}
                 </h5>
                 {/* <img src="/images/edit.png" className="mt-2 edits"></img> */}

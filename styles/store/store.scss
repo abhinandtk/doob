@@ -1154,13 +1154,13 @@ input:disabled {
   position: relative;
   width: 30%;
   font-size: 15px;
-  text-align: center;
+  text-align: left;
 }
 .sales-order-price {
   position: relative;
   width: 30%;
   font-size: 15px;
-  text-align: right;
+  text-align: left;
 }
 .secondary.btn {
   background: #656565;
@@ -1986,12 +1986,38 @@ input:disabled {
     width: 88%;
     margin-left: -2px;
   }
+
+
   .report-section {
     display: flex;
     justify-content: space-between;
-
+    margin-right: 0px;
+    column-gap: 10px;
     font-size: 14px;
   }
+  .report-section > div{
+    display: flex;
+    text-align: justify;
+  }
+  .sales-order-number {
+    position: relative;
+    font-size: 14px;
+    text-align: left;
+  }
+  .sales-order-price {
+    position: relative;
+    font-size: 14px;
+     text-align: right; 
+}
+
+.sales-report-name {
+  position: relative;
+  font-size: 14px;
+   text-align: left; 
+}
+
+
+  
 }
 
 @media (max-width: 440px) {
@@ -2002,6 +2028,7 @@ input:disabled {
     background: white;
     width: 100%;
   }
+ 
   .qty {
     float: right;
     text-align: end;
@@ -2232,6 +2259,39 @@ input:disabled {
   .summary {
     margin-left: 15px;
   }
+
+
+
+  .report-section {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 12px;
+    column-gap: 5px;
+    font-size: 13px;
+  }
+  .report-section > div{
+    display: flex;
+    text-align: justify;
+    font-size: 13px;
+  }
+  .sales-order-number {
+    position: relative;
+    font-size: 13px;
+    
+    text-align: left;
+  }
+  .sales-order-price {
+    position: relative;
+    font-size: 13px;
+     text-align: right; 
+}
+.sales-report-name {
+  position: relative;
+  font-size: 13px;
+   text-align: left; 
+}
+
+
 }
 
 @media (max-width: 375px) {
@@ -2435,6 +2495,36 @@ input:disabled {
   .summary {
     margin-left: 15px;
   }
+
+
+
+  .report-section {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 0px;
+    column-gap: 2px;
+    font-size: 13px;
+  }
+  .report-section > div{
+    display: flex;
+    text-align: justify;
+  }
+  .sales-order-number {
+    position: relative;
+    font-size: 13px;
+    text-align: left;
+  }
+  .sales-order-price {
+    position: relative;
+    font-size: 13px;
+     text-align: right; 
+}
+.sales-report-name {
+  position: relative;
+  font-size: 13px;
+   text-align: left; 
+}
+
 }
 
 @media (max-width: 374px) {
@@ -2449,6 +2539,7 @@ input:disabled {
     right: 34px;
     top: -260px;
   }
+
 }
 
 .add-prod-input {
