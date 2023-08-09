@@ -106,7 +106,7 @@ function MobileHeader() {
           </Navbar.Brand>
           <Navbar id="responsive-navbar-nav">
             <Nav className=" ms-auto" aria-controls="responsive-navbar-nav">
-            <Nav.Link>
+              <Nav.Link>
                 <ThemeSwitcher />
               </Nav.Link>
               <Nav.Link>
@@ -261,6 +261,35 @@ function MobileHeader() {
                     {/* <circle cx="17" cy="7" r="7" fill="#17A803"/> */}
                     <path
                       d="M17.9561 3.50422V10H17.1695V4.32888H17.1314L15.5455 5.38191V4.58262L17.1695 3.50422H17.9561Z"
+                      fill="white"
+                    />
+                  </svg>
+                </div>
+              </Nav.Link>
+              <Nav.Link href="/chat/messages">
+                <div>
+                  {chatCount > 0 && (
+                    <div className="  greens">
+                      <div className="numbers">{chatCount}</div>
+                    </div>
+                  )}
+                  <svg
+                    width="30"
+                    height="30"
+                    viewBox="0 0 29 30"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11.4918 19.5125V19.5244M6.8288 19.5125V19.5244M16.1549 19.5125V19.5244M1 29L2.51549 24.3748C1.20569 22.4041 0.731868 20.0704 1.18211 17.8075C1.63236 15.5446 2.97604 13.5065 4.96331 12.0722C6.95059 10.638 9.44623 9.90509 11.9862 10.0099C14.5262 10.1146 16.9377 11.0499 18.7723 12.6418C20.607 14.2338 21.7399 16.374 21.9604 18.6645C22.181 20.9551 21.4742 23.2402 19.9714 25.0949C18.4687 26.9495 16.2722 28.2477 13.7905 28.7478C11.3087 29.248 8.71057 28.9162 6.47907 27.8141L1 29Z"
+                      stroke="black"
+                      stroke-width="1.4"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    {/* <circle cx="22" cy="7" r="7" fill="#17A803"/> */}
+                    <path
+                      d="M19.5202 8.66786V8.02082L22.3748 3.50422H22.8442V4.5065H22.527L20.3702 7.91932V7.97007H24.2144V8.66786H19.5202ZM22.5778 10V8.47121V8.16989V3.50422H23.3263V10H22.5778Z"
                       fill="white"
                     />
                   </svg>

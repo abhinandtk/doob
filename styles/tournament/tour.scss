@@ -2931,6 +2931,12 @@ input.nosubmit-shop {
   .play-topics {
     width: 60%;
   }
+  .top-head-tour {
+    width: 100%;
+}
+.topnav {
+  width: 100%;
+}
 }
 
 // @media(max-width:900px) and (min-width:768px) {
@@ -3055,6 +3061,14 @@ input.nosubmit-shop {
     width: 155px;
     height: 38px;
   }
+  .tournaments {
+    width: 100%;
+ 
+  }
+  .top-head-tour {
+
+    width: 100%;
+}
 }
 @media (max-width: 659px) {
   .tour-container {
@@ -3108,6 +3122,14 @@ input.nosubmit-shop {
   .product-submit {
     justify-content: center;
   }
+  .top-head-tour {
+
+    width: 100%;
+}
+.topnav {
+   
+  width: 100%;
+}
 }
 
 @media (max-width: 527px) {
@@ -3495,16 +3517,15 @@ input.nosubmit-shop {
     margin-right: 0px;
   }
   .topnav {
-    overflow: hidden;
-    background-color: transparent;
-    display: inline-flex;
+   
+    width: 100%;
   }
   .topnav span {
     float: left;
     display: block;
     color: black;
     text-align: center;
-    width: 220px;
+    width: 50%;
     padding: 22px;
     text-decoration: none;
     font-size: 17px;
@@ -3518,11 +3539,12 @@ input.nosubmit-shop {
     color: #17a803;
   }
 
+
   .topnav span.active {
     border-bottom: 4px solid #17a803;
     font-weight: 600;
     color: #17a803;
-    width: 220px;
+    width: 50%;
   }
   .tournament1 {
     width: 100%;
@@ -4241,6 +4263,7 @@ input.nosubmit-shop {
     overflow: hidden;
     background-color: transparent;
     display: inline-flex;
+    width: 100%;
   }
   .topnav span {
     float: left;
@@ -4740,6 +4763,7 @@ input.nosubmit-shop {
     overflow: hidden;
     background-color: transparent;
     display: inline-flex;
+        width: 100%;
   }
   .topnav span {
     float: left;
