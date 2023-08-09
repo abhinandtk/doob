@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import moment from "moment";
 
-function PlaygroundFilter({ playgroundFilterHandler }) {
+function PlaygroundFilter({ playgroundFilterHandler, setMapShow }) {
   const { t } = useTranslation();
 
   const router = useRouter();
@@ -101,7 +101,7 @@ function PlaygroundFilter({ playgroundFilterHandler }) {
     if (e.target.id === "search") {
       setSearchKey(e.target.value);
     }
-    playgroundFilterHandler(formData, amenityChecked,searchKey);
+    playgroundFilterHandler(formData, amenityChecked, searchKey);
     setVisible(false);
     console.log("44444filter", formData, amenityChecked);
   };
@@ -117,10 +117,12 @@ function PlaygroundFilter({ playgroundFilterHandler }) {
             placeholder="Search"
             onChange={(e) => submitSearchHandler(e)}
           />
-          <img
-            src="/images/tournament/location-icon.png"
-            className="location-icon"
-          ></img>
+          <span onClick={() => setMapShow((prev) => !prev)}>
+            <img
+              src="/images/tournament/location-icon.png"
+              className="location-icon"
+            ></img>
+          </span>
           <span onClick={() => setVisible(true)}>
             <img
               src="/images/tournament/Fil-icon.png"

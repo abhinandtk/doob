@@ -285,7 +285,7 @@ function TeamsCard({
                     <Dropdown.Item
                       onClick={() => deleteTeamHandler(item.user_id.user_id)}
                     >
-                      {t("Delete")}
+                      {t("Remove")}
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>

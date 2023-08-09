@@ -5,8 +5,10 @@ import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { Labels } from "@/public/data/my-constants/Labels";
+import { useTranslation } from "next-i18next";
 
 function SharedConfirmation({ postId, setVisibleShared, setOnSuccess }) {
+  const { t } = useTranslation();
   const [show, setShow] = useState(true);
   const labels = Labels();
   const handleClose = () => {
@@ -14,7 +16,6 @@ function SharedConfirmation({ postId, setVisibleShared, setOnSuccess }) {
     setShow(false);
   };
   const sharedPostHandler = () => {
-    
     Axios.post(
       apis.sharedpost,
       {

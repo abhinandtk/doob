@@ -83,7 +83,7 @@ export function Labels() {
 
             'Tournaments not found': 'Tournaments not found.....',
             'Team created': 'Team created successfully',
-            'Team deleted': 'Team deleted successfully',
+            'Team deleted': 'Team removed successfully',
             'Team Exist': 'User already has a team in the tournament',
             'Tournament maximum participants': 'Tournament has reached maximum participants',
             'Match updated successfully': 'Match updated successfully',
