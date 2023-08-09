@@ -52,6 +52,7 @@ function TournamentHomePage() {
               className={`${
                 activeTab === "tournaments" ? "active" : ""
               } dark-theme-color`}
+              style={{ cursor: "pointer" }}
             >
               {t("Tournaments")}
             </span>
@@ -60,6 +61,7 @@ function TournamentHomePage() {
               className={`${
                 activeTab === "ranks" ? "active" : ""
               } dark-theme-color`}
+              style={{ cursor: "pointer" }}
             >
               {t("Ranks")}
             </span>

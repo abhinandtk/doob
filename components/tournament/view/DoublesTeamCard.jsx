@@ -23,7 +23,10 @@ function DoublesTeamsCard({
   console.log("teamData", admin);
   const [visible, setVisible] = useState(false);
   const [searchResult, setSearchResult] = useState([]);
-  const [names, setNames] = useState("");
+  const [names, setNames] = useState({
+    first: "",
+    second: "",
+  });
   const [selectedName, setSelectedName] = useState({
     first: "",
     second: "",
@@ -94,6 +97,14 @@ function DoublesTeamsCard({
     ).then((res) => {
       setVisible(false);
       setOnSuccess((prev) => !prev);
+      setSelectedName({
+        first: "",
+        second: "",
+      });
+      setNames({
+        first: "",
+        second: "",
+      });
       console.log("resy", res);
       if (res.data.status === 1) {
         notification.success({
@@ -159,7 +170,7 @@ function DoublesTeamsCard({
           <div>
             <Input
               placeholder="Enter names"
-              //   value={}
+              value={names.first}
               onChange={(e) => handleChange(e)}
             />
             <p className="selected-name-match">{selectedName.first}</p>
@@ -236,7 +247,7 @@ function DoublesTeamsCard({
           <div>
             <Input
               placeholder="Enter names"
-              // value={names}
+              value={names.second}
               onChange={(e) => handleChange(e)}
             />
             <p className="selected-name-match">{selectedName.second}</p>
@@ -397,7 +408,7 @@ function DoublesTeamsCard({
                         )
                       }
                     >
-                      {t("Delete")}
+                      {t("Remove")}
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>

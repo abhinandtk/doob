@@ -197,7 +197,7 @@ function BookingReport() {
                   </div>
                   <div className="p-3 d-flex justify-content-between my-3 customer">
                     <span className="sales-report-name">Booked Slots</span>
-                    <span>{bookingData.num_slots}</span>
+                    <span>{bookingData.booking_count}</span>
                   </div>
                   <div className="p-3 d-flex justify-content-between my-3 customer">
                     <span className="sales-report-name">Cancel Count</span>
@@ -205,7 +205,7 @@ function BookingReport() {
                   </div>
                   <div className="p-3 d-flex justify-content-between my-3  customer">
                     <span className="sales-report-name">Total Bookings</span>
-                    <span>{bookingData.booking_count}</span>
+                    <span>{bookingData.num_slots}</span>
                   </div>
                 </div>
               </div>

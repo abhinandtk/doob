@@ -1,18 +1,24 @@
-import React, { useEffect, useState } from 'react'
-import constants from '@/public/data/my-constants/Constants';
-import {Container,Nav,Navbar,Dropdown,Modal,Button} from 'react-bootstrap';
-import Form from 'react-bootstrap/Form';
-import apis from '@/public/data/my-constants/Apis';
-import Axios from 'axios';
-import { toast } from 'react-toastify';
+import React, { useEffect, useState } from "react";
+import constants from "@/public/data/my-constants/Constants";
+import {
+  Container,
+  Nav,
+  Navbar,
+  Dropdown,
+  Modal,
+  Button,
+} from "react-bootstrap";
+import Form from "react-bootstrap/Form";
+import apis from "@/public/data/my-constants/Apis";
+import Axios from "axios";
+import { toast } from "react-toastify";
 // import {auth} from "../../pages/firebase"
 // import {signInWithPopup,GoogleAuthProvider,FacebookAuthProvider} from "firebase/auth"
 // import {useAuthState} from 'react-firebase-hooks/auth'
-import { message, notification } from 'antd';
+import { message, notification } from "antd";
 
-function Login({setActiveModal}) {
-
-  const [error,setError] = useState('')
+function Login({ setActiveModal }) {
+  const [error, setError] = useState("");
 
   // const [user,setUser] = useAuthState(auth);
   // const googleAuth = new GoogleAuthProvider();
@@ -26,14 +32,14 @@ function Login({setActiveModal}) {
   //   }).then((res)=>{
   //     if (res.data.status===0){
   //       setActiveModal('ssoregister')
-        
+
   //     }else{
   //       localStorage.setItem('user-login-tokens',res.data.data.token)
   //       console.log('successssssssssssssssssssssssss')
   //     }
   //   })
   // }
- 
+
   // const facebookLogin = () => {
   //   signInWithPopup(auth, facebookAuthProvider)
   //     .then((result) => {
@@ -48,7 +54,7 @@ function Login({setActiveModal}) {
   //         setError(error.message);
   //       }
   //     });
-     
+
   // };
 
   // const googleLogin=async()=>{
@@ -56,106 +62,96 @@ function Login({setActiveModal}) {
   //   const result=await signInWithPopup(auth,googleAuth);
   //   localStorage.setItem('sso-user-id',user.uid)
   //   ssoLoginApi("google",user.uid)
-    
+
   // }
-  
 
-    const handleClick =()=>{
-      setActiveModal('register') 
-    }
-    const handleforgetpsw =()=>{
-      setActiveModal('forgetemail') 
-    }
+  const handleClick = () => {
+    setActiveModal("register");
+  };
+  const handleforgetpsw = () => {
+    setActiveModal("forgetemail");
+  };
 
-  const [shows,setShows] = useState(true)
+  const [shows, setShows] = useState(true);
 
-  const [email,setEmail] = useState('')
-  const [password,setPassword] = useState('')
-  const [errorMsg,setErrorMsg] = useState('')
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
-
-  const loginSubmitHandler =(e)=>{
-
-    e.preventDefault()
-    Axios.post(apis.login,{
-        email:email,
-        password:password,
-        platform:"0",
-        fcm_token:'fromweb'
-    }).then((res)=>{
-      if (res.data.status === 1){
+  const loginSubmitHandler = (e) => {
+    e.preventDefault();
+    Axios.post(apis.login, {
+      email: email,
+      password: password,
+      platform: "0",
+      // fcm_token:''
+    }).then((res) => {
+      if (res.data.status === 1) {
         notification.success({
-          message: ' Success',
-          description: 'Login Successfully',
+          message: " Success",
+          description: "Login Successfully",
         });
-        setErrorMsg('')
-        localStorage.setItem('user-login-tokens',res.data.data.token)
-        localStorage.setItem('login-userId',res.data.data.user_id)
-        window.location.reload(false)
-        setActiveModal('')
-        console.log('login success ')
-        toast.success('successinfo')
-      }else if(res.data.status === 0){
-
-        setErrorMsg(res.data.message_en)
-      }else if(res.data.status === 2){
-
-        setErrorMsg(res.data.message_en)
-      }else{
-
-        setErrorMsg(res.data.message_en)
+        setErrorMsg("");
+        localStorage.setItem("user-login-tokens", res.data.data.token);
+        localStorage.setItem("login-userId", res.data.data.user_id);
+        window.location.reload(false);
+        setActiveModal("");
+        console.log("login success ");
+        toast.success("successinfo");
+      } else if (res.data.status === 0) {
+        setErrorMsg(res.data.message_en);
+      } else if (res.data.status === 2) {
+        setErrorMsg(res.data.message_en);
+      } else {
+        setErrorMsg(res.data.message_en);
       }
-        
-    })
-
-    }
+    });
+  };
   return (
+    <Modal
+      show={shows}
+      // onHide={()=>setShows(false)}
+    >
+      <Modal.Header></Modal.Header>
+      <Modal.Title className="title">Login</Modal.Title>
+      <Modal.Body>
+        <Form onSubmit={(e) => loginSubmitHandler(e)}>
+          <Form.Group className="mb-1 pop ">
+            <Form.Label>Email Address</Form.Label>
+            <Form.Control
+              type="text"
+              id="email"
+              placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
+              aria-describedby="passwordHelpBlock"
+            />
+          </Form.Group>
 
-    <Modal  
-    show={shows} 
-    // onHide={()=>setShows(false)} 
-     >
-         
-        <Modal.Header  >
-         
-        </Modal.Header>
-        <Modal.Title className='title' >Login</Modal.Title>
-        <Modal.Body>
-          <Form onSubmit={(e)=>loginSubmitHandler(e)}>
-          <Form.Group className="mb-1 pop " >
-        <Form.Label>Email Address</Form.Label>
-        <Form.Control 
-        type="text" 
-        id="email" 
-        placeholder='Email'
-       
-        onChange={(e)=>setEmail(e.target.value)}
-        aria-describedby="passwordHelpBlock"   />
-      </Form.Group>
-         
-      <Form.Group className="mb-3 pop1"  controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control 
-        type="password" 
-        placeholder="Password" 
-         
-        onChange={(e)=>setPassword(e.target.value)}/>
-       <div className='forget' onClick={handleforgetpsw}> Forgot Password</div>
-      </Form.Group>
-      <Modal.Footer >
-          <Button type="submit" 
-          className='mx-auto text-white submit1 ' 
-        >
-            Login
-          </Button>
-      
-        </Modal.Footer>
-        <p style={{color:'red',textAlign:'center'}}>{errorMsg}</p>
-      <Form.Group className="mb-1 text-center" controlId="formBasicPassword">
-        {/* <Form.Label >Or Login with</Form.Label> */}
-    
-      </Form.Group>
-      {/* <Form.Group className=" text-center" controlId="formBasicPassword">
+          <Form.Group className="mb-3 pop1" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <div className="forget" onClick={handleforgetpsw}>
+              {" "}
+              Forgot Password
+            </div>
+          </Form.Group>
+          <Modal.Footer>
+            <Button type="submit" className="mx-auto text-white submit1 ">
+              Login
+            </Button>
+          </Modal.Footer>
+          <p style={{ color: "red", textAlign: "center" }}>{errorMsg}</p>
+          <Form.Group
+            className="mb-1 text-center"
+            controlId="formBasicPassword"
+          >
+            {/* <Form.Label >Or Login with</Form.Label> */}
+          </Form.Group>
+          {/* <Form.Group className=" text-center" controlId="formBasicPassword">
         <Form.Label >
           <span>
             <a onClick={googleLogin}><img src='../images/Google__G__Logo.svg.png'  className='mb-1' style={{width:'20px',height:'20px'}}></img></a>
@@ -166,21 +162,18 @@ function Login({setActiveModal}) {
     
       </Form.Group> */}
 
-      <Form.Group className="mb-1 text-center"  controlId="formBasicPassword">
-        <Form.Label 
-        style={{color:'#17A803'}}
-         onClick={handleClick}
-         >
-          Don&apos;t have an account? Register</Form.Label>
-    
-      </Form.Group>
-    </Form>
-        </Modal.Body>
-        
-       
-      </Modal>
- 
-  )
+          <Form.Group
+            className="mb-1 text-center"
+            controlId="formBasicPassword"
+          >
+            <Form.Label style={{ color: "#17A803" }} onClick={handleClick}>
+              Don&apos;t have an account? Register
+            </Form.Label>
+          </Form.Group>
+        </Form>
+      </Modal.Body>
+    </Modal>
+  );
 }
 
-export default Login
+export default Login;

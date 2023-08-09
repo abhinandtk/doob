@@ -13,7 +13,8 @@ import MobileFooter from "@/components/shared/MobileFooter";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import StadiumList from "@/components/playGround/StadiumList";
 import PlaygroundFilter from "@/components/playGround/PlaygroundFilter";
-import { Skeleton } from 'antd';
+import { Skeleton } from "antd";
+import AllStadiumMap from "@/components/playGround/AllStadiumMap";
 export async function getStaticProps({ locale }) {
   return {
     props: {
@@ -27,6 +28,7 @@ function StadiumListPage() {
   console.log("daaaaaaaaaaaata", data);
   const [stadiumData, setStadiumData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [mapShow, setMapShow] = useState(false);
   useEffect(() => {
     Axios.post(
       apis.listStadium,
@@ -97,8 +99,23 @@ function StadiumListPage() {
       <MobileHeader />
 
       <div className="tour-container">
-        <PlaygroundFilter playgroundFilterHandler={playgroundFilterHandler} />
-        {!isLoading ? <StadiumList stadiumData={stadiumData} /> :  <Skeleton active paragraph={{ rows: 10 }} className="skeleton-container" style={{ listStyle: 'none', padding: 0, margin: 0 }} />}
+        <PlaygroundFilter playgroundFilterHandler={playgroundFilterHandler} setMapShow={setMapShow}/>
+        {!isLoading ? (
+          <>
+            {mapShow ? (
+              <AllStadiumMap data={stadiumData} />
+            ) : (
+              <StadiumList stadiumData={stadiumData} />
+            )}
+          </>
+        ) : (
+          <Skeleton
+            active
+            paragraph={{ rows: 10 }}
+            className="skeleton-container"
+            style={{ listStyle: "none", padding: 0, margin: 0 }}
+          />
+        )}
       </div>
       <MobileFooter />
     </div>
