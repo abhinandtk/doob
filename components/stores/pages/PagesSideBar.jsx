@@ -105,7 +105,7 @@ function PagesSideBar({ currentPage }) {
             />
           </svg>
           <span
-            className="mx-2"
+            className="mx-2 flops"
             style={{ color: `${currentPage === "wallet" ? "#17A803" : ""}` }}
           >
             Wallet
@@ -132,7 +132,7 @@ function PagesSideBar({ currentPage }) {
             />
           </svg>
           <span
-            className="mx-2"
+            className="mx-2 flops"
             style={{ color: `${currentPage === "fav-store" ? "#17A803" : ""}` }}
           >
             Favourite Store
@@ -152,7 +152,7 @@ function PagesSideBar({ currentPage }) {
             />
           </svg>
           <span
-            className="mx-2"
+            className="mx-2 flops"
             style={{ color: `${currentPage === "fav-prod" ? "#17A803" : ""}` }}
           >
             Favourite Products
@@ -177,7 +177,7 @@ function PagesSideBar({ currentPage }) {
             />
           </svg>
           <span
-            className="mx-2"
+            className="mx-2 flops"
             style={{ color: `${currentPage === "bookings" ? "#17A803" : ""}` }}
           >
             Booking
@@ -198,7 +198,7 @@ function PagesSideBar({ currentPage }) {
             />
           </svg>
           <span
-            className="mx-2"
+            className="mx-2 flops"
             style={{ color: `${currentPage === "myOrder" ? "#17A803" : ""}` }}
           >
             My Orders
@@ -218,7 +218,7 @@ function PagesSideBar({ currentPage }) {
             />
           </svg>
           <span
-            className="mx-1"
+            className="mx-1 flops"
             style={{ color: `${currentPage === "feedback" ? "#17A803" : ""}` }}
           >
             {" "}
@@ -242,7 +242,7 @@ function PagesSideBar({ currentPage }) {
             />
           </svg>
           <span
-            className="mx-2"
+            className="mx-2 flops"
             style={{ color: `${currentPage === "settings" ? "#17A803" : ""}` }}
           >
             {t("Settings")}{" "}

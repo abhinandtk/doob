@@ -1226,8 +1226,9 @@ input.tour {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  margin-left: 12px;
+  margin-left: 0px;
   margin-top: 10px;
+  column-gap: 11px;
 }
 
 .grey-number {
@@ -2545,8 +2546,17 @@ input.nosubmit-shop {
 ///// medai query start ////
 @media (max-width: 1360px) {
   .tour-container {
-    width: 100%;
+    width: 95%;
     margin-left: 23px;
+  }
+
+  .book {
+    margin-top: 15px;
+    border: 0px;
+    width: 100%;
+  }
+  .sidebar{
+    display: none;
   }
   .play-container {
     width: 100%;
@@ -2598,12 +2608,30 @@ input.nosubmit-shop {
 
     background-color: #eeeeee;
   }
+  .tournament-imx {
+    margin-left: 0px;
+    width: 90%;
+  }
+  .tournament-imx1 {
+    width: 90%;
+    margin-left: 0px;
+    margin-top: -100px;
+}
 }
 @media (max-width: 1300px) {
   .tour-container {
-    width: 100%;
+    width: 95%;
   }
   .play-container {
+    width: 100%;
+  }
+  .sidebar{
+    display: none;
+  }
+
+
+
+.tournaments {
     width: 100%;
   }
   .topnav span {
@@ -2660,7 +2688,7 @@ input.nosubmit-shop {
 
 @media (max-width: 1249px) {
   .tour-container {
-    width: 100%;
+    width: 95%;
   }
   .play-container {
     width: 100%;
@@ -2707,7 +2735,7 @@ input.nosubmit-shop {
 }
 @media (max-width: 1200px) {
   .tour-container {
-    width: 100%;
+    width: 95%;
   }
   .play-container {
     width: 100%;
@@ -2760,7 +2788,7 @@ input.nosubmit-shop {
 
 @media (max-width: 1100px) {
   .tour-container {
-    width: auto;
+    width: 95%;
   }
   .play-container {
     width: auto;
@@ -2817,7 +2845,8 @@ input.nosubmit-shop {
     width: 500px;
   }
   .tournament-imx {
-    margin-left: 100px;
+    // margin-left: 100px;
+    width: 98%;
   }
 }
 @media (max-width: 1025px) {
@@ -2869,16 +2898,16 @@ input.nosubmit-shop {
 }
 @media (max-width: 992px) {
   .tournament-imx {
+   display: none;
+  }
+  .live-btn{
     width: 100%;
-    height: 100%;
-    margin-left: 0px;
-    margin-top: 0px;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
   }
   .tournament-imx1 {
-    width: 100%;
-    height: 100%;
-    margin-left: 0px;
-    margin-top: 0px;
+    display: none;
   }
   input.nosubmit1 {
     border: 0px solid #eeeeee;
@@ -2913,7 +2942,7 @@ input.nosubmit-shop {
     margin-top: 0px;
   }
   .tour-container {
-    width: auto;
+    width: 95%;
   }
   .play-container {
     width: auto;
@@ -2975,7 +3004,7 @@ input.nosubmit-shop {
   //   padding: 11px;
   // }
   .tour-container {
-    width: auto;
+    width: 95%;
   }
   .field-btn {
     background-color: #17a803;
@@ -3072,7 +3101,7 @@ input.nosubmit-shop {
 }
 @media (max-width: 659px) {
   .tour-container {
-    width: auto;
+    width: 90%;
   }
   .play-container {
     width: auto;

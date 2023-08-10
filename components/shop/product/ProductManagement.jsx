@@ -50,7 +50,7 @@ function ProductManagement() {
                   className="   mx-auto d-flex justify-content-between align-items-center"
                   style={{ width: "90%" }}
                 >
-                  <p style={{ fontWeight: "500" }}>
+                  <p style={{ fontWeight: "500" ,width:'80%' }}>
                     {locale==='en' ? item.name : item.name_ar}
                   </p>
                   <button
