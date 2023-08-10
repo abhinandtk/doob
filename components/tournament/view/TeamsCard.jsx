@@ -42,9 +42,17 @@ function TeamsCard({
   const handleChange = (e) => {
     e.preventDefault();
     setNames(e.target.value);
-    Axios.post(apis.usersearch, {
-      user_input: names,
-    }).then((res) => {
+    Axios.post(
+      apis.usersearch,
+      {
+        user_input: names,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
       if (res.data.status === 1) {
         setSearchResult(res.data.data.results);
       }

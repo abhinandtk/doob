@@ -1,39 +1,11 @@
 import constants from "@/public/data/my-constants/Constants";
 import moment from "moment";
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
+import MatchTimer from "../MatchTimer";
 
 function MatchCards({ data }) {
   console.log("livematch", data);
 
-  const getMatchTime = (time, date) => {
-    const startDate = moment(date, "YYYY-MM-DD");
-    const startTime = moment(time, "HH:mm:ss");
-
-    const startDateTime = startDate.clone().set({
-      hour: startTime.hours(),
-      minute: startTime.minutes(),
-      second: startTime.seconds(),
-    });
-
-    const currentTime = moment();
-
-    if (currentTime.isBefore(startDateTime)) {
-      return "00:00";
-    }
-
-    const diff = moment.duration(Math.abs(startDateTime.diff(currentTime)));
-    let totalMinutes = Math.floor(diff.asMinutes());
-    let seconds = diff.seconds();
-
-    if (totalMinutes > 90) {
-      return "90:00";
-    }
-
-    let matchTime = `${totalMinutes}:${seconds}`;
-
-    console.log("matchTime:", matchTime);
-    return matchTime;
-  };
   return (
     <Fragment>
       {/* <h6 className="my-4" style={{ fontSize: "15px", fontWeight: "600" }}>
@@ -81,9 +53,7 @@ function MatchCards({ data }) {
                   type="button"
                   className=" btn-outline-secondary left-time"
                 >
-                  {data.match_date
-                    ? getMatchTime(data.start_time, data.match_date)
-                    : "00:00"}
+                  <MatchTimer match={data} />
                 </button>
               </div>
 

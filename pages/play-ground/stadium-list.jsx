@@ -73,11 +73,21 @@ function StadiumListPage() {
       formData.append("amnities", value);
     });
 
-    Axios.post(apis.playgroundSearchFilter, formData, {
-      headers: {
-        Authorization: `Token ${constants.token_id}`,
+    Axios.post(
+      apis.playgroundSearchFilter,
+      {
+        area: filterData.area,
+        date: filterData.date,
+        sports_id: filterData.sport,
+        amnities: amenity,
+        keyword: searchKey,
       },
-    }).then((res) => {
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
       if (res.data.status === 1) {
         setStadiumData(res.data.data);
       } else {
@@ -99,7 +109,10 @@ function StadiumListPage() {
       <MobileHeader />
 
       <div className="tour-container">
-        <PlaygroundFilter playgroundFilterHandler={playgroundFilterHandler} setMapShow={setMapShow}/>
+        <PlaygroundFilter
+          playgroundFilterHandler={playgroundFilterHandler}
+          setMapShow={setMapShow}
+        />
         {!isLoading ? (
           <>
             {mapShow ? (

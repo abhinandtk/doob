@@ -143,7 +143,7 @@ function CustomerSalesReport() {
                 <div className="customer-sale">
                 <div  className="report-section">
                     <div >Customer</div>
-                    <div >Order Count</div>
+                    <div >Order Quantity</div>
                     <div>Total Amount</div>
                   </div>
                   {customerSale &&

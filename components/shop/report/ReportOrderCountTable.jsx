@@ -7,7 +7,7 @@ function ReportOrderCountTable({ reportData, title }) {
       <div className="customer-sale">
       <div  className="report-section">
                     <div >{title}</div>
-                    <div >Order Count</div>
+                    <div >Order Quantity</div>
                     <div>Total Amount</div>
                   </div>
         {reportData &&

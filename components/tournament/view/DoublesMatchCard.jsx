@@ -1,9 +1,20 @@
 import constants from "@/public/data/my-constants/Constants";
 import moment from "moment";
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
 function DoublesMatchCard({ data }) {
   console.log("livematch", data);
+  const [currentTime, setCurrentTime] = useState(new Date());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   const getMatchTime = (time, date) => {
     const startDate = moment(date, "YYYY-MM-DD");
@@ -31,7 +42,7 @@ function DoublesMatchCard({ data }) {
 
     let matchTime = `${totalMinutes}:${seconds}`;
 
-    console.log("matchTime:", matchTime);
+    console.log("matchTime:", matchTime); 
     return matchTime;
   };
   return (
