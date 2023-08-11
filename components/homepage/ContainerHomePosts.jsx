@@ -16,7 +16,7 @@ import ModuleSharedPostDetails from "./social/ModuleSharedPostDetails";
 import "intersection-observer";
 import VisibilitySensor from "react-visibility-sensor";
 import SharePostToUser from "./social/share/SharePostToUser";
-import { useTheme } from 'next-themes';
+import { useTheme } from "next-themes";
 import { useTranslation } from "next-i18next";
 
 function ContainerHomePosts() {
@@ -26,6 +26,7 @@ function ContainerHomePosts() {
   const apiSuccess = useSelector((state) => state.api);
   const [visibleComment, setVisibleComment] = useState(false);
   const [visibleShared, setVisibleShared] = useState(false);
+  const [page, setPage] = useState(1);
   const [liked, setLiked] = useState(false);
   const [totalLike, setTotalLike] = useState();
 
@@ -34,7 +35,8 @@ function ContainerHomePosts() {
   const [slug, setSlug] = useState(null);
   const [onSuccess, setOnSuccess] = useState(true);
   useEffect(() => {
-    Axios.get(apis.homepageapi, {
+    const paginationApiUrl = `${apis.homepageapi}?page=${page}`;
+    Axios.get(paginationApiUrl, {
       headers: {
         Authorization: `Token ${constants.token_id}`,
       },
@@ -46,13 +48,18 @@ function ContainerHomePosts() {
           liked: post.is_liked === 1 ? true : false,
           totalLike: post.like || 0,
         }));
-        setPostsData(updatedPosts);
+        if (page === 1) {
+          setPostsData(updatedPosts);
+        } else {
+          setPostsData((prevPosts) => [...prevPosts, ...updatedPosts]);
+        }
+      
       })
       .catch((error) => {
         localStorage.removeItem("user-login-tokens");
         console.error(error);
       });
-  }, [onSuccess, apiSuccess, visibleComment]);
+  }, [onSuccess, apiSuccess, visibleComment,page]);
 
   console.log("weweweee", postsData);
 
@@ -535,7 +542,9 @@ function ContainerHomePosts() {
                     ) : (
                       <>
                         <div className="post__likes">
-                          <h6 className="post-names">{item.totalLike} {t("Likes")}</h6>
+                          <h6 className="post-names">
+                            {item.totalLike} {t("Likes")}
+                          </h6>
                         </div>
                         <div className="comments">{item.caption}</div>
                       </>
@@ -563,6 +572,14 @@ function ContainerHomePosts() {
           setOnSuccess={setOnSuccess}
         />
       )}
+
+      <p
+        onClick={() => setPage((prev) => prev + 1)}
+        className="dark-theme-color my-2"
+        style={{ cursor: "pointer", textAlign: "center" }}
+      >
+        {t("Load More")}
+      </p>
 
       <div className="post__content">
         <div className="post__medias" style={{ marginTop: "9px" }}>

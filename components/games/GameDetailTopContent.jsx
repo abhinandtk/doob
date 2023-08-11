@@ -180,8 +180,7 @@ function GameDetailTopContent({ details, setOnSuccess }) {
                     </span>
                   </div>
 
-                  {details.created_by.created_by_id != constants.user_id && (
-                    <>
+                 
                       {details.is_joined === "Accepted" ? (
                         <button
                           type="button"
@@ -216,8 +215,7 @@ function GameDetailTopContent({ details, setOnSuccess }) {
                       ) : (
                         ""
                       )}
-                    </>
-                  )}
+                   
                 </div>
               </div>
             </div>

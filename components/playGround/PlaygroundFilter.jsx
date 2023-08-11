@@ -57,7 +57,7 @@ function PlaygroundFilter({ playgroundFilterHandler, setMapShow }) {
       },
     }).then((res) => {
       setCountry(res.data.data.country);
-      console.log("fffffffffff", res);
+      console.log("gggggggggfffffffffff", res);
     });
   }, []);
 

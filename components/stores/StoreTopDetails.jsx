@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Fragment } from "react";
-import { Collapse, notification } from "antd";
+import { Collapse, Modal, Form, Input, Button, notification } from "antd";
 import Axios from "axios";
 import constants from "@/public/data/my-constants/Constants";
 import apis from "@/public/data/my-constants/Apis";
@@ -10,9 +10,13 @@ import { Labels } from "@/public/data/my-constants/Labels";
 import ReviewStore from "./review/ReviewStore";
 const { Panel } = Collapse;
 import { useTranslation } from "next-i18next";
+import { Dropdown } from "react-bootstrap";
 
 function StoreTopDetails({ data, setSuccess }) {
   const { t } = useTranslation();
+
+  const [reason, setReason] = useState("");
+  const [show, setShow] = useState(false);
 
   const [descShow, setDescShow] = useState(false);
   const router = useRouter();
@@ -66,9 +70,62 @@ function StoreTopDetails({ data, setSuccess }) {
       console.log("res@@", res);
     });
   };
+  const storeReportHandler = (e) => {
+    e.preventDefault();
+    Axios.post(
+      apis.reportStore,
+      {
+        store: data.id,
+        reason: reason,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      setShow(false);
+      setReason("");
+      notification.success({
+        message: constants.Success,
+        description: `${labels["Reported successfully"]}`,
+      });
+    });
+  };
 
   return (
     <Fragment>
+      <Modal
+        title="Why are you reporting this store ??"
+        open={show}
+        centered
+        closable
+        maskClosable
+        footer={null}
+        onCancel={() => setShow(false)}
+      >
+        <Form onSubmitCapture={(e) => storeReportHandler(e)}>
+          <Form.Item>
+            <Input.TextArea
+              placeholder="Please enter your reason for reporting"
+              autoSize={{ minRows: 5 }}
+              value={reason}
+              onChange={(e) => setReason(e.target.value)}
+              required
+            />
+          </Form.Item>
+
+          <Form.Item style={{ display: "flex", justifyContent: "flex-end" }}>
+            <Button
+              style={{ backgroundColor: "#17A803" }}
+              type="primary"
+              htmlType="submit"
+            >
+              Confirm
+            </Button>
+          </Form.Item>
+        </Form>
+      </Modal>
       <div className="banner my-3">
         <img
           src={`${constants.port}${data.cover_photo}`}
@@ -123,37 +180,60 @@ function StoreTopDetails({ data, setSuccess }) {
               />
             </svg>
           </span>
-          <span onClick={() => handleShare()} style={{ cursor: "pointer" }}>
-            <svg
-              width="35"
-              height="34"
-              viewBox="0 0 35 34"
-              fill="none"
-              className="ms-1"
-              xmlns="http://www.w3.org/2000/svg"
+          <span>
+            <Dropdown
+              className=""
+              style={{ display: "inline-block", marginLeft: "-10px" }}
             >
-              <path
-                d="M15.9854 24.9206C15.9854 24.156 16.6322 23.5361 17.43 23.5361C18.2279 23.5361 18.8747 24.156 18.8747 24.9206C18.8747 25.6853 18.2279 26.3051 17.43 26.3051C16.6322 26.3051 15.9854 25.6853 15.9854 24.9206Z"
-                stroke="white"
-                stroke-width="1.4447"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M15.9854 16.614C15.9854 15.8494 16.6322 15.2295 17.43 15.2295C18.2279 15.2295 18.8747 15.8494 18.8747 16.614C18.8747 17.3786 18.2279 17.9985 17.43 17.9985C16.6322 17.9985 15.9854 17.3786 15.9854 16.614Z"
-                stroke="white"
-                stroke-width="1.4447"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M15.9854 8.30686C15.9854 7.54223 16.6322 6.92236 17.43 6.92236C18.2279 6.92236 18.8747 7.54223 18.8747 8.30686C18.8747 9.0715 18.2279 9.69136 17.43 9.69136C16.6322 9.69136 15.9854 9.0715 15.9854 8.30686Z"
-                stroke="white"
-                stroke-width="1.4447"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+              <Dropdown.Toggle
+                variant=""
+                id="dropdown-basic"
+                style={{
+                  color: "black",
+                  borderColor: "transparent",
+                  background: "transparent",
+                }}
+              >
+                <svg
+                  width="30"
+                  height="35"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10.3735 14.9998C10.3735 14.5396 10.7629 14.1665 11.2431 14.1665C11.7233 14.1665 12.1127 14.5396 12.1127 14.9998C12.1127 15.4601 11.7233 15.8332 11.2431 15.8332C10.7629 15.8332 10.3735 15.4601 10.3735 14.9998Z"
+                    stroke="white"
+                    stroke-width="0.814796"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M10.3735 10.0003C10.3735 9.54009 10.7629 9.16699 11.2431 9.16699C11.7233 9.16699 12.1127 9.54009 12.1127 10.0003C12.1127 10.4606 11.7233 10.8337 11.2431 10.8337C10.7629 10.8337 10.3735 10.4606 10.3735 10.0003Z"
+                    stroke="white"
+                    stroke-width="0.814796"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M10.3735 4.99984C10.3735 4.5396 10.7629 4.1665 11.2431 4.1665C11.7233 4.1665 12.1127 4.5396 12.1127 4.99984C12.1127 5.46007 11.7233 5.83317 11.2431 5.83317C10.7629 5.83317 10.3735 5.46007 10.3735 4.99984Z"
+                    stroke="white"
+                    stroke-width="0.814796"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu align="center" className="Menu">
+                <Dropdown.Item onClick={() => handleShare()}>
+                  {t("Send")}
+                </Dropdown.Item>
+                <Dropdown.Item onClick={() => setShow(true)}>
+                  {t("Report")}
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           </span>
         </span>
       </div>

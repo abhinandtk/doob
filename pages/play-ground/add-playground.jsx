@@ -35,7 +35,7 @@ function AddPlaygroundPage() {
   const labels = Labels();
   const router = useRouter();
   const handlePlaygroundForm = (data, game, amenity, slot) => {
-    console.log("data", data, game, amenity);
+    console.log("data", data, game, amenity, slot);
 
     const formData = new FormData();
     formData.append("stadium_name", data.name);
@@ -46,8 +46,8 @@ function AddPlaygroundPage() {
     formData.append("google_map_location_field", data.gmap);
     formData.append("opening_time", data.opening);
     formData.append("closing_time", data.closing);
-    formData.append("latitude", data.latitude);
-    formData.append("longitude", data.longitude);
+    // formData.append("latitude", data.latitude);
+    // formData.append("longitude", data.longitude);
     formData.append("amount", data.amount);
     formData.append("images", data.image);
     game.map((value) => {
@@ -64,11 +64,29 @@ function AddPlaygroundPage() {
     const formDataObject = Object.fromEntries(formData);
     console.log("formData", formDataObject);
 
-    Axios.post(apis.addPlayground, formData, {
-      headers: {
-        Authorization: `Token ${constants.token_id}`,
+    Axios.post(
+      apis.addPlayground,
+      {
+        stadium_name: data.name,
+        city: data.city,
+        location: data.location,
+        description: data.description,
+        description_ar: data.description_ar,
+        google_map_location_field: data.gmap,
+        opening_time: data.opening,
+        closing_time: data.closing,
+        amount: data.amount,
+        images: data.image,
+        game: game,
+        amnities: amenity,
+        timeslot: slot,
       },
-    }).then((res) => {
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
       if (res.data.status == 1) {
         notification.success({
           message: constants.Success,

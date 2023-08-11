@@ -20,6 +20,7 @@ import MapPlayGround from "@/components/playGround/MapPlayground";
 import MapGame from "@/components/playGround/MapGames";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import PlaygroundBanner from "@/components/playGround/PlaygroundBanner";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -96,83 +97,11 @@ function PlayGroundPage() {
             ></img>
           </span>
         </form> */}
-        <div id="carouselExampleIndicators" class="carousel slide my-2">
-          <div class="carousel-indicators">
-            <button
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide-to="0"
-              class="active"
-              aria-current="true"
-              aria-label="Slide 1"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide-to="1"
-              aria-label="Slide 2"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide-to="2"
-              aria-label="Slide 3"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide-to="1"
-              aria-label="Slide 4"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide-to="2"
-              aria-label="Slide 5"
-            ></button>
-          </div>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img
-                src="../images/tournament/soccer-players-action-professional-stadium 2.png"
-                class="d-block w-100"
-                alt="..."
-              />
-            </div>
-            <div class="carousel-item">
-              <img src="..." class="d-block w-100" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src="..." class="d-block w-100" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src="..." class="d-block w-100" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src="..." class="d-block w-100" alt="..." />
-            </div>
-          </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
+
         {homePageData.map((contents, index) => (
           <>
+            <PlaygroundBanner banners={contents.banner_list} />
+
             <div key={index} className="row game">
               <div className="col-md-6">
                 <button
@@ -248,7 +177,8 @@ function PlayGroundPage() {
                     })
                   }
                 >
-                  {t("You have")} {contents.my_upcoming_bookings} {t("upcoming bookings")}
+                  {t("You have")} {contents.my_upcoming_bookings}{" "}
+                  {t("upcoming bookings")}
                 </button>
               </div>
             </div>

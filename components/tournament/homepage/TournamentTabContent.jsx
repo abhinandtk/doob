@@ -68,7 +68,11 @@ function TournamentTabContent({ data }) {
                   <div className="live">
                     <div className="ml-1">
                       <img
-                        src={`${constants.port}${item.team_a.team_logo}`}
+                        src={
+                          item.team_a.team_logo
+                            ? `${constants.port}${item.team_a.team_logo}`
+                            : "/images/accounts/user_default.png"
+                        }
                         className="clubs"
                       ></img>
                       <p className="team1">{item.team_a.team_name} </p>
@@ -90,7 +94,11 @@ function TournamentTabContent({ data }) {
 
                     <div className="ml-1">
                       <img
-                        src={`${constants.port}${item.team_b.team_logo}`}
+                        src={
+                          item.team_b.team_logo
+                            ? `${constants.port}${item.team_b.team_logo}`
+                            : "/images/accounts/user_default.png"
+                        }
                         className="clubs"
                       ></img>
                       <p className="team2">{item.team_b.team_name} </p>

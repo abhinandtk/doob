@@ -86,8 +86,11 @@ const apis = {
     'feedback': `${constants.port}/API/feedback-api`,
     'stores': `${constants.port}/store/api/stores`,
     'storeview': `${constants.port}/store/api/store_view`,
+    'reportStore': `${constants.port}/store/api/report_store`,
 
     'storesearch': `${constants.port}/store/api/search_products`,
+    'storeFiltersearch': `${constants.port}/store/api/product_filter`,
+    'brandCategoryList': `${constants.port}/store/api/store_brand_category_list`,
     'searchbyCategory': `${constants.port}/store/api/category_list`,    
 
     'viewwishlist': `${constants.port}/store/api/view_wishlist_product`,
@@ -209,6 +212,7 @@ const apis = {
     'stadiumReviewRemove': `${constants.port}/playground/api/remove_stadium_review`,
 
     'playgroundSearchFilter': `${constants.port}/playground/api/playground_search`,
+    'reportField': `${constants.port}/playground/api/add_report_stadium`,
 
     //Tournament
 

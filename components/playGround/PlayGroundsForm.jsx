@@ -156,8 +156,8 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
             closing: res.data.data.list.closing_time,
             description: res.data.data.list.description,
             description_ar: res.data.data.management.description_ar,
-            latitude: res.data.data.list.latitude,
-            longitude: res.data.data.list.longitude,
+            // latitude: res.data.data.list.latitude,
+            // longitude: res.data.data.list.longitude,
             amount: res.data.data.list.amount,
           });
           setAmenityChecked(res.data.data.list.amnities.map((item) => item.id));
@@ -173,12 +173,18 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
     }
   }, []);
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     if (btnRef.current) {
       btnRef.current.disabled = true;
     }
-    handlePlaygroundForm(formData, gameChecked, amenityChecked, slots);
+    try {
+      await handlePlaygroundForm(formData, gameChecked, amenityChecked, slots);
+    } finally {
+      if (btnRef.current) {
+        btnRef.current.disabled = false; // Re-enable the button
+      }
+    }
   };
 
   return (
@@ -239,7 +245,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
         <label for="exampleFormControlInput1">Google Map Location*</label>
         <input
           required
-          type="text"
+          type="url"
           className="form-control p-2"
           style={{
             border: "0px",
@@ -251,7 +257,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
           onChange={(e) => handleChange(e)}
         />
       </div>
-      <div className="form-group my-2 ">
+      {/* <div className="form-group my-2 ">
         <label for="exampleFormControlInput1">Latitude*</label>
         <input
           required
@@ -282,7 +288,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
           value={formData.longitude}
           onChange={(e) => handleChange(e)}
         />
-      </div>
+      </div> */}
 
       {/* <label for="exampleFormControlInput1">Location</label>
       <div
