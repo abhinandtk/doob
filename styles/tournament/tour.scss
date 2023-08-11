@@ -2790,6 +2790,14 @@ input.nosubmit-shop {
   .tour-container {
     width: 95%;
   }
+
+
+  .side-play{
+    padding: 12px 7px;
+    width: 200px;
+    background-color: #ffffff;
+    margin-left: 20px;
+  }
   .play-container {
     width: auto;
   }
@@ -2857,11 +2865,7 @@ input.nosubmit-shop {
     width: auto;
   }
   .side-play {
-    padding: 12px 7px;
-    width: 230px;
-    background-color: #ffffff;
-    position: absolute;
-    height: 100%;
+  display: none;
   }
   input.nosubmit1 {
     border: 0px solid #eeeeee;
@@ -2900,6 +2904,8 @@ input.nosubmit-shop {
   .tournament-imx {
    display: none;
   }
+
+ 
   .live-btn{
     width: 100%;
     justify-content: center;
@@ -2947,13 +2953,7 @@ input.nosubmit-shop {
   .play-container {
     width: auto;
   }
-  .side-play {
-    padding: 12px 7px;
-    width: 230px;
-    background-color: #ffffff;
-    position: absolute;
-    height: 100%;
-  }
+
   .play-topic {
     width: 60%;
   }
@@ -2998,6 +2998,9 @@ input.nosubmit-shop {
   .sidebar {
     display: none;
   }
+
+
+
   // .tour-container {
   //   width: auto;
   //   margin: 0 auto;
@@ -3006,6 +3009,22 @@ input.nosubmit-shop {
   .tour-container {
     width: 95%;
   }
+  .field-info {
+    position: absolute;
+    margin-top: 136px;
+    line-height: 30px;
+}
+.Invite {
+  margin-top: 133px;
+}
+.logox {
+  float: right;
+  margin-right: 20px;
+  position: relative;
+  width: 43px;
+  height: 45px;
+  margin-top: -16px;
+}
   .field-btn {
     background-color: #17a803;
     font-weight: 400;
@@ -3059,11 +3078,7 @@ input.nosubmit-shop {
     width: auto;
   }
   .side-play {
-    padding: 12px 7px;
-    width: 230px;
-    background-color: #ffffff;
-    position: absolute;
-    height: 100%;
+   display: none;
   }
   .play-topic {
     width: 60%;

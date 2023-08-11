@@ -2302,6 +2302,7 @@ input.nosubmit1 {
   .tournament-imx {
     margin-left: 100px;
   }
+
 }
 @media (max-width: 1025px) {
   .tour-container {
@@ -2320,6 +2321,7 @@ input.nosubmit1 {
   .play-topics {
     width: 60%;
   }
+
 }
 @media (max-width: 992px) {
   .tournament-imx {
@@ -2356,6 +2358,7 @@ input.nosubmit1 {
   .play-topics {
     width: 60%;
   }
+
 }
 @media (max-width: 769px) {
   .sidebar {

@@ -60,7 +60,7 @@ function ChatBoxHeader({ details, selectedId, setOnSuccess, onNewMsg }) {
                 width="10"
                 height="10"
                 style={{
-                  marginLeft: "-68px",
+                  marginLeft: "-40px",
                   marginTop: "63px",
                   position: "absolute",
                 }}
