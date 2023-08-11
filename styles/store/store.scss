@@ -393,11 +393,16 @@ input.nosubmit2 {
   border: 0px;
   color: white;
   padding: 7px 15px;
-  margin-right: -2px;
+  margin-right: 15px;
   margin-top: -19px;
   float: right;
 }
 
+.hubs{
+  font-size: 14px;
+  text-align: justify;
+
+}
 .order1-btn {
   background-color: #17a803;
   font-weight: 400;
@@ -1158,7 +1163,7 @@ input:disabled {
 }
 .sales-order-price {
   position: relative;
-  width: 30%;
+  width: 18%;
   font-size: 15px;
   text-align: left;
 }
@@ -1224,12 +1229,18 @@ input:disabled {
     width: 95%;
 
   }
+  .store-container1{
+    margin-left: 0px;
+    margin-top: -13px;
+    width: 95%;
+
+  }
   .content-topic {
     margin-right: 20px;
-    float: right;
-    height: 100%;
-    background: white;
-    width: 60%;
+    padding: 4px ;
+    background-color: white;
+    width: 80%;
+    height: 540px;
   }
   .customer {
     width: 100%;
@@ -1245,8 +1256,6 @@ input:disabled {
   }
 
   .content-topics {
-   
-
     margin-right: 20px;
     padding: 4px ;
     background-color: white;
@@ -1299,13 +1308,13 @@ input:disabled {
   //   width: auto;
 
   //   }
-  .content-topic {
-    margin-right: 20px;
-    float: right;
-    height: 100%;
-    background: white;
-    width: 64%;
-  }
+  // .content-topic {
+  //   margin-right: 20px;
+  //   float: right;
+  //   height: 100%;
+  //   background: white;
+  //   width: 64%;
+  // }
   // .sides{
   //   padding: 12px 7px;
   //   width: 200px;
@@ -1344,8 +1353,8 @@ input:disabled {
 
 @media (max-width: 1249px) {
   .store-container1 {
-    width: 100%;
-    margin: 0 auto;
+    width: 95%;
+    margin-right: 34px;
   }
   .store-container {
     width: 95%;
@@ -1356,14 +1365,12 @@ input:disabled {
     color: #000;
     width: 95%;
   }
+  .order-btn {
 
-  .content-topic {
-    margin-right: 20px;
-    float: right;
-    height: 100%;
-    background: white;
-    width: 60%;
+    margin-right: 18px;
+  
   }
+
   .sides {
     padding: 12px 7px;
     width: 200px;
@@ -1406,8 +1413,8 @@ input:disabled {
     display: none;
   }
   .store-container1 {
-    width: 100%;
-    margin: 0 auto;
+    width: 95%;
+   
   }
   .store-container {
     width: 95%;
@@ -1429,11 +1436,10 @@ input:disabled {
     top: -55px;
   }
   .content-topic {
-    margin-right: 20px;
-    float: right;
-    height: 100%;
-    background: white;
-    width: 58%;
+    margin-left: 260px;
+    padding: 10px 5px;
+    background-color: white;
+    width: 70%;
   }
   .qty {
     float: right;
@@ -1475,19 +1481,15 @@ input:disabled {
 
 @media (max-width: 1025px) {
   .store-container1 {
-    width: 100%;
-    margin: 0 auto;
+    width: 95%;
   }
   .store-container {
     width: 95%;
   }
 
   .content-topic {
-    margin-right: 20px;
-    // float: right;
-    height: 100%;
-    background: white;
-    width: 53%;
+    margin-left: 20px;
+    width: 100%;
   }
   .foot-png {
     // float: right;
@@ -1545,18 +1547,17 @@ input:disabled {
 
 @media (max-width: 936px) {
   .store-container1 {
-    width: 100%;
-    margin: 0 auto;
+    width: 90%;
+    
   }
   .store-container {
     width: 90%;
   }
   .content-topic {
-    // margin-right:25px;
-    // float: right;
+    margin-left: -0px;
     height: 100%;
     background: white;
-    width: 70%;
+    width: 100%;
   }
   .sides {
    display: none;
@@ -1607,7 +1608,7 @@ input:disabled {
 
 @media (max-width: 769px) {
   .store-container1 {
-    width: 100%;
+    width: 90%;
     margin: 0 auto;
   }
   .store-container {
@@ -1615,11 +1616,9 @@ input:disabled {
     margin: 0 auto;
   }
   .content-topic {
-    // margin-right:20px;
-    // float: right;
-    height: 100%;
-    background: white;
-    width: 70%;
+  height: 100%;
+ background: white;
+ width: 100%;
   }
   .sides {
     padding: 12px 7px;
@@ -1670,11 +1669,10 @@ input:disabled {
 
 @media (max-width: 700px) {
   .content-topic {
-    margin-left: 36px;
-
-    height: 100%;
-    background: white;
-    width: 88%;
+    margin-left: 17px;
+    padding: 10px 5px;
+    margin-top: 20px;
+    width: 95%;
   }
   .sides {
     display: none;
@@ -1729,12 +1727,22 @@ input:disabled {
 
 @media (max-width: 527px) {
   .content-topic {
-    margin-left: 24px;
-
+    margin-left: 10px;
     height: 100%;
     background: white;
-    width: 98%;
+    width: 89%;
+    margin-bottom: 75px;
+    padding: 21px 5px;
   }
+  .order-code2 {
+    margin-left: 0px;
+
+}
+.order-btn {
+
+  margin-right: 18px;
+
+}
 
   .offcanvas.offcanvas-end{
    width: 230px;
@@ -1775,7 +1783,7 @@ input:disabled {
     width: 130px;
     border: 0px;
     border-radius: 15px;
-    height: 130px;
+    height: 140px;
   }
   .order1-btn {
     margin-right: 33px;
@@ -1960,7 +1968,7 @@ input:disabled {
   }
   .value-down {
     margin-top: 22px;
-    margin-left: -75px;
+    margin-left: -82px;
   }
   .option__value1 {
     font-weight: 500;
@@ -1979,11 +1987,13 @@ input:disabled {
   }
 
   .content-topics {
-    margin-left: -0px;
+    margin-left: -15px;
     height: 100%;
+    margin-bottom: 75px;
     background: white;
     width: 100%;
-    padding: 10px 5px;
+    margin-bottom: 75px;
+    padding: 21px 5px;
   }
   input.nosubmit2 {
     width: 88%;
@@ -2028,7 +2038,7 @@ input:disabled {
     margin-right: 0px;
     height: 100%;
     background: white;
-    width: 100%;
+    width: 90%;
   }
  
   .qty {
