@@ -4,23 +4,31 @@ import { Card, Tab, Tabs, CardImg, Dropdown } from "react-bootstrap";
 import Axios from "axios";
 import { useEffect } from "react";
 import apis from "@/public/data/my-constants/Apis";
-import constants from "@/public/data/my-constants/Constants";
 import moment from "moment";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
+import constants from "@/public/data/my-constants/Constants";
 
-function UserProfileActivityTab() {
+function OtherUserProfileActivity() {
   const { t } = useTranslation();
   const [page, setPage] = useState(1);
   const [loadMore, setLoadMore] = useState(true);
   const [activityData, setActivityData] = useState([]);
-
+  const router = useRouter();
+  const { userId } = router.query;
   useEffect(() => {
-    const paginationApiUrl = `${apis.userActivity}?page=${page}`;
-    Axios.get(paginationApiUrl, {
-      headers: {
-        Authorization: `Token ${constants.token_id}`,
+    const paginationApiUrl = `${apis.otherUserActivity}?page=${page}`;
+    Axios.post(
+      paginationApiUrl,
+      {
+        user_id: userId,
       },
-    }).then((res) => {
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
       setLoadMore(!!res.data.next);
       if (page === 1) {
         setActivityData(res.data.data.activity_serializer);
@@ -30,9 +38,9 @@ function UserProfileActivityTab() {
           ...res.data.data.activity_serializer,
         ]);
       }
-      console.log("ACTIVITY result=-----------------------", res);
     });
-  }, [page]);
+  }, [userId, page]);
+
   return (
     <div>
       <Card className="card-tab">
@@ -274,4 +282,4 @@ function UserProfileActivityTab() {
   );
 }
 
-export default UserProfileActivityTab;
+export default OtherUserProfileActivity;

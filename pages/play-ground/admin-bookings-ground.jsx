@@ -29,19 +29,27 @@ function AdminGroundBookings() {
   const [bookingStatus, setBookingStatus] = useState("");
   const [bookingId, setBookingId] = useState(null);
   const [onSuccess, setOnSuccess] = useState(false);
+  const [page, setPage] = useState(1);
+  const [loadMore, setLoadMore] = useState(1);
 
   const labels = Labels();
 
   useEffect(() => {
-    Axios.get(apis.adminAllBookings, {
+    const apiPaginationUrl = `${apis.adminAllBookings}?page=${page}`;
+    Axios.get(apiPaginationUrl, {
       headers: {
         Authorization: `Token ${constants.token_id}`,
       },
     }).then((res) => {
       console.log("responseres1", res);
-      setBookingList(res.data);
+      setLoadMore(!!res.data.next);
+      if (page === 1) {
+        setBookingList(res.data.data);
+      } else {
+        setBookingList((prev) => [...prev, ...res.data.data]);
+      }
     });
-  }, [onSuccess]);
+  }, [onSuccess, page]);
 
   // const handleShowUpdate = (id) => {
   //   console.log("oppppppppppppp");
@@ -265,6 +273,15 @@ function AdminGroundBookings() {
                     </div>
                   </div>
                 ))}
+              {loadMore && (
+                <p
+                  onClick={() => setPage((prev) => prev + 1)}
+                  className="dark-theme-color my-3"
+                  style={{ cursor: "pointer", textAlign: "center" }}
+                >
+                  {t("Load More")}
+                </p>
+              )}
             </div>
           </div>
         </div>

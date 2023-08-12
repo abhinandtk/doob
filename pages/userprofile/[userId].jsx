@@ -11,6 +11,8 @@ import { useEffect } from "react";
 import UserProfileActivityTab from "@/components/homepage/social/UserProfileActivityTab";
 import Link from "next/link";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import OtherUserProfileActivity from "@/components/homepage/social/otherUserProfileActivity";
+import { useTranslation } from "next-i18next";
 
 export async function getServerSideProps({ locale }) {
   return {
@@ -20,9 +22,11 @@ export async function getServerSideProps({ locale }) {
   };
 }
 function OtherUserAccount() {
+  const { t } = useTranslation();
   const router = useRouter();
   const { userId } = router.query;
-
+  const [page, setPage] = useState(1);
+  const [loadMore, setLoadMore] = useState(true);
   const [postDetails, setPostDetails] = useState([]);
   const [profileDetails, setProfileDetials] = useState([]);
   const [activityData, setActivityData] = useState([]);
@@ -33,8 +37,9 @@ function OtherUserAccount() {
   const [groundDetail, setGroundDetail] = useState([]);
   const [isSuccess, setIsSuccess] = useState(false);
   useEffect(() => {
+    const paginationApiUrl = `${apis.otheruser}?page=${page}`;
     Axios.post(
-      apis.otheruser,
+      paginationApiUrl,
       { user_id: userId },
       {
         headers: {
@@ -50,15 +55,23 @@ function OtherUserAccount() {
         setBlockedby(res.data.data.blocked_by);
         setBlockedfrom(res.data.data.blocked_from);
         setProfileDetials(res.data.data.user_details);
-        setPostDetails(res.data.data.post_details);
         setActivityData(res.data.data.activity_serializer);
+        setProfileDetials(res.data.data.user_details);
+
+        setLoadMore(!!res.data.next);
+        if (page === 1) {
+          setPostDetails(res.data.data.post_details);
+        } else {
+          setPostDetails((prev) => [...prev, ...res.data.data.post_details]);
+        }
+
         // Handle the response data here
       })
       .catch((error) => {
         console.log("Error:", error);
         // Handle any errors here
       });
-  }, [isSuccess, userId]);
+  }, [isSuccess, userId, page]);
 
   return (
     <Fragment>
@@ -98,11 +111,20 @@ function OtherUserAccount() {
                       </Link>
                     </div>
                   ))}
+                  {loadMore && (
+                    <p
+                      onClick={() => setPage((prev) => prev + 1)}
+                      className="dark-theme-color my-3"
+                      style={{ cursor: "pointer", textAlign: "center" }}
+                    >
+                      {t("Load More")}
+                    </p>
+                  )}
                 </div>
               </Tab>
               <Tab eventKey={2} title="Activities">
                 <hr className=" line "></hr>
-                <UserProfileActivityTab activityData={activityData} />
+                <OtherUserProfileActivity />
               </Tab>
             </Tabs>
           </section>

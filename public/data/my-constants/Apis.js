@@ -57,6 +57,8 @@ const apis = {
     'reportcomment': `${constants.port}/social/Api/report_comments`,
     'deletecomment': `${constants.port}/social/Api/delete_comment`,
     'profilepage': `${constants.port}/social/Api/upload_profile_image`,
+    'userActivity': `${constants.port}/social/Api/request_user_activity`,
+    'otherUserActivity': `${constants.port}/social/Api/other_user_activity_view`,
     'usersearch': `${constants.port}/social/Api/users_search`,
     'postsearch': `${constants.port}/social/Api/post_search`,
     'otheruser': `${constants.port}/social/Api/other_user`,
@@ -91,7 +93,7 @@ const apis = {
     'storesearch': `${constants.port}/store/api/search_products`,
     'storeFiltersearch': `${constants.port}/store/api/product_filter`,
     'brandCategoryList': `${constants.port}/store/api/store_brand_category_list`,
-    'searchbyCategory': `${constants.port}/store/api/category_list`,    
+    'searchbyCategory': `${constants.port}/store/api/category_list`,
 
     'viewwishlist': `${constants.port}/store/api/view_wishlist_product`,
     'addwishlist': `${constants.port}/store/api/create_product_wishlist`,
@@ -139,28 +141,28 @@ const apis = {
     'subCategoryActive': `${constants.port}/store/api/subcategory_active `,
     'categoryReport': `${constants.port}/store/api/category_report `,
 
-    'productsList': `${constants.port}/store/api/list_products `,
-    'addProduct': `${constants.port}/store/api/create_product `,
-    'editProduct': `${constants.port}/store/api/edit_product `,
-    'productReport': `${constants.port}/store/api/product_report `,
-    'getByidProduct': `${constants.port}/store/api/get_product_detail `,
+    'productsList': `${constants.port}/store/api/list_products`,
+    'addProduct': `${constants.port}/store/api/create_product`,
+    'editProduct': `${constants.port}/store/api/edit_product`,
+    'productReport': `${constants.port}/store/api/product_report`,
+    'getByidProduct': `${constants.port}/store/api/get_product_detail`,
 
-    'stockApi': `${constants.port}/store/api/list_product_variants_stock `,
+    'stockApi': `${constants.port}/store/api/list_product_variants_stock`,
 
-    'customerReport': `${constants.port}/store/api/customer_report `,
+    'customerReport': `${constants.port}/store/api/customer_report`,
 
-    'shopSummary': `${constants.port}/store/api/new_order `,
+    'shopSummary': `${constants.port}/store/api/new_order`,
 
-    'addReview': `${constants.port}/store/api/add_review `,
-    'viewReview': `${constants.port}/store/api/view_review `,
-    'deleteReview': `${constants.port}/store/api/delete_review `,
+    'addReview': `${constants.port}/store/api/add_review`,
+    'viewReview': `${constants.port}/store/api/view_review`,
+    'deleteReview': `${constants.port}/store/api/delete_review`,
 
-    'ordersAdmin': `${constants.port}/store/api/order_list_api_store `,
-    'changeStatus': `${constants.port}/store/api/change_status_product `,
+    'ordersAdmin': `${constants.port}/store/api/order_list_api_store`,
+    'changeStatus': `${constants.port}/store/api/change_status_product`,
 
-    'salesReport': `${constants.port}/store/api/sales_report `,
-    'earningReport': `${constants.port}/store/api/earnings_day_report `,
-    'earningReportExport': `${constants.port}/store/api/sales_report_pdf `,
+    'salesReport': `${constants.port}/store/api/sales_report`,
+    'earningReport': `${constants.port}/store/api/earnings_day_report`,
+    'earningReportExport': `${constants.port}/store/api/sales_report_pdf`,
     // 'earningReportExport': `${constants.port}/store/api/earnings_day_report_csv `,
 
     'listingVarients': `${constants.port}/store/api/listing_varients `,

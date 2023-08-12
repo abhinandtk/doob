@@ -6,8 +6,6 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import Axios from "axios";
 import { Image } from "antd";
 function StadiumList({ stadiumData }) {
-  const router = useRouter();
-  const data = router.query;
   return (
     <Fragment>
       <h5 style={{ fontWeight: "700" }} className="my-2">

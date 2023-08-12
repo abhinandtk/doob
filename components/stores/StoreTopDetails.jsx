@@ -229,9 +229,11 @@ function StoreTopDetails({ data, setSuccess }) {
                 <Dropdown.Item onClick={() => handleShare()}>
                   {t("Send")}
                 </Dropdown.Item>
-                <Dropdown.Item onClick={() => setShow(true)}>
-                  {t("Report")}
-                </Dropdown.Item>
+                {constants.user_id != data.user && (
+                  <Dropdown.Item onClick={() => setShow(true)}>
+                    {t("Report")}
+                  </Dropdown.Item>
+                )}
               </Dropdown.Menu>
             </Dropdown>
           </span>
