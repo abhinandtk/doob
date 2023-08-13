@@ -7,11 +7,14 @@ import { useState } from "react";
 import Axios from "axios";
 import Form from "react-bootstrap/Form";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
 function ProfileEdit({ data, setSuccess }) {
   const { t } = useTranslation();
   const [showEdit, setShowEdit] = useState(false);
   const [countryData, setCountryData] = useState([]);
+  const router = useRouter();
+  const { locale } = router;
   console.log("444478", data);
 
   const [profileFormData, setProfileFormData] = useState({
@@ -72,12 +75,14 @@ function ProfileEdit({ data, setSuccess }) {
         setShowEdit(false);
         notification.success({
           message: constants.Success,
-          description: res.data.message_en,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       } else {
         notification.error({
           message: constants.Error,
-          description: res.data.message_en,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       }
     });

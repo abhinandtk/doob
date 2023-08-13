@@ -60,7 +60,7 @@ function AllBookingPage() {
                 className="dark-theme-color mx-4"
                 style={{ fontWeight: "700" }}
               >
-                Bookings
+                {t("Bookings")}
               </h6>
 
               <BookingDetailsCard

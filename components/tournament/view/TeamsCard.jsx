@@ -19,6 +19,7 @@ function TeamsCard({
 }) {
   const { t } = useTranslation();
   const router = useRouter();
+  const { locale } = router;
   const { tid } = router.query;
   console.log("teamData", maxTeam * 2);
   const [visible, setVisible] = useState(false);
@@ -89,7 +90,8 @@ function TeamsCard({
       } else {
         notification.error({
           message: constants.Error,
-          description: res.data.message_en,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       }
     });
@@ -141,7 +143,8 @@ function TeamsCard({
       } else {
         notification.error({
           message: constants.Error,
-          description: res.data.message_en,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       }
     });
@@ -153,7 +156,7 @@ function TeamsCard({
         onCancel={() => setVisible(false)}
         footer={null}
         centered
-        title="Invite Participants"
+        title={t("Invite Participants")}
       >
         <Input
           placeholder="Enter names"

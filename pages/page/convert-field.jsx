@@ -1,14 +1,5 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
-import {
-  Container,
-  Nav,
-  Navbar,
-  Dropdown,
-  CardImg,
-  Card,
-  Button,
-} from "react-bootstrap";
-import Offcanvas from "react-bootstrap/Offcanvas";
+
 import React, { useState } from "react";
 import PlayGroundSideBar from "@/components/playGround/PlayGroundSideBar";
 import PlayGroundsForm from "@/components/playGround/PlayGroundsForm";
@@ -23,18 +14,20 @@ import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileFooter from "@/components/shared/MobileFooter";
 import PagesSideBar from "@/components/stores/pages/PagesSideBar";
 import { useRouter } from "next/router";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['translation'])),
+      ...(await serverSideTranslations(locale, ["translation"])),
     },
-  }
+  };
 }
 function PlayGroundRequest() {
   const labels = Labels();
   const router = useRouter();
+  const { locale } = router;
+
   const handlePlaygroundForm = (data, game, amenity, slot) => {
     console.log("data", data, game, amenity);
 
@@ -79,7 +72,8 @@ function PlayGroundRequest() {
       } else {
         notification.error({
           message: constants.Error,
-          description: res.data.message_en,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
         router.back();
       }

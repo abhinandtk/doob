@@ -106,7 +106,7 @@ function CreateGameForm() {
     <div>
       <form onSubmit={(e) => submitHandler(e)}>
         <div className="form-group my-3">
-          <label for="exampleInputPassword1">Title</label>
+          <label for="exampleInputPassword1">{t("Title")}</label>
           <input
             type="text"
             className="form-control p-2"
@@ -120,7 +120,7 @@ function CreateGameForm() {
           />
         </div>
         <div className="form-group my-1">
-          <label for="exampleFormControlInput1">Image</label>
+          <label for="exampleFormControlInput1">{t("Image")}</label>
           <input
             type="file"
             id="image"
@@ -135,7 +135,7 @@ function CreateGameForm() {
           />
         </div>
         <div className="form-group my-2">
-          <label for="example ormControlSelect1">Game</label>
+          <label for="example ormControlSelect1">{t("Game")}</label>
           <select
             required
             className="form-control p-2 "
@@ -172,7 +172,7 @@ function CreateGameForm() {
           ></textarea>
         </div>
         <div className="form-group my-2">
-          <label for="example ormControlSelect1">Visible to</label>
+          <label for="example ormControlSelect1">{t("Visible to")}</label>
           <select
             required
             className="form-control p-2 "
@@ -199,7 +199,7 @@ function CreateGameForm() {
           </select>
         </div>
         <div className="form-group my-3">
-          <label for="exampleFormControlSelect1">Gender</label>
+          <label for="exampleFormControlSelect1">{t("Gender")}</label>
           <select
             required
             className="form-control p-2 "
@@ -225,7 +225,7 @@ function CreateGameForm() {
         <div className="row">
           <div className="col-md-6">
             <div className="form-group my-2">
-              <label for="exampleFormControlSelect1">Age</label>
+              <label for="exampleFormControlSelect1">{t("Age")}</label>
               <select
                 className="form-control p-2 "
                 style={{
@@ -245,7 +245,7 @@ function CreateGameForm() {
           </div>
           <div className="col-md-6">
             <div className="form-group my-2">
-              <label for="exampleFormControlSelect1">Age</label>
+              <label for="exampleFormControlSelect1">{("Age")}</label>
               <select
                 required
                 className="form-control p-2 "
@@ -266,7 +266,7 @@ function CreateGameForm() {
           </div>
         </div>
         <div className="form-group my-3">
-          <label for="exampleInputPassword1">Number of Participants</label>
+          <label for="exampleInputPassword1">{t("Number of Participants")}</label>
           <input
             type="text"
             className="form-control p-2"
@@ -280,7 +280,7 @@ function CreateGameForm() {
           />
         </div>
         <div className="form-group my-3">
-          <label for="exampleInputPassword1">Last day of joining</label>
+          <label for="exampleInputPassword1">{t("Last day of joining")}</label>
           <input
             type="date"
             className="form-control p-2"
@@ -294,7 +294,7 @@ function CreateGameForm() {
           />
         </div>
         <button type="submit" className="make-btn">
-          Create
+          {t("Create")}
         </button>
       </form>
     </div>

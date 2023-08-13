@@ -104,7 +104,7 @@ function SearchPage() {
             activeKey={activeTab}
             onSelect={handleTabChange}
           >
-            <Tab eventKey={1} title="Feeds">
+            <Tab eventKey={1} title={t("Feeds")}>
               <hr className="col-md-12 line"></hr>
 
               <div className="row images" style={{ minHeight: "700px" }}>

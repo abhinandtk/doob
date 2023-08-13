@@ -16,16 +16,18 @@ import MobileHeader from "@/components/MobileHeader";
 import MobileFooter from "@/components/shared/MobileFooter";
 import Link from "next/link";
 import PlayGroundSideBar from "@/components/playGround/PlayGroundSideBar";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['translation'])),
+      ...(await serverSideTranslations(locale, ["translation"])),
     },
-  }
+  };
 }
 function GroundReportPage() {
+  const { t } = useTranslation();
   return (
     <div>
       <MainHeader title="Doob" />
@@ -34,7 +36,7 @@ function GroundReportPage() {
 
       <div className="tour-container">
         <div className="bottoms">
-          <PlayGroundSideBar currentPage='report' />
+          <PlayGroundSideBar currentPage="report" />
 
           <div class="play-topics  ">
             <div className="bottoms">
@@ -42,7 +44,7 @@ function GroundReportPage() {
                 className=" ms-4"
                 style={{ color: "#17a803", fontWeight: "700" }}
               >
-                Report
+                {t("Report")}
               </h6>
 
               <div className="my-4 mx-4 ">
@@ -52,7 +54,7 @@ function GroundReportPage() {
                     style={{ textDecoration: "none", color: "inherit" }}
                   >
                     <h6>
-                      Booking Report{" "}
+                      {t("Booking Report")}{" "}
                       <span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +74,7 @@ function GroundReportPage() {
                     style={{ textDecoration: "none", color: "inherit" }}
                   >
                     <h6 className="my-4">
-                      Playground-Bookings Report
+                      {t("Playground Bookings Report")}
                       <span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -92,7 +94,7 @@ function GroundReportPage() {
                     style={{ textDecoration: "none", color: "inherit" }}
                   >
                     <h6>
-                      Game-Bookings Report{" "}
+                      {t("Game Bookings Report")}{" "}
                       <span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -112,7 +114,7 @@ function GroundReportPage() {
                     style={{ textDecoration: "none", color: "inherit" }}
                   >
                     <h6 className="my-4">
-                      Customer-Bookings Report
+                      {t("Customer Bookings Report")}
                       <span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"

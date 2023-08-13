@@ -16,8 +16,10 @@ import { toast } from "react-toastify";
 // import {signInWithPopup,GoogleAuthProvider,FacebookAuthProvider} from "firebase/auth"
 // import {useAuthState} from 'react-firebase-hooks/auth'
 import { message, notification } from "antd";
-
+import { useRouter } from "next/router";
 function Login({ setActiveModal }) {
+  const router = useRouter();
+  const { locale } = router;
   const [error, setError] = useState("");
 
   // const [user,setUser] = useAuthState(auth);
@@ -99,11 +101,17 @@ function Login({ setActiveModal }) {
         console.log("login success ");
         toast.success("successinfo");
       } else if (res.data.status === 0) {
-        setErrorMsg(res.data.message_en);
+        setErrorMsg(
+          locale === "en" ? res.data.message_en : res.data.message_ar
+        );
       } else if (res.data.status === 2) {
-        setErrorMsg(res.data.message_en);
+        setErrorMsg(
+          locale === "en" ? res.data.message_en : res.data.message_ar
+        );
       } else {
-        setErrorMsg(res.data.message_en);
+        setErrorMsg(
+          locale === "en" ? res.data.message_en : res.data.message_ar
+        );
       }
     });
   };

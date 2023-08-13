@@ -70,14 +70,14 @@ function SharePostToUser() {
             type="primary"
             onClick={doneHandler}
           >
-            Done
+            {t("Done")}
           </Button>
         }
         centered
-        title="Share to"
+        title={t("Share to")}
       >
         <Input
-          placeholder="Search"
+          placeholder={t("Search")}
           value={names}
           onChange={(e) => handleChange(e)}
         />

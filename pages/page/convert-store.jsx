@@ -11,14 +11,14 @@ import { notification } from "antd";
 import { useRouter } from "next/router";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['translation'])),
+      ...(await serverSideTranslations(locale, ["translation"])),
     },
-  }
+  };
 }
 function ConvertStoreForm() {
   const { t } = useTranslation();
@@ -43,6 +43,7 @@ function ConvertStoreForm() {
   });
 
   const router = useRouter();
+  const { locale } = router;
   const labels = Labels();
 
   const changeHandler = (e) => {
@@ -104,7 +105,8 @@ function ConvertStoreForm() {
       } else {
         notification.error({
           message: constants.Error,
-          description: res.data.message_en,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       }
       router.push("/page/settings-page");
@@ -127,7 +129,7 @@ function ConvertStoreForm() {
 
             <div className="my-4 mx-4 ">
               <h6 style={{ fontSize: "14px", fontWeight: "700" }}>
-                Store Details
+                {t("Store Details")}
               </h6>
               <br></br>
               <form onSubmit={(e) => submitHandler(e)}>
@@ -148,7 +150,9 @@ function ConvertStoreForm() {
                   />
                 </div>
                 <div className="form-group my-2">
-                  <label for="exampleFormControlInput1">{t("Description")}</label>
+                  <label for="exampleFormControlInput1">
+                    {t("Description")}
+                  </label>
                   <textarea
                     required
                     type="text"
@@ -199,7 +203,7 @@ function ConvertStoreForm() {
                 </div>
                 <div className="form-group my-2 ">
                   <label for="exampleFormControlInput1">
-                    Google Map Location
+                    {t("Google Map Location")}
                   </label>
                   <input
                     required
@@ -216,7 +220,9 @@ function ConvertStoreForm() {
                   />
                 </div>
                 <div className="form-group my-2">
-                  <label for="exampleFormControlInput1">{t("Contact No")}</label>
+                  <label for="exampleFormControlInput1">
+                    {t("Contact No")}
+                  </label>
                   <input
                     required
                     type="number"
@@ -264,7 +270,9 @@ function ConvertStoreForm() {
                   />
                 </div>
                 <div className="form-group my-2 ">
-                  <label for="exampleFormControlInput1">{t("Cover Photo")}</label>
+                  <label for="exampleFormControlInput1">
+                    {t("Cover Photo")}
+                  </label>
                   <input
                     required
                     type="file"
@@ -281,7 +289,9 @@ function ConvertStoreForm() {
                 </div>
 
                 <div className="form-group my-2 ">
-                  <label for="exampleFormControlInput1">{t("Start Time")}</label>
+                  <label for="exampleFormControlInput1">
+                    {t("Start Time")}
+                  </label>
                   <input
                     required
                     type="time"

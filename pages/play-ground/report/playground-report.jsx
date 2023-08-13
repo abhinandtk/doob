@@ -123,7 +123,7 @@ function PlaygroundReport() {
                 className=" ms-4"
                 style={{ color: "#17a803", fontWeight: "700" }}
               >
-                Play ground Report
+                {t("Playground Report")}
               </h6>
               <div className="my-1 mx-4 ">
                 <div className="update">

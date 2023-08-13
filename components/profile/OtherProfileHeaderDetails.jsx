@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 import moment from "moment";
 import StarInfo from "./StarInfo";
 import { useTheme } from "next-themes";
+import { useTranslation } from "next-i18next";
 function OtherProfileHeaderDetails({
   data,
   id,
@@ -25,7 +26,9 @@ function OtherProfileHeaderDetails({
   console.log("daaata", data, groundDetail);
   const labels = Labels();
   const router = useRouter();
-  const {theme}=useTheme()
+  const { locale } = router;
+  const { theme } = useTheme();
+  const { t } = useTranslation();
 
   const followHandler = () => {
     Axios.post(
@@ -93,7 +96,8 @@ function OtherProfileHeaderDetails({
       } else {
         notification.error({
           message: constants.Error,
-          description: res.data.message_en,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       }
       console.log("resultBlock", res);
@@ -121,7 +125,8 @@ function OtherProfileHeaderDetails({
       } else {
         notification.error({
           message: constants.Error,
-          description: res.data.message_en,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       }
       console.log("result", res);
@@ -173,7 +178,7 @@ function OtherProfileHeaderDetails({
         </div>
       </Modal>
       <Modal
-        title="Rank"
+        title={t("Rank")}
         open={showRank}
         onCancel={() => setShowRank(false)}
         closable
@@ -190,8 +195,8 @@ function OtherProfileHeaderDetails({
             marginBottom: "10px",
           }}
         >
-          <div>Game</div>
-          <div style={{ textAlign: "right" }}>Rank</div>
+          <div>{t("Game")}</div>
+          <div style={{ textAlign: "right" }}>{t("Rank")}</div>
         </div>
         {data.user_rank &&
           data.user_rank.map((item, index) => (
@@ -294,7 +299,7 @@ function OtherProfileHeaderDetails({
                 onClick={() => setShowRank(true)}
                 className="btn profile-edit-btn"
               >
-                Rank
+                {t("Rank")}
               </button>
               <div className="profile-image">
                 {data.user_image ? (
@@ -330,19 +335,19 @@ function OtherProfileHeaderDetails({
                     <span className="profile-stat-count">
                       {data.post_count}
                     </span>{" "}
-                    <span style={{ color: "#959595" }}>posts</span>
+                    <span style={{ color: "#959595" }}>{t("Posts")}</span>
                   </li>
                   <li>
                     <span className="profile-stat-count">
                       {data.followers_count}
                     </span>{" "}
-                    <span style={{ color: "#959595" }}>followers</span>
+                    <span style={{ color: "#959595" }}>{t("Followers")}</span>
                   </li>
                   <li>
                     <span className="profile-stat-count">
                       {data.following_count}
                     </span>{" "}
-                    <span style={{ color: "#959595" }}>following</span>
+                    <span style={{ color: "#959595" }}>{t("Following")}</span>
                   </li>
                   <br></br>
                   <li>
@@ -350,7 +355,7 @@ function OtherProfileHeaderDetails({
                       className="profile-stat-count "
                       style={{ color: "#959595" }}
                     >
-                      Age:
+                      {t("Age")}:
                     </span>{" "}
                     <span>{data.age}</span>
                   </li>
@@ -359,7 +364,7 @@ function OtherProfileHeaderDetails({
                       className="profile-stat-count"
                       style={{ color: "#959595" }}
                     >
-                      Gender:
+                      {t("Gender")}:
                     </span>{" "}
                     <span> {data.gender}</span>
                   </li>
@@ -390,9 +395,13 @@ function OtherProfileHeaderDetails({
                     <button
                       onClick={() => setShow(true)}
                       className="side-menu__suggestion-buttons "
-                      style={{ backgroundColor: theme==='dark'?"#EFEFEF":"#EFEFEF", color: "#000000" }}
+                      style={{
+                        backgroundColor:
+                          theme === "dark" ? "#EFEFEF" : "#EFEFEF",
+                        color: "#000000",
+                      }}
                     >
-                      Following <i className="bi bi-chevron-down "></i>
+                      {t("Following")} <i className="bi bi-chevron-down "></i>
                     </button>
                   ) : isPrivate ? (
                     <button
@@ -407,7 +416,7 @@ function OtherProfileHeaderDetails({
                       onClick={followHandler}
                       className="side-menu__suggestion-buttons "
                     >
-                      Follow{" "}
+                      {t("Follow")}{" "}
                     </button>
                   )}
                   {(data.usertype === "Pro" || data.usertype === "Store") && (
@@ -420,7 +429,7 @@ function OtherProfileHeaderDetails({
                         )
                       }
                     >
-                      Shop Now
+                      {t("Shop Now")}
                     </button>
                   )}
                   {(data.usertype === "Pro" || data.usertype === "Field") && (
@@ -429,7 +438,7 @@ function OtherProfileHeaderDetails({
                       style={{ backgroundColor: "#17A803" }}
                       onClick={() => setShowField(true)}
                     >
-                      Book Now
+                      {t("Book Now")}
                     </button>
                   )}
                   {/* <button className="side-menu__suggestion-button3 ">Message</button> */}
@@ -450,11 +459,11 @@ function OtherProfileHeaderDetails({
                 <Dropdown.Menu align="center" className="Menu">
                   {blockedby ? (
                     <Dropdown.Item onClick={() => unBlockUserHandler()}>
-                      Unblock
+                      {t("Unblock")}
                     </Dropdown.Item>
                   ) : (
                     <Dropdown.Item onClick={() => blockUserHandler()}>
-                      Block
+                      {t("Block")}
                     </Dropdown.Item>
                   )}
                 </Dropdown.Menu>
@@ -465,7 +474,7 @@ function OtherProfileHeaderDetails({
       </Card>
       <Card className="ceed">
         <Card.Body>
-          {/* <button className=" profile-edits-btn">Rank</button> */}
+          {/* <button className=" profile-edits-btn">{t("Rank")}</button> */}
 
           <div className="avatar">
             <img
@@ -486,19 +495,22 @@ function OtherProfileHeaderDetails({
             </div>
             <div className="profile-role">@{data.username}</div>
             <div className="profile-followers">
-              {data.post_count} <span style={{ color: "#959595" }}>posts</span>
+              {data.post_count}{" "}
+              <span style={{ color: "#959595" }}>{t("Posts")}</span>
               <span className="mx-1">
                 {data.followers_count}{" "}
-                <span style={{ color: "#959595" }}>followers</span>
+                <span style={{ color: "#959595" }}>{t("Followers")}</span>
               </span>
               <span>
                 {data.following_count}{" "}
-                <span style={{ color: "#959595" }}>following</span>
+                <span style={{ color: "#959595" }}>{t("Following")}</span>
               </span>{" "}
             </div>
             <div className="profile-age">
-              Age:<span>{data.age}</span>
-              <span className="mx-2">Gender: {data.gender}</span>
+              {t("Age")}:<span>{data.age}</span>
+              <span className="mx-2">
+                {t("Gender")}: {data.gender}
+              </span>
             </div>
             <div className="profile-country">
               {" "}
@@ -518,7 +530,7 @@ function OtherProfileHeaderDetails({
                   className="side-menu__suggestion-buttons "
                   style={{ backgroundColor: "#EFEFEF", color: "#000000" }}
                 >
-                  Following <i className="bi bi-chevron-down "></i>
+                  {t("Following")} <i className="bi bi-chevron-down "></i>
                 </button>
               ) : isPrivate ? (
                 <button
@@ -533,7 +545,7 @@ function OtherProfileHeaderDetails({
                   onClick={followHandler}
                   className="side-menu__suggestion-buttons "
                 >
-                  Follow{" "}
+                  {t("Follow")}{" "}
                 </button>
               )}
               {(data.usertype === "Pro" || data.usertype === "Store") && (
@@ -546,7 +558,7 @@ function OtherProfileHeaderDetails({
                     )
                   }
                 >
-                  Shop Now
+                  {t("Shop Now")}
                 </button>
               )}
               {(data.usertype === "Pro" || data.usertype === "Field") && (
@@ -555,7 +567,7 @@ function OtherProfileHeaderDetails({
                   style={{ backgroundColor: "#17A803" }}
                   onClick={() => setShowField(true)}
                 >
-                  Book Now
+                  {t("Book Now")}
                 </button>
               )}
               {/* <button className="side-menu__suggestion-button3 ">Message</button> */}

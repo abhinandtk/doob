@@ -8,15 +8,18 @@ import constants from "@/public/data/my-constants/Constants";
 import Select from "react-select";
 import { useRouter } from "next/router";
 import { Labels } from "@/public/data/my-constants/Labels";
+import { useTranslation } from "next-i18next";
 
 function GameInviteUser({ setOnSuccess }) {
   const router = useRouter();
+  const { t } = useTranslation();
   const { gameId } = router.query;
   const [visible, setVisible] = useState(false);
   const [searchResult, setSearchResult] = useState([]);
   const [selectedUser, setSelectedUser] = useState([]);
   const [names, setNames] = useState("");
   const labels = Labels();
+  const { locale } = router;
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -60,7 +63,8 @@ function GameInviteUser({ setOnSuccess }) {
       } else {
         notification.error({
           message: constants.Error,
-          description: res.data.message_en,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       }
       console.log("resultinvite", res);
@@ -73,7 +77,7 @@ function GameInviteUser({ setOnSuccess }) {
         onCancel={() => setVisible(false)}
         footer={null}
         centered
-        title="Invite Participants"
+        title={t("Invite Participants")}
       >
         <Input
           placeholder="Enter names"
@@ -147,14 +151,14 @@ function GameInviteUser({ setOnSuccess }) {
           className="float-start"
           style={{ fontWeight: "700", fontSize: "15px" }}
         >
-          Participants
+          {t("Participants")}
         </h5>
         <button
           type="button"
           onClick={() => setVisible(true)}
           className="Join-btn float-end"
         >
-          Invite
+          {t("Invite")}
         </button>
       </div>
     </Fragment>

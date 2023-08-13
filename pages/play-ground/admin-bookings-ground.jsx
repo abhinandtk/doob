@@ -129,7 +129,7 @@ function AdminGroundBookings() {
                 className=" mx-4"
                 style={{ color: "#17a803", fontWeight: "700" }}
               >
-                Bookings
+                {t("Bookings")}
               </h6>
               {bookingList &&
                 bookingList.map((item, index) => (

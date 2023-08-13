@@ -19,6 +19,7 @@ function DoublesTeamsCard({
   const { t } = useTranslation();
 
   const router = useRouter();
+  const { locale } = router;
   const { tid } = router.query;
   console.log("teamData", admin);
   const [visible, setVisible] = useState(false);
@@ -127,7 +128,8 @@ function DoublesTeamsCard({
       } else {
         notification.error({
           message: constants.Error,
-          description: res.data.message_en,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       }
     });
@@ -172,7 +174,7 @@ function DoublesTeamsCard({
           </Button>
         }
         centered
-        title="Invite Participants"
+        title={t("Invite Participants")}
       >
         <div className="d-flex" style={{ justifyContent: "space-evenly" }}>
           <div>

@@ -5,7 +5,9 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 
 import Axios from "axios";
 import { Image } from "antd";
+import { useTranslation } from "next-i18next";
 function StadiumList({ stadiumData }) {
+  const { t } = useTranslation();
   return (
     <Fragment>
       <h5 style={{ fontWeight: "700" }} className="my-2">
@@ -77,7 +79,7 @@ function StadiumList({ stadiumData }) {
                         type="button"
                         className="view-btn float-end"
                       >
-                        View
+                        {t("View")}
                       </button>
                     </div>
                   </div>

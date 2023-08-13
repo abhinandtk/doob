@@ -95,7 +95,7 @@ function OtherUserAccount() {
               id="uncontrolled-tab-example"
               style={{ display: "flex", justifyContent: "space-evenly" }}
             >
-              <Tab eventKey={1} title="Feeds">
+              <Tab eventKey={1} title={t("Feeds")}>
                 <hr className=" line"></hr>
 
                 <div className="row images">
@@ -122,7 +122,7 @@ function OtherUserAccount() {
                   )}
                 </div>
               </Tab>
-              <Tab eventKey={2} title="Activities">
+              <Tab eventKey={2} title={t("Activities")}>
                 <hr className=" line "></hr>
                 <OtherUserProfileActivity />
               </Tab>
@@ -132,12 +132,12 @@ function OtherUserAccount() {
           <div className="profile-private">
             <h5 className="text-center">
               {blockedfrom || blockedby
-                ? "Currently unavailable"
-                : "This Account is Private"}
+                ? t("Currently unavailable")
+                : t("This Account is Private")}
             </h5>
             <p className="text-center">
               {!blockedfrom && !blockedby
-                ? "Follow to see their photos and videos"
+                ? t("Follow to see their photos and videos")
                 : null}
             </p>
           </div>

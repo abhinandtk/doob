@@ -81,7 +81,7 @@ function UploadFiles({ setUploadShow }) {
   return (
     <Fragment>
       <Modal
-        title="Create a post"
+        title={t("Create a post")}
         open={show}
         onCancel={() => {
           setShow(false);

@@ -8,6 +8,7 @@ import constants from "@/public/data/my-constants/Constants";
 import CreateGroupChat from "../new-chat/CreateGroupChat";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 function ChatHeaderActionsGroup({
   selectedId,
   setOnSuccess,
@@ -18,6 +19,8 @@ function ChatHeaderActionsGroup({
   const labels = Labels();
   const [visible, setVisible] = useState(false);
   const [leftVisible, setLeftVisible] = useState(false);
+  const router = useRouter();
+  const { locale } = router;
 
   const clearChatHandler = () => {
     Axios.post(
@@ -36,12 +39,14 @@ function ChatHeaderActionsGroup({
         setVisible(false);
         notification.success({
           message: constants.Success,
-          description: res.data.message_en,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       } else {
         notification.error({
           message: constants.Error,
-          description: res.data.message_en,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       }
     });
@@ -68,15 +73,16 @@ function ChatHeaderActionsGroup({
       } else {
         notification.error({
           message: constants.Error,
-          description: res.data.message_en,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       }
     });
   };
 
   const modalMessage = details.is_admin
-    ? "Are you sure to close this group"
-    : "Are you sure to exit this group";
+    ? t("Are you sure to close this group")
+    : t("Are you sure to exit this group");
 
   return (
     <Fragment>

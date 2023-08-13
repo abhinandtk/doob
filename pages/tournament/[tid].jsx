@@ -238,7 +238,7 @@ function TournamentDetailPage() {
                     className="my-4"
                     style={{ fontSize: "15px", fontWeight: "600" }}
                   >
-                    Next Match
+                    {t("Next Match")}
                   </h6>
                   {homeTabData &&
                   homeTabData.tournament_details.tournament_type ===
@@ -255,7 +255,7 @@ function TournamentDetailPage() {
                     className="my-4"
                     style={{ fontSize: "15px", fontWeight: "600" }}
                   >
-                    Last Match
+                    {t("Last Match")}
                   </h6>
                   {homeTabData &&
                   homeTabData.tournament_details.tournament_type ===

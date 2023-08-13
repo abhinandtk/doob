@@ -229,7 +229,7 @@ function AdminAllOrders() {
                             type="button"
                             className="order-btn "
                           >
-                            Update status
+                            {t("Update Status")}
                           </Button>
                         </span>
                       </p>

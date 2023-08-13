@@ -90,7 +90,7 @@ function ProfileHeaderDetails({ data, setSuccess }) {
           }}
         >
           <div>Game</div>
-          <div style={{ textAlign: "right" }}>Rank</div>
+          <div style={{ textAlign: "right" }}>{t("Rank")}</div>
         </div>
         {data.user_rank &&
           data.user_rank.map((item, index) => (
@@ -129,7 +129,7 @@ function ProfileHeaderDetails({ data, setSuccess }) {
               textAlign: "center",
             }}
           >
-            Change profile photo
+            {t("Change profile photo")}
             <hr></hr>
           </div>
           <div
@@ -153,7 +153,7 @@ function ProfileHeaderDetails({ data, setSuccess }) {
               style={{ color: "#FFFF" }}
             >
               <span style={{ color: theme === "dark" ? "#FFFF" : "" }}>
-                Add photo
+                {t("Add photo")}
               </span>
             </Upload>
           </div>
@@ -167,7 +167,7 @@ function ProfileHeaderDetails({ data, setSuccess }) {
               textAlign: "center",
             }}
           >
-            Remove Photo
+            {t("Remove Photo")}
           </div>
           <div style={{ cursor: "pointer" }} onClick={() => setVisible(false)}>
             {t("Cancel")}
@@ -184,7 +184,7 @@ function ProfileHeaderDetails({ data, setSuccess }) {
                   onClick={() => setShowRank(true)}
                   className="btn profile-edit-btn"
                 >
-                  Rank
+                  {t("Rank")}
                 </button>
                 <div className="profile-image">
                   {loading ? (
@@ -311,7 +311,7 @@ function ProfileHeaderDetails({ data, setSuccess }) {
               onClick={() => setShowRank(true)}
               className="btn profile-edit-btn"
             >
-              Rank
+              {t("Rank")}
             </button>
 
             {/* <button className=" profile-edits-btn">Rank</button>

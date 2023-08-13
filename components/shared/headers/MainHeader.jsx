@@ -237,7 +237,7 @@ function MainHeader({ title }) {
                           stroke-linejoin="round"
                         />
                       </svg>
-                      Create Game
+                      {t("Create Game")}
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>

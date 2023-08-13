@@ -25,6 +25,7 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
   console.log("dddddddaaaaaaaaaata,data", data);
   const { t } = useTranslation();
   const router = useRouter();
+  const { locale } = router;
   const { tid } = router.query;
 
   const labels = Labels();
@@ -113,7 +114,8 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
       } else {
         notification.error({
           message: constants.Error,
-          description: res.data.message_en,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       }
 

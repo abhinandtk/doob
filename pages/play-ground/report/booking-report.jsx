@@ -127,7 +127,7 @@ function BookingReport() {
                 className=" ms-4"
                 style={{ color: "#17a803", fontWeight: "700" }}
               >
-                Booking Report
+                {("Booking Report")}
               </h6>
               <div className="my-1 mx-4 ">
                 <div className="update">

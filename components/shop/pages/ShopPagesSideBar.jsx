@@ -220,7 +220,7 @@ function ShopPagesSideBar({ currentPage }) {
           className="customs"
           style={{ color: `${currentPage === "report" ? "#17A803" : ""}` }}
         >
-          Report
+          {t("Report")}
         </span>
       </Link>
       <Link href="/shop/store-settings" style={{ textDecoration: "none" }}>

@@ -57,7 +57,7 @@ function ProfileDetails() {
             activeKey={key}
             onSelect={(e) => SetKey(e)}
           >
-            <Tab eventKey={1} title="Feeds">
+            <Tab eventKey={1} title={t("Feeds")}>
               <hr className=" line"></hr>
 
               <div className="row images">
@@ -91,7 +91,7 @@ function ProfileDetails() {
                 )}
               </div>
             </Tab>
-            <Tab eventKey={2} title="Activities">
+            <Tab eventKey={2} title={t("Activities")}>
               <hr className=" line "></hr>
               <UserProfileActivityTab />
             </Tab>
