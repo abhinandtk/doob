@@ -10,7 +10,8 @@ function MainSidebarFixed() {
   const { t } = useTranslation();
   return (
     <aside className="sidebar">
-      <nav>
+      <nav> 
+
         <Link href="/" style={{ textDecoration: "none" }}>
           <span>
             <svg
@@ -32,7 +33,8 @@ function MainSidebarFixed() {
             <i className="uil uil-home" />
             <span className="nav_head">{t("Home")}</span>
           </span>
-        </Link>
+        </Link> 
+
         <Link href="/play-ground" style={{ textDecoration: "none" }}>
           <span>
             <svg
@@ -54,6 +56,7 @@ function MainSidebarFixed() {
             <span className="nav_head">{t("Bookings")}</span>
           </span>
         </Link>
+
         <Link href="/tournament" style={{ textDecoration: "none" }}>
           <span>
             <svg
@@ -78,9 +81,10 @@ function MainSidebarFixed() {
             <span className="nav_head mx-2">{t("Tournaments")}</span>
           </span>
         </Link>
+
         <Link href="/store" style={{ textDecoration: "none" }}>
           <span>
-            <svg
+            <svg 
               width="19"
               height="20"
               viewBox="0 0 19 20"
@@ -100,13 +104,14 @@ function MainSidebarFixed() {
             <span className="nav_head">{t("Stores")}</span>
           </span>
         </Link>
+
         <Link href="/profile" style={{ textDecoration: "none" }}>
           <span>
             <svg
               width="19"
               height="20"
               viewBox="0 0 19 20"
-              fill="none"
+              fill="none"  
               className="nav_head_svg"
               xmlns="http://www.w3.org/2000/svg"
             >

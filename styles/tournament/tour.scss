@@ -1626,6 +1626,12 @@ td {
   margin-left: 63px;
   margin-top: -100px;
 }
+.tournament-imx2 {
+  width: 100%;
+  height: 100%;
+  margin-left: 83px;
+  margin-top: 50px;
+}
 .tournament-imx {
   width: 100%;
   height: 100%;
@@ -2550,6 +2556,9 @@ input.nosubmit-shop {
     margin-left: 23px;
   }
 
+  input.tour {
+    width: 90%;
+  }
   .book {
     margin-top: 15px;
     border: 0px;
@@ -2559,7 +2568,7 @@ input.nosubmit-shop {
     display: none;
   }
   .play-container {
-    width: 100%;
+    width: 95%;
     margin-left: 23px;
   }
   .side-play {
@@ -2617,6 +2626,11 @@ input.nosubmit-shop {
     margin-left: 0px;
     margin-top: -100px;
 }
+.tournament-imx2 {
+  width: 90%;
+  margin-left: 0px;
+  margin-top: 40px;
+}
 }
 @media (max-width: 1300px) {
   .tour-container {
@@ -2628,7 +2642,11 @@ input.nosubmit-shop {
   .sidebar{
     display: none;
   }
+  .top-teams {
 
+    width: 100%;
+   
+}
 
 
 .tournaments {
@@ -2691,7 +2709,7 @@ input.nosubmit-shop {
     width: 95%;
   }
   .play-container {
-    width: 100%;
+    width: 95%;
   }
   input.nosubmit1 {
     border: 0px solid #eeeeee;
@@ -2738,7 +2756,7 @@ input.nosubmit-shop {
     width: 95%;
   }
   .play-container {
-    width: 100%;
+    width: 95%;
   }
   input.nosubmit1 {
     border: 0px solid #eeeeee;
@@ -2782,7 +2800,10 @@ input.nosubmit-shop {
   .tournament-imx2 {
     width: 100%;
     height: 100%;
-    margin-left: 67px;
+
+  }
+  input.tour {
+    width: 86%;
   }
 }
 
@@ -2790,7 +2811,10 @@ input.nosubmit-shop {
   .tour-container {
     width: 95%;
   }
-
+ 
+  .football{
+    width: 100%;
+  }
 
   .side-play{
     padding: 12px 7px;
@@ -2841,16 +2865,16 @@ input.nosubmit-shop {
     width: 60%;
   }
   .tournament-imx2 {
-    margin-left: 136px;
+    width: 98%;
   }
   .live-image2 {
-    width: 500px;
+    width: 100%;
   }
   .tournament2 {
-    width: 500px;
+    width: 100%;
   }
   .tournament3 {
-    width: 500px;
+    width: 100%;
   }
   .tournament-imx {
     // margin-left: 100px;
@@ -2859,7 +2883,7 @@ input.nosubmit-shop {
 }
 @media (max-width: 1025px) {
   .tour-container {
-    width: auto;
+    width: 95%;
   }
   .play-container {
     width: auto;
@@ -2904,8 +2928,51 @@ input.nosubmit-shop {
   .tournament-imx {
    display: none;
   }
+  .tournament-imx2 {
+    display: none;
+   }
+  input.tour {
+    width: 84%;
+  }
+  .doct-card {
+    width: 15rem;
+  }
 
- 
+  
+  .live1 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+ justify-content: center;
+    margin-top: -19px;
+    width: 68%;
+}
+.live-watch {
+  margin-top: 12px;
+  margin-left: -26px;
+  text-align: center;
+}
+.live-watch1 {
+  margin-top: 12px;
+  margin-right: -26px;
+  text-align: center; 
+}
+
+.watch1 {
+  margin-right: 153px;
+  position: absolute;
+  margin-top: 18px;
+}
+.watch2 {
+  margin-left: 290px;
+  position: absolute;
+  float: right;
+  margin-top: 18px;
+}
+
+
+
+
   .live-btn{
     width: 100%;
     justify-content: center;
@@ -2999,7 +3066,9 @@ input.nosubmit-shop {
     display: none;
   }
 
-
+  input.tour {
+    width: 75%;
+  }
 
   // .tour-container {
   //   width: auto;
@@ -3089,6 +3158,9 @@ input.nosubmit-shop {
   .tournament-imx {
     display: none;
   }
+  .tournament-imx2 {
+    display: none;
+  }
   .live-image1 {
     width: 100%;
   }
@@ -3113,6 +3185,35 @@ input.nosubmit-shop {
 
     width: 100%;
 }
+
+
+.live1 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+justify-content: center;
+  margin-top: -19px;
+  width: 55%;
+}
+.live-watch {
+margin-top: 12px;
+margin-left: -26px;
+text-align: center;
+}
+.watch1 {
+margin-right: 153px;
+position: absolute;
+margin-top: 18px;
+}
+.watch2 {
+margin-left: 290px;
+position: absolute;
+float: right;
+margin-top: 18px;
+}
+
+
+
 }
 @media (max-width: 659px) {
   .tour-container {
@@ -3174,6 +3275,33 @@ input.nosubmit-shop {
    
   width: 100%;
 }
+
+
+.live1 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+justify-content: center;
+  margin-top: -19px;
+  width: 35%;
+}
+.live-watch {
+margin-top: 12px;
+margin-left: -26px;
+text-align: center;
+}
+.watch1 {
+margin-right: 153px;
+position: absolute;
+margin-top: 18px;
+}
+.watch2 {
+margin-left: 290px;
+position: absolute;
+float: right;
+margin-top: 18px;
+}
+
 }
 
 @media (max-width: 527px) {
@@ -3189,6 +3317,14 @@ input.nosubmit-shop {
     display: none;
   }
 
+  .field-info {
+
+    margin-top: 49px;
+   
+}
+.Invite {
+  margin-top: 55px;
+}
   .carts {
    
     margin-bottom: 23px;
@@ -3268,8 +3404,11 @@ input.nosubmit-shop {
     text-overflow: ellipsis;
   }
   .field-content {
-    margin-top: 180px;
+    margin-top: 120px;
   }
+  .Grounds {
+    margin-bottom: 72px;
+}
   .game-description {
     color: #000000;
     font-weight: 500;
@@ -3678,40 +3817,15 @@ input.nosubmit-shop {
     margin-top: 13px;
     margin-left: 78%;
   }
-  .live1 {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    margin-left: 70px;
-    margin-top: -19px;
-  }
-  .live-watch {
-    margin-top: 12px;
+ 
 
-    text-align: center;
-    margin-left: 50px;
-  }
-  .live-watch1 {
-    margin-top: 12px;
-
-    text-align: center;
-    margin-left: 50px;
-  }
   .quaters {
     float: right;
     margin-top: -8px;
     margin-right: 0px;
     position: absolute;
   }
-  .watch1 {
-    margin-left: -79px;
-    position: absolute;
-    margin-top: 18px;
-  }
-  .watch2 {
-    position: absolute;
-    margin-top: 18px;
-  }
+ 
 
   .tournaments {
     width: 100%;
@@ -3794,14 +3908,7 @@ input.nosubmit-shop {
     height: 32px;
   }
 
-  .live {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    margin-left: 0px;
-    margin-top: 13px;
-    justify-content: center;
-  }
+  
   .video-play {
     display: flex;
     flex-wrap: wrap;
@@ -3818,17 +3925,9 @@ input.nosubmit-shop {
     color: var(--font-theme-color);
   }
   input.tour {
-    border: 0px solid #eeeeee;
-    width: 77%;
-    padding: 9px 4px 9px 40px;
-    background: transparent
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
-      no-repeat 13px center;
-    margin-left: 0px;
-    margin-top: 35px;
-    border-radius: 5px;
 
-    background-color: #eeeeee;
+    width: 77%;
+
   }
   .tour-icon {
     margin-left: 6px;
@@ -4180,6 +4279,32 @@ input.nosubmit-shop {
     margin-left: -1px;
     width: 80px;
   }
+
+
+  .live1 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+ justify-content: center;
+    margin-top: -19px;
+    width: 30%;
+}
+.live-watch {
+  margin-top: 12px;
+  margin-left: -26px;
+  text-align: center;
+}
+.watch1 {
+  margin-right: 153px;
+  position: absolute;
+  margin-top: 18px;
+}
+.watch2 {
+  margin-left: 290px;
+  position: absolute;
+  float: right;
+  margin-top: 18px;
+}
 }
 // @media(max-width:501px) {
 //   .live-image1 {
@@ -4291,17 +4416,9 @@ input.nosubmit-shop {
 
 @media (max-width: 489px) {
   input.tour {
-    border: 0px solid #eeeeee;
+  
     width: 74%;
-    padding: 9px 4px 9px 40px;
-    background: transparent
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
-      no-repeat 13px center;
-    margin-left: 0px;
-    margin-top: 35px;
-    border-radius: 5px;
-
-    background-color: #eeeeee;
+  
   }
   .topnav {
     overflow: hidden;
@@ -4320,23 +4437,8 @@ input.nosubmit-shop {
     font-size: 17px;
     border-bottom: 4px solid transparent;
   }
-  .live1 {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    margin-left: 60px;
-    margin-top: -19px;
-  }
-  .watch1 {
-    position: absolute;
-    margin-top: 18px;
-    margin-left: -70px;
-  }
-  .watch2 {
-    position: absolute;
-    margin-top: 18px;
-    margin-left: 185px;
-  }
+
+ 
   .play_text {
     font-weight: 700;
     font-size: 16px;
@@ -4478,24 +4580,8 @@ input.nosubmit-shop {
     width: 230px;
     margin-left: 43px;
   }
-  .live {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    margin-left: 0px;
-    margin-top: 13px;
-    justify-content: center;
-  }
-  .live-watch {
-    margin-top: 12px;
-    text-align: center;
-    margin-left: 30px;
-  }
-  .live-watch1 {
-    margin-top: 12px;
-    text-align: center;
-    margin-left: 30px;
-  }
+  
+ 
   .video-play {
     display: flex;
     flex-wrap: wrap;
@@ -4536,6 +4622,32 @@ input.nosubmit-shop {
     text-overflow: ellipsis;
     width: 120px;
   }
+
+
+  .live1 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+ justify-content: center;
+    margin-top: -19px;
+    width: 20%;
+}
+.live-watch {
+  margin-top: 12px;
+  margin-left: -26px;
+  text-align: center;
+}
+.watch1 {
+  margin-right: 123px;
+  position: absolute;
+  margin-top: 18px;
+}
+.watch2 {
+  margin-left: 240px;
+  position: absolute;
+  float: right;
+  margin-top: 18px;
+}
 }
 @media (max-width: 440px) {
   .tour-container {
@@ -4627,23 +4739,8 @@ input.nosubmit-shop {
     border: 0px;
     border-radius: 19px;
   }
-  .live1 {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    margin-left: 19px;
-    margin-top: -19px;
-  }
-  .live-watch {
-    margin-top: 12px;
-    text-align: center;
-    margin-left: 55px;
-  }
-  .live-watch1 {
-    margin-top: 12px;
-    text-align: center;
-    margin-left: 32px;
-  }
+  
+ 
   .date-wins {
     font-weight: 600;
     font-size: 12px;
@@ -4700,22 +4797,7 @@ input.nosubmit-shop {
     margin-top: 9px;
     font-weight: 500;
   }
-  .watch1 {
-    position: absolute;
-    margin-top: 18px;
-    margin-left: -70px;
-  }
-  .watch2 {
-    position: absolute;
-    margin-top: 18px;
-    margin-left: 160px;
-  }
 
-  .watch1 {
-    position: absolute;
-    margin-top: 18px;
-    margin-left: -54px;
-  }
   .clubs {
     width: 37px;
     height: 37px;
@@ -4723,11 +4805,7 @@ input.nosubmit-shop {
     object-fit: cover;
     border-radius: 50%;
 }
-  .watch2 {
-    position: absolute;
-    margin-top: 18px;
-    margin-left: 174px;
-  }
+
   .book-details {
     margin-left: 10px;
     line-height: 12px;
@@ -4881,14 +4959,7 @@ input.nosubmit-shop {
     text-overflow: ellipsis;
     width: 238px;
   }
-  .live {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    margin-left: 10px;
-    margin-top: 13px;
-    justify-content: center;
-  }
+
   .video-play {
     display: flex;
     flex-wrap: wrap;
@@ -4899,17 +4970,9 @@ input.nosubmit-shop {
   }
 
   input.tour {
-    border: 0px solid #eeeeee;
-    width: 70%;
-    padding: 9px 4px 9px 40px;
-    background: transparent
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
-      no-repeat 13px center;
-    margin-left: 0px;
-    margin-top: 35px;
-    border-radius: 5px;
 
-    background-color: #eeeeee;
+    width: 70%;
+
   }
   .tour-icon {
     margin-left: 6px;
@@ -5139,14 +5202,7 @@ input.nosubmit-shop {
     margin-left: -56px;
     font-size: 14px;
   }
-  .live {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    margin-left: 0px;
-    justify-content: center;
-    margin-top: 13px;
-    justify-content: center;
+ 
 
     .video-play {
       display: flex;
@@ -5196,50 +5252,46 @@ input.nosubmit-shop {
       margin-left: 30px;
     }
     .grey-details1 {
-      margin-left: 30px;
+      margin-left: 0px;
     }
     .grey-details3 {
-      margin-left: 20px;
+      margin-left: 0px;
     }
   }
-}
+
 @media (max-width: 383px) {
   input.tour {
-    border: 0px solid #eeeeee;
-    width: 60%;
-    padding: 9px 4px 9px 40px;
-    background: transparent
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
-      no-repeat 13px center;
-    margin-left: 0px;
-    margin-top: 35px;
-    border-radius: 5px;
 
-    background-color: #eeeeee;
+    width: 60%;
+
   }
   .live1 {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    margin-left: 13px;
+ justify-content: center;
     margin-top: -19px;
-  }
+    width: 18%;
+}
+.live-watch {
+  margin-top: 12px;
+  margin-left: -80px;
+  text-align: center;
+}
+.watch1 {
+  margin-right: 153px;
+  position: absolute;
+  margin-top: 18px;
+}
+.watch2 {
+  margin-left: 120px;
+  position: absolute;
+  float: right;
+  margin-top: 18px;
+}
 
-  .live-watch {
-    margin-top: 12px;
-    text-align: center;
-    margin-left: 24px;
-  }
-  .live-watch1 {
-    margin-top: 12px;
-    text-align: center;
-    margin-left:40px;
-  }
-  .watch2 {
-    position: absolute;
-    margin-top: 18px;
-    margin-left: 155px;
-  }
+
+ 
   .green-text {
     color: white;
     font-size: 16px;
@@ -5286,13 +5338,36 @@ input.nosubmit-shop {
     font-size: 17px;
     border-bottom: 4px solid transparent;
   }
+ 
   .live1 {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    margin-left: 4px;
+ justify-content: center;
     margin-top: -19px;
-  }
+    width: 8%;
+}
+.live-watch {
+  margin-top: 12px;
+  margin-left: -80px;
+  text-align: center;
+}
+.watch1 {
+  margin-right: 120px;
+  position: absolute;
+  margin-top: 18px;
+}
+.watch2 {
+  margin-left: 120px;
+  position: absolute;
+  float: right;
+  margin-top: 18px;
+}
+
+
+  
+ 
+
 
   .cart-place {
     display: -webkit-box;
@@ -5457,21 +5532,7 @@ input.nosubmit-shop {
     width: 97%;
     height: 210px;
   }
-  .live-watch {
-    margin-top: 12px;
-    text-align: center;
-    margin-left: 16px;
-  }
-  .live-watch1 {
-    margin-top: 12px;
-    text-align: center;
-    margin-left: 16px;
-  }
-  .watch2 {
-    position: absolute;
-    margin-top: 18px;
-    margin-left: 145px;
-  }
+
   .grey-number {
     font-size: 14px;
     font-weight: 600;

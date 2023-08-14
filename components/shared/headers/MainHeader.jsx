@@ -561,8 +561,9 @@ function MainHeader({ title }) {
                             stroke-width="0.239706"
                           />
                         </svg>
+                        
                         <span className="mx-3 hubs">{t("Bookings")}</span>
-                      </Link>
+                      </Link> 
                     </div>
 
                     <div className="my-4">
