@@ -140,7 +140,7 @@ function TournamentTabContent({ data }) {
             type="button"
             className="live-btn my-4"
           >
-            View all
+            {t("View all")}
           </button>
         </div>
         <div className="col-lg-5 col-md-6">

@@ -26,9 +26,9 @@ function PlaygroundFilter({ playgroundFilterHandler, setMapShow }) {
   const [country, setCountry] = useState([]);
   const [amenityChecked, setAmenityChecked] = useState([]);
   const [formData, setFormData] = useState({
-    sport: "",
-    date: "",
-    area: "",
+    sport: data.sports_id,
+    date: data.date,
+    area: data.area,
   });
   useEffect(() => {
     if (data.sports_id && data.date && data.area) {
@@ -39,7 +39,6 @@ function PlaygroundFilter({ playgroundFilterHandler, setMapShow }) {
       });
     }
   }, [data]);
-
   useEffect(() => {
     Axios.get(apis.listGameAmenities, {
       headers: {
@@ -96,26 +95,32 @@ function PlaygroundFilter({ playgroundFilterHandler, setMapShow }) {
       setFormData({ ...formData, [e.target.id]: e.target.value });
     }
   };
-  const submitSearchHandler = (e) => {
+  const changeSearchHandler = (e) => {
     e.preventDefault();
-    if (e.target.id === "search") {
-      setSearchKey(e.target.value);
+    setSearchKey(e.target.value);
+  };
+  useEffect(() => {
+    if (data.sports_id && data.date && data.area) {
+      playgroundFilterHandler(formData, amenityChecked, searchKey);
     }
+  }, [formData, searchKey]);
+
+  const submitSearchHandler = () => {
     playgroundFilterHandler(formData, amenityChecked, searchKey);
     setVisible(false);
-    console.log("44444filter", formData, amenityChecked);
   };
 
   return (
     <Fragment>
-      <form className="nosubmit" onSubmit={(e) => submitSearchHandler(e)}>
+      <form className="nosubmit" onSubmit={() => submitSearchHandler()}>
         <span>
           <input
             className="tour"
             id="search"
             type="search"
+            value={searchKey}
             placeholder="Search"
-            onChange={(e) => submitSearchHandler(e)}
+            onChange={(e) => changeSearchHandler(e)}
           />
           <span onClick={() => setMapShow((prev) => !prev)}>
             <img
@@ -140,7 +145,7 @@ function PlaygroundFilter({ playgroundFilterHandler, setMapShow }) {
         centered
         footer={
           <Button
-            onClick={(e) => submitSearchHandler(e)}
+            onClick={() => submitSearchHandler()}
             type="submit"
             className="modals-btn "
           >

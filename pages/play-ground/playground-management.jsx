@@ -55,7 +55,7 @@ function PlaygroundManagementPage() {
 
       <div class="play-container  my-5">
         <h5 className=" fw-bold">
-          Playground Management
+          {t("Playground Management")}
           <span
             className="home"
             style={{ float: "right", display: "block", marginRight: "7px" }}
@@ -105,7 +105,7 @@ function PlaygroundManagementPage() {
                 </Card.Title>
 
                 <Card.Text className="new-orders1">
-                  Today&apos;s Bookings
+                  {t("Today Bookings")}
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -161,7 +161,7 @@ function PlaygroundManagementPage() {
                   </span>
                 </Card.Title>
 
-                <Card.Text className="new-orders2">Monthly Bookings</Card.Text>
+                <Card.Text className="new-orders2">{t("Monthly Bookings")}</Card.Text>
               </Card.Body>
             </Card>
           </div>
@@ -194,7 +194,7 @@ function PlaygroundManagementPage() {
                   fill="black"
                 />
               </svg>
-              <p className="play-manage">Bookings</p>
+              <p className="play-manage">{t("Bookings")}</p>
             </div>
           </Link>
           <Link
@@ -286,7 +286,7 @@ function PlaygroundManagementPage() {
                 />
               </svg>
 
-              <p className="play-manage">Playground</p>
+              <p className="play-manage">{t("Playground")}</p>
             </div>
           </Link>
           {/* <div className="docu1  ">

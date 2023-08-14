@@ -27,6 +27,7 @@ function ProductDetailFullWidth({ product, setApiSuccess }) {
   const labels = Labels();
   const dispatch = useDispatch();
   const router = useRouter();
+  const { locale } = router;
   const prVarientId = useSelector((state) => state.product.proVarient);
   const proPrimaryVarientId = useSelector(
     (state) => state.product.proPrimaryVarientId
@@ -141,7 +142,8 @@ function ProductDetailFullWidth({ product, setApiSuccess }) {
       } else {
         notification.error({
           message: constants.Error,
-          description: res.data.message_en,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       }
       //  if(res.data.status == 1){

@@ -138,7 +138,7 @@ function ShopDashBoardPages() {
               />
             </svg>
 
-            <p className="shop-manage">Stocks</p>
+            <p className="shop-manage">{t("Stocks")}</p>
           </div>
         </Link>
 

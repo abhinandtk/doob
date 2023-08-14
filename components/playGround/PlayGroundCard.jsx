@@ -5,9 +5,11 @@ import constants from "@/public/data/my-constants/Constants";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import moment from "moment";
+import { useTranslation } from "next-i18next";
 
 function PlayGroundCard({ content }) {
   const router = useRouter();
+  const { t } = useTranslation();
 
   return (
     <Fragment>
@@ -16,14 +18,14 @@ function PlayGroundCard({ content }) {
           className="float-start"
           style={{ fontWeight: "700", fontSize: "19px", marginLeft: "-6px" }}
         >
-          Playgrounds near me
+          {t("Playgrounds near me")}
         </h5>
         <p className="float-end" style={{ color: "#959595" }}>
           {/* View all */}
         </p>
       </div>
-        
-      <div className="playgrounds " style={{cursor:'pointer'}}>
+
+      <div className="playgrounds " style={{ cursor: "pointer" }}>
         {content.map((item, index) => (
           <div
             onClick={() =>
@@ -68,11 +70,8 @@ function PlayGroundCard({ content }) {
               </div>
             </div>
           </div>
-         
         ))}
-       
       </div>
-     
     </Fragment>
   );
 }

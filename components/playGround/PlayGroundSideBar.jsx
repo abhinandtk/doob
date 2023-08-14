@@ -35,7 +35,7 @@ function PlayGroundSideBar({ currentPage }) {
           className="mx-2"
           style={{ color: `${currentPage === "bookings" ? "#17A803" : ""}` }}
         >
-          Bookings
+          {t("Bookings")}
         </span>
       </Link>
       <Link
@@ -127,7 +127,7 @@ function PlayGroundSideBar({ currentPage }) {
           className="mx-2"
           style={{ color: `${currentPage === "playground" ? "#17A803" : ""}` }}
         >
-          Playground
+          {t("Playground")}
         </span>
       </Link>
 
@@ -149,7 +149,7 @@ function PlayGroundSideBar({ currentPage }) {
             fill="black"
           />
         </svg>
-        <span className="mx-1"> Report</span>
+        <span className="mx-1"> {t("Report")}</span>
       </Link>
       {/* <a href="#contact">
         {" "}

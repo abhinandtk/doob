@@ -56,7 +56,8 @@ function GameDetailTopContent({ details, setOnSuccess }) {
       } else {
         notification.error({
           message: constants.Error,
-          description: res.data.message_en,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
         setOnSuccess((prev) => !prev);
       }
@@ -180,42 +181,40 @@ function GameDetailTopContent({ details, setOnSuccess }) {
                     </span>
                   </div>
 
-                 
-                      {details.is_joined === "Accepted" ? (
-                        <button
-                          type="button"
-                          onClick={() => leftGameHandler(constants.user_id)}
-                          className=" field-btn"
-                          style={{ backgroundColor: "red" }}
-                        >
-                          Leave
-                        </button>
-                      ) : details.is_joined === "Left" ||
-                        details.is_joined === "Invitation Declined" ||
-                        "No user exist" ? (
-                        <button
-                          type="button"
-                          onClick={() => joinGameHandler(constants.user_id)}
-                          className=" field-btn"
-                        >
-                          Join
-                        </button>
-                      ) : details.is_joined === "Invited" ? (
-                        <button
-                          type="button"
-                          onClick={() => joinGameHandler(constants.user_id)}
-                          className=" field-btn"
-                        >
-                          Accept
-                        </button>
-                      ) : details.is_joined === "Removed" ? (
-                        <p className="my-3" style={{ color: "red" }}>
-                          Removed by admin
-                        </p>
-                      ) : (
-                        ""
-                      )}
-                   
+                  {details.is_joined === "Accepted" ? (
+                    <button
+                      type="button"
+                      onClick={() => leftGameHandler(constants.user_id)}
+                      className=" field-btn"
+                      style={{ backgroundColor: "red" }}
+                    >
+                      {t("Leave")}
+                    </button>
+                  ) : details.is_joined === "Left" ||
+                    details.is_joined === "Invitation Declined" ||
+                    "No user exist" ? (
+                    <button
+                      type="button"
+                      onClick={() => joinGameHandler(constants.user_id)}
+                      className=" field-btn"
+                    >
+                      {t("Join")}
+                    </button>
+                  ) : details.is_joined === "Invited" ? (
+                    <button
+                      type="button"
+                      onClick={() => joinGameHandler(constants.user_id)}
+                      className=" field-btn"
+                    >
+                      {t("Accept")}
+                    </button>
+                  ) : details.is_joined === "Removed" ? (
+                    <p className="my-3" style={{ color: "red" }}>
+                      {t("Removed by admin")}
+                    </p>
+                  ) : (
+                    ""
+                  )}
                 </div>
               </div>
             </div>

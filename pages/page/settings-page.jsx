@@ -24,14 +24,14 @@ import PagesSideBar from "@/components/stores/pages/PagesSideBar";
 import { useRouter } from "next/router";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['translation'])),
+      ...(await serverSideTranslations(locale, ["translation"])),
     },
-  }
+  };
 }
 function StoreSettingsPage() {
   const { t } = useTranslation();
@@ -43,7 +43,7 @@ function StoreSettingsPage() {
   const [blockedShow, setBlockedShow] = useState(false);
   const [blockedList, setBlockedList] = useState([]);
   const router = useRouter();
-
+  const { locale } = router;
   useEffect(() => {
     Axios.get(apis.settings, {
       headers: {
@@ -158,7 +158,8 @@ function StoreSettingsPage() {
       } else {
         notification.error({
           message: constants.Error,
-          description: res.data.message_en,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       }
       console.log("result", res);

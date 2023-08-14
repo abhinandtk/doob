@@ -8,6 +8,7 @@ import { Upload, Avatar, Button, Input, Modal, List, notification } from "antd";
 import { UserOutlined, DeleteOutlined, CheckOutlined } from "@ant-design/icons";
 import { CardImg } from "react-bootstrap";
 import { Labels } from "@/public/data/my-constants/Labels";
+import { useTranslation } from "next-i18next";
 
 function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
   const [searchInput, setSearchInput] = useState("");
@@ -16,11 +17,14 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
   const [groupProfilePicLink, setGroupProfilePicLink] = useState("");
   const [visible, setVisible] = useState(false);
   const labels = Labels();
+  const { t } = useTranslation();
 
   const [selectedUser, setSelectedUser] = useState([]);
   const [selectedUserId, setSelectedUserId] = useState([]);
   const [names, setNames] = useState("");
   const [grpName, setGrpName] = useState("");
+  const router = useRouter();
+  const { locale } = router;
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -97,14 +101,16 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
       if (res.data.status === 1) {
         notification.success({
           message: constants.Success,
-          description: res.data.message_en,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
         onChatSelect(res.data.data.chat_id);
         onNewMsg(null);
       } else {
         notification.error({
           message: constants.Error,
-          description: res.data.message_en,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       }
     });
@@ -214,7 +220,7 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
                   />
                 </svg>
               </span>
-              Create Group
+              {t("Create Group")}
             </h6>
           </div>
         </div>

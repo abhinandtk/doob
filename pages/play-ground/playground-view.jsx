@@ -53,14 +53,14 @@ function PlaygroundPageAdmin() {
                 className=" mx-4"
                 style={{ color: "#17a803", fontWeight: "700" }}
               >
-                Playground 
+                {t("Playground")} 
               </h6>
               <Button
                 onClick={() => router.push("/play-ground/add-playground")}
                 type="button"
                 className="order1-btn "
               > 
-                Add Playground
+                {t("Add Playground")}
               </Button> 
               {groundView &&
                 groundView.map((item, index) => (
@@ -76,7 +76,7 @@ function PlaygroundPageAdmin() {
                           router.push(`/play-ground/edit/${item.stadium_slug}`)
                         }
                       >
-                        Edit
+                        {t("Edit")}
                       </button>
                     </div> 
                     <hr

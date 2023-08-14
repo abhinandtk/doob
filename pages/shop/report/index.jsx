@@ -33,7 +33,7 @@ function ReportPage() {
                 className=" ms-4"
                 style={{ color: "#17a803", fontWeight: "700" }}
               >
-                Report
+                {t("Report")}
               </h6>
               <div className="my-4 mx-4 ">
                 <div className="basic">
@@ -41,7 +41,7 @@ function ReportPage() {
                     href="/shop/report/sales-report"
                     style={{ textDecoration: "none", color: "#212529" }}
                   >
-                    <h6>
+                    <h6 className="dark-theme-color">
                       {t("Sales Report")}
                       <span>
                         <svg
@@ -61,8 +61,8 @@ function ReportPage() {
                     href="/shop/report/brand-sales-report"
                     style={{ textDecoration: "none", color: "#212529" }}
                   >
-                    <h6 className="my-4">
-                      Brand Sales Report
+                    <h6 className="dark-theme-color my-4">
+                      {t("Brand Sales Report")}
                       <span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +81,7 @@ function ReportPage() {
                     href="/shop/report/category-sales-report"
                     style={{ textDecoration: "none", color: "#212529" }}
                   >
-                    <h6 className="my-4">
+                    <h6 className="dark-theme-color my-4">
                       {t("Category Sales Report")}
                       <span>
                         <svg
@@ -101,7 +101,7 @@ function ReportPage() {
                     href="/shop/report/product-sales-report"
                     style={{ textDecoration: "none", color: "#212529" }}
                   >
-                    <h6 className="my-4">
+                    <h6 className="dark-theme-color my-4">
                       {t("Product Sales Report")}
                       <span>
                         <svg
@@ -121,7 +121,7 @@ function ReportPage() {
                     href="/shop/report/customer-sales-report"
                     style={{ textDecoration: "none", color: "#212529" }}
                   >
-                    <h6 className="my-4">
+                    <h6 className="dark-theme-color my-4">
                       {t("Customer Sales Report")}
                       <span>
                         <svg

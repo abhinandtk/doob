@@ -479,7 +479,7 @@ function MobileHeader() {
                             stroke-width="0.239706"
                           />
                         </svg>
-                        <span className="mx-3 flap">Bookings</span>
+                        <span className="mx-3 flap">{t("Bookings")}</span>
                       </Link>
                     </div>
 

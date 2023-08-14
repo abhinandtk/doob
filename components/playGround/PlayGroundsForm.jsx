@@ -206,7 +206,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
         />
       </div>
       <div className="form-group my-2">
-        <label for="exampleFormControlSelect1">City *</label>
+        <label for="exampleFormControlSelect1">{t("City")} *</label>
         <select
           className="form-control "
           style={{ border: "0px", background: "#eeeeee", color: "#959595" }}
@@ -242,7 +242,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
         />
       </div>
       <div className="form-group my-2 ">
-        <label for="exampleFormControlInput1">Google Map Location*</label>
+        <label for="exampleFormControlInput1">{t("Google Map Location")}*</label>
         <input
           required
           type="url"
@@ -318,7 +318,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
         />
       </div>
       <div className="form-group my-2 ">
-        <label for="exampleFormControlInput1">Opening Time*</label>
+        <label for="exampleFormControlInput1">{t("Opening Time")}*</label>
         <input
           required
           type="time"
@@ -334,7 +334,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
         />
       </div>
       <div className="form-group my-2 ">
-        <label for="exampleFormControlInput1">Closing Time*</label>
+        <label for="exampleFormControlInput1">{t("Closing Time")}*</label>
         <input
           required
           type="time"
@@ -349,7 +349,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
           onChange={(e) => handleChange(e)}
         />
       </div>
-      <h6 style={{ fontSize: "15px", fontWeight: "700" }}>Choose File</h6>
+      <h6 style={{ fontSize: "15px", fontWeight: "700" }}>{t("Choose Game")}</h6>
       {game.map((item, index) => (
         <div
           key={index}
@@ -380,7 +380,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
 
       <div className="form-group my-2 ">
         <label for="exampleFormControlTextarea1">
-          <h6 style={{ fontSize: "15px", fontWeight: "700" }}>Description</h6>
+          <h6 style={{ fontSize: "15px", fontWeight: "700" }}>{t("Description")}</h6>
         </label>
         <textarea
           className="form-control"
@@ -398,7 +398,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
       <div className="form-group my-2 ">
         <label for="exampleFormControlTextarea1">
           <h6 style={{ fontSize: "15px", fontWeight: "700" }}>
-            Description Arabic
+            {t("Description Arabic")}
           </h6>
         </label>
         <textarea
@@ -416,7 +416,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
       </div>
       <div className="form-group my-2 ">
         <label for="exampleFormControlTextarea1">
-          <h6 style={{ fontSize: "15px", fontWeight: "700" }}>Amount</h6>
+          <h6 style={{ fontSize: "15px", fontWeight: "700" }}>{t("Amount")}</h6>
         </label>
         <textarea
           className="form-control"
@@ -433,7 +433,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
 
       <br></br>
 
-      <h6 style={{ fontSize: "15px", fontWeight: "700" }}>Amenities</h6>
+      <h6 style={{ fontSize: "15px", fontWeight: "700" }}>{t("Amenities")}</h6>
 
       {amenity.map((data, index) => (
         <div

@@ -14,10 +14,12 @@ import { useTranslation } from "next-i18next";
 function ProfileDetails() {
   const { t } = useTranslation();
   const [key, SetKey] = useState(1);
-  const [page, setPage] = useState(1);
   const [userDetials, setUserDetails] = useState([]);
   const [postDetails, setPostDetails] = useState([]);
-  const [activityData, setActivityData] = useState([]);
+
+  const [page, setPage] = useState(1);
+  const [loadMore, setLoadMore] = useState(true);
+
   const apiSuccess = useSelector((state) => state.api);
 
   const [success, setSuccess] = useState(true);
@@ -29,31 +31,19 @@ function ProfileDetails() {
       },
     }).then((res) => {
       setUserDetails(res.data.data.user_details);
+      setLoadMore(!!res.data.next);
 
       if (page === 1) {
         setPostDetails(res.data.data.post_details);
-        setActivityData(res.data.data.activity_serializer);
       } else {
         setPostDetails((prevPosts) => [
           ...prevPosts,
           ...res.data.data.post_details,
         ]);
-        setActivityData((prevActivity) => [
-          ...prevActivity,
-          ...res.data.data.activity_serializer,
-        ]);
       }
       console.log("POsts result=-----------------------", res);
     });
   }, [success, apiSuccess, page]);
-
-  // Axios.get(apis.activity, {
-  //   headers: {
-  //     Authorization: `Token ${constants.token_id}`,
-  //   },
-  // }).then((res) => {
-  //   setActivityData(res.data.data);
-  // });
 
   return (
     <Fragment>
@@ -67,7 +57,7 @@ function ProfileDetails() {
             activeKey={key}
             onSelect={(e) => SetKey(e)}
           >
-            <Tab eventKey={1} title="Feeds">
+            <Tab eventKey={1} title={t("Feeds")}>
               <hr className=" line"></hr>
 
               <div className="row images">
@@ -90,18 +80,20 @@ function ProfileDetails() {
                     </div>
                   );
                 })}
+                {loadMore && (
+                  <p
+                    onClick={() => setPage((prev) => prev + 1)}
+                    className="dark-theme-color my-3"
+                    style={{ cursor: "pointer", textAlign: "center" }}
+                  >
+                    {t("Load More")}
+                  </p>
+                )}
               </div>
             </Tab>
-            <Tab eventKey={2} title="Activities">
+            <Tab eventKey={2} title={t("Activities")}>
               <hr className=" line "></hr>
-              <UserProfileActivityTab activityData={activityData} />
-              <p
-                onClick={() => setPage((prev) => prev + 1)}
-                className="dark-theme-color my-2"
-                style={{ cursor: "pointer", textAlign: "center" }}
-              >
-                {t("Load More")}
-              </p>
+              <UserProfileActivityTab />
             </Tab>
           </Tabs>
         </section>

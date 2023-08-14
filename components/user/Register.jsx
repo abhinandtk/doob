@@ -18,6 +18,8 @@ function Register({ setActiveModal, countries }) {
   const { t } = useTranslation();
   const [show, setShow] = useState(true);
   const [errorMsg, setErrorMsg] = useState("");
+  const router = useRouter();
+  const { locale } = router;
 
   const selectedCountry = localStorage.getItem("country-select");
   const [registerFormData, setRegisterFormData] = useState({
@@ -66,9 +68,12 @@ function Register({ setActiveModal, countries }) {
           } else {
             notification.error({
               message: constants.Error,
-              description: res.data.message_en,
+              description:
+                locale === "en" ? res.data.message_en : res.data.message_ar,
             });
-            setErrorMsg(res.data.message_en);
+            setErrorMsg(
+              locale === "en" ? res.data.message_en : res.data.message_ar
+            );
           }
         });
     } else {

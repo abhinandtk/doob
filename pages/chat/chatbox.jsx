@@ -2,8 +2,10 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import { Container, Nav, Navbar, Dropdown } from "react-bootstrap";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import React, { useState } from "react";
+import { useTranslation } from "next-i18next";
 
 function HomePage() {
+  const {t}=useTranslation()
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -120,7 +122,7 @@ function HomePage() {
                           stroke-linejoin="round"
                         />
                       </svg>
-                      Create Game
+                      {t("Create Game")}
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
@@ -339,7 +341,7 @@ function HomePage() {
                           stroke-width="0.239706"
                         />
                       </svg>
-                      <span className="mx-3">Bookings</span>{" "}
+                      <span className="mx-3">{t("Bookings")}</span>{" "}
                     </div>
 
                     <div className="my-4">
@@ -437,7 +439,7 @@ function HomePage() {
                 />
               </svg>
               <i className="uil uil-explore"></i>
-              <span className="nav_head">Bookings</span>
+              <span className="nav_head">{t("Bookings")}</span>
             </span>
           </a>
           <a>

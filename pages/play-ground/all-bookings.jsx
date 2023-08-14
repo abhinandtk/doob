@@ -13,30 +13,38 @@ import MobileHeader from "@/components/MobileHeader";
 import PlayGroundSideBar from "@/components/playGround/PlayGroundSideBar";
 import MobileFooter from "@/components/shared/MobileFooter";
 import PagesSideBar from "@/components/stores/pages/PagesSideBar";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['translation'])),
+      ...(await serverSideTranslations(locale, ["translation"])),
     },
-  }
+  };
 }
 function AllBookingPage() {
   const [bookingList, setBookingList] = useState([]);
-
-  const [success,setSuccess]=useState(false)
-
+  const [page, setPage] = useState(1);
+  const [loadMore, setLoadMore] = useState(1);
+  const [success, setSuccess] = useState(false);
+  const { t } = useTranslation();
   useEffect(() => {
-    Axios.get(apis.listAllBooking, {
+    const apiPaginationUrl = `${apis.listAllBooking}?page=${page}`;
+    Axios.get(apiPaginationUrl, {
       headers: {
         Authorization: `Token ${constants.token_id}`,
       },
     }).then((res) => {
-      console.log('dedede',res)
-      setBookingList(res.data);
+      console.log("dedede", res);
+      setLoadMore(!!res.data.next);
+      if (page === 1) {
+        setBookingList(res.data.data);
+      } else {
+        setBookingList((prev) => [...prev, ...res.data.data]);
+      }
     });
-  }, [success]);
+  }, [success, page]);
   return (
     <div>
       <MainHeader title="Doob" />
@@ -44,18 +52,30 @@ function AllBookingPage() {
       <MobileHeader />
       <div className="tour-container">
         <div className="bottoms">
-          <PagesSideBar  currentPage='bookings'/>
+          <PagesSideBar currentPage="bookings" />
 
           <div className="play-topic  ">
             <div className="bottoms">
               <h6
                 className="dark-theme-color mx-4"
-                style={{  fontWeight: "700" }}
+                style={{ fontWeight: "700" }}
               >
-                Bookings
+                {t("Bookings")}
               </h6>
 
-              <BookingDetailsCard details={bookingList} setSuccess={setSuccess}/>
+              <BookingDetailsCard
+                details={bookingList}
+                setSuccess={setSuccess}
+              />
+              {loadMore && (
+                <p
+                  onClick={() => setPage((prev) => prev + 1)}
+                  className="dark-theme-color my-3"
+                  style={{ cursor: "pointer", textAlign: "center" }}
+                >
+                  {t("Load More")}
+                </p>
+              )}
             </div>
           </div>
         </div>

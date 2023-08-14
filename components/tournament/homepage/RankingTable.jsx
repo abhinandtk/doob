@@ -3,9 +3,11 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 import { Fragment } from "react";
+import { useTranslation } from "next-i18next";
 
 function RankingTable({ data }) {
   console.log("rrrrrrrrreeeeeeeeeeeee", data);
+  const {t}=useTranslation()
 
   const router = useRouter();
   return (
@@ -48,7 +50,7 @@ function RankingTable({ data }) {
                     className="col col-1 mt-3 views "
                     data-label="Payment Status"
                   >
-                    View
+                    {t("View")}
                   </div>
                 </li>
               ) : (
@@ -90,7 +92,7 @@ function RankingTable({ data }) {
                     className="col col-1 mt-3 views1 "
                     data-label="Payment Status"
                   >
-                    View
+                    {t("View")}
                   </div>
                 </li>
               )
@@ -109,7 +111,7 @@ function RankingTable({ data }) {
                 className="col col-1 mt-4 views "
                 data-label="Payment Status"
               >
-                View
+                {t("View")}
               </div>
             </li>
 
@@ -127,7 +129,7 @@ function RankingTable({ data }) {
                 className="col col-1 mt-4 views "
                 data-label="Payment Status"
               >
-                View
+                {t("View")}
               </div>
             </li> */}
             <br></br>

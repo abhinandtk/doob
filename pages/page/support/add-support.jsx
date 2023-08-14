@@ -19,19 +19,20 @@ import { useRouter } from "next/router";
 import { Labels } from "@/public/data/my-constants/Labels";
 const { Option } = Select;
 import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['translation'])),
+      ...(await serverSideTranslations(locale, ["translation"])),
     },
-  }
+  };
 }
 function SupportAddPage() {
   const [supportList, setSupportList] = useState([]);
   const { t } = useTranslation();
   const router = useRouter();
+  const { locale } = router;  
   const labels = Labels();
   const [formData, setFormData] = useState({
     description: "",
@@ -59,7 +60,7 @@ function SupportAddPage() {
       }
     ).then((res) => {
       if (res.data.status === 1) {
-        router.back()
+        router.back();
         notification.success({
           message: constants.Success,
           description: `${labels["Support added"]}`,
@@ -67,7 +68,8 @@ function SupportAddPage() {
       } else {
         notification.error({
           message: constants.Error,
-          description: res.data.message_en,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       }
       console.log("responsert", res);
@@ -99,7 +101,9 @@ function SupportAddPage() {
               <div className="my-4 mx-4 ">
                 <form onSubmit={(e) => submitHandler(e)}>
                   <div className="form-group my-2">
-                    <label for="exampleFormControlInput1">{t("Description")}</label>
+                    <label for="exampleFormControlInput1">
+                      {t("Description")}
+                    </label>
                     <input
                       type="text"
                       class="form-control p-2"
@@ -114,7 +118,9 @@ function SupportAddPage() {
                     />
                   </div>
                   <div className="form-group my-2">
-                    <label for="exampleFormControlInput1">{t("Category")}</label>
+                    <label for="exampleFormControlInput1">
+                      {t("Category")}
+                    </label>
                     <input
                       type="text"
                       class="form-control p-2"

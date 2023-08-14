@@ -7,9 +7,12 @@ import constants from "@/public/data/my-constants/Constants";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { notification } from "antd";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 function BookingDetailsCard({ details, setSuccess }) {
   const { t } = useTranslation();
   console.log("hai log", details);
+  const router = useRouter();
+  const { locale } = router;
 
   const labels = Labels();
 
@@ -40,7 +43,8 @@ function BookingDetailsCard({ details, setSuccess }) {
         setSuccess((prev) => !prev);
         notification.error({
           message: constants.Error,
-          description: res.data.message_en,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       }
     });

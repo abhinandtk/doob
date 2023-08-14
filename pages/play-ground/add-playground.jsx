@@ -1,14 +1,4 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
-import {
-  Container,
-  Nav,
-  Navbar,
-  Dropdown,
-  CardImg,
-  Card,
-  Button,
-} from "react-bootstrap";
-import Offcanvas from "react-bootstrap/Offcanvas";
 import React, { useState } from "react";
 import PlayGroundSideBar from "@/components/playGround/PlayGroundSideBar";
 import PlayGroundsForm from "@/components/playGround/PlayGroundsForm";
@@ -34,6 +24,8 @@ export async function getStaticProps({ locale }) {
 function AddPlaygroundPage() {
   const labels = Labels();
   const router = useRouter();
+  const { locale } = router;
+
   const handlePlaygroundForm = (data, game, amenity, slot) => {
     console.log("data", data, game, amenity, slot);
 
@@ -96,7 +88,8 @@ function AddPlaygroundPage() {
       } else {
         notification.error({
           message: constants.Error,
-          description: res.data.message_en,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       }
 
@@ -119,7 +112,7 @@ function AddPlaygroundPage() {
                 className=" ms-4"
                 style={{ color: "#17a803", fontWeight: "700" }}
               >
-                Add Playground
+                {t("Add Playground")}
               </h6>
 
               <div className="my-4 mx-4 ">

@@ -7,8 +7,11 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 function ChatHeaderActions({ selectedId, setOnSuccess, details }) {
   const { t } = useTranslation();
+  const router = useRouter();
+  const { locale } = router;
   const labels = Labels();
   const [visible, setVisible] = useState(false);
   const [blockShow, setBlockShow] = useState(false);
@@ -29,12 +32,14 @@ function ChatHeaderActions({ selectedId, setOnSuccess, details }) {
         setVisible(false);
         notification.success({
           message: constants.Success,
-          description: res.data.message_en,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       } else {
         notification.error({
           message: constants.Error,
-          description: res.data.message_en,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       }
     });
@@ -52,7 +57,7 @@ function ChatHeaderActions({ selectedId, setOnSuccess, details }) {
       }
     ).then((res) => {
       setOnSuccess((prev) => !prev);
-      setBlockShow(false)
+      setBlockShow(false);
       if (res.data.status === 1) {
         notification.success({
           message: constants.Success,
@@ -61,7 +66,8 @@ function ChatHeaderActions({ selectedId, setOnSuccess, details }) {
       } else {
         notification.error({
           message: constants.Error,
-          description: res.data.message_en,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       }
       console.log("resultBlock", res);
@@ -89,7 +95,8 @@ function ChatHeaderActions({ selectedId, setOnSuccess, details }) {
       } else {
         notification.error({
           message: constants.Error,
-          description: res.data.message_en,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       }
       console.log("result", res);

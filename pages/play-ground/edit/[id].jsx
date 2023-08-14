@@ -23,6 +23,7 @@ import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { useRouter } from "next/router";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "react-i18next";
 
 export async function getServerSideProps({ locale }) {
   return {
@@ -32,6 +33,7 @@ export async function getServerSideProps({ locale }) {
   };
 }
 function EditPlaygroundPage() {
+  const {t}=useTranslation()
   const router = useRouter();
   const { id } = router.query;
   const labels = Labels();
@@ -117,7 +119,7 @@ function EditPlaygroundPage() {
                 className=" ms-4"
                 style={{ color: "#17a803", fontWeight: "700" }}
               >
-                Edit Playground
+                {t("Edit Playground")}
               </h6>
 
               <div className="my-4 mx-4 ">

@@ -77,18 +77,18 @@ function GameParticipantsList({ participants, setOnSuccess }) {
               {item.user__userdetail__name}
             </span>
             {item.participation_status == 2 ? (
-              <p className="ms-auto removed">Removed</p>
+              <p className="ms-auto removed">{t("Removed")}</p>
             ) : item.participation_status == 5 ? (
               <p className="ms-auto Left-peoples" style={{ color: "#FC4444" }}>
-                Left
+                {t("Left")}
               </p>
             ) : (
               <div className="ms-auto remove" style={{ display: "flex" }}>
                 <p className="mx-2">
                   {item.participation_status === 1
-                    ? "Joined"
+                    ? t("Joined")
                     : item.participation_status === 3
-                    ? "Invited"
+                    ? t("Invited")
                     : ""}
                 </p>
                 <p
@@ -106,7 +106,7 @@ function GameParticipantsList({ participants, setOnSuccess }) {
 
       <div className="clearfix players  my-4">
         <p className="float-start">
-          Share via link<br></br>
+          {t("Share via link")}<br></br>
           <span className="game-share">{router.asPath}</span>
         </p>
         <span onClick={() => handleShare()} style={{ cursor: "pointer" }}>

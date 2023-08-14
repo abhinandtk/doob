@@ -110,7 +110,7 @@ function SideExplorePlayers() {
                 className="side-menu__suggestion-button"
                 style={{ marginLeft: "auto" }}
               >
-                Follow
+                {t("Follow")}
               </button>
             </div>
           ))}

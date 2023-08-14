@@ -28,7 +28,7 @@ function PlayGroudSidePages({currentPage}) {
             fill="black"
           />
         </svg>{" "}
-        <span className="mx-2" style={{color:`${currentPage === 'bookings' ? '#17A803' : ''}`}}>Bookings</span>
+        <span className="mx-2" style={{color:`${currentPage === 'bookings' ? '#17A803' : ''}`}}>{t("Bookings")}</span>
       </Link>
       <Link href="/play-ground/report/ground-earning-report" style={{textDecoration:'none'}}>
         {" "}
@@ -109,7 +109,7 @@ function PlayGroudSidePages({currentPage}) {
             fill="black"
           />
         </svg>
-        <span className="mx-2" style={{color:`${currentPage === 'playground' ? '#17A803' : ''}`}}>Playground</span>
+        <span className="mx-2" style={{color:`${currentPage === 'playground' ? '#17A803' : ''}`}}>{t("Playground")}</span>
       </Link>
 
       <a href="#services">

@@ -9,6 +9,7 @@ import { UserOutlined, DeleteOutlined, CheckOutlined } from "@ant-design/icons";
 import { CardImg } from "react-bootstrap";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { useEffect } from "react";
+import { useTranslation } from "next-i18next";
 
 function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
   const [apiSuccess, setApiSuccess] = useState(false);
@@ -18,11 +19,14 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
   const [showEditName, setShowEditName] = useState(false);
   const [isAdmin, setIsAdmin] = useState(null);
   const labels = Labels();
+  const router = useRouter();
+  const { locale } = router;
 
   const [selectedUser, setSelectedUser] = useState([]);
   const [selectedUserId, setSelectedUserId] = useState([]);
   const [names, setNames] = useState("");
   const [grpName, setGrpName] = useState("");
+  const { t } = useTranslation();
 
   const [profileDetails, setProfileDetails] = useState(null);
 
@@ -93,7 +97,8 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
       } else {
         notification.error({
           message: constants.Error,
-          description: res.data.message_en,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       }
     });
@@ -123,7 +128,8 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
       } else {
         notification.error({
           message: constants.Error,
-          description: res.data.message_en,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       }
     });
@@ -163,14 +169,16 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
       if (res.data.status === 1) {
         notification.success({
           message: constants.Success,
-          description: res.data.message_en,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
         // onChatSelect(res.data.data.chat_id);
         onNewMsg(null);
       } else {
         notification.error({
           message: constants.Error,
-          description: res.data.message_en,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       }
     });
@@ -359,7 +367,9 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
                 </span>
               )}
             </div>
-            <p>{selectedUser.length}&nbsp; Participants</p>
+            <p>
+              {selectedUser.length}&nbsp; {t("Participants")}
+            </p>
             {showEditName && (
               <Input
                 className="my-2"

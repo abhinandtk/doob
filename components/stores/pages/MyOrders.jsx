@@ -11,12 +11,15 @@ import { useTranslation } from "next-i18next";
 function MyOrders() {
   const { t } = useTranslation();
   const [showItems, setShowItems] = useState(false);
+  const [page, setPage] = useState(1);
+  const [loadMore, setLoadMore] = useState(true);
   const [ordersList, setOrdersList] = useState([]);
   const [expandedItemIndex, setExpandedItemIndex] = useState(null);
 
   useEffect(() => {
+    const apiPaginationUrl = `${apis.orderList}?page=${page}`;
     Axios.post(
-      apis.orderList,
+      apiPaginationUrl,
       {
         offset: "",
       },
@@ -26,10 +29,16 @@ function MyOrders() {
         },
       }
     ).then((res) => {
-      setOrdersList(res.data.data);
+      setLoadMore(!!res.data.next);
+      if (page === 1) {
+        setOrdersList(res.data.data);
+      } else {
+        setOrdersList((prev) => [...prev, ...res.data.data]);
+      }
       console.log("ordeeeeeeeeeeeeers", res);
     });
-  }, []);
+  }, [page]);
+  console.log("ordeeeeeeeeeeeeers878", loadMore);
 
   const toggleOrderItem = (index) => {
     if (expandedItemIndex === index) {
@@ -46,7 +55,9 @@ function MyOrders() {
         {ordersList.map((item, index) => {
           return (
             <div key={index} className="dark-theme-color">
-              <p className="mx-auto order-code dark-theme-color">#{item.order_id_m}</p>
+              <p className="mx-auto order-code dark-theme-color">
+                #{item.order_id_m}
+              </p>
               <hr className="mx-auto" style={{ width: "90%" }}></hr>
               <div
                 className="p-2 mx-auto d-flex justify-content-between align-items-center"
@@ -68,7 +79,14 @@ function MyOrders() {
               </div>
               <div className="order-list-alt p-2 mx-auto d-flex justify-content-between align-items-center">
                 <span style={{ color: "#959595" }}>{t("Payment Status")}</span>
-                <span style={{ color:item.payment_status==="Received"?"#17A803": "#FF640D" }}>
+                <span
+                  style={{
+                    color:
+                      item.payment_status === "Received"
+                        ? "#17A803"
+                        : "#FF640D",
+                  }}
+                >
                   {item.payment_status}
                 </span>
               </div>
@@ -77,8 +95,13 @@ function MyOrders() {
                 className="p-2   mx-auto d-flex justify-content-between align-items-center"
                 style={{ width: "90%" }}
               >
-                <span style={{ color:"#959595" }}>{t("Order Status")}</span>
-                <span style={{ color:item.order_status==="Delivered"?"#17A803": "#FF640D" }}>
+                <span style={{ color: "#959595" }}>{t("Order Status")}</span>
+                <span
+                  style={{
+                    color:
+                      item.order_status === "Delivered" ? "#17A803" : "#FF640D",
+                  }}
+                >
                   {item.order_status}
                 </span>
               </div>
@@ -119,6 +142,15 @@ function MyOrders() {
             </div>
           );
         })}
+        {loadMore && (
+          <p
+            onClick={() => setPage((prev) => prev + 1)}
+            className="dark-theme-color my-3"
+            style={{ cursor: "pointer", textAlign: "center" }}
+          >
+            {t("Load More")}
+          </p>
+        )}
       </div>
     </Fragment>
   );

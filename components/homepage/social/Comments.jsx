@@ -150,7 +150,7 @@ function Comments({ setVisibleComment, postId, slug }) {
                     }}
                   >
                     <span>
-                      <a onClick={() => handleReply(item.id)}>Reply</a>
+                      <a onClick={() => handleReply(item.id)}>{t("Reply")}</a>
                     </span>
                     <span className="ms-3">
                       <CommentActions
@@ -258,7 +258,7 @@ function Comments({ setVisibleComment, postId, slug }) {
                   >
                     <Form.Control
                       type=""
-                      placeholder="Add a comment"
+                      placeholder={t("Add a comment")}
                       className="mark"
                       style={{
                         fontSize: "13px",
@@ -272,13 +272,13 @@ function Comments({ setVisibleComment, postId, slug }) {
                   <p
                     className="mx-2"
                     style={{
-                      color: theme === "dark" ? "#17A803" :"black",
+                      color: theme === "dark" ? "#17A803" : "black",
                       textDecoration: "none",
                       cursor: "pointer",
                     }}
                     onClick={commentPostHandler}
                   >
-                    Post
+                    {t("Post")}
                   </p>
                 </div>
               </Form>

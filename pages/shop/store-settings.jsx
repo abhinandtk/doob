@@ -84,7 +84,7 @@ function StoreSettingsPage() {
                 className="dark-theme-color-grw ms-4"
                 style={{ fontWeight: "700" }}
               >
-                Store Settings
+                {t("Store Settings")}
               </h6>
               <div className="my-4 mx-4 ">
                 <div className="basic">

@@ -6,10 +6,13 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { toggleChat } from "@/Redux/chatRefresh";
 import { notification } from "antd";
+import { useRouter } from "next/router";
 function ChatInputUpload({ selectedId, setOnSuccess, onNewMsg }) {
   const [messages, setMessages] = useState("");
   const [isSending, setIsSending] = useState(false);
   const dispatch = useDispatch();
+  const router = useRouter();
+  const { locale } = router;
   const sendRef = useRef();
   const handleSendMessage = (e) => {
     e.preventDefault();
@@ -39,7 +42,8 @@ function ChatInputUpload({ selectedId, setOnSuccess, onNewMsg }) {
         } else {
           notification.error({
             message: constants.Error,
-            description: res.data.message_en,
+            description:
+              locale === "en" ? res.data.message_en : res.data.message_ar,
           });
         }
       });

@@ -12,7 +12,7 @@ import ShopPagesSideBar from "@/components/shop/pages/ShopPagesSideBar";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { useEffect } from "react";
 import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -22,7 +22,10 @@ export async function getStaticProps({ locale }) {
   };
 }
 function StoreEditPage() {
+  const router = useRouter();
+  const { locale } = router;
   const { t } = useTranslation();
+  const labels = Labels();
   const [slug, setSlug] = useState("");
   const [formData, setFormData] = useState({
     title: "",
@@ -44,7 +47,7 @@ function StoreEditPage() {
       },
     }).then((res) => {
       console.log("editstore", res);
-      setSlug(res.data.data.slug_store)
+      setSlug(res.data.data.slug_store);
       setFormData({
         title: res.data.data.title,
         description: res.data.data.description,
@@ -60,9 +63,6 @@ function StoreEditPage() {
     });
   }, []);
 
-  const router = useRouter();
-  const labels = Labels();
-
   const changeHandler = (e) => {
     const newFormData = { ...formData };
     newFormData[e.target.id] = e.target.value;
@@ -70,11 +70,11 @@ function StoreEditPage() {
   };
 
   const changeHandlerFile = (e) => {
-    console.log('file')
+    console.log("file");
     const newFormData = { ...formData };
     newFormData[e.target.id] = e.target.files[0];
     setFormData({ ...newFormData });
-    console.log('files',e.target.files[0])
+    console.log("files", e.target.files[0]);
     // const formdata = new FormData();
     // formdata.append("file_field_name", e.target.files[0]);
     // Axios.post(apis.allImagesUpload, formdata, {
@@ -119,10 +119,10 @@ function StoreEditPage() {
       } else {
         notification.error({
           message: constants.Error,
-          description: res.data.message_en,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       }
-      
     });
   };
   return (
@@ -142,7 +142,7 @@ function StoreEditPage() {
 
             <div className="my-4 mx-4 ">
               <h6 style={{ fontSize: "14px", fontWeight: "700" }}>
-                Store Details
+                {t("Store Details")}
               </h6>
               <br></br>
               <form onSubmit={(e) => submitHandler(e)}>
@@ -163,7 +163,9 @@ function StoreEditPage() {
                   />
                 </div>
                 <div className="form-group my-2">
-                  <label for="exampleFormControlInput1">{t("Description")}</label>
+                  <label for="exampleFormControlInput1">
+                    {t("Description")}
+                  </label>
                   <textarea
                     required
                     type="text"
@@ -214,7 +216,9 @@ function StoreEditPage() {
                 </div>
 
                 <div className="form-group my-2">
-                  <label for="exampleFormControlInput1">{t("Contact No")}</label>
+                  <label for="exampleFormControlInput1">
+                    {t("Contact No")}
+                  </label>
                   <input
                     required
                     type="number"
@@ -230,7 +234,9 @@ function StoreEditPage() {
                   />
                 </div>
                 <div className="form-group my-2 ">
-                  <label for="exampleFormControlInput1">{t("Store E-mail")}</label>
+                  <label for="exampleFormControlInput1">
+                    {t("Store E-mail")}
+                  </label>
                   <input
                     required
                     type="email"
@@ -248,7 +254,6 @@ function StoreEditPage() {
                 <div className="form-group my-2">
                   <label for="exampleFormControlInput1">{t("Logo")}</label>
                   <input
-                    
                     type="file"
                     className="form-control p-2"
                     style={{
@@ -261,9 +266,10 @@ function StoreEditPage() {
                   />
                 </div>
                 <div className="form-group my-2 ">
-                  <label for="exampleFormControlInput1">{t("Cover Photo")}</label>
+                  <label for="exampleFormControlInput1">
+                    {t("Cover Photo")}
+                  </label>
                   <input
-                    
                     type="file"
                     className="form-control p-2"
                     style={{
@@ -277,7 +283,9 @@ function StoreEditPage() {
                 </div>
 
                 <div className="form-group my-2 ">
-                  <label for="exampleFormControlInput1">{t("Start Time")}</label>
+                  <label for="exampleFormControlInput1">
+                    {t("Start Time")}
+                  </label>
                   <input
                     required
                     type="time"

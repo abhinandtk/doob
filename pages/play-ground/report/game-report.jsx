@@ -122,7 +122,7 @@ function GameReport() {
                 className=" ms-4"
                 style={{ color: "#17a803", fontWeight: "700" }}
               >
-                Game Report
+                {t("Game Report")}
               </h6>
               <div className="my-1 mx-4 ">
                 <div className="update">

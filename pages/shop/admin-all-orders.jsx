@@ -17,7 +17,7 @@ import { Fragment } from "react";
 import MobileFooter from "@/components/shared/MobileFooter";
 const { Option } = Select;
 import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -28,16 +28,19 @@ export async function getStaticProps({ locale }) {
 }
 function AdminAllOrders() {
   const { t } = useTranslation();
+  const [page, setPage] = useState(1);
   const [allOrders, setAllOrders] = useState([]);
   const [visible, setVisible] = useState(false);
   const [orderId, setOrderId] = useState(null);
   const [orderStatus, setOrderStatus] = useState("");
   const [paymentStatus, setPaymentStatus] = useState("");
   const [loading, setLoading] = useState(true);
+  const [loadMore, setLoadMore] = useState(true);
 
   useEffect(() => {
+    const apiPaginationUrl = `${apis.ordersAdmin}?page=${page}`;
     Axios.post(
-      apis.ordersAdmin,
+      apiPaginationUrl,
       {
         offset: "",
       },
@@ -47,11 +50,18 @@ function AdminAllOrders() {
         },
       }
     ).then((res) => {
-      setAllOrders(res.data.data);
+      setLoadMore(!!res.data.next);
+      if (page === 1) {
+        setAllOrders(res.data.data);
+      } else {
+        setAllOrders((prev) => [...prev, ...res.data.data]);
+      }
       setLoading(false);
       console.log("allorders,", res);
     });
-  }, [visible]);
+  }, [visible, page]);
+  console.log("allorders,", page);
+
   const showUpdateHandler = (id, pay, order) => {
     setPaymentStatus(pay);
     setOrderStatus(order);
@@ -219,7 +229,7 @@ function AdminAllOrders() {
                             type="button"
                             className="order-btn "
                           >
-                            Update status
+                            {t("Update Status")}
                           </Button>
                         </span>
                       </p>
@@ -229,7 +239,9 @@ function AdminAllOrders() {
                         class="   mx-auto d-flex justify-content-between align-items-center"
                         style={{ width: "90%" }}
                       >
-                        <span style={{ color: "#959595" }}>{t("Customer Name")}</span>
+                        <span style={{ color: "#959595" }}>
+                          {t("Customer Name")}
+                        </span>
                         <span>{item.username}</span>
                       </div>
                       <div className="order-list-alt p-2 mt-2 mx-auto d-flex justify-content-between align-items-center">
@@ -240,7 +252,9 @@ function AdminAllOrders() {
                         className="p-2   mx-auto d-flex justify-content-between align-items-center"
                         style={{ width: "90%" }}
                       >
-                        <span style={{ color: "#959595" }}>{t("Order Date")}</span>
+                        <span style={{ color: "#959595" }}>
+                          {t("Order Date")}
+                        </span>
                         <span>
                           {moment(item.order_date).format("DD MMM YYYY")}
                         </span>
@@ -253,11 +267,15 @@ function AdminAllOrders() {
                         className="p-2   mx-auto d-flex justify-content-between align-items-center"
                         style={{ width: "90%" }}
                       >
-                        <span style={{ color: "#959595" }}>{t("Payment Mode")}</span>
+                        <span style={{ color: "#959595" }}>
+                          {t("Payment Mode")}
+                        </span>
                         <span> {item.mode} </span>
                       </div>
                       <div className=" order-list-alt p-2  mx-auto d-flex justify-content-between align-items-center">
-                        <span style={{ color: "#959595" }}>{t("Payment Status")}</span>
+                        <span style={{ color: "#959595" }}>
+                          {t("Payment Status")}
+                        </span>
                         <span
                           style={{
                             color:
@@ -273,7 +291,9 @@ function AdminAllOrders() {
                         className="p-2   mx-auto d-flex justify-content-between align-items-center"
                         style={{ width: "90%" }}
                       >
-                        <span style={{ color: "#959595" }}>{t("Order Status")}</span>
+                        <span style={{ color: "#959595" }}>
+                          {t("Order Status")}
+                        </span>
                         <span
                           style={{
                             color:
@@ -324,6 +344,15 @@ function AdminAllOrders() {
                   </div>
                 )
               ) : null}
+              {loadMore && (
+                <p
+                  onClick={() => setPage((prev) => prev + 1)}
+                  className="dark-theme-color my-3"
+                  style={{ cursor: "pointer", textAlign: "center" }}
+                >
+                  {t("Load More")}
+                </p>
+              )}
             </div>
           </div>
         </div>

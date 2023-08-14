@@ -1,10 +1,11 @@
 import React from "react";
-import { i18n } from "next-i18next";
+import { i18n, useTranslation } from "next-i18next";
 import { Dropdown } from "react-bootstrap";
 import { useRouter } from "next/router";
 
 function LanguageSwitcher() {
   const router = useRouter();
+  const { t } = useTranslation();
   const { pathname, query } = router;
   const changeLanguage = (lang) => {
     router.push({ pathname, query }, undefined, { locale: lang });
@@ -29,7 +30,7 @@ function LanguageSwitcher() {
           English
         </Dropdown.Item>
         <Dropdown.Item onClick={() => changeLanguage("ar")}>
-          Arabic
+          {t("Arabic")}
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
