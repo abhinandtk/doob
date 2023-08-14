@@ -253,7 +253,7 @@ function StoreSettingsPage() {
       <div className="store-container">
         <div className="bottom">
           <PagesSideBar currentPage="settings" />
-          <div className="content-topics ">
+          <div className="content-topic">
             <div className="bottom">
               <h6
                 className=" ms-4"

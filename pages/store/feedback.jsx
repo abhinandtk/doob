@@ -11,6 +11,8 @@ import { notification } from "antd";
 import PagesSideBar from "@/components/stores/pages/PagesSideBar";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import MobileHeader from "@/components/MobileHeader";
+import MobileFooter from "@/components/shared/MobileFooter";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -65,6 +67,7 @@ function FeedbackPage() {
   return (
     <div>
       <MainHeader title="Doob" />
+      <MobileHeader />
       <MainSidebarFixed />
 
       <div className="side-container">
@@ -261,6 +264,7 @@ function FeedbackPage() {
           </Form>
         </div>
       </div>
+      <MobileFooter/>
     </div>
   );
 }
