@@ -298,7 +298,9 @@ function ProductsForm({ handleProductAdd, editData }) {
               />
             </div>
             <div className="form-group my-2">
-              <label for="exampleFormControlInput1">{t("Name in Arabic")}</label>
+              <label for="exampleFormControlInput1">
+                {t("Name in Arabic")}
+              </label>
               <input
                 type="text"
                 className="add-prod-input form-control p-2"
@@ -385,7 +387,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                 className="add-prod-input form-control  p-2 "
                 placeholder="No file choosen"
                 onChange={(e) => handleChange(e)}
-                required
+                required={editData === "true" ? false : true}
               />
             </div>
             <div className="form-group my-2">
@@ -401,7 +403,9 @@ function ProductsForm({ handleProductAdd, editData }) {
             </div>
 
             <div className="form-group my-2">
-              <label for="exampleFormControlSelect1">{t("Primary Variant")}</label>
+              <label for="exampleFormControlSelect1">
+                {t("Primary Variant")}
+              </label>
               <select
                 className="add-prod-input form-control p-2"
                 id="primary"
@@ -423,7 +427,9 @@ function ProductsForm({ handleProductAdd, editData }) {
               </select>
             </div>
             <div className="form-group my-2">
-              <label for="exampleFormControlSelect1">{t("Secondary Variant")}</label>
+              <label for="exampleFormControlSelect1">
+                {t("Secondary Variant")}
+              </label>
               <select
                 className="add-prod-input form-control p-2"
                 id="secondary"
@@ -445,7 +451,9 @@ function ProductsForm({ handleProductAdd, editData }) {
             </div>
 
             <div className="form-group my-2 ">
-              <label for="exampleFormControlTextarea1">{t("Description")}</label>
+              <label for="exampleFormControlTextarea1">
+                {t("Description")}
+              </label>
               <textarea
                 className="add-prod-input form-control"
                 id="description"
@@ -470,7 +478,9 @@ function ProductsForm({ handleProductAdd, editData }) {
             </div>
             {editData === "true" && (
               <div className="form-group my-2">
-                <label for="exampleFormControlSelect1">{t("Product Status")}</label>
+                <label for="exampleFormControlSelect1">
+                  {t("Product Status")}
+                </label>
                 <select
                   className="add-prod-input form-control p-2"
                   style={{
@@ -552,8 +562,10 @@ required
                     placeholder="No file choosen"
                     onChange={(e) => handleImageChange(e, index)}
                     multiple // Allow selecting multiple images
-                    required
+                    required={editData === "true" ? false : true}
                   />
+
+                  
                 </div>
                 <div
                   style={{
@@ -628,7 +640,6 @@ required
                       className="add-prod-input form-control p-2"
                       id="size"
                       onChange={(e) => handleVariantChange(e, index)}
-                      
                     >
                       <option value="">--Select--</option>
                       {secondaryValues.map((item_, index) => (
@@ -691,7 +702,9 @@ required
                 )}
                 <div className="product-submit ">
                   {index > 0 && (
-                    <h6 onClick={() => removeVariantField(index)}>{t("Remove")}</h6>
+                    <h6 onClick={() => removeVariantField(index)}>
+                      {t("Remove")}
+                    </h6>
                   )}
                   <span>
                     <h6

@@ -5,12 +5,14 @@ import { Fragment } from "react";
 import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import { Labels } from "@/public/data/my-constants/Labels";
-import { notification } from "antd";
+import { Collapse, Modal, Form, Input, Button, notification } from "antd";
 import ReviewPlayground from "@/components/playGround/review/ReviewPlayground";
 import { useTranslation } from "next-i18next";
+import { Dropdown } from "react-bootstrap";
 function PlayGroundTopDetails({ details }) {
   const { t } = useTranslation();
-
+  const [reason, setReason] = useState("");
+  const [show, setShow] = useState(false);
   const router = useRouter();
   const { pgid } = router.query;
   const labels = Labels();
@@ -18,6 +20,15 @@ function PlayGroundTopDetails({ details }) {
 
   const toggleModal = () => {
     setVisible(!visible);
+  };
+
+  const handleShare = async () => {
+    try {
+      await navigator.share({ url: window.location.href });
+      console.log("Shared successfully!");
+    } catch (error) {
+      console.error("Error sharing:", error);
+    }
   };
 
   const handleShareFieldPost = () => {
@@ -39,10 +50,63 @@ function PlayGroundTopDetails({ details }) {
       console.log("res@@", res);
     });
   };
+  const fieldReportHandler = (e) => {
+    e.preventDefault();
+    Axios.post(
+      apis.reportField,
+      {
+        stadium: details.id,
+        reason: reason,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      setShow(false);
+      setReason("");
+      notification.success({
+        message: constants.Success,
+        description: `${labels["Reported successfully"]}`,
+      });
+    });
+  };
   console.log("qqqqqqqqqqqqqqq", details, pgid);
   //   console.log("qqqqqqqqqqqqqqq45", details.city.region_name);
   return (
     <Fragment>
+      <Modal
+        title="Why are you reporting this Field ??"
+        open={show}
+        centered
+        closable
+        maskClosable
+        footer={null}
+        onCancel={() => setShow(false)}
+      >
+        <Form onSubmitCapture={(e) => fieldReportHandler(e)}>
+          <Form.Item>
+            <Input.TextArea
+              placeholder="Please enter your reason for reporting"
+              autoSize={{ minRows: 5 }}
+              value={reason}
+              onChange={(e) => setReason(e.target.value)}
+              required
+            />
+          </Form.Item>
+
+          <Form.Item style={{ display: "flex", justifyContent: "flex-end" }}>
+            <Button
+              style={{ backgroundColor: "#17A803" }}
+              type="primary"
+              htmlType="submit"
+            >
+              Confirm
+            </Button>
+          </Form.Item>
+        </Form>
+      </Modal>
       {visible && <ReviewPlayground setVisible={setVisible} />}
       {details && (
         <>
@@ -54,7 +118,7 @@ function PlayGroundTopDetails({ details }) {
                 style={{ width: "100%", height: "auto" }}
               ></img>
             )}
-            <span className="span-icon" style={{ marginLeft: "-70px" }}>
+            <span className="span-icon">
               <span
                 onClick={() => handleShareFieldPost()}
                 style={{ cursor: "pointer" }}
@@ -82,6 +146,62 @@ function PlayGroundTopDetails({ details }) {
                     stroke-linejoin="round"
                   />
                 </svg>
+              </span>
+              <span>
+                <Dropdown
+                  className=""
+                  style={{ display: "inline-block", marginLeft: "-10px" }}
+                >
+                  <Dropdown.Toggle
+                    variant=""
+                    id="dropdown-basic"
+                    style={{
+                      color: "black",
+                      borderColor: "transparent",
+                      background: "transparent",
+                    }}
+                  >
+                    <svg
+                      width="35"
+                      height="34"
+                      viewBox="0 0 35 34"
+                      fill="none"
+                      className="ms-1"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M15.9854 24.9206C15.9854 24.156 16.6322 23.5361 17.43 23.5361C18.2279 23.5361 18.8747 24.156 18.8747 24.9206C18.8747 25.6853 18.2279 26.3051 17.43 26.3051C16.6322 26.3051 15.9854 25.6853 15.9854 24.9206Z"
+                        stroke="white"
+                        stroke-width="1.4447"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M15.9854 16.614C15.9854 15.8494 16.6322 15.2295 17.43 15.2295C18.2279 15.2295 18.8747 15.8494 18.8747 16.614C18.8747 17.3786 18.2279 17.9985 17.43 17.9985C16.6322 17.9985 15.9854 17.3786 15.9854 16.614Z"
+                        stroke="white"
+                        stroke-width="1.4447"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M15.9854 8.30686C15.9854 7.54223 16.6322 6.92236 17.43 6.92236C18.2279 6.92236 18.8747 7.54223 18.8747 8.30686C18.8747 9.0715 18.2279 9.69136 17.43 9.69136C16.6322 9.69136 15.9854 9.0715 15.9854 8.30686Z"
+                        stroke="white"
+                        stroke-width="1.4447"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu align="center" className="Menu">
+                    <Dropdown.Item onClick={() => handleShare()}>
+                      {t("Send")}
+                    </Dropdown.Item>
+                    <Dropdown.Item onClick={() => setShow(true)}>
+                      {t("Report")}
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
               </span>
             </span>
           </div>

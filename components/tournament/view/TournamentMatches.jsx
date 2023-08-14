@@ -20,9 +20,10 @@ import { Labels } from "@/public/data/my-constants/Labels";
 import moment from "moment";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
+import MatchTimer from "../MatchTimer";
 function TournamentMatches({ data, setOnSuccess, admin, home }) {
   console.log("dddddddaaaaaaaaaata,data", data);
-  const {t}=useTranslation()
+  const { t } = useTranslation();
   const router = useRouter();
   const { tid } = router.query;
 
@@ -55,35 +56,35 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
   const [stadium, setStadium] = useState("");
   const [liveTime, setLiveTime] = useState("");
 
-  const getMatchTime = (time, date) => {
-    const startDate = moment(date, "YYYY-MM-DD");
-    const startTime = moment(time, "HH:mm:ss");
+  // const getMatchTime = (time, date) => {
+  //   const startDate = moment(date, "YYYY-MM-DD");
+  //   const startTime = moment(time, "HH:mm:ss");
 
-    const startDateTime = startDate.clone().set({
-      hour: startTime.hours(),
-      minute: startTime.minutes(),
-      second: startTime.seconds(),
-    });
+  //   const startDateTime = startDate.clone().set({
+  //     hour: startTime.hours(),
+  //     minute: startTime.minutes(),
+  //     second: startTime.seconds(),
+  //   });
 
-    const currentTime = moment();
+  //   const currentTime = moment();
 
-    if (currentTime.isBefore(startDateTime)) {
-      return "00:00";
-    }
+  //   if (currentTime.isBefore(startDateTime)) {
+  //     return "00:00";
+  //   }
 
-    const diff = moment.duration(Math.abs(startDateTime.diff(currentTime)));
-    let totalMinutes = Math.floor(diff.asMinutes());
-    let seconds = diff.seconds();
+  //   const diff = moment.duration(Math.abs(startDateTime.diff(currentTime)));
+  //   let totalMinutes = Math.floor(diff.asMinutes());
+  //   let seconds = diff.seconds();
 
-    if (totalMinutes > 90) {
-      return "90:00";
-    }
+  //   if (totalMinutes > 90) {
+  //     return "90:00";
+  //   }
 
-    let matchTime = `${totalMinutes}:${seconds}`;
+  //   let matchTime = `${totalMinutes}:${seconds}`;
 
-    console.log("matchTime:", matchTime);
-    return matchTime;
-  };
+  //   console.log("matchTime:", matchTime);
+  //   return matchTime;
+  // };
 
   const generateMatchesHandler = () => {
     console.log("ingen", tid);
@@ -555,9 +556,7 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
                         type="button"
                         className=" btn-outline-secondary left-time"
                       >
-                        {content.match_date
-                          ? getMatchTime(content.start_time, content.match_date)
-                          : "00:00"}
+                        <MatchTimer match={content} />
                       </button>
                     </div>
                   </div>

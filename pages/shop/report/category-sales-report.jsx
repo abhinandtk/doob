@@ -176,7 +176,7 @@ function CategorySalesReport() {
                 <div className="customer-sale">
                   <div className="report-section">
                     <div>{t("Category")}</div>
-                    <div>Order Count</div>
+                    <div>Order Quantity</div>
                     <div>Total Amount</div>
                   </div>
                   {categoryReportData &&

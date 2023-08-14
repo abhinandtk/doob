@@ -162,22 +162,22 @@ function AdminAllOrders() {
               <option value="Ordered" style={{ color: "#959595" }}>
                 Ordered
               </option>
-              <option value="Failed" style={{ color: "#959595" }}>
+              <option value="failed" style={{ color: "#959595" }}>
                 Failed
               </option>
-              <option value="Processing" style={{ color: "#959595" }}>
+              <option value="processing" style={{ color: "#959595" }}>
                 Processing
               </option>
-              <option value="Shipped" style={{ color: "#959595" }}>
+              <option value="shipped" style={{ color: "#959595" }}>
                 Shipped
               </option>
-              <option value="Out for delivery" style={{ color: "#959595" }}>
+              <option value="out for delivery" style={{ color: "#959595" }}>
                 Out for delivery
               </option>
-              <option value="Delivered" style={{ color: "#959595" }}>
+              <option value="delivered" style={{ color: "#959595" }}>
                 Delivered
               </option>
-              <option value="Cancelled" style={{ color: "#959595" }}>
+              <option value="cancelled" style={{ color: "#959595" }}>
                 Cancelled
               </option>
             </select>

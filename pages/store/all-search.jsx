@@ -11,7 +11,6 @@ import SearchCategory from "@/components/stores/SearchCategory";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import StoreFilter from "@/components/stores/pages/StoreFilter";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -26,20 +25,29 @@ function StoreSearchPage() {
   const [searchInput, setSearchInput] = useState(router.query.search);
   console.log("searchInput", searchInput);
   const [resultProduct, setResultProduct] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  
+  useEffect(() => {
+    // Axios.post(
+    //   apis.storesearch,
+    //   {
+    //     user_input: searchInput,
+    //   },
+    //   {
+    //     headers: {
+    //       Authorization: `Token ${constants.token_id}`,
+    //     },
+    //   }
+    // ).then((res) => {
+    //   setResultProduct(res.data.data);
+    //   console.log("IIIIIIIIIIIIIIIOOOIOSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS", res);
+    // });
+    searchResultHandler();
+  }, [searchInput]);
 
-  const searchResultHandler = (keyword, brand, category, range, count) => {
+  const searchResultHandler = (e) => {
     Axios.post(
-      apis.storeFiltersearch,
+      apis.storesearch,
       {
-        store_slug: router.query.slug,
-        brand: brand,
-        category: category,
-        price_from: range[0],
-        price_to: range[1],
-        review: count,
-        keyword: keyword,
+        user_input: searchInput,
       },
       {
         headers: {
@@ -48,31 +56,43 @@ function StoreSearchPage() {
       }
     ).then((res) => {
       setResultProduct(res.data.data);
-      setIsLoading(false);
       console.log("IIIIIIIIIIIIIIIOOOIOSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS", res, {
         user_input: searchInput,
       });
     });
   };
+  console.log("resultProduct", resultProduct);
 
   return (
     <Fragment>
       <MainHeader title="Doob" />
       <MainSidebarFixed />
       <div className="store-container">
-        <StoreFilter searchResultHandler={searchResultHandler} />
+        {/* <form className="nosubmit "> */}
+        <span>
+          {" "}
+          <input
+            className="nosubmit1"
+            onChange={(e) => setSearchInput(e.target.value)}
+            type="search"
+            placeholder="Search"
+          />
+          <span onClick={(e) => searchResultHandler(e)}>
+            {/* <img
+                src="/images/store/Fil-icon.png"
+                className="filters-icon"
+              ></img> */}
+          </span>
+        </span>
+        {/* </form> */}
 
         <div className="my-2  ">{/* <SearchCategory /> */}</div>
-        {!isLoading ? (
-          resultProduct.length > 0 ? (
-            <StoreProductsCard
-              key={resultProduct.length}
-              products={resultProduct}
-            />
-          ) : (
-            <p>Product not found....</p>
-          )
-        ) : null}
+        {resultProduct.length > 0 && (
+          <StoreProductsCard
+            key={resultProduct.length}
+            products={resultProduct}
+          />
+        )}
       </div>
     </Fragment>
   );

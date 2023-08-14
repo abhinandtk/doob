@@ -10,8 +10,11 @@ import moment from "moment";
 import UserProfileActivityTab from "../homepage/social/UserProfileActivityTab";
 import Link from "next/link";
 import { useSelector } from "react-redux";
+import { useTranslation } from "next-i18next";
 function ProfileDetails() {
+  const { t } = useTranslation();
   const [key, SetKey] = useState(1);
+  const [page, setPage] = useState(1);
   const [userDetials, setUserDetails] = useState([]);
   const [postDetails, setPostDetails] = useState([]);
   const [activityData, setActivityData] = useState([]);
@@ -19,17 +22,30 @@ function ProfileDetails() {
 
   const [success, setSuccess] = useState(true);
   useEffect(() => {
-    Axios.get(apis.profilepage, {
+    const paginationApiUrl = `${apis.profilepage}?page=${page}`;
+    Axios.get(paginationApiUrl, {
       headers: {
         Authorization: `Token ${constants.token_id}`,
       },
     }).then((res) => {
       setUserDetails(res.data.data.user_details);
-      setPostDetails(res.data.data.post_details);
-      setActivityData(res.data.data.activity_serializer);
+
+      if (page === 1) {
+        setPostDetails(res.data.data.post_details);
+        setActivityData(res.data.data.activity_serializer);
+      } else {
+        setPostDetails((prevPosts) => [
+          ...prevPosts,
+          ...res.data.data.post_details,
+        ]);
+        setActivityData((prevActivity) => [
+          ...prevActivity,
+          ...res.data.data.activity_serializer,
+        ]);
+      }
       console.log("POsts result=-----------------------", res);
     });
-  }, [success, apiSuccess]);
+  }, [success, apiSuccess, page]);
 
   // Axios.get(apis.activity, {
   //   headers: {
@@ -79,6 +95,13 @@ function ProfileDetails() {
             <Tab eventKey={2} title="Activities">
               <hr className=" line "></hr>
               <UserProfileActivityTab activityData={activityData} />
+              <p
+                onClick={() => setPage((prev) => prev + 1)}
+                className="dark-theme-color my-2"
+                style={{ cursor: "pointer", textAlign: "center" }}
+              >
+                {t("Load More")}
+              </p>
             </Tab>
           </Tabs>
         </section>

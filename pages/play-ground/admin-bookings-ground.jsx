@@ -174,14 +174,8 @@ function AdminGroundBookings() {
                     >
                       <span style={{ color: "#959595" }}>Slot </span>
                       <span>
-                        {moment(
-                          item.time_slot[0].start_time,
-                          "hh:mm:ss"
-                        ).format("hh:mm A")}{" "}
-                        -{" "}
-                        {moment(item.time_slot[0].end_time, "hh:mm:ss").format(
-                          "hh:mm A"
-                        )}
+                        {moment(item.start_time, "hh:mm:ss").format("hh:mm A")}{" "}
+                        - {moment(item.end_time, "hh:mm:ss").format("hh:mm A")}
                       </span>
                     </div>
                     <div

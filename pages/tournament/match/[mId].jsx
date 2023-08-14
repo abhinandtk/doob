@@ -296,6 +296,10 @@ function MatchTimelinePage() {
                             <span className="mx-1 knock-text1">
                               {timeLineData.tournament_details.tournament_mode}
                             </span>
+
+
+                           
+                            
                           </span>
                         </div>
                       </div>
@@ -307,13 +311,33 @@ function MatchTimelinePage() {
                   <div className="card-body  ">
                     <div className="timeline">
                       <div className="timeline1">
-                        <img
-                          src={`${constants.port}/media/${timeLineData.tournament_details.team_a.team_logo}`}
-                          className="clubs"
-                        ></img>
-                        <p className="team1">
-                          {timeLineData.tournament_details.team_a.team_name}{" "}
-                        </p>
+                        <div>
+                          <img
+                            src={
+                              timeLineData.tournament_details.team_a.team_logo
+                                ? `${constants.port}/media/${timeLineData.tournament_details.team_a.team_logo}`
+                                : "/images/accounts/user_default.png"
+                            }
+                            className="clubs"
+                          ></img>
+                          <p className="team1">
+                            {timeLineData.tournament_details.team_a.team_name}{" "}
+                          </p>
+                        </div>
+
+                        <div>
+                          <img
+                            src={
+                              timeLineData.tournament_details.team_a.team_logo_2
+                                ? `${constants.port}/media/${timeLineData.tournament_details.team_a.team_logo_2}`
+                                : "/images/accounts/user_default.png"
+                            }
+                            className="clubs"
+                          ></img>
+                          <p className="team1">
+                            {timeLineData.tournament_details.team_a.team_name_2}{" "}
+                          </p>
+                        </div>
                       </div>
 
                       <div className="timeline-watch mx-5">
@@ -330,13 +354,32 @@ function MatchTimelinePage() {
                       </div>
 
                       <div className="timeline2">
-                        <img
-                          src={`${constants.port}/media/${timeLineData.tournament_details.team_b.team_logo}`}
-                          className="clubs"
-                        ></img>
-                        <p className="team2">
-                          {timeLineData.tournament_details.team_b.team_name}{" "}
-                        </p>
+                        <div>
+                          <img
+                            src={
+                              timeLineData.tournament_details.team_b.team_logo
+                                ? `${constants.port}/media/${timeLineData.tournament_details.team_b.team_logo}`
+                                : "/images/accounts/user_default.png"
+                            }
+                            className="clubs"
+                          ></img>
+                          <p className="team2">
+                            {timeLineData.tournament_details.team_b.team_name}{" "}
+                          </p>
+                        </div>
+                        <div>
+                          <img
+                            src={
+                              timeLineData.tournament_details.team_b.team_logo_2
+                                ? `${constants.port}/media/${timeLineData.tournament_details.team_b.team_logo_2}`
+                                : "/images/accounts/user_default.png"
+                            }
+                            className="clubs"
+                          ></img>
+                          <p className="team2">
+                            {timeLineData.tournament_details.team_b.team_name_2}{" "}
+                          </p>
+                        </div>
                       </div>
                     </div>
                     <div style={{ textAlign: "end" }}>

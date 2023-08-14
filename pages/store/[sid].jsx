@@ -1,13 +1,5 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
-import {
-  Container,
-  Nav,
-  Navbar,
-  Dropdown,
-  Card,
-  Button,
-} from "react-bootstrap";
-import Offcanvas from "react-bootstrap/Offcanvas";
+import { Button } from "react-bootstrap";
 import React, { useState } from "react";
 import StoreTopDetails from "@/components/stores/StoreTopDetails";
 import MainHeader from "@/components/shared/headers/MainHeader";
@@ -18,7 +10,6 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { useEffect } from "react";
 import SearchCategory from "@/components/stores/SearchCategory";
-import StoreBannerCard from "@/components/stores/StoreBannerCard";
 import moment from "moment";
 import MobileHeader from "@/components/MobileHeader";
 import MobileFooter from "@/components/shared/MobileFooter";
@@ -80,6 +71,7 @@ function StoreDetailPage() {
       pathname: "/store/search",
       query: {
         search: searchInput,
+        slug: sid,
       },
     });
   };
@@ -107,6 +99,7 @@ function StoreDetailPage() {
                   pathname: "/store/search",
                   query: {
                     search: searchInput,
+                    slug: sid,
                   },
                 })
               }
@@ -125,13 +118,11 @@ function StoreDetailPage() {
         {/* <StoreBannerCard /> */}
         {storeBanners.length > 0 && (
           <section>
-            
             <Carousel
               prevArrow={
                 <Button className="carousel-arrow" icon={<LeftOutlined />} />
               }
               nextArrow={
-                
                 <Button className="carousel-arrow" icon={<RightOutlined />} />
               }
             >
