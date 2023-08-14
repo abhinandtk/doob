@@ -18,8 +18,8 @@ import constants from "@/public/data/my-constants/Constants";
 import Link from "next/link";
 import MobileHeader from "@/components/MobileHeader";
 import MobileFooter from "@/components/shared/MobileFooter";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 export async function getStaticProps({ locale }) {
   return {
     props: {
@@ -28,6 +28,7 @@ export async function getStaticProps({ locale }) {
   };
 }
 function SearchPage() {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState("1");
   const [error, setError] = useState(false);
 

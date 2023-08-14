@@ -13,6 +13,7 @@ import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -24,6 +25,7 @@ export async function getStaticProps({ locale }) {
 function AddPlaygroundPage() {
   const labels = Labels();
   const router = useRouter();
+  const {t}=useTranslation()
   const { locale } = router;
 
   const handlePlaygroundForm = (data, game, amenity, slot) => {

@@ -11,7 +11,7 @@ import { useEffect } from "react";
 import UserProfileActivityTab from "@/components/homepage/social/UserProfileActivityTab";
 import Link from "next/link";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import OtherUserProfileActivity from "@/components/homepage/social/otherUserProfileActivity";
+import OtherUserProfileActivity from "@/components/homepage/social/OtherUserProfileActivity";
 import { useTranslation } from "next-i18next";
 
 export async function getServerSideProps({ locale }) {
