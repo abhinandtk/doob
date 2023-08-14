@@ -106,12 +106,12 @@ function MobileHeader() {
           </Navbar.Brand>
           <Navbar id="responsive-navbar-nav">
             <Nav className=" ms-auto" aria-controls="responsive-navbar-nav">
-              <Nav.Link>
+              {/* <Nav.Link>
                 <ThemeSwitcher />
               </Nav.Link>
               <Nav.Link>
                 <LanguageSwitcher />
-              </Nav.Link>
+              </Nav.Link> */}
               <Nav.Link href="/search">
                 <svg
                   width="24"
@@ -287,7 +287,7 @@ function MobileHeader() {
                       stroke-linecap="round"
                       stroke-linejoin="round"
                     />
-                    {/* <circle cx="22" cy="7" r="7" fill="#17A803"/> */}
+                  
                     <path
                       d="M19.5202 8.66786V8.02082L22.3748 3.50422H22.8442V4.5065H22.527L20.3702 7.91932V7.97007H24.2144V8.66786H19.5202ZM22.5778 10V8.47121V8.16989V3.50422H23.3263V10H22.5778Z"
                       fill="white"

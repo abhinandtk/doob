@@ -154,13 +154,14 @@ function AllGamesPage() {
                     {item.title}
                   </p>
                 ))}
+                </div>
                 {gamesJoined.map((item, index) =>
                   selectedCategory === null ||
                   selectedCategory === item.title ? (
                     <GamesHistoryCard key={index} data={item.playgrounds} />
                   ) : null
                 )}
-              </div>
+              
             </Tab>
             <Tab eventKey="invited" title={tabButton("invited")}>
               <div className="types">

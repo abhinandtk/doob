@@ -27,7 +27,7 @@ function ProductManagement() {
     });
   }, []);
   return (
-    <div className="content-topic  ">
+    <div className="content-topics  ">
       <div className="bottom">
         <h6
           className="dark-theme-color-grw mx-4"
