@@ -42,7 +42,7 @@ function PlayGroundReviewList({ reviewData, setOnSuccess }) {
                       className="rounded-circle shadow-1-strong "
                       src={
                         item.user_image
-                          ? `${constants.port}${item.user_image}`
+                          ? `${constants.port}${item.image}`
                           : "/images/accounts/user_default.png"
                       }
                       style={{
@@ -66,7 +66,7 @@ function PlayGroundReviewList({ reviewData, setOnSuccess }) {
                             fontSize: "15px",
                           }}
                         >
-                          {item.customer_name} <br></br>
+                          {item.user_name} <br></br>
                           <span>
                             <Rate disabled value={item.rating} />
                           </span>

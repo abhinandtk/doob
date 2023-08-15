@@ -147,7 +147,7 @@ function ChatHeaderActions({ selectedId, setOnSuccess, details }) {
         ]}
       ></Modal>
       <ul className="nav_icons" style={{ marginTop: "35px" }}>
-        <svg
+        {/* <svg
           width="23"
           height="25"
           className="mt-1 ms-2 "
@@ -161,9 +161,9 @@ function ChatHeaderActions({ selectedId, setOnSuccess, details }) {
             stroke-width="1.12994"
             stroke-linejoin="round"
           />
-        </svg>
+        </svg> */}
 
-        <svg
+        {/* <svg
           width="33"
           height="33"
           className="mx-2"
@@ -187,7 +187,7 @@ function ChatHeaderActions({ selectedId, setOnSuccess, details }) {
             stroke-linecap="round"
             stroke-linejoin="round"
           />
-        </svg>
+        </svg> */}
         <Dropdown className="">
           <Dropdown.Toggle
             variant=""

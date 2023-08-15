@@ -90,7 +90,7 @@ function ChatInputUpload({ selectedId, setOnSuccess, onNewMsg }) {
               />
             </svg>
           </span>
-          <svg
+          {/* <svg
             width="27"
             height="27"
             viewBox="0 0 27 27"
@@ -109,7 +109,7 @@ function ChatInputUpload({ selectedId, setOnSuccess, onNewMsg }) {
                 <rect width="26.7478" height="26.7478" fill="white" />
               </clipPath>
             </defs>
-          </svg>
+          </svg> */}
         </div>
       </form>
     </Fragment>

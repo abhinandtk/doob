@@ -48,7 +48,32 @@ function TournamentDetailPage() {
   const [matchesTabData, setMatchesTabData] = useState([]);
   const [onSuccess, setOnSuccess] = useState(false);
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   Axios.post(
+  //     apis.tournamentDetails,
+  //     {
+  //       tournament_slug: tid,
+  //     },
+  //     {
+  //       headers: {
+  //         Authorization: `Token ${constants.token_id}`,
+  //       },
+  //     }
+  //   ).then((res) => {
+  //     if (res.data.data) {
+  //       setHomeTabData(res.data.data.home);
+  //       setTeamsTabData(res.data.data.teams);
+  //       setMatchesTabData(res.data.data.matches);
+  //       setTeamsTempTabData(res.data.data.temporary_team);
+  //       setAdminList(
+  //         res.data.data.home.tournament_details.tournament_admin_name
+  //       );
+  //     }
+  //     console.log("response", res);
+  //   });
+  // }, [tid, onSuccess]);
+
+  const fetchTournamentDetails = () => {
     Axios.post(
       apis.tournamentDetails,
       {
@@ -71,6 +96,18 @@ function TournamentDetailPage() {
       }
       console.log("response", res);
     });
+  };
+
+  useEffect(() => {
+    fetchTournamentDetails();
+
+    const interval = setInterval(() => {
+      fetchTournamentDetails();
+    }, 30000);
+
+    return () => {
+      clearInterval(interval);
+    };
   }, [tid, onSuccess]);
 
   let matchGenerate = matchesTabData.length > 0;
