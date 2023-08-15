@@ -119,7 +119,7 @@ function EarningReport() {
       <MainSidebarFixed />
       <div className="store-container1">
         <div className="Bottom">
-          <PlayGroundSideBar currentPage="report" />
+          <PlayGroundSideBar currentPage="earnings" />
 
           <div class="content-topics ">
             <div className="bottom">

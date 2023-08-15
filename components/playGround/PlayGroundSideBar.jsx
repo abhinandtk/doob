@@ -66,7 +66,7 @@ function PlayGroundSideBar({ currentPage }) {
             </clipPath>
           </defs>
         </svg>
-        <span className="mx-2">{t("Earnings")}</span>{" "}
+        <span className="mx-2" style={{ color: `${currentPage === "earnings" ? "#17A803" : ""}` }}>{t("Earnings")}</span>{" "}
       </Link>
       <Link
         href="/play-ground/playground-view"
@@ -149,7 +149,7 @@ function PlayGroundSideBar({ currentPage }) {
             fill="black"
           />
         </svg>
-        <span className="mx-1"> {t("Report")}</span>
+        <span className="mx-1" style={{ color: `${currentPage === "report" ? "#17A803" : ""}` }}> {t("Report")}</span>
       </Link>
       {/* <a href="#contact">
         {" "}
@@ -167,7 +167,7 @@ function PlayGroundSideBar({ currentPage }) {
         </svg>
         <span className="mx-2">Settings</span>{" "}
       </a> */}
-      <Link href="/page/support" style={{ textDecoration: "none" }}>
+      <Link href="/play-ground/support" style={{ textDecoration: "none" }}>
         <svg
           width="18"
           height="24"
@@ -182,7 +182,7 @@ function PlayGroundSideBar({ currentPage }) {
           />
         </svg>
 
-        <span className="mx-2">{t("Support")} </span>
+        <span className="mx-2" style={{ color: `${currentPage === "support" ? "#17A803" : ""}` }}>{t("Support")} </span>
       </Link>
     </div>
   );
