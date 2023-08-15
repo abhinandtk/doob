@@ -1435,7 +1435,7 @@ td {
   color: white;
   margin-left: 85px;
   border-radius: 6px;
-  width: 320px;
+  width: 370px; 
   height: 40px;
   margin-top: 20px;
 }
@@ -2129,7 +2129,7 @@ td {
 .carousel {
   width: 100%;
   height: 100%;
-  margin-top: -12px;
+  margin-top: 35px;
   overflow: hidden;
   border-radius: 10px;
 }
@@ -2606,7 +2606,7 @@ input.nosubmit-shop {
   .carousel {
     width: 100%;
     height: 100%;
-    margin-top: -12px;
+    margin-top: 12px;
     overflow: hidden;
     border-radius: 10px;
   }
@@ -3369,7 +3369,12 @@ margin-top: 18px;
     text-overflow: ellipsis;
     width:100%;
   }
-  
+  .Match-content{
+    width: 90%;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   .Teams-logo img{
     width: auto;

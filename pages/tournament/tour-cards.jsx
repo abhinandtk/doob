@@ -321,6 +321,12 @@ Arabic</Dropdown.Item>
 					</div>
 					<h2 class="Teams-name">  West Ham Chelsea Chelsea</h2>
 				</div>
+        <div class="Teams Teams--home">
+					<div class="Teams-logo">
+						<img src="https://assets.codepen.io/285131/whufc.svg" />
+					</div>
+					<h2 class="Teams-name">  West Ham Chelsea Chelsea</h2>
+				</div>
 			</div>
 			<div class="columns">
 				<div class="Match-details">
@@ -345,6 +351,12 @@ Arabic</Dropdown.Item>
 			</div>
 			<div class="columns">
 				<div class="Teams Teams--away">
+					<div class="Teams-logo">
+						<img src="https://assets.codepen.io/285131/chelsea.svg" />
+					</div>
+					<h2 class="Teams-name">Chelsea Chelsea Chelsea Chelsea</h2>
+				</div>
+        <div class="Teams Teams--away">
 					<div class="Teams-logo">
 						<img src="https://assets.codepen.io/285131/chelsea.svg" />
 					</div>
