@@ -85,7 +85,7 @@ function SupportAddPage() {
         <div className="Bottom">
           <ShopPagesSideBar currentPage="support" />
 
-          <div className="content-topic  ">
+          <div className="content-topics">
             <div className="bottom">
               <h6
                 className="All-order"

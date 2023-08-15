@@ -39,7 +39,7 @@ function MessagesPage() {
           <GroupInfo
             selectedId={selectedChatId}
             // onChatSelect={showChatHandler}
-            onNewMsg={showNewMsgHandler}
+            onNewMsg={showNewMsgHandler} 
           />
         ) : (
           <MessagesList

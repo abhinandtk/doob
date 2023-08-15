@@ -59,7 +59,7 @@ function ProductDetailPage() {
           <span>
             <input className="nosubmit2" type="search" placeholder="Search" />
             <img
-              src="../../images/store/Fil-icon.png"
+              src="../../images/store/Frame 4.png"
               className="filters-icon"
             ></img>
           </span>

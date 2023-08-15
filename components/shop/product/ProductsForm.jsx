@@ -277,7 +277,7 @@ function ProductsForm({ handleProductAdd, editData }) {
   };
 
   return (
-    <div className="content-topic  ">
+    <div className="content-topic">
       <div className="bottom dark-theme-color">
         <h6 className="dark-theme-color-grw ms-4" style={{ fontWeight: "700" }}>
           {editData === "true" ? t("Edit Products") : t("Add Products")}
