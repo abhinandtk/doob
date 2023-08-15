@@ -13,6 +13,7 @@ function FollowersList({ setFollowersListShow, setSuccess }) {
   const { t } = useTranslation();
   const [visible, setVisible] = useState(true);
   const [followers, setFollowers] = useState([]);
+  const [apiSuccess, setApiSuccess] = useState(false);
   const labels = Labels();
 
   // const followListApi = () => {
@@ -25,7 +26,7 @@ function FollowersList({ setFollowersListShow, setSuccess }) {
       console.log("lkkkl", res);
       setFollowers(res.data.data);
     });
-  }, []);
+  }, [apiSuccess]);
   // };
   // useEffect(() => {}, []);
 
@@ -36,8 +37,9 @@ function FollowersList({ setFollowersListShow, setSuccess }) {
     })
       .then((res) => {
         console.log("rest", res);
+        setApiSuccess((prev) => !prev);
+        setSuccess((prev) => !prev);
         if (res.data.status === 1) {
-          setSuccess((prev) => !prev);
           notification.success({
             message: constants.Success,
             description: `${labels["Remove user"]}`,

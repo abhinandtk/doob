@@ -48,7 +48,7 @@ function BookingSuccessPage() {
                 You have Successfully Booked
               </h5>
               <p className="text-center">
-                Do you want invite people to this game
+                Do you want invite people to this game?
               </p>
               <Button
                 onClick={() =>

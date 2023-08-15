@@ -40,16 +40,15 @@ function SearchPage() {
     setActiveTab(tabNo);
   };
 
-  console.log("uiiiiiiiiiiiiiiiiii", activeTab);
   // const userSearchResult = (e) => {
   //   setSearchInput(e.target.value);
   useEffect(() => {
     if (activeTab === "1") {
-      console.log("uiiiiiiiiiiiiiiiiii", activeTab);
-
       Axios.post(apis.postsearch, {
         user_input: searchInput,
       }).then((res) => {
+        console.log("uiiiiiiiiiiiiiiiiii", res);
+
         if (res.data.status === 1) {
           setFeedResult(res.data.data.results);
           setError(false);
@@ -88,7 +87,12 @@ function SearchPage() {
       <MobileHeader />
       <MainSidebarFixed />
       <div className="container2">
-        <form className="nosubmit ">
+        <form
+          className="nosubmit "
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        >
           <input
             className="nosubmit"
             type="search"
@@ -115,12 +119,14 @@ function SearchPage() {
                   feedResult &&
                   feedResult.map((item, index) => (
                     <div key={index} className="col-md-4" tabindex="0">
-                      <img
-                        src={`${constants.port}${item.image}`}
-                        className="image"
-                        style={{ objectFit: "cover" }}
-                        alt=""
-                      />
+                      <Link href={`/page/post/${item.slug}`}>
+                        <img
+                          src={`${constants.port}${item.image}`}
+                          className="image"
+                          style={{ objectFit: "cover" }}
+                          alt=""
+                        />
+                      </Link>
                     </div>
                   ))
                 )}

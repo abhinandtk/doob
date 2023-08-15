@@ -10,11 +10,20 @@ import { useState } from "react";
 import moment from "moment";
 import ChatInputUpload from "./ChatInputUpload";
 import { useRef } from "react";
+import { Realtime } from "ably";
 function ChatBox({ selectedId, onNewMsg }) {
   const [chatHeader, setChatHeader] = useState(null);
   const [chatList, setChatList] = useState([]);
   const [onSuccess, setOnSuccess] = useState(false);
   const currentUser = constants.user_id;
+  const ably = new Realtime({
+    key: "dGiWMQ.qq3hMA:fOVhH1gp60ls_buWMB5F71wmw1IYa8cOSGrhMQe_iK8",
+  });
+  const channel = ably.channels.get(currentUser);
+  channel.subscribe((message) => {
+    setOnSuccess((prev) => !prev);
+    console.log("dddddd", message);
+  });
   useEffect(() => {
     Axios.post(
       apis.chatView,
@@ -52,8 +61,7 @@ function ChatBox({ selectedId, onNewMsg }) {
 
   useEffect(() => {
     scrollToBottom();
-  }, [chatList]); // Add chatList as a dependency to trigger the effect when it changes
-
+  }, [chatList]); 
   const scrollToBottom = () => {
     if (divRef.current) {
       const lastElement = divRef.current.lastElementChild;
@@ -72,7 +80,7 @@ function ChatBox({ selectedId, onNewMsg }) {
           setOnSuccess={setOnSuccess}
           onNewMsg={onNewMsg}
         />
-        
+
         <div
           className="chat-container"
           style={{ height: "70%", overflow: "auto" }}
@@ -153,8 +161,8 @@ function ChatBox({ selectedId, onNewMsg }) {
         {chatHeader && chatHeader !== undefined ? (
           chatHeader.is_left ? (
             <div style={{ display: "flex", justifyContent: "center" }}>
-              You can&apos;t send messages to this group because you are no longer in
-              this group
+              You can&apos;t send messages to this group because you are no
+              longer in this group
             </div>
           ) : (
             <ChatInputUpload

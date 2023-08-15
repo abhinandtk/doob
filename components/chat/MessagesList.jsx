@@ -8,15 +8,26 @@ import { useState } from "react";
 import moment from "moment";
 import { useSelector } from "react-redux";
 import { useTheme } from "next-themes";
+import { Realtime } from "ably";
 function MessagesList({ onChatSelect, onNewMsg }) {
   const router = useRouter();
   const [inboxUsers, setInboxUsers] = useState([]);
   const [currentId, setCurrentId] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [onSuccess, setOnSuccess] = useState(false);
 
   const { theme } = useTheme();
 
   const updateChat = useSelector((state) => state.chatUsers.chatUpdate);
+  const currentUser = constants.user_id;
+  const ably = new Realtime({
+    key: "dGiWMQ.qq3hMA:fOVhH1gp60ls_buWMB5F71wmw1IYa8cOSGrhMQe_iK8",
+  });
+  const channel = ably.channels.get(currentUser);
+  channel.subscribe((message) => {
+    setOnSuccess((prev) => !prev);
+    console.log("dddddd", message);
+  });
   console.log("updateChat");
   useEffect(() => {
     if (searchQuery.trim() === "") {
@@ -42,7 +53,7 @@ function MessagesList({ onChatSelect, onNewMsg }) {
         setInboxUsers(res.data.data);
       });
     }
-  }, [updateChat, searchQuery]);
+  }, [updateChat, searchQuery, onSuccess]);
   return (
     <Fragment>
       <div className="leftSide">
@@ -87,6 +98,7 @@ function MessagesList({ onChatSelect, onNewMsg }) {
               <div
                 key={index}
                 onClick={() => {
+                  setOnSuccess((prev) => !prev);
                   onChatSelect(item.chat.id);
                   setCurrentId(item.chat.id);
                 }}

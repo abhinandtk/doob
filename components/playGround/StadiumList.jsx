@@ -7,6 +7,8 @@ import Axios from "axios";
 import { Image } from "antd";
 import { useTranslation } from "next-i18next";
 function StadiumList({ stadiumData }) {
+  const router = useRouter();
+  const data = router.query;
   const { t } = useTranslation();
   return (
     <Fragment>
