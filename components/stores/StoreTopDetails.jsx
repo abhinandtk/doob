@@ -134,24 +134,26 @@ function StoreTopDetails({ data, setSuccess }) {
         ></img>
         <img src={`${constants.port}${data.logo}`} className="foot-png"></img>
         <span className="span-icon">
-          <svg
-            onClick={() =>
-              storeWishlistHandler(data.slug_store, data.is_favorite)
-            }
-            width="25"
-            height="22"
-            viewBox="0 0 25 22"
-            fill={`${data.is_favorite ? "#17A803" : "none"}`}
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12.2133 20.8391C12.2133 20.8391 1 14.5938 1 7.09945C1 -0.394922 9.72146 -1.01945 12.2133 4.84416C14.7052 -1.01945 23.4266 -0.394922 23.4266 7.09945C23.4266 14.5938 12.2133 20.8391 12.2133 20.8391Z"
-              stroke="white"
-              stroke-width="1.35919"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
+          <span style={{ cursor: "pointer" }}>
+            <svg
+              onClick={() =>
+                storeWishlistHandler(data.slug_store, data.is_favorite)
+              }
+              width="25"
+              height="22"
+              viewBox="0 0 25 22"
+              fill={`${data.is_favorite ? "#17A803" : "none"}`}
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12.2133 20.8391C12.2133 20.8391 1 14.5938 1 7.09945C1 -0.394922 9.72146 -1.01945 12.2133 4.84416C14.7052 -1.01945 23.4266 -0.394922 23.4266 7.09945C23.4266 14.5938 12.2133 20.8391 12.2133 20.8391Z"
+                stroke="white"
+                stroke-width="1.35919"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
           <span
             onClick={() => handleShareStorePost(sid)}
             style={{ cursor: "pointer" }}

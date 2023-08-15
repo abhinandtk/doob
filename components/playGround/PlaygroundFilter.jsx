@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import moment from "moment";
 
-function PlaygroundFilter({ playgroundFilterHandler, setMapShow }) {
+function PlaygroundFilter({ playgroundFilterHandler, setMapShow, pageCount }) {
   const { t } = useTranslation();
 
   const router = useRouter();
@@ -103,7 +103,7 @@ function PlaygroundFilter({ playgroundFilterHandler, setMapShow }) {
     if (data.sports_id && data.date && data.area) {
       playgroundFilterHandler(formData, amenityChecked, searchKey);
     }
-  }, [formData, searchKey]);
+  }, [formData, searchKey, pageCount]);
 
   const submitSearchHandler = () => {
     playgroundFilterHandler(formData, amenityChecked, searchKey);

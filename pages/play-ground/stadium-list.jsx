@@ -124,6 +124,7 @@ function StadiumListPage() {
         <PlaygroundFilter
           playgroundFilterHandler={playgroundFilterHandler}
           setMapShow={setMapShow}
+          pageCount={page}
         />
         {!isLoading ? (
           <>
