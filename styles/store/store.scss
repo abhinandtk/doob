@@ -821,6 +821,7 @@ input:disabled {
 }
 .Bottom {
   margin-top: 25px;
+  padding: 15px;
 }
 
 .button23 {
@@ -1354,9 +1355,9 @@ input:disabled {
 
 @media (max-width: 1249px) {
   .store-container1 {
-    width: 95%;
-    margin: 0 auto;
-    margin-right: 34px;
+    width: 98%;
+    /* margin: 0 auto; */
+    margin-right: 0px;
   }
   .store-container {
     width: 95%;
@@ -1372,7 +1373,9 @@ input:disabled {
     margin-right: 18px;
   
   }
-
+  .order1-btn {
+    margin-right: 20px;
+  }
   .sides {
     padding: 12px 7px;
     width: 200px;
@@ -1382,8 +1385,8 @@ input:disabled {
   }
   .wallet {
     margin-top: 12px;
-    width: 90%;
-    margin-left: 12px;
+    width: auto;
+    margin-left: 0;
     background: #17a803;
   }
 
@@ -1459,7 +1462,7 @@ input:disabled {
     margin-left: 260px;
     padding: 10px 5px;
     background-color: white;
-    width: 70%;
+    width: 75%;
   }
   .address-admin {
     font-weight: 400;
@@ -1552,7 +1555,7 @@ input:disabled {
 
 @media (max-width: 936px) {
   .store-container1 {
-    width: 90%;
+    width: 100%;
     
   }
   .store-container {
@@ -1613,6 +1616,7 @@ input:disabled {
   }
   .store-container {
     width: 90%;
+    
     margin: 0 auto;
   }
   .content-topic {
@@ -1675,10 +1679,11 @@ input:disabled {
 
 @media (max-width: 700px) {
   .content-topic {
-    margin-left: 17px;
-    padding: 10px 5px;
-    margin-top: 20px;
-    width: 95%;
+ 
+      margin-left: 0px;
+      padding: 10px 5px;
+      margin-top: 20px;
+      width: 100%;
   }
   .menu{
     margin-top: 10px;
@@ -1712,11 +1717,10 @@ input:disabled {
 
 @media (max-width: 659px) {
   .content-topic {
-    margin-left: 24px;
-
+    margin-left: 0px;
     height: 100%;
     background: white;
-    width: 88%;
+    width: 100%;
   }
   .sides {
     display: none;
@@ -1740,6 +1744,13 @@ input:disabled {
     height: 100%;
     background: white;
     width: 100%;
+    margin-bottom: 75px;
+  }
+  .store {
+    row-gap: 32px;
+    margin-bottom: 70px;
+  }
+  .store-container{
     margin-bottom: 75px;
   }
   
@@ -1808,7 +1819,7 @@ input:disabled {
     height: 140px;
   }
   .order1-btn {
-    margin-right: 33px;
+    margin-right: 15px;
   }
 
   .carl {
@@ -1903,6 +1914,7 @@ input:disabled {
   }
   .cart.cart {
     width: 100%;
+    margin-bottom: 15px;
     border: 0px;
   }
   .review {
@@ -2275,7 +2287,7 @@ input:disabled {
     height: 140px;
   }
   .order1-btn {
-    margin-right: 33px;
+    margin-right: 15px;
   }
 
   .carl {
@@ -2376,6 +2388,7 @@ input:disabled {
   }
   .store-container {
     width: 90%;
+    
   }
   .sides {
     display: none;
@@ -2518,7 +2531,7 @@ input:disabled {
     height: 140px;
   }
   .order1-btn {
-    margin-right: 33px;
+    margin-right: 15px;
   }
 
   .carl {

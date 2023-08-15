@@ -2251,6 +2251,7 @@ p.note {
   border-radius: 12px 12px 12px 12px;
   border: 0px;
   margin-top: -32px;
+  height: 100%;
 }
 .top-p {
   font-size: 14px;
@@ -2280,8 +2281,8 @@ p.note {
   background-color: #eeeeee;
   border-radius: 7%;
   border: 0px;
-  margin-top: -27px;
-  width: 170px;
+  width: 100%;
+  height: 100%;
   margin-left: -6px;
 }
 @media (max-width: 1360px) {
@@ -3281,6 +3282,7 @@ p.note {
   }
   .store {
     row-gap: 32px;
+    margin-bottom: 70px;
   }
   //////////////////////////////////////
 
