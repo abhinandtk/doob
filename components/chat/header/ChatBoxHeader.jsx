@@ -32,8 +32,9 @@ function ChatBoxHeader({ details, selectedId, setOnSuccess, onNewMsg }) {
                     alt=""
                     className="pic"
                   ></img>
+                  
                 )}
-
+              
                 <p
                   style={{
                     marginLeft: "90px",
@@ -54,6 +55,7 @@ function ChatBoxHeader({ details, selectedId, setOnSuccess, onNewMsg }) {
                   >
                     Active Now
                   </span>
+                  &nbsp;
                 </p>
               </div>
               <svg
@@ -77,6 +79,7 @@ function ChatBoxHeader({ details, selectedId, setOnSuccess, onNewMsg }) {
                   fill="#17A803"
                 />
               </svg>
+              
             </div>
             {details.type === "group" ? (
               <ChatHeaderActionsGroup
