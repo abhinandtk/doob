@@ -36,7 +36,7 @@ function ChatBox({ selectedId, onNewMsg }) {
         },
       }
     ).then((res) => {
-      console.log("check4566");
+      console.log("check4566", res);
       if (res.data.data) {
         setChatHeader(res.data.data.user_header);
         setChatList(res.data.data.messages);
@@ -61,7 +61,7 @@ function ChatBox({ selectedId, onNewMsg }) {
 
   useEffect(() => {
     scrollToBottom();
-  }, [chatList]); 
+  }, [chatList]);
   const scrollToBottom = () => {
     if (divRef.current) {
       const lastElement = divRef.current.lastElementChild;
