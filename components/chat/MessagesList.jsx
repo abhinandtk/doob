@@ -29,6 +29,15 @@ function MessagesList({ onChatSelect, onNewMsg }) {
     console.log("dddddd", message);
   });
   console.log("updateChat");
+
+  function lastSeenHandler(lastLoginTime, n) {
+    const currentTime = moment();
+    const loginTime = moment(lastLoginTime);
+
+    const timeDiff = currentTime.diff(loginTime, "minutes");
+
+    return timeDiff <= 3;
+  }
   useEffect(() => {
     if (searchQuery.trim() === "") {
       Axios.get(apis.inboxUser, {
@@ -36,6 +45,7 @@ function MessagesList({ onChatSelect, onNewMsg }) {
           Authorization: `Token ${constants.token_id}`,
         },
       }).then((res) => {
+        console.log("ioooioioioioioi", res);
         setInboxUsers(res.data.data);
       });
     } else {
@@ -124,26 +134,30 @@ function MessagesList({ onChatSelect, onNewMsg }) {
                     className="cover"
                     alt=""
                   />
-                  <svg
-                    width="10"
-                    height="10"
-                    style={{
-                      marginLeft: "30px",
-                      marginTop: "35px",
-                      position: "absolute",
-                    }}
-                    viewBox="0 0 10 10"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <ellipse
-                      cx="4.82459"
-                      cy="5.16357"
-                      rx="4.66443"
-                      ry="4.83643"
-                      fill="#17A803"
-                    />
-                  </svg>
+                  {lastSeenHandler(item.recipeint.last_logined) &&
+                    item.chat.type !==
+                      "group"&&(
+                        <svg
+                          width="10"
+                          height="10"
+                          style={{
+                            marginLeft: "30px",
+                            marginTop: "35px",
+                            position: "absolute",
+                          }}
+                          viewBox="0 0 10 10"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <ellipse
+                            cx="4.82459"
+                            cy="5.16357"
+                            rx="4.66443"
+                            ry="4.83643"
+                            fill="#17A803"
+                          />
+                        </svg>
+                      )}
                 </div>
                 <div className="details">
                   <div className="listHead">
