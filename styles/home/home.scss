@@ -3130,7 +3130,12 @@ p.note {
     margin-left: 22px;
   }
   
-
+.leftSide{
+  display: none;
+}
+.rightSide{
+  display: block;
+}
 .jet-sports {
     margin-bottom: 60px;
 }
