@@ -1857,7 +1857,8 @@ input.nosubmit1 {
   right: 0;
   text-align: left;
   max-width: 65%;
-  padding: 0 12px 12px;
+  padding: 8px  12px 12px;
+  
   background: #17a803;
   color: #fff;
   border-radius: 10px;
@@ -1909,9 +1910,11 @@ input.nosubmit1 {
 }
 .frnd_message {
   justify-content: flex-start;
+
 }
 .frnd_message p {
   background: #343c42;
+  padding: 8px  12px 12px;
   text-align: left;
   color: #fff;
   margin-bottom: 8px;
