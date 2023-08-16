@@ -331,7 +331,7 @@ function PlaygroundManagementPage() {
             </div>
           </Link>
           <Link
-            href="/page/support"
+            href="/play-ground/support"
             style={{ textDecoration: "none", color: "inherit" }}
           >
             <div className="docu1  ">

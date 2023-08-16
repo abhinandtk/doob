@@ -29,7 +29,7 @@ function StoreDetailPage() {
   const router = useRouter();
   const { sid } = router.query;
 
-  const [searchInput, setSearchInput] = useState("");
+  const [searchInput, setSearchInput] = useState(""); 
   const [success, setSuccess] = useState(false);
   const [storeDetails, setStoreDetails] = useState([]);
   const [storeCategory, setStoreCategory] = useState([]);

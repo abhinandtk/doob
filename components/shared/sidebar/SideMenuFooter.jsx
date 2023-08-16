@@ -3,9 +3,11 @@ import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { useTranslation } from "next-i18next";
+import { useTheme } from "next-themes";
 function SideMenuFooter() {
   const [sponsersData, setSponsersData] = useState([]);
   const { t } = useTranslation();
+  const { theme } = useTheme();
   useEffect(() => {
     Axios.get(apis.sponsers).then((res) => {
       setSponsersData(res.data.data);
@@ -29,10 +31,17 @@ function SideMenuFooter() {
             sponsersData.slice(0, 12).map((item, index) => (
               <li key={index} className="side-menu__footer-item ">
                 <a className="side-menu__footer-link mx-1 ">
-                  <img
-                    src={`${constants.port}${item.web_image}`}
-                    style={{ width: "31px", height: "23px" }}
-                  ></img>
+                  {theme === "dark" ? (
+                    <img
+                      src={`${constants.port}${item.dark_mode}`}
+                      style={{ width: "31px", height: "23px" }}
+                    ></img>
+                  ) : (
+                    <img
+                      src={`${constants.port}${item.light_mode}`}
+                      style={{ width: "31px", height: "23px" }}
+                    ></img>
+                  )}
                 </a>
               </li>
             ))}
@@ -47,12 +56,12 @@ function SideMenuFooter() {
           </li>
           <li className="side-menu__footer-item">
             <a className="side-menu__footer-link" href="#">
-            {t("Tournaments")}
+              {t("Tournaments")}
             </a>
           </li>
           <li className="side-menu__footer-item">
             <a className="side-menu__footer-link" href="#">
-             {t("Rank")}
+              {t("Rank")}
             </a>
           </li>
           <li className="side-menu__footer-item">
