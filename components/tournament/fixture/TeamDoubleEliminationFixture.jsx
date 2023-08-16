@@ -1597,12 +1597,13 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                               <img
                                 src={
                                   match.team_A_logo.team_A_logo
-                                    ? `${constants.port}${match.team_A_logo.team_A_logo}`
-                                    : "/images/accounts/user_default.png"
+                                  ? `${constants.port}${match.team_A_logo.team_A_logo}`
+                                  : "/images/accounts/user_default.png"
                                 }
                                 className="group-image"
                                 style={{ width: "24px", height: "24px" }}
                               ></img>
+                                <i className="bi bi-trophy" style={{position:"absolute",left:"17px"}} />
                               <span className="mx-1 double-team-name">
                                 {match.team_A.team_A}
                               </span>
@@ -1617,6 +1618,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                                 className="group-image"
                                 style={{ width: "24px", height: "24px" }}
                               ></img>
+                                 <i className="bi bi-trophy" style={{position:"absolute",left:"17px"}} />
                               <span className="mx-1 double-team-name">
                                 {match.team_A.team_A_2}
                               </span>
@@ -1639,6 +1641,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                                 className="group-image"
                                 style={{ width: "24px", height: "24px" }}
                               ></img>
+                              
                               <span className="mx-1 double-team-name">
                                 {match.team_B.team_B}
                               </span>

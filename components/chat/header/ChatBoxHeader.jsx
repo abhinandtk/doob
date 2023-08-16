@@ -42,8 +42,9 @@ function ChatBoxHeader({ details, selectedId, setOnSuccess, onNewMsg }) {
                     alt=""
                     className="pic"
                   ></img>
+                  
                 )}
-
+              
                 <p
                   style={{
                     marginLeft: "90px",
@@ -66,6 +67,7 @@ function ChatBoxHeader({ details, selectedId, setOnSuccess, onNewMsg }) {
                       Active Now
                     </span>
                   )}
+                  &nbsp;
                 </p>
               </div>
               {lastSeenHandler(details.last_login) && details.type!=="group"&&(

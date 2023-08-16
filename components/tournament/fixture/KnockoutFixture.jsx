@@ -284,7 +284,7 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
                     <div key={index_} className="match">
                       <div className="team" style={{ height: "115px" }}>
                         <div className="fix-image">
-                          <img
+                        &nbsp; &nbsp; <img
                             src={
                               match.team_A_logo.team_A_logo
                                 ? `${constants.port}${match.team_A_logo.team_A_logo}`
@@ -292,6 +292,8 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
                             }
                             className="group-image"
                           ></img>
+                                <i className="bi bi-trophy-fill" style={{right:"15px",position:"relative" ,color:"#17A803",bottom:"5px"}} />
+                                <i className="bi bi-trophy-fill" style={{left:"15px",position:"relative",color:"#17A803",bottom:"5px"}} /> 
                           <img
                             src={
                               match.team_B_logo.team_B_logo
@@ -300,6 +302,7 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
                             }
                             className="group-image"
                           ></img>
+                           &nbsp;  &nbsp;
                         </div>
                         <div className="fix">
                           <div
@@ -344,12 +347,12 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
                         <div className="fix1">
                           <div className="group-two-final">
                             {match.team_A_score > match.team_B_score && (
-                              <i className="bi bi-trophy" />
+                              <i className="" />
                             )}
                           </div>
                           <div className="group-two-final">
                             {match.team_B_score > match.team_A_score && (
-                              <i className="bi bi-trophy" />
+                              <i className="" />
                             )}
                           </div>
                         </div>
