@@ -15,6 +15,7 @@ function GameDetailTopContent({ details, setOnSuccess }) {
 
   const labels = Labels();
   const router = useRouter();
+  const { locale } = router;
   const { gameId } = router.query;
 
   const timeConvertHandler = (time) => {

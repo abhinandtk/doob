@@ -17,6 +17,7 @@ function SupportMessages({ data, setSuccess, status }) {
     const timeString = timeDiff.humanize() + " ago";
     return timeString;
   };
+  console.log("result,rdes", data);
 
   const supportMessageHandler = () => {
     Axios.post(
@@ -47,32 +48,30 @@ function SupportMessages({ data, setSuccess, status }) {
           data.map((item, index) => (
             <div key={index} className="message-item">
               <div className="message-avatar">
-                {item.user.username ? (
-                  item.user.image ? (
-                    <CardImg
-                      className="rounded-circle shadow-1-strong"
-                      src={`${constants.port}${item.user.image}`}
-                      style={{
-                        width: "34px",
-                        height: "34px",
-                        objectFit: "cover",
-                      }}
-                    />
-                  ) : (
-                    <CardImg
-                      className="rounded-circle shadow-1-strong"
-                      src="/images/accounts/user_default.png"
-                      style={{
-                        width: "34px",
-                        height: "34px",
-                        objectFit: "cover",
-                      }}
-                    />
-                  )
-                ) : (
+                {item.user.is_admin ? (
                   <CardImg
                     className="rounded-circle shadow-1-strong"
                     src="/images/accounts/technical-support.png"
+                    style={{
+                      width: "34px",
+                      height: "34px",
+                      objectFit: "cover",
+                    }}
+                  />
+                ) : item.user.image ? (
+                  <CardImg
+                    className="rounded-circle shadow-1-strong"
+                    src={`${constants.port}${item.user.image}`}
+                    style={{
+                      width: "34px",
+                      height: "34px",
+                      objectFit: "cover",
+                    }}
+                  />
+                ) : (
+                  <CardImg
+                    className="rounded-circle shadow-1-strong"
+                    src="/images/accounts/user_default.png"
                     style={{
                       width: "34px",
                       height: "34px",

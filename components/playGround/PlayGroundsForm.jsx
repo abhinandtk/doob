@@ -564,6 +564,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
                 <span
                   onClick={() => setSlots(slots.filter((s) => s !== item))}
                   className="time-delete"
+                  style={{cursor:"pointer"}}
                 >
                   {t("Delete")}
                 </span>
