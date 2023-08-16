@@ -108,7 +108,7 @@ function ChatBox({ selectedId, onNewMsg }) {
                           <div className="message my_message">
                             <p>
                               {msg.body}
-                              <br></br>
+                              {/* <br></br> */}
                             </p>
                           </div>
                           <div className="my_chatam">
@@ -139,9 +139,9 @@ function ChatBox({ selectedId, onNewMsg }) {
                                   {msg.chat.name}
                                 </span>
                               )}
-                              <br></br>
+                              {/* <br></br> */}
                               {msg.body}
-                              <br></br>
+                              {/* <br></br> */}
                             </p>
                           </div>
                           <div className="frnd_chatam">
