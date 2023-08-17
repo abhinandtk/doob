@@ -1113,8 +1113,8 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                             }
                             className="group-image"
                           ></img>
-                            <i className="bi bi-trophy-fill" style={{left:"34px",position:"absolute" ,color:"#17A803"}} />
-                            <i className="bi bi-trophy-fill" style={{right:"60px",position:"absolute" ,color:"#17A803"}} />
+                            {match.team_A_score >= match.team_B_score && <i className="bi bi-trophy-fill" style={{left:"34px",position:"absolute" ,color:"#17A803"}} />}
+                            {match.team_B_score >= match.team_A_score && <i className="bi bi-trophy-fill" style={{right:"60px",position:"absolute" ,color:"#17A803"}} />}
                           <img
                             src={
                               match.team_B_logo.team_B_logo

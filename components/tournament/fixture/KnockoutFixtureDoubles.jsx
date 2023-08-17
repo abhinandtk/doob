@@ -449,12 +449,11 @@ function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
                                 className="group-image"
                                 style={{ width: "24px", height: "24px" }}
                               ></img>
-                        
-                           
                               <span className="mx-1 double-team-name">
                                 {match.team_A.team_A}
                               </span>
-                              <i className="bi bi-trophy-fill" style={{right:"45px",position:"relative" ,color:"#17A803",bottom:"25px"}} />
+                              
+                              { match.team_A_score >= match.team_B_score&&<i className="bi bi-trophy-fill" style={{right:"45px",position:"relative" ,color:"#17A803",bottom:"25px"}} />}
                              
                             </div>
                             <div>
@@ -470,7 +469,7 @@ function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
                               <span className="mx-1 double-team-name">
                                 {match.team_A.team_A_2}
                               </span>
-                              <i className="bi bi-trophy-fill" style={{right:"45px",position:"relative" ,color:"#17A803",bottom:"25px"}} />
+                              { match.team_A_score >= match.team_B_score && <i className="bi bi-trophy-fill" style={{right:"45px",position:"relative" ,color:"#17A803",bottom:"25px"}} />}
                             </div>
                           </div>
                           <div
@@ -495,7 +494,7 @@ function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
                                 {match.team_B.team_B}
                               </span>
 
-                              <i className="bi bi-trophy-fill" style={{right:"45px",position:"relative" ,color:"#17A803",bottom:"25px"}} />
+                              {match.team_B_score >= match.team_A_score && <i className="bi bi-trophy-fill" style={{right:"45px",position:"relative" ,color:"#17A803",bottom:"25px"}} />}
                             </div>
                             <div>
                               <img
@@ -510,7 +509,7 @@ function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
                               <span className="mx-1 double-team-name">
                                 {match.team_B.team_B_2}
                               </span>
-                              <i className="bi bi-trophy-fill" style={{right:"45px",position:"relative" ,color:"#17A803",bottom:"25px"}} />
+                              {match.team_B_score >= match.team_A_score &&<i className="bi bi-trophy-fill" style={{right:"45px",position:"relative" ,color:"#17A803",bottom:"25px"}} />}
                             </div>
                           </div>
                         </div>
