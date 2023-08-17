@@ -14,6 +14,7 @@ import apis from "@/public/data/my-constants/Apis";
 import { notification } from "antd";
 import constants from "@/public/data/my-constants/Constants";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 function Register({ setActiveModal, countries }) {
   const { t } = useTranslation();
   const [show, setShow] = useState(true);

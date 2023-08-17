@@ -61,7 +61,7 @@ function ProfileDetails() {
               <hr className=" line"></hr>
 
               <div className="row images">
-                {postDetails.map((item, index) => {
+                {postDetails && postDetails.map((item, index) => {
                   return (
                     <div
                       key={index}
