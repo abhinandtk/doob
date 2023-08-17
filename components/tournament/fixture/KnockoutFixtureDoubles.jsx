@@ -526,7 +526,7 @@ function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
                             {match.team_B_score}
                           </div>
                         </div>
-                        <div className="fix1">
+                        {/* <div className="fix1">
                           <div className="group-two-final">
                             {match.team_A_score > match.team_B_score && (
                               <i className="bi bi-trophy" />
@@ -537,7 +537,7 @@ function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
                               <i className="bi bi-trophy" />
                             )}
                           </div>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   ))}
