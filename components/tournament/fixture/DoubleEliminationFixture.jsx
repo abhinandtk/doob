@@ -1165,12 +1165,12 @@ function DoubleEliminationFixture({ data, setOnSuccess, admin }) {
                         <div className="fix1">
                           <div className="group-two-final">
                             {match.team_A_score > match.team_B_score && (
-                              <i className="bi bi-trophy" />
+                              <i className="bi bi-trophy-fill" />
                             )}
                           </div>
                           <div className="group-two-final">
                             {match.team_B_score > match.team_A_score && (
-                              <i className="bi bi-trophy" />
+                              <i className="bi bi-trophy-fill" />
                             )}
                           </div>
                         </div>
