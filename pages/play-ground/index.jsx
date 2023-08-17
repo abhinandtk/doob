@@ -199,7 +199,7 @@ function PlayGroundPage() {
                       style={{
                         fontWeight: "700",
                         fontSize: "19px",
-                        marginLeft: "-6px",
+                        marginLeft: "0px",
                       }}
                     >
                       {t("Games near me")}
