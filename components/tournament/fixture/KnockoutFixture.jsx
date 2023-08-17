@@ -292,8 +292,8 @@ function KnockoutFixture({ data, setOnSuccess, admin }) {
                             }
                             className="group-image"
                           ></img>
-                                <i className="bi bi-trophy-fill" style={{right:"15px",position:"relative" ,color:"#17A803",bottom:"5px"}} />
-                                <i className="bi bi-trophy-fill" style={{left:"15px",position:"relative",color:"#17A803",bottom:"5px"}} /> 
+                          {match.team_A_score > match.team_B_score && <i className="bi bi-trophy-fill" style={{right:"15px",position:"relative" ,color:"#17A803",bottom:"5px"}} />}
+                          {match.team_B_score >= match.team_A_score && <i className="bi bi-trophy-fill" style={{left:"15px",position:"relative",color:"#17A803",bottom:"5px"}} /> }
                           <img
                             src={
                               match.team_B_logo.team_B_logo

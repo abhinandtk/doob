@@ -1603,7 +1603,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                                 className="group-image"
                                 style={{ width: "24px", height: "24px" }}
                               ></img>
-                                <i className="bi bi-trophy" style={{position:"absolute",left:"17px"}} />
+                                {match.team_A_score > match.team_B_score && <i className="bi bi-trophy-fill" style={{position:"absolute",left:"17px"}} />}
                               <span className="mx-1 double-team-name">
                                 {match.team_A.team_A}
                               </span>
@@ -1618,7 +1618,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                                 className="group-image"
                                 style={{ width: "24px", height: "24px" }}
                               ></img>
-                                 <i className="bi bi-trophy" style={{position:"absolute",left:"17px"}} />
+                                {match.team_A_score > match.team_B_score && <i className="bi bi-trophy-fill" style={{position:"absolute",left:"17px"}} />}
                               <span className="mx-1 double-team-name">
                                 {match.team_A.team_A_2}
                               </span>
@@ -1641,7 +1641,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                                 className="group-image"
                                 style={{ width: "24px", height: "24px" }}
                               ></img>
-                              
+                              {match.team_B_score > match.team_A_score && <i className="bi bi-trophy-fill" style={{position:"absolute",right:"44%"}} />}
                               <span className="mx-1 double-team-name">
                                 {match.team_B.team_B}
                               </span>
@@ -1656,6 +1656,7 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                                 className="group-image"
                                 style={{ width: "24px", height: "24px" }}
                               ></img>
+                               {match.team_B_score > match.team_A_score && <i className="bi bi-trophy-fill" style={{position:"absolute",right:"44%"}} />}
                               <span className="mx-1 double-team-name">
                                 {match.team_B.team_B_2}
                               </span>
@@ -1776,12 +1777,12 @@ function TeamDoubleEliminationFixture({ data, setOnSuccess, admin }) {
                         <div className="fix1">
                           <div className="group-two-final">
                             {match.team_A_score > match.team_B_score && (
-                              <i className="bi bi-trophy" />
+                              <i className="bi bi-trophy-fill" />
                             )}
                           </div>
                           <div className="group-two-final">
                             {match.team_B_score > match.team_A_score && (
-                              <i className="bi bi-trophy" />
+                              <i className="bi bi-trophy-fill" />
                             )}
                           </div>
                         </div>

@@ -6,13 +6,13 @@ import MainHeader from "@/components/shared/headers/MainHeader";
 import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import ProductsForm from "@/components/shop/product/ProductsForm";
-import Axios from 'axios'
+import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
 import { notification } from "antd";
 import MobileFooter from "@/components/shared/MobileFooter";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -22,10 +22,11 @@ export async function getStaticProps({ locale }) {
   };
 }
 function AddProductPage() {
-  const router =useRouter() 
+  const router = useRouter();
+  const { locale } = router;
   const handleProductAdd = (formData) => {
-    console.log('form8888',formData.variants[0].formFile)
-    console.log('form8888',)
+    console.log("form8888", formData.variants[0].formFile);
+    console.log("form8888");
 
     const variants = formData.variants.map((variant) => ({
       sku: variant.sku,
@@ -36,7 +37,7 @@ function AddProductPage() {
       actual_price: variant.actualPrize,
       selling_price: variant.sellingPrice,
     }));
-  
+
     Axios.post(
       apis.addProduct,
       {
@@ -51,7 +52,7 @@ function AddProductPage() {
         thumbnail_image: formData.thumbnail,
         sub_category_id: formData.subCategory,
         tags: [formData.tag],
-        variants:variants
+        variants: variants,
       },
       {
         headers: {
@@ -59,13 +60,20 @@ function AddProductPage() {
         },
       }
     ).then((res) => {
-      router.back();
-      notification.success({
-        message: "Success",
-        description: "Product added successfully",
-      });
-      console.log("product succccccccessssssssssssss", res,apis.addProduct,
-      {
+      if (res.data.status === 1) {
+        notification.success({
+          message: "Success",
+          description: "Product added successfully",
+        });
+        router.back();
+      } else {
+        notification.error({
+          message: constants.Error,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
+        });
+      }
+      console.log("product succccccccessssssssssssss", res, apis.addProduct, {
         product_name: formData.name,
         product_name_ar: formData.nameArabic,
         description: formData.description,
@@ -77,7 +85,7 @@ function AddProductPage() {
         thumbnail_image: formData.thumbnail,
         sub_category_id: formData.subCategory,
         tags: [formData.tag],
-        variants:variants
+        variants: variants,
       });
     });
   };
@@ -89,8 +97,8 @@ function AddProductPage() {
       <div className="store-container1">
         <div className="Bottom">
           <ShopPagesSideBar currentPage="products" />
-          <ProductsForm handleProductAdd={handleProductAdd}/>
-        </div> 
+          <ProductsForm handleProductAdd={handleProductAdd} />
+        </div>
       </div>
       <MobileFooter />
     </Fragment>

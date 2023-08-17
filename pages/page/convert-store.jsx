@@ -24,7 +24,9 @@ function ConvertStoreForm() {
   const { t } = useTranslation();
   const [formData, setFormData] = useState({
     title: "",
+    title_ar: "",
     description: "",
+    description_ar: "",
     address: "",
     location: "",
     gmap: "",
@@ -73,7 +75,9 @@ function ConvertStoreForm() {
     e.preventDefault();
     const formdata = new FormData();
     formdata.append("title", formData.title);
+    formdata.append("arabic_title", formData.title_ar);
     formdata.append("description", formData.description);
+    formdata.append("arabic_description", formData.description_ar);
     formdata.append("address", formData.address);
     formdata.append("location", formData.location);
     formdata.append("doob_map_location", formData.gmap);
@@ -149,6 +153,22 @@ function ConvertStoreForm() {
                     onChange={(e) => changeHandler(e)}
                   />
                 </div>
+                <div className="form-group my-2 ">
+                  <label for="exampleFormControlInput1">Arabic Title</label>
+                  <input
+                    required
+                    type="text"
+                    className="form-control p-2"
+                    style={{
+                      border: "0px",
+                      background: "#eeeeee",
+                      color: "grey",
+                    }}
+                    id="title_ar"
+                    // value={formData.title}
+                    onChange={(e) => changeHandler(e)}
+                  />
+                </div>
                 <div className="form-group my-2">
                   <label for="exampleFormControlInput1">
                     {t("Description")}
@@ -164,6 +184,25 @@ function ConvertStoreForm() {
                     }}
                     rows={3}
                     id="description"
+                    // value={formData.description}
+                    onChange={(e) => changeHandler(e)}
+                  />
+                </div>
+                <div className="form-group my-2">
+                  <label for="exampleFormControlInput1">
+                    Arabic {t("Description")}
+                  </label>
+                  <textarea
+                    required
+                    type="text"
+                    className="form-control p-2"
+                    style={{
+                      border: "0px",
+                      background: "#eeeeee",
+                      color: "grey",
+                    }}
+                    rows={3}
+                    id="description_ar"
                     // value={formData.description}
                     onChange={(e) => changeHandler(e)}
                   />
