@@ -652,11 +652,12 @@ input.nosubmit1 {
 }
 
 .product-name-shared {
-  display: inline-flex;
-  width: 150px; /* Adjust the value as per your requirement */
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   width: 200px;
 }
 
 .post__more-options {
@@ -3130,7 +3131,12 @@ p.note {
     margin-left: 22px;
   }
   
-
+.leftSide{
+  display: none;
+}
+.rightSide{
+  display: block;
+}
 .jet-sports {
     margin-bottom: 60px;
 }
