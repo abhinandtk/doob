@@ -414,7 +414,7 @@ function ContainerHomePosts() {
                               />
                             </svg>
                           </button> */}
-                          <SharePostToUser />
+                          <SharePostToUser slug={item.slug}/>
                         </>
                       )
                     ) : (

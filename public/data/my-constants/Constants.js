@@ -1,14 +1,18 @@
 
 let token_id;
 let user_id;
+let domain;
 if (typeof window !== 'undefined') {
 
     token_id = localStorage.getItem('user-login-tokens')
     user_id = localStorage.getItem('login-userId')
+    domain = window.location.hostname
 } else {
     token_id = null
     user_id = null
 }
+
+// let domain_site = typeof window.location.hostname;
 
 
 

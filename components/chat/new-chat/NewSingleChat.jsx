@@ -8,6 +8,7 @@ import { notification } from "antd";
 
 function NewSingleChat({ onChatSelect, onNewMsg, onGrpShow }) {
   const router = useRouter();
+  const { locale } = router;
   const [searchInput, setSearchInput] = useState("");
   const [searchResult, setSearchResult] = useState([]);
 
@@ -43,7 +44,15 @@ function NewSingleChat({ onChatSelect, onNewMsg, onGrpShow }) {
         },
       }
     ).then((res) => {
-      onChatSelect(res.data.data.id);
+      if (res.data.status === 1) {
+        onChatSelect(res.data.data.id);
+      } else {
+        notification.error({
+          message: constants.Error,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
+        });
+      }
     });
   };
 

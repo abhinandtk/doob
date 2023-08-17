@@ -8,9 +8,12 @@ import constants from "@/public/data/my-constants/Constants";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { CardImg } from "react-bootstrap";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
-function SharePostToUser() {
+function SharePostToUser({slug}) {
   const { t } = useTranslation();
+  const router = useRouter();
+  const { locale } = router;
 
   const [visible, setVisible] = useState(false);
   const [searchResult, setSearchResult] = useState([]);
@@ -40,10 +43,52 @@ function SharePostToUser() {
     // } else {
     //   setSelectedItems([...selectedItems, id]);
     // }
-
-    notification.success({
-      message: constants.Success,
-      description: `${labels["Share post user"]}`,
+    Axios.post(
+      apis.createChat,
+      {
+        type: "single",
+        user: id,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      console.log("res787", res);
+      if (res.data.status === 1) {
+        Axios.post(
+          apis.sendMessage,
+          {
+            chat_id: res.data.data.id,
+            body: `${constants.port}/page/post/${slug}`,
+          },
+          {
+            headers: {
+              Authorization: `Token ${constants.token_id}`,
+            },
+          }
+        ).then((res) => {
+          if (res.data.status === 1) {
+            notification.success({
+              message: constants.Success,
+              description: `${labels["Share post user"]}`,
+            });
+          } else {
+            notification.error({
+              message: constants.Error,
+              description:
+                locale === "en" ? res.data.message_en : res.data.message_ar,
+            });
+          }
+        });
+      } else {
+        notification.error({
+          message: constants.Error,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
+        });
+      }
     });
   };
   const doneHandler = () => {

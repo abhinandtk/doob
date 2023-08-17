@@ -106,10 +106,18 @@ function ChatBox({ selectedId, onNewMsg }) {
                       {msg.chat.is_sender == true ? (
                         <div>
                           <div className="message my_message">
-                            <p>
-                              {msg.body}
-                              {/* <br></br> */}
-                            </p>
+                            {msg.body.includes(constants.port) ? (
+                              <p>
+                                <a href={msg.body} target="_blank">
+                                  {msg.body}
+                                </a>
+                              </p>
+                            ) : (
+                              <p>
+                                {msg.body}{constants.domain}
+                                <br></br>
+                              </p>
+                            )}
                           </div>
                           <div className="my_chatam">
                             {moment(msg.date).format("hh:mm A")}
@@ -139,9 +147,9 @@ function ChatBox({ selectedId, onNewMsg }) {
                                   {msg.chat.name}
                                 </span>
                               )}
-                              {/* <br></br> */}
+                              <br></br>
                               {msg.body}
-                              {/* <br></br> */}
+                              <br></br>
                             </p>
                           </div>
                           <div className="frnd_chatam">
