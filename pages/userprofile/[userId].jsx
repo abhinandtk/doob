@@ -89,7 +89,8 @@ function OtherUserAccount() {
           groundDetail={groundDetail}
           storeDetail={storeDetail}
         />
-        {profileDetails.is_following === 1 || !isPrivate ? (
+        {profileDetails.is_following === 1 ||
+        (!isPrivate && !blockedfrom && !blockedby) ? (
           <section id="tabs">
             <Tabs
               id="uncontrolled-tab-example"

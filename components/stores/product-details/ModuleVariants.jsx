@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 function ModuleVariants({ product }) {
   console.log("ttt-product123", product);
-  const router=useRouter()
+  const router = useRouter();
   const dispatch = useDispatch();
   const [primaryIndex, setPrimaryIndex] = useState(
     useSelector((state) => state.product.proPrimaryVarientId)
@@ -19,7 +19,6 @@ function ModuleVariants({ product }) {
   const prVarientId = useSelector((state) => state.product.proVarient);
   const items = [];
   console.log("ttt-productitems", product.Product_Items);
-
 
   product.Product_Items.map((item, index) => {
     const isExist = (obj) => obj.varent_id === item.varent_id;
@@ -49,23 +48,62 @@ function ModuleVariants({ product }) {
   return (
     <div>
       <h6 style={{ marginTop: "-8px" }}>
-        Color<br></br>
-        <div>
-          {items.map((item, index) => (
-            <span key={index} onClick={()=>handleButtonActions(item.varent_id,item.secondVarientSlug)}>
-              <img
-                className="mx-1"
-                src={`${constants.port}${item.varient_color_image}`}
-                style={{
-                  width: "18px",
-                  height: "18px",
-                  objectFit: "cover",
-                  borderRadius: "50%",
-                }}
-              />
-            </span>
-          ))}
-        </div>
+        {product.primary_varient === "Color" ? (
+          <>
+            Color<br></br>
+            <div>
+              {items.map((item, index) => (
+                <span
+                  key={index}
+                  onClick={() =>
+                    handleButtonActions(item.varent_id, item.secondVarientSlug)
+                  }
+                >
+                  <img
+                    className="mx-1"
+                    src={`${constants.port}${item.varient_color_image}`}
+                    style={{
+                      width: "18px",
+                      height: "18px",
+                      objectFit: "cover",
+                      borderRadius: "50%",
+                    }}
+                  />
+                </span>
+              ))}
+            </div>
+          </>
+        ) : (
+          <>
+            Size<br></br>
+            <div>
+              {items.map((item, index) => (
+                <div
+                  key={index}
+                  className="btn-group group  "
+                  role="group"
+                  aria-label="Second group"
+                >
+                  <button
+                    onClick={() =>
+                      handleButtonActions(
+                        item.varent_id,
+                        item.secondVarientSlug
+                      )
+                    }
+                    type="button"
+                    // className={`btn btn-secondary ${
+                    //   prVarientId === item.slug ? "outlocks" : "outlock"
+                    // }`}
+                    className="btn btn-secondary outlocks"
+                  >
+                    {item.values_values}
+                  </button>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
         {/* <div className="btn-group group  " role="group" aria-label="Second group">
         <button type="button" className="btn btn-secondary outlock ">
         Purple

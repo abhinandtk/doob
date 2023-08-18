@@ -1,4 +1,5 @@
 import { setProVarient } from "@/Redux/productDetail";
+import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,7 +12,7 @@ function ModuleSecondVariants({ product }) {
   const primaryIndex = useSelector(
     (state) => state.product.proPrimaryVarientId
   );
-  console.log("test1primaryIndex", product);
+  console.log("ttt-items moduleseconddata/////////", product);
   const multiItems = [];
   const prVarientId = useSelector((state) => state.product.proVarient);
 
@@ -21,6 +22,7 @@ function ModuleSecondVariants({ product }) {
         multiItems.push({
           value: item_.values,
           slug: item_.slug_id,
+          varient_color_image: item_.varient_color_image,
         });
       }
     });
@@ -34,30 +36,56 @@ function ModuleSecondVariants({ product }) {
   };
 
   console.log("oooooo", product);
-  console.log("multiitems", multiItems);
+  console.log("ttt-items modulesecondmultiitems", multiItems);
 
   return (
     <div>
-      {multiItems.length !== 0 && (
-        <>
-          <h6>Choose size</h6>
-          {multiItems.map((item, index) => (
-            <div
-              key={index}
-              className="btn-group group  "
-              role="group"
-              aria-label="Second group"
-            >
-              <button
-                onClick={() => handleButtonActions(item.slug)}
-                type="button"
-                className={`btn btn-secondary ${
-                  prVarientId === item.slug ? "outlocks" : "outlock"
-                }`}
+      {product.secondary_varient === "Size" ? (
+        multiItems.length !== 0 && (
+          <>
+            <h6>Size</h6>
+            {multiItems.map((item, index) => (
+              <div
+                key={index}
+                className="btn-group group  "
+                role="group"
+                aria-label="Second group"
               >
-                {item.value}
-              </button>
-            </div>
+                <button
+                  onClick={() => handleButtonActions(item.slug)}
+                  type="button"
+                  className={`btn btn-secondary ${
+                    prVarientId === item.slug ? "outlocks" : "outlock"
+                  }`}
+                >
+                  {item.value}
+                </button>
+              </div>
+            ))}
+          </>
+        )
+      ) : (
+        <>
+          {" "}
+          <h6>Color</h6>
+          {multiItems.map((item, index) => (
+            <span
+              key={index}
+              onClick={() =>
+                handleButtonActions(item.slug)
+              }
+            >
+              <img
+                className="mx-1"
+                src={`${constants.port}${item.varient_color_image}`}
+                style={{
+                  width: "18px",
+                  height: "18px",
+                  objectFit: "cover",
+                  borderRadius: "50%",
+                }}
+              />
+            </span>
           ))}
         </>
       )}
