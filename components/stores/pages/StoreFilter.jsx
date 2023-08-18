@@ -41,7 +41,7 @@ function StoreFilter({ searchResultHandler }) {
       range,
       count
     );
-  }, []);
+  }, [router.query.slug]);
 
   useEffect(() => {
     if (router.query.slug) {

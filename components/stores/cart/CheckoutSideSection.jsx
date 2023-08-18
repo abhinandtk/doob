@@ -1,14 +1,15 @@
 import React from "react";
 import { Fragment } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Spinner } from "react-bootstrap";
 import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
-import { notification } from "antd";
+import { Spin, notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { Router, useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { toggle } from "@/Redux/updateNavbar";
+import { useState } from "react";
 
 function CheckoutSideSection({ data }) {
   const dispatch = useDispatch();
@@ -16,7 +17,10 @@ function CheckoutSideSection({ data }) {
   const labels = Labels();
   const router = useRouter();
   const { locale } = router;
+  const [isLoading, setIsLoading] = useState(false);
+
   const checkoutHandler = () => {
+    setIsLoading(true);
     console.log("jjjjjjjjjjjjjj");
     Axios.post(
       apis.checkout,
@@ -30,6 +34,7 @@ function CheckoutSideSection({ data }) {
       }
     ).then((res) => {
       dispatch(toggle());
+      setIsLoading(false);
       if (res.data.status == 1) {
         notification.success({
           message: constants.Success,
@@ -79,7 +84,21 @@ function CheckoutSideSection({ data }) {
               className="cart-btn "
             >
               {" "}
-              Check out{" "}
+              {isLoading ? (
+                <>
+                  Loading
+                  <Spinner
+                    as="span"
+                    animation="border"
+                    size="sm"
+                    variant="light"
+                    role="status"
+                    aria-hidden="true"
+                  />
+                </>
+              ) : (
+                "Check out"
+              )}{" "}
             </Button>
           </div>
         </div>

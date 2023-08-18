@@ -157,7 +157,7 @@ export default function PostActions({
               {t("Delete")}
             </Dropdown.Item>
           )}
-          {data.post_type === "Product" ||
+          {/* {data.post_type === "Product" ||
           data.post_type === "Store" ||
           data.post_type === "Field" ||
           data.owner_user_detail !== null ? (
@@ -166,7 +166,7 @@ export default function PostActions({
             <Dropdown.Item onClick={() => sharedClick(postId)}>
               {t("Share")}
             </Dropdown.Item>
-          )}
+          )} */}
           <Dropdown.Item onClick={() => handleSend(data.slug)}>
           {t("Send")}
           </Dropdown.Item>

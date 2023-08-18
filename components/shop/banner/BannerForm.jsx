@@ -130,7 +130,7 @@ function BannerForm({ bannerSubmitHandler, editData }) {
             </div>
             <div className="form-group  my-2">
               <label for="exampleFormControlInput1" id="image">
-                {t("Banner Web Image")}
+                {t("Banner Web Image")} <span style={{color:'red',fontSize:"11px"}}>(Please upload an image with dimensions 800x400)</span>
               </label>
               <input
                 type="file"

@@ -32,6 +32,7 @@ const constants = {
 
     'token_id': token_id,
     'user_id': user_id,
+    'domain': domain,
 
     'Error': 'Erorr',
     'Success': 'Success',

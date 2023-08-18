@@ -89,7 +89,9 @@ function AdminAllOrders() {
       console.log("success update", res);
     });
   };
-
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+  }
   return (
     <Fragment>
       <MainHeader title="Doob" />
@@ -302,7 +304,7 @@ function AdminAllOrders() {
                                 : "#FF640D",
                           }}
                         >
-                          {item.order_status}
+                          {capitalizeFirstLetter(item.order_status)}
                         </span>
                       </div>
 

@@ -154,7 +154,7 @@ function NewSingleChat({ onChatSelect, onNewMsg, onGrpShow }) {
                     className="cover"
                     alt=""
                   />
-                  <svg
+                  {/* <svg
                     width="10"
                     height="10"
                     style={{
@@ -173,7 +173,7 @@ function NewSingleChat({ onChatSelect, onNewMsg, onGrpShow }) {
                       ry="4.83643"
                       fill="#17A803"
                     />
-                  </svg>
+                  </svg> */}
                 </div>
                 <div className="details">
                   <div className="listHead">

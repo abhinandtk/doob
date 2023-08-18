@@ -14,6 +14,7 @@ import { Labels } from "@/public/data/my-constants/Labels";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import MatchTimerTimeLine from "@/components/tournament/fixture/MatchTimerTimeLine";
 
 export async function getServerSideProps({ locale }) {
   return {
@@ -53,7 +54,7 @@ function MatchTimelinePage() {
       }
     ).then((res) => {
       setTimelineData(res.data.data);
-      console.log("qqqqqqqqq", timeLineData);
+      console.log("qqqqqqqqq", res);
     });
   }, [mId, onSuccess]);
 
@@ -349,7 +350,7 @@ function MatchTimelinePage() {
                           type="button"
                           className=" btn-outline-secondary club-time"
                         >
-                          45 Min
+                          <MatchTimerTimeLine match={timeLineData.tournament_details} />
                         </button>
                       </div>
 

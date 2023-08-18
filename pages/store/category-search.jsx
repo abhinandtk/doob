@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 import StoreProductsCard from "@/components/stores/StoreProductsCard";
 import MobileHeader from "@/components/MobileHeader";
 import MobileFooter from "@/components/shared/MobileFooter";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -29,6 +29,8 @@ function CategorySearchPage() {
   const [loading, setLoading] = useState(true);
 
   const [selectedSubcategory, setSelectedSubcategory] = useState(null);
+  const [keyCounter, setKeyCounter] = useState(0);
+
 
   const router = useRouter();
   const id = router.query.category_id;
@@ -51,14 +53,9 @@ function CategorySearchPage() {
       setSubCategoriesData(res.data.data.subcategories);
       setSubCategoryProduct(res.data.data.category_products);
       setLoading(false);
-      console.log("888888", res, {
-        category_id: id,
-        keyword: "",
-        subcategory_id: subCatInput,
-      });
+      console.log("888888", subCatInput, res);
     });
-  }, [id, subCatInput,searchInput]);
-  console.log("hihii", subCategoryProduct);
+  }, [id, subCatInput, searchInput]);
 
   return (
     <Fragment>
@@ -68,7 +65,7 @@ function CategorySearchPage() {
       <div className="store-container">
         <form className="nosubmit ">
           <input
-            onChange={(e)=>setSearchInput(e.target.value)}
+            onChange={(e) => setSearchInput(e.target.value)}
             className="nosubmit-shop"
             type="search"
             placeholder="Search"
@@ -94,7 +91,8 @@ function CategorySearchPage() {
             </button>
           </div>
           {!loading
-            ? subCategoriesData && subCategoriesData.length > 0 &&
+            ? subCategoriesData &&
+              subCategoriesData.length > 0 &&
               subCategoriesData.map((item, index) => (
                 <div
                   key={index}
@@ -111,7 +109,7 @@ function CategorySearchPage() {
             : null}
         </section>
         {!loading ? (
-          subCategoryProduct &&  subCategoryProduct.length > 0 ? (
+          subCategoryProduct && subCategoryProduct.length > 0 ? (
             <>
               <StoreProductsCard
                 key={subCategoryProduct.length}

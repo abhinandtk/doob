@@ -64,7 +64,7 @@ function StoreSearchPage() {
 
         <div className="my-2  ">{/* <SearchCategory /> */}</div>
         {!isLoading ? (
-          resultProduct.length > 0 ? (
+          resultProduct && resultProduct.length > 0 ? (
             <StoreProductsCard
               key={resultProduct.length}
               products={resultProduct}
