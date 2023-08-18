@@ -430,7 +430,7 @@ function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
                 <div className="round">
                   {item.matches.map((match, index_) => (
                     <div key={index_} className="match">
-                      <div className="team-double" style={{ height: "150px" }}>
+                      <div className="team-double" style={{ height: "120px" }}>
                         <div className="fix-image">
                           <div
                             className={`${
@@ -439,7 +439,7 @@ function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
                                 : "group-two-double"
                             }`}
                           >
-                            <div>
+                            <div style={{position:"relative"}}>
                               <img
                                 src={
                                   match.team_A_logo.team_A_logo
@@ -453,10 +453,10 @@ function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
                                 {match.team_A.team_A}
                               </span>
                               
-                              { match.team_A_score >= match.team_B_score&&<i className="bi bi-trophy-fill" style={{right:"45px",position:"relative" ,color:"#17A803",bottom:"25px"}} />}
+                              { match.team_A_score >= match.team_B_score&&<i className="bi bi-trophy-fill" style={{left:"2px",position:"absolute" ,color:"#17A803"}} />}
                              
                             </div>
-                            <div>
+                            <div style={{position:"relative"}}>
                               <img
                                 src={
                                   match.team_A_logo.team_A_logo_2
@@ -469,7 +469,7 @@ function KnockoutFixtureDoubles({ data, setOnSuccess, admin }) {
                               <span className="mx-1 double-team-name">
                                 {match.team_A.team_A_2}
                               </span>
-                              { match.team_A_score >= match.team_B_score && <i className="bi bi-trophy-fill" style={{right:"45px",position:"relative" ,color:"#17A803",bottom:"25px"}} />}
+                              { match.team_A_score >= match.team_B_score&&<i className="bi bi-trophy-fill" style={{left:"2px",position:"absolute" ,color:"#17A803"}} />}
                             </div>
                           </div>
                           <div

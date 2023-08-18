@@ -16,7 +16,7 @@ function PlayGroundCard({ content }) {
       <div className="clearfix jst mt-3 ">
         <h5
           className="float-start"
-          style={{ fontWeight: "700", fontSize: "19px", marginLeft: "-6px" }}
+          style={{ fontWeight: "700", fontSize: "19px", marginLeft: "0px" }}
         >
           {t("Playgrounds near me")}
         </h5>
