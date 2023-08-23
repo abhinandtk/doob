@@ -9,6 +9,7 @@ import { Collapse, Modal, Form, Input, Button, notification } from "antd";
 import ReviewPlayground from "@/components/playGround/review/ReviewPlayground";
 import { useTranslation } from "next-i18next";
 import { Dropdown } from "react-bootstrap";
+import ShareToUserChat from "../homepage/social/share/ShareToUserChat";
 function PlayGroundTopDetails({ details }) {
   const { t } = useTranslation();
   const [reason, setReason] = useState("");
@@ -119,7 +120,8 @@ function PlayGroundTopDetails({ details }) {
               ></img>
             )}
             <span className="span-icon">
-              <span
+              <ShareToUserChat slug={pgid} type='field'/>
+              {/* <span
                 onClick={() => handleShareFieldPost()}
                 style={{ cursor: "pointer" }}
               >
@@ -146,7 +148,7 @@ function PlayGroundTopDetails({ details }) {
                     stroke-linejoin="round"
                   />
                 </svg>
-              </span>
+              </span> */}
               <span>
                 <Dropdown
                   className=""

@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { useTranslation } from "next-i18next";
+import moment from "moment";
 
 function CreateGameForm() {
   const { t } = useTranslation();
@@ -16,6 +17,7 @@ function CreateGameForm() {
   const { booking_id } = router.query;
 
   const labels = Labels();
+  const { locale } = router;
 
   const [gameData, setGameData] = useState([]);
   const [formData, setFormData] = useState({
@@ -30,6 +32,7 @@ function CreateGameForm() {
     ageTo: "",
     lastDay: "",
   });
+  const [isDisabled, setIsDisabled] = useState(false);
   useEffect(() => {
     Axios.get(apis.listGameAmenities, {
       headers: {
@@ -70,8 +73,9 @@ function CreateGameForm() {
   };
 
   const submitHandler = (e) => {
-    console.log("form", formData);
+    setIsDisabled(true)
     e.preventDefault();
+    console.log("form", formData);
     const formdata = new FormData();
     formdata.append("booking_id", booking_id);
     formdata.append("title", formData.title);
@@ -96,6 +100,13 @@ function CreateGameForm() {
           description: `${labels["Game created"]}`,
         });
         router.push("/play-ground");
+      } else {
+        setIsDisabled(false)
+        notification.error({
+          message: constants.Error,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
+        });
       }
 
       console.log("add game", res, formdata);
@@ -245,7 +256,7 @@ function CreateGameForm() {
           </div>
           <div className="col-md-6">
             <div className="form-group my-2">
-              <label for="exampleFormControlSelect1">{("Age")}</label>
+              <label for="exampleFormControlSelect1">{"Age"}</label>
               <select
                 required
                 className="form-control p-2 "
@@ -266,7 +277,9 @@ function CreateGameForm() {
           </div>
         </div>
         <div className="form-group my-3">
-          <label for="exampleInputPassword1">{t("Number of Participants")}</label>
+          <label for="exampleInputPassword1">
+            {t("Number of Participants")}
+          </label>
           <input
             type="text"
             className="form-control p-2"
@@ -289,11 +302,12 @@ function CreateGameForm() {
               background: "#eeeeee",
               color: "#959595",
             }}
+            min={moment().format("YYYY-MM-DD")}
             id="lastDay"
             onChange={(e) => changeHandler(e)}
           />
         </div>
-        <button type="submit" className="make-btn">
+        <button type="submit" className="make-btn" disabled={isDisabled}>
           {t("Create")}
         </button>
       </form>

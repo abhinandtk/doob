@@ -10,7 +10,7 @@ import { CardImg } from "react-bootstrap";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 
-function SharePostToUser({slug}) {
+function ShareToUserChat({ slug, type }) {
   const { t } = useTranslation();
   const router = useRouter();
   const { locale } = router;
@@ -35,6 +35,16 @@ function SharePostToUser({slug}) {
 
   const handleClick = (id) => {
     setSelectedItems([...selectedItems, id]);
+    const messageBody =
+      type === "store"
+        ? `${constants.domain}/store/${slug}`
+        : type === "tour"
+        ? `${constants.domain}/tournament/${slug}`
+        : type === "game"
+        ? `${constants.domain}/games/${slug}`
+        : type === "product"
+        ? `${constants.domain}/store/product/${slug}`
+        : `${constants.domain}/play-ground/${slug}`;
 
     // if (selectedItems.includes(id)) {
     //   setSelectedItems(
@@ -61,7 +71,7 @@ function SharePostToUser({slug}) {
           apis.sendMessage,
           {
             chat_id: res.data.data.id,
-            body: `${constants.domain}/page/post/${slug}`,
+            body: messageBody,
           },
           {
             headers: {
@@ -224,36 +234,60 @@ function SharePostToUser({slug}) {
           style={{ height: "250px", overflowY: "auto" }}
         />
       </Modal>
-      <button
-        onClick={() => setVisible(true)}
-        className="post__button"
-        style={{ marginLeft: "-11px" }}
-      >
-        <svg
-          width="30"
-          height="30"
-          viewBox="0 0 30 28"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M12.8848 15.9742L18.9425 10.3203"
-            stroke="black"
-            stroke-width="1.50701"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M4.04074 11.9821C3.0321 11.5114 3.15432 10.1331 4.23215 9.82356L23.9935 4.14849C24.9526 3.87306 25.851 4.71151 25.5559 5.60667L19.4755 24.0506C19.1438 25.0566 17.667 25.1707 17.1627 24.2293L12.975 16.4123C12.8541 16.1866 12.6579 16.0035 12.416 15.8906L4.04074 11.9821Z"
-            stroke="black"
-            stroke-width="1.50701"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-      </button>
+      <span onClick={() => setVisible(true)} style={{ cursor: "pointer" }}>
+        {type === "game" ? (
+          "Share"
+        ) : type === "product" ? (
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.58936 11.41L12.6278 7.37158"
+              stroke="black"
+              stroke-width="0.814796"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M2.69367 8.55832C2.02124 8.2221 2.10272 7.23757 2.82127 7.01648L15.9955 2.96286C16.6349 2.76612 17.2338 3.36502 17.0371 4.00441L12.9835 17.1787C12.7624 17.8972 11.7778 17.9787 11.4416 17.3063L8.64987 11.7228C8.56923 11.5615 8.43846 11.4307 8.27719 11.3501L2.69367 8.55832Z"
+              stroke="black"
+              stroke-width="0.814796"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        ) : (
+          <svg
+            width="30"
+            height="28"
+            viewBox="0 0 30 28"
+            className="ms-3"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.8848 15.9742L18.9425 10.3203"
+              stroke="white"
+              stroke-width="1.50701"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M4.04074 11.9821C3.0321 11.5114 3.15432 10.1331 4.23215 9.82356L23.9935 4.14849C24.9526 3.87306 25.851 4.71151 25.5559 5.60667L19.4755 24.0506C19.1438 25.0566 17.667 25.1707 17.1627 24.2293L12.975 16.4123C12.8541 16.1866 12.6579 16.0035 12.416 15.8906L4.04074 11.9821Z"
+              stroke="white"
+              stroke-width="1.50701"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        )}
+      </span>
     </Fragment>
   );
 }
 
-export default SharePostToUser;
+export default ShareToUserChat;

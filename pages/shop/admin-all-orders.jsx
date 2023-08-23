@@ -36,6 +36,7 @@ function AdminAllOrders() {
   const [paymentStatus, setPaymentStatus] = useState("");
   const [loading, setLoading] = useState(true);
   const [loadMore, setLoadMore] = useState(true);
+  const [index, setIndex] = useState(null);
 
   useEffect(() => {
     const apiPaginationUrl = `${apis.ordersAdmin}?page=${page}`;
@@ -57,16 +58,18 @@ function AdminAllOrders() {
         setAllOrders((prev) => [...prev, ...res.data.data]);
       }
       setLoading(false);
-      console.log("allorders,", res);
+      console.log("allorders*&*&,", apiPaginationUrl, res);
     });
-  }, [visible, page]);
-  console.log("allorders,", page);
+  }, [page]);
+  console.log("change statusallorders/////////////////,", allOrders);
 
-  const showUpdateHandler = (id, pay, order) => {
+  const showUpdateHandler = (id, pay, order, index) => {
     setPaymentStatus(pay);
     setOrderStatus(order);
     setVisible(true);
     setOrderId(id);
+    setIndex(index);
+    console.log("change status*//*/*/*/*/78", id, pay, order);
   };
 
   const statusUpdateHandler = (e) => {
@@ -86,7 +89,20 @@ function AdminAllOrders() {
       }
     ).then((res) => {
       setVisible(false);
-      console.log("success update", res);
+
+      if (index !== -1) {
+        const updatedOrder = {
+          ...allOrders[index],
+          order_status: orderStatus,
+          payment_status: paymentStatus,
+        };
+
+        const updatedAllOrders = [...allOrders];
+        updatedAllOrders[index] = updatedOrder;
+
+        setAllOrders(updatedAllOrders);
+      }
+      console.log("change status input", res);
     });
   };
   function capitalizeFirstLetter(string) {
@@ -225,7 +241,8 @@ function AdminAllOrders() {
                               showUpdateHandler(
                                 item.order_id_m,
                                 item.payment_status,
-                                item.order_status
+                                item.order_status,
+                                index
                               )
                             }
                             type="button"

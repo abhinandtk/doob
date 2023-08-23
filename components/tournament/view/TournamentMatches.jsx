@@ -22,7 +22,7 @@ import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import MatchTimer from "../MatchTimer";
 function TournamentMatches({ data, setOnSuccess, admin, home }) {
-  console.log("dddddddaaaaaaaaaata,data", data);
+  console.log("dddddddaaaaaaaaaata,data", data,home);
   const { t } = useTranslation();
   const router = useRouter();
   const { locale } = router;
@@ -563,7 +563,7 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
                           type="button"
                           className=" btn-outline-secondary left-time"
                         >
-                          <MatchTimer match={content} />
+                          <MatchTimer match={content} home={home}/>
                         </button>
                       </div>
                     </div>

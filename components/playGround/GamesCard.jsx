@@ -3,6 +3,8 @@ import Link from "next/link";
 import React, { Fragment } from "react";
 import moment from "moment";
 import { useTranslation } from "next-i18next";
+import { Dropdown } from "react-bootstrap";
+import ShareToUserChat from "../homepage/social/share/ShareToUserChat";
 
 function GamesCard({ data }) {
   const { t } = useTranslation();
@@ -45,7 +47,45 @@ function GamesCard({ data }) {
                         ></img>
                       )}
                     </span>
-                    <svg
+                    <span onClick={(e) => e.preventDefault()}>
+                      
+                      <Dropdown className="">
+                        <Dropdown.Toggle
+                          variant=""
+                          id="dropdown-basic"
+                          style={{
+                            color: "black",
+                            borderColor: "transparent",
+                            background: "transparent",
+                            padding: 0,
+                          }}
+                        ><svg
+                        width="28"
+                        height="27"
+                        viewBox="0 0 28 27"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12.4629 19.5441C12.4629 18.9445 12.9701 18.4583 13.5959 18.4583C14.2216 18.4583 14.7289 18.9445 14.7289 19.5441C14.7289 20.1438 14.2216 20.6299 13.5959 20.6299C12.9701 20.6299 12.4629 20.1438 12.4629 19.5441Z"
+                          fill="black"
+                        />
+                        <path
+                          d="M12.4629 13.0294C12.4629 12.4297 12.9701 11.9436 13.5959 11.9436C14.2216 11.9436 14.7289 12.4297 14.7289 13.0294C14.7289 13.6291 14.2216 14.1152 13.5959 14.1152C12.9701 14.1152 12.4629 13.6291 12.4629 13.0294Z"
+                          fill="black"
+                        />
+                        <path
+                          d="M12.4629 6.5147C12.4629 5.91504 12.9701 5.42892 13.5959 5.42892C14.2216 5.42892 14.7289 5.91504 14.7289 6.5147C14.7289 7.11436 14.2216 7.60049 13.5959 7.60049C12.9701 7.60049 12.4629 7.11436 12.4629 6.5147Z"
+                          fill="black"
+                        />
+                      </svg>
+                          
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu align="center" className="Menu">
+                          <Dropdown.Item><ShareToUserChat slug={item.game_slug} type="game" /></Dropdown.Item>
+                        </Dropdown.Menu>
+                      </Dropdown>
+                      {/* <svg
                       width="28"
                       height="27"
                       viewBox="0 0 28 27"
@@ -64,7 +104,8 @@ function GamesCard({ data }) {
                         d="M12.4629 6.5147C12.4629 5.91504 12.9701 5.42892 13.5959 5.42892C14.2216 5.42892 14.7289 5.91504 14.7289 6.5147C14.7289 7.11436 14.2216 7.60049 13.5959 7.60049C12.9701 7.60049 12.4629 7.11436 12.4629 6.5147Z"
                         fill="black"
                       />
-                    </svg>
+                    </svg> */}
+                    </span>
                   </div>
                 </div>
                 <div className="book-content">

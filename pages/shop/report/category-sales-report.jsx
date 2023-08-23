@@ -64,9 +64,9 @@ function CategorySalesReport() {
       }
     ).then((res) => {
       console.log("res3", res);
+      setSlugId(res.data.store_slug);
       if (res.data.data.length > 0) {
         setCategoryReportData(res.data.data[0].category);
-        setSlugId(res.data.data[0].store_slug);
         const data = res.data.data[0];
         const brandColors = randomColor({
           count: data.category.length,

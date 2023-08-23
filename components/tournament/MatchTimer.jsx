@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import moment from "moment";
 
-function MatchTimer({ match }) {
+function MatchTimer({ match, home }) {
   const startDate = moment(match.match_date, "YYYY-MM-DD");
   const startTime = moment(match.start_time, "HH:mm:ss");
-
+  const matchType = home && home.tournament_details.game_name;
+  console.log("rerererererrer", matchType);
   const [currentTime, setCurrentTime] = useState(moment());
 
   useEffect(() => {
@@ -29,13 +30,16 @@ function MatchTimer({ match }) {
   let totalMinutes = Math.floor(diff.asMinutes());
   let seconds = diff.seconds();
 
-  if (totalMinutes > 90) {
+  if (matchType && matchType === "Basketball" && totalMinutes > 48) {
+    return "48:00";
+  }
+  if (matchType && matchType === "Football" && totalMinutes > 90) {
     return "90:00";
   }
 
   return (
     <span>
-      {totalMinutes?totalMinutes:"00"} : {seconds?seconds:"00"}
+      {totalMinutes ? totalMinutes : "00"} : {seconds ? seconds : "00"}
     </span>
   );
 }

@@ -11,6 +11,7 @@ import { Dropdown } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import ReviewProduct from "../review/ReviewProduct";
 import { useTranslation } from "next-i18next";
+import ShareToUserChat from "@/components/homepage/social/share/ShareToUserChat";
 
 function ProductDetailTopDetails({ product, setApiSuccess }) {
   console.log("===============", product);
@@ -125,7 +126,8 @@ function ProductDetailTopDetails({ product, setApiSuccess }) {
             />
           </svg>
         </span>
-        <span
+        <ShareToUserChat slug={prVarientId} type='product'/>
+        {/* <span
           onClick={() => shareToPostHandler()}
           style={{ cursor: "pointer" }}
         >
@@ -151,11 +153,11 @@ function ProductDetailTopDetails({ product, setApiSuccess }) {
               stroke-linejoin="round"
             />
           </svg>
-        </span>
+        </span> */}
         <span>
           <Dropdown
             className=""
-            style={{ display: "inline-block", marginLeft: "-10px" }}
+            style={{ display: "inline-block"}}
           >
             <Dropdown.Toggle
               variant=""
@@ -164,6 +166,7 @@ function ProductDetailTopDetails({ product, setApiSuccess }) {
                 color: "black",
                 borderColor: "transparent",
                 background: "transparent",
+                padding:"0px"
               }}
             >
               <svg

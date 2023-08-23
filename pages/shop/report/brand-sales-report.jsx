@@ -18,7 +18,7 @@ import MobileFooter from "@/components/shared/MobileFooter";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -39,7 +39,7 @@ function BrandSaleReport() {
   const today = moment().format("YYYY-MM-DD");
   const nextDay = moment(today).add(1, "day").format("YYYY-MM-DD");
   const [endDate, setEndDate] = useState(nextDay);
-  
+
   const [brandReportData, setBrandReport] = useState([]);
   const [slugId, setSlugId] = useState("");
   const [chartData, setChartData] = useState({
@@ -74,8 +74,8 @@ function BrandSaleReport() {
       }
     ).then((res) => {
       console.log("res", res);
+      setSlugId(res.data.store_slug);
       if (res.data.data.length > 0) {
-        setSlugId(res.data.data[0].store_slug);
         setBrandReport(res.data.data[0].brands);
 
         const data = res.data.data[0];

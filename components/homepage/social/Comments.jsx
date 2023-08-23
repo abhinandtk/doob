@@ -19,7 +19,7 @@ function Comments({ setVisibleComment, postId, slug }) {
   const [comment, setComment] = useState("");
   const [showComments, setShowComments] = useState([]);
   const [replayTo, setReplayTo] = useState(null);
-
+  const [isDisabled, setIsDisabled] = useState();
   const [loginUserImg, setLoginUser] = useState([]);
   const { theme } = useTheme();
 
@@ -49,6 +49,7 @@ function Comments({ setVisibleComment, postId, slug }) {
     setVisibleComment(false);
   };
   const commentPostHandler = (e) => {
+    setIsDisabled(true)
     e.preventDefault();
     let data = { content: comment, post_id: postId };
     if (replayTo) {
@@ -60,6 +61,8 @@ function Comments({ setVisibleComment, postId, slug }) {
         "Content-Type": "application/json",
       },
     }).then((res) => {
+      setComment("");
+      setIsDisabled(false)
       setSuccessApi((prev) => !prev);
       inputRef.current.value = "";
       setReplayTo(null);
@@ -277,6 +280,7 @@ function Comments({ setVisibleComment, postId, slug }) {
                       cursor: "pointer",
                     }}
                     onClick={commentPostHandler}
+                    disabled={isDisabled}
                   >
                     {t("Post")}
                   </p>

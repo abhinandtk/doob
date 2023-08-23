@@ -21,7 +21,7 @@ import MobileFooter from "@/components/shared/MobileFooter";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 import moment from "moment";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 export async function getStaticProps({ locale }) {
   return {
@@ -58,9 +58,7 @@ function ProductSalesReport() {
       }
     ).then((res) => {
       console.log("res6", res);
-      if (res.data.data[0]) {
-        setSlugId(res.data.data[0].store_slug);
-      }
+      setSlugId(res.data.store_slug);
 
       console.log("ppppopo", res.data.data[0], {
         start_date: startDate,
@@ -146,10 +144,9 @@ function ProductSalesReport() {
                 </div>
 
                 <div className="customer-sale">
-                 
-                  <div  className="report-section">
-                    <div >Product</div>
-                    <div >Order Quantity</div>
+                  <div className="report-section">
+                    <div>Product</div>
+                    <div>Order Quantity</div>
                     <div>Total Amount</div>
                   </div>
                   {productSale &&

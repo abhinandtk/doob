@@ -2,8 +2,15 @@ import { Checkbox } from "antd";
 import React from "react";
 import { useState } from "react";
 import { useTranslation } from "next-i18next";
-function ThirdPartyAddress({ handleAddAddress, areaData }) {
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import Axios from "axios";
+import apis from "@/public/data/my-constants/Apis";
+import constants from "@/public/data/my-constants/Constants";
+function ThirdPartyAddress({ handleAddAddress, areaData, edit }) {
   const { t } = useTranslation();
+  const router = useRouter();
+  const { adId } = router.query;
   const [formData, setFormData] = useState({
     name: "",
     area: "",
@@ -20,6 +27,39 @@ function ThirdPartyAddress({ handleAddAddress, areaData }) {
     providerAvenue: "",
   });
   const [defaultAddress, setDefaultAddress] = useState(true);
+
+  useEffect(() => {
+    if (edit) {
+      Axios.post(
+        apis.singleAddressView,
+        {
+          address_id: adId,
+        },
+        {
+          headers: {
+            Authorization: `Token ${constants.token_id}`,
+          },
+        }
+      ).then((res) => {
+        console.log("wetytyty", res);
+        setFormData({
+          name: res.data.data.name,
+          area: res.data.data.region,
+          block: res.data.data.block,
+          street: res.data.data.street,
+          avenue: res.data.data.avenue,
+          address: res.data.data.building_flat_house_all,
+          phone: res.data.data.phone,
+          remark: res.data.data.remark,
+          providerName: res.data.data.providor_name,
+          providerArea: res.data.data.providor_area,
+          providerBlock: res.data.data.providor_block,
+          providerStreet: res.data.data.providor_street,
+          providerAvenue: res.data.data.providor_avenue,
+        });
+      });
+    }
+  }, []);
   const handleChange = (e) => {
     const newFormData = { ...formData };
     newFormData[e.target.id] = e.target.value;
@@ -51,6 +91,7 @@ function ThirdPartyAddress({ handleAddAddress, areaData }) {
             className="form-control p-2"
             onChange={(e) => handleChange(e)}
             style={{ border: "0px", background: "#eeeeee" }}
+            value={formData.area}
           >
             <option value="">select</option>
             {areaData.map((item, index) => (

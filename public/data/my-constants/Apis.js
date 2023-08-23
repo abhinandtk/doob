@@ -112,6 +112,8 @@ const apis = {
     'checkout': `${constants.port}/store/api/checkout_view`,
     'orderList': `${constants.port}/store/api/order_list_view`,
     'addressView': `${constants.port}/store/api/address_list_view`,
+    'singleAddressView': `${constants.port}/store/api/detail_view_address`,
+    'editAddress': `${constants.port}/store/api/edit_address`,
     'defaultAddress': `${constants.port}/store/api/update_address_is_default`,
 
     'updateStoreStatus': `${constants.port}/store/api/update_store_status`,

@@ -11,6 +11,7 @@ import ReviewStore from "./review/ReviewStore";
 const { Panel } = Collapse;
 import { useTranslation } from "next-i18next";
 import { Dropdown } from "react-bootstrap";
+import ShareToUserChat from "../homepage/social/share/ShareToUserChat";
 
 function StoreTopDetails({ data, setSuccess }) {
   const { t } = useTranslation();
@@ -154,7 +155,10 @@ function StoreTopDetails({ data, setSuccess }) {
               />
             </svg>
           </span>
-          <span
+          <span style={{ cursor: "pointer" }}>
+            <ShareToUserChat slug={sid} type='store'/>
+          </span>
+          {/* <span
             onClick={() => handleShareStorePost(sid)}
             style={{ cursor: "pointer" }}
           >
@@ -181,7 +185,7 @@ function StoreTopDetails({ data, setSuccess }) {
                 stroke-linejoin="round"
               />
             </svg>
-          </span>
+          </span> */}
           <span>
             <Dropdown
               className=""

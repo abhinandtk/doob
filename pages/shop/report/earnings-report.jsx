@@ -90,7 +90,7 @@ function EarningsReport() {
       },
     }).then((res) => {
       console.log(res, "oooo");
-      setSlugId(res.data.data.store_Slug);
+      setSlugId(res.data.store_slug);
       setEarningsData(res.data.data);
       const resp = res.data.data;
       const data = {

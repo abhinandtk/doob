@@ -11,11 +11,13 @@ import { Labels } from "@/public/data/my-constants/Labels";
 import { toggle } from "@/Redux/updateNavbar";
 import { useDispatch } from "react-redux";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 function Notifications({ setNotificationShow }) {
   const { t } = useTranslation();
   const [show, setShow] = useState(true);
   const [notificationData, setNotificationData] = useState([]);
   const [followStatus, setFollowStatus] = useState(false);
+  const router = useRouter();
   const labels = Labels();
   const dispatch = useDispatch();
   useEffect(() => {
@@ -235,6 +237,7 @@ function Notifications({ setNotificationShow }) {
                       <div className="side-menu__suggestion-infos">
                         <a href="#" style={{ textDecoration: "none" }}>
                           {" "}
+                          {item.name}
                           <span
                             className="ms-1 dark-theme-color"
                             style={{ fontSize: "12px" }}
@@ -247,6 +250,54 @@ function Notifications({ setNotificationShow }) {
 
                       <button
                         // onClick={() => acceptRequestHandler(item.user_id)}
+                        className="side-suggestion-button2"
+                      >
+                        {t("View")}
+                      </button>
+                    </div>
+                  ) : item.type === "Game Invitation" ? (
+                    <div className="side-menu__suggestions">
+                      <a href="#" className="side-menu__suggestion-avatars">
+                        {item.image ? (
+                          <img
+                            src={`${constants.port}/media/${item.image}`}
+                            style={{ objectFit: "cover" }}
+                            alt="User Picture"
+                          />
+                        ) : (
+                          <img
+                            src="/images/accounts/user_default.png"
+                            alt="User Picture"
+                            style={{
+                              objectFit: "cover",
+                              // width: "30px",
+                              // height: "30px",
+                              // borderRadius: "50%",
+                            }}
+                          />
+                        )}
+                      </a>
+                      <div className="side-menu__suggestion-infos">
+                        <a href="#" style={{ textDecoration: "none" }}>
+                          {" "}
+                          {item.name}
+                          <span
+                            className="ms-1 dark-theme-color"
+                            style={{ fontSize: "12px" }}
+                          >
+                            {item.message}&nbsp;
+                            <span>{notificationTime(item.created_at)}</span>
+                          </span>
+                        </a>
+                      </div>
+
+                      <button
+                        onClick={() =>
+                          router.push({
+                            pathname: "/games/all-games",
+                            query: { tab: "invited" },
+                          })
+                        }
                         className="side-suggestion-button2"
                       >
                         {t("View")}
@@ -278,13 +329,23 @@ function Notifications({ setNotificationShow }) {
                         <a href="#" style={{ textDecoration: "none" }}>
                           {" "}
                           {item.name}
-                          <span
-                            className="ms-1 dark-theme-color"
-                            style={{ fontSize: "12px" }}
-                          >
-                            Liked your photo.
-                            <span>{notificationTime(item.created_at)}</span>
-                          </span>
+                          {item.type === "Comment" ? (
+                            <span
+                              className="ms-1 dark-theme-color"
+                              style={{ fontSize: "12px" }}
+                            >
+                              Commented on your post.
+                              <span>{notificationTime(item.created_at)}</span>
+                            </span>
+                          ) : (
+                            <span
+                              className="ms-1 dark-theme-color"
+                              style={{ fontSize: "12px" }}
+                            >
+                              Liked your photo.
+                              <span>{notificationTime(item.created_at)}</span>
+                            </span>
+                          )}
                         </a>
                       </div>
                       <button className="side-suggestion-button1">

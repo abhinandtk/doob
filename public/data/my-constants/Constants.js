@@ -15,7 +15,8 @@ if (typeof window !== 'undefined') {
 // let domain_site = typeof window.location.hostname;
 
 
-
+const isLocalhost = domain === 'localhost';
+const isVercel = process.env.VERCEL === '1';
 // export function getLocale() {
 //     const router = useRouter();
 //     return router.locale
@@ -32,8 +33,7 @@ const constants = {
 
     'token_id': token_id,
     'user_id': user_id,
-    'domain': domain,
-
+    'domain': isLocalhost ? 'http://localhost:3000' : `https://${domain}`,
     'Error': 'Erorr',
     'Success': 'Success',
     'Warning': 'Warning',

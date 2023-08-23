@@ -13,7 +13,7 @@ function StoriesMainPage() {
         Authorization: `Token ${constants.token_id}`,
       },
     }).then((res) => {
-      setStoryList(res.data.data);
+      setStoryList(res.data.data.user_story);
       console.log("response67", res);
     });
   }, []);

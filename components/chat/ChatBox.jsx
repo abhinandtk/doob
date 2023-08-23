@@ -11,6 +11,7 @@ import moment from "moment";
 import ChatInputUpload from "./ChatInputUpload";
 import { useRef } from "react";
 import { Realtime } from "ably";
+import Link from "next/link";
 function ChatBox({ selectedId, onNewMsg }) {
   const [chatHeader, setChatHeader] = useState(null);
   const [chatList, setChatList] = useState([]);
@@ -85,6 +86,7 @@ function ChatBox({ selectedId, onNewMsg }) {
           className="chat-container"
           style={{ height: "70%", overflow: "auto" }}
         >
+          {constants.domain}sdjhfkj
           {chatList.map((item, index) => (
             <div ref={divRef} key={index} className="chatbox">
               <button type="button" class="btn btn-success btn-sm">
@@ -106,15 +108,24 @@ function ChatBox({ selectedId, onNewMsg }) {
                       {msg.chat.is_sender == true ? (
                         <div>
                           <div className="message my_message">
-                            {msg.body.includes(constants.port) ? (
+                            {msg.body.includes(constants.domain) ? (
                               <p>
-                                <a href={msg.body} target="_blank">
+                                <Link
+                                  href={{
+                                    pathname: msg.body,
+                                    query: {
+                                      date: moment().format("YYYY-MM-DD"),
+                                    },
+                                  }}
+                                  target="_blank"
+                                  style={{ color: "white" }}
+                                >
                                   {msg.body}
-                                </a>
+                                </Link>
                               </p>
                             ) : (
                               <p>
-                                {msg.body}{constants.domain}
+                                {msg.body}
                                 <br></br>
                               </p>
                             )}
@@ -163,7 +174,6 @@ function ChatBox({ selectedId, onNewMsg }) {
               ))}
             </div>
           ))}
-
           {/* sajin chat end  */}
         </div>
         {chatHeader && chatHeader !== undefined ? (

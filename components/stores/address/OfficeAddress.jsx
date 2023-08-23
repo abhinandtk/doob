@@ -1,10 +1,16 @@
 import { Checkbox } from "antd";
 import React, { useState } from "react";
 import { useTranslation } from "next-i18next";
-function OfficeAddress({ handleAddAddress, areaData }) {
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import Axios from "axios";
+import apis from "@/public/data/my-constants/Apis";
+import constants from "@/public/data/my-constants/Constants";
+function OfficeAddress({ handleAddAddress, areaData,edit }) {
   const { t } = useTranslation();
   console.log("area34", areaData);
-
+  const router = useRouter();
+  const { adId } = router.query;
   const [formData, setFormData] = useState({
     name: "",
     area: "",
@@ -17,6 +23,35 @@ function OfficeAddress({ handleAddAddress, areaData }) {
     remark: "",
   });
   const [defaultAddress, setDefaultAddress] = useState(true);
+
+  useEffect(() => {
+    if (edit) {
+      Axios.post(
+        apis.singleAddressView,
+        {
+          address_id: adId,
+        },
+        {
+          headers: {
+            Authorization: `Token ${constants.token_id}`,
+          },
+        }
+      ).then((res) => {
+        console.log("wetytyty", res);
+        setFormData({
+          name: res.data.data.name,
+          area: res.data.data.region,
+          block: res.data.data.block,
+          street: res.data.data.street,
+          avenue: res.data.data.avenue,
+          officeName: res.data.data.officename,
+          phone: res.data.data.phone,
+          officePhone: res.data.data.officenumber,
+          remark: res.data.data.remark,
+        });
+      });
+    }
+  }, []);
 
   const handleChange = (e) => {
     const newFormData = { ...formData };
@@ -48,6 +83,7 @@ function OfficeAddress({ handleAddAddress, areaData }) {
             className="form-control p-2"
             onChange={(e) => handleChange(e)}
             style={{ border: "0px", background: "#eeeeee" }}
+            value={formData.area}
           >
             <option value="">select</option>
             {areaData.map((item, index) => (

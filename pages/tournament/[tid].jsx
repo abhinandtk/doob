@@ -18,6 +18,7 @@ import DoublesMatchCard from "@/components/tournament/view/DoublesMatchCard";
 import DoublesTeamsCard from "@/components/tournament/view/DoublesTeamCard";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import ShareToUserChat from "@/components/homepage/social/share/ShareToUserChat";
 export async function getServerSideProps({ locale }) {
   return {
     props: {
@@ -162,32 +163,10 @@ function TournamentDetailPage() {
                 />
                 <div className="live-icon1">
                   <span
-                    onClick={() => handleShare()}
-                    style={{ cursor: "pointer" }}
+                    // onClick={() => handleShare()}
+                    style={{ cursor: "pointer",padding:"10px" }}
                   >
-                    <svg
-                      width="16"
-                      height="19"
-                      viewBox="0 0 22 22"
-                      fill="none"
-                      className="mx-4"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M2.07134 8.26835C1.17766 7.82151 1.28596 6.51304 2.24093 6.2192L19.7499 0.831827C20.5997 0.570357 21.3956 1.3663 21.1342 2.21608L15.7468 19.725C15.4529 20.68 14.1445 20.7883 13.6976 19.8946L9.9873 12.474C9.88014 12.2596 9.70634 12.0858 9.492 11.9787L2.07134 8.26835Z"
-                        stroke="white"
-                        stroke-width="1.39898"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M9.9043 12.0586L15.2715 6.69141"
-                        stroke="white"
-                        stroke-width="1.39898"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
+                    <ShareToUserChat slug={tid} type="tour"/>
                     {/* <span className="mx-4">
                       <svg
                         width="5"

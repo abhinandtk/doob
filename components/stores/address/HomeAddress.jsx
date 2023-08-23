@@ -5,8 +5,11 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import Axios from "axios";
 import { useTranslation } from "next-i18next";
-function HomeAddress({ handleAddAddress, areaData }) {
+import { useRouter } from "next/router";
+function HomeAddress({ handleAddAddress, areaData, edit }) {
   const { t } = useTranslation();
+  const router = useRouter();
+  const { adId } = router.query;
   console.log("area", areaData);
   const [formData, setFormData] = useState({
     name: "",
@@ -19,6 +22,33 @@ function HomeAddress({ handleAddAddress, areaData }) {
     remark: "",
   });
   const [defaultAddress, setDefaultAddress] = useState(true);
+  useEffect(() => {
+    if (edit) {
+      Axios.post(
+        apis.singleAddressView,
+        {
+          address_id: adId,
+        },
+        {
+          headers: {
+            Authorization: `Token ${constants.token_id}`,
+          },
+        }
+      ).then((res) => {
+        console.log("wetytyty", res);
+        setFormData({
+          name: res.data.data.name,
+          area: res.data.data.region,
+          block: res.data.data.block,
+          street: res.data.data.street,
+          avenue: res.data.data.avenue,
+          houseName: res.data.data.housename,
+          phone: res.data.data.phone,
+          remark: res.data.data.remark,
+        });
+      });
+    }
+  }, []);
 
   const handleChange = (e) => {
     const newFormData = { ...formData };
@@ -50,6 +80,7 @@ function HomeAddress({ handleAddAddress, areaData }) {
             className="form-control p-2"
             onChange={(e) => handleChange(e)}
             style={{ border: "0px", background: "#eeeeee" }}
+            value={formData.area}
           >
             <option value="">select</option>
             {areaData.length >= 1 &&

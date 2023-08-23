@@ -8,7 +8,7 @@ import { useTheme } from "next-themes";
 function ShopPagesSideBar({ currentPage }) {
   const { t } = useTranslation();
   const [svgStroke, setSvgStroke] = useState("");
-  const {theme}=useTheme()
+  const { theme } = useTheme();
 
   useEffect(() => {
     setSvgStroke(theme === "dark" ? "white" : "black");
@@ -94,6 +94,30 @@ function ShopPagesSideBar({ currentPage }) {
           style={{ color: `${currentPage === "products" ? "#17A803" : ""}` }}
         >
           {t("Products")}
+        </span>
+      </Link>
+      <Link href="/shop/product-management" style={{ textDecoration: "none" }}>
+        <svg
+          width="3032"
+          height="3600"
+          viewBox="0 0 3032 3600"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M1515.8 2084.22C1202.94 2084.22 947.375 1829.79 947.375 1515.06C947.375 1200.33 1202.94 947.375 1515.8 947.375C1828.65 947.375 2084.22 1201.8 2084.22 1516.53C2084.22 1831.26 1828.65 2084.22 1515.8 2084.22ZM1515.8 1167.98C1324.85 1167.98 1167.69 1323.87 1167.69 1516.53C1167.69 1709.19 1323.38 1865.08 1515.8 1865.08C1708.21 1865.08 1863.9 1709.19 1863.9 1516.53C1863.9 1323.87 1706.74 1167.98 1515.8 1167.98Z"
+            fill={svgStroke}
+          />
+          <path
+            d="M1515.29 3600C1276.12 3600 1035.33 3506.28 847.871 3320.5C371.143 2845.19 -155.681 2087.03 43.0899 1184.94C222.469 366.527 912.512 0 1515.29 0C1515.29 0 1515.29 0 1516.91 0C2119.68 0 2809.73 366.527 2989.11 1186.61C3186.26 2088.7 2659.44 2845.19 2182.71 3320.5C1995.25 3506.28 1754.46 3600 1515.29 3600ZM1515.29 251.046C1045.03 251.046 440.633 510.46 280.646 1240.17C106.115 2028.45 584.459 2707.95 1017.55 3138.08C1297.13 3417.57 1735.07 3417.57 2014.64 3138.08C2446.12 2707.95 2924.47 2028.45 2753.17 1240.17C2591.56 510.46 1985.55 251.046 1515.29 251.046Z"
+            fill={svgStroke}
+          />
+        </svg>
+        <span
+          className="dark-theme-color customs"
+          style={{ color: `${currentPage === "address" ? "#17A803" : ""}` }}
+        >
+          {t("Address")}
         </span>
       </Link>
       <Link href="/shop/stocks" style={{ textDecoration: "none" }}>
