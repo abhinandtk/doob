@@ -5,9 +5,12 @@ import moment from "moment";
 import { useTranslation } from "next-i18next";
 import { Dropdown } from "react-bootstrap";
 import ShareToUserChat from "../homepage/social/share/ShareToUserChat";
+import { useRouter } from "next/router";
 
 function GamesCard({ data }) {
   const { t } = useTranslation();
+  const router = useRouter();
+  const { locale } = router;
 
   console.log("daaaaaaaaaaaaaaa", data);
   return (
@@ -21,34 +24,32 @@ function GamesCard({ data }) {
           >
             <div key={index} className="card  book">
               <div className="card-body">
-                <div className="clearfix fxt">
+                <div className="clearfix fxt" style={{ float: locale === "ar" && "left" }}>
                   <div className="float-end dots">
                     <span>
                       {item.my_game_images && (
                         <img
-                          src={`${constants.port}${
-                            item.my_game_images
-                              ? item.my_game_images
-                              : item.game_images
-                          }`}
+                          src={`${constants.port}${item.my_game_images
+                            ? item.my_game_images
+                            : item.game_images
+                            }`}
                           alt="image"
                           className="book-img"
                         ></img>
                       )}
                       {item.game_images && (
                         <img
-                          src={`${constants.port}${
-                            item.my_game_images
-                              ? item.my_game_images
-                              : item.game_images
-                          }`}
+                          src={`${constants.port}${item.my_game_images
+                            ? item.my_game_images
+                            : item.game_images
+                            }`}
                           alt="image"
-                          className="book-img"
+                          className={locale === "en" ? "book-img" : "book-img_ar"}
                         ></img>
                       )}
                     </span>
                     <span onClick={(e) => e.preventDefault()}>
-                      
+
                       <Dropdown className="">
                         <Dropdown.Toggle
                           variant=""
@@ -60,26 +61,26 @@ function GamesCard({ data }) {
                             padding: 0,
                           }}
                         ><svg
-                        width="28"
-                        height="27"
-                        viewBox="0 0 28 27"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M12.4629 19.5441C12.4629 18.9445 12.9701 18.4583 13.5959 18.4583C14.2216 18.4583 14.7289 18.9445 14.7289 19.5441C14.7289 20.1438 14.2216 20.6299 13.5959 20.6299C12.9701 20.6299 12.4629 20.1438 12.4629 19.5441Z"
-                          fill="black"
-                        />
-                        <path
-                          d="M12.4629 13.0294C12.4629 12.4297 12.9701 11.9436 13.5959 11.9436C14.2216 11.9436 14.7289 12.4297 14.7289 13.0294C14.7289 13.6291 14.2216 14.1152 13.5959 14.1152C12.9701 14.1152 12.4629 13.6291 12.4629 13.0294Z"
-                          fill="black"
-                        />
-                        <path
-                          d="M12.4629 6.5147C12.4629 5.91504 12.9701 5.42892 13.5959 5.42892C14.2216 5.42892 14.7289 5.91504 14.7289 6.5147C14.7289 7.11436 14.2216 7.60049 13.5959 7.60049C12.9701 7.60049 12.4629 7.11436 12.4629 6.5147Z"
-                          fill="black"
-                        />
-                      </svg>
-                          
+                          width="28"
+                          height="27"
+                          viewBox="0 0 28 27"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                              d="M12.4629 19.5441C12.4629 18.9445 12.9701 18.4583 13.5959 18.4583C14.2216 18.4583 14.7289 18.9445 14.7289 19.5441C14.7289 20.1438 14.2216 20.6299 13.5959 20.6299C12.9701 20.6299 12.4629 20.1438 12.4629 19.5441Z"
+                              fill="black"
+                            />
+                            <path
+                              d="M12.4629 13.0294C12.4629 12.4297 12.9701 11.9436 13.5959 11.9436C14.2216 11.9436 14.7289 12.4297 14.7289 13.0294C14.7289 13.6291 14.2216 14.1152 13.5959 14.1152C12.9701 14.1152 12.4629 13.6291 12.4629 13.0294Z"
+                              fill="black"
+                            />
+                            <path
+                              d="M12.4629 6.5147C12.4629 5.91504 12.9701 5.42892 13.5959 5.42892C14.2216 5.42892 14.7289 5.91504 14.7289 6.5147C14.7289 7.11436 14.2216 7.60049 13.5959 7.60049C12.9701 7.60049 12.4629 7.11436 12.4629 6.5147Z"
+                              fill="black"
+                            />
+                          </svg>
+
                         </Dropdown.Toggle>
                         <Dropdown.Menu align="center" className="Menu">
                           <Dropdown.Item><ShareToUserChat slug={item.game_slug} type="game" /></Dropdown.Item>
@@ -108,7 +109,7 @@ function GamesCard({ data }) {
                     </span>
                   </div>
                 </div>
-                <div className="book-content">
+                <div className={locale === "en" ? "book-content" : "book-content_ar"}>
                   <div className="book-date">
                     <h5 className="booked-date">
                       {moment(item.game_date).format("DD")}
@@ -127,7 +128,7 @@ function GamesCard({ data }) {
                       to{" "}
                       {moment(
                         item.stadium.time_slots[
-                          item.stadium.time_slots.length - 1
+                        item.stadium.time_slots.length - 1
                         ]["end_time"],
                         "hh:mm:ss"
                       ).format("hh:mm A")}
@@ -159,8 +160,8 @@ function GamesCard({ data }) {
                   <span className="mx-4 participate">
                     {item.participants.length - 4 >= 1
                       ? `+${item.participants.length - 4} more ${t(
-                          "Participants"
-                        )}`
+                        "Participants"
+                      )}`
                       : ""}{" "}
                     {/* {item.participants.length >= 1
                       ? `${item.participants.length} participants`

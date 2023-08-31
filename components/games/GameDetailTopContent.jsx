@@ -106,13 +106,13 @@ function GameDetailTopContent({ details, setOnSuccess }) {
                 <h5 className="game-head">{details.title}</h5>
                 <div className="field-clearfix ">
                   <p
-                    className="float-start"
+                    className={locale === "en" ? "float-start" : "float-end"}
                     style={{ fontSize: "15px", fontWeight: "500" }}
                   >
                     {details.game.game_title}
                   </p>
                   <img
-                    className="logox"
+                    className={`logox ${locale === "en" ? "float-end" : "float-start"}`}
                     src={`${constants.port}${details.stadium.stadium_image[0].images}`}
                   ></img>
                 </div>

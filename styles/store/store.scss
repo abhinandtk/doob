@@ -274,6 +274,9 @@ input.nosubmit2 {
 
 .store {
   row-gap: 12px;
+  :lang(ar) {
+    direction: rtl;
+  }
 }
 
 .view {

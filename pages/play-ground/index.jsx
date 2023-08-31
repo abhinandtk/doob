@@ -213,7 +213,7 @@ function PlayGroundPage() {
             )}
 
             {contents.games_near_me.length >= 1 && (
-              <>
+              <div className="category-games-home">
                 <section>
                   <div className="clearfix near ">
                     <h5
@@ -268,7 +268,7 @@ function PlayGroundPage() {
                     <></>
                   )}
                 </section>
-              </>
+              </div>
             )}
             {contents.games_near_me.length >= 1 ? (
               contents.games_near_me.map((item, index) =>

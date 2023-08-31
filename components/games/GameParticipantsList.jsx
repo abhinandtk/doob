@@ -12,6 +12,7 @@ function GameParticipantsList({ participants, setOnSuccess }) {
   const { t } = useTranslation();
   console.log("result6567", participants);
   const router = useRouter();
+  const { locale } = router;
   const { gameId } = router.query;
   const handleShare = () => {
     // e.preventDefault();
@@ -52,11 +53,10 @@ function GameParticipantsList({ participants, setOnSuccess }) {
           key={index}
           className="clearfix players my-4"
           style={{
-            opacity: `${
-              item.participation_status == 2 || item.participation_status == 5
+            opacity: `${item.participation_status == 2 || item.participation_status == 5
                 ? "50%"
                 : ""
-            }`,
+              }`,
           }}
         >
           <div className="participants">
@@ -88,8 +88,8 @@ function GameParticipantsList({ participants, setOnSuccess }) {
                   {item.participation_status === 1
                     ? t("Joined")
                     : item.participation_status === 3
-                    ? t("Invited")
-                    : ""}
+                      ? t("Invited")
+                      : ""}
                 </p>
                 <p
                   className="mx-2"
@@ -105,14 +105,14 @@ function GameParticipantsList({ participants, setOnSuccess }) {
       ))}
 
       <div className="clearfix players  my-4">
-        <p className="float-start">
+        <p className={locale === "en" ? "float-start" : "float-end"}>
           {t("Share via link")}<br></br>
           <span className="game-share">{router.asPath}</span>
         </p>
         <span onClick={() => handleShare()} style={{ cursor: "pointer" }}>
           <svg
             width="16"
-            className="float-end"
+            className={locale === "en" ? "float-end" : "float-start"}
             height="16"
             viewBox="0 0 16 16"
             fill="none"
