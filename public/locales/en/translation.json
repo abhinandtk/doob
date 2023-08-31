@@ -250,6 +250,13 @@
   "My Wallet": "My Wallet",
   "Total Wallet": "Total Wallet",
   "Transactions History": "Transactions History",
+  
+  "Blocked users": "Blocked users",
+  "Delete Account": "Delete Account",
+  "Change Password": "Change Password",
+  "Private Account": "Private Account",
+  "Request for Manage Field": "Request for Manage Field",
+  "Request for Manage Store": "Request for Manage Store",
 
   "Add Address": "Add Address",
   "Set as Default": "Set as Default",

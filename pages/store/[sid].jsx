@@ -100,6 +100,7 @@ function StoreDetailPage() {
               placeholder={t("Search")}
             />
             <span
+            className="dark-theme-color"
               style={{ cursor: "pointer" }}
               onClick={() =>
                 router.push({

@@ -147,12 +147,12 @@ function AddressPage() {
                 key={index}
                 style={{ border: item.default ? "1px solid #17A803" : "" }}
               >
-                <Card key={index}>
+                <Card key={index} className="input-theme-prod">
                   <div
                     onClick={() => deleteConfirmation(item.id)}
                     style={{ float: "right", cursor: "pointer" }}
                   >
-                    <DeleteOutlined />
+                    <DeleteOutlined className="dark-theme-color"/>
                   </div>
                   <Meta
                     title={`${item.address_type}`}
@@ -176,6 +176,7 @@ function AddressPage() {
                   />
                   <div style={{ display: "flex" }}>
                     <span
+                    className="dark-theme-color"
                       onClick={() =>
                         router.push({
                           pathname: `/store/edit-address/${item.id}`,
@@ -196,12 +197,12 @@ function AddressPage() {
                       {t("Edit")}
                     </span>
                     {item.default ? (
-                      <span className="mx-3">Default Address</span>
+                      <span className="mx-3 dark-theme-color">Default Address</span>
                     ) : (
                       <span
                         style={{ cursor: "pointer" }}
                         onClick={() => setDefaultHandler(item.id)}
-                        className="mx-3"
+                        className="mx-3 dark-theme-color"
                       >
                         {t("Set as Default")}
                       </span>

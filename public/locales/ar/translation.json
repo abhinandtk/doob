@@ -250,6 +250,13 @@
   "Total Wallet": "إجمالي المحفظة",
   "Transactions History": "سجل المعاملات",
 
+  "Blocked users": "المستخدمون المحظورون",
+  "Delete Account": "حذف الحساب",
+  "Change Password": "تغيير كلمة المرور",
+  "Private Account": "الحساب الخاص",
+  "Request for Manage Field": "طلب لإدارة المجال",
+  "Request for Manage Store": "طلب لإدارة المتجر",
+
   "Add Address": "اضف عنوان",
   "Set as Default": "تعيين كافتراضي",
   "Wallet": "محفظة",

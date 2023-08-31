@@ -2422,7 +2422,7 @@ input.nosubmit1 {
   margin-top: 35px;
   border-radius: 5px;
 
-  background-color: #eeeeee;
+  background-color: var(--dark-sec-white);
 }
 input.nosubmit-shop {
   border: 0px solid #eeeeee;
@@ -2434,8 +2434,7 @@ input.nosubmit-shop {
   margin-left: -2px;
   margin-top: 35px;
   border-radius: 5px;
-
-  background-color: #eeeeee;
+  background-color: var(--dark-sec-white);
 }
 .filters-icon {
   margin-left: 4px;

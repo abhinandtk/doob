@@ -77,7 +77,7 @@ function StoreReviewForm({ setOnSuccess, userImg }) {
             ></img>
           )}
           <span className="mx-2">
-            <Rate onChange={handleStarChange} />
+            <Rate onChange={handleStarChange} required/>
           </span>
         </a>
       </h5>
@@ -85,9 +85,9 @@ function StoreReviewForm({ setOnSuccess, userImg }) {
       <form onSubmit={(e) => handleStoreReview(e)}>
         <div className="form-group">
           <textarea
-            className="form-control op p-4  "
+            required
+            className="form-control op p-4 input-theme-prod "
             style={{
-              backgroundColor: "#EEEEEE",
               border: "0px",
             }}
             placeholder="Share your Review "
@@ -98,9 +98,8 @@ function StoreReviewForm({ setOnSuccess, userImg }) {
           <br></br>
           <input
             type="file"
-            className="form-control op p-3 "
+            className="form-control op p-3 input-theme-prod"
             style={{
-              backgroundColor: "#EEEEEE",
               border: "0px",
             }}
             id="image"

@@ -12,11 +12,10 @@
   //store
 
   --row-list-alt: #eeeeee;
-  --ad-input-form-color:#eeeeee;
+  --ad-input-form-color: #eeeeee;
 
   //tournmaent
   --dark-sec-white: #eeeeee;
-
 
   .dark-theme-color {
     color: #000;
@@ -52,7 +51,7 @@
 
   //store
   --row-list-alt: #3b444a;
-  --ad-input-form-color:#192126;
+  --ad-input-form-color: #192126;
 
   //tournmaent
   --dark-sec-white: #343c42;
@@ -91,6 +90,17 @@
     }
   }
 
+  //posts
+  --posts-bg: #343c42;
+  --posts-color: #eeeeee;
+  .three-dots {
+    color: #eeeeee !important;
+  }
+  //footer
+  --side-footer-color: #eeeeee;
+  --background: black;
+  --foreground: white;
+
   // class names
 
   .dark-theme-color {
@@ -106,17 +116,6 @@
     color: var(--secondary);
   }
   .input-theme-prod {
-    background-color: #3B444A;
+    background-color: #3b444a;
   }
-
-  //posts
-  --posts-bg: #343c42;
-  --posts-color: #eeeeee;
-  .three-dots {
-    color: #eeeeee !important;
-  }
-  //footer
-  --side-footer-color: #eeeeee;
-  --background: black;
-  --foreground: white;
 }

@@ -19,8 +19,6 @@ function ProductReviewForm({ setOnSuccess, userImg }) {
   const prVarientId = useSelector((state) => state.product.proVarient);
   console.log("slugreview-form", prVarientId);
 
-
-
   const handleStarChange = (value) => {
     setCount(value);
   };
@@ -88,9 +86,9 @@ function ProductReviewForm({ setOnSuccess, userImg }) {
       <form onSubmit={(e) => handleProductReview(e)}>
         <div className="form-group">
           <textarea
-            className="form-control op p-4  "
+            required
+            className="form-control op p-4 input-theme-prod "
             style={{
-              backgroundColor: "#EEEEEE",
               border: "0px",
             }}
             placeholder="Share your Review "
@@ -101,9 +99,8 @@ function ProductReviewForm({ setOnSuccess, userImg }) {
           <br></br>
           <input
             type="file"
-            className="form-control op p-3 "
+            className="form-control op p-3 input-theme-prod"
             style={{
-              backgroundColor: "#EEEEEE",
               border: "0px",
             }}
             id="image"

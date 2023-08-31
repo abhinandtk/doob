@@ -362,7 +362,7 @@ input.nosubmit1 {
   margin-top: 35px;
   border-radius: 5px;
 
-  background-color: #eeeeee;
+  background-color: var(input-theme-sw);
 }
 .filters-icon {
   margin-left: 4px;
@@ -2174,7 +2174,7 @@ p.note {
   margin-left: 240px; /* Same as the width of the sidenav */
   padding: 0px 5px;
   margin-top: 70px;
-  background-color: white;
+  background-color: var(--contents-bg);
   width: 80%;
   height: 540px;
 }

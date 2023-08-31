@@ -180,7 +180,7 @@ function StoreSettingsPage() {
         maskClosable
         centered
         bodyStyle={{ maxHeight: "50vh", overflowY: "scroll" }}
-        title="Blocked users"
+        title={t("Blocked users")}
       >
         <div style={{ padding: "16px" }}>
           {blockedList &&
@@ -261,9 +261,9 @@ function StoreSettingsPage() {
               >
                 {t("Settings")}
               </h6>
-              <div className="my-4 mx-4 ">
+              <div className="my-4 dark-theme-color mx-4 ">
                 <div className="basic">
-                  <h6 className="my-4">Private Account</h6>{" "}
+                  <h6 className="my-4 dark-theme-color">Private Account</h6>{" "}
                   <div
                     className="toggle1"
                     style={{ marginRight: "50px", marginTop: "-40px" }}
@@ -284,8 +284,8 @@ function StoreSettingsPage() {
                           href="/page/convert-store"
                           style={{ textDecoration: "none", color: "inherit" }}
                         >
-                          <h6 className="my-4">
-                            Request for Manage Store
+                          <h6 className="my-4 dark-theme-color">
+                            {t("Request for Manage Store")}
                             <span>
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -310,8 +310,8 @@ function StoreSettingsPage() {
                           href="/page/convert-field"
                           style={{ textDecoration: "none", color: "inherit" }}
                         >
-                          <h6 className="my-4">
-                            Request for Manage Field
+                          <h6 className="my-4 dark-theme-color">
+                            {t("Request for Manage Field")}
                             <span>
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -337,8 +337,8 @@ function StoreSettingsPage() {
                     href="/page/user-password-change"
                     style={{ textDecoration: "none", color: "inherit" }}
                   >
-                    <h6 className="my-4">
-                      Change Password{" "}
+                    <h6 className="my-4 dark-theme-color">
+                      {t("Change Password")}{" "}
                       <span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -361,8 +361,8 @@ function StoreSettingsPage() {
                     href="/page/address-page"
                     style={{ textDecoration: "none", color: "inherit" }}
                   >
-                    <h6 className="my-4">
-                      Address
+                    <h6 className="my-4 dark-theme-color">
+                      {t("Address")}
                       <span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -385,8 +385,8 @@ function StoreSettingsPage() {
                     onClick={() => setBlockedShow(true)}
                     style={{ cursor: "pointer" }}
                   >
-                    <h6 className="my-4">
-                      Blocked Users
+                    <h6 className="my-4 dark-theme-color">
+                      {t("Blocked Users")}
                       <span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -406,8 +406,8 @@ function StoreSettingsPage() {
                     </h6>
                   </div>
                   <div onClick={() => setVisible(true)}>
-                    <h6 className="my-4" style={{ cursor: "pointer" }}>
-                      Delete Account{" "}
+                    <h6 className="my-4 dark-theme-color" style={{ cursor: "pointer" }}>
+                      {t("Delete Account")}{" "}
                       <span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
