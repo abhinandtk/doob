@@ -5,10 +5,10 @@ import React from "react";
 
 function Stores({ storeData, title }) {
 
-  const {theme}=useTheme()
+  const { theme } = useTheme()
   return (
     // <div className='row row-cols-2 store'>
-    <div className="row store">
+    <div className="row store products-card-store">
       <h5
         className="mx-2"
         style={{ color: theme === "dark" ? "#FFFF" : "#212529" }}

@@ -67,10 +67,11 @@ function PlayGroundDetailPage() {
             ></img>
           </span>
         </form> */}
-
-        <PlayGroundTopDetails details={groundData} />
-        <AmenitiesList amenitiesData={amenitiesData} />
-        <SelectGround details={groundData} setDateSelected={setDateSelected} />
+        <div className="field-details">
+          <PlayGroundTopDetails details={groundData} />
+          <AmenitiesList amenitiesData={amenitiesData} />
+          <SelectGround details={groundData} setDateSelected={setDateSelected} />
+        </div>
       </div>
       <MobileFooter />
     </Fragment>

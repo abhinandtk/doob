@@ -15,6 +15,7 @@ function PlayGroundTopDetails({ details }) {
   const [reason, setReason] = useState("");
   const [show, setShow] = useState(false);
   const router = useRouter();
+  const { locale } = router;
   const { pgid } = router.query;
   const labels = Labels();
   const [visible, setVisible] = useState(false);
@@ -120,7 +121,7 @@ function PlayGroundTopDetails({ details }) {
               ></img>
             )}
             <span className="span-icon">
-              <ShareToUserChat slug={pgid} type='field'/>
+              <ShareToUserChat slug={pgid} type='field' />
               {/* <span
                 onClick={() => handleShareFieldPost()}
                 style={{ cursor: "pointer" }}
@@ -217,13 +218,13 @@ function PlayGroundTopDetails({ details }) {
             {details.location},{details.city && details.city.region_name}
           </p>
           <div className="clearfix rating">
-            <span className="float-start ml-5" onClick={toggleModal}>
+            <span className={`${locale === "en" ? "float-start" : "float-end"} ml-5`} onClick={toggleModal}>
               <i className="bi bi-star-fill" style={{ color: "yellow" }}></i>
               <span className="mx-2">{details.rating}</span>
             </span>
 
             <p
-              className="float-end"
+              className={locale === "en" ? "float-end" : "float-start"}
               style={{ fontWeight: "700", color: "#17A803" }}
             >
               {details.amount} KD

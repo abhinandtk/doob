@@ -5,6 +5,7 @@ $primary-color: #17a803;
 body {
   background: var(--primary);
 }
+
 .tour-container {
   width: 900px;
   min-height: 800px;
@@ -14,12 +15,19 @@ body {
   color: var(--font-theme-color);
 }
 
+.field-details {
+  :lang(ar) {
+    direction: rtl;
+  }
+}
+
 .play-container {
   width: 800px;
   justify-content: center;
   margin-left: 330px;
   align-items: center;
 }
+
 .play-icons {
   margin-left: 25px;
   margin-top: 7px;
@@ -32,18 +40,21 @@ body {
   margin-right: 22px;
   margin-top: 12px;
 }
+
 .playss {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
 }
+
 .Top-play {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
 }
+
 .play1 {
   justify-content: center;
   display: grid;
@@ -69,6 +80,7 @@ body {
   margin-right: 103px;
   margin-left: 4px;
 }
+
 .doct-card {
   width: 24rem;
   border: 0px;
@@ -79,10 +91,12 @@ body {
 .play-0 {
   margin-right: 12px;
 }
+
 .bottoms {
   margin-top: 30px;
   min-height: 400px;
 }
+
 .side-play {
   padding: 12px 7px;
   width: 230px;
@@ -101,6 +115,7 @@ body {
 .side-play a :hover {
   color: #17a803;
 }
+
 .side-play svg :hover {
   color: #17a803;
 }
@@ -116,6 +131,7 @@ body {
   border: 0px;
   color: white;
 }
+
 .edits-btn {
   font-size: 13px;
 
@@ -127,11 +143,13 @@ body {
   border: 0px;
   color: white;
 }
+
 .slot.clearfix {
   display: block;
   margin-left: -1px;
   clear: both;
 }
+
 .play.clearfix {
   display: block;
   content: "";
@@ -142,15 +160,15 @@ body {
   margin-right: 42px;
 }
 
-.checkbox input[type="checkbox"] + label::after {
+.checkbox input[type="checkbox"]+label::after {
   content: none;
 }
 
-.checkbox input[type="checkbox"]:checked + label::after {
+.checkbox input[type="checkbox"]:checked+label::after {
   content: "";
 }
 
-.checkbox input[type="checkbox"]:focus + label::before {
+.checkbox input[type="checkbox"]:focus+label::before {
   outline: rgb(0, 0, 0) 5px;
 }
 
@@ -166,6 +184,7 @@ body {
   display: inline-block;
   margin-top: -24px;
 }
+
 .checkbox label::before {
   height: 16px;
   width: 16px;
@@ -191,6 +210,7 @@ body {
   background: var(--contents-bg);
   width: 75%;
 }
+
 .play-topics {
   margin-left: 240px;
   padding: 1px 6px;
@@ -198,6 +218,7 @@ body {
   background: white;
   width: 75%;
 }
+
 .playedit-btn {
   font-size: 15px;
   line-height: 1.8;
@@ -211,6 +232,7 @@ body {
   float: right;
   margin-top: -2px;
 }
+
 .playadd-btn {
   font-size: 15px;
   line-height: 1.8;
@@ -224,6 +246,7 @@ body {
   float: right;
   margin-top: -2px;
 }
+
 .play-sub-btn {
   background-color: #17a803;
   font-weight: 600;
@@ -250,15 +273,18 @@ body {
   border-radius: 10px;
   width: 610px;
 }
+
 .times1 {
   background: transparent;
   border-radius: 10px;
   width: 610px;
 }
+
 .time-slot-name {
   display: flex;
   margin-left: 8px;
 }
+
 .time-slot {
   margin-top: 12px;
   margin-left: -12px;
@@ -268,13 +294,16 @@ body {
   float: end;
   margin-left: 220px;
 }
+
 .time-section {
   margin-left: 8px;
 }
+
 .time-delete {
   margin-right: 14px;
   float: right;
 }
+
 .open-btn {
   font-size: 15px;
   line-height: 1.8;
@@ -295,6 +324,7 @@ body {
   position: absolute;
   margin-top: 7px;
 }
+
 input[type="radio"] {
   box-sizing: border-box;
   padding: 0;
@@ -328,7 +358,7 @@ input {
   border-radius: 24px;
 }
 
-.radio-button__input:checked + .radio-button__control:after {
+.radio-button__input:checked+.radio-button__control:after {
   content: "";
   display: block;
   position: absolute;
@@ -340,7 +370,7 @@ input {
   border-radius: 12px;
 }
 
-.radio-button__input:checked + .radio-button__control {
+.radio-button__input:checked+.radio-button__control {
   border-color: #000000;
 }
 
@@ -368,11 +398,13 @@ input {
   padding: 15px 70px;
   border-radius: 10px;
 }
+
 .game {
   margin-top: 23px;
   padding: 2px 72px;
   text-align: center;
 }
+
 .newGame-btn {
   background-color: #17a803;
   font-weight: 400;
@@ -382,16 +414,24 @@ input {
   border-radius: 6px;
   margin-top: -12px;
 }
+
 .game_clearfix {
   margin-bottom: 35px;
   width: 100%;
 }
+
 .book {
   margin-top: 15px;
   border: 0px;
   width: 900px;
   background-color: var(--contents-bg);
+
+  :lang(ar) {
+    direction: rtl;
+  }
 }
+
+
 
 .book-content {
   display: flex;
@@ -399,11 +439,31 @@ input {
   align-items: flex-start;
   margin-top: -33px;
 }
+
+.book-content_ar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-top: 0px;
+}
+
+.route {
+  :lang(ar) {
+    margin-right: 20px;
+  }
+}
+
 .book-details {
   margin-left: 32px;
   line-height: 12px;
   font-weight: 500;
+
+
+  :lang(ar) {
+    margin-right: 10px;
+  }
 }
+
 .book-date {
   line-height: 6px;
   margin-top: 2px;
@@ -447,19 +507,23 @@ input {
   line-height: 4rem;
   vertical-align: middle;
 }
+
 .near {
   margin-top: 82px;
   width: 100%;
 }
+
 .select {
   color: var(--font-theme-color);
   background: transparent;
   border: 1px solid black;
 }
+
 .select:hover {
   color: #ffffff;
   background: #959595;
 }
+
 .Join-btn {
   background-color: #17a803;
   font-weight: 400;
@@ -469,12 +533,22 @@ input {
   border-radius: 6px;
   margin-top: -3px;
 }
+
 .book-img {
   width: 90px;
   height: 90px;
   border-radius: 7px;
   position: absolute;
   margin-left: -91px;
+  object-fit: cover;
+}
+
+.book-img_ar {
+  width: 90px;
+  height: 90px;
+  border-radius: 7px;
+  position: absolute;
+  margin-right: -91px;
   object-fit: cover;
 }
 
@@ -485,6 +559,7 @@ input {
   height: 330px;
   background-color: var(--contents-bg);
 }
+
 .playgrounds {
   display: flex;
   flex-wrap: wrap;
@@ -492,10 +567,12 @@ input {
   column-gap: 12px;
   row-gap: 12px;
 }
+
 .play-body {
   margin-top: 3px;
   line-height: 20px;
 }
+
 // section {
 //   padding: 60px 0;
 // }
@@ -506,6 +583,7 @@ section .section-title {
   margin-bottom: 50px;
   text-transform: uppercase;
 }
+
 // #tabs{
 // background: transparent;
 //   color: #eee;
@@ -535,6 +613,7 @@ section .section-title {
 .play::placeholder {
   color: #959595;
 }
+
 .modals-btn {
   background-color: #17a803;
   font-weight: 400;
@@ -544,6 +623,7 @@ section .section-title {
   border-radius: 6px;
   margin-right: -12px;
 }
+
 .view-btn {
   background-color: #17a803;
   font-weight: 400;
@@ -553,6 +633,7 @@ section .section-title {
   border-radius: 5px;
   margin-top: -3px;
 }
+
 .plays-img {
   width: 110px;
   height: 105px;
@@ -572,30 +653,32 @@ section .section-title {
   flex-wrap: wrap;
   align-items: flex-start;
 }
+
 .plays {
   margin-top: 15px;
   border: 0px;
   width: 100%;
   height: 210px;
 }
+
 input.tour {
   border: 0px solid #eeeeee;
   width: 785px;
   padding: 9px 4px 9px 40px;
-  background: transparent
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
-    no-repeat 13px center;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
   margin-left: 2px;
   margin-top: 35px;
   border-radius: 5px;
 
   background-color: #eeeeee;
 }
+
 .tour-icon {
   margin-left: 6px;
   height: 42px;
   margin-top: -4px;
 }
+
 .location-icon {
   margin-left: 7px;
   height: 42px;
@@ -605,12 +688,18 @@ input.tour {
 .Bottoms {
   margin-top: 30px;
 }
+
 .Game-detail {
   border: 0px;
   margin-top: 25px;
   width: 100%;
   background-color: var(--contents-bg);
+
+  :lang(ar) {
+    direction: rtl;
+  }
 }
+
 .game-head {
   font-weight: 700;
   font-size: 15px;
@@ -621,17 +710,20 @@ input.tour {
   text-overflow: ellipsis;
   width: 140px;
 }
+
 .game-imgs {
   width: 25px;
   height: 25px;
   object-fit: cover;
   border-radius: 50%;
 }
+
 .gamer {
   color: var(--font-theme-color);
   font-size: 14px;
   font-weight: 500;
 }
+
 .game-locations {
   font-weight: 500;
   font-size: 14px;
@@ -642,11 +734,13 @@ input.tour {
   text-overflow: ellipsis;
   width: 150px;
 }
+
 .games12 {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
 }
+
 .game-city {
   font-weight: 500;
   font-size: 14px;
@@ -658,21 +752,25 @@ input.tour {
   text-overflow: ellipsis;
   width: 140px;
 }
+
 .participants {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
 }
+
 .game-logos {
   height: 45px;
   width: 45px;
   border-radius: 50%;
   object-fit: cover;
 }
+
 .game-line {
   width: 100%;
   border-bottom: 1px solid black;
 }
+
 .participant-name {
   font-weight: 500;
   font-size: 14px;
@@ -685,33 +783,40 @@ input.tour {
   width: 140px;
   margin-top: 7px;
 }
+
 .game-host {
   color: #17a803;
   font-size: 14px;
   font-weight: 500;
 }
+
 .game-share {
   font-size: 14px;
   color: #000;
 }
+
 .game-info {
   margin-left: -20px;
 
   margin-top: 23px;
 }
+
 .removed {
   color: #fc4444;
   font-size: 16px;
 }
+
 .remove {
   color: #959595;
   cursor: pointer;
   font-size: 16px;
 }
+
 .Left-peoples {
   color: #fc4444;
   font-size: 16px;
 }
+
 .play_text {
   font-weight: 700;
   font-size: 17px;
@@ -722,6 +827,7 @@ input.tour {
   text-overflow: ellipsis;
   width: 230px;
 }
+
 .place {
   color: #959595;
   font-weight: 400;
@@ -733,18 +839,21 @@ input.tour {
   text-overflow: ellipsis;
   width: 90px;
 }
+
 .locations {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   margin-top: 6px;
 }
+
 .place {
   color: #959595;
   font-weight: 400;
 
   font-size: 15px;
 }
+
 .logox {
   float: right;
   margin-right: -53px;
@@ -753,6 +862,7 @@ input.tour {
   height: 45px;
   margin-top: -16px;
 }
+
 .logox1 {
   margin-top: -16px;
   float: right;
@@ -761,6 +871,7 @@ input.tour {
   width: 43px;
   height: 45px;
 }
+
 .field-clearfix {
   display: block;
   content: "";
@@ -768,27 +879,33 @@ input.tour {
   margin-left: -1px;
   margin-top: -6px;
 }
+
 .field-content {
   margin-top: 14px;
 }
+
 .More {
   margin-top: -26px;
   color: #17a803;
 }
+
 .game-name {
   font-size: 14px;
   font-weight: 500;
 }
+
 .field-info {
   position: absolute;
   margin-top: 53px;
   line-height: 30px;
 }
+
 .field-info1 {
   position: absolute;
   margin-top: 13px;
   line-height: 30px;
 }
+
 .field-btn {
   background-color: #17a803;
   font-weight: 400;
@@ -800,19 +917,23 @@ input.tour {
   width: 300px;
   text-align: center;
 }
+
 .Invite {
   margin-top: 33px;
 }
+
 .Amenties {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
 }
+
 .group A {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
 }
+
 .ground-btn {
   background-color: #17a803;
   font-weight: 400;
@@ -825,6 +946,7 @@ input.tour {
   height: 30px;
   text-align: center;
 }
+
 .ground1-btn {
   background-color: #192126;
   font-weight: 400;
@@ -837,6 +959,7 @@ input.tour {
   height: 30px;
   text-align: center;
 }
+
 .Grounds {
   border: 0px;
   border-radius: 20px;
@@ -844,18 +967,21 @@ input.tour {
   width: 100%;
   background-color: var(--contents-bg);
 }
+
 .ground-customer {
   background: #eeeeee;
   border-radius: 10px;
   width: 210px;
   margin-top: 18px;
 }
+
 .Available-slot {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   margin-top: -12px;
 }
+
 .time-slot1 {
   background: #959595;
   border-radius: 10px;
@@ -863,6 +989,7 @@ input.tour {
   color: white;
   text-align: center;
 }
+
 .time-slot2 {
   background: #d8d8d8;
   border-radius: 10px;
@@ -870,6 +997,7 @@ input.tour {
   color: rgb(0, 0, 0);
   text-align: center;
 }
+
 .time-slot3 {
   background: #17a803;
   border-radius: 10px;
@@ -877,6 +1005,7 @@ input.tour {
   color: white;
   text-align: center;
 }
+
 .time-slot4 {
   background: #959595;
   border-radius: 10px;
@@ -884,6 +1013,7 @@ input.tour {
   color: rgb(255, 255, 255);
   text-align: center;
 }
+
 .time-slot5 {
   background: #17a803;
   border-radius: 10px;
@@ -891,6 +1021,7 @@ input.tour {
   color: white;
   text-align: center;
 }
+
 .time-slot6 {
   background: #eeeeee;
   border-radius: 10px;
@@ -898,17 +1029,20 @@ input.tour {
   color: #000000;
   text-align: center;
 }
+
 .ground-img {
   width: 280px;
   margin-top: 32px;
   margin-left: 124px;
 }
+
 .img-text {
   float: right;
   font-weight: 600;
   margin-right: 32px;
   font-size: 18px;
 }
+
 .image-btn {
   background-color: #17a803;
   font-weight: 600;
@@ -928,10 +1062,16 @@ input.tour {
   margin-top: -9px;
   position: relative;
 }
+
 .sports-type {
   margin-top: -8px;
   position: absolute;
+
+  :lang(ar) {
+    direction: rtl;
+  }
 }
+
 .carts {
   border: 0px;
   border-radius: 15px;
@@ -939,23 +1079,28 @@ input.tour {
   margin-top: 22px;
   width: 100%;
 }
+
 .cart-place {
   margin-left: 44px;
   margin-top: -10px;
 }
+
 .cart-info {
   margin-top: 4px;
 }
+
 .cart-location {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
 }
+
 .cart-location1 {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
 }
+
 .text-cart {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -966,6 +1111,7 @@ input.tour {
   font-size: 18px;
   width: 190px;
 }
+
 .carts1 {
   border: 0px;
   border-radius: 15px;
@@ -973,26 +1119,31 @@ input.tour {
   margin-top: 6px;
   width: 100%;
 }
+
 .carts-img {
   width: 80px;
   height: 60px;
   margin-top: -9px;
   margin-left: 13px;
 }
+
 .carts-group {
   font-weight: 500;
   margin-left: 7px;
 }
+
 .cancel1 {
   line-height: 6px;
   margin-top: 9px;
   font-weight: 600;
   margin-left: 12px;
 }
+
 .trashs {
   margin-left: 96px;
   margin-top: -9px;
 }
+
 .checks-btn {
   background-color: #17a803;
   font-weight: 600;
@@ -1005,10 +1156,12 @@ input.tour {
   margin-top: 12px;
   text-align: center;
 }
+
 .edits {
   margin-left: 102px;
   float: right;
 }
+
 .make-btn {
   background-color: #17a803;
   font-weight: 600;
@@ -1022,24 +1175,29 @@ input.tour {
   margin-top: 12px;
   text-align: center;
 }
+
 .games1 {
   color: #000000;
   background: transparent;
   border: 1px solid black;
 }
+
 .games1:hover {
   color: #ffffff;
   background: #656565;
 }
+
 .games2 {
   color: #ffffff;
   background: #656565;
 }
+
 .games2:hover {
   color: #000000;
   background: transparent;
   border: 1px solid black;
 }
+
 .types {
   display: flex;
   flex-wrap: wrap;
@@ -1047,6 +1205,7 @@ input.tour {
   margin-top: 12px;
   font-weight: 600;
 }
+
 .types1 {
   display: flex;
   flex-wrap: wrap;
@@ -1054,6 +1213,7 @@ input.tour {
   margin-top: -3px;
   font-weight: 600;
 }
+
 .yes1-btn {
   background-color: #17a803;
   font-weight: 600;
@@ -1063,6 +1223,7 @@ input.tour {
   border-radius: 6px;
   margin-top: -3px;
 }
+
 .yes-btn {
   background-color: #ffffff;
   font-weight: 600;
@@ -1072,6 +1233,7 @@ input.tour {
   border-radius: 6px;
   margin-top: -3px;
 }
+
 .history-btn {
   background-color: #8a8a8a;
   font-weight: 600;
@@ -1084,6 +1246,7 @@ input.tour {
   float: right;
   margin-right: 350px;
 }
+
 .top {
   margin-top: -18px;
 }
@@ -1095,12 +1258,14 @@ input.tour {
   margin-left: 13px;
   margin-top: -150px;
 }
+
 .tournament-imx2 {
   width: 100%;
   height: 100%;
   margin-left: 100px;
   margin-top: 50px;
 }
+
 .tournament-imx3 {
   width: 100%;
   height: 100%;
@@ -1120,6 +1285,7 @@ input.tour {
   background-color: var(--contents-bg);
   color: var(--font-theme-color);
 }
+
 .tournament1 {
   width: 547px;
   height: 327px;
@@ -1128,6 +1294,7 @@ input.tour {
   background-color: var(--contents-bg);
   color: var(--font-theme-color);
 }
+
 .tournament2 {
   width: 590px;
   height: 350px;
@@ -1165,6 +1332,7 @@ input.tour {
   margin-top: 43px;
   margin-left: 86px;
 }
+
 .grey {
   border: 0px;
   border-radius: 8px;
@@ -1174,6 +1342,7 @@ input.tour {
   margin-top: 13px;
   margin-left: 86px;
 }
+
 // cards
 
 .live-image1 {
@@ -1183,6 +1352,7 @@ input.tour {
   border-radius: 4px 4px 0px 0px;
   position: relative;
 }
+
 .live-image2 {
   width: 590px;
   height: 260px;
@@ -1197,6 +1367,7 @@ input.tour {
   object-fit: cover;
   border-radius: 4px 4px 0px 0px;
 }
+
 //////////////////////
 
 .ranks-content {
@@ -1206,11 +1377,13 @@ input.tour {
   margin-top: 5px;
   line-height: 12px;
 }
+
 .ranks {
   font-size: 16px;
   font-weight: 300;
   color: white;
 }
+
 .ranks-number {
   font-size: 20px;
   font-weight: 400;
@@ -1235,6 +1408,7 @@ input.tour {
   font-size: 20px;
   font-weight: 600;
 }
+
 .grey-match {
   font-size: 19px;
   font-weight: 400;
@@ -1243,12 +1417,15 @@ input.tour {
 .grey-details1 {
   margin-left: 137px;
 }
+
 .grey-details2 {
   margin-left: 166px;
 }
+
 .grey-details3 {
   margin-left: 121px;
 }
+
 /////////////////////
 
 .green-content {
@@ -1256,6 +1433,7 @@ input.tour {
   flex-wrap: wrap;
   align-items: flex-start;
 }
+
 .green-text {
   color: white;
   font-size: 20px;
@@ -1267,15 +1445,18 @@ input.tour {
   text-overflow: ellipsis;
   width: 190px;
 }
+
 .green-details {
   margin-top: 18px;
   margin-left: 22px;
 }
+
 .green-border {
   border-bottom: 1px solid white;
   margin-top: 15px;
   width: 280px;
 }
+
 .green-imx {
   width: 100px;
   height: 100px;
@@ -1284,10 +1465,12 @@ input.tour {
   margin-top: 12px;
   margin-left: 9px;
 }
+
 .green-rank {
   color: white;
   font-weight: 300;
 }
+
 .green-rank1 {
   color: white;
   font-weight: 400;
@@ -1327,6 +1510,7 @@ td {
   text-align: center;
   margin-bottom: 2px;
 }
+
 .timeline-watch {
   margin-top: 2px;
   margin-left: 30px;
@@ -1341,6 +1525,7 @@ td {
   margin-left: -20px;
   display: flex;
 }
+
 ///
 
 .live-watch {
@@ -1348,11 +1533,13 @@ td {
   margin-left: 30px;
   text-align: center;
 }
+
 .live-watch1 {
   margin-top: 12px;
   margin-left: 30px;
   text-align: center;
 }
+
 .clubs {
   width: 50px;
   height: 50px;
@@ -1360,6 +1547,7 @@ td {
   object-fit: cover;
   border-radius: 50%;
 }
+
 .club1 {
   width: 33px;
   height: 33px;
@@ -1367,6 +1555,7 @@ td {
   object-fit: cover;
   margin-top: 2px;
 }
+
 .club-time {
   color: #17a803;
   background: transparent;
@@ -1389,6 +1578,7 @@ td {
   text-align: center;
   margin-bottom: 2px;
 }
+
 .space-line {
   font-weight: 800;
   word-spacing: 25px;
@@ -1403,6 +1593,7 @@ td {
   height: 45px;
   color: var(--font-theme-color);
 }
+
 .team1 {
   display: -webkit-box;
   -webkit-line-clamp: 1;
@@ -1428,6 +1619,7 @@ td {
   margin-top: 9px;
   font-weight: 500;
 }
+
 .live-btn {
   background-color: #17a803;
   font-weight: 400;
@@ -1439,6 +1631,7 @@ td {
   height: 40px;
   margin-top: 20px;
 }
+
 .video-play {
   display: flex;
   flex-wrap: wrap;
@@ -1446,6 +1639,7 @@ td {
   margin-left: 70px;
   margin-top: 13px;
 }
+
 .stadium {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -1459,6 +1653,7 @@ td {
   color: #959595;
   font-weight: 400;
 }
+
 .live-play {
   float: right;
   margin-left: 10px;
@@ -1466,18 +1661,21 @@ td {
   width: 32px;
   height: 32px;
 }
+
 .live-contents {
   position: absolute;
   margin-left: 20px;
   margin-top: 3px;
   color: white;
 }
+
 .live-content1 {
   color: $primary-color;
   font-weight: 400;
   margin-top: 12px;
   font-size: 14px;
 }
+
 .live-content2 {
   color: white;
   font-weight: 600;
@@ -1490,10 +1688,12 @@ td {
   text-overflow: ellipsis;
   width: 120px;
 }
+
 .top-head-tour {
   background-color: var(--secondary);
   width: 547px;
 }
+
 .topnav {
   overflow: hidden;
   background-color: transparent;
@@ -1534,11 +1734,13 @@ td {
   height: 38px;
   padding: 7px;
 }
+
 .match1:hover {
   color: #000000;
   background: transparent;
   border: 1px solid black;
 }
+
 .match2 {
   color: #000000;
   background: transparent;
@@ -1547,6 +1749,7 @@ td {
   font-size: 13px;
   height: 38px;
 }
+
 .match2:hover {
   color: #ffffff;
   background: #656565;
@@ -1558,12 +1761,14 @@ td {
   margin-top: 3px;
   color: white;
 }
+
 .content1 {
   color: #17a803;
   font-weight: 400;
   margin-top: 12px;
   font-size: 14px;
 }
+
 .content2 {
   color: white;
   font-weight: 600;
@@ -1576,11 +1781,13 @@ td {
   text-overflow: ellipsis;
   width: 230px;
 }
+
 .knock-img {
   width: 44px;
   height: 44px;
   object-fit: cover;
 }
+
 .knock-text {
   font-size: 16px;
   font-weight: 500;
@@ -1591,6 +1798,7 @@ td {
   height: 28px;
   object-fit: cover;
 }
+
 .knock-text1 {
   font-size: 13px;
   font-weight: 500;
@@ -1602,11 +1810,13 @@ td {
   margin-top: 13px;
   margin-left: 470px;
 }
+
 .live-icon1 {
   position: absolute;
   top: 13px;
   right: 0px;
 }
+
 .sports {
   color: #ffffff;
   background-color: #656565;
@@ -1615,6 +1825,7 @@ td {
   font-size: 13px;
   border: 0px;
 }
+
 .sports1 {
   color: #000000;
   background: #eeeeee;
@@ -1623,18 +1834,21 @@ td {
   border: 0px;
   font-size: 13px;
 }
+
 .tournament-imx1 {
   width: 100%;
   height: 100%;
   margin-left: 63px;
   margin-top: -100px;
 }
+
 .tournament-imx2 {
   width: 100%;
   height: 100%;
   margin-left: 83px;
   margin-top: 50px;
 }
+
 .tournament-imx {
   width: 100%;
   height: 100%;
@@ -1647,26 +1861,32 @@ td {
   flex-wrap: wrap;
   align-items: flex-start;
 }
+
 .gender1 {
   color: #17a803;
   font-weight: 700;
   font-size: 18px;
 }
+
 .gender2 {
   color: #000000;
   font-weight: 400;
   font-size: 18px;
 }
+
 .junior {
   color: #000000;
   font-weight: 400;
   font-size: 18px;
 }
+
 .tables {
   margin-left: -33px;
 }
+
 .responsive-table {
   color: var(--font-theme-color);
+
   li {
     border-radius: 3px;
     padding: 5px 16px;
@@ -1682,12 +1902,14 @@ td {
   object-fit: cover;
   border-radius: 50%;
 }
+
 .tour_rank_img1 {
   width: 60px;
   height: 60px;
   object-fit: cover;
   border-radius: 50%;
 }
+
 .table-row {
   background-color: var(--dark-sec-white);
   width: 550px;
@@ -1708,6 +1930,7 @@ td {
   text-overflow: ellipsis;
   width: 390px;
 }
+
 .name2 {
   font-weight: 700;
   font-size: 16px;
@@ -1719,6 +1942,7 @@ td {
   margin-left: -50px;
   font-size: 16px;
 }
+
 .views1 {
   color: #959595;
   margin-left: -45px;
@@ -1744,6 +1968,7 @@ td {
   height: 75px;
   margin-left: 33px;
 }
+
 .ahmed1 {
   width: 60px;
   object-fit: cover;
@@ -1751,6 +1976,7 @@ td {
   padding: 2px 19px;
   margin-left: 17px;
 }
+
 .ahmed2 {
   width: 60px;
   object-fit: cover;
@@ -1758,22 +1984,26 @@ td {
   padding: 2px 19px;
   margin-left: -8px;
 }
+
 .id {
   margin-left: -12px;
   font-size: 19px;
   font-weight: 400;
 }
+
 .league {
   font-weight: 700;
   font-size: 15px;
   margin-top: 12px;
 }
+
 .league1 {
   font-weight: 400;
   font-size: 13px;
   color: #959595;
   margin-top: -3px;
 }
+
 .tournaments-btn {
   background-color: #17a803;
   font-weight: 400;
@@ -1798,6 +2028,7 @@ td {
   width: 152px;
   text-align: end;
 }
+
 .book-names1 {
   font-size: 14px;
   display: -webkit-box;
@@ -1816,11 +2047,13 @@ td {
   border: 0px;
   border-radius: 5px;
   margin-top: -12px;
+
   .card-body {
     background-color: var(--secondary);
     color: var(--font-theme-color);
   }
 }
+
 .football1 {
   width: 591px;
   height: 250px;
@@ -1830,6 +2063,7 @@ td {
   background-color: var(--contents-bg);
   color: var(--font-theme-color);
 }
+
 .live1 {
   display: flex;
   flex-wrap: wrap;
@@ -1837,6 +2071,7 @@ td {
   margin-left: 135px;
   margin-top: -19px;
 }
+
 .date-wins {
   font-weight: 600;
   font-size: 16px;
@@ -1844,6 +2079,7 @@ td {
   text-align: center;
   margin-bottom: 2px;
 }
+
 .time-wins {
   font-weight: 600;
   font-size: 16px;
@@ -1851,6 +2087,7 @@ td {
   text-align: center;
   margin-bottom: 2px;
 }
+
 .left-time {
   color: #17a803;
   background: transparent;
@@ -1866,6 +2103,7 @@ td {
   align-items: center;
   font-size: 14px;
 }
+
 .Matches-Time {
   color: #17a803;
   background: transparent;
@@ -1879,16 +2117,19 @@ td {
   align-items: center;
   font-size: 14px;
 }
+
 .watch-play {
   display: flex;
   justify-content: center;
   margin-top: 30px;
   margin-left: 60px;
 }
+
 .Live-Watches {
   display: flex;
   justify-content: center;
 }
+
 .watch-play1 {
   display: flex;
   flex-wrap: wrap;
@@ -1896,6 +2137,7 @@ td {
   margin-left: 100px;
   margin-top: 65px;
 }
+
 .watch1 {
   margin-left: -123px;
   position: absolute;
@@ -1908,6 +2150,7 @@ td {
   float: right;
   margin-top: 18px;
 }
+
 .double-lines {
   font-weight: 600;
   font-size: 16px;
@@ -1915,6 +2158,7 @@ td {
   text-align: center;
   margin-bottom: 2px;
 }
+
 .team3 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -1927,6 +2171,7 @@ td {
   margin-top: 30px;
   font-weight: 500;
 }
+
 .team4 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -1939,6 +2184,7 @@ td {
   margin-top: 30px;
   font-weight: 500;
 }
+
 .teams-btn {
   background-color: #17a803;
   font-weight: 400;
@@ -1950,6 +2196,7 @@ td {
   margin-right: 310px;
   float: right;
 }
+
 .matches-btn {
   background-color: #17a803;
   font-weight: 400;
@@ -1960,6 +2207,7 @@ td {
   height: 38px;
   margin-right: 310px;
 }
+
 .timeline-btn {
   background-color: #17a803;
   font-weight: 300;
@@ -2043,28 +2291,34 @@ td {
   word-spacing: 1px;
   color: #888;
 }
+
 .participate {
   color: #959595;
   font-size: 16px;
 }
+
 .hosts {
   color: #17a803;
   font-size: 16px;
 }
+
 .host-name {
   color: var(--font-theme-color);
   font-size: 16px;
 }
+
 .Hosted {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
 }
+
 .booked-date {
   color: #17a803;
   font-weight: 700;
   font-size: 20px;
 }
+
 .book-stadiums {
   font-weight: 500;
   font-size: 16px;
@@ -2075,6 +2329,7 @@ td {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .book-location {
   font-size: 16px;
   display: -webkit-box;
@@ -2084,11 +2339,13 @@ td {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .booked-month {
   color: var(--font-theme-color);
   font-weight: 400;
   font-size: 16px;
 }
+
 .book-head {
   color: var(--font-theme-color);
   font-weight: 700;
@@ -2100,11 +2357,13 @@ td {
   //   overflow: hidden;
   //   text-overflow: ellipsis;
 }
+
 .book-time-date {
   color: #959595;
   font-weight: 500;
   font-size: 17px;
 }
+
 .book-grounds {
   color: var(--font-theme-color);
   font-weight: 500;
@@ -2116,6 +2375,7 @@ td {
   //   overflow: hidden;
   //   text-overflow: ellipsis;
 }
+
 .book-places {
   color: var(--font-theme-color);
   font-weight: 500;
@@ -2127,6 +2387,7 @@ td {
   //   overflow: hidden;
   //   text-overflow: ellipsis;
 }
+
 .carousel {
   width: 100%;
   height: 100%;
@@ -2134,6 +2395,7 @@ td {
   overflow: hidden;
   border-radius: 10px;
 }
+
 .carousel-indicators .active {
   width: 10px;
   height: 10px;
@@ -2151,9 +2413,11 @@ td {
   margin: 0 5px;
   cursor: pointer;
 }
+
 .carousel-indicators {
   margin-bottom: 24px;
 }
+
 .barca {
   display: flex;
   flex-wrap: wrap;
@@ -2169,11 +2433,13 @@ td {
   font-size: 14px;
   text-align: right;
 }
+
 .table td {
   border: 0;
 
   padding: 18px 15px;
 }
+
 .Teams-Name-top {
   font-size: 17px;
   font-weight: 400;
@@ -2181,6 +2447,7 @@ td {
   margin-left: 15px;
   width: 78%;
 }
+
 .Teams-Name-down {
   margin-left: 15px;
   font-size: 15px;
@@ -2194,12 +2461,14 @@ td {
   object-fit: cover;
   border-radius: 50%;
 }
+
 .Logo-Rank-main {
   width: 60px;
   height: 60px;
   object-fit: cover;
   border-radius: 50%;
 }
+
 .Name-main {
   text-align: left;
 }
@@ -2415,27 +2684,25 @@ input.nosubmit1 {
   border: 0px solid #eeeeee;
   width: 850px;
   padding: 9px 4px 9px 40px;
-  background: transparent
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
-    no-repeat 13px center;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
   margin-left: -2px;
   margin-top: 35px;
   border-radius: 5px;
 
   background-color: var(--dark-sec-white);
 }
+
 input.nosubmit-shop {
   border: 0px solid #eeeeee;
   width: 850px;
   padding: 9px 4px 9px 40px;
-  background: transparent
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
-    no-repeat 13px center;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
   margin-left: -2px;
   margin-top: 35px;
   border-radius: 5px;
   background-color: var(--dark-sec-white);
 }
+
 .filters-icon {
   margin-left: 4px;
   height: 42px;
@@ -2473,6 +2740,7 @@ input.nosubmit-shop {
   background-color: var(--color-bg-primary);
   box-shadow: 0 4px 4px 0 rgba(#303030, 0.15),
     0 0 0 15px var(--color-bg-secondary);
+
   img {
     width: 40px;
   }
@@ -2486,6 +2754,7 @@ input.nosubmit-shop {
   color: #959595;
   text-align: center;
   margin-bottom: 2px;
+
   &--leading {
     color: var(--color-theme-primary);
   }
@@ -2499,6 +2768,7 @@ input.nosubmit-shop {
   margin-left: 10px;
   margin-right: 10px;
 }
+
 .Match-score {
   margin-bottom: 6px;
   display: flex;
@@ -2507,6 +2777,7 @@ input.nosubmit-shop {
   font-size: 16px;
   color: #17a803;
 }
+
 .Match-score1 {
   margin-bottom: 6px;
   display: flex;
@@ -2536,6 +2807,7 @@ input.nosubmit-shop {
   color: #000;
   font-size: 16px;
 }
+
 .Match-time-lapsed {
   color: #959595;
   font-size: 14px;
@@ -2546,6 +2818,7 @@ input.nosubmit-shop {
 .Match-referee {
   margin-top: 0px;
 }
+
 .new-orders1 {
   margin-right: 24px;
   float: right;
@@ -2553,6 +2826,7 @@ input.nosubmit-shop {
   font-size: 20px;
   margin-top: 12px;
 }
+
 .new-orders2 {
   margin-right: 24px;
   float: right;
@@ -2570,12 +2844,15 @@ input.nosubmit-shop {
     margin-left: 0px;
     padding: 0px 12px;
   }
+
   .tournament2 {
     width: 100%;
   }
+
   .live-image2 {
     width: 100%;
   }
+
   .tournaments {
     width: 100%;
   }
@@ -2583,18 +2860,22 @@ input.nosubmit-shop {
   input.tour {
     width: 90%;
   }
+
   .book {
     margin-top: 15px;
     border: 0px;
     width: 100%;
   }
+
   .sidebar {
     display: none;
   }
+
   .play-container {
     width: 95%;
     margin-left: 23px;
   }
+
   .side-play {
     padding: 12px 7px;
     width: 230px;
@@ -2602,6 +2883,7 @@ input.nosubmit-shop {
     position: absolute;
     height: 100%;
   }
+
   .carousel {
     width: 100%;
     height: 100%;
@@ -2609,70 +2891,79 @@ input.nosubmit-shop {
     overflow: hidden;
     border-radius: 10px;
   }
+
   .play-topic {
     width: 84%;
   }
+
   .play-topics {
     width: 70%;
   }
+
   .tournament4 {
     width: 100%;
   }
+
   input.nosubmit1 {
     border: 0px solid #eeeeee;
     width: 92%;
     padding: 9px 4px 9px 40px;
-    background: transparent
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
-      no-repeat 13px center;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
 
     background-color: #eeeeee;
   }
+
   input.nosubmit-shop {
     border: 0px solid #eeeeee;
     width: 92%;
     padding: 9px 4px 9px 40px;
-    background: transparent
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
-      no-repeat 13px center;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
 
     background-color: #eeeeee;
   }
+
   .tournament-imx {
     margin-left: 0px;
     margin-top: -110px;
     width: 100%;
   }
+
   .tournament-imx1 {
     width: 90%;
     margin-left: 0px;
     margin-top: -100px;
   }
+
   .tournament-imx2 {
     width: 90%;
     margin-left: 0px;
     margin-top: 40px;
   }
 }
+
 @media (max-width: 1300px) {
   .tour-container {
     width: 100%;
   }
+
   .play-container {
     width: 100%;
   }
+
   .sidebar {
     display: none;
   }
+
   .top-teams {
     width: 100%;
   }
+
   .tournament4 {
     width: 100%;
   }
@@ -2680,6 +2971,7 @@ input.nosubmit-shop {
   .tournaments {
     width: 100%;
   }
+
   .topnav span {
     float: left;
     display: block;
@@ -2691,32 +2983,31 @@ input.nosubmit-shop {
     font-size: 17px;
     border-bottom: 4px solid transparent;
   }
+
   input.nosubmit1 {
     border: 0px solid #eeeeee;
     width: 92%;
     padding: 9px 4px 9px 40px;
-    background: transparent
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
-      no-repeat 13px center;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
 
     background-color: #eeeeee;
   }
+
   input.nosubmit-shop {
     border: 0px solid #eeeeee;
     width: 92%;
     padding: 9px 4px 9px 40px;
-    background: transparent
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
-      no-repeat 13px center;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
 
     background-color: #eeeeee;
   }
+
   .side-play {
     padding: 12px 7px;
     width: 230px;
@@ -2724,9 +3015,11 @@ input.nosubmit-shop {
     position: absolute;
     height: 100%;
   }
+
   .play-topic {
     width: 80%;
   }
+
   .play-topics {
     width: 70%;
   }
@@ -2736,41 +3029,43 @@ input.nosubmit-shop {
   .tour-container {
     width: 100%;
   }
+
   .tournament2 {
     width: 100%;
   }
+
   .live-image2 {
     width: 100%;
   }
+
   .play-container {
     width: 95%;
   }
+
   input.nosubmit1 {
     border: 0px solid #eeeeee;
     width: 92%;
     padding: 9px 4px 9px 40px;
-    background: transparent
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
-      no-repeat 13px center;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
 
     background-color: #eeeeee;
   }
+
   input.nosubmit-shop {
     border: 0px solid #eeeeee;
     width: 92%;
     padding: 9px 4px 9px 40px;
-    background: transparent
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
-      no-repeat 13px center;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
 
     background-color: #eeeeee;
   }
+
   .side-play {
     padding: 12px 7px;
     width: 230px;
@@ -2778,46 +3073,49 @@ input.nosubmit-shop {
     position: absolute;
     height: 100%;
   }
+
   .play-topic {
     width: 80%;
   }
+
   .play-topics {
     width: 70%;
   }
 }
+
 @media (max-width: 1200px) {
   .tour-container {
     width: 100%;
   }
+
   .play-container {
     width: 95%;
   }
+
   input.nosubmit1 {
     border: 0px solid #eeeeee;
     width: 92%;
     padding: 9px 4px 9px 40px;
-    background: transparent
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
-      no-repeat 13px center;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
 
     background-color: #eeeeee;
   }
+
   input.nosubmit-shop {
     border: 0px solid #eeeeee;
     width: 92%;
     padding: 9px 4px 9px 40px;
-    background: transparent
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
-      no-repeat 13px center;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
 
     background-color: #eeeeee;
   }
+
   .side-play {
     padding: 12px 7px;
     width: 230px;
@@ -2825,16 +3123,20 @@ input.nosubmit-shop {
     position: absolute;
     height: 100%;
   }
+
   .play-topic {
     width: 80%;
   }
+
   .play-topics {
     width: 80%;
   }
+
   .tournament-imx2 {
     width: 100%;
     height: 100%;
   }
+
   input.tour {
     width: 86%;
   }
@@ -2855,122 +3157,136 @@ input.nosubmit-shop {
     background-color: #ffffff;
     margin-left: 20px;
   }
+
   .play-container {
     width: auto;
   }
+
   input.nosubmit1 {
     border: 0px solid #eeeeee;
     width: 92%;
     padding: 9px 4px 9px 40px;
-    background: transparent
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
-      no-repeat 13px center;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
 
     background-color: #eeeeee;
   }
+
   input.nosubmit-shop {
     border: 0px solid #eeeeee;
     width: 92%;
     padding: 9px 4px 9px 40px;
-    background: transparent
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
-      no-repeat 13px center;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
 
     background-color: #eeeeee;
   }
+
   .side-play {
     padding: 12px 7px;
     width: 200px;
     background-color: #ffffff;
     margin-left: 20px;
   }
+
   .play-topic {
     margin-left: 260px;
     padding: 10px 5px;
     background-color: white;
     width: 75%;
   }
+
   .play-topics {
     width: 70%;
   }
+
   .tournament-imx2 {
     width: 98%;
   }
+
   .live-image2 {
     width: 100%;
   }
+
   .tournament2 {
     width: 100%;
   }
+
   .tournament3 {
     width: 100%;
   }
+
   .tournament-imx {
     // margin-left: 100px;
     width: 100%;
     margin-top: -110px;
   }
 }
+
 @media (max-width: 1025px) {
   .tour-container {
     width: 95%;
   }
+
   .play-container {
     width: auto;
   }
+
   .side-play {
     display: none;
   }
+
   input.nosubmit1 {
     border: 0px solid #eeeeee;
     width: 92%;
     padding: 9px 4px 9px 40px;
-    background: transparent
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
-      no-repeat 13px center;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
 
     background-color: #eeeeee;
   }
+
   input.nosubmit-shop {
     border: 0px solid #eeeeee;
     width: 92%;
     padding: 9px 4px 9px 40px;
-    background: transparent
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
-      no-repeat 13px center;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
 
     background-color: #eeeeee;
   }
+
   .play-topic {
     margin-left: 20px;
     width: 100%;
   }
+
   .play-topics {
     width: 60%;
   }
 }
+
 @media (max-width: 992px) {
   .tournament-imx {
     display: none;
   }
+
   .tournament-imx2 {
     display: none;
   }
+
   input.tour {
     width: 84%;
   }
+
   .doct-card {
     width: 15rem;
   }
@@ -2978,6 +3294,7 @@ input.nosubmit-shop {
   .tournament4 {
     width: 100%;
   }
+
   .live1 {
     display: flex;
     flex-wrap: wrap;
@@ -2986,11 +3303,13 @@ input.nosubmit-shop {
     margin-top: -19px;
     width: 68%;
   }
+
   .live-watch {
     margin-top: 12px;
     margin-left: -26px;
     text-align: center;
   }
+
   .live-watch1 {
     margin-top: 12px;
     margin-right: -26px;
@@ -3002,6 +3321,7 @@ input.nosubmit-shop {
     position: absolute;
     margin-top: 18px;
   }
+
   .watch2 {
     margin-left: 290px;
     position: absolute;
@@ -3015,44 +3335,46 @@ input.nosubmit-shop {
     margin-right: auto;
     margin-left: auto;
   }
+
   .tournament-imx1 {
     display: none;
   }
+
   input.nosubmit1 {
     border: 0px solid #eeeeee;
     width: 92%;
     padding: 9px 4px 9px 40px;
-    background: transparent
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
-      no-repeat 13px center;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
 
     background-color: #eeeeee;
   }
+
   input.nosubmit-shop {
     border: 0px solid #eeeeee;
     width: 92%;
     padding: 9px 4px 9px 40px;
-    background: transparent
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
-      no-repeat 13px center;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
 
     background-color: #eeeeee;
   }
+
   .tournament-imx2 {
     width: 100%;
     height: 100%;
     margin-left: 0px;
     margin-top: 0px;
   }
+
   .tour-container {
     width: 100%;
   }
+
   .play-container {
     width: auto;
   }
@@ -3060,12 +3382,15 @@ input.nosubmit-shop {
   .play-topic {
     width: 100%;
   }
+
   .play-topics {
     width: 60%;
   }
+
   .top-head-tour {
     width: 100%;
   }
+
   .topnav {
     width: 100%;
   }
@@ -3105,6 +3430,7 @@ input.nosubmit-shop {
   .tournament4 {
     width: 100%;
   }
+
   input.tour {
     width: 75%;
   }
@@ -3117,14 +3443,21 @@ input.nosubmit-shop {
   .tour-container {
     width: 100%;
   }
+
   .field-info {
     position: absolute;
-    margin-top: 136px;
+    margin-top: 30px;
     line-height: 30px;
   }
+
+  .field-content {
+    margin-top: 174px;
+  }
+
   .Invite {
     margin-top: 133px;
   }
+
   .logox {
     float: right;
     margin-right: 20px;
@@ -3133,6 +3466,7 @@ input.nosubmit-shop {
     height: 45px;
     margin-top: -16px;
   }
+
   .field-btn {
     background-color: #17a803;
     font-weight: 400;
@@ -3144,6 +3478,7 @@ input.nosubmit-shop {
     width: 80%;
     text-align: center;
   }
+
   .playgrounds {
     display: flex;
     flex-wrap: wrap;
@@ -3151,61 +3486,69 @@ input.nosubmit-shop {
     column-gap: 15px;
     // justify-content: center;
   }
+
   .book {
     margin-top: 15px;
     border: 0px;
     width: 100%;
   }
+
   input.nosubmit1 {
     border: 0px solid #eeeeee;
     width: 89%;
     padding: 9px 4px 9px 40px;
-    background: transparent
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
-      no-repeat 13px center;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
 
     background-color: #eeeeee;
   }
+
   input.nosubmit-shop {
     border: 0px solid #eeeeee;
     width: 89%;
     padding: 9px 4px 9px 40px;
-    background: transparent
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
-      no-repeat 13px center;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
 
     background-color: #eeeeee;
   }
+
   .play-container {
     width: auto;
   }
+
   .side-play {
     display: none;
   }
+
   .play-topic {
     width: 100%;
   }
+
   .play-topics {
     width: 60%;
   }
+
   .tournament-imx {
     display: none;
   }
+
   .tournament-imx2 {
     display: none;
   }
+
   .live-image1 {
     width: 100%;
   }
+
   .live-image2 {
     width: 100%;
   }
+
   .tournaments-btn {
     background-color: #17a803;
     font-weight: 400;
@@ -3216,9 +3559,11 @@ input.nosubmit-shop {
     width: 155px;
     height: 38px;
   }
+
   .tournaments {
     width: 100%;
   }
+
   .top-head-tour {
     width: 100%;
   }
@@ -3231,16 +3576,19 @@ input.nosubmit-shop {
     margin-top: -19px;
     width: 55%;
   }
+
   .live-watch {
     margin-top: 12px;
     margin-left: -26px;
     text-align: center;
   }
+
   .watch1 {
     margin-right: 153px;
     position: absolute;
     margin-top: 18px;
   }
+
   .watch2 {
     margin-left: 290px;
     position: absolute;
@@ -3248,29 +3596,36 @@ input.nosubmit-shop {
     margin-top: 18px;
   }
 }
+
 @media (max-width: 659px) {
   .tour-container {
     width: 100%;
   }
+
   .tournament4 {
     width: 100%;
   }
+
   .play-container {
     width: auto;
   }
+
   .side-play {
     display: none;
   }
+
   .play-topic {
     margin-right: 0px;
     padding: 10px 5px;
     margin-top: 20px;
     width: 100%;
   }
+
   .play-topics {
     margin-left: 0px;
     width: 90%;
   }
+
   .open-btn {
     font-size: 15px;
     line-height: 1.8;
@@ -3284,6 +3639,7 @@ input.nosubmit-shop {
     float: right;
     margin-right: 36px;
   }
+
   .play-sub-btn {
     background-color: #17a803;
     font-weight: 600;
@@ -3293,6 +3649,7 @@ input.nosubmit-shop {
     border-radius: 6px;
     float: right;
   }
+
   .play-cancel-btn {
     background-color: #cccccc;
     font-weight: 600;
@@ -3302,12 +3659,15 @@ input.nosubmit-shop {
     border-radius: 6px;
     margin-left: 5px;
   }
+
   .product-submit {
     justify-content: center;
   }
+
   .top-head-tour {
     width: 100%;
   }
+
   .topnav {
     width: 100%;
   }
@@ -3320,16 +3680,19 @@ input.nosubmit-shop {
     margin-top: -19px;
     width: 35%;
   }
+
   .live-watch {
     margin-top: 12px;
     margin-left: -26px;
     text-align: center;
   }
+
   .watch1 {
     margin-right: 153px;
     position: absolute;
     margin-top: 18px;
   }
+
   .watch2 {
     margin-left: 290px;
     position: absolute;
@@ -3351,6 +3714,7 @@ input.nosubmit-shop {
     text-overflow: ellipsis;
     width: 100%;
   }
+
   .Match-content {
     width: 90%;
     justify-content: center;
@@ -3363,15 +3727,18 @@ input.nosubmit-shop {
     height: 37px;
     object-fit: cover;
   }
+
   .tour-container {
     width: auto;
     margin-right: 13px;
     margin-right: 0px;
   }
+
   .play-container {
     width: auto;
     margin-right: 13px;
   }
+
   .side-play {
     display: none;
   }
@@ -3379,9 +3746,11 @@ input.nosubmit-shop {
   .field-info {
     margin-top: 49px;
   }
+
   .Invite {
     margin-top: 55px;
   }
+
   .carts {
     margin-bottom: 23px;
   }
@@ -3390,6 +3759,7 @@ input.nosubmit-shop {
     margin-left: 5px;
     margin-top: 7px;
   }
+
   .play-numbers {
     float: right;
     font-weight: 600;
@@ -3397,12 +3767,14 @@ input.nosubmit-shop {
     margin-right: 22px;
     margin-top: 12px;
   }
+
   .new-orders1 {
     margin-right: 24px;
     float: right;
     font-weight: 600;
     font-size: 17px;
   }
+
   .new-orders2 {
     margin-right: 24px;
     float: right;
@@ -3420,6 +3792,7 @@ input.nosubmit-shop {
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
   .book-time-date {
     color: #959595;
     font-weight: 500;
@@ -3443,11 +3816,13 @@ input.nosubmit-shop {
     font-weight: 700;
     font-size: 14px;
   }
+
   .booked-month {
     color: #000000;
     font-weight: 400;
     font-size: 14px;
   }
+
   .book-grounds {
     color: #000000;
     font-weight: 500;
@@ -3459,12 +3834,15 @@ input.nosubmit-shop {
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
   .field-content {
-    margin-top: 120px;
+    margin-top: 180px;
   }
+
   .Grounds {
     margin-bottom: 72px;
   }
+
   .game-description {
     color: #000000;
     font-weight: 500;
@@ -3476,6 +3854,7 @@ input.nosubmit-shop {
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
   .field-btn {
     background-color: #17a803;
     font-weight: 400;
@@ -3487,6 +3866,7 @@ input.nosubmit-shop {
     width: 100%;
     text-align: center;
   }
+
   .game-share {
     font-size: 14px;
     color: #000;
@@ -3497,6 +3877,7 @@ input.nosubmit-shop {
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
   .book-img {
     width: 80px;
     height: 80px;
@@ -3505,6 +3886,7 @@ input.nosubmit-shop {
     margin-left: -90px;
     object-fit: cover;
   }
+
   .book-places {
     color: #000000;
     font-weight: 500;
@@ -3516,6 +3898,7 @@ input.nosubmit-shop {
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
   .play_text {
     font-weight: 700;
     font-size: 17px;
@@ -3526,6 +3909,7 @@ input.nosubmit-shop {
     text-overflow: ellipsis;
     width: 180px;
   }
+
   .play1.mobile {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -3535,26 +3919,32 @@ input.nosubmit-shop {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
   }
+
   .views {
     color: #959595;
     margin-left: -69px;
     font-size: 16px;
   }
+
   .shop-manage {
     font-size: 13px;
   }
+
   .play-manage {
     font-size: 13px;
   }
+
   .tournament-imx1 {
     display: none;
   }
+
   .span-icon {
     margin-top: 15px;
     margin-left: -135px;
     float: right;
     position: absolute;
   }
+
   .time-slot3 {
     background: #17a803;
     border-radius: 10px;
@@ -3562,6 +3952,7 @@ input.nosubmit-shop {
     color: white;
     text-align: center;
   }
+
   .time-slot2 {
     background: #d8d8d8;
     border-radius: 10px;
@@ -3569,6 +3960,7 @@ input.nosubmit-shop {
     color: rgb(0, 0, 0);
     text-align: center;
   }
+
   .bracket {
     display: flex;
     margin-left: 12px;
@@ -3576,12 +3968,14 @@ input.nosubmit-shop {
     overflow-x: scroll;
     overflow-y: hidden;
   }
+
   .play-details {
     line-height: 12px;
     font-weight: 500;
     margin-left: 21px;
     margin-top: 2px;
   }
+
   .date-wins {
     font-weight: 600;
     font-size: 14px;
@@ -3589,6 +3983,7 @@ input.nosubmit-shop {
     text-align: center;
     margin-bottom: 2px;
   }
+
   .time-wins {
     font-weight: 600;
     font-size: 14px;
@@ -3596,6 +3991,7 @@ input.nosubmit-shop {
     text-align: center;
     margin-bottom: 2px;
   }
+
   .space-line {
     font-weight: 800;
     word-spacing: 25px;
@@ -3604,6 +4000,7 @@ input.nosubmit-shop {
     text-align: center;
     margin-bottom: 2px;
   }
+
   .team1 {
     display: -webkit-box;
     -webkit-line-clamp: 1;
@@ -3616,6 +4013,7 @@ input.nosubmit-shop {
     margin-top: 9px;
     font-weight: 500;
   }
+
   .team2 {
     display: -webkit-box;
     -webkit-line-clamp: 1;
@@ -3628,11 +4026,13 @@ input.nosubmit-shop {
     margin-top: 9px;
     font-weight: 500;
   }
+
   .doct-card {
     width: 100%;
     border: 0px;
     border-radius: 19px;
   }
+
   .timeline-wins {
     font-weight: 600;
     font-size: 18px;
@@ -3646,22 +4046,26 @@ input.nosubmit-shop {
     grid-template-columns: 1fr 1fr;
     margin-left: -3px;
   }
+
   .docu1 {
     text-align: center;
     margin: 5px;
     padding: 10px;
   }
+
   .docu2 {
     margin-right: 21px;
     margin-left: 28px;
     text-align: center;
   }
+
   .cart-location {
     display: flex;
     flex-wrap: initial;
 
     align-items: flex-start;
   }
+
   .watch-play {
     display: flex;
     justify-content: center;
@@ -3674,10 +4078,12 @@ input.nosubmit-shop {
     flex-wrap: initial;
     align-items: flex-start;
   }
+
   .edits {
     margin-left: 170px;
     float: right;
   }
+
   .trashs {
     position: absolute;
     float: right;
@@ -3691,12 +4097,14 @@ input.nosubmit-shop {
     font-size: 14px;
     // margin-left: 0px;
   }
+
   .carts-img {
     width: 72px;
     height: 55px;
     margin-top: -9px;
     margin-left: 0px;
   }
+
   .checks-btn {
     background-color: #17a803;
     font-weight: 600;
@@ -3720,6 +4128,7 @@ input.nosubmit-shop {
     font-size: 15px;
     width: 170px;
   }
+
   .book-names1 {
     font-size: 14px;
     display: -webkit-box;
@@ -3730,9 +4139,11 @@ input.nosubmit-shop {
     font-size: 15px;
     width: 138px;
   }
+
   .tournament-imx2 {
     display: none;
   }
+
   .teams-btn {
     background-color: #17a803;
     font-weight: 400;
@@ -3744,6 +4155,7 @@ input.nosubmit-shop {
     margin-right: 0px;
     float: right;
   }
+
   .matches-btn {
     background-color: #17a803;
     font-weight: 400;
@@ -3755,9 +4167,11 @@ input.nosubmit-shop {
     float: right;
     margin-right: 0px;
   }
+
   .topnav {
     width: 100%;
   }
+
   .topnav span {
     float: left;
     display: block;
@@ -3783,25 +4197,31 @@ input.nosubmit-shop {
     color: #17a803;
     width: 50%;
   }
+
   .tournament1 {
     width: 100%;
     height: 327px;
     border: 0px;
     border-radius: 5px;
   }
+
   .tournament2 {
     width: 98%;
   }
+
   .tournament3 {
     width: 98%;
   }
+
   .tournament4 {
     width: 98%;
   }
+
   .amenties {
     font-weight: 700;
     font-size: 15px;
   }
+
   .green {
     border: 0px;
     border-radius: 8px;
@@ -3811,6 +4231,7 @@ input.nosubmit-shop {
     margin-top: 43px;
     margin-left: 20px;
   }
+
   .grey {
     border: 0px;
     border-radius: 8px;
@@ -3826,17 +4247,20 @@ input.nosubmit-shop {
     margin-left: 120px;
     position: absolute;
   }
+
   .tournament-imx3 {
     width: 100%;
     height: 100%;
     margin-left: 3px;
     margin-top: 33px;
   }
+
   .green-border {
     border-bottom: 1px solid white;
     margin-top: 15px;
     width: 225px;
   }
+
   .grey-content {
     display: flex;
     flex-wrap: wrap;
@@ -3848,9 +4272,11 @@ input.nosubmit-shop {
   .grey-details2 {
     margin-left: 0px;
   }
+
   .grey-details1 {
     margin-left: 0px;
   }
+
   .grey-details3 {
     margin-left: 0px;
   }
@@ -3862,11 +4288,13 @@ input.nosubmit-shop {
     border-radius: 5px;
     margin-top: -12px;
   }
+
   .top-teams {
     background: #eeeeee;
     width: 100%;
     height: 45px;
   }
+
   .football1 {
     width: 100%;
     height: 250px;
@@ -3874,6 +4302,7 @@ input.nosubmit-shop {
     border-radius: 5px;
     margin-top: -12px;
   }
+
   .live-icon {
     position: absolute;
     float: right;
@@ -3895,12 +4324,14 @@ input.nosubmit-shop {
     border-radius: 5px;
     margin-top: 5px;
   }
+
   .live-image {
     width: 100%;
     height: 185px;
     object-fit: cover;
     border-radius: 4px 4px 0px 0px;
   }
+
   .ahmed {
     width: 75px;
     object-fit: cover;
@@ -3916,6 +4347,7 @@ input.nosubmit-shop {
   .table-row1 {
     width: 100%;
   }
+
   .name {
     font-weight: 500;
     font-size: 17px;
@@ -3928,6 +4360,7 @@ input.nosubmit-shop {
     width: 153px;
     margin-right: 134px;
   }
+
   .name1 {
     font-weight: 400;
     font-size: 19px;
@@ -3939,6 +4372,7 @@ input.nosubmit-shop {
     text-overflow: ellipsis;
     width: 233px;
   }
+
   .image-btn {
     background-color: #17a803;
     font-weight: 600;
@@ -3953,6 +4387,7 @@ input.nosubmit-shop {
     text-align: center;
     font-size: 14px;
   }
+
   .match1 {
     color: #ffffff;
     background: #656565;
@@ -3960,6 +4395,7 @@ input.nosubmit-shop {
     width: 100%;
     height: 32px;
   }
+
   .match2 {
     color: #000000;
     background: transparent;
@@ -3977,6 +4413,13 @@ input.nosubmit-shop {
     margin-left: 0px;
     margin-top: 13px;
   }
+
+  .category-games-home {
+    :lang(ar) {
+      direction: rtl;
+    }
+  }
+
   .game-scroll {
     height: 52px;
     overflow-x: scroll;
@@ -3984,14 +4427,17 @@ input.nosubmit-shop {
     white-space: nowrap;
     color: var(--font-theme-color);
   }
+
   input.tour {
     width: 77%;
   }
+
   .tour-icon {
     margin-left: 6px;
     height: 42px;
     margin-top: -4px;
   }
+
   .location-icon {
     margin-left: 4px;
     height: 42px;
@@ -4002,15 +4448,18 @@ input.nosubmit-shop {
     width: 88%;
     margin-left: -2px;
   }
+
   input.nosubmit-shop {
     width: 100%;
     margin-left: -2px;
   }
+
   .filters-icon {
     margin-left: 4px;
     height: 42px;
     margin-top: -4px;
   }
+
   .play-topic {
     height: 100%;
     margin-bottom: 75px;
@@ -4019,6 +4468,7 @@ input.nosubmit-shop {
     margin-bottom: 75px;
     margin-left: 0px;
   }
+
   .play-topics {
     height: 100%;
     margin-bottom: 75px;
@@ -4027,6 +4477,7 @@ input.nosubmit-shop {
     margin-bottom: 75px;
     margin-left: 0px;
   }
+
   .open-btn {
     font-size: 15px;
     line-height: 1.8;
@@ -4040,6 +4491,7 @@ input.nosubmit-shop {
     float: right;
     margin-right: 36px;
   }
+
   .play-sub-btn {
     background-color: #17a803;
     font-weight: 600;
@@ -4049,6 +4501,7 @@ input.nosubmit-shop {
     border-radius: 6px;
     float: right;
   }
+
   .play-cancel-btn {
     background-color: #cccccc;
     font-weight: 600;
@@ -4058,9 +4511,11 @@ input.nosubmit-shop {
     border-radius: 6px;
     margin-left: 5px;
   }
+
   .product-submit {
     justify-content: center;
   }
+
   .notification-btn {
     background-color: #17a803;
     font-weight: 400;
@@ -4071,6 +4526,7 @@ input.nosubmit-shop {
     margin-right: 20px;
     width: 100%;
   }
+
   .notification1-btn {
     background-color: #17a803;
     font-weight: 400;
@@ -4082,6 +4538,7 @@ input.nosubmit-shop {
     width: 100%;
     margin-top: 12px;
   }
+
   .stadium {
     display: -webkit-box;
     -webkit-line-clamp: 1;
@@ -4095,17 +4552,20 @@ input.nosubmit-shop {
     color: #959595;
     font-weight: 400;
   }
+
   .game {
     margin-top: 23px;
     padding: 2px 10px;
     text-align: center;
   }
+
   .plays {
     margin-top: 15px;
     border: 0px;
     width: 98%;
     height: 210px;
   }
+
   .live-btn {
     background-color: #17a803;
     font-weight: 400;
@@ -4117,6 +4577,7 @@ input.nosubmit-shop {
     margin-top: 20px;
     margin-left: 0px;
   }
+
   .text-cart {
     display: -webkit-box;
     -webkit-line-clamp: 1;
@@ -4127,6 +4588,7 @@ input.nosubmit-shop {
     font-size: 18px;
     width: 190px;
   }
+
   .cart-place {
     display: -webkit-box;
     -webkit-line-clamp: 1;
@@ -4138,18 +4600,21 @@ input.nosubmit-shop {
     width: 230px;
     margin-left: 50px;
   }
+
   .gender2 {
     color: #000000;
     font-weight: 400;
     font-size: 18px;
     margin-left: -17px;
   }
+
   .live-icon {
     position: absolute;
     float: right;
     margin-top: 13px;
     margin-left: 80%;
   }
+
   .ground-img {
     width: 87%;
     margin-top: 32px;
@@ -4162,6 +4627,7 @@ input.nosubmit-shop {
     width: 100%;
     font-size: 12px;
   }
+
   .games1 {
     color: #000000;
     background: transparent;
@@ -4169,6 +4635,7 @@ input.nosubmit-shop {
     width: 100%;
     font-size: 12px;
   }
+
   .history-btn {
     background-color: #8a8a8a;
     font-weight: 600;
@@ -4181,6 +4648,7 @@ input.nosubmit-shop {
     float: right;
     margin-right: 35px;
   }
+
   .card-texts {
     font-weight: 700;
     display: -webkit-box;
@@ -4191,6 +4659,7 @@ input.nosubmit-shop {
     font-size: 18px;
     width: 190px;
   }
+
   .stadium-name {
     font-weight: 500;
     display: -webkit-box;
@@ -4202,11 +4671,13 @@ input.nosubmit-shop {
     width: 160px;
     color: #000000;
   }
+
   .stadiums {
     display: flex;
 
     align-items: flex-start;
   }
+
   .places {
     font-weight: 500;
     display: -webkit-box;
@@ -4218,6 +4689,7 @@ input.nosubmit-shop {
     width: 140px;
     color: #959595;
   }
+
   .card-texts1 {
     font-weight: 500;
     display: -webkit-box;
@@ -4228,6 +4700,7 @@ input.nosubmit-shop {
     font-size: 15px;
     width: 190px;
   }
+
   .Match-date {
     color: #000;
     font-size: 14px;
@@ -4237,12 +4710,14 @@ input.nosubmit-shop {
     text-overflow: ellipsis;
     font-size: 15px;
   }
+
   .book {
     margin-top: 15px;
     border: 0px;
     width: 100%;
     margin-left: -9px;
   }
+
   .time-slot2 {
     background: #d8d8d8;
     border-radius: 10px;
@@ -4258,16 +4733,19 @@ input.nosubmit-shop {
     color: white;
     text-align: center;
   }
+
   .img-text {
     font-weight: 600;
     margin-right: 40px;
     font-size: 18px;
   }
+
   .field-info {
     // /* position: absolute; */
     // margin-top: 74px;
     line-height: 30px;
   }
+
   .participant-name {
     font-weight: 500;
     font-size: 12px;
@@ -4285,15 +4763,18 @@ input.nosubmit-shop {
     color: #fc4444;
     font-size: 13px;
   }
+
   .remove {
     color: #959595;
     cursor: pointer;
     font-size: 13px;
   }
+
   .Left-peoples {
     color: #fc4444;
     font-size: 13px;
   }
+
   .playground-banner {
     object-fit: cover;
     width: 100%;
@@ -4309,17 +4790,20 @@ input.nosubmit-shop {
     margin-top: -16px;
     object-fit: cover;
   }
+
   .amenties {
     font-weight: 700;
     font-size: 15px;
     margin-top: 12px;
   }
+
   .playground-card {
     width: 90%;
     border: 0px;
     border-radius: 20px 20px 20px 20px;
     height: 280px;
   }
+
   .playgrounds {
     display: flex;
     flex-wrap: wrap;
@@ -4327,12 +4811,14 @@ input.nosubmit-shop {
     row-gap: 13px;
     column-gap: 12px;
   }
+
   .playground-card {
     width: 48%;
     border: 0px;
     border-radius: 20px 20px 20px 20px;
     height: 280px;
   }
+
   .host-name {
     color: #000000;
     font-size: 14px;
@@ -4353,16 +4839,19 @@ input.nosubmit-shop {
     margin-top: -19px;
     width: 30%;
   }
+
   .live-watch {
     margin-top: 12px;
     margin-left: -26px;
     text-align: center;
   }
+
   .watch1 {
     margin-right: 153px;
     position: absolute;
     margin-top: 18px;
   }
+
   .watch2 {
     margin-left: 290px;
     position: absolute;
@@ -4370,6 +4859,7 @@ input.nosubmit-shop {
     margin-top: 18px;
   }
 }
+
 // @media(max-width:501px) {
 //   .live-image1 {
 //     width: 100%;
@@ -4482,12 +4972,14 @@ input.nosubmit-shop {
   input.tour {
     width: 74%;
   }
+
   .topnav {
     overflow: hidden;
     background-color: transparent;
     display: inline-flex;
     width: 100%;
   }
+
   .topnav span {
     float: left;
     display: block;
@@ -4510,6 +5002,7 @@ input.nosubmit-shop {
     text-overflow: ellipsis;
     width: 160px;
   }
+
   .green {
     border: 0px;
     border-radius: 8px;
@@ -4519,6 +5012,7 @@ input.nosubmit-shop {
     margin-top: 43px;
     margin-left: 20px;
   }
+
   .grey {
     border: 0px;
     border-radius: 8px;
@@ -4533,6 +5027,7 @@ input.nosubmit-shop {
     margin-left: 120px;
     position: absolute;
   }
+
   .tournament-imx3 {
     display: none;
   }
@@ -4564,12 +5059,14 @@ input.nosubmit-shop {
     border-radius: 5px;
     margin-top: 5px;
   }
+
   .live-image {
     width: 100%;
     height: 185px;
     object-fit: cover;
     border-radius: 4px 4px 0px 0px;
   }
+
   .ahmed {
     width: 75px;
     object-fit: cover;
@@ -4584,10 +5081,12 @@ input.nosubmit-shop {
     padding: 2px 19px;
     margin-left: -21px;
   }
+
   .table-row {
     background-color: #eeeeee;
     width: 100%;
   }
+
   .name {
     font-weight: 500;
     font-size: 17px;
@@ -4601,6 +5100,7 @@ input.nosubmit-shop {
     width: 153px;
     margin-right: 150px;
   }
+
   .name1 {
     font-weight: 400;
     font-size: 16px;
@@ -4612,6 +5112,7 @@ input.nosubmit-shop {
     text-overflow: ellipsis;
     width: 233px;
   }
+
   .text-cart {
     display: -webkit-box;
     -webkit-line-clamp: 1;
@@ -4622,6 +5123,7 @@ input.nosubmit-shop {
     font-size: 18px;
     width: 190px;
   }
+
   .cart-place {
     display: -webkit-box;
     -webkit-line-clamp: 1;
@@ -4642,16 +5144,19 @@ input.nosubmit-shop {
     margin-left: 0px;
     margin-top: 13px;
   }
+
   .span-icon {
     margin-top: 15px;
     margin-left: -120px;
     float: right;
     position: absolute;
   }
+
   .line {
     color: #000;
     width: 91%;
   }
+
   .game-locations {
     font-weight: 500;
     font-size: 14px;
@@ -4683,16 +5188,19 @@ input.nosubmit-shop {
     margin-top: -19px;
     width: 20%;
   }
+
   .live-watch {
     margin-top: 12px;
     margin-left: -26px;
     text-align: center;
   }
+
   .watch1 {
     margin-right: 123px;
     position: absolute;
     margin-top: 18px;
   }
+
   .watch2 {
     margin-left: 240px;
     position: absolute;
@@ -4700,19 +5208,23 @@ input.nosubmit-shop {
     margin-top: 18px;
   }
 }
+
 @media (max-width: 440px) {
   .tour-container {
     width: auto;
     margin-bottom: 70px;
     margin-right: 0px;
   }
+
   .play-container {
     width: auto;
     margin-bottom: 70px;
   }
+
   .side-play {
     display: none;
   }
+
   .new-orders1 {
     margin-right: 24px;
     float: right;
@@ -4720,6 +5232,7 @@ input.nosubmit-shop {
     font-size: 15px;
     margin-top: 12px;
   }
+
   .new-orders2 {
     margin-right: 24px;
     float: right;
@@ -4727,18 +5240,21 @@ input.nosubmit-shop {
     font-size: 15px;
     margin-top: 12px;
   }
+
   .tour_rank_img {
     width: 55px;
     height: 60px;
     object-fit: cover;
     border-radius: 50%;
   }
+
   .tour_rank_img1 {
     width: 50px;
     height: 50px;
     object-fit: cover;
     border-radius: 50%;
   }
+
   .book-img {
     width: 70px;
     height: 70px;
@@ -4747,18 +5263,21 @@ input.nosubmit-shop {
     margin-left: -65px;
     object-fit: cover;
   }
+
   .play-details {
     line-height: 12px;
     font-weight: 500;
     margin-left: 21px;
     margin-top: 2px;
   }
+
   .watch-play {
     display: flex;
     justify-content: center;
     margin-top: 30px;
     margin-left: 30px;
   }
+
   .stadium-name {
     font-weight: 500;
     display: -webkit-box;
@@ -4770,11 +5289,13 @@ input.nosubmit-shop {
     width: 125px;
     color: #000000;
   }
+
   .stadiums {
     display: flex;
 
     align-items: flex-start;
   }
+
   .places {
     font-weight: 500;
     display: -webkit-box;
@@ -4786,6 +5307,7 @@ input.nosubmit-shop {
     width: 160px;
     color: #959595;
   }
+
   .doct-card {
     width: 100%;
     border: 0px;
@@ -4799,6 +5321,7 @@ input.nosubmit-shop {
     text-align: center;
     margin-bottom: 2px;
   }
+
   .time-wins {
     font-weight: 600;
     font-size: 12px;
@@ -4806,6 +5329,7 @@ input.nosubmit-shop {
     text-align: center;
     margin-bottom: 2px;
   }
+
   .space-line {
     font-weight: 800;
     word-spacing: 25px;
@@ -4814,6 +5338,7 @@ input.nosubmit-shop {
     text-align: center;
     margin-bottom: 2px;
   }
+
   .team1 {
     display: -webkit-box;
     -webkit-line-clamp: 1;
@@ -4826,6 +5351,7 @@ input.nosubmit-shop {
     margin-top: 9px;
     font-weight: 500;
   }
+
   .play_text {
     font-weight: 700;
     font-size: 14px;
@@ -4836,6 +5362,7 @@ input.nosubmit-shop {
     text-overflow: ellipsis;
     width: 130px;
   }
+
   .team2 {
     display: -webkit-box;
     -webkit-line-clamp: 1;
@@ -4873,6 +5400,7 @@ input.nosubmit-shop {
     font-size: 15px;
     width: 90px;
   }
+
   .green-imx {
     width: 84px;
     height: 85px;
@@ -4881,6 +5409,7 @@ input.nosubmit-shop {
     margin-top: 12px;
     margin-left: 9px;
   }
+
   .green-text {
     color: white;
     font-size: 17px;
@@ -4892,6 +5421,7 @@ input.nosubmit-shop {
     text-overflow: ellipsis;
     width: 190px;
   }
+
   .text-cart {
     display: -webkit-box;
     -webkit-line-clamp: 1;
@@ -4902,6 +5432,7 @@ input.nosubmit-shop {
     font-size: 18px;
     width: 150px;
   }
+
   .cart-place {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -4913,12 +5444,14 @@ input.nosubmit-shop {
     width: 221px;
     margin-right: 0px;
   }
+
   .book {
     margin-top: 15px;
     border: 0px;
     width: 100%;
     margin-left: -9px;
   }
+
   .games1 {
     color: #000000;
     background: transparent;
@@ -4926,18 +5459,21 @@ input.nosubmit-shop {
     width: 100%;
     font-size: 11px;
   }
+
   .games2 {
     color: #ffffff;
     background: #656565;
     width: 100%;
     font-size: 11px;
   }
+
   .topnav {
     overflow: hidden;
     background-color: transparent;
     display: inline-flex;
     width: 100%;
   }
+
   .topnav span {
     float: left;
     display: block;
@@ -4964,28 +5500,33 @@ input.nosubmit-shop {
     border-radius: 5px;
     margin-top: 5px;
   }
+
   .live-image {
     width: 100%;
     height: 185px;
     object-fit: cover;
     border-radius: 4px 4px 0px 0px;
   }
+
   .ahmed {
     width: 75px;
     object-fit: cover;
     height: 75px;
     margin-right: -10px;
   }
+
   .ahmed1 {
     width: 60px;
     object-fit: cover;
     height: 60px;
     margin-left: -10px;
   }
+
   .table-row {
     background-color: #eeeeee;
     width: 100%;
   }
+
   .name {
     font-weight: 500;
     font-size: 17px;
@@ -5023,11 +5564,13 @@ input.nosubmit-shop {
   input.tour {
     width: 70%;
   }
+
   .tour-icon {
     margin-left: 6px;
     height: 42px;
     margin-top: -4px;
   }
+
   .location-icon {
     margin-left: 4px;
     height: 42px;
@@ -5039,6 +5582,7 @@ input.nosubmit-shop {
     padding: 2px 10px;
     text-align: center;
   }
+
   .play-topic {
     .play-topic {
       margin-left: 3px;
@@ -5059,6 +5603,7 @@ input.nosubmit-shop {
     float: right;
     margin-right: 16px;
   }
+
   .play-sub-btn {
     background-color: #17a803;
     font-weight: 600;
@@ -5068,6 +5613,7 @@ input.nosubmit-shop {
     border-radius: 6px;
     float: right;
   }
+
   .play-cancel-btn {
     background-color: #cccccc;
     font-weight: 600;
@@ -5077,9 +5623,11 @@ input.nosubmit-shop {
     border-radius: 6px;
     margin-left: 5px;
   }
+
   .product-submit {
     justify-content: center;
   }
+
   .checkbox label::before {
     height: 16px;
     width: 16px;
@@ -5087,20 +5635,24 @@ input.nosubmit-shop {
     left: 23px;
     top: -15px;
   }
+
   input.nosubmit1 {
     width: 82%;
     margin-left: -2px;
   }
+
   input.nosubmit-shop {
     width: 100%;
     margin-left: -2px;
   }
 }
+
 .filters-icon {
   margin-left: 4px;
   height: 42px;
   margin-top: -4px;
 }
+
 .notification-btn {
   background-color: #17a803;
   font-weight: 400;
@@ -5111,6 +5663,7 @@ input.nosubmit-shop {
   margin-right: 20px;
   width: 100%;
 }
+
 .notification1-btn {
   background-color: #17a803;
   font-weight: 400;
@@ -5122,6 +5675,7 @@ input.nosubmit-shop {
   width: 100%;
   // margin-top: 12px;
 }
+
 .plays {
   margin-top: 15px;
   border: 0px;
@@ -5138,6 +5692,7 @@ input.nosubmit-shop {
   margin-top: 43px;
   margin-left: 20px;
 }
+
 .grey {
   border: 0px;
   border-radius: 8px;
@@ -5154,12 +5709,14 @@ input.nosubmit-shop {
   margin-left: 120px;
   position: absolute;
 }
+
 .tournament-imx3 {
   width: 100%;
   height: 100%;
   margin-left: 3px;
   margin-top: 33px;
 }
+
 .green-border {
   border-bottom: 1px solid white;
   margin-top: 15px;
@@ -5170,6 +5727,7 @@ input.nosubmit-shop {
   font-size: 20px;
   font-weight: 600;
 }
+
 .grey-match {
   font-size: 19px;
   font-weight: 400;
@@ -5183,17 +5741,20 @@ input.nosubmit-shop {
     margin-top: 2px;
     position: absolute;
   }
+
   .plays-img {
     width: 105px;
     height: 105px;
     border-radius: 9px;
     object-fit: cover;
   }
+
   .watch2 {
     position: absolute;
     margin-top: 18px;
     margin-left: 184px;
   }
+
   .book {
     margin-top: 15px;
     border: 0px;
@@ -5213,6 +5774,7 @@ input.nosubmit-shop {
     width: 40%;
     margin-right: 170px;
   }
+
   .name1 {
     font-weight: 400;
     font-size: 14px;
@@ -5224,16 +5786,19 @@ input.nosubmit-shop {
     text-overflow: ellipsis;
     width: 74%;
   }
+
   .id {
     margin-left: -12px;
     font-size: 15px;
     font-weight: 400;
   }
+
   .views {
     color: #959595;
     margin-left: -115px;
     font-size: 14px;
   }
+
   .views1 {
     color: #959595;
     margin-left: -56px;
@@ -5258,6 +5823,7 @@ input.nosubmit-shop {
     margin-top: 43px;
     margin-left: 20px;
   }
+
   .grey {
     border: 0px;
     border-radius: 8px;
@@ -5273,12 +5839,14 @@ input.nosubmit-shop {
     margin-left: 120px;
     position: absolute;
   }
+
   .tournament-imx3 {
     width: 100%;
     height: 100%;
     margin-left: 3px;
     margin-top: 33px;
   }
+
   .green-border {
     border-bottom: 1px solid white;
     margin-top: 15px;
@@ -5290,6 +5858,7 @@ input.nosubmit-shop {
   input.tour {
     width: 60%;
   }
+
   .live1 {
     display: flex;
     flex-wrap: wrap;
@@ -5298,16 +5867,19 @@ input.nosubmit-shop {
     margin-top: -19px;
     width: 18%;
   }
+
   .live-watch {
     margin-top: 12px;
     margin-left: -80px;
     text-align: center;
   }
+
   .watch1 {
     margin-right: 153px;
     position: absolute;
     margin-top: 18px;
   }
+
   .watch2 {
     margin-left: 120px;
     position: absolute;
@@ -5326,10 +5898,12 @@ input.nosubmit-shop {
     text-overflow: ellipsis;
     width: 90px;
   }
+
   .grey-number {
     font-size: 14px;
     font-weight: 600;
   }
+
   .grey-match {
     font-size: 14px;
     font-weight: 400;
@@ -5340,16 +5914,20 @@ input.nosubmit-shop {
   .tour-container {
     width: auto;
   }
+
   .play-container {
     width: auto;
   }
+
   .side-play {
     display: none;
   }
+
   .play-topic {
     margin-left: 0px;
     width: 100%;
   }
+
   .topnav span {
     float: left;
     display: block;
@@ -5370,16 +5948,19 @@ input.nosubmit-shop {
     margin-top: -19px;
     width: 8%;
   }
+
   .live-watch {
     margin-top: 12px;
     margin-left: -80px;
     text-align: center;
   }
+
   .watch1 {
     margin-right: 120px;
     position: absolute;
     margin-top: 18px;
   }
+
   .watch2 {
     margin-left: 120px;
     position: absolute;
@@ -5411,12 +5992,14 @@ input.nosubmit-shop {
     margin-top: 15px;
     width: 135px;
   }
+
   .play-details {
     line-height: 12px;
     font-weight: 500;
     margin-right: -69px;
     margin-top: 2px;
   }
+
   .plays-img {
     width: 105px;
     height: 105px;
@@ -5424,6 +6007,7 @@ input.nosubmit-shop {
     object-fit: cover;
     margin-right: 5px;
   }
+
   .open-btn {
     font-size: 15px;
     line-height: 1.8;
@@ -5437,6 +6021,7 @@ input.nosubmit-shop {
     float: right;
     margin-right: 6px;
   }
+
   .play-sub-btn {
     background-color: #17a803;
     font-weight: 600;
@@ -5446,6 +6031,7 @@ input.nosubmit-shop {
     border-radius: 6px;
     float: right;
   }
+
   .play-cancel-btn {
     background-color: #cccccc;
     font-weight: 600;
@@ -5455,15 +6041,18 @@ input.nosubmit-shop {
     border-radius: 6px;
     margin-left: 5px;
   }
+
   .product-submit {
     justify-content: center;
   }
+
   .play.clearfix {
     display: block;
     content: "";
     clear: both;
     margin-left: -20px;
   }
+
   .checkbox label::before {
     height: 16px;
     width: 16px;
@@ -5471,6 +6060,7 @@ input.nosubmit-shop {
     left: 23px;
     top: -15px;
   }
+
   .notification-btn {
     background-color: #17a803;
     font-weight: 400;
@@ -5481,6 +6071,7 @@ input.nosubmit-shop {
     margin-right: 20px;
     width: 100%;
   }
+
   .notification1-btn {
     background-color: #17a803;
     font-weight: 400;
@@ -5492,6 +6083,7 @@ input.nosubmit-shop {
     width: 100%;
     margin-top: 12px;
   }
+
   .green {
     border: 0px;
     border-radius: 8px;
@@ -5501,6 +6093,7 @@ input.nosubmit-shop {
     margin-top: 43px;
     margin-left: 20px;
   }
+
   .grey {
     border: 0px;
     border-radius: 8px;
@@ -5516,12 +6109,14 @@ input.nosubmit-shop {
     margin-left: 106px;
     position: absolute;
   }
+
   .tournament-imx3 {
     width: 100%;
     height: 100%;
     margin-left: 3px;
     margin-top: 33px;
   }
+
   .green-border {
     border-bottom: 1px solid white;
     margin-top: 15px;
@@ -5533,6 +6128,7 @@ input.nosubmit-shop {
     padding: 2px 10px;
     text-align: center;
   }
+
   .plays {
     margin-top: 15px;
     border: 0px;
@@ -5544,17 +6140,20 @@ input.nosubmit-shop {
     font-size: 14px;
     font-weight: 600;
   }
+
   .grey-match {
     font-size: 14px;
     font-weight: 400;
   }
 }
+
 @media (max-width: 375px) {
   .green-border {
     border-bottom: 1px solid white;
     margin-top: 15px;
     width: 120px;
   }
+
   .play-icons {
     margin-left: 5px;
     margin-top: 7px;
@@ -5567,6 +6166,7 @@ input.nosubmit-shop {
     margin-right: 7px;
     margin-top: 12px;
   }
+
   .stadium-name {
     font-weight: 500;
     display: -webkit-box;
