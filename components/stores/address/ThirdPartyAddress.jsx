@@ -57,6 +57,7 @@ function ThirdPartyAddress({ handleAddAddress, areaData, edit }) {
           providerStreet: res.data.data.providor_street,
           providerAvenue: res.data.data.providor_avenue,
         });
+        setDefaultAddress(res.data.data.is_default)
       });
     }
   }, []);

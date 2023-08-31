@@ -32,20 +32,33 @@ function ProductDetailPage() {
   console.log("productttttttttttttttttttttttt444444444");
 
   useEffect(() => {
+    let headers = {};
+    const isAuthenticated = constants.token_id;
+    if (isAuthenticated) {
+      headers = {
+        Authorization: `Token ${constants.token_id}`,
+      };
+    }
     Axios.post(
       apis.productDetail,
       {
         slug_Id: pid,
       },
       {
-        headers: {
-          Authorization: `Token ${constants.token_id}`,
-        },
+        headers,
       }
-    ).then((res) => {
-      setProductDetails([res.data.data[0]]);
-      console.log("productttttttttttttttttttttttt", res);
-    });
+    )
+      .then((res) => {
+        setProductDetails([res.data.data[0]]);
+        console.log("productttttttttttttttttttttttt", res);
+      })
+      .catch((error) => {
+        if (error.response && error.response.status === 401) {
+          console.log("An error occurred while fetching product details.");
+        } else {
+          console.log("An error occurred while fetching product details.");
+        }
+      });
   }, [pid, apiSuccess]);
 
   return (
@@ -55,7 +68,7 @@ function ProductDetailPage() {
       <MainSidebarFixed />
 
       <div className="store-container">
-        <form className="nosubmit ">
+        {/* <form className="nosubmit ">
           <span>
             <input className="nosubmit2" type="search" placeholder="Search" />
             <img
@@ -63,7 +76,7 @@ function ProductDetailPage() {
               className="filters-icon"
             ></img>
           </span>
-        </form>
+        </form> */}
 
         <section className=" my-3 h-75">
           <div className="row d-flex justify-content-center align-items-center h-100">

@@ -73,6 +73,8 @@ const apis = {
     'shareStoreToPost': `${constants.port}/social/Api/share_store`,
     'shareFieldToPost': `${constants.port}/social/Api/share_field`,
     'acceptRequest': `${constants.port}/social/Api/follow_request_accept`,
+    'rejectRequest': `${constants.port}/social/Api/follow_request_reject`,
+    'likedUsers': `${constants.port}/social/Api/liked_users`,
 
     'blockUser': `${constants.port}/social/Api/user_block_api`,
     'unblockUser': `${constants.port}/social/Api/user_unblock_api`,
@@ -114,6 +116,7 @@ const apis = {
     'addressView': `${constants.port}/store/api/address_list_view`,
     'singleAddressView': `${constants.port}/store/api/detail_view_address`,
     'editAddress': `${constants.port}/store/api/edit_address`,
+    'deleteAddress': `${constants.port}/store/api/delete_address`,
     'defaultAddress': `${constants.port}/store/api/update_address_is_default`,
 
     'updateStoreStatus': `${constants.port}/store/api/update_store_status`,

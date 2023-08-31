@@ -27,7 +27,7 @@ export function Labels() {
             "Accepted successfully": "Accepted successfully",
             "Blocked user successfully": "Blocked user successfully",
             "Unblocked user successfully": "Unblocked user successfully",
-            "Share post user": "Post shared successfully,chat feature will be available soon",
+            "Share post user": "Post shared successfully",
             "User already selected": "User already selected",
 
             //chat
@@ -76,6 +76,7 @@ export function Labels() {
             "PlayGround shared": "PlayGround shared successfully",
             "Invited Successfully": "Invited Successfully",
             "Field request": "Field requested successfully",
+            "Please select a slot": "Please select a slot",
 
 
 
@@ -118,7 +119,7 @@ export function Labels() {
             "Accepted successfully": "تم القبول بنجاح",
             "Blocked user successfully": "مستخدم محظور بنجاح",
             "Unblocked user successfully": "تم إلغاء حظر المستخدم بنجاح",
-            "Share post user": "تم نشر المشاركة بنجاح ، ستتوفر ميزة الدردشة قريبًا",
+            "Share post user": "تم نشر المشاركة بنجاح ",
             "User already selected": "تم تحديد المستخدم بالفعل",
 
             //chat
@@ -167,6 +168,8 @@ export function Labels() {
             "PlayGround shared": "تمت مشاركة الملعب بنجاح ",
             "Invited Successfully": "تمت الدعوة بنجاح",
             "Field request": "تم طلب الحقل بنجاح",
+            "Please select a slot": "الرجاء تحديد فتحة",
+
 
 
 

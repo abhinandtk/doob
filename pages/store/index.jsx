@@ -36,10 +36,15 @@ function StorePage() {
   const { t } = useTranslation();
 
   useEffect(() => {
-    Axios.get(apis.stores, {
-      headers: {
+    let headers = {};
+    const isAuthenticated = constants.token_id;
+    if (isAuthenticated) {
+      headers = {
         Authorization: `Token ${constants.token_id}`,
-      },
+      };
+    }
+    Axios.get(apis.stores, {
+      headers,
     })
       .then((res) => {
         setStoreData([res.data.data]);
@@ -48,7 +53,11 @@ function StorePage() {
       })
       .catch((error) => {
         localStorage.removeItem("user-login-tokens");
-        console.error(error);
+        if (error.response && error.response.status === 401) {
+          localStorage.removeItem("user-login-tokens");
+        } else {
+          console.log("An error occurred while fetching product details.");
+        }
       });
   }, []);
   return (

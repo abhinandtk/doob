@@ -12,6 +12,7 @@ import StoreProductsCard from "@/components/stores/StoreProductsCard";
 import MobileHeader from "@/components/MobileHeader";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -30,7 +31,7 @@ function CategorySearchPage() {
 
   const [selectedSubcategory, setSelectedSubcategory] = useState(null);
   const [keyCounter, setKeyCounter] = useState(0);
-
+  const { t } = useTranslation();
 
   const router = useRouter();
   const id = router.query.category_id;
@@ -68,7 +69,7 @@ function CategorySearchPage() {
             onChange={(e) => setSearchInput(e.target.value)}
             className="nosubmit-shop"
             type="search"
-            placeholder="Search"
+            placeholder={t("Search")}
           />
         </form>
 

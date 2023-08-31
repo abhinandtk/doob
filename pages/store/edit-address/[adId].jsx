@@ -67,7 +67,7 @@ function EditAddressPage() {
         housename: data.houseName,
         phone: data.phone,
         remark: data.remark,
-        default: defaultAddress ? "True" : "False",
+        is_default: defaultAddress ? "True" : "False",
       };
     } else if (addressType === "office") {
       body = {
@@ -82,7 +82,7 @@ function EditAddressPage() {
         phone: data.phone,
         officenumber: data.officePhone,
         remark: data.remark,
-        default: defaultAddress ? "True" : "False",
+        is_default: defaultAddress ? "True" : "False",
       };
     } else if (addressType === "apartment") {
       body = {
@@ -98,7 +98,7 @@ function EditAddressPage() {
         flat_no: data.flatNo,
         phone: data.phone,
         remark: data.remark,
-        default: defaultAddress ? "True" : "False",
+        is_default: defaultAddress ? "True" : "False",
       };
     } else {
       body = {
@@ -117,16 +117,17 @@ function EditAddressPage() {
         providor_block: data.providerBlock,
         providor_street: data.providerStreet,
         providor_avenue: data.providerAvenue,
-        default: defaultAddress ? "True" : "False",
+        is_default: defaultAddress ? "True" : "False",
       };
     }
-    console.log("body", body);
-    console.log("body");
+    // console.log("body", body);
+    // console.log("body");
     Axios.post(apis.editAddress, body, {
       headers: {
         Authorization: `Token ${constants.token_id}`,
       },
     }).then((res) => {
+        console.log("body", body,res);
       if (res.data.status === 1) {
         router.back();
         notification.success({

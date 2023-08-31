@@ -21,6 +21,7 @@ import MapGame from "@/components/playGround/MapGames";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import PlaygroundBanner from "@/components/playGround/PlaygroundBanner";
+import Login from "@/components/user/Login";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -36,6 +37,9 @@ function PlayGroundPage() {
   const [country, setCountry] = useState([]);
   const [homePageData, setHomePageData] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [showLogin, setShowLogin] = useState(false);
+
+  const isAuthenticated = constants.token_id;
 
   const router = useRouter();
 
@@ -63,15 +67,21 @@ function PlayGroundPage() {
       console.log("fffffffffff", res);
     });
 
+    let headers = {};
+    const isAuthenticated = constants.token_id;
+    if (isAuthenticated) {
+      headers = {
+        Authorization: `Token ${constants.token_id}`,
+      };
+    }
+
     Axios.post(
       apis.homePagePlay,
       {
         area_id: localStorage.getItem("region-select"),
       },
       {
-        headers: {
-          Authorization: `Token ${constants.token_id}`,
-        },
+        headers,
       }
     ).then((res) => {
       setHomePageData([res.data]);
@@ -82,11 +92,33 @@ function PlayGroundPage() {
   const handleCategoryClick = (title) => {
     setSelectedCategory(title);
   };
+  const handleInvitedGames = () => {
+    if (isAuthenticated) {
+      router.push({
+        pathname: "/games/all-games",
+        query: { tab: "invited" },
+      });
+    } else {
+      setShowLogin(true);
+    }
+  };
+  const handleAllGames = () => {
+    if (isAuthenticated) {
+      router.push({
+        pathname: "/games/all-games",
+        query: { tab: "games" },
+      });
+    } else {
+      setShowLogin(true);
+    }
+  };
   return (
     <div>
       <MainHeader title="Doob" />
       <MobileHeader />
       <MainSidebarFixed />
+      {showLogin && <Login setShowLogin={setShowLogin} />}
+
       <div className="tour-container">
         {/* <form className="nosubmit ">
           <span>
@@ -107,12 +139,7 @@ function PlayGroundPage() {
                 <button
                   type="button"
                   className="notification-btn "
-                  onClick={() =>
-                    router.push({
-                      pathname: "/games/all-games",
-                      query: { tab: "invited" },
-                    })
-                  }
+                  onClick={() => handleInvitedGames()}
                 >
                   <svg
                     width="31"
@@ -170,12 +197,7 @@ function PlayGroundPage() {
                 <button
                   type="button"
                   className="notification1-btn "
-                  onClick={() =>
-                    router.push({
-                      pathname: "/games/all-games",
-                      query: { tab: "games" },
-                    })
-                  }
+                  onClick={() => handleAllGames()}
                 >
                   {t("You have")} {contents.my_upcoming_bookings}{" "}
                   {t("upcoming bookings")}
@@ -235,7 +257,7 @@ function PlayGroundPage() {
                           <button
                             onClick={() => handleCategoryClick(item.title)}
                             type="button"
-                            className="btn btn-outline-secondary select "
+                            className="btn btn-outline-secondary select"
                           >
                             {item.title}
                           </button>

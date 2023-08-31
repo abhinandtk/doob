@@ -702,7 +702,7 @@ function HomePage() {
                   marginLeft: "3px",
                 }}
               >
-                Messages
+                {t("Messages")}
               </h6>
             </div>
             <h6

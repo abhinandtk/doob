@@ -316,7 +316,7 @@ function AdminAllOrders() {
                         <span
                           style={{
                             color:
-                              item.order_status === "Delivered"
+                              item.order_status === "delivered"
                                 ? "#17A803"
                                 : "#FF640D",
                           }}

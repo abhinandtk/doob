@@ -49,6 +49,7 @@ function OfficeAddress({ handleAddAddress, areaData,edit }) {
           officePhone: res.data.data.officenumber,
           remark: res.data.data.remark,
         });
+        setDefaultAddress(res.data.data.is_default)
       });
     }
   }, []);

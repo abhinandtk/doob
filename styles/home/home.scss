@@ -2278,8 +2278,16 @@ p.note {
   overflow: hidden;
   width: 100%;
 }
+.products-card-store{
+  :lang(ar) {
+    direction: rtl;
+  }
+}
 .store {
   row-gap: 12px;
+  :lang(ar) {
+    direction: rtl;
+  }
 }
 .store-card {
   background-color: #eeeeee;

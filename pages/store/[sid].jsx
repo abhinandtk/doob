@@ -17,6 +17,7 @@ import StoreProductsCard from "@/components/stores/StoreProductsCard";
 import { Carousel } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 export async function getServerSideProps({ locale }) {
   return {
@@ -28,23 +29,29 @@ export async function getServerSideProps({ locale }) {
 function StoreDetailPage() {
   const router = useRouter();
   const { sid } = router.query;
+  const {t}=useTranslation()
 
-  const [searchInput, setSearchInput] = useState(""); 
+  const [searchInput, setSearchInput] = useState("");
   const [success, setSuccess] = useState(false);
   const [storeDetails, setStoreDetails] = useState([]);
   const [storeCategory, setStoreCategory] = useState([]);
   const [offersData, setOffersData] = useState([]);
   const [storeBanners, setStoreBanners] = useState([]);
   useEffect(() => {
+    let headers = {};
+    const isAuthenticated = constants.token_id;
+    if (isAuthenticated) {
+      headers = {
+        Authorization: `Token ${constants.token_id}`,
+      };
+    }
     Axios.post(
       apis.storeview,
       {
         store_id: sid,
       },
       {
-        headers: {
-          Authorization: `Token ${constants.token_id}`,
-        },
+        headers,
       }
     ).then((res) => {
       console.log("res6666", res, {
@@ -90,7 +97,7 @@ function StoreDetailPage() {
               onChange={(e) => setSearchInput(e.target.value)}
               type="search"
               onKeyDown={handleKeyDown}
-              placeholder="Search"
+              placeholder={t("Search")}
             />
             <span
               style={{ cursor: "pointer" }}
@@ -108,7 +115,7 @@ function StoreDetailPage() {
                 src="/images/store/Fil-icon.png"
                 className="filters-icon"
               ></img> */}
-              Search
+              {t("Search")}
             </span>
           </span>
           <button type="submit" style={{ display: "none" }}></button>

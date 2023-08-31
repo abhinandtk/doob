@@ -4,8 +4,8 @@ import MainHeader from "@/components/shared/headers/MainHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import PagesSideBar from "@/components/stores/pages/PagesSideBar";
 import React, { useEffect, useState } from "react";
-import { Card } from "antd";
-import { EditOutlined, EnvironmentOutlined } from "@ant-design/icons";
+import { Card, Modal } from "antd";
+import { DeleteOutlined, EnvironmentOutlined } from "@ant-design/icons";
 import { Fragment } from "react";
 import apis from "@/public/data/my-constants/Apis";
 import Axios from "axios";
@@ -27,8 +27,11 @@ export async function getStaticProps({ locale }) {
 function AddressPage() {
   const { t } = useTranslation();
   const router = useRouter();
+  const { locale } = router;
   const [onSuccess, setOnSuccess] = useState(false);
+  const [visible, setVisible] = useState(false);
   const [addressList, setAddressList] = useState([]);
+  const [addressId, setAddressId] = useState(null);
   useEffect(() => {
     Axios.get(apis.addressView, {
       headers: {
@@ -55,12 +58,67 @@ function AddressPage() {
     });
   };
 
+  const deleteConfirmation=(id)=>{
+    setVisible(true)
+    setAddressId(id)
+  }
+  const deleteAddressHandler = () => {
+    Axios.post(
+      apis.deleteAddress,
+      {
+        address_id: addressId,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      setOnSuccess((prev) => !prev);
+      setVisible(false)
+      console.log("resssssss",res)
+      if (res.data.status === 1) {
+        notification.success({
+          message: constants.Success,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
+        });
+      } else {
+        notification.error({
+          message: constants.Error,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
+        });
+      }
+    });
+  };
+
   return (
     <div>
       <MainHeader title="Doob" />
       <MobileHeader />
       <MainSidebarFixed />
-
+      <Modal
+        title="Are you sure to delete this address??"
+        open={visible}
+        centered
+        closable
+        maskClosable
+        onCancel={() => setVisible(false)}
+        footer={[
+          <Button key="back" onClick={() => setVisible(false)}>
+            {t("Cancel")}
+          </Button>,
+          <Button
+            style={{ backgroundColor: "#17A803" }}
+            key="submit"
+            type="primary"
+            onClick={()=>deleteAddressHandler()}
+          >
+            {t("Submit")}
+          </Button>,
+        ]}
+      ></Modal>
       <div className="store-container">
         <div className="bottom">
           <PagesSideBar currentPage="address" />
@@ -80,7 +138,7 @@ function AddressPage() {
                   type="primary"
                   style={{ backgroundColor: "#17A803" }}
                 >
-                  Add Address
+                  {t("Add Address")}
                 </Button>
               </div>
             </div>
@@ -90,6 +148,12 @@ function AddressPage() {
                 style={{ border: item.default ? "1px solid #17A803" : "" }}
               >
                 <Card key={index}>
+                  <div
+                    onClick={() => deleteConfirmation(item.id)}
+                    style={{ float: "right", cursor: "pointer" }}
+                  >
+                    <DeleteOutlined />
+                  </div>
                   <Meta
                     title={`${item.address_type}`}
                     description={
@@ -129,7 +193,7 @@ function AddressPage() {
                       }
                       style={{ cursor: "pointer" }}
                     >
-                      Edit
+                      {t("Edit")}
                     </span>
                     {item.default ? (
                       <span className="mx-3">Default Address</span>
@@ -139,7 +203,7 @@ function AddressPage() {
                         onClick={() => setDefaultHandler(item.id)}
                         className="mx-3"
                       >
-                        Set as Default
+                        {t("Set as Default")}
                       </span>
                     )}
                   </div>

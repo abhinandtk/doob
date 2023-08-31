@@ -20,6 +20,7 @@ import moment from "moment";
 import MobileFooter from "@/components/shared/MobileFooter";
 import PagesSideBar from "@/components/stores/pages/PagesSideBar";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -31,12 +32,13 @@ export async function getStaticProps({ locale }) {
 function WalletPage() {
   const [walletData, setWalletData] = useState([]);
   const [totalCount, setTotalCount] = useState("");
-  const today = moment(); // Get today's date
-  const targetDate = moment("2023-06-15"); // Set your target date
+  const today = moment();
+  const targetDate = moment("2023-06-15");
 
-  const diffInDays = targetDate.diff(today, "days"); // Calculate the difference in days
+  const diffInDays = targetDate.diff(today, "days");
+  const { t } = useTranslation();
 
-  console.log(diffInDays); // Output the result
+  console.log(diffInDays);
 
   useEffect(() => {
     Axios.get(apis.walletView, {
@@ -60,7 +62,7 @@ function WalletPage() {
 
         <div className="content-pages">
           <br></br>
-          <div className="head">My Wallet</div>
+          <div className="head">{t("My Wallet")}</div>
 
           <Card className="wallet">
             <Card.Body>
@@ -105,20 +107,20 @@ function WalletPage() {
                     />
                   </svg>
                 </span>
-                <span className="mx-2">My Wallet</span>{" "}
+                <span className="mx-2">{t("My Wallet")}</span>{" "}
               </Card.Text>
               <Card.Title className="text-white ">
                 {" "}
                 {totalCount ? totalCount : "0.000"} KD
               </Card.Title>
               <Card.Text className="text-white ">
-                Total Wallet
-                <span style={{ float: "right" }}>Transactions History</span>
+                {t("Total Wallet")}
+                <span style={{ float: "right" }}>{t("Transactions History")}</span>
               </Card.Text>
             </Card.Body>
           </Card>
           <br></br>
-          <p className="field">Fields</p>
+          <p className="field">{t("Fields")}</p>
           {walletData.map((item, index) => (
             <div key={index} className="d-flex flex-start mt-4 mx-4">
               <a className="me-2" href="">

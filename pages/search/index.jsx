@@ -96,7 +96,7 @@ function SearchPage() {
           <input
             className="nosubmit"
             type="search"
-            placeholder="Search"
+            placeholder={t("Search")}
             onChange={(e) => setSearchInput(e.target.value)}
           />
         </form>
@@ -132,7 +132,7 @@ function SearchPage() {
                 )}
               </div>
             </Tab>
-            <Tab eventKey={2} title="Profiles">
+            <Tab eventKey={2} title={t("Profiles")}>
               <hr className="col-md-12 line"></hr>
               <div style={{ minHeight: "700px" }}>
                 {error ? (

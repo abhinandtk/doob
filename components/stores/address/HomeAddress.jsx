@@ -46,6 +46,7 @@ function HomeAddress({ handleAddAddress, areaData, edit }) {
           phone: res.data.data.phone,
           remark: res.data.data.remark,
         });
+        setDefaultAddress(res.data.data.is_default)
       });
     }
   }, []);

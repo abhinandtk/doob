@@ -228,6 +228,17 @@ input.nosubmit2 {
   cursor: pointer;
 }
 
+.store-header-details {
+  :lang(ar) {
+    direction: rtl;
+  }
+}
+.store-cat-details {
+  :lang(ar) {
+    direction: rtl;
+  }
+}
+
 .store-container {
   width: 900px;
   justify-content: center;
@@ -398,10 +409,9 @@ input.nosubmit2 {
   float: right;
 }
 
-.hubs{
+.hubs {
   font-size: 14px;
   text-align: justify;
-
 }
 .order1-btn {
   background-color: #17a803;
@@ -652,7 +662,7 @@ input:disabled {
   height: 100%;
   background: var(--contents-bg);
   width: 65%;
-  :lang(ar){
+  :lang(ar) {
     direction: rtl;
   }
 }
@@ -1223,23 +1233,19 @@ input:disabled {
 }
 // sajin stores //
 @media (max-width: 1360px) {
- 
-
-  .store-container{
+  .store-container {
     margin-left: 0px;
     margin-top: -13px;
     width: 95%;
-
   }
-  .store-container1{
+  .store-container1 {
     margin-left: 0px;
     margin-top: -13px;
     width: 95%;
-
   }
   .content-topic {
     margin-right: 20px;
-    padding: 4px ;
+    padding: 4px;
     background-color: white;
     width: 80%;
     height: 540px;
@@ -1259,7 +1265,7 @@ input:disabled {
 
   .content-topics {
     margin-right: 20px;
-    padding: 4px ;
+    padding: 4px;
     background-color: white;
     width: 80%;
     height: 540px;
@@ -1369,9 +1375,7 @@ input:disabled {
     width: 95%;
   }
   .order-btn {
-
     margin-right: 18px;
-  
   }
   .order1-btn {
     margin-right: 20px;
@@ -1413,13 +1417,11 @@ input:disabled {
 }
 
 @media (max-width: 1100px) {
-
   .sidebar {
     display: none;
   }
   .store-container1 {
     width: 95%;
-   
   }
   .store-container {
     width: 95%;
@@ -1550,13 +1552,12 @@ input:disabled {
   }
   .doc-card {
     width: 13rem;
-}
+  }
 }
 
 @media (max-width: 936px) {
   .store-container1 {
     width: 100%;
-    
   }
   .store-container {
     width: 90%;
@@ -1568,7 +1569,7 @@ input:disabled {
     width: 100%;
   }
   .sides {
-   display: none;
+    display: none;
   }
   .content-topics {
     margin-left: -0px;
@@ -1581,7 +1582,6 @@ input:disabled {
     float: right;
   }
   .foot-png {
-   
     width: 85px;
     position: inherit;
     height: 60px;
@@ -1603,7 +1603,7 @@ input:disabled {
     width: 178px;
     float: right;
   }
-  
+
   input.nosubmit2 {
     width: 90%;
   }
@@ -1616,13 +1616,13 @@ input:disabled {
   }
   .store-container {
     width: 90%;
-    
+
     margin: 0 auto;
   }
   .content-topic {
-  height: 100%;
- background: white;
- width: 100%;
+    height: 100%;
+    background: white;
+    width: 100%;
   }
   .sides {
     padding: 12px 7px;
@@ -1671,21 +1671,20 @@ input:disabled {
   }
   .carl1 {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr ;
-     margin-left: auto;
-     margin-right: auto;
-}
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 @media (max-width: 700px) {
   .content-topic {
- 
-      margin-left: 0px;
-      padding: 10px 5px;
-      margin-top: 20px;
-      width: 100%;
+    margin-left: 0px;
+    padding: 10px 5px;
+    margin-top: 20px;
+    width: 100%;
   }
-  .menu{
+  .menu {
     margin-top: 10px;
   }
   .sides {
@@ -1740,7 +1739,7 @@ input:disabled {
 
 @media (max-width: 527px) {
   .content-topic {
-   margin-left: 0px;
+    margin-left: 0px;
     height: 100%;
     background: white;
     width: 100%;
@@ -1750,38 +1749,33 @@ input:disabled {
     row-gap: 32px;
     margin-bottom: 70px;
   }
-  .store-container{
+  .store-container {
     margin-bottom: 75px;
   }
-  
+
   .order-btn {
-    
     padding: 6px -2px;
     margin-right: 0px;
     margin-top: -10px;
     float: right;
     font-size: 12px;
-}
+  }
   .imx {
     padding-left: 6px;
     width: auto;
-    
-}
+  }
   .order-code2 {
     margin-left: 0px;
-
-}
-.order-btn {
-
-  margin-right: 18px;
-
-}
-
-  .offcanvas.offcanvas-end{
-   width: 230px;
+  }
+  .order-btn {
+    margin-right: 18px;
   }
 
-  .flap{
+  .offcanvas.offcanvas-end {
+    width: 230px;
+  }
+
+  .flap {
     font-size: 13px;
     text-align: justify;
   }
@@ -2021,25 +2015,23 @@ input:disabled {
   }
 
   .content-topics {
-    
     height: 100%;
     margin-bottom: 75px;
     background: white;
     width: 100%;
     margin-bottom: 75px;
-     margin-left: 0px;
+    margin-left: 0px;
   }
   .Bottom {
     margin-left: 0px;
     padding: 20px;
     margin-top: -10px;
-}
-  
+  }
+
   input.nosubmit2 {
     width: 88%;
     margin-left: -2px;
   }
-
 
   .report-section {
     display: flex;
@@ -2048,7 +2040,7 @@ input:disabled {
     column-gap: 10px;
     font-size: 14px;
   }
-  .report-section > div{
+  .report-section > div {
     display: flex;
     text-align: justify;
   }
@@ -2060,17 +2052,14 @@ input:disabled {
   .sales-order-price {
     position: relative;
     font-size: 14px;
-     text-align: right; 
-}
+    text-align: right;
+  }
 
-.sales-report-name {
-  position: relative;
-  font-size: 14px;
-   text-align: left; 
-}
-
-
-  
+  .sales-report-name {
+    position: relative;
+    font-size: 14px;
+    text-align: left;
+  }
 }
 
 @media (max-width: 440px) {
@@ -2085,13 +2074,12 @@ input:disabled {
     margin-left: 0px;
     padding: 0px;
     margin-top: 0px;
-}
+  }
   .foot-png {
-   
     right: 33px;
     top: -234px;
-}
- 
+  }
+
   .qty {
     float: right;
     text-align: end;
@@ -2135,10 +2123,11 @@ input:disabled {
 
   .store-container {
     width: 90%;
-  }.store-container1 {
+  }
+  .store-container1 {
     width: 90%;
   }
- 
+
   // div#header div {
   //   display: inline-block;
   //   font-size: 15px;
@@ -2274,7 +2263,7 @@ input:disabled {
     background: white;
     width: 100%;
     margin-bottom: 75px;
-     margin-left: 0px;
+    margin-left: 0px;
   }
   .home {
     margin-right: 23px;
@@ -2328,8 +2317,6 @@ input:disabled {
     margin-left: 15px;
   }
 
-
-
   .report-section {
     display: flex;
     justify-content: space-between;
@@ -2337,7 +2324,7 @@ input:disabled {
     column-gap: 5px;
     font-size: 13px;
   }
-  .report-section > div{
+  .report-section > div {
     display: flex;
     text-align: justify;
     font-size: 13px;
@@ -2345,21 +2332,19 @@ input:disabled {
   .sales-order-number {
     position: relative;
     font-size: 13px;
-    
+
     text-align: left;
   }
   .sales-order-price {
     position: relative;
     font-size: 13px;
-     text-align: right; 
-}
-.sales-report-name {
-  position: relative;
-  font-size: 13px;
-   text-align: left; 
-}
-
-
+    text-align: right;
+  }
+  .sales-report-name {
+    position: relative;
+    font-size: 13px;
+    text-align: left;
+  }
 }
 
 @media (max-width: 375px) {
@@ -2375,7 +2360,7 @@ input:disabled {
     height: 60px;
     right: 33px;
     top: -264px;
-}
+  }
 
   .count1 {
     width: 20%;
@@ -2388,7 +2373,6 @@ input:disabled {
   }
   .store-container {
     width: 90%;
-    
   }
   .sides {
     display: none;
@@ -2518,7 +2502,7 @@ input:disabled {
     background: white;
     width: 100%;
     margin-bottom: 75px;
-     margin-left: 0px;
+    margin-left: 0px;
   }
   .home {
     margin-right: 23px;
@@ -2573,8 +2557,6 @@ input:disabled {
     margin-left: 15px;
   }
 
-
-
   .report-section {
     display: flex;
     justify-content: space-between;
@@ -2582,7 +2564,7 @@ input:disabled {
     column-gap: 2px;
     font-size: 13px;
   }
-  .report-section > div{
+  .report-section > div {
     display: flex;
     text-align: justify;
   }
@@ -2594,15 +2576,13 @@ input:disabled {
   .sales-order-price {
     position: relative;
     font-size: 13px;
-     text-align: right; 
-}
-.sales-report-name {
-  position: relative;
-  font-size: 13px;
-   text-align: left; 
-}
-
-
+    text-align: right;
+  }
+  .sales-report-name {
+    position: relative;
+    font-size: 13px;
+    text-align: left;
+  }
 }
 
 @media (max-width: 374px) {
@@ -2617,7 +2597,6 @@ input:disabled {
     right: 34px;
     top: -260px;
   }
-
 }
 
 .add-prod-input {

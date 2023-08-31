@@ -1144,7 +1144,7 @@ input.tour {
   height: 100%;
   margin-top: -26px;
   background-color: var(--contents-bg);
-  color:var(--font-theme-color);
+  color: var(--font-theme-color);
 }
 
 .tournament4 {
@@ -1435,7 +1435,7 @@ td {
   color: white;
   margin-left: 85px;
   border-radius: 6px;
-  width: 370px; 
+  width: 370px;
   height: 40px;
   margin-top: 20px;
 }
@@ -2484,9 +2484,9 @@ input.nosubmit-shop {
   line-height: 1;
   font-weight: 800;
   word-spacing: 25px;
-    color: #959595;
-    text-align: center;
-    margin-bottom: 2px;
+  color: #959595;
+  text-align: center;
+  margin-bottom: 2px;
   &--leading {
     color: var(--color-theme-primary);
   }
@@ -2505,14 +2505,13 @@ input.nosubmit-shop {
   display: flex;
   align-items: center;
   font-weight: 600;
-    font-size: 16px;
-    color: #17a803;
+  font-size: 16px;
+  color: #17a803;
 }
 .Match-score1 {
   margin-bottom: 6px;
   display: flex;
   align-items: center;
-
 }
 
 .Teams-name {
@@ -2572,13 +2571,13 @@ input.nosubmit-shop {
     margin-left: 0px;
     padding: 0px 12px;
   }
-  .tournament2{
+  .tournament2 {
     width: 100%;
   }
-  .live-image2{
+  .live-image2 {
     width: 100%;
   }
-  .tournaments{
+  .tournaments {
     width: 100%;
   }
 
@@ -2590,7 +2589,7 @@ input.nosubmit-shop {
     border: 0px;
     width: 100%;
   }
-  .sidebar{
+  .sidebar {
     display: none;
   }
   .play-container {
@@ -2617,7 +2616,7 @@ input.nosubmit-shop {
   .play-topics {
     width: 70%;
   }
-  .tournament4{
+  .tournament4 {
     width: 100%;
   }
   input.nosubmit1 {
@@ -2655,12 +2654,12 @@ input.nosubmit-shop {
     width: 90%;
     margin-left: 0px;
     margin-top: -100px;
-}
-.tournament-imx2 {
-  width: 90%;
-  margin-left: 0px;
-  margin-top: 40px;
-}
+  }
+  .tournament-imx2 {
+    width: 90%;
+    margin-left: 0px;
+    margin-top: 40px;
+  }
 }
 @media (max-width: 1300px) {
   .tour-container {
@@ -2669,19 +2668,17 @@ input.nosubmit-shop {
   .play-container {
     width: 100%;
   }
-  .sidebar{
+  .sidebar {
     display: none;
   }
   .top-teams {
-
     width: 100%;
-   
-}
-.tournament4{
-  width: 100%;
-}
+  }
+  .tournament4 {
+    width: 100%;
+  }
 
-.tournaments {
+  .tournaments {
     width: 100%;
   }
   .topnav span {
@@ -2740,10 +2737,10 @@ input.nosubmit-shop {
   .tour-container {
     width: 100%;
   }
-  .tournament2{
+  .tournament2 {
     width: 100%;
   }
-  .live-image2{
+  .live-image2 {
     width: 100%;
   }
   .play-container {
@@ -2838,7 +2835,6 @@ input.nosubmit-shop {
   .tournament-imx2 {
     width: 100%;
     height: 100%;
-
   }
   input.tour {
     width: 86%;
@@ -2849,12 +2845,12 @@ input.nosubmit-shop {
   .tour-container {
     width: 100%;
   }
- 
-  .football{
+
+  .football {
     width: 100%;
   }
 
-  .side-play{
+  .side-play {
     padding: 12px 7px;
     width: 200px;
     background-color: #ffffff;
@@ -2890,7 +2886,7 @@ input.nosubmit-shop {
     background-color: #eeeeee;
   }
   .side-play {
-  padding: 12px 7px;
+    padding: 12px 7px;
     width: 200px;
     background-color: #ffffff;
     margin-left: 20px;
@@ -2930,7 +2926,7 @@ input.nosubmit-shop {
     width: auto;
   }
   .side-play {
-  display: none;
+    display: none;
   }
   input.nosubmit1 {
     border: 0px solid #eeeeee;
@@ -2968,11 +2964,11 @@ input.nosubmit-shop {
 }
 @media (max-width: 992px) {
   .tournament-imx {
-   display: none;
+    display: none;
   }
   .tournament-imx2 {
     display: none;
-   }
+  }
   input.tour {
     width: 84%;
   }
@@ -2980,44 +2976,41 @@ input.nosubmit-shop {
     width: 15rem;
   }
 
-  .tournament4{
+  .tournament4 {
     width: 100%;
   }
   .live1 {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
- justify-content: center;
+    justify-content: center;
     margin-top: -19px;
     width: 68%;
-}
-.live-watch {
-  margin-top: 12px;
-  margin-left: -26px;
-  text-align: center;
-}
-.live-watch1 {
-  margin-top: 12px;
-  margin-right: -26px;
-  text-align: center; 
-}
+  }
+  .live-watch {
+    margin-top: 12px;
+    margin-left: -26px;
+    text-align: center;
+  }
+  .live-watch1 {
+    margin-top: 12px;
+    margin-right: -26px;
+    text-align: center;
+  }
 
-.watch1 {
-  margin-right: 153px;
-  position: absolute;
-  margin-top: 18px;
-}
-.watch2 {
-  margin-left: 290px;
-  position: absolute;
-  float: right;
-  margin-top: 18px;
-}
+  .watch1 {
+    margin-right: 153px;
+    position: absolute;
+    margin-top: 18px;
+  }
+  .watch2 {
+    margin-left: 290px;
+    position: absolute;
+    float: right;
+    margin-top: 18px;
+  }
 
-
-
-
-  .live-btn{
+  .live-btn {
     width: 100%;
     justify-content: center;
     margin-right: auto;
@@ -3073,10 +3066,10 @@ input.nosubmit-shop {
   }
   .top-head-tour {
     width: 100%;
-}
-.topnav {
-  width: 100%;
-}
+  }
+  .topnav {
+    width: 100%;
+  }
 }
 
 // @media(max-width:900px) and (min-width:768px) {
@@ -3109,8 +3102,8 @@ input.nosubmit-shop {
   .sidebar {
     display: none;
   }
- 
-  .tournament4{
+
+  .tournament4 {
     width: 100%;
   }
   input.tour {
@@ -3129,18 +3122,18 @@ input.nosubmit-shop {
     position: absolute;
     margin-top: 136px;
     line-height: 30px;
-}
-.Invite {
-  margin-top: 133px;
-}
-.logox {
-  float: right;
-  margin-right: 20px;
-  position: relative;
-  width: 43px;
-  height: 45px;
-  margin-top: -16px;
-}
+  }
+  .Invite {
+    margin-top: 133px;
+  }
+  .logox {
+    float: right;
+    margin-right: 20px;
+    position: relative;
+    width: 43px;
+    height: 45px;
+    margin-top: -16px;
+  }
   .field-btn {
     background-color: #17a803;
     font-weight: 400;
@@ -3194,7 +3187,7 @@ input.nosubmit-shop {
     width: auto;
   }
   .side-play {
-   display: none;
+    display: none;
   }
   .play-topic {
     width: 100%;
@@ -3226,47 +3219,41 @@ input.nosubmit-shop {
   }
   .tournaments {
     width: 100%;
- 
   }
   .top-head-tour {
-
     width: 100%;
-}
+  }
 
-
-.live1 {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-justify-content: center;
-  margin-top: -19px;
-  width: 55%;
-}
-.live-watch {
-margin-top: 12px;
-margin-left: -26px;
-text-align: center;
-}
-.watch1 {
-margin-right: 153px;
-position: absolute;
-margin-top: 18px;
-}
-.watch2 {
-margin-left: 290px;
-position: absolute;
-float: right;
-margin-top: 18px;
-}
-
-
-
+  .live1 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: -19px;
+    width: 55%;
+  }
+  .live-watch {
+    margin-top: 12px;
+    margin-left: -26px;
+    text-align: center;
+  }
+  .watch1 {
+    margin-right: 153px;
+    position: absolute;
+    margin-top: 18px;
+  }
+  .watch2 {
+    margin-left: 290px;
+    position: absolute;
+    float: right;
+    margin-top: 18px;
+  }
 }
 @media (max-width: 659px) {
   .tour-container {
     width: 100%;
   }
-  .tournament4{
+  .tournament4 {
     width: 100%;
   }
   .play-container {
@@ -3320,45 +3307,40 @@ margin-top: 18px;
     justify-content: center;
   }
   .top-head-tour {
-
     width: 100%;
-}
-.topnav {
-   
-  width: 100%;
-}
+  }
+  .topnav {
+    width: 100%;
+  }
 
-
-.live1 {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-justify-content: center;
-  margin-top: -19px;
-  width: 35%;
-}
-.live-watch {
-margin-top: 12px;
-margin-left: -26px;
-text-align: center;
-}
-.watch1 {
-margin-right: 153px;
-position: absolute;
-margin-top: 18px;
-}
-.watch2 {
-margin-left: 290px;
-position: absolute;
-float: right;
-margin-top: 18px;
-}
-
+  .live1 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: -19px;
+    width: 35%;
+  }
+  .live-watch {
+    margin-top: 12px;
+    margin-left: -26px;
+    text-align: center;
+  }
+  .watch1 {
+    margin-right: 153px;
+    position: absolute;
+    margin-top: 18px;
+  }
+  .watch2 {
+    margin-left: 290px;
+    position: absolute;
+    float: right;
+    margin-top: 18px;
+  }
 }
 
 @media (max-width: 527px) {
   .Teams-name {
-    
     font-size: 12px;
     text-align: center;
     margin-top: 0px;
@@ -3368,16 +3350,16 @@ margin-top: 18px;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    width:100%;
+    width: 100%;
   }
-  .Match-content{
+  .Match-content {
     width: 90%;
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
   }
 
-  .Teams-logo img{
+  .Teams-logo img {
     width: auto;
     height: 37px;
     object-fit: cover;
@@ -3396,17 +3378,14 @@ margin-top: 18px;
   }
 
   .field-info {
-
     margin-top: 49px;
-   
-}
-.Invite {
-  margin-top: 55px;
-}
+  }
+  .Invite {
+    margin-top: 55px;
+  }
   .carts {
-   
     margin-bottom: 23px;
-}
+  }
 
   .play-icons {
     margin-left: 5px;
@@ -3486,7 +3465,7 @@ margin-top: 18px;
   }
   .Grounds {
     margin-bottom: 72px;
-}
+  }
   .game-description {
     color: #000000;
     font-weight: 500;
@@ -3717,8 +3696,8 @@ margin-top: 18px;
     width: 72px;
     height: 55px;
     margin-top: -9px;
-     margin-left:0px; 
-}
+    margin-left: 0px;
+  }
   .checks-btn {
     background-color: #17a803;
     font-weight: 600;
@@ -3778,7 +3757,6 @@ margin-top: 18px;
     margin-right: 0px;
   }
   .topnav {
-   
     width: 100%;
   }
   .topnav span {
@@ -3799,7 +3777,6 @@ margin-top: 18px;
     font-weight: 600;
     color: #17a803;
   }
-
 
   .topnav span.active {
     border-bottom: 4px solid #17a803;
@@ -3867,7 +3844,7 @@ margin-top: 18px;
     align-items: flex-start;
     margin-top: 10px;
     justify-content: space-between;
-}
+  }
 
   .grey-details2 {
     margin-left: 0px;
@@ -3878,7 +3855,6 @@ margin-top: 18px;
   .grey-details3 {
     margin-left: 0px;
   }
-
 
   .football {
     width: 98%;
@@ -3905,7 +3881,6 @@ margin-top: 18px;
     margin-top: 13px;
     margin-left: 78%;
   }
- 
 
   .quaters {
     float: right;
@@ -3913,7 +3888,6 @@ margin-top: 18px;
     margin-right: 0px;
     position: absolute;
   }
- 
 
   .tournaments {
     width: 100%;
@@ -3996,7 +3970,6 @@ margin-top: 18px;
     height: 32px;
   }
 
-  
   .video-play {
     display: flex;
     flex-wrap: wrap;
@@ -4013,9 +3986,7 @@ margin-top: 18px;
     color: var(--font-theme-color);
   }
   input.tour {
-
     width: 77%;
-
   }
   .tour-icon {
     margin-left: 6px;
@@ -4056,7 +4027,6 @@ margin-top: 18px;
     width: 100%;
     margin-bottom: 75px;
     margin-left: 0px;
-   
   }
   .open-btn {
     font-size: 15px;
@@ -4267,7 +4237,6 @@ margin-top: 18px;
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 15px;
-  
   }
   .book {
     margin-top: 15px;
@@ -4377,31 +4346,30 @@ margin-top: 18px;
     width: 80px;
   }
 
-
   .live1 {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
- justify-content: center;
+    justify-content: center;
     margin-top: -19px;
     width: 30%;
-}
-.live-watch {
-  margin-top: 12px;
-  margin-left: -26px;
-  text-align: center;
-}
-.watch1 {
-  margin-right: 153px;
-  position: absolute;
-  margin-top: 18px;
-}
-.watch2 {
-  margin-left: 290px;
-  position: absolute;
-  float: right;
-  margin-top: 18px;
-}
+  }
+  .live-watch {
+    margin-top: 12px;
+    margin-left: -26px;
+    text-align: center;
+  }
+  .watch1 {
+    margin-right: 153px;
+    position: absolute;
+    margin-top: 18px;
+  }
+  .watch2 {
+    margin-left: 290px;
+    position: absolute;
+    float: right;
+    margin-top: 18px;
+  }
 }
 // @media(max-width:501px) {
 //   .live-image1 {
@@ -4513,9 +4481,7 @@ margin-top: 18px;
 
 @media (max-width: 489px) {
   input.tour {
-  
     width: 74%;
-  
   }
   .topnav {
     overflow: hidden;
@@ -4535,7 +4501,6 @@ margin-top: 18px;
     border-bottom: 4px solid transparent;
   }
 
- 
   .play_text {
     font-weight: 700;
     font-size: 16px;
@@ -4578,7 +4543,7 @@ margin-top: 18px;
     margin-top: 15px;
     width: 215px;
   }
-  
+
   .topnav span:hover {
     // border-bottom: 3px solid #17A803;
     font-size: 17px;
@@ -4669,8 +4634,7 @@ margin-top: 18px;
     width: 230px;
     margin-left: 43px;
   }
-  
- 
+
   .video-play {
     display: flex;
     flex-wrap: wrap;
@@ -4712,38 +4676,36 @@ margin-top: 18px;
     width: 120px;
   }
 
-
   .live1 {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
- justify-content: center;
+    justify-content: center;
     margin-top: -19px;
     width: 20%;
-}
-.live-watch {
-  margin-top: 12px;
-  margin-left: -26px;
-  text-align: center;
-}
-.watch1 {
-  margin-right: 123px;
-  position: absolute;
-  margin-top: 18px;
-}
-.watch2 {
-  margin-left: 240px;
-  position: absolute;
-  float: right;
-  margin-top: 18px;
-}
+  }
+  .live-watch {
+    margin-top: 12px;
+    margin-left: -26px;
+    text-align: center;
+  }
+  .watch1 {
+    margin-right: 123px;
+    position: absolute;
+    margin-top: 18px;
+  }
+  .watch2 {
+    margin-left: 240px;
+    position: absolute;
+    float: right;
+    margin-top: 18px;
+  }
 }
 @media (max-width: 440px) {
   .tour-container {
     width: auto;
     margin-bottom: 70px;
     margin-right: 0px;
-    
   }
   .play-container {
     width: auto;
@@ -4830,8 +4792,7 @@ margin-top: 18px;
     border: 0px;
     border-radius: 19px;
   }
-  
- 
+
   .date-wins {
     font-weight: 600;
     font-size: 12px;
@@ -4895,7 +4856,7 @@ margin-top: 18px;
     aspect-ratio: 1;
     object-fit: cover;
     border-radius: 50%;
-}
+  }
 
   .book-details {
     margin-left: 10px;
@@ -4976,7 +4937,7 @@ margin-top: 18px;
     overflow: hidden;
     background-color: transparent;
     display: inline-flex;
-        width: 100%;
+    width: 100%;
   }
   .topnav span {
     float: left;
@@ -5061,9 +5022,7 @@ margin-top: 18px;
   }
 
   input.tour {
-
     width: 70%;
-
   }
   .tour-icon {
     margin-left: 6px;
@@ -5188,7 +5147,7 @@ margin-top: 18px;
   height: 110px;
   margin-top: 13px;
   margin-left: 20px;
-  color:var(--font-theme-color);
+  color: var(--font-theme-color);
 }
 
 .green-details {
@@ -5207,7 +5166,6 @@ margin-top: 18px;
   margin-top: 15px;
   width: 160px;
 }
-
 
 .grey-number {
   font-size: 20px;
@@ -5282,88 +5240,82 @@ margin-top: 18px;
     margin-left: -56px;
     font-size: 14px;
   }
- 
 
-    .video-play {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      justify-content: center;
-      margin-left: 0px;
-      margin-top: 13px;
-    }
-
-    .green {
-      border: 0px;
-      border-radius: 8px;
-      background: #17a803;
-      width: 90%;
-      height: 160px;
-      margin-top: 43px;
-      margin-left: 20px;
-    }
-    .grey {
-      border: 0px;
-      border-radius: 8px;
-      background: #eeeeee;
-      width: 90%;
-      height: 110px;
-      margin-top: 13px;
-      margin-left: 20px;
-    }
-
-    .green-details {
-      margin-top: 18px;
-      margin-left: 120px;
-      position: absolute;
-    }
-    .tournament-imx3 {
-      width: 100%;
-      height: 100%;
-      margin-left: 3px;
-      margin-top: 33px;
-    }
-    .green-border {
-      border-bottom: 1px solid white;
-      margin-top: 15px;
-      width: 135px;
-    }
-    
+  .video-play {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    margin-left: 0px;
+    margin-top: 13px;
   }
+
+  .green {
+    border: 0px;
+    border-radius: 8px;
+    background: #17a803;
+    width: 90%;
+    height: 160px;
+    margin-top: 43px;
+    margin-left: 20px;
+  }
+  .grey {
+    border: 0px;
+    border-radius: 8px;
+    background: #eeeeee;
+    width: 90%;
+    height: 110px;
+    margin-top: 13px;
+    margin-left: 20px;
+  }
+
+  .green-details {
+    margin-top: 18px;
+    margin-left: 120px;
+    position: absolute;
+  }
+  .tournament-imx3 {
+    width: 100%;
+    height: 100%;
+    margin-left: 3px;
+    margin-top: 33px;
+  }
+  .green-border {
+    border-bottom: 1px solid white;
+    margin-top: 15px;
+    width: 135px;
+  }
+}
 
 @media (max-width: 383px) {
   input.tour {
-
     width: 60%;
-
   }
   .live1 {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
- justify-content: center;
+    justify-content: center;
     margin-top: -19px;
     width: 18%;
-}
-.live-watch {
-  margin-top: 12px;
-  margin-left: -80px;
-  text-align: center;
-}
-.watch1 {
-  margin-right: 153px;
-  position: absolute;
-  margin-top: 18px;
-}
-.watch2 {
-  margin-left: 120px;
-  position: absolute;
-  float: right;
-  margin-top: 18px;
-}
+  }
+  .live-watch {
+    margin-top: 12px;
+    margin-left: -80px;
+    text-align: center;
+  }
+  .watch1 {
+    margin-right: 153px;
+    position: absolute;
+    margin-top: 18px;
+  }
+  .watch2 {
+    margin-left: 120px;
+    position: absolute;
+    float: right;
+    margin-top: 18px;
+  }
 
-
- 
   .green-text {
     color: white;
     font-size: 16px;
@@ -5410,36 +5362,31 @@ margin-top: 18px;
     font-size: 17px;
     border-bottom: 4px solid transparent;
   }
- 
+
   .live1 {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
- justify-content: center;
+    justify-content: center;
     margin-top: -19px;
     width: 8%;
-}
-.live-watch {
-  margin-top: 12px;
-  margin-left: -80px;
-  text-align: center;
-}
-.watch1 {
-  margin-right: 120px;
-  position: absolute;
-  margin-top: 18px;
-}
-.watch2 {
-  margin-left: 120px;
-  position: absolute;
-  float: right;
-  margin-top: 18px;
-}
-
-
-  
- 
-
+  }
+  .live-watch {
+    margin-top: 12px;
+    margin-left: -80px;
+    text-align: center;
+  }
+  .watch1 {
+    margin-right: 120px;
+    position: absolute;
+    margin-top: 18px;
+  }
+  .watch2 {
+    margin-left: 120px;
+    position: absolute;
+    float: right;
+    margin-top: 18px;
+  }
 
   .cart-place {
     display: -webkit-box;
@@ -5581,7 +5528,7 @@ margin-top: 18px;
     margin-top: 15px;
     width: 140px;
   }
- 
+
   .game {
     margin-top: 23px;
     padding: 2px 10px;

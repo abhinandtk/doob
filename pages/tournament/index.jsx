@@ -12,6 +12,7 @@ import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import Login from "@/components/user/Login";
 export async function getStaticProps({ locale }) {
   return {
     props: {
@@ -24,23 +25,38 @@ function TournamentHomePage() {
   const [liveTourData, setLiveTourData] = useState([]);
   const [rankData, setRankData] = useState([]);
   const [activeTab, setActiveTab] = useState("tournaments");
+  const [showLogin, setShowLogin] = useState(false);
   useEffect(() => {
-    Axios.get(apis.tournamentHome, {
-      headers: {
+    let headers = {};
+    const isAuthenticated = constants.token_id;
+    if (isAuthenticated) {
+      headers = {
         Authorization: `Token ${constants.token_id}`,
-      },
+      };
+    }
+    Axios.get(apis.tournamentHome, {
+      headers,
     }).then((res) => {
       setLiveTourData(res.data.data.live_tournaments);
       setRankData(res.data.data.ranks);
       console.log("ddddddata", res.data.data.setLiveTourData);
     });
   }, []);
+  const rankTabHandler = () => {
+    const isAuthenticated = constants.token_id;
+    if (isAuthenticated) {
+      setActiveTab("ranks");
+    } else {
+      setShowLogin(true);
+    }
+  };
 
   return (
     <div>
       <MainHeader title="Doob" />
       <MobileHeader />
       <MainSidebarFixed />
+      {showLogin && <Login setShowLogin={setShowLogin} />}
       <div className="tour-container">
         <div className="top-head-tour dark-theme-color">
           <h5 className=" my-4" style={{ fontWeight: "600" }}>
@@ -57,7 +73,7 @@ function TournamentHomePage() {
               {t("Tournaments")}
             </span>
             <span
-              onClick={() => setActiveTab("ranks")}
+              onClick={() => rankTabHandler()}
               className={`${
                 activeTab === "ranks" ? "active" : ""
               } dark-theme-color`}
