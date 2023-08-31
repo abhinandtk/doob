@@ -54,6 +54,9 @@ function OtherProfileHeaderDetails({
           message: constants.Success,
           description: `${labels["Requested successfully"]}`,
         });
+      }else{
+        setIsSuccess((prev) => !prev);
+
       }
       console.log("reeeeeeesul", res);
     });
@@ -216,7 +219,7 @@ function OtherProfileHeaderDetails({
           ))}
       </Modal>
       <Modal
-        title="Fields"
+        title={t("Fields")}
         open={showField}
         onCancel={() => setShowField(false)}
         closable
@@ -407,9 +410,9 @@ function OtherProfileHeaderDetails({
                     <button
                       onClick={followHandler}
                       className="side-menu__suggestion-buttons "
-                      style={{ backgroundColor: "grey" }}
+                      style={{ backgroundColor:data.is_requested == 0 ?"#17A803": "grey" }}
                     >
-                      {data.is_requested == 0 ? "Request" : "Requested"}
+                      {data.is_requested == 0 ? "Follow" : "Requested"}
                     </button>
                   ) : (
                     <button

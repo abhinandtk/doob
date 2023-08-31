@@ -5,12 +5,14 @@ import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { notification } from "antd";
+import { useTranslation } from "next-i18next";
 
 function NewSingleChat({ onChatSelect, onNewMsg, onGrpShow }) {
   const router = useRouter();
   const { locale } = router;
   const [searchInput, setSearchInput] = useState("");
   const [searchResult, setSearchResult] = useState([]);
+  const { t } = useTranslation();
 
   const searchChangeHandler = (e) => {
     setSearchInput(e.target.value);
@@ -87,7 +89,7 @@ function NewSingleChat({ onChatSelect, onNewMsg, onGrpShow }) {
                   />
                 </svg>
               </span>
-              Start New Message
+              {t("Start New Message")}
             </h6>
           </div>
         </div>

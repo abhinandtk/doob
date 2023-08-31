@@ -19,6 +19,7 @@ import { useTheme } from "next-themes";
 import ThemeSwitcher from "./ThemeSwitcher";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useTranslation } from "next-i18next";
+import Login from "@/components/user/Login";
 function MainHeader({ title }) {
   const { t } = useTranslation();
   const router = useRouter();
@@ -33,6 +34,7 @@ function MainHeader({ title }) {
   const [confirmLogout, setConfirmLogout] = useState(false);
   const [uploadShow, setUploadShow] = useState(false);
   const [notificationShow, setNotificationShow] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
 
   const storeCount = useSelector((state) => state.storeCartCount.storeCount);
   const groundCart = useSelector((state) => state.groundCartCount.groundCount);
@@ -46,6 +48,8 @@ function MainHeader({ title }) {
   const isHomePage = router.pathname === "/";
 
   const [user, setUser] = useState("");
+
+  const isAuthenticated = constants.token_id;
 
   useEffect(() => {
     Axios.get(apis.countDisplay, {
@@ -117,8 +121,32 @@ function MainHeader({ title }) {
       });
   };
 
+  const navigationHandler = (path) => {
+    if (isAuthenticated) {
+      router.push(path);
+    } else {
+      setShowLogin(true);
+    }
+  };
+  const notificationHandler = () => {
+    if (isAuthenticated) {
+      setNotificationShow(!notificationShow);
+    } else {
+      setShowLogin(true);
+    }
+  };
+  const hamburgerHandler = () => {
+    if (isAuthenticated) {
+      setShow(true);
+    } else {
+      setShowLogin(true);
+    }
+  };
+
   return (
     <>
+      {showLogin && <Login setShowLogin={setShowLogin} />}
+
       <Head>
         <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
@@ -253,7 +281,8 @@ function MainHeader({ title }) {
               <Nav.Link>
                 <LanguageSwitcher />
               </Nav.Link>
-              <Nav.Link href="/search">
+              {/* <span> */}
+              <Nav.Link onClick={() => navigationHandler("/search")}>
                 <svg
                   width="24"
                   height="20"
@@ -298,20 +327,20 @@ function MainHeader({ title }) {
                   >
                     <path
                       d="M13.7345 9.74039C13.7345 9.13137 13.4973 8.5473 13.0751 8.11666C12.6528 7.68602 12.0802 7.44409 11.483 7.44409C10.8859 7.44409 10.3132 7.68602 9.89101 8.11666C9.46878 8.5473 9.23157 9.13137 9.23157 9.74039M8.09683 21.2219H11.474M14.8512 21.2219H11.474M11.474 21.2219V17.7774M11.474 21.2219V24.6663M19.6559 15.1321L21.215 25.4654C21.2643 25.7925 21.2438 26.1265 21.1547 26.4447C21.0657 26.7629 20.9102 27.0577 20.6991 27.3089C20.4879 27.5602 20.2261 27.7619 19.9314 27.9003C19.6367 28.0387 19.3161 28.1105 18.9917 28.1108H3.97439C3.64977 28.1108 3.32897 28.0392 3.034 27.901C2.73903 27.7627 2.47686 27.5611 2.26547 27.3098C2.05407 27.0585 1.89845 26.7636 1.80928 26.4453C1.7201 26.1269 1.69947 25.7927 1.74882 25.4654L3.30796 15.1321C3.38974 14.5897 3.65928 14.0951 4.06775 13.7379C4.47621 13.3807 4.9966 13.1845 5.53466 13.1848H17.4314C17.9693 13.1848 18.4894 13.3811 18.8976 13.7383C19.3059 14.0955 19.5752 14.5899 19.657 15.1321H19.6559Z"
-                      stroke="black"
+                      stroke={svgStroke}
                       stroke-width="1.60741"
                       stroke-linecap="round"
                       stroke-linejoin="round"
                     />
 
-                    <path
+                    {/* <path
                       d="M18.8673 10.0888C18.4486 10.0888 18.0754 10.0169 17.7476 9.87313C17.422 9.72934 17.163 9.52952 16.9706 9.27367C16.7803 9.0157 16.6766 8.71649 16.6597 8.37606H17.459C17.4759 8.58539 17.5478 8.76618 17.6747 8.91843C17.8016 9.06856 17.9676 9.18486 18.1727 9.26732C18.3778 9.34979 18.6051 9.39102 18.8546 9.39102C19.1337 9.39102 19.3811 9.34239 19.5968 9.24512C19.8125 9.14785 19.9816 9.01252 20.1043 8.83913C20.2269 8.66574 20.2882 8.46487 20.2882 8.2365C20.2882 7.99756 20.229 7.78716 20.1106 7.60532C19.9922 7.42135 19.8188 7.27757 19.5904 7.17396C19.3621 7.07035 19.083 7.01854 18.7531 7.01854H18.2329V6.32075H18.7531C19.0111 6.32075 19.2373 6.27423 19.4319 6.18119C19.6285 6.08816 19.7818 5.95706 19.8918 5.78789C20.0038 5.61873 20.0599 5.41997 20.0599 5.1916C20.0599 4.97169 20.0112 4.78033 19.914 4.61751C19.8167 4.4547 19.6792 4.32783 19.5016 4.2369C19.3261 4.14598 19.1189 4.10052 18.88 4.10052C18.6558 4.10052 18.4444 4.14175 18.2456 4.22421C18.049 4.30457 17.8883 4.42192 17.7635 4.57628C17.6387 4.72853 17.5711 4.91249 17.5605 5.12817H16.7993C16.812 4.78773 16.9145 4.48959 17.1069 4.23373C17.2994 3.97576 17.551 3.77488 17.8618 3.63109C18.1748 3.48731 18.5184 3.41541 18.8927 3.41541C19.2944 3.41541 19.6391 3.49682 19.9266 3.65964C20.2142 3.82034 20.4352 4.03285 20.5895 4.29717C20.7439 4.56148 20.8211 4.84694 20.8211 5.15354C20.8211 5.51935 20.7249 5.83124 20.5325 6.08921C20.3421 6.34718 20.0831 6.52586 19.7554 6.62524V6.67599C20.1656 6.74365 20.4859 6.9181 20.7164 7.19933C20.9469 7.47845 21.0621 7.82417 21.0621 8.2365C21.0621 8.58962 20.9659 8.9068 20.7735 9.18803C20.5832 9.46714 20.3231 9.68705 19.9933 9.84776C19.6634 10.0085 19.2881 10.0888 18.8673 10.0888Z"
-                      fill="white"
-                    />
+                      fill={svgStroke}
+                    /> */}
                   </svg>
                 </div>
               </Nav.Link>
-              <Nav.Link href="/chat/messages">
+              <Nav.Link onClick={() => navigationHandler("/chat/messages")}>
                 <div>
                   {chatCount > 0 && (
                     <div className="  greens">
@@ -327,16 +356,16 @@ function MainHeader({ title }) {
                   >
                     <path
                       d="M11.4918 19.5125V19.5244M6.8288 19.5125V19.5244M16.1549 19.5125V19.5244M1 29L2.51549 24.3748C1.20569 22.4041 0.731868 20.0704 1.18211 17.8075C1.63236 15.5446 2.97604 13.5065 4.96331 12.0722C6.95059 10.638 9.44623 9.90509 11.9862 10.0099C14.5262 10.1146 16.9377 11.0499 18.7723 12.6418C20.607 14.2338 21.7399 16.374 21.9604 18.6645C22.181 20.9551 21.4742 23.2402 19.9714 25.0949C18.4687 26.9495 16.2722 28.2477 13.7905 28.7478C11.3087 29.248 8.71057 28.9162 6.47907 27.8141L1 29Z"
-                      stroke="black"
+                      stroke={svgStroke}
                       stroke-width="1.4"
                       stroke-linecap="round"
                       stroke-linejoin="round"
                     />
                     {/* <circle cx="22" cy="7" r="7" fill="#17A803"/> */}
-                    <path
+                    {/* <path
                       d="M19.5202 8.66786V8.02082L22.3748 3.50422H22.8442V4.5065H22.527L20.3702 7.91932V7.97007H24.2144V8.66786H19.5202ZM22.5778 10V8.47121V8.16989V3.50422H23.3263V10H22.5778Z"
                       fill="white"
-                    />
+                    /> */}
                   </svg>
                 </div>
               </Nav.Link>
@@ -348,7 +377,7 @@ function MainHeader({ title }) {
                     </div>
                   )}
                   <svg
-                    onClick={() => setNotificationShow(!notificationShow)}
+                    onClick={() => notificationHandler()}
                     width="24"
                     height="31"
                     className="bell"
@@ -360,23 +389,23 @@ function MainHeader({ title }) {
                       fill-rule="evenodd"
                       clip-rule="evenodd"
                       d="M9.23529 26.4706C14.6989 26.4706 17.2265 25.7187 17.4706 22.7009C17.4706 19.6851 15.7084 19.879 15.7084 16.1788C15.7084 13.2885 13.1545 10 9.23529 10C5.31604 10 2.76221 13.2885 2.76221 16.1788C2.76221 19.879 1 19.6851 1 22.7009C1.24507 25.7301 3.77265 26.4706 9.23529 26.4706Z"
-                      stroke="black"
+                      stroke={svgStroke}
                       stroke-width="1.4"
                       stroke-linecap="round"
                       stroke-linejoin="round"
                     />
                     <path
                       d="M11.588 28.8235C10.5992 30.3829 9.05681 30.4013 8.05859 28.8235"
-                      stroke="black"
+                      stroke={svgStroke}
                       stroke-width="1.4"
                       stroke-linecap="round"
                       stroke-linejoin="round"
                     />
                     {/* <circle cx="17" cy="7" r="7" fill="#17A803"></circle> */}
-                    <path
+                    {/* <path
                       d="M17.9561 3.50422V10H17.1695V4.32888H17.1314L15.5455 5.38191V4.58262L17.1695 3.50422H17.9561Z"
                       fill="white"
-                    />
+                    /> */}
                   </svg>
                 </div>
               </Nav.Link>
@@ -385,14 +414,14 @@ function MainHeader({ title }) {
                   width="22"
                   height="18"
                   className="menu my-2"
-                  onClick={() => setShow(true)}
+                  onClick={() => hamburgerHandler()}
                   viewBox="0 0 22 18"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
                     d="M1 1H21M1 9H21M1 17H21"
-                    stroke="black"
+                    stroke={svgStroke}
                     stroke-width="1.4"
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -553,7 +582,7 @@ function MainHeader({ title }) {
                         </svg>
                         <span className="mx-2 hubs">
                           {" "}
-                          {t("Favourite Product")}
+                          {t("Favourite Products")}
                         </span>
                       </Link>
                     </div>
@@ -577,9 +606,9 @@ function MainHeader({ title }) {
                             stroke-width="0.239706"
                           />
                         </svg>
-                        
+
                         <span className="mx-3 hubs">{t("Bookings")}</span>
-                      </Link> 
+                      </Link>
                     </div>
 
                     <div className="my-4">
@@ -671,6 +700,7 @@ function MainHeader({ title }) {
                   </Offcanvas.Body>
                 </Offcanvas>
               </Nav.Link>
+              {/* </span> */}
             </Nav>
           </Navbar>
         </Container>

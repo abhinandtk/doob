@@ -21,9 +21,11 @@ import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { toggle } from "@/Redux/updateNavbar";
 import { useTranslation } from "next-i18next";
+import Login from "@/components/user/Login";
 
 function ProductDetailFullWidth({ product, setApiSuccess }) {
   const { t } = useTranslation();
+  const [showLogin, setShowLogin] = useState(false);
   const labels = Labels();
   const dispatch = useDispatch();
   const router = useRouter();
@@ -120,49 +122,56 @@ function ProductDetailFullWidth({ product, setApiSuccess }) {
 
   const addToCartHandler = (e) => {
     e.preventDefault();
-    Axios.post(
-      apis.addtoCart,
-      {
-        product_var_slug: prVarientId,
-        quantity: quantity,
-      },
-      {
-        headers: {
-          Authorization: `Token ${constants.token_id}`,
+    const isAuthenticated = constants.token_id;
+    if (isAuthenticated) {
+      Axios.post(
+        apis.addtoCart,
+        {
+          product_var_slug: prVarientId,
+          quantity: quantity,
         },
-      }
-    ).then((res) => {
-      console.log("storreCountries", res);
-      dispatch(toggle());
-      if (res.data.status == 1) {
-        notification.success({
-          message: "Success",
-          description: `${labels["Added to cart"]}`,
-        });
-      } else {
-        notification.error({
-          message: constants.Error,
-          description:
-            locale === "en" ? res.data.message_en : res.data.message_ar,
-        });
-      }
-      //  if(res.data.status == 1){
+        {
+          headers: {
+            Authorization: `Token ${constants.token_id}`,
+          },
+        }
+      ).then((res) => {
+        console.log("storreCountries", res);
+        dispatch(toggle());
+        if (res.data.status == 1) {
+          notification.success({
+            message: "Success",
+            description: `${labels["Added to cart"]}`,
+          });
+        } else {
+          notification.error({
+            message: constants.Error,
+            description:
+              locale === "en" ? res.data.message_en : res.data.message_ar,
+          });
+        }
+        //  if(res.data.status == 1){
 
-      //   notification.success({
-      //     message:'Success',
-      //     description:`${labels['Added to cart']}`
-      //   }),
+        //   notification.success({
+        //     message:'Success',
+        //     description:`${labels['Added to cart']}`
+        //   }),
 
-      //  }
-      // notification.success({
-      //   message:'Success',
-      //   description:`${labels['Added to cart']}`
-      // }),
-      console.log("res", res);
-    });
+        //  }
+        // notification.success({
+        //   message:'Success',
+        //   description:`${labels['Added to cart']}`
+        // }),
+        console.log("res", res);
+      });
+    } else {
+      setShowLogin(true);
+    }
   };
   return (
     <Fragment>
+      {showLogin && <Login setShowLogin={setShowLogin} />}
+
       {product.map((product, index) => {
         return (
           <>

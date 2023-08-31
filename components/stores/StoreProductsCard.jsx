@@ -62,7 +62,7 @@ function StoreProductsCard({ products, title }) {
     });
   };
   return (
-    <div>
+    <div className="products-card-store">
       <h5 style={{ color: theme === "dark" ? "#FFFF" : "#212529" }}>
         {title}
         {/* <span className="view">View All</span> */}

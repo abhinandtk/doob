@@ -47,6 +47,9 @@ function MyOrders() {
       setExpandedItemIndex(index);
     }
   };
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+  }
 
   return (
     <Fragment>
@@ -99,10 +102,10 @@ function MyOrders() {
                 <span
                   style={{
                     color:
-                      item.order_status === "Delivered" ? "#17A803" : "#FF640D",
+                      item.order_status === "delivered" ? "#17A803" : "#FF640D",
                   }}
                 >
-                  {item.order_status}
+                  {capitalizeFirstLetter(item.order_status)}
                 </span>
               </div>
               <div
@@ -124,19 +127,23 @@ function MyOrders() {
                 className="   mx-auto d-flex justify-content-between align-items-center"
                 style={{ width: "90%" }}
               >
-                <a
-                  className="mx-2"
-                  href={`${constants.port}/store/Print_invoice/${item.order_id_m}`}
-                  style={{
-                    borderBottom: "1px solid black",
-                    textDecoration: "none",
-                    color: "inherit",
-                    cursor: "pointer",
-                  }}
-                  download
-                >
-                  {t("Download Invoice")}
-                </a>
+                {item.order_status === "delivered" ? (
+                  <a
+                    className="mx-2"
+                    href={`${constants.port}/store/Print_invoice/${item.order_id_m}`}
+                    style={{
+                      borderBottom: "1px solid black",
+                      textDecoration: "none",
+                      color: "inherit",
+                      cursor: "pointer",
+                    }}
+                    download
+                  >
+                    {t("Download Invoice")}
+                  </a>
+                ) : (
+                  <></>
+                )}
               </div>
               <br></br>
             </div>

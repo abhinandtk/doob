@@ -9,6 +9,7 @@ import { Labels } from "@/public/data/my-constants/Labels";
 import { CardImg } from "react-bootstrap";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
+import Login from "@/components/user/Login";
 
 function ShareToUserChat({ slug, type }) {
   const { t } = useTranslation();
@@ -20,7 +21,7 @@ function ShareToUserChat({ slug, type }) {
   const [selectedItems, setSelectedItems] = useState([]);
   const [names, setNames] = useState("");
   const labels = Labels();
-
+  const [showLogin, setShowLogin] = useState(false);
   const handleChange = (e) => {
     e.preventDefault();
     setNames(e.target.value);
@@ -107,9 +108,18 @@ function ShareToUserChat({ slug, type }) {
     setNames("");
     setSearchResult([]);
   };
+  const shareToChatHandler = () => {
+    const isAuthenticated = constants.token_id;
+    if (isAuthenticated) {
+      setVisible(true);
+    } else {
+      setShowLogin(true);
+    }
+  };
 
   return (
     <Fragment>
+      {showLogin && <Login setShowLogin={setShowLogin} />}
       <Modal
         open={visible}
         onCancel={() => {
@@ -234,9 +244,9 @@ function ShareToUserChat({ slug, type }) {
           style={{ height: "250px", overflowY: "auto" }}
         />
       </Modal>
-      <span onClick={() => setVisible(true)} style={{ cursor: "pointer" }}>
+      <span onClick={() => shareToChatHandler()} style={{ cursor: "pointer" }}>
         {type === "game" ? (
-          "Share"
+          t("Share")
         ) : type === "product" ? (
           <svg
             width="20"

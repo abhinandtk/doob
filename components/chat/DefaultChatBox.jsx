@@ -1,7 +1,9 @@
 import React from "react";
 import { Fragment } from "react";
+import { useTranslation } from "next-i18next";
 
 function DefaultChatBox() {
+  const { t } = useTranslation();
   return (
     <Fragment>
       <div className="rightSides">
@@ -23,13 +25,13 @@ function DefaultChatBox() {
                 fontWeight: "600",
               }}
             >
-              Send Messages
+              {t("Send Messages")}
             </h2>
             <p style={{ fontSize: "14px", fontWeight: "400" }}>
-              Send Photos and Message to Friend&apos;s or Group
+              {t("Send Photos and Message to Friend's or Group")}
             </p>
           </div>
-          <div className="sent">Send Message</div>
+          <div className="sent">{t("Send Message")}</div>
         </div>
       </div>
     </Fragment>

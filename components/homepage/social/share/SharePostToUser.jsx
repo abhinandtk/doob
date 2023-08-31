@@ -9,8 +9,9 @@ import { Labels } from "@/public/data/my-constants/Labels";
 import { CardImg } from "react-bootstrap";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
+import Login from "@/components/user/Login";
 
-function SharePostToUser({slug}) {
+function SharePostToUser({ slug }) {
   const { t } = useTranslation();
   const router = useRouter();
   const { locale } = router;
@@ -20,6 +21,7 @@ function SharePostToUser({slug}) {
   const [selectedItems, setSelectedItems] = useState([]);
   const [names, setNames] = useState("");
   const labels = Labels();
+  const [showLogin, setShowLogin] = useState(false);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -97,9 +99,18 @@ function SharePostToUser({slug}) {
     setNames("");
     setSearchResult([]);
   };
+  const postShareChatHandler = () => {
+    if (constants.token_id) {
+      setVisible(true);
+    } else {
+      setShowLogin(true);
+    }
+  };
 
   return (
     <Fragment>
+      {showLogin && <Login setShowLogin={setShowLogin} />}
+
       <Modal
         open={visible}
         onCancel={() => {
@@ -225,7 +236,7 @@ function SharePostToUser({slug}) {
         />
       </Modal>
       <button
-        onClick={() => setVisible(true)}
+        onClick={() => postShareChatHandler()}
         className="post__button"
         style={{ marginLeft: "-11px" }}
       >

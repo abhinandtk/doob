@@ -44,7 +44,7 @@ function ShippingAddress({ data, setOnSuccess }) {
           type="primary"
           style={{ backgroundColor: "#17A803" }}
         >
-          Add Address
+          {t("Add Address")}
         </Button>
       </div>
     </div>
@@ -125,7 +125,7 @@ function ShippingAddress({ data, setOnSuccess }) {
             type="primary"
             style={{ backgroundColor: "#17A803" }}
           >
-            Add Address
+            {t("Add Address")}
           </Button>
         </div>
       )}

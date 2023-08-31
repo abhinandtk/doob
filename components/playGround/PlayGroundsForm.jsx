@@ -383,6 +383,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
           <h6 style={{ fontSize: "15px", fontWeight: "700" }}>{t("Description")}</h6>
         </label>
         <textarea
+          required
           className="form-control"
           style={{
             border: "0px",
@@ -402,6 +403,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
           </h6>
         </label>
         <textarea
+          required
           className="form-control"
           style={{
             border: "0px",

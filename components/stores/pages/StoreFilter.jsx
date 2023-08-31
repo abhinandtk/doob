@@ -111,7 +111,7 @@ function StoreFilter({ searchResultHandler }) {
             onChange={(e) => submitSearchHandler(e)}
             type="search"
             value={searchInput}
-            placeholder="Search"
+            placeholder={t("Search")}
           />
           <span onClick={() => setVisible(true)}>
             <img

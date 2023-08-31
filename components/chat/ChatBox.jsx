@@ -86,7 +86,6 @@ function ChatBox({ selectedId, onNewMsg }) {
           className="chat-container"
           style={{ height: "70%", overflow: "auto" }}
         >
-          {constants.domain}sdjhfkj
           {chatList.map((item, index) => (
             <div ref={divRef} key={index} className="chatbox">
               <button type="button" class="btn btn-success btn-sm">
@@ -158,9 +157,26 @@ function ChatBox({ selectedId, onNewMsg }) {
                                   {msg.chat.name}
                                 </span>
                               )}
-                              <br></br>
-                              {msg.body}
-                              <br></br>
+                              {msg.body.includes(constants.domain) ? (
+                                <Link
+                                  href={{
+                                    pathname: msg.body,
+                                    query: {
+                                      date: moment().format("YYYY-MM-DD"),
+                                    },
+                                  }}
+                                  target="_blank"
+                                  style={{ color: "white" }}
+                                >
+                                  {msg.body}
+                                </Link>
+                              ) : (
+                                <>
+                                  <br></br>
+                                  {msg.body}
+                                  <br></br>
+                                </>
+                              )}
                             </p>
                           </div>
                           <div className="frnd_chatam">

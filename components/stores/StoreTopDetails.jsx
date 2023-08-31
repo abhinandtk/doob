@@ -12,10 +12,11 @@ const { Panel } = Collapse;
 import { useTranslation } from "next-i18next";
 import { Dropdown } from "react-bootstrap";
 import ShareToUserChat from "../homepage/social/share/ShareToUserChat";
+import Login from "../user/Login";
 
 function StoreTopDetails({ data, setSuccess }) {
   const { t } = useTranslation();
-
+  const [showLogin, setShowLogin] = useState(false);
   const [reason, setReason] = useState("");
   const [show, setShow] = useState(false);
 
@@ -37,20 +38,25 @@ function StoreTopDetails({ data, setSuccess }) {
 
   const storeWishlistHandler = (id, favorite) => {
     const api = favorite ? apis.removestorewishlist : apis.addstorewishlist;
-    Axios.post(
-      api,
-      {
-        slug_id: id,
-      },
-      {
-        headers: {
-          Authorization: `Token ${constants.token_id}`,
+    const isAuthenticated = constants.token_id;
+    if (isAuthenticated) {
+      Axios.post(
+        api,
+        {
+          slug_id: id,
         },
-      }
-    ).then((res) => {
-      setSuccess((prev) => !prev);
-      console.log("wishlistresult5", res);
-    });
+        {
+          headers: {
+            Authorization: `Token ${constants.token_id}`,
+          },
+        }
+      ).then((res) => {
+        setSuccess((prev) => !prev);
+        console.log("wishlistresult5", res);
+      });
+    } else {
+      setShowLogin(true);
+    }
   };
   const handleShareStorePost = (slug) => {
     Axios.post(
@@ -96,6 +102,7 @@ function StoreTopDetails({ data, setSuccess }) {
 
   return (
     <Fragment>
+      {showLogin && <Login setShowLogin={setShowLogin} />}
       <Modal
         title="Why are you reporting this store ??"
         open={show}
@@ -156,7 +163,7 @@ function StoreTopDetails({ data, setSuccess }) {
             </svg>
           </span>
           <span style={{ cursor: "pointer" }}>
-            <ShareToUserChat slug={sid} type='store'/>
+            <ShareToUserChat slug={sid} type="store" />
           </span>
           {/* <span
             onClick={() => handleShareStorePost(sid)}
@@ -246,7 +253,7 @@ function StoreTopDetails({ data, setSuccess }) {
         </span>
       </div>
 
-      <div className="my-3">
+      <div className="my-3 ">
         <div className="row">
           <div className="col-md-6">
             <h5 className="dark-theme-color">{data.title}</h5>

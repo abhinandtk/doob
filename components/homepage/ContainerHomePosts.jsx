@@ -18,6 +18,9 @@ import VisibilitySensor from "react-visibility-sensor";
 import SharePostToUser from "./social/share/SharePostToUser";
 import { useTheme } from "next-themes";
 import { useTranslation } from "next-i18next";
+import Login from "@/components/user/Login";
+import { CardImg } from "react-bootstrap";
+import { Modal } from "antd";
 
 function ContainerHomePosts() {
   const { t } = useTranslation();
@@ -26,23 +29,34 @@ function ContainerHomePosts() {
   const apiSuccess = useSelector((state) => state.api);
   const [visibleComment, setVisibleComment] = useState(false);
   const [visibleShared, setVisibleShared] = useState(false);
+  const [visible, setVisible] = useState(false);
   const [page, setPage] = useState(1);
-  const [liked, setLiked] = useState(false);
+  const [likedUsersList, setLikedUsersList] = useState([]);
   const [totalLike, setTotalLike] = useState();
 
   const [postsData, setPostsData] = useState([]);
   const [postId, setPostId] = useState(null);
   const [slug, setSlug] = useState(null);
+  const [loadMore, setLoadMore] = useState(true);
   const [onSuccess, setOnSuccess] = useState(true);
+  const [showLogin, setShowLogin] = useState(false);
+
+  const isAuthenticated = constants.token_id;
   useEffect(() => {
     const paginationApiUrl = `${apis.homepageapi}?page=${page}`;
-    Axios.get(paginationApiUrl, {
-      headers: {
+    let headers = {};
+    const isAuthenticated = constants.token_id;
+    if (isAuthenticated) {
+      headers = {
         Authorization: `Token ${constants.token_id}`,
-      },
+      };
+    }
+    Axios.get(paginationApiUrl, {
+      headers,
     })
       .then((res) => {
-        console.log("we3", res);
+        console.log("we33333333333333333333333333333", res);
+        setLoadMore(!!res.data.next);
         const updatedPosts = res.data.data.posts.map((post) => ({
           ...post,
           liked: post.is_liked === 1 ? true : false,
@@ -53,15 +67,16 @@ function ContainerHomePosts() {
         } else {
           setPostsData((prevPosts) => [...prevPosts, ...updatedPosts]);
         }
-      
       })
       .catch((error) => {
         localStorage.removeItem("user-login-tokens");
-        console.error(error);
+        if (error.response && error.response.status === 401) {
+          localStorage.removeItem("user-login-tokens");
+        } else {
+          console.log("An error occurred while fetching product details.");
+        }
       });
-  }, [onSuccess, apiSuccess, visibleComment,page]);
-
-  console.log("weweweee", postsData);
+  }, [onSuccess, apiSuccess, visibleComment, page]);
 
   const likeHandler = (postId, index, isSharedPost) => {
     // e.preventDefault()
@@ -93,9 +108,14 @@ function ContainerHomePosts() {
   };
 
   const commentClick = (post_id, slug) => {
-    setVisibleComment(true);
-    setPostId(post_id);
-    setSlug(slug);
+    const isAuthenticated = constants.token_id;
+    if (isAuthenticated) {
+      setVisibleComment(true);
+      setPostId(post_id);
+      setSlug(slug);
+    } else {
+      setShowLogin(true);
+    }
   };
   const sharedClick = (id) => {
     setPostId(id);
@@ -131,9 +151,80 @@ function ContainerHomePosts() {
       // Perform actions when the element becomes hidden
     }
   };
+  const likedUsershandler = (slug) => {
+    if (isAuthenticated) {
+      Axios.post(
+        apis.likedUsers,
+        {
+          slug: slug,
+        },
+        {
+          headers: {
+            Authorization: `Token ${constants.token_id}`,
+          },
+        }
+      ).then((res) => {
+        console.log("result56", res);
+        setLikedUsersList(res.data.data);
+        setVisible(true);
+      });
+    } else {
+      setShowLogin(true);
+    }
+  };
 
   return (
     <Fragment>
+      {showLogin && <Login setShowLogin={setShowLogin} />}
+      <Modal
+        open={visible}
+        onCancel={() => setVisible(false)}
+        footer={null}
+        // width={500}
+        closable
+        maskClosable
+        centered
+        bodyStyle={{ maxHeight: "50vh", overflowY: "scroll" }}
+        title={t("Liked Users")}
+      >
+        <div style={{ padding: "16px" }}>
+          {likedUsersList &&
+            likedUsersList.map((item, index) => (
+              <div key={index} className="side-menu__suggestion">
+                <div className="side-menu__suggestion-avatar">
+                  {item.image ? (
+                    <CardImg
+                      className="rounded-circle shadow-1-strong "
+                      src={`${constants.port}${item.image}`}
+                      style={{
+                        width: "46px",
+                        height: "46px",
+                        objectFit: "cover",
+                      }}
+                    ></CardImg>
+                  ) : (
+                    <CardImg
+                      className="rounded-circle shadow-1-strong "
+                      src="/images/accounts/user_default.png"
+                      style={{
+                        width: "46px",
+                        height: "46px",
+                        objectFit: "cover",
+                      }}
+                    ></CardImg>
+                  )}
+                </div>
+                <div className="side-menu__suggestion-info">
+                  <p>
+                    <b>{item.name}</b>
+                    <br></br>
+                    {item.username}
+                  </p>
+                </div>
+              </div>
+            ))}
+        </div>
+      </Modal>
       {/* <div className="text_followers" >My Followers</div> */}
       {/* <div className="ms-1">
         <b>My Followers</b>
@@ -414,7 +505,7 @@ function ContainerHomePosts() {
                               />
                             </svg>
                           </button> */}
-                          <SharePostToUser slug={item.slug}/>
+                          <SharePostToUser slug={item.slug} />
                         </>
                       )
                     ) : (
@@ -542,7 +633,11 @@ function ContainerHomePosts() {
                     ) : (
                       <>
                         <div className="post__likes">
-                          <h6 className="post-names">
+                          <h6
+                            className="post-names"
+                            style={{ cursor: "pointer" }}
+                            onClick={() => likedUsershandler(item.slug)}
+                          >
                             {item.totalLike} {t("Likes")}
                           </h6>
                         </div>
@@ -572,14 +667,15 @@ function ContainerHomePosts() {
           setOnSuccess={setOnSuccess}
         />
       )}
-
-      <p
-        onClick={() => setPage((prev) => prev + 1)}
-        className="dark-theme-color my-2"
-        style={{ cursor: "pointer", textAlign: "center" }}
-      >
-        {t("Load More")}
-      </p>
+      {loadMore && (
+        <p
+          onClick={() => setPage((prev) => prev + 1)}
+          className="dark-theme-color my-2"
+          style={{ cursor: "pointer", textAlign: "center" }}
+        >
+          {t("Load More")}
+        </p>
+      )}
 
       <div className="post__content">
         <div className="post__medias" style={{ marginTop: "9px" }}>

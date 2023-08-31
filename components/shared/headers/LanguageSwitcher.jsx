@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { i18n, useTranslation } from "next-i18next";
 import { Dropdown } from "react-bootstrap";
 import { useRouter } from "next/router";
+import { useTheme } from "next-themes";
 
 function LanguageSwitcher() {
   const router = useRouter();
@@ -11,13 +12,18 @@ function LanguageSwitcher() {
     router.push({ pathname, query }, undefined, { locale: lang });
   };
   const { locale } = router;
+  const { theme } = useTheme();
+  const [svgStroke, setSvgStroke] = useState("");
+  useEffect(() => {
+    setSvgStroke(theme === "dark" ? "white" : "black");
+  }, [theme]);
   return (
     <Dropdown className="Drop">
       <Dropdown.Toggle
         variant=""
         id="dropdown-basic"
         style={{
-          color: "black",
+          color: svgStroke,
           borderColor: "transparent",
           background: "transparent",
         }}

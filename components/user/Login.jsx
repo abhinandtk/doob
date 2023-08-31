@@ -17,7 +17,7 @@ import { toast } from "react-toastify";
 // import {useAuthState} from 'react-firebase-hooks/auth'
 import { message, notification } from "antd";
 import { useRouter } from "next/router";
-function Login({ setActiveModal }) {
+function Login({ setActiveModal, setShowLogin }) {
   const router = useRouter();
   const { locale } = router;
   const [error, setError] = useState("");
@@ -115,11 +115,12 @@ function Login({ setActiveModal }) {
       }
     });
   };
+  const modalHideHandler = () => {
+    setShows(false);
+    setShowLogin(false);
+  };
   return (
-    <Modal
-      show={shows}
-      // onHide={()=>setShows(false)}
-    >
+    <Modal show={shows} onHide={() => modalHideHandler()}>
       <Modal.Header></Modal.Header>
       <Modal.Title className="title">Login</Modal.Title>
       <Modal.Body>

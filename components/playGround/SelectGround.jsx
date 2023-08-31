@@ -48,6 +48,7 @@ function SelectGround({ details, setSuccess, setDateSelected }) {
     });
 
     // if (inputData.sports_id || gameId) {
+    if (selectedSlots.length >= 1) {
       Axios.post(
         apis.playCart,
         {
@@ -64,7 +65,7 @@ function SelectGround({ details, setSuccess, setDateSelected }) {
           },
         }
       ).then((res) => {
-        console.log("resultcart", res,{
+        console.log("resultcart", res, {
           time_slots: selectedSlots,
           stadium_name: inputData.stadium_id,
           amount: details.amount,
@@ -85,6 +86,12 @@ function SelectGround({ details, setSuccess, setDateSelected }) {
           });
         }
       });
+    } else {
+      notification.info({
+        messsage: constants.Info,
+        description: `${labels["Please select a slot"]}`,
+      });
+    }
     // } else {
     //   setVisible(true);
     // }

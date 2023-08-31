@@ -108,7 +108,7 @@ function PagesSideBar({ currentPage }) {
             className="mx-2 flops"
             style={{ color: `${currentPage === "wallet" ? "#17A803" : ""}` }}
           >
-            Wallet
+            {t("Wallet")}
           </span>
         </Link>
         <Link href="/page/favorite-stores" style={{ textDecoration: "none" }}>
@@ -135,7 +135,7 @@ function PagesSideBar({ currentPage }) {
             className="mx-2 flops"
             style={{ color: `${currentPage === "fav-store" ? "#17A803" : ""}` }}
           >
-            Favourite Store
+            {t("Favourite Stores")}
           </span>
         </Link>
         <Link href="/page/favorite-products" style={{ textDecoration: "none" }}>
@@ -155,7 +155,7 @@ function PagesSideBar({ currentPage }) {
             className="mx-2 flops"
             style={{ color: `${currentPage === "fav-prod" ? "#17A803" : ""}` }}
           >
-            Favourite Products
+            {t("Favourite Products")}
           </span>
         </Link>
         <Link href="/page/address-page" style={{ textDecoration: "none" }}>
@@ -179,7 +179,7 @@ function PagesSideBar({ currentPage }) {
             className="mx-2 flops"
             style={{ color: `${currentPage === "address" ? "#17A803" : ""}` }}
           >
-            Address
+            {t("Address")}
           </span>
         </Link>
         <Link
@@ -204,7 +204,7 @@ function PagesSideBar({ currentPage }) {
             className="mx-2 flops"
             style={{ color: `${currentPage === "bookings" ? "#17A803" : ""}` }}
           >
-            Booking
+            {t("Bookings")}
           </span>
         </Link>
 
@@ -225,7 +225,7 @@ function PagesSideBar({ currentPage }) {
             className="mx-2 flops"
             style={{ color: `${currentPage === "myOrder" ? "#17A803" : ""}` }}
           >
-            My Orders
+            {t("My Orders")}
           </span>
         </Link>
         <Link href="/store/feedback" style={{ textDecoration: "none" }}>
@@ -246,7 +246,7 @@ function PagesSideBar({ currentPage }) {
             style={{ color: `${currentPage === "feedback" ? "#17A803" : ""}` }}
           >
             {" "}
-            FeedBack
+            {t("Feedback")}
           </span>
         </Link>
         <Link href="/page/settings-page" style={{ textDecoration: "none" }}>
@@ -286,7 +286,7 @@ function PagesSideBar({ currentPage }) {
             />
           </svg>
           <span onClick={() => setShow(true)} className="mx-2">
-            Logout
+            {t("Logout")}
           </span>
         </span>
       </div>

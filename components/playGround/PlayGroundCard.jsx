@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Fragment } from "react";
 import Axios from "axios";
 import constants from "@/public/data/my-constants/Constants";
@@ -6,13 +6,30 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import moment from "moment";
 import { useTranslation } from "next-i18next";
+import Login from "../user/Login";
 
 function PlayGroundCard({ content }) {
   const router = useRouter();
   const { t } = useTranslation();
+  const [showLogin, setShowLogin] = useState(false);
+  const isAuthenticated = constants.token_id;
+  const handleNavigation = (slug, id) => {
+    if (isAuthenticated) {
+      router.push({
+        pathname: `/play-ground/${slug}`,
+        query: {
+          stadium_id: id,
+          date: moment().format("YYYY-MM-DD"),
+        },
+      });
+    } else {
+      setShowLogin(true);
+    }
+  };
 
   return (
     <Fragment>
+      {showLogin && <Login setShowLogin={setShowLogin} />}
       <div className="clearfix jst mt-3 ">
         <h5
           className="float-start"
@@ -24,19 +41,10 @@ function PlayGroundCard({ content }) {
           {/* View all */}
         </p>
       </div>
-
       <div className="playgrounds " style={{ cursor: "pointer" }}>
         {content.map((item, index) => (
           <div
-            onClick={() =>
-              router.push({
-                pathname: `/play-ground/${item.slug_field}`,
-                query: {
-                  stadium_id: item.id,
-                  date: moment().format("YYYY-MM-DD"),
-                },
-              })
-            }
+            onClick={() => handleNavigation(item.slug_field, item.id)}
             key={index}
             className="card playground-card"
           >

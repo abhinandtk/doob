@@ -1,17 +1,18 @@
 import constants from "@/public/data/my-constants/Constants";
-import React from "react";
+import React, { useState } from "react";
 import { Fragment } from "react";
 import moment from "moment";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
+import Login from "@/components/user/Login";
 
 function TournamentTabContent({ data }) {
   const { t } = useTranslation();
 
   console.log("dataLive", data);
   const router = useRouter();
-
+  const [showLogin, setShowLogin] = useState(false);
   const getMatchTime = (time, date) => {
     const startDate = moment(date, "YYYY-MM-DD");
     const startTime = moment(time, "HH:mm:ss");
@@ -41,8 +42,17 @@ function TournamentTabContent({ data }) {
     console.log("matchTime:", matchTime);
     return matchTime;
   };
+  const viewAllHandler = () => {
+    const isAuthenticated = constants.token_id;
+    if (isAuthenticated) {
+      router.push("/tournament/all-tournament");
+    } else {
+      setShowLogin(true);
+    }
+  };
   return (
     <Fragment>
+      {showLogin && <Login setShowLogin={setShowLogin} />}
       <h6 className="my-2 dark-theme-color" style={{ fontWeight: "600" }}>
         {t("Live Tournaments")}
       </h6>
@@ -136,7 +146,7 @@ function TournamentTabContent({ data }) {
           ))}
 
           <button
-            onClick={() => router.push("/tournament/all-tournament")}
+            onClick={() => viewAllHandler()}
             type="button"
             className="live-btn my-4"
           >

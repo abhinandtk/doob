@@ -98,8 +98,8 @@ function ShopPagesSideBar({ currentPage }) {
       </Link>
       <Link href="/shop/product-management" style={{ textDecoration: "none" }}>
         <svg
-          width="3032"
-          height="3600"
+          width="25"
+          height="21"
           viewBox="0 0 3032 3600"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

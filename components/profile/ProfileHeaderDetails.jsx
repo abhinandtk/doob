@@ -68,7 +68,6 @@ function ProfileHeaderDetails({ data, setSuccess }) {
         setLoading(false);
       }
       message.success("profile image deleted successfully");
-      console.log("ressssssssssssssssssssssssss", res);
     });
   };
 
@@ -144,7 +143,11 @@ function ProfileHeaderDetails({ data, setSuccess }) {
               name="profilePicture"
               showUploadList={false}
               beforeUpload={(file) => {
-                // validate file type and size here
+                const maxSize = 1024 * 1024;
+                if (file.size > maxSize) {
+                  message.error("Image size should be less than 1 MB");
+                  return false;
+                }
                 return true;
               }}
               customRequest={({ file }) => {
@@ -157,18 +160,19 @@ function ProfileHeaderDetails({ data, setSuccess }) {
               </span>
             </Upload>
           </div>
-
-          <div
-            onClick={deleteProfileImg}
-            style={{
-              cursor: "pointer",
-              marginBottom: "10px",
-              width: "100%",
-              textAlign: "center",
-            }}
-          >
-            {t("Remove Photo")}
-          </div>
+          {data.user_image && (
+            <div
+              onClick={deleteProfileImg}
+              style={{
+                cursor: "pointer",
+                marginBottom: "10px",
+                width: "100%",
+                textAlign: "center",
+              }}
+            >
+              {t("Remove Photo")}
+            </div>
+          )}
           <div style={{ cursor: "pointer" }} onClick={() => setVisible(false)}>
             {t("Cancel")}
           </div>
@@ -370,7 +374,9 @@ function ProfileHeaderDetails({ data, setSuccess }) {
               </div>
               <div className="profile-age">
                 {t("Age")}:<span>{data.age}</span>
-                <span className="mx-2">{t("Gender")}: {data.gender}</span>
+                <span className="mx-2">
+                  {t("Gender")}: {data.gender}
+                </span>
               </div>
               <div className="profile-country">
                 {" "}

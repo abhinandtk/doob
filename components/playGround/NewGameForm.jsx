@@ -9,6 +9,8 @@ import { Modal } from "antd";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
+import moment from "moment";
+import Login from "../user/Login";
 
 function NewGameForm({ game, country }) {
   const { t } = useTranslation();
@@ -17,6 +19,9 @@ function NewGameForm({ game, country }) {
   const [visible, setVisible] = useState(false);
   const [area, setArea] = useState([]);
   console.log("res98", country);
+  const [showLogin, setShowLogin] = useState(false);
+
+  const isAuthenticated = constants.token_id;
 
   useEffect(() => {
     if (router.query.path === "headerNav") {
@@ -89,8 +94,18 @@ function NewGameForm({ game, country }) {
       });
   };
 
+  const createGameShowHandler = () => {
+    if (isAuthenticated) {
+      setVisible(true);
+    } else {
+      setShowLogin(true);
+    }
+  };
+
   return (
     <Fragment>
+      {showLogin && <Login setShowLogin={setShowLogin} />}
+
       <section>
         <div className="game_clearfix">
           <h5
@@ -100,11 +115,11 @@ function NewGameForm({ game, country }) {
             {t("Games")}
           </h5>
           <button
-            onClick={() => setVisible(true)}
+            onClick={() => createGameShowHandler()}
             type="button"
             className="newGame-btn float-end"
           >
-            {t("New Game")}
+            {t("Create New Game")}
           </button>
         </div>
       </section>
@@ -156,6 +171,7 @@ function NewGameForm({ game, country }) {
               style={{ border: "0px", background: "#eeeeee", color: "#959595" }}
               id="date"
               placeholder="Date"
+              min={moment().format("YYYY-MM-DD")}
               onChange={(e) => handleChange(e)}
             />
           </div>

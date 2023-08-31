@@ -9,12 +9,15 @@ import moment from "moment";
 import { useSelector } from "react-redux";
 import { useTheme } from "next-themes";
 import { Realtime } from "ably";
+import { useTranslation } from "next-i18next";
 function MessagesList({ onChatSelect, onNewMsg }) {
   const router = useRouter();
   const [inboxUsers, setInboxUsers] = useState([]);
   const [currentId, setCurrentId] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [onSuccess, setOnSuccess] = useState(false);
+
+  const { t } = useTranslation();
 
   const { theme } = useTheme();
 
@@ -77,7 +80,7 @@ function MessagesList({ onChatSelect, onNewMsg }) {
                 marginLeft: "3px",
               }}
             >
-              Messages
+              {t("Messages")}
             </h6>
           </div>
           <h6
@@ -135,29 +138,28 @@ function MessagesList({ onChatSelect, onNewMsg }) {
                     alt=""
                   />
                   {lastSeenHandler(item.recipeint.last_logined) &&
-                    item.chat.type !==
-                      "group"&&(
-                        <svg
-                          width="10"
-                          height="10"
-                          style={{
-                            marginLeft: "30px",
-                            marginTop: "35px",
-                            position: "absolute",
-                          }}
-                          viewBox="0 0 10 10"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <ellipse
-                            cx="4.82459"
-                            cy="5.16357"
-                            rx="4.66443"
-                            ry="4.83643"
-                            fill="#17A803"
-                          />
-                        </svg>
-                      )}
+                    item.chat.type !== "group" && (
+                      <svg
+                        width="10"
+                        height="10"
+                        style={{
+                          marginLeft: "30px",
+                          marginTop: "35px",
+                          position: "absolute",
+                        }}
+                        viewBox="0 0 10 10"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <ellipse
+                          cx="4.82459"
+                          cy="5.16357"
+                          rx="4.66443"
+                          ry="4.83643"
+                          fill="#17A803"
+                        />
+                      </svg>
+                    )}
                 </div>
                 <div className="details">
                   <div className="listHead">

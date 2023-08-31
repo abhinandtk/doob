@@ -6,7 +6,7 @@ function SearchCategory({ category }) {
   const router = useRouter();
   return (
     <Fragment>
-      <div className="my-2 ">
+      <div className="my-2 store-cat-details">
         <h5 className="dark-theme-color">{t("Category")}</h5>
         <div className="game-scroll ">
           {category.map((item, index) => (

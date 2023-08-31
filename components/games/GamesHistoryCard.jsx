@@ -29,7 +29,8 @@ function GamesHistoryCard({ data }) {
                           ></img>
                         )}
                       </span>
-                      <svg
+                      <span>&nbsp;</span>
+                      {/* <svg
                         width="28"
                         height="27"
                         viewBox="0 0 28 27"
@@ -48,7 +49,7 @@ function GamesHistoryCard({ data }) {
                           d="M12.4629 6.5147C12.4629 5.91504 12.9701 5.42892 13.5959 5.42892C14.2216 5.42892 14.7289 5.91504 14.7289 6.5147C14.7289 7.11436 14.2216 7.60049 13.5959 7.60049C12.9701 7.60049 12.4629 7.11436 12.4629 6.5147Z"
                           fill="black"
                         />
-                      </svg>
+                      </svg> */}
                     </div>
                   </div>
                   <div className="book-content">
@@ -100,7 +101,9 @@ function GamesHistoryCard({ data }) {
                       ))}
                       <span className="mx-4" style={{ color: "#959595" }}>
                         {item.participants.length - 4 >= 1
-                          ? `+${item.participants.length - 4} more ${t("Participants")}`
+                          ? `+${item.participants.length - 4} more ${t(
+                              "Participants"
+                            )}`
                           : ""}
                         {/* +7 more participants */}
                       </span>{" "}

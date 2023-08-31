@@ -12,6 +12,7 @@ import { useSelector } from "react-redux";
 import ReviewProduct from "../review/ReviewProduct";
 import { useTranslation } from "next-i18next";
 import ShareToUserChat from "@/components/homepage/social/share/ShareToUserChat";
+import Login from "@/components/user/Login";
 
 function ProductDetailTopDetails({ product, setApiSuccess }) {
   console.log("===============", product);
@@ -19,6 +20,7 @@ function ProductDetailTopDetails({ product, setApiSuccess }) {
 
   const router = useRouter();
   const { locale } = router;
+  const [showLogin, setShowLogin] = useState(false);
 
   const labels = Labels();
   let productStock;
@@ -74,21 +76,26 @@ function ProductDetailTopDetails({ product, setApiSuccess }) {
 
   const wishlistHandler = () => {
     const api = wishlistStatus ? apis.removewishlist : apis.addwishlist;
-    Axios.post(
-      api,
-      {
-        product_id: prVarientId,
-      },
-      {
-        headers: {
-          Authorization: `Token ${constants.token_id}`,
+    const isAuthenticated = constants.token_id;
+    if (isAuthenticated) {
+      Axios.post(
+        api,
+        {
+          product_id: prVarientId,
         },
-      }
-    ).then((res) => {
-      console.log("weeeeresult34", res);
-      setwishlistStatus(!wishlistStatus);
-      // setApiSuccess((prev) => !prev);
-    });
+        {
+          headers: {
+            Authorization: `Token ${constants.token_id}`,
+          },
+        }
+      ).then((res) => {
+        console.log("weeeeresult34", res);
+        setwishlistStatus(!wishlistStatus);
+        // setApiSuccess((prev) => !prev);
+      });
+    } else {
+      setShowLogin(true);
+    }
   };
   const handleSend = async () => {
     try {
@@ -103,6 +110,8 @@ function ProductDetailTopDetails({ product, setApiSuccess }) {
 
   return (
     <Fragment>
+      {showLogin && <Login setShowLogin={setShowLogin} />}
+
       <span className="float">
         {/* <i
           className={`${
@@ -126,7 +135,7 @@ function ProductDetailTopDetails({ product, setApiSuccess }) {
             />
           </svg>
         </span>
-        <ShareToUserChat slug={prVarientId} type='product'/>
+        <ShareToUserChat slug={prVarientId} type="product" />
         {/* <span
           onClick={() => shareToPostHandler()}
           style={{ cursor: "pointer" }}
@@ -155,10 +164,7 @@ function ProductDetailTopDetails({ product, setApiSuccess }) {
           </svg>
         </span> */}
         <span>
-          <Dropdown
-            className=""
-            style={{ display: "inline-block"}}
-          >
+          <Dropdown className="" style={{ display: "inline-block" }}>
             <Dropdown.Toggle
               variant=""
               id="dropdown-basic"
@@ -166,7 +172,7 @@ function ProductDetailTopDetails({ product, setApiSuccess }) {
                 color: "black",
                 borderColor: "transparent",
                 background: "transparent",
-                padding:"0px"
+                padding: "0px",
               }}
             >
               <svg

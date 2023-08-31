@@ -119,7 +119,7 @@ function PlaygroundFilter({ playgroundFilterHandler, setMapShow, pageCount }) {
             id="search"
             type="search"
             value={searchKey}
-            placeholder="Search"
+            placeholder={t("Search")}
             onChange={(e) => changeSearchHandler(e)}
           />
           <span onClick={() => setMapShow((prev) => !prev)}>
@@ -186,6 +186,7 @@ function PlaygroundFilter({ playgroundFilterHandler, setMapShow, pageCount }) {
               id="date"
               placeholder="Date"
               onChange={(e) => handleChange(e)}
+              min={moment().format("YYYY-MM-DD")}
               defaultValue={moment(formData.date).format("YYYY-MM-DD")}
             />
           </div>

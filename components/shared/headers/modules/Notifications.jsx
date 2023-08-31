@@ -76,6 +76,23 @@ function Notifications({ setNotificationShow }) {
       console.log("reeacccept", res);
     });
   };
+  const rejectRequestHandler = (id) => {
+    Axios.post(
+      apis.rejectRequest,
+      {
+        user_id: id,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      setFollowStatus(!followStatus);
+
+      console.log("reeacccept", res);
+    });
+  };
 
   const unFollowAccount = (id) => {
     Axios.delete(apis.follow, {
@@ -155,6 +172,7 @@ function Notifications({ setNotificationShow }) {
                       ) : item.is_requested == 1 ? (
                         <button
                           type="button"
+                          onClick={() => followAccount(item.user_id)}
                           style={{ backgroundColor: "grey" }}
                           className="side-suggestion-button2"
                         >
@@ -208,8 +226,19 @@ function Notifications({ setNotificationShow }) {
                       <button
                         onClick={() => acceptRequestHandler(item.user_id)}
                         className="side-suggestion-button2"
+                        style={{ marginRight: "6px" }}
                       >
                         {t("Accept")}
+                      </button>
+                      <button
+                        onClick={() => rejectRequestHandler(item.user_id)}
+                        className="side-suggestion-button2"
+                        style={{
+                          marginRight: "6px",
+                          backgroundColor: "#90978f",
+                        }}
+                      >
+                        {t("Reject")}
                       </button>
                     </div>
                   ) : item.type === "Marketting Message" ? (
@@ -303,6 +332,8 @@ function Notifications({ setNotificationShow }) {
                         {t("View")}
                       </button>
                     </div>
+                  ) : item.type === "Live" ? (
+                    <></>
                   ) : (
                     <div className="side-menu__suggestions">
                       <a href="#" className="side-menu__suggestion-avatars">
@@ -348,7 +379,7 @@ function Notifications({ setNotificationShow }) {
                           )}
                         </a>
                       </div>
-                      <button className="side-suggestion-button1">
+                      <div className="side-suggestion-button1">
                         {" "}
                         <img
                           src={`${constants.port}${item.liked_post}`}
@@ -357,9 +388,10 @@ function Notifications({ setNotificationShow }) {
                             width: "44px",
                             height: "44px",
                             objectFit: "cover",
+                            cursor: "hidden",
                           }}
                         />
-                      </button>
+                      </div>
                     </div>
                   )}
                 </div>

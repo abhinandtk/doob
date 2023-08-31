@@ -7,6 +7,8 @@ import constants from "@/public/data/my-constants/Constants";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
+import Login from "@/components/user/Login";
+
 export default function PostActions({
   postId,
   user,
@@ -20,7 +22,8 @@ export default function PostActions({
   const [visible, setVisible] = useState(false);
   const [reason, setReason] = useState("");
   const router = useRouter();
-  const labels = Labels('en');
+  const labels = Labels("en");
+  const [showLogin, setShowLogin] = useState(false);
 
   const postReportHandler = (e) => {
     console.log("ppppppppppp", postId);
@@ -78,9 +81,27 @@ export default function PostActions({
       console.error("Error sharing:", error);
     }
   };
+  const reportModalHandler = () => {
+    const isAuthenticated = constants.token_id;
+    if (isAuthenticated) {
+      setShow(true);
+    } else {
+      setShowLogin(true);
+    }
+  };
+  const deleteModalHandler = () => {
+    const isAuthenticated = constants.token_id;
+    if (isAuthenticated) {
+      setVisible(true);
+    } else {
+      setShowLogin(true);
+    }
+  };
 
   return (
     <>
+      {showLogin && <Login setShowLogin={setShowLogin} />}
+
       <Modal
         title="Why are you reporting this post ??"
         open={show}
@@ -149,11 +170,11 @@ export default function PostActions({
 
         <Dropdown.Menu align="center" className="Menu">
           {constants.user_id !== user ? (
-            <Dropdown.Item onClick={() => setShow(true)}>
+            <Dropdown.Item onClick={() => reportModalHandler()}>
               {t("Report")}
             </Dropdown.Item>
           ) : (
-            <Dropdown.Item onClick={() => setVisible(true)}>
+            <Dropdown.Item onClick={() => deleteModalHandler()}>
               {t("Delete")}
             </Dropdown.Item>
           )}
@@ -168,7 +189,7 @@ export default function PostActions({
             </Dropdown.Item>
           )} */}
           <Dropdown.Item onClick={() => handleSend(data.slug)}>
-          {t("Send")}
+            {t("Send")}
           </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>

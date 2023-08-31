@@ -1,6 +1,6 @@
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
-import { Modal, notification, Button } from "antd";
+import { Modal, notification } from "antd";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -8,6 +8,8 @@ import Axios from "axios";
 import Form from "react-bootstrap/Form";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
+import { Button } from "react-bootstrap";
+import moment from "moment";
 
 function ProfileEdit({ data, setSuccess }) {
   const { t } = useTranslation();
@@ -45,6 +47,7 @@ function ProfileEdit({ data, setSuccess }) {
     });
   }, [data]);
   const handleInputChange = (e) => {
+    e.preventDefault();
     const newProfileData = { ...profileFormData };
     newProfileData[e.target.id] = e.target.value;
     setProfileFormData({ ...newProfileData });
@@ -93,19 +96,20 @@ function ProfileEdit({ data, setSuccess }) {
         open={showEdit}
         onCancel={() => setShowEdit(false)}
         title={t("Edit Profile")}
-        footer={[
-          <Button key="back" onClick={() => setShowEdit(false)}>
-            {t("Cancel")}
-          </Button>,
-          <Button
-            style={{ backgroundColor: "#17A803" }}
-            key="submit"
-            type="primary"
-            onClick={(e) => editProfileSubmit(e)}
-          >
-            {t("Submit")}
-          </Button>,
-        ]}
+        // footer={[
+        //   <Button key="back" onClick={() => setShowEdit(false)}>
+        //     {t("Cancel")}
+        //   </Button>,
+        //   <Button
+        //     style={{ backgroundColor: "#17A803" }}
+        //     key="submit"
+        //     type="primary"
+        //     onClick={(e) => editProfileSubmit(e)}
+        //   >
+        //     {t("Submit")}
+        //   </Button>,
+        // ]}
+        footer={null}
       >
         <Form onSubmit={(e) => editProfileSubmit(e)}>
           <Form.Group className="mb-1 " controlId="formBasicEmail">
@@ -215,8 +219,24 @@ function ProfileEdit({ data, setSuccess }) {
                 handleInputChange(e);
               }}
               value={profileFormData.dob}
+              max={moment().format("YYYY-MM-DD")}
               required
             />
+          </Form.Group>
+          <Form.Group
+            className=" "
+            style={{ display: "flex", justifyContent: "flex-end" }}
+          >
+            <Button
+              style={{ backgroundColor: "#17A803" }}
+              key="submit"
+              type="submit"
+              className=" btn profile-edit-btn1"
+
+              // onClick={(e) => editProfileSubmit(e)}
+            >
+              {t("Submit")}
+            </Button>
           </Form.Group>
         </Form>
       </Modal>
