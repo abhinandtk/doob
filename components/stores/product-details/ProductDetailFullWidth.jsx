@@ -48,35 +48,36 @@ function ProductDetailFullWidth({ product, setApiSuccess }) {
     product[0].Product_Items.map((item, index) => {
       item.multivarient.length !== 0
         ? item.multivarient.map((item_, index_) => {
-            console.log("det32 secondvarId", prVarientId);
-            if (item_.slug_id === prVarientId) {
-              productStock = item_.stock;
-              (varientStatus = item_.status),
-                (priceView = (
-                  <p
-                    className="price"
-                    style={{ color: "gray", fontWeight: "400" }}
+          console.log("det32 secondvarId", prVarientId);
+          if (item_.slug_id === prVarientId) {
+            productStock = item_.stock;
+            (varientStatus = item_.status),
+              (priceView = (
+                <p
+                  className="price"
+                  style={{ color: "gray", fontWeight: "400", float: locale === "ar" && "left" }}
+                >
+                  <s style={{ float: locale === "ar" && "left" }}
+                  >{item_.cut_prize} KD</s>
+                  <span
+                    className="mx-2"
+                    style={{
+                      fontSize: "20px",
+                      fontWeight: "500",
+                      color: "#17a803",
+                    }}
                   >
-                    <s>{item_.cut_prize} KD</s>
-                    <span
-                      className="mx-2"
-                      style={{
-                        fontSize: "20px",
-                        fontWeight: "500",
-                        color: "#17a803",
-                      }}
-                    >
-                      {item_.actual_prize} KD
-                    </span>
-                    <span></span>
-                  </p>
-                ));
+                    {item_.actual_prize} KD
+                  </span>
+                  <span></span>
+                </p>
+              ));
 
-              dispatch(setProPrimaryVarientId(item.varent_id));
-              dispatch(setProSecondaryVarientId(item_.slug_id));
-              // setSuccess(true);
-            }
-          })
+            dispatch(setProPrimaryVarientId(item.varent_id));
+            dispatch(setProSecondaryVarientId(item_.slug_id));
+            // setSuccess(true);
+          }
+        })
         : dispatch(setProPrimaryVarientId(item.varent_id));
       console.log(
         "det32 item.varent_idsingle",
@@ -85,7 +86,7 @@ function ProductDetailFullWidth({ product, setApiSuccess }) {
         prVarientId
       ),
         item.slug_id === prVarientId &&
-          ((productStock = item.stock),
+        ((productStock = item.stock),
           (varientStatus = item.status),
           (priceView = (
             <p style={{ color: "gray", fontWeight: "400" }}>

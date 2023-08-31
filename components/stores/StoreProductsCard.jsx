@@ -112,7 +112,7 @@ function StoreProductsCard({ products, title }) {
                           item.isWish
                         )
                       }
-                      style={{ float: "right" }}
+                      style={{ float: locale === "en" ? "right" : "left" }}
                     >
                       <i
                         className={`${

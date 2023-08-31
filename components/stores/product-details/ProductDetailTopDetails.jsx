@@ -32,24 +32,24 @@ function ProductDetailTopDetails({ product, setApiSuccess }) {
   product.Product_Items.map((item, index) => {
     item.multivarient.length !== 0
       ? item.multivarient.map((item_, index_) => {
-          if (item_.slug_id === prVarientId) {
-            productStock = item_.stock;
-            productNameExtension =
-              "| " + item.values_values + "| " + item_.values;
-          }
-        })
+        if (item_.slug_id === prVarientId) {
+          productStock = item_.stock;
+          productNameExtension =
+            "| " + item.values_values + "| " + item_.values;
+        }
+      })
       : item.slug_id === prVarientId &&
-        ((productNameExtension = "| " + item.values_values),
+      ((productNameExtension = "| " + item.values_values),
         (productStock = item.stock));
   });
   useEffect(() => {
     product.Product_Items.map((item, index) => {
       item.multivarient.length !== 0
         ? item.multivarient.map((item_, index_) => {
-            if (item_.slug_id === prVarientId) {
-              setwishlistStatus(item_.wishlist_status === 0 ? false : true);
-            }
-          })
+          if (item_.slug_id === prVarientId) {
+            setwishlistStatus(item_.wishlist_status === 0 ? false : true);
+          }
+        })
         : setwishlistStatus(item.wishlist_status === 0 ? false : true);
     });
   }, [prVarientId]);
@@ -112,7 +112,7 @@ function ProductDetailTopDetails({ product, setApiSuccess }) {
     <Fragment>
       {showLogin && <Login setShowLogin={setShowLogin} />}
 
-      <span className="float">
+      <span className={locale === "en" ? "float" : "float_ar"}>
         {/* <i
           className={`${
             wishlistStatus ? "bi bi-suit-heart-fill" : "bi bi-suit-heart"

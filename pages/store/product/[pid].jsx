@@ -26,6 +26,7 @@ function ProductDetailPage() {
   const [productDetails, setProductDetails] = useState([]);
   const [apiSuccess, setApiSuccess] = useState(false);
   const router = useRouter();
+  const { locale } = router;
   const { pid } = router.query;
   const dispatch = useDispatch();
   dispatch(setProVarient(pid));
@@ -82,7 +83,7 @@ function ProductDetailPage() {
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col">
               <div className="card cart">
-                <div className="card-body p-4 ">
+                <div className="card-body p-4 product-det-full" style={{ direction: locale === "en" ? "ltr" : "rtl" }}>
                   <div className="row ">
                     <ProductDetailFullWidth
                       product={productDetails}

@@ -22,6 +22,7 @@ function StoreTopDetails({ data, setSuccess }) {
 
   const [descShow, setDescShow] = useState(false);
   const router = useRouter();
+  const { locale } = router;
   console.log("dat", data);
   const { sid } = router.query;
 
@@ -140,7 +141,7 @@ function StoreTopDetails({ data, setSuccess }) {
           className="img-fluid"
           style={{ width: "100%", aspectRatio: "2.2", objectFit: "cover" }}
         ></img>
-        <img src={`${constants.port}${data.logo}`} className="foot-png"></img>
+   
         <span className="span-icon">
           <span style={{ cursor: "pointer" }}>
             <svg
@@ -251,9 +252,10 @@ function StoreTopDetails({ data, setSuccess }) {
             </Dropdown>
           </span>
         </span>
+        <img src={`${constants.port}${data.logo}`} className="foot-png"></img>
       </div>
-
-      <div className="my-3 ">
+     
+      <div className="my-3 store-header-details" >
         <div className="row">
           <div className="col-md-6">
             <h5 className="dark-theme-color">{data.title}</h5>
@@ -270,7 +272,7 @@ function StoreTopDetails({ data, setSuccess }) {
           </div>
 
           <div className="col-md-6">
-            <div className="more" onClick={() => setDescShow(!descShow)}>
+            <div className={locale === "en" ? "more" : "more_ar"} onClick={() => setDescShow(!descShow)}>
               More
               {descShow ? (
                 <i className="bi bi-chevron-down "></i>

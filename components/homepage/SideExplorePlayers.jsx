@@ -8,9 +8,13 @@ import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { useTheme } from "next-themes";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
 function SideExplorePlayers() {
   const { t } = useTranslation();
+  const router = useRouter()
+  const { locale } = router;
+
 
   const { theme } = useTheme();
   const [exploreData, setExploreData] = useState([]);
@@ -108,7 +112,7 @@ function SideExplorePlayers() {
               <button
                 onClick={() => exploreFollowHandler(item.id)}
                 className="side-menu__suggestion-button"
-                style={{ marginLeft: "auto" }}
+                style={{ [locale === "en" ? "marginLeft" : "marginRight"]: "auto" }}
               >
                 {t("Follow")}
               </button>
