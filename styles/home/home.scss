@@ -2251,7 +2251,7 @@ p.note {
   height: 32px;
 }
 .favouite-cards {
-  background-color: #eeeeee;
+  background-color: var(--row-list-alt);
   border-radius: 12px 12px 12px 12px;
   border: 0px;
   margin-top: -32px;
@@ -2290,7 +2290,7 @@ p.note {
   }
 }
 .store-card {
-  background-color: #eeeeee;
+  background-color: var(--row-list-alt);
   border-radius: 7%;
   border: 0px;
   width: 100%;

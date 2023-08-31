@@ -19,6 +19,7 @@ import MobileHeader from "@/components/MobileHeader";
 import MobileFooter from "@/components/shared/MobileFooter";
 import Link from "next/link";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from "next-i18next";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -30,6 +31,7 @@ export async function getStaticProps({ locale }) {
 function FavoriteProducts() {
   const [favLists, setFavLists] = useState([]);
   const [apiSuccess, setApiSuccess] = useState(false);
+  const {t}=useTranslation()
   useEffect(() => {
     Axios.get(apis.viewwishlist, {
       headers: {
@@ -76,7 +78,7 @@ function FavoriteProducts() {
 
         <div className="content-pages">
           <br></br>
-          <div className="head">Favourite Product</div>
+          <div className="head">{t("Favourite Products")}</div>
           <div className=" ones" style={{ minHeight: "500px" }}>
             <div className="row row-cols-2 my-2 g-3 p-3 store">
               {favLists &&

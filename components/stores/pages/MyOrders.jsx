@@ -54,7 +54,7 @@ function MyOrders() {
   return (
     <Fragment>
       <div class="content-topic ">
-        <h5 className="mt-4 ms-4 dark-theme-color">Order History</h5>
+        <h5 className="mt-4 ms-4 dark-theme-color">{t("Order History")}</h5>
         {ordersList.map((item, index) => {
           return (
             <div key={index} className="dark-theme-color">
@@ -112,7 +112,7 @@ function MyOrders() {
                 className="order-list-alt p-2 mx-auto d-flex justify-content-between align-items-center"
                 onClick={() => toggleOrderItem(index)}
               >
-                <span style={{ color: "#959595" }}>Items</span>
+                <span style={{ color: "#959595" }}>{t("Items")}</span>
                 {expandedItemIndex === index ? (
                   <i className="bi bi-chevron-up "></i>
                 ) : (

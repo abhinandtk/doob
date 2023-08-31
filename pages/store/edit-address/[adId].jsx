@@ -16,6 +16,7 @@ import { useRouter } from "next/router";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { useEffect } from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 export async function getServerSideProps({ locale }) {
   return {
@@ -25,6 +26,7 @@ export async function getServerSideProps({ locale }) {
   };
 }
 function EditAddressPage() {
+  const {t}=useTranslation()
   const router = useRouter();
   const { locale } = router;
   const { adId } = router.query;
@@ -150,11 +152,11 @@ function EditAddressPage() {
       <MobileHeader />
       <MainSidebarFixed />
       <div className="store-container  my-5">
-        <h5 className="add-address">Edit Address</h5>
+        <h5 className="add-address">{t("Edit Address")}</h5>
 
         <div className="card address-card ">
           <div className="card-body p-5  ">
-            <h6>Address Type</h6>
+            <h6>{t("Address Type")}</h6>
             <div className="rrr">
               <button
                 className="button button23"
@@ -162,7 +164,7 @@ function EditAddressPage() {
                 style={{ color: `${addressType === "home" ? "#17A803" : ""}` }}
               >
                 <i className="bi bi-house"></i>
-                <span className="mx-1">Home</span>
+                <span className="mx-1">{t("Home")}</span>
               </button>
               <button
                 className="button button23"
@@ -172,7 +174,7 @@ function EditAddressPage() {
                 }}
               >
                 <i className="bi bi-briefcase"></i>
-                <span className="mx-1">Office</span>
+                <span className="mx-1">{t("Office")}</span>
               </button>
               <button
                 className="button button23 "
@@ -182,7 +184,7 @@ function EditAddressPage() {
                 }}
               >
                 <i className="bi bi-building"></i>
-                <span className="mx-1">Apartment</span>
+                <span className="mx-1">{t("Apartment")}</span>
               </button>
               <button
                 className="button button23"
@@ -192,7 +194,7 @@ function EditAddressPage() {
                 }}
               >
                 <i className="bi bi-grid "></i>
-                <span className="mx-1">Third Party</span>
+                <span className="mx-1">{t("Third Party")}</span>
               </button>
             </div>
             {addressType === "home" && (
