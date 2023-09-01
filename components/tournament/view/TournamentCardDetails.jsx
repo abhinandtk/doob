@@ -1,9 +1,12 @@
 import constants from "@/public/data/my-constants/Constants";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 import { Fragment } from "react";
 
 function TournamentCardDetails({ data }) {
+  const router = useRouter()
+  const { locale } = router;
   const handleShare = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -26,7 +29,7 @@ function TournamentCardDetails({ data }) {
             className="live-image1"
             alt="Card image cap"
           />
-          <div className="live-icon">
+          <div className={locale==='ar'?"live-icon_ar":"live-icon"}>
             <span onClick={(e) => handleShare(e)}>
               <svg
                 width="22"

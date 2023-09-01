@@ -12,6 +12,7 @@ function TournamentTabContent({ data }) {
 
   console.log("dataLive", data);
   const router = useRouter();
+  const { locale } = router;
   const [showLogin, setShowLogin] = useState(false);
   const getMatchTime = (time, date) => {
     const startDate = moment(date, "YYYY-MM-DD");
@@ -115,7 +116,7 @@ function TournamentTabContent({ data }) {
                     </div>
                   </div>
 
-                  <div className="video-play">
+                  <div className={locale === "ar" ? "video-play_ar" : "video-play"}>
                     <svg
                       width="16"
                       height="19"
@@ -148,7 +149,7 @@ function TournamentTabContent({ data }) {
           <button
             onClick={() => viewAllHandler()}
             type="button"
-            className="live-btn my-4"
+            className={`${locale === "ar" ? "live-btn_ar" : "live-btn"} my-4`}
           >
             {t("View all")}
           </button>
@@ -157,7 +158,7 @@ function TournamentTabContent({ data }) {
           <div className="live-ads">
             <img
               src="/images/tournament/Group 12.png"
-              className="tournament-imx"
+              className={locale === "ar" ? "tournament-imx_ar" : "tournament-imx"}
             ></img>
           </div>
         </div>

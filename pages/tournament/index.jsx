@@ -13,6 +13,7 @@ import MobileFooter from "@/components/shared/MobileFooter";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Login from "@/components/user/Login";
+import { useRouter } from "next/router";
 export async function getStaticProps({ locale }) {
   return {
     props: {
@@ -26,6 +27,8 @@ function TournamentHomePage() {
   const [rankData, setRankData] = useState([]);
   const [activeTab, setActiveTab] = useState("tournaments");
   const [showLogin, setShowLogin] = useState(false);
+  const router = useRouter();
+  const { locale } = router;
   useEffect(() => {
     let headers = {};
     const isAuthenticated = constants.token_id;
@@ -58,35 +61,35 @@ function TournamentHomePage() {
       <MainSidebarFixed />
       {showLogin && <Login setShowLogin={setShowLogin} />}
       <div className="tour-container">
-        <div className="top-head-tour dark-theme-color">
-          <h5 className=" my-4" style={{ fontWeight: "600" }}>
-            {t("Tournaments")}
-          </h5>
-          <div className="topnav">
-            <span
-              onClick={() => setActiveTab("tournaments")}
-              className={`${
-                activeTab === "tournaments" ? "active" : ""
-              } dark-theme-color`}
-              style={{ cursor: "pointer" }}
-            >
+        <div style={{ direction: locale === 'ar' ? "rtl" : "ltr" }}>
+          <div className="top-head-tour dark-theme-color">
+            <h5 className=" my-4" style={{ fontWeight: "600" }}>
               {t("Tournaments")}
-            </span>
-            <span
-              onClick={() => rankTabHandler()}
-              className={`${
-                activeTab === "ranks" ? "active" : ""
-              } dark-theme-color`}
-              style={{ cursor: "pointer" }}
-            >
-              {t("Ranks")}
-            </span>
+            </h5>
+            <div className="topnav">
+              <span
+                onClick={() => setActiveTab("tournaments")}
+                className={`${activeTab === "tournaments" ? "active" : ""
+                  } dark-theme-color`}
+                style={{ cursor: "pointer" }}
+              >
+                {t("Tournaments")}
+              </span>
+              <span
+                onClick={() => rankTabHandler()}
+                className={`${activeTab === "ranks" ? "active" : ""
+                  } dark-theme-color`}
+                style={{ cursor: "pointer" }}
+              >
+                {t("Ranks")}
+              </span>
+            </div>
           </div>
+          {activeTab === "tournaments" && (
+            <TournamentTabContent data={liveTourData} />
+          )}
+          {activeTab === "ranks" && <RankTabContent data={rankData} />}
         </div>
-        {activeTab === "tournaments" && (
-          <TournamentTabContent data={liveTourData} />
-        )}
-        {activeTab === "ranks" && <RankTabContent data={rankData} />}
       </div>
 
       <MobileFooter />

@@ -13,6 +13,7 @@ import MobileFooter from "@/components/shared/MobileFooter";
 import { useTranslation } from "next-i18next";
 
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useRouter } from "next/router";
 export async function getStaticProps({ locale }) {
   return {
     props: {
@@ -22,6 +23,8 @@ export async function getStaticProps({ locale }) {
 }
 function AllTournamentPage() {
   const { t } = useTranslation();
+  const router = useRouter()
+  const { locale } = router;
 
   const [tournaments, setTournaments] = useState([]);
   const [selectedStatus, setSelectedStatus] = useState("ongoing");
@@ -46,64 +49,85 @@ function AllTournamentPage() {
       <MobileHeader />
       <MainSidebarFixed />
       {tournaments && (
+
         <div className="tour-container">
-          <div className="top-head-tour">
-            <h5 className="dark-theme-color my-4" style={{ fontWeight: "600" }}>
-              {t("Tournaments")}
-            </h5>
-            <div
-              className="btn-group mx-1"
-              role="group"
-              aria-label="Second group"
-            >
-              <button
-                type="button"
-                onClick={() => setSelectedStatus("ongoing")}
-                className={`btn btn-outline-secondary ${
-                  selectedStatus === "ongoing" ? "match1" : "match2"
-                } `}
+          <div className="tour-detail-ar">
+            <div className="top-head-tour">
+              <h5 className="dark-theme-color my-4" style={{ fontWeight: "600" }}>
+                {t("Tournaments")}
+              </h5>
+              <div
+                className="btn-group mx-1"
+                role="group"
+                aria-label="Second group"
               >
-                {t("Ongoing")}
-              </button>
+                <button
+                  type="button"
+                  onClick={() => setSelectedStatus("ongoing")}
+                  className={`btn btn-outline-secondary ${selectedStatus === "ongoing" ? "match1" : "match2"
+                    } `}
+                >
+                  {t("Ongoing")}
+                </button>
+              </div>
+              <div
+                onClick={() => setSelectedStatus("future")}
+                className="btn-group mx-2"
+                role="group"
+                aria-label="Second group"
+              >
+                <button
+                  type="button"
+                  className={`btn btn-outline-secondary ${selectedStatus === "future" ? "match1" : "match2"
+                    } `}
+                >
+                  {t("Future")}
+                </button>
+              </div>
+              <div className="topnav my-2">
+                <span
+                  onClick={() => setSelectedType("ranked")}
+                  className={`${selectedType === "ranked" ? "active" : ""}`}
+                >
+                  {t("Ranked")}
+                </span>
+                <span
+                  className={` ${selectedType === "unranked" ? "active" : ""}`}
+                  onClick={() => setSelectedType("unranked")}
+                >
+                  {t("Unranked")}
+                </span>
+              </div>
             </div>
-            <div
-              onClick={() => setSelectedStatus("future")}
-              className="btn-group mx-2"
-              role="group"
-              aria-label="Second group"
-            >
-              <button
-                type="button"
-                className={`btn btn-outline-secondary ${
-                  selectedStatus === "future" ? "match1" : "match2"
-                } `}
-              >
-                {t("Future")}
-              </button>
-            </div>
-            <div className="topnav my-2">
-              <span
-                onClick={() => setSelectedType("ranked")}
-                className={`${selectedType === "ranked" ? "active" : ""}`}
-              >
-                {t("Ranked")}
-              </span>
-              <span
-                className={` ${selectedType === "unranked" ? "active" : ""}`}
-                onClick={() => setSelectedType("unranked")}
-              >
-                {t("Unranked")}
-              </span>
-            </div>
-          </div>
-          <br></br>
+            <br></br>
 
-          {}
+            { }
 
-          {selectedStatus === "ongoing" ? (
-            selectedType === "ranked" ? (
-              tournaments.ongoing && tournaments.ongoing.ranked.length >= 1 ? (
-                tournaments.ongoing.ranked.map((item, index) => (
+            {selectedStatus === "ongoing" ? (
+              selectedType === "ranked" ? (
+                tournaments.ongoing && tournaments.ongoing.ranked.length >= 1 ? (
+                  tournaments.ongoing.ranked.map((item, index) => (
+                    <TournamentCardDetails key={index} data={item} />
+                  ))
+                ) : (
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      height: "60vh",
+                      padding: "0 20px",
+                      float: locale === 'ar' ? "left" : ""
+                    }}
+                  >
+                    <p style={{ textAlign: "center", fontWeight: "500" }}>
+                      {labels["Tournaments not found"]}
+                    </p>
+                  </div>
+                )
+              ) : tournaments.ongoing &&
+                tournaments.ongoing.unranked.length >= 1 ? (
+                tournaments.ongoing.unranked.map((item, index) => (
                   <TournamentCardDetails key={index} data={item} />
                 ))
               ) : (
@@ -114,6 +138,8 @@ function AllTournamentPage() {
                     alignItems: "center",
                     height: "60vh",
                     padding: "0 20px",
+                    float: locale === 'ar' ? "left" : ""
+
                   }}
                 >
                   <p style={{ textAlign: "center", fontWeight: "500" }}>
@@ -121,65 +147,50 @@ function AllTournamentPage() {
                   </p>
                 </div>
               )
-            ) : tournaments.ongoing &&
-              tournaments.ongoing.unranked.length >= 1 ? (
-              tournaments.ongoing.unranked.map((item, index) => (
+            ) : selectedType === "ranked" ? (
+              tournaments.future && tournaments.future.ranked.length >= 1 ? (
+                tournaments.future.ranked.map((item, index) => (
+                  <TournamentCardDetails key={index} data={item} />
+                ))
+              ) : (
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    height: "60vh",
+                    padding: "0 20px",
+                    float: locale === 'ar' ? "left" : ""
+
+                  }}
+                >
+                  <p style={{ textAlign: "center", fontWeight: "500" }}>
+                    {labels["Tournaments not found"]}
+                  </p>
+                </div>
+              )
+            ) : tournaments.future && tournaments.future.unranked.length >= 1 ? (
+              tournaments.future.unranked.map((item, index) => (
                 <TournamentCardDetails key={index} data={item} />
               ))
             ) : (
               <div
                 style={{
                   display: "flex",
-                  // justifyContent: "center",
+                  justifyContent: "center",
                   alignItems: "center",
                   height: "40vh",
                   padding: "0 20px",
+                  float: locale === 'ar' ? "left" : ""
+
                 }}
               >
                 <p style={{ textAlign: "center", fontWeight: "500" }}>
                   {labels["Tournaments not found"]}
                 </p>
               </div>
-            )
-          ) : selectedType === "ranked" ? (
-            tournaments.future && tournaments.future.ranked.length >= 1 ? (
-              tournaments.future.ranked.map((item, index) => (
-                <TournamentCardDetails key={index} data={item} />
-              ))
-            ) : (
-              <div
-                style={{
-                  display: "flex",
-                  // justifyContent: "center",
-                  alignItems: "center",
-                  height: "40vh",
-                  padding: "0 20px",
-                }}
-              >
-                <p style={{ textAlign: "center", fontWeight: "500" }}>
-                  {labels["Tournaments not found"]}
-                </p>
-              </div>
-            )
-          ) : tournaments.future && tournaments.future.unranked.length >= 1 ? (
-            tournaments.future.unranked.map((item, index) => (
-              <TournamentCardDetails key={index} data={item} />
-            ))
-          ) : (
-            <div
-              style={{
-                display: "flex",
-                // justifyContent: "center",
-                alignItems: "center",
-                height: "40vh",
-                padding: "0 20px",
-              }}
-            >
-              <p style={{ textAlign: "center", fontWeight: "500" }}>
-                {labels["Tournaments not found"]}
-              </p>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       )}
       <MobileFooter />
