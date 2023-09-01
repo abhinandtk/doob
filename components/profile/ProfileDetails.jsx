@@ -49,7 +49,7 @@ function ProfileDetails() {
     <Fragment>
       <ProfileHeaderDetails data={userDetials} setSuccess={setSuccess} />
       <div className="container2">
-        <section id="tabs">
+        <section id="tabs" className="profile-tabs-pg">
           <Tabs
             // id="uncontrolled-tab-example"
             style={{ display: "flex", justifyContent: "space-evenly" }}
