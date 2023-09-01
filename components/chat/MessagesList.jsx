@@ -93,7 +93,7 @@ function MessagesList({ onChatSelect, onNewMsg }) {
             }}
             onClick={() => onNewMsg("new")}
           >
-            New Message
+            {t("New Message")}
           </h6>
         </div>
         <div className="search_chat">
@@ -101,7 +101,7 @@ function MessagesList({ onChatSelect, onNewMsg }) {
             <input
               type="text"
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search Contacts"
+              placeholder={t("Search Contacts")}
             ></input>
           </div>
         </div>

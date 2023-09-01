@@ -25,8 +25,10 @@ function MainHeader({ title }) {
   const router = useRouter();
   const { theme } = useTheme();
   const [svgStroke, setSvgStroke] = useState("");
+  const [bgHead, setBgHead] = useState("");
   useEffect(() => {
     setSvgStroke(theme === "dark" ? "white" : "black");
+    setBgHead(theme === "dark" ? "dark" : "white");
   }, [theme]);
   const { locale } = useRouter();
   const { asPath } = router;
@@ -155,7 +157,7 @@ function MainHeader({ title }) {
       <Navbar
         collapseOnSelect
         expand="lg"
-        bg={theme === "dark" ? "dark" : "white"}
+        bg={bgHead}
         variant="dark"
         sticky="top"
         className="web-nav"

@@ -11,7 +11,14 @@ import ChatBox from "@/components/chat/ChatBox";
 import NewMessageList from "@/components/chat/NewMessageList";
 import GroupInfo from "@/components/chat/GroupInfo";
 import MobileHeader from "@/components/MobileHeader";
-
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["translation"])),
+    },
+  };
+}
 function MessagesPage() {
   const [selectedChatId, setSelectedChatId] = useState(null);
   const [showNewMsg, setShowNewMsg] = useState(null);

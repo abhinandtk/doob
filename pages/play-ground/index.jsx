@@ -42,6 +42,7 @@ function PlayGroundPage() {
   const isAuthenticated = constants.token_id;
 
   const router = useRouter();
+  const { locale } = router;
 
   useEffect(() => {
     if (router.query.path === "headerNav") {
@@ -217,7 +218,9 @@ function PlayGroundPage() {
                 <section>
                   <div className="clearfix near ">
                     <h5
-                      className="float-start dark-theme-color"
+                      className={`dark-theme-color ${
+                        locale === "ar" ? "float-end" : "float-start"
+                      }`}
                       style={{
                         fontWeight: "700",
                         fontSize: "19px",
@@ -231,7 +234,10 @@ function PlayGroundPage() {
                     </p> */}
                   </div>
                 </section>
-                <section className="game-scroll">
+                <section
+                  className="game-scroll"
+                  style={{ direction: locale === "ar" ? "rtl" : "ltr" }}
+                >
                   <div
                     className="btn-group me-2"
                     role="group"
@@ -242,7 +248,7 @@ function PlayGroundPage() {
                       type="button"
                       className="btn btn-outline-secondary select "
                     >
-                      All
+                      {t("All")}
                     </button>
                   </div>
                   {contents.games_near_me.length >= 1 ? (
@@ -286,18 +292,25 @@ function PlayGroundPage() {
               <></>
             )}
 
-            <h5 style={{ fontWeight: "700" }} className="my-3 dark-theme-color">
-              {t("Doob Map")}
-            </h5>
-            <div className="field-maps">
-              <Tabs style={{ display: "flex", justifyContent: "space-evenly" }}>
-                <Tab eventKey={1} title={t("Fields")}>
-                  <MapPlayGround data={contents.playgrounds_near_me} />
-                </Tab>
-                <Tab eventKey={2} title={t("Games")}>
-                  <MapGame data={contents.games_near_me} />
-                </Tab>
-              </Tabs>
+            <div style={{ direction: locale === "ar" ? "rtl" : "ltr" }}>
+              <h5
+                style={{ fontWeight: "700" }}
+                className="my-3 dark-theme-color"
+              >
+                {t("Doob Map")}
+              </h5>
+              <div className="field-maps">
+                <Tabs
+                  style={{ display: "flex", justifyContent: "space-evenly" }}
+                >
+                  <Tab eventKey={1} title={t("Fields")}>
+                    <MapPlayGround data={contents.playgrounds_near_me} />
+                  </Tab>
+                  <Tab eventKey={2} title={t("Games")}>
+                    <MapGame data={contents.games_near_me} />
+                  </Tab>
+                </Tabs>
+              </div>
             </div>
           </>
         ))}

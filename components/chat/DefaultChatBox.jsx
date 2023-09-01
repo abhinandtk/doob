@@ -31,7 +31,7 @@ function DefaultChatBox() {
               {t("Send Photos and Message to Friend's or Group")}
             </p>
           </div>
-          <div className="sent">{t("Send Message")}</div>
+          <div className="sent">{t("Send Messages")}</div>
         </div>
       </div>
     </Fragment>

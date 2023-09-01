@@ -36,6 +36,8 @@
   "Search": "يبحث",
 
   "New Invitations": "دعوات جديدة",
+  "All": "الجميع",
+  "You have": "لديك",
   "upcoming bookings": "الحجوزات القادمة",
   "New Game": "لعبة جديدة",
   "Games": "ألعاب",
@@ -241,6 +243,7 @@
   "Google Map Location": "موقع Google Map",
 
   "Send Messages": "إرسال رسائل",
+  "Messages": "رسائل",
   "Send Photos and Message to Friend's or Group": "إرسال الصور والرسائل للأصدقاء أو المجموعة",
   "Search Contacts": "البحث في جهات الاتصال",
   "New Message": "رسالة جديدة",

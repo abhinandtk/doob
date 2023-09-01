@@ -10,6 +10,7 @@ import Login from "../user/Login";
 
 function PlayGroundCard({ content }) {
   const router = useRouter();
+  const { locale } = router;
   const { t } = useTranslation();
   const [showLogin, setShowLogin] = useState(false);
   const isAuthenticated = constants.token_id;
@@ -30,55 +31,57 @@ function PlayGroundCard({ content }) {
   return (
     <Fragment>
       {showLogin && <Login setShowLogin={setShowLogin} />}
-      <div className="clearfix jst mt-3 ">
-        <h5
-          className="float-start"
-          style={{ fontWeight: "700", fontSize: "19px", marginLeft: "0px" }}
-        >
-          {t("Playgrounds near me")}
-        </h5>
-        <p className="float-end" style={{ color: "#959595" }}>
-          {/* View all */}
-        </p>
-      </div>
-      <div className="playgrounds " style={{ cursor: "pointer" }}>
-        {content.map((item, index) => (
-          <div
-            onClick={() => handleNavigation(item.slug_field, item.id)}
-            key={index}
-            className="card playground-card"
+      <div style={{ direction: locale === "ar" ? "rtl" : "ltr" }}>
+        <div className="clearfix jst mt-3 ">
+          <h5
+            className={locale === "ar" ? "float-end" : "float-start"}
+            style={{ fontWeight: "700", fontSize: "19px", marginLeft: "0px" }}
           >
-            {item.images[0] && (
-              <img
-                src={`${constants.port}${item.images[0].images}`}
-                style={{
-                  height: "190px",
-                  borderRadius: "20px 20px 0px 0px",
-                  objectFit: "cover",
-                }}
-                alt="..."
-              />
-            )}
-            <div className="card-body play-body">
-              <p className="stadium-name">{item.stadium_name}</p>
-              <div style={{ marginTop: "-5px" }}>
-                <div className="stadiums">
-                  <i className="bi bi-geo-alt" style={{ color: "green" }}></i>
-                  <div className="mx-2 places">{item.location}, Kuwait</div>
+            {t("Playgrounds near me")}
+          </h5>
+          <p className="float-end" style={{ color: "#959595" }}>
+            {/* View all */}
+          </p>
+        </div>
+        <div className="playgrounds " style={{ cursor: "pointer" }}>
+          {content.map((item, index) => (
+            <div
+              onClick={() => handleNavigation(item.slug_field, item.id)}
+              key={index}
+              className="card playground-card"
+            >
+              {item.images[0] && (
+                <img
+                  src={`${constants.port}${item.images[0].images}`}
+                  style={{
+                    height: "190px",
+                    borderRadius: "20px 20px 0px 0px",
+                    objectFit: "cover",
+                  }}
+                  alt="..."
+                />
+              )}
+              <div className="card-body play-body">
+                <p className="stadium-name">{item.stadium_name}</p>
+                <div style={{ marginTop: "-5px" }}>
+                  <div className="stadiums">
+                    <i className="bi bi-geo-alt" style={{ color: "green" }}></i>
+                    <div className="mx-2 places">{item.location}, Kuwait</div>
+                  </div>
                 </div>
-              </div>
-              <div style={{ marginTop: "8px" }}>
-                {/* <span>
+                <div style={{ marginTop: "8px" }}>
+                  {/* <span>
                   <i
                     className="bi bi-star-fill"
                     style={{ color: "yellow" }}
                   ></i>
                   <span className="mx-2">{item.rating}</span>
                 </span> */}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </Fragment>
   );
