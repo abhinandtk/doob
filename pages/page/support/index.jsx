@@ -81,10 +81,10 @@ function SupportPage() {
                       className="   mx-auto d-flex justify-content-between align-items-center"
                       style={{ width: "90%" }}
                     >
-                      <span style={{ fontWeight: "500" }}>
+                      <span className="dark-theme-color" style={{ fontWeight: "500" }}>
                         #{item.ticket_no}
                       </span>
-                      <span>
+                      <span className="dark-theme-color">
                         {item.status == 0
                           ? "Open"
                           : item.status == 1

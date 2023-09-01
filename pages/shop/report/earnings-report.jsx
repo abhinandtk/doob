@@ -196,7 +196,7 @@ function EarningsReport() {
                 <Card className="reports">
                   <div>
                     <div className="total-order">
-                      <p className="text-center">Total Earnings</p>
+                      <p className="text-center">{t("Total Earnings")}</p>
                       <h1 className="text-center ">
                         {earningsData.total_earnings} KD
                       </h1>

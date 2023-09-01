@@ -26,7 +26,7 @@ function OfferManagementPage() {
       <MainSidebarFixed />
       <div className="store-container1">
         <div className="Bottom">
-          <ShopPagesSideBar currentPage='offer'/>
+          <ShopPagesSideBar currentPage='settings'/>
           <OfferManagement />
         </div>
       </div>

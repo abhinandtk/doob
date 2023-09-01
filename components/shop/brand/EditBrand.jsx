@@ -39,7 +39,7 @@ function EditBrand() {
         message: "Success",
         description: "Brand Edited Successfully",
       });
-      router.back();
+      router.push("/shop/brand-management")
       console.log("brasnddddddddddddddddddddddddddddddd", res);
     });
   };

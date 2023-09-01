@@ -59,8 +59,11 @@ function CategoriesForm({ categorySubmitHandler, editData }) {
         <div className="my-4 mx-4 ">
           <form onSubmit={(e) => submitHandler(e)}>
             <div className="form-group my-2">
-              <label for="exampleFormControlInput1">{t("Category Name")}</label>
+              <label for="exampleFormControlInput1">
+                {t("Category Name")}*
+              </label>
               <input
+                required
                 type="text"
                 className="ad-input-form form-control p-2"
                 id="name"
@@ -70,9 +73,10 @@ function CategoriesForm({ categorySubmitHandler, editData }) {
             </div>
             <div className="form-group my-2">
               <label for="exampleFormControlInput1">
-                {t("Category Name in Arabic")}
+                {t("Category Name in Arabic")}*
               </label>
               <input
+                required
                 type="text"
                 className="ad-input-form form-control p-2"
                 id="nameArabic"
@@ -102,8 +106,11 @@ function CategoriesForm({ categorySubmitHandler, editData }) {
               </select>
             </div>
             <div className="form-group my-2">
-              <label for="exampleFormControlInput1">{t("Display Order")}</label>
+              <label for="exampleFormControlInput1">
+                {t("Display Order")}*
+              </label>
               <input
+                required
                 type="text"
                 className="ad-input-form form-control p-2"
                 id="display"
@@ -116,7 +123,7 @@ function CategoriesForm({ categorySubmitHandler, editData }) {
                 {t("Submit")}
               </button>
               <button
-                onClick={() => router.back()}
+                onClick={() => router.push("/shop/category-management")}
                 type="button"
                 className="sub-cart-btn"
               >

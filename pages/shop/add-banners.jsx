@@ -58,7 +58,7 @@ function AddBannersPage() {
         banner_type: "card_mid",
       });
       if (res.data.status === 1) {
-        router.back();
+        router.push("/shop/banner-management");
         notification.success({
           message: constants.Success,
           description: `${labels["Banner added successfully"]}`,

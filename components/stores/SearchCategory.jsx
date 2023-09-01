@@ -4,6 +4,8 @@ import { useTranslation } from "next-i18next";
 function SearchCategory({ category }) {
   const { t } = useTranslation();
   const router = useRouter();
+  const { locale } = router;
+  console.log("category", category);
   return (
     <Fragment>
       <div className="my-2 store-cat-details">
@@ -25,7 +27,7 @@ function SearchCategory({ category }) {
               aria-label="Second group"
             >
               <button type="button" className="btn btn-secondary secondary">
-                {item.title}
+                {locale === "en" ? item.title : item.title_arabic}
               </button>
             </div>
           ))}

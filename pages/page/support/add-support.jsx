@@ -32,7 +32,7 @@ function SupportAddPage() {
   const [supportList, setSupportList] = useState([]);
   const { t } = useTranslation();
   const router = useRouter();
-  const { locale } = router;  
+  const { locale } = router;
   const labels = Labels();
   const [formData, setFormData] = useState({
     description: "",
@@ -60,7 +60,7 @@ function SupportAddPage() {
       }
     ).then((res) => {
       if (res.data.status === 1) {
-        router.back();
+        router.push("/page/support");
         notification.success({
           message: constants.Success,
           description: `${labels["Support added"]}`,
@@ -95,16 +95,17 @@ function SupportAddPage() {
                   marginBottom: "30px",
                 }}
               >
-                Add Support
+                {t("Add Support")}
               </h6>
 
               <div className="my-4 mx-4 ">
                 <form onSubmit={(e) => submitHandler(e)}>
                   <div className="form-group my-2">
                     <label for="exampleFormControlInput1">
-                      {t("Description")}
+                      {t("Description")}*
                     </label>
                     <input
+                      required
                       type="text"
                       class="form-control p-2"
                       style={{
@@ -119,9 +120,10 @@ function SupportAddPage() {
                   </div>
                   <div className="form-group my-2">
                     <label for="exampleFormControlInput1">
-                      {t("Category")}
+                      {t("Category")}*
                     </label>
                     <input
+                      required
                       type="text"
                       class="form-control p-2"
                       style={{
@@ -140,7 +142,7 @@ function SupportAddPage() {
                       {t("Submit")}
                     </button>
                     <button
-                      onClick={() => router.back()}
+                      onClick={() => router.push("/page/support")}
                       type="button"
                       className="sub-cart-btn"
                     >

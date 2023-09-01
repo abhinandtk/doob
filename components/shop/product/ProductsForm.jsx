@@ -287,7 +287,7 @@ function ProductsForm({ handleProductAdd, editData }) {
           <h6 style={{ fontSize: "14px", fontWeight: "700" }}>Basic Details</h6>
           <form onSubmit={(e) => submitHandler(e)}>
             <div className="form-group my-2 ">
-              <label for="exampleFormControlInput1">{t("Name")}</label>
+              <label for="exampleFormControlInput1">{t("Name")}*</label>
               <input
                 type="text"
                 className="add-prod-input add-prod-input form-control p-2"
@@ -299,7 +299,7 @@ function ProductsForm({ handleProductAdd, editData }) {
             </div>
             <div className="form-group my-2">
               <label for="exampleFormControlInput1">
-                {t("Name in Arabic")}
+                {t("Name in Arabic")}*
               </label>
               <input
                 type="text"
@@ -311,7 +311,7 @@ function ProductsForm({ handleProductAdd, editData }) {
               />
             </div>
             <div className="form-group my-2">
-              <label for="exampleFormControlSelect1">{t("Brand")}</label>
+              <label for="exampleFormControlSelect1">{t("Brand")}*</label>
               <select
                 className="add-prod-input form-control p-2"
                 id="brand"
@@ -333,7 +333,7 @@ function ProductsForm({ handleProductAdd, editData }) {
             </div>
 
             <div className="form-group my-2">
-              <label for="exampleFormControlSelect1">{t("Category")}</label>
+              <label for="exampleFormControlSelect1">{t("Category")}*</label>
               <select
                 className="add-prod-input form-control p-2"
                 id="category"
@@ -355,7 +355,7 @@ function ProductsForm({ handleProductAdd, editData }) {
               </select>
             </div>
             <div className="form-group my-2">
-              <label for="exampleFormControlSelect1">{t("Sub Category")}</label>
+              <label for="exampleFormControlSelect1">{t("Sub Category")}*</label>
               <select
                 className="add-prod-input form-control p-2"
                 id="subCategory"
@@ -379,7 +379,7 @@ function ProductsForm({ handleProductAdd, editData }) {
             </div>
             <div className="form-group  my-2">
               <label for="exampleFormControlInput1" id="thumbnail">
-                {t("Thumbnail Image")}
+                {t("Thumbnail Image")}*
               </label>
               <input
                 type="file"
@@ -391,7 +391,7 @@ function ProductsForm({ handleProductAdd, editData }) {
               />
             </div>
             <div className="form-group my-2">
-              <label for="exampleFormControlInput1">{t("Tag")}</label>
+              <label for="exampleFormControlInput1">{t("Tag")}*</label>
               <input
                 type="text"
                 className="add-prod-input form-control p-2"
@@ -404,7 +404,7 @@ function ProductsForm({ handleProductAdd, editData }) {
 
             <div className="form-group my-2">
               <label for="exampleFormControlSelect1">
-                {t("Primary Variant")}
+                {t("Primary Variant")}*
               </label>
               <select
                 className="add-prod-input form-control p-2"
@@ -452,7 +452,7 @@ function ProductsForm({ handleProductAdd, editData }) {
 
             <div className="form-group my-2 ">
               <label for="exampleFormControlTextarea1">
-                {t("Description")}
+                {t("Description")}*
               </label>
               <textarea
                 className="add-prod-input form-control"
@@ -465,7 +465,7 @@ function ProductsForm({ handleProductAdd, editData }) {
             </div>
             <div className="form-group my-2 ">
               <label for="exampleFormControlTextarea1">
-                {t("Description in Arabic")}
+                {t("Description in Arabic")}*
               </label>
               <textarea
                 className="add-prod-input form-control"
@@ -514,7 +514,7 @@ function ProductsForm({ handleProductAdd, editData }) {
             {formData.variants.map((item, index) => (
               <div key={index}>
                 <div className="form-group my-2">
-                  <label for="exampleFormControlInput1">SKU</label>
+                  <label for="exampleFormControlInput1">SKU*</label>
                   <input
                     type="text"
                     className="add-prod-input form-control p-2"
@@ -525,7 +525,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                   />
                 </div>
                 <div className="form-group my-2">
-                  <label for="exampleFormControlInput1">{t("Quantity")}</label>
+                  <label for="exampleFormControlInput1">{t("Quantity")}*</label>
                   <input
                     type="text"
                     className="add-prod-input form-control p-2"
@@ -552,7 +552,7 @@ required
                 </div> */}
                 <div className="form-group  my-2">
                   <label for="exampleFormControlInput1" id="formfile">
-                    {t("Image")}
+                    {t("Image")}*
                   </label>
 
                   <input
@@ -609,7 +609,7 @@ required
                 </div>
                 {primaryName && (
                   <div className="form-group my-2">
-                    <label for="exampleFormControlSelect1">{primaryName}</label>
+                    <label for="exampleFormControlSelect1">{primaryName}*</label>
                     <select
                       className="add-prod-input form-control p-2"
                       id="color"
@@ -634,7 +634,7 @@ required
                 {secondaryName && (
                   <div className="form-group my-2">
                     <label for="exampleFormControlSelect1">
-                      {secondaryName}
+                      {secondaryName}*
                     </label>
                     <select
                       className="add-prod-input form-control p-2"
@@ -658,7 +658,7 @@ required
                 )}
                 <div className="form-group my-2">
                   <label for="exampleFormControlInput1">
-                    {t("Actual Price in KD")}
+                    {t("Actual Price in KD")}*
                   </label>
                   <input
                     type="text"
@@ -671,7 +671,7 @@ required
                 </div>
                 <div className="form-group my-2">
                   <label for="exampleFormControlInput1">
-                    {t("Selling Price in KD")}
+                    {t("Selling Price in KD")}*
                   </label>
                   <input
                     type="text"
@@ -725,7 +725,7 @@ required
                 {t("Submit")}
               </button>
               <button
-                onClick={() => router.back()}
+                onClick={() => router.push("/shop/product-management")}
                 type="button"
                 className="sub-cart-btn"
               >

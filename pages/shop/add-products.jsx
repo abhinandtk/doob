@@ -65,7 +65,7 @@ function AddProductPage() {
           message: "Success",
           description: "Product added successfully",
         });
-        router.back();
+        router.push("/shop/product-management");
       } else {
         notification.error({
           message: constants.Error,

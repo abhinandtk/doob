@@ -84,8 +84,9 @@ function BannerForm({ bannerSubmitHandler, editData }) {
         <div className="my-4 mx-4 ">
           <form onSubmit={(e) => submitHandler(e)}>
             <div className="form-group my-2">
-              <label for="exampleFormControlInput1">{t("Banner Name")}</label>
+              <label for="exampleFormControlInput1">{t("Banner Name")}*</label>
               <input
+                required
                 type="text"
                 class="form-control p-2"
                 style={{
@@ -99,8 +100,9 @@ function BannerForm({ bannerSubmitHandler, editData }) {
               />
             </div>
             <div className="form-group my-2">
-              <label for="exampleFormControlInput1">{t("Banner url")}</label>
+              <label for="exampleFormControlInput1">{t("Banner url")}*</label>
               <input
+                required
                 type="text"
                 class="form-control p-2"
                 style={{
@@ -114,8 +116,11 @@ function BannerForm({ bannerSubmitHandler, editData }) {
               />
             </div>
             <div className="form-group my-2">
-              <label for="exampleFormControlInput1">{t("Display Order")}</label>
+              <label for="exampleFormControlInput1">
+                {t("Display Order")}*
+              </label>
               <input
+                required
                 type="number"
                 class="form-control p-2"
                 style={{
@@ -130,9 +135,13 @@ function BannerForm({ bannerSubmitHandler, editData }) {
             </div>
             <div className="form-group  my-2">
               <label for="exampleFormControlInput1" id="image">
-                {t("Banner Web Image")} <span style={{color:'red',fontSize:"11px"}}>(Please upload an image with dimensions 800x400)</span>
+                {t("Banner Web Image")}*{" "}
+                <span style={{ color: "red", fontSize: "11px" }}>
+                  (Please upload an image with dimensions 800x400)
+                </span>
               </label>
               <input
+                required={editData !== "true"}
                 type="file"
                 id="image"
                 className="form-control  p-2 "
@@ -145,7 +154,7 @@ function BannerForm({ bannerSubmitHandler, editData }) {
                 onChange={(e) => handleBannerChange(e)}
               />
             </div>
-            <div className="form-group  my-2">
+            {/* <div className="form-group  my-2">
               <label for="exampleFormControlInput1" id="image">
                 Banner App Image
               </label>
@@ -161,7 +170,7 @@ function BannerForm({ bannerSubmitHandler, editData }) {
                 placeholder="No file choosen"
                 onChange={(e) => handleBannerChange(e)}
               />
-            </div>
+            </div> */}
             <div className="form-group my-2">
               <label for="exampleFormControlSelect1">{t("Banner Type")}</label>
               <select
@@ -184,7 +193,7 @@ function BannerForm({ bannerSubmitHandler, editData }) {
                 {t("Submit")}
               </button>
               <button
-                onClick={() => router.back()}
+                onClick={() => router.push("/shop/banner-management")}
                 type="button"
                 className="sub-cart-btn"
               >

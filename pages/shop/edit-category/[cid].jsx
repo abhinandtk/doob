@@ -65,7 +65,7 @@ function EditCategoryPage() {
           },
         }
       ).then((res) => {
-        router.back();
+        router.push("/shop/category-management");
         notification.success({
           message: "Success",
           description: "Category Edited Successfully",
@@ -88,7 +88,6 @@ function EditCategoryPage() {
         </div>
       </div>
       <MobileFooter />
-
     </Fragment>
   );
 }

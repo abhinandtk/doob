@@ -34,6 +34,7 @@ function CategorySearchPage() {
   const { t } = useTranslation();
 
   const router = useRouter();
+  const { locale } = router;
   const id = router.query.category_id;
   console.log("category_id", id);
   useEffect(() => {
@@ -64,63 +65,65 @@ function CategorySearchPage() {
       <MobileHeader />
       <MainSidebarFixed />
       <div className="store-container">
-        <form className="nosubmit ">
-          <input
-            onChange={(e) => setSearchInput(e.target.value)}
-            className="nosubmit-shop"
-            type="search"
-            placeholder={t("Search")}
-          />
-        </form>
+        <div className="cat-search">
+          <form className="nosubmit ">
+            <input
+              onChange={(e) => setSearchInput(e.target.value)}
+              className="nosubmit-shop"
+              type="search"
+              placeholder={t("Search")}
+            />
+          </form>
 
-        {/* <div className="my-2 "> */}
-        {/* <SearchCategory /> */}
-        {/* </div> */}
-        <section className="my-2 game-scroll ">
-          <div
-            className="btn-group me-2 "
-            role="group"
-            aria-label="Second group"
-          >
-            <button
-              type="button"
-              className="btn btn-outline-secondary"
-              style={{ padding: "5px 35px" }}
-              onClick={() => setSubcatInput("")}
+          {/* <div className="my-2 "> */}
+          {/* <SearchCategory /> */}
+          {/* </div> */}
+          <section className="my-2 game-scroll">
+            <div
+              className="btn-group me-2 "
+              role="group"
+              aria-label="Second group"
             >
-              All
-            </button>
-          </div>
-          {!loading
-            ? subCategoriesData &&
-              subCategoriesData.length > 0 &&
-              subCategoriesData.map((item, index) => (
-                <div
-                  key={index}
-                  className="btn-group me-2"
-                  role="group"
-                  aria-label="Second group"
-                  onClick={() => setSubcatInput(item.id)}
-                >
-                  <button type="button" className="btn btn-secondary">
-                    {item.title}
-                  </button>
-                </div>
-              ))
-            : null}
-        </section>
-        {!loading ? (
-          subCategoryProduct && subCategoryProduct.length > 0 ? (
-            <>
-              <StoreProductsCard
-                key={subCategoryProduct.length}
-                products={subCategoryProduct}
-              />
-            </>
-          ) : (
-            <div className="dark-theme-color">No products Found...</div>
-          )
-        ) : null}
+              <button
+                type="button"
+                className="btn btn-outline-secondary"
+                style={{ padding: "5px 35px" }}
+                onClick={() => setSubcatInput("")}
+              >
+                All
+              </button>
+            </div>
+            {!loading
+              ? subCategoriesData &&
+                subCategoriesData.length > 0 &&
+                subCategoriesData.map((item, index) => (
+                  <div
+                    key={index}
+                    className="btn-group me-2"
+                    role="group"
+                    aria-label="Second group"
+                    onClick={() => setSubcatInput(item.id)}
+                  >
+                    <button type="button" className="btn btn-secondary">
+                      {locale === "en" ? item.title : item.title_arabic}
+                    </button>
+                  </div>
+                ))
+              : null}
+          </section>
+          {!loading ? (
+            subCategoryProduct && subCategoryProduct.length > 0 ? (
+              <>
+                <StoreProductsCard
+                  key={subCategoryProduct.length}
+                  products={subCategoryProduct}
+                />
+              </>
+            ) : (
+              <div className="dark-theme-color">No products Found...</div>
+            )
+          ) : null}
+        </div>
       </div>
       <MobileFooter />
     </Fragment>

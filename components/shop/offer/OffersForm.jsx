@@ -62,7 +62,9 @@ function OffersForm({ OfferSubmitHandler, editData }) {
           name: res.data.data[0].offer_name,
           nameArabic: res.data.data[0].arabic_translator,
         });
-        setSelectedItems(res.data.data[0].product_varient.map((item)=>item.id))
+        setSelectedItems(
+          res.data.data[0].product_varient.map((item) => item.id)
+        );
       });
     }
   }, []);
@@ -75,13 +77,14 @@ function OffersForm({ OfferSubmitHandler, editData }) {
     <div class="content-topics ">
       <div className="bottom">
         <h6 className=" ms-4" style={{ color: "#17a803", fontWeight: "700" }}>
-          Add Offers
+          {editData === "true" ? t("Edit Offers") : t("Add Offers")}
         </h6>
         <div className="my-4 mx-4 ">
           <form onSubmit={(e) => submitHandler(e)}>
             <div className="form-group my-2">
-              <label for="exampleFormControlInput1">Offer Name</label>
+              <label for="exampleFormControlInput1">{t("Offer Name")}*</label>
               <input
+                required
                 type="text"
                 class="form-control p-2"
                 style={{
@@ -95,8 +98,11 @@ function OffersForm({ OfferSubmitHandler, editData }) {
               />
             </div>
             <div className="form-group my-2">
-              <label for="exampleFormControlInput1">Offer Name in Arabic</label>
+              <label for="exampleFormControlInput1">
+                {t("Offer Name in Arabic")}*
+              </label>
               <input
+                required
                 type="text"
                 class="form-control p-2"
                 style={{
@@ -110,8 +116,11 @@ function OffersForm({ OfferSubmitHandler, editData }) {
               />
             </div>
             <div class="form-group my-2">
-              <label for="exampleFormControlSelect1">Offer Products</label>
+              <label for="exampleFormControlSelect1">
+                {t("Offer Products")}*
+              </label>
               <Select
+                required
                 mode="multiple"
                 style={{ width: "100%" }}
                 placeholder="Select items"
@@ -132,7 +141,7 @@ function OffersForm({ OfferSubmitHandler, editData }) {
                 {t("Submit")}
               </button>
               <button
-                onClick={() => router.back()}
+                onClick={() => router.push("/shop/offer-management")}
                 type="button"
                 className="sub-cart-btn"
               >

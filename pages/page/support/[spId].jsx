@@ -67,7 +67,7 @@ function SupportDetailsPage() {
                   marginBottom: "30px",
                 }}
               >
-                Ticket Details
+                {t("Ticket Details")}
               </h6>
               {supportDetails && (
                 <div className="my-3">
@@ -76,7 +76,7 @@ function SupportDetailsPage() {
                     className="p-2 mx-auto d-flex justify-content-between align-items-center"
                     style={{ width: "90%" }}
                   >
-                    <span style={{ color: "#959595" }}>Ticket No</span>
+                    <span style={{ color: "#959595" }}>{t("Ticket No")}</span>
                     <span style={{ color: "#959595" }}>
                       {supportDetails.ticket_no}
                     </span>
@@ -85,7 +85,7 @@ function SupportDetailsPage() {
                     className="p-2 mx-auto d-flex justify-content-between align-items-center"
                     style={{ width: "90%" }}
                   >
-                    <span style={{ color: "#959595" }}>User name</span>
+                    <span style={{ color: "#959595" }}>{t("User name")}</span>
                     <span style={{ color: "#959595" }}>
                       {supportDetails.user?.username}
                     </span>
@@ -107,7 +107,7 @@ function SupportDetailsPage() {
                     className="p-2   mx-auto d-flex justify-content-between align-items-center"
                     style={{ width: "90%" }}
                   >
-                    <span style={{ color: "#959595" }}>Date</span>
+                    <span style={{ color: "#959595" }}>{t("Date")}</span>
                     <span style={{ color: "#959595" }}>
                       {moment(supportDetails.created_at).format("DD-MMM-YYYY")}
                     </span>
@@ -116,7 +116,7 @@ function SupportDetailsPage() {
                     className="p-2 mx-auto d-flex justify-content-between align-items-center"
                     style={{ width: "90%" }}
                   >
-                    <span style={{ color: "#959595" }}>Status</span>
+                    <span style={{ color: "#959595" }}>{t("Status")}</span>
                     <span>
                       {supportDetails.status == 0
                         ? "Open"

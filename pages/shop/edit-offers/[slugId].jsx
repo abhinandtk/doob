@@ -52,7 +52,7 @@ function EditOffersPage() {
         show_in_home: false,
       });
       if (res.data.status === 1) {
-        router.back();
+        router.push("/shop/offer-management");
         notification.success({
           message: constants.Success,
           description: `${labels["Offer edited successfully"]}`,
@@ -67,7 +67,7 @@ function EditOffersPage() {
       <MainSidebarFixed />
       <div className="store-container1">
         <div className="Bottom">
-          <ShopPagesSideBar currentPage="offers" />
+          <ShopPagesSideBar currentPage="settings" />
           <OffersForm OfferSubmitHandler={OfferSubmitHandler} editData='true'/>
         </div>
       </div>

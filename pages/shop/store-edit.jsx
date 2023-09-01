@@ -117,7 +117,7 @@ function StoreEditPage() {
     }).then((res) => {
       console.log("resultfrom", res);
       if (res.data.status === 1) {
-        router.back();
+        router.push("/shop/store-settings");
         notification.success({
           message: constants.Success,
           description: `${labels["Store edited successfully"]}`,
@@ -153,7 +153,7 @@ function StoreEditPage() {
               <br></br>
               <form onSubmit={(e) => submitHandler(e)}>
                 <div className="form-group my-2 ">
-                  <label for="exampleFormControlInput1">{t("Title")}</label>
+                  <label for="exampleFormControlInput1">{t("Title")}*</label>
                   <input
                     required
                     type="text"
@@ -170,7 +170,7 @@ function StoreEditPage() {
                 </div>
                 <div className="form-group my-2 ">
                   <label for="exampleFormControlInput1">
-                    {t("Title Arabic")}
+                    {t("Title Arabic")}*
                   </label>
                   <input
                     required
@@ -188,7 +188,7 @@ function StoreEditPage() {
                 </div>
                 <div className="form-group my-2">
                   <label for="exampleFormControlInput1">
-                    {t("Description")}
+                    {t("Description")}*
                   </label>
                   <textarea
                     required
@@ -207,7 +207,7 @@ function StoreEditPage() {
                 </div>
                 <div className="form-group my-2">
                   <label for="exampleFormControlInput1">
-                    {t("Description Arabic")}
+                    {t("Description Arabic")}*
                   </label>
                   <textarea
                     required
@@ -225,7 +225,7 @@ function StoreEditPage() {
                   />
                 </div>
                 <div className="form-group my-2 ">
-                  <label for="exampleFormControlInput1">{t("Address")}</label>
+                  <label for="exampleFormControlInput1">{t("Address")}*</label>
                   <textarea
                     required
                     type="text"
@@ -242,7 +242,7 @@ function StoreEditPage() {
                   />
                 </div>
                 <div className="form-group my-2">
-                  <label for="exampleFormControlInput1">{t("Location")}</label>
+                  <label for="exampleFormControlInput1">{t("Location")}*</label>
                   <input
                     required
                     type="text"
@@ -260,7 +260,7 @@ function StoreEditPage() {
 
                 <div className="form-group my-2">
                   <label for="exampleFormControlInput1">
-                    {t("Contact No")}
+                    {t("Contact No")}*
                   </label>
                   <input
                     required
@@ -278,7 +278,7 @@ function StoreEditPage() {
                 </div>
                 <div className="form-group my-2 ">
                   <label for="exampleFormControlInput1">
-                    {t("Store E-mail")}
+                    {t("Store E-mail")}*
                   </label>
                   <input
                     required
@@ -295,7 +295,7 @@ function StoreEditPage() {
                   />
                 </div>
                 <div className="form-group my-2">
-                  <label for="exampleFormControlInput1">{t("Logo")}</label>
+                  <label for="exampleFormControlInput1">{t("Logo")}*</label>
                   <input
                     type="file"
                     className="form-control p-2"
@@ -310,7 +310,7 @@ function StoreEditPage() {
                 </div>
                 <div className="form-group my-2 ">
                   <label for="exampleFormControlInput1">
-                    {t("Cover Photo")}
+                    {t("Cover Photo")}*
                   </label>
                   <input
                     type="file"
@@ -327,7 +327,7 @@ function StoreEditPage() {
 
                 <div className="form-group my-2 ">
                   <label for="exampleFormControlInput1">
-                    {t("Start Time")}
+                    {t("Start Time")}*
                   </label>
                   <input
                     required
@@ -344,7 +344,7 @@ function StoreEditPage() {
                   />
                 </div>
                 <div className="form-group my-2">
-                  <label for="exampleFormControlInput1">{t("End Time")}</label>
+                  <label for="exampleFormControlInput1">{t("End Time")}*</label>
                   <input
                     required
                     type="time"
@@ -365,7 +365,7 @@ function StoreEditPage() {
                     {t("Submit")}
                   </button>
                   <button
-                    onClick={() => router.back()}
+                    onClick={() => router.push("/shop/store-settings")}
                     type="button"
                     className="sub-cart-btn"
                   >

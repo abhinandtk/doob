@@ -96,7 +96,7 @@ function ShopPagesSideBar({ currentPage }) {
           {t("Products")}
         </span>
       </Link>
-      <Link href="/shop/product-management" style={{ textDecoration: "none" }}>
+      {/* <Link href="/shop/product-management" style={{ textDecoration: "none" }}>
         <svg
           width="25"
           height="21"
@@ -119,7 +119,7 @@ function ShopPagesSideBar({ currentPage }) {
         >
           {t("Address")}
         </span>
-      </Link>
+      </Link> */}
       <Link href="/shop/stocks" style={{ textDecoration: "none" }}>
         <svg
           width="22"
