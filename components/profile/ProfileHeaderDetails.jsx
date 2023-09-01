@@ -11,9 +11,12 @@ import StarInfo from "./StarInfo";
 import { useTheme } from "next-themes";
 import ProfileEdit from "./ProfileEdit";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
 function ProfileHeaderDetails({ data, setSuccess }) {
   const { t } = useTranslation();
+  const router = useRouter();
+  const { locale } = router;
   const [visible, setVisible] = useState(false);
   const [uploadImageUrl, setUploadImageUrl] = useState(null);
   console.log("4444", data);
@@ -183,10 +186,12 @@ function ProfileHeaderDetails({ data, setSuccess }) {
         <Card className="cord">
           <Card.Body>
             <div className="row">
-              <div className="col-md-6">
+              <div className={`col-md-6 ${locale === 'ar' && 'order-2'}`}>
                 <button
                   onClick={() => setShowRank(true)}
                   className="btn profile-edit-btn"
+                  style={{float:locale==="ar"&&"right"}}
+
                 >
                   {t("Rank")}
                 </button>
@@ -215,8 +220,8 @@ function ProfileHeaderDetails({ data, setSuccess }) {
                   <img src="/images/accounts/camera.png" alt=""></img>
                 </div>
               </div>
-              <div className="col-md-6">
-                <div className="profile-stats">
+              <div className={`col-md-6 ${locale === 'ar' && 'order-1'}`}>
+                <div className="profile-stats" style={{ marginLeft: locale === "en" ? "-130px" : "0px" }}>
                   <ul>
                     <h1 className="profile-user-name">
                       {data.name}

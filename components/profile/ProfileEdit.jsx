@@ -242,7 +242,7 @@ function ProfileEdit({ data, setSuccess }) {
       </Modal>
       <button
         onClick={() => setShowEdit(true)}
-        className=" btn profile-edit-btn1"
+        className={locale==="en"?" btn profile-edit-btn1":"btn profile-edit-btn1_ar"}
       >
         {t("Edit")}
       </button>

@@ -7,10 +7,13 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import moment from "moment";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
 function UserProfileActivityTab() {
   const { t } = useTranslation();
   const [page, setPage] = useState(1);
+  const router = useRouter();
+  const { locale } = router;
   const [loadMore, setLoadMore] = useState(true);
   const [activityData, setActivityData] = useState([]);
 
@@ -38,7 +41,7 @@ function UserProfileActivityTab() {
       <Card className="card-tab">
         {activityData.map((item, index) => (
           <div key={index}>
-            <h6 key={index} className="activity-date">
+            <h6 key={index} className={locale==="en"?"activity-date":"activity-date_ar"}>
               {item.date}
             </h6>
             {item.data.map((item_, index_) => (
@@ -69,7 +72,7 @@ function UserProfileActivityTab() {
                               {item_.title} {item_.booking.stadium_name}
                             </p>
                           </div>
-                          <p className="small-time ">
+                          <p className={locale==="en"?"small-time":"small-time_ar"}>
                             {moment(item_.created_at).format("hh:mm A")}
                           </p>
                         </div>
@@ -103,7 +106,7 @@ function UserProfileActivityTab() {
                               Liked {item_.post.user} Post
                             </p>
                           </div>
-                          <p className="small-time ">
+                          <p className={locale==="en"?"small-time":"small-time_ar"}>
                             {moment(item_.created_at).format("hh:mm A")}
                           </p>
                         </div>
@@ -141,7 +144,7 @@ function UserProfileActivityTab() {
                                 : "Shared a Post"}
                             </p>
                           </div>
-                          <p className="small-time ">
+                          <p className={locale==="en"?"small-time":"small-time_ar"}>
                             {moment(item_.created_at).format("hh:mm A")}
                           </p>
                         </div>
@@ -173,7 +176,7 @@ function UserProfileActivityTab() {
                           <div className="d-flex justify-content-between align-items-center">
                             <p className=" Book">{item_.title}</p>
                           </div>
-                          <p className="small-time ">
+                          <p className={locale==="en"?"small-time":"small-time_ar"}>
                             {moment(item_.created_at).format("hh:mm A")}
                           </p>
                         </div>
@@ -205,7 +208,7 @@ function UserProfileActivityTab() {
                           <div className="d-flex justify-content-between align-items-center">
                             <p className=" Book">You &nbsp;{item_.title}</p>
                           </div>
-                          <p className="small-time ">
+                          <p className={locale==="en"?"small-time":"small-time_ar"}>
                             {moment(item_.created_at).format("hh:mm A")}
                           </p>
                         </div>
@@ -243,7 +246,7 @@ function UserProfileActivityTab() {
                               {item_.title}&nbsp;{item_.order.product_name}
                             </p>
                           </div>
-                          <p className="small-time ">
+                          <p className={locale==="en"?"small-time":"small-time_ar"}>
                             {moment(item_.created_at).format("hh:mm A")}
                           </p>
                         </div>

@@ -10,6 +10,11 @@ body {
   height: 100%;
   background-color: var(--primary);
 }
+.profile-tabs-pg{
+  :lang(ar){
+    direction: rtl;
+  }
+}
 .profile {
   padding: 7px 0px;
 }
@@ -230,6 +235,18 @@ body {
   margin-left: 61px;
   border: 0px;
 }
+.profile-edit-btn1_ar {
+  font-size: 15px;
+  line-height: 1.8;
+  background: #8a8a8a;
+  color: white;
+  border-radius: 0.3rem;
+  padding: 0 22px;
+  font-weight: 600;
+  margin-left: 0px;
+  border: 0px;
+  margin-top: -88%;
+}
 .profile-edit-btn2 {
   font-size: 15px;
   line-height: 1.8;
@@ -256,6 +273,17 @@ body {
   display: flex;
   justify-content: center;
   color: var(--font-theme-color);
+  :lang(ar){
+    direction: rtl;
+  }
+}
+.profile-stats_ar {
+  margin-top: 50px;
+  margin-left: 0px;
+  font-weight: 400;
+  justify-content: center;
+  color: var(--font-theme-color);
+  direction: rtl;
 }
 
 .profile-stat {
@@ -425,6 +453,14 @@ body {
   margin-top: 44px;
   text-align: left;
 }
+.activity-date_ar {
+  color: var(--font-theme-color);
+  font-weight: 600;
+  font-size: 18px;
+  margin-right: 55px;
+  margin-top: 44px;
+  text-align: right;
+}
 .Book {
   font-weight: 500;
   color: var(--font-theme-color);
@@ -443,6 +479,13 @@ body {
   font-size: 14px;
   margin-top: -5px;
   text-align: left;
+}
+.small-time_ar {
+  color:var(--user-name-color);
+  font-weight: 500;
+  font-size: 14px;
+  margin-top: -5px;
+  text-align: right;
 }
 .booked {
   font-weight: 600;
