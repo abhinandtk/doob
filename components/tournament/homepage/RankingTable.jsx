@@ -7,13 +7,14 @@ import { useTranslation } from "next-i18next";
 
 function RankingTable({ data }) {
   console.log("rrrrrrrrreeeeeeeeeeeee", data);
-  const {t}=useTranslation()
+  const { t } = useTranslation()
 
   const router = useRouter();
+  const { locale } = router;
   return (
     <Fragment>
       {data && (
-        <div className="tables">
+        <div className={locale === "ar" ? "tables_ar" : "tables"}>
           <ul className="responsive-table ">
             {data.map((item, index) =>
               index === 0 ? (
@@ -29,7 +30,7 @@ function RankingTable({ data }) {
                     #{index + 1}
                   </div>
 
-                  <span className="ahmed">
+                  <span   className={` ${locale === "ar" ? "ahmed_ar" : "ahmed"}`}>
                     <img
                       src={
                         item.image
@@ -40,14 +41,14 @@ function RankingTable({ data }) {
                     ></img>
                   </span>
 
-                  <span
-                    className="col col-8 name mt-3"
+                  <span                 
+                    className={`col col-8 mt-3 ${locale === "ar" ? "name_ar" : "name"}`}
                     data-label="Customer Name"
                   >
                     {item.name}
                   </span>
                   <div
-                    className="col col-1 mt-3 views "
+                    className={`col col-1 mt-3 ${locale === "ar" ? "views_ar" : "views"}`}
                     data-label="Payment Status"
                   >
                     {t("View")}
@@ -89,7 +90,7 @@ function RankingTable({ data }) {
                   </span>
 
                   <div
-                    className="col col-1 mt-3 views1 "
+                    className={`col col-1 mt-3 ${locale === "ar" ? "views1_ar" : "views1"}`}
                     data-label="Payment Status"
                   >
                     {t("View")}

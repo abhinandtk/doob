@@ -2,6 +2,7 @@ import { Tabs, Tab } from "react-bootstrap";
 import React, { Fragment, useState } from "react";
 import RankingTable from "./RankingTable";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
 function RankTabContent({ data }) {
   const {t}=useTranslation()
@@ -9,6 +10,8 @@ function RankTabContent({ data }) {
   const [selectedMatch, setSelectedMatch] = useState(
     data[0]?.game_type || null
   );
+  const router = useRouter();
+  const { locale } = router;
   return (
     <Fragment>
       <div className="row ">
@@ -68,7 +71,8 @@ function RankTabContent({ data }) {
           <div className="live-ads">
             <img
               src="../images/tournament/Group 12.png"
-              className="tournament-imx1"
+      
+              className={`${locale === "ar" ? "tournament-imx1_ar" : "tournament-imx1"}`}
             ></img>
           </div>
         </div>
