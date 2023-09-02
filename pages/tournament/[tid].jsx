@@ -30,6 +30,7 @@ function TournamentDetailPage() {
   const { t } = useTranslation();
 
   const router = useRouter();
+  const { locale } = router;
   const { tid } = router.query;
 
   const handleShare = async () => {
@@ -152,6 +153,7 @@ function TournamentDetailPage() {
       <MainSidebarFixed />
 
       <div className="tour-container" style={{ minHeight: "600px" }}>
+      <div className="tour-detail-ar">
         <div className="row ">
           <div className="col-lg-7 col-md-12">
             {homeTabData && homeTabData.tournament_details && (
@@ -232,8 +234,8 @@ function TournamentDetailPage() {
           <div className="col-lg-5 col-md-6">
             <div className="live-ads">
               <img
-                src="../images/tournament/Group 12.png"
-                className="tournament-imx2"
+                src="/images/tournament/Group 12.png"
+                className={locale === "ar" ? "tournament-imx2_ar" : "tournament-imx2"}
               ></img>
             </div>
           </div>
@@ -244,7 +246,7 @@ function TournamentDetailPage() {
             defaultActiveKey="Home"
             id="my-tabs"
             className=""
-            style={{ justifyContent: "initial", color: "red" }}
+            style={{ justifyContent: "initial", color: "red" ,marginRight:"-40px"}}
             onSelect={handleTabChange}
           >
             <Tab eventKey="Home" title={tabButton("Home")}>
@@ -343,6 +345,7 @@ function TournamentDetailPage() {
         </div>
       </div>
       <MobileFooter />
+    </div>
     </div>
   );
 }

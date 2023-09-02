@@ -7,13 +7,15 @@ import Axios from "axios";
 import { Image } from "antd";
 import { useTranslation } from "next-i18next";
 function StadiumList({ stadiumData }) {
-  const router = useRouter();
-  const data = router.query;
+  const router = useRouter()
+  const { locale } = router;
+    const data = router.query;
   const { t } = useTranslation();
   return (
     <Fragment>
+         <div className="tour-detail-ar">
       <h5 style={{ fontWeight: "700" }} className="my-2">
-        Select Playground
+        {t("Select Playground")}
       </h5>
       <div className="row">
         {stadiumData !== undefined ? (
@@ -29,7 +31,8 @@ function StadiumList({ stadiumData }) {
                           className="plays-img"
                         ></img>
                       )}
-                      <div className="play-details">
+                     
+                      <div className={locale==='ar'?"play-details_ar":"play-details"}>
                         <h5 className="play_text">{item.stadium_name}</h5>
                         <div className="locations">
                           <i
@@ -101,6 +104,7 @@ function StadiumList({ stadiumData }) {
             </div>
           )
         ) : null}
+      </div>
       </div>
     </Fragment>
   );
