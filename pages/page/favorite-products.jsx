@@ -18,20 +18,23 @@ import { useEffect } from "react";
 import MobileHeader from "@/components/MobileHeader";
 import MobileFooter from "@/components/shared/MobileFooter";
 import Link from "next/link";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['translation'])),
+      ...(await serverSideTranslations(locale, ["translation"])),
     },
-  }
+  };
 }
 function FavoriteProducts() {
   const [favLists, setFavLists] = useState([]);
   const [apiSuccess, setApiSuccess] = useState(false);
-  const {t}=useTranslation()
+  const { t } = useTranslation();
+  const router = useRouter();
+  const { locale } = router;
   useEffect(() => {
     Axios.get(apis.viewwishlist, {
       headers: {
@@ -133,11 +136,13 @@ function FavoriteProducts() {
                                 textOverflow: "ellipsis",
                               }}
                             >
-                              {item.Name}
+                              {locale === "en"
+                                ? item.Name
+                                : item.arabic_translator}
                             </div>
                             {item.product_stock <= 0 ? (
                               <p className="my-1" style={{ color: "red" }}>
-                                Out of Stock
+                                {t("Out of Stock")}
                               </p>
                             ) : item.product_brand_status === "Active" &&
                               item.product_category_status == true &&
@@ -159,7 +164,7 @@ function FavoriteProducts() {
                               </div>
                             ) : (
                               <p className="my-1" style={{ color: "red" }}>
-                                Currently Unavailable
+                                {t("Currently Unavailable")}
                               </p>
                             )}
                           </Link>

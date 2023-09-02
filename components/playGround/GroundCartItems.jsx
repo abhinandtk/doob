@@ -9,19 +9,21 @@ import { Labels } from "@/public/data/my-constants/Labels";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { toggle } from "@/Redux/updateNavbar";
+import { useTranslation } from "next-i18next";
 function GroundCartItems({ data, setSuccess }) {
   console.log("groundCart", data);
+  const { t } = useTranslation();
 
   const labels = Labels();
   const router = useRouter();
-  const dispatch =useDispatch()
+  const dispatch = useDispatch();
   const checkoutPlaygroundHandler = () => {
     Axios.post(apis.playgroundCheckout, null, {
       headers: {
         Authorization: `Token ${constants.token_id}`,
       },
     }).then((res) => {
-      dispatch(toggle())
+      dispatch(toggle());
       if (res.data.status === 1) {
         notification.success({
           messsage: constants.Success,
@@ -51,7 +53,7 @@ function GroundCartItems({ data, setSuccess }) {
         },
       }
     ).then((res) => {
-      dispatch(toggle())
+      dispatch(toggle());
       if (res.data.status === 1) {
         setSuccess((prev) => !prev);
         notification.success({
@@ -67,8 +69,15 @@ function GroundCartItems({ data, setSuccess }) {
       {data && (
         <div className="col-md-6">
           <div className="clearfix numbers">
-            <h5 className="float-start" style={{color:'black'}}>Slots</h5>
-            <p className="float-end" style={{color:'black',fontSize:"14px"}}>Total&nbsp;{data.cart_count}&nbsp;items</p>
+            <h5 className="float-start dark-theme-color" >
+              {t("Slots")}
+            </h5>
+            <p
+              className="float-end dark-theme-color"
+              style={{  fontSize: "14px" }}
+            >
+              {t("Total")}&nbsp;{data.cart_count}&nbsp;{t("items")}
+            </p>
           </div>
           {data.cart_details.map((slot, index_) => (
             <div key={index_} className="card carts1 my-3">
@@ -92,7 +101,7 @@ function GroundCartItems({ data, setSuccess }) {
                     <div
                       className="float-end trashs"
                       onClick={() => removeCartItemHandler(slot.cart_id)}
-                      style={{cursor:'pointer'}}
+                      style={{ cursor: "pointer" }}
                     >
                       <img src="/images/store/trash.png"></img>
                     </div>
@@ -101,17 +110,15 @@ function GroundCartItems({ data, setSuccess }) {
                 <div className="clearfix mst my-1 sections">
                   {/* <p className="carts-group float-start">Ground A B</p> */}
                   <h5 className="float-end" style={{ fontWeight: "600" }}>
-                    {slot.stadium_amount}&nbsp;KD 
+                    {slot.stadium_amount}&nbsp;KD
                   </h5>
                 </div>
               </div>
             </div>
           ))}
 
-             
-
           <div className="clearfix amounts">
-            <p className="float-start">Total Price</p>
+            <p className="float-start">{t("Total Price")}</p>
             <h5 className="float-end" style={{ fontSize: "16px" }}>
               {data.total_amount}&nbsp;KD
             </h5>
@@ -120,7 +127,7 @@ function GroundCartItems({ data, setSuccess }) {
               type="button"
               className=" checks-btn"
             >
-              Check out
+              {t("Check out")}
             </button>
           </div>
         </div>

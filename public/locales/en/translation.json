@@ -81,6 +81,7 @@
   "Rank Details": "Rank Details",
 
   "Name": "Name",
+  "Profile": "Profile",
   "Name in Arabic": "Name in Arabic",
   "Brand": "Brand",
   "Category": "Category",
@@ -277,6 +278,20 @@
   "User name": "User name",
   "Ticket No": "Ticket No",
   "Ticket Details": "Ticket Details",
+
+  "Shipping Address": "Shipping Address",
+  "Total": "Total",
+  "items": "items",
+  "My Cart": "My Cart",
+  "Order List": "Order List",
+  "Out of Stock": "Out of Stock",
+  "Product is currently unavailable": "Product is currently unavailable",
+  "Cart is empty": "Cart is empty",
+  "Loading": "Loading",
+  "Check out": "Check out",
+  "Total Price": "Total Price",
+  "Delivery Charge": "Delivery Charge",
+  "Sub total": "Sub total",
 
   "Add Address": "Add Address",
   "Set as Default": "Set as Default",

@@ -12,7 +12,8 @@ import constants from "@/public/data/my-constants/Constants";
 import { useState } from "react";
 import { useEffect } from "react";
 import MobileFooter from "@/components/shared/MobileFooter";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -26,6 +27,7 @@ function CartPage() {
   const [cartProducts, setCartProducts] = useState([]);
   const [cartAddress, setCartAddress] = useState([]);
   const [onSuccess, setOnSuccess] = useState(true);
+  const { t } = useTranslation();
 
   useEffect(() => {
     Axios.post(apis.viewCart, null, {
@@ -49,7 +51,9 @@ function CartPage() {
         <div className="h-100 my-3 ">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col">
-              <h5 fw-bold className="dark-theme-color">My Cart</h5>
+              <h5 fw-bold className="dark-theme-color">
+                {t("My Cart")}
+              </h5>
               <div className="row">
                 <div className="col-lg-7">
                   <ShippingAddress
@@ -58,9 +62,9 @@ function CartPage() {
                   />
 
                   <h5 className="dark-theme-color" style={{ fontSize: "17px" }}>
-                    Order List
+                    {t("Order List")}
                     <span className="view">
-                      Total {cartDetails.cart_items} items
+                      {t("Total")} {cartDetails.cart_items} {t("items")}
                     </span>
                   </h5>
                   {cartProducts.map((product, index) => (

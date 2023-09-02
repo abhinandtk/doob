@@ -659,11 +659,11 @@ function MobileHeader() {
             key="submit"
             style={{ backgroundColor: "#17A803", color: "black" }}
           >
-            Logout
+            {t("Logout")}
           </Button>,
         ]}
       >
-        <p>Are you sure to logout</p>
+        <p>{t("Are you sure to logout?")}</p>
       </Modal>
 
       {uploadShow && <UploadFiles setUploadShow={setUploadShow} />}

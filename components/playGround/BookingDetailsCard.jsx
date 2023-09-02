@@ -75,14 +75,14 @@ function BookingDetailsCard({ details, setSuccess }) {
                 width: "90%",
               }}
             >
-              <span style={{ color: "#959595" }}>Date</span>
+              <span style={{ color: "#959595" }}>{t("Date")}</span>
               <span> {moment(item.date).format("DD MMM YYYY")} </span>
             </div>
             <div
               className="p-2 order-list-alt mx-auto d-flex justify-content-between align-items-center"
               style={{ width: "90%" }}
             >
-              <span style={{ color: "#959595" }}>Slot </span>
+              <span style={{ color: "#959595" }}>{t("Slot")} </span>
               <span>
                 {moment(item.start_time, "hh:mm:ss").format("hh:mm A")} -{" "}
                 {moment(item.end_time, "hh:mm:ss").format("hh:mm A")}
@@ -94,7 +94,7 @@ function BookingDetailsCard({ details, setSuccess }) {
                 width: "90%",
               }}
             >
-              <span style={{ color: "#959595" }}>Stadium Name</span>
+              <span style={{ color: "#959595" }}>{t("Stadium Name")}</span>
               <span className="book-names"> {item.stadium_name}</span>
             </div>
 
@@ -128,7 +128,7 @@ function BookingDetailsCard({ details, setSuccess }) {
                 width: "90%",
               }}
             >
-              <span style={{ color: "#959595" }}>Booking Status</span>
+              <span style={{ color: "#959595" }}>{t("Booking Status")}</span>
               <span
                 style={{
                   color: `${item.status === true ? "#17A803" : "red"} `,

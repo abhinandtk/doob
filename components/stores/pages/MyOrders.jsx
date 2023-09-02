@@ -8,8 +8,11 @@ import OrderProductCard from "../OrderProductCard";
 import moment from "moment";
 import { useEffect } from "react";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 function MyOrders() {
   const { t } = useTranslation();
+  const router = useRouter();
+  const { locale } = router;
   const [showItems, setShowItems] = useState(false);
   const [page, setPage] = useState(1);
   const [loadMore, setLoadMore] = useState(true);
@@ -53,7 +56,10 @@ function MyOrders() {
 
   return (
     <Fragment>
-      <div class="content-topic ">
+      <div
+        class="content-topic "
+        style={{ direction: locale === "en" ? "ltr" : "rtl" }}
+      >
         <h5 className="mt-4 ms-4 dark-theme-color">{t("Order History")}</h5>
         {ordersList.map((item, index) => {
           return (

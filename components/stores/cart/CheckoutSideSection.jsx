@@ -10,10 +10,11 @@ import { Router, useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { toggle } from "@/Redux/updateNavbar";
 import { useState } from "react";
+import { useTranslation } from "next-i18next";
 
 function CheckoutSideSection({ data }) {
   const dispatch = useDispatch();
-
+  const { t } = useTranslation();
   const labels = Labels();
   const router = useRouter();
   const { locale } = router;
@@ -58,13 +59,13 @@ function CheckoutSideSection({ data }) {
         <div className="card shipping  ">
           <div className="card-body p-4 ">
             <div className="d-flex justify-content-between">
-              <p className="mb-2">Sub total({data.cart_items} items)</p>
+              <p className="mb-2">{t("Sub total")}({data.cart_items} {t("items")})</p>
               <p className="mb-2" style={{ fontWeight: "600" }}>
                 {data.cart_total} KD
               </p>
             </div>
             <div className="d-flex justify-content-between">
-              <p className="mb-2">Delivery Charge</p>
+              <p className="mb-2">{t("Delivery Charge")}</p>
               <p className="mb-2" style={{ fontWeight: "600" }}>
                 {data.shipping_fee} KD
               </p>
@@ -72,7 +73,7 @@ function CheckoutSideSection({ data }) {
             <hr className="hr"></hr>
             <div className="d-flex justify-content-between mb-4">
               <p className="mb-2" style={{ fontWeight: "700" }}>
-                Total Price
+                {t("Total Price")}
               </p>
               <p className="mb-2" style={{ fontWeight: "600" }}>
                 {data.total_price} KD
@@ -86,7 +87,7 @@ function CheckoutSideSection({ data }) {
               {" "}
               {isLoading ? (
                 <>
-                  Loading
+                  {t("Loading")}
                   <Spinner
                     as="span"
                     animation="border"
@@ -97,7 +98,7 @@ function CheckoutSideSection({ data }) {
                   />
                 </>
               ) : (
-                "Check out"
+                t("Check out")
               )}{" "}
             </Button>
           </div>
