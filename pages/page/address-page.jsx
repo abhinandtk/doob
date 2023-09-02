@@ -197,7 +197,7 @@ function AddressPage() {
                       {t("Edit")}
                     </span>
                     {item.default ? (
-                      <span className="mx-3 dark-theme-color">Default Address</span>
+                      <span className="mx-3 dark-theme-color">{t("Default Address")}</span>
                     ) : (
                       <span
                         style={{ cursor: "pointer" }}

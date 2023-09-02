@@ -263,7 +263,7 @@ function StoreSettingsPage() {
               </h6>
               <div className="my-4 dark-theme-color mx-4 ">
                 <div className="basic">
-                  <h6 className="my-4 dark-theme-color">Private Account</h6>{" "}
+                  <h6 className="my-4 dark-theme-color">{t("Private Account")}</h6>{" "}
                   <div
                     className="toggle1"
                     style={{ marginRight: "50px", marginTop: "-40px" }}

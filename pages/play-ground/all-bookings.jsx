@@ -15,6 +15,7 @@ import MobileFooter from "@/components/shared/MobileFooter";
 import PagesSideBar from "@/components/stores/pages/PagesSideBar";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -29,6 +30,8 @@ function AllBookingPage() {
   const [loadMore, setLoadMore] = useState(1);
   const [success, setSuccess] = useState(false);
   const { t } = useTranslation();
+  const router = useRouter();
+  const { locale } = router;
   useEffect(() => {
     const apiPaginationUrl = `${apis.listAllBooking}?page=${page}`;
     Axios.get(apiPaginationUrl, {
@@ -55,7 +58,10 @@ function AllBookingPage() {
           <PagesSideBar currentPage="bookings" />
 
           <div className="play-topic  ">
-            <div className="bottoms">
+            <div
+              className="bottoms"
+              style={{ direction: locale === "en" ? "ltr" : "rtl" }}
+            >
               <h6
                 className="dark-theme-color mx-4"
                 style={{ fontWeight: "700" }}

@@ -7,9 +7,12 @@ import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { useDispatch } from "react-redux";
 import { toggle } from "@/Redux/updateNavbar";
+import { useTranslation } from "next-i18next";
+
 function OrderList({ product, setOnSuccess }) {
   console.log("rrrrrrrrrrrrrrrrrrr", product);
   const [quantity, setQuantity] = useState(parseInt(product.quantity));
+  const { t } = useTranslation();
 
   const labels = Labels();
   const dispatch = useDispatch();
@@ -88,7 +91,7 @@ function OrderList({ product, setOnSuccess }) {
                 <h6>{product.Name}</h6>
                 {product.product_stock <= 0 ? (
                   <p className="my-1" style={{ color: "red" }}>
-                    Out of Stock
+                    {t("Out of Stock")}
                   </p>
                 ) : product.product_brand_status === "Active" &&
                   product.product_category_status === "True" &&
@@ -99,7 +102,7 @@ function OrderList({ product, setOnSuccess }) {
                   </p>
                 ) : (
                   <p className="my-1" style={{ color: "red",width:'250px' }}>
-                    Product is currently unavailable
+                    {t("Product is currently unavailable")}
                   </p>
                 )}
               </div>
@@ -110,7 +113,7 @@ function OrderList({ product, setOnSuccess }) {
                 style={{ cursor: "pointer" }}
               >
                 <span>
-                  <img src="../images/store/trash.png"></img>
+                  <img src="/images/store/trash.png"></img>
                 </span>
               </div>
             </div>

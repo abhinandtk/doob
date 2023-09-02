@@ -10,6 +10,7 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -19,6 +20,7 @@ export async function getStaticProps({ locale }) {
   };
 }
 function PlayGroundCartPage() {
+  const { t } = useTranslation();
   const [cartFieldData, setCartFieldData] = useState([]);
   const [cartData, setCartData] = useState([]);
   const [success, setSuccess] = useState(true);
@@ -42,7 +44,7 @@ function PlayGroundCartPage() {
       <MainSidebarFixed />
       <div className="tour-container">
         <h5 className=" my-4" style={{ fontWeight: "600" }}>
-          My Cart
+          {t("My Cart")}
         </h5>
         <div className="row">
           {!isLoading ? (
@@ -52,7 +54,7 @@ function PlayGroundCartPage() {
                 <GroundCartItems data={cartData} setSuccess={setSuccess} />
               </>
             ) : (
-              <div>Cart is empty</div>
+              <div>{t("Cart is empty")}</div>
             )
           ) : null}
         </div>

@@ -10,21 +10,24 @@ import constants from "@/public/data/my-constants/Constants";
 import MobileHeader from "@/components/MobileHeader";
 import MobileFooter from "@/components/shared/MobileFooter";
 import Link from "next/link";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['translation'])),
+      ...(await serverSideTranslations(locale, ["translation"])),
     },
-  }
+  };
 }
 
 function FavoriteStores() {
   const [storeFavList, setStoreFavList] = useState([]);
   const [apiSuccess, setApiSuccess] = useState(false);
-  const {t}=useTranslation()
+  const { t } = useTranslation();
+  const router = useRouter();
+  const { locale } = router;
   useEffect(() => {
     Axios.get(apis.viewstorewishlist, {
       headers: {
@@ -78,10 +81,10 @@ function FavoriteStores() {
                       style={{ textDecoration: "none" }}
                     >
                       <Card.Img
-                         style={{
+                        style={{
                           borderRadius: "12px 12px 0px 0px",
                           objectFit: "cover",
-                          aspectRatio: "1", 
+                          aspectRatio: "1",
                         }}
                         src={`${item.store.cover_photo}`}
                       />
@@ -93,9 +96,11 @@ function FavoriteStores() {
                         {" "}
                         <Link
                           href={`/store/${item.store.slug_store}`}
-                          style={{ textDecoration: "none",color:'inherit' }}
+                          style={{ textDecoration: "none", color: "inherit" }}
                         >
-                          {item.store.title}
+                          {locale === "en"
+                            ? item.store.title
+                            : item.store.title_arabic}
                         </Link>
                         <span
                           onClick={() =>
@@ -104,7 +109,7 @@ function FavoriteStores() {
                               item.is_favorite
                             )
                           }
-                          style={{ float: "right",cursor:'pointer' }}
+                          style={{ float: "right", cursor: "pointer" }}
                         >
                           <i
                             className="bi bi-suit-heart-fill"
