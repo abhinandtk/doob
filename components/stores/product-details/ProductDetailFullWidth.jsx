@@ -40,72 +40,78 @@ function ProductDetailFullWidth({ product, setApiSuccess }) {
   let priceView;
   let productStock;
   let varientStatus;
-  // useEffect(() => {
-  product &&
-    Array.isArray(product) &&
-    product[0] &&
-    product[0].Product_Items &&
-    product[0].Product_Items.map((item, index) => {
-      item.multivarient.length !== 0
-        ? item.multivarient.map((item_, index_) => {
-          console.log("det32 secondvarId", prVarientId);
-          if (item_.slug_id === prVarientId) {
-            productStock = item_.stock;
-            (varientStatus = item_.status),
-              (priceView = (
-                <p
-                  className="price"
-                  style={{ color: "gray", fontWeight: "400", float: locale === "ar" && "left" }}
-                >
-                  <s style={{ float: locale === "ar" && "left" }}
-                  >{item_.cut_prize} KD</s>
-                  <span
-                    className="mx-2"
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "500",
-                      color: "#17a803",
-                    }}
-                  >
-                    {item_.actual_prize} KD
-                  </span>
-                  <span></span>
-                </p>
-              ));
+  useEffect(() => {
+    product &&
+      Array.isArray(product) &&
+      product[0] &&
+      product[0].Product_Items &&
+      product[0].Product_Items.map((item, index) => {
+        item.multivarient.length !== 0
+          ? item.multivarient.map((item_, index_) => {
+              console.log("det32 secondvarId", prVarientId);
+              if (item_.slug_id === prVarientId) {
+                productStock = item_.stock;
+                (varientStatus = item_.status),
+                  (priceView = (
+                    <p
+                      className="price"
+                      style={{
+                        color: "gray",
+                        fontWeight: "400",
+                        float: locale === "ar" && "left",
+                      }}
+                    >
+                      <s style={{ float: locale === "ar" && "left" }}>
+                        {item_.cut_prize} KD
+                      </s>
+                      <span
+                        className="mx-2"
+                        style={{
+                          fontSize: "20px",
+                          fontWeight: "500",
+                          color: "#17a803",
+                        }}
+                      >
+                        {item_.actual_prize} KD
+                      </span>
+                      <span></span>
+                    </p>
+                  ));
 
-            dispatch(setProPrimaryVarientId(item.varent_id));
-            dispatch(setProSecondaryVarientId(item_.slug_id));
-            // setSuccess(true);
-          }
-        })
-        : dispatch(setProPrimaryVarientId(item.varent_id));
-      console.log(
-        "det32 item.varent_idsingle",
-        item.varent_id,
-        "var==id",
-        prVarientId
-      ),
-        item.slug_id === prVarientId &&
-        ((productStock = item.stock),
-          (varientStatus = item.status),
-          (priceView = (
-            <p style={{ color: "gray", fontWeight: "400" }}>
-              <s>{item.cut_prize} KD</s>
-              <span
-                className="mx-2"
-                style={{
-                  fontSize: "20px",
-                  fontWeight: "500",
-                  color: "#17a803",
-                }}
-              >
-                {item.actual_prize} KD
-              </span>
-              <span></span>
-            </p>
-          )));
-    });
-  // }, []);
+                dispatch(setProPrimaryVarientId(item.varent_id));
+                dispatch(setProSecondaryVarientId(item_.slug_id));
+                // setSuccess(true);
+              }
+            })
+          : dispatch(setProPrimaryVarientId(item.varent_id));
+        console.log(
+          "det32 item.varent_idsingle",
+          item,
+          item.varent_id,
+          "var==id",
+          prVarientId
+        ),
+          item.slug_id === prVarientId &&
+            ((productStock = item.stock),
+            (varientStatus = item.status),
+            (priceView = (
+              <p style={{ color: "gray", fontWeight: "400" }}>
+                <s>{item.cut_prize} KD</s>
+                <span
+                  className="mx-2"
+                  style={{
+                    fontSize: "20px",
+                    fontWeight: "500",
+                    color: "#17a803",
+                  }}
+                >
+                  {item.actual_prize} KD
+                </span>
+                <span></span>
+              </p>
+            )));
+      });
+  }, []);
   console.log("det32 firstloading,,", proPrimaryVarientId);
 
   const [quantity, setQuantity] = useState(1);
@@ -193,8 +199,9 @@ function ProductDetailFullWidth({ product, setApiSuccess }) {
                   </p>
                 ) : product.Product_Brand.status === "Active" &&
                   product.Product_Category.status == true &&
-                  product.status === "Active" &&
-                  varientStatus === "Active" ? (
+                  product.status === "Active" 
+                  // varientStatus === "Active" 
+                  ? (
                   <div>
                     {priceView}
                     <div className="qty">
