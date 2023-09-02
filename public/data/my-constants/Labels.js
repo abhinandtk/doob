@@ -29,6 +29,9 @@ export function Labels() {
             "Unblocked user successfully": "Unblocked user successfully",
             "Share post user": "Post shared successfully",
             "User already selected": "User already selected",
+            "Feedback Submitted SuccessFully": "Feedback Submitted SuccessFully",
+            "Status changed successfully": "Status changed successfully",
+            "Logout Successfully": "Logout Successfully",
 
             //chat
 
@@ -121,6 +124,11 @@ export function Labels() {
             "Unblocked user successfully": "تم إلغاء حظر المستخدم بنجاح",
             "Share post user": "تم نشر المشاركة بنجاح ",
             "User already selected": "تم تحديد المستخدم بالفعل",
+            "Feedback Submitted SuccessFully": "تم إرسال التعليقات بنجاح تام",
+            "Status changed successfully": "تم تغيير الحالة بنجاح",
+            "Logout Successfully": "تم تسجيل الخروج بنجاح",
+
+
 
             //chat
 

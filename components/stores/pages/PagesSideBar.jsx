@@ -6,12 +6,14 @@ import { Button, Modal, notification } from "antd";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { useTheme } from "next-themes";
+import { Labels } from "@/public/data/my-constants/Labels";
 function PagesSideBar({ currentPage }) {
   const { t } = useTranslation();
   const [show, setShow] = useState(false);
   const router = useRouter();
   const [svgStroke, setSvgStroke] = useState("");
   const { theme } = useTheme();
+  const labels=Labels()
 
   useEffect(() => {
     setSvgStroke(theme === "dark" ? "white" : "black");
@@ -34,8 +36,8 @@ function PagesSideBar({ currentPage }) {
         localStorage.removeItem("hasReloaded");
 
         notification.success({
-          message: " Success",
-          description: "Logout Successfully",
+          message: constants.Success,
+          description: `${labels["Logout Successfully"]}`,
         });
         router.push("/");
         // window.location.reload();
@@ -43,8 +45,8 @@ function PagesSideBar({ currentPage }) {
         localStorage.removeItem("user-login-tokens");
         localStorage.removeItem("hasReloaded");
         notification.success({
-          message: " Success",
-          description: "Logout Successfully",
+          message: constants.Success,
+          description: `${labels["Logout Successfully"]}`,
         });
         router.push("/");
         // window.location.reload();

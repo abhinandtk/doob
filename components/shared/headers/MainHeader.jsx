@@ -20,6 +20,7 @@ import ThemeSwitcher from "./ThemeSwitcher";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useTranslation } from "next-i18next";
 import Login from "@/components/user/Login";
+import { Labels } from "@/public/data/my-constants/Labels";
 function MainHeader({ title }) {
   const { t } = useTranslation();
   const router = useRouter();
@@ -32,6 +33,7 @@ function MainHeader({ title }) {
   }, [theme]);
   const { locale } = useRouter();
   const { asPath } = router;
+  const labels = Labels();
   const [show, setShow] = useState(false);
   const [confirmLogout, setConfirmLogout] = useState(false);
   const [uploadShow, setUploadShow] = useState(false);
@@ -88,8 +90,8 @@ function MainHeader({ title }) {
           localStorage.removeItem("hasReloaded");
 
           notification.success({
-            message: " Success",
-            description: "Logout Successfully",
+            message: constants.Success,
+            description: `${labels["Logout Successfully"]}`,
           });
           router.push("/");
           if (isHomePage) {
@@ -100,8 +102,8 @@ function MainHeader({ title }) {
           localStorage.removeItem("user-login-tokens");
           localStorage.removeItem("hasReloaded");
           notification.success({
-            message: " Success",
-            description: "Logout Successfully",
+            message: constants.Success,
+            description: `${labels["Logout Successfully"]}`,
           });
           router.push("/");
           if (isHomePage) {
@@ -114,8 +116,8 @@ function MainHeader({ title }) {
       .catch((error) => {
         localStorage.removeItem("user-login-tokens");
         notification.success({
-          message: " Success",
-          description: "Logout Successfully",
+          message: constants.Success,
+          description: `${labels["Logout Successfully"]}`,
         });
         router.push("/");
         window.location.reload(false);
@@ -471,7 +473,10 @@ function MainHeader({ title }) {
                             stroke-width="1.3039"
                           />
                         </svg>
-                        <span className="mx-2 hubs dark-theme-color"> {t("Wallet")}</span>
+                        <span className="mx-2 hubs dark-theme-color">
+                          {" "}
+                          {t("Wallet")}
+                        </span>
                       </Link>
                     </div>
 
@@ -612,7 +617,9 @@ function MainHeader({ title }) {
                           />
                         </svg>
 
-                        <span className="mx-3 hubs dark-theme-color">{t("Bookings")}</span>
+                        <span className="mx-3 hubs dark-theme-color">
+                          {t("Bookings")}
+                        </span>
                       </Link>
                     </div>
 
@@ -633,7 +640,9 @@ function MainHeader({ title }) {
                             fill={svgStroke}
                           />
                         </svg>
-                        <span className="mx-3 hubs dark-theme-color">{t("My Orders")}</span>
+                        <span className="mx-3 hubs dark-theme-color">
+                          {t("My Orders")}
+                        </span>
                       </Link>
                     </div>
 
@@ -654,7 +663,9 @@ function MainHeader({ title }) {
                             fill={svgStroke}
                           />
                         </svg>
-                        <span className="mx-3 hubs dark-theme-color">{t("Feedback")}</span>
+                        <span className="mx-3 hubs dark-theme-color">
+                          {t("Feedback")}
+                        </span>
                       </Link>
                     </div>
                     <div className="my-4">
@@ -675,7 +686,9 @@ function MainHeader({ title }) {
                             fill={svgStroke}
                           />
                         </svg>
-                        <span className="mx-3 hubs dark-theme-color">{t("Settings")}</span>
+                        <span className="mx-3 hubs dark-theme-color">
+                          {t("Settings")}
+                        </span>
                       </Link>
                     </div>
 
@@ -700,7 +713,9 @@ function MainHeader({ title }) {
                         />
                       </svg>{" "}
                       &nbsp;
-                      <span className="mx-3 hubs dark-theme-color">{t("Logout")}</span>
+                      <span className="mx-3 hubs dark-theme-color">
+                        {t("Logout")}
+                      </span>
                     </div>
                   </Offcanvas.Body>
                 </Offcanvas>
@@ -733,7 +748,7 @@ function MainHeader({ title }) {
             className="no-hover-effect dark-theme-color"
             onClick={logoutHandle}
             key="submit"
-            style={{ backgroundColor: "#17A803"}}
+            style={{ backgroundColor: "#17A803" }}
           >
             {t("Logout")}
           </Button>,

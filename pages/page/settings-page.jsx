@@ -86,8 +86,8 @@ function StoreSettingsPage() {
       if (res.data.status === 1) {
         setOnSuccess((prev) => !prev);
         notification.success({
-          message: "Success",
-          description: "Status changed successfully",
+          message: constants.Success,
+          description: `${labels["Status changed successfully"]}`,
         });
       }
     });
@@ -124,8 +124,8 @@ function StoreSettingsPage() {
           if (res.data.status === 1) {
             localStorage.removeItem("user-login-tokens");
             notification.success({
-              message: " Success",
-              description: "Logout Successfully",
+              message: constants.Success,
+              description: `${labels["Logout Successfully"]}`,
             });
             router.push("/");
             window.location.reload(false);
@@ -229,7 +229,7 @@ function StoreSettingsPage() {
         </div>
       </Modal>
       <Modal
-        title="Are you sure to delete this account?"
+        title={t("Are you sure to delete this account?")}
         open={visible}
         centered
         closable
@@ -263,7 +263,9 @@ function StoreSettingsPage() {
               </h6>
               <div className="my-4 dark-theme-color mx-4 ">
                 <div className="basic">
-                  <h6 className="my-4 dark-theme-color">{t("Private Account")}</h6>{" "}
+                  <h6 className="my-4 dark-theme-color">
+                    {t("Private Account")}
+                  </h6>{" "}
                   <div
                     className="toggle1"
                     style={{ marginRight: "50px", marginTop: "-40px" }}
@@ -406,7 +408,10 @@ function StoreSettingsPage() {
                     </h6>
                   </div>
                   <div onClick={() => setVisible(true)}>
-                    <h6 className="my-4 dark-theme-color" style={{ cursor: "pointer" }}>
+                    <h6
+                      className="my-4 dark-theme-color"
+                      style={{ cursor: "pointer" }}
+                    >
                       {t("Delete Account")}{" "}
                       <span>
                         <svg

@@ -13,6 +13,7 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import MobileHeader from "@/components/MobileHeader";
 import MobileFooter from "@/components/shared/MobileFooter";
+import { Labels } from "@/public/data/my-constants/Labels";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -22,6 +23,7 @@ export async function getStaticProps({ locale }) {
   };
 }
 function FeedbackPage() {
+  const labels=Labels()
   const { t } = useTranslation();
   const [formData, setFormData] = useState({
     title: "",
@@ -59,7 +61,7 @@ function FeedbackPage() {
       console.log(res);
       notification.success({
         message: "Success",
-        description: "Feedback Submitted SuccessFully",
+        description: `${labels["Feedback Submitted SuccessFully"]}`,
       });
     });
   };

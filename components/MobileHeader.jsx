@@ -22,11 +22,12 @@ import { updateMessageCount } from "@/Redux/messagesCount";
 import { useTranslation } from "next-i18next";
 import ThemeSwitcher from "./shared/headers/ThemeSwitcher";
 import LanguageSwitcher from "./shared/headers/LanguageSwitcher";
+import { Labels } from "@/public/data/my-constants/Labels";
 function MobileHeader() {
   const { t } = useTranslation();
   const [show, setShow] = useState(false);
   const [confirmLogout, setConfirmLogout] = useState(false);
-
+  const labels = Labels();
   const [uploadShow, setUploadShow] = useState(false);
   const [notificationShow, setNotificationShow] = useState(false);
 
@@ -74,8 +75,8 @@ function MobileHeader() {
       if (res.data.status === 1) {
         localStorage.removeItem("user-login-tokens");
         notification.success({
-          message: " Success",
-          description: "Logout Successfully",
+          message: constants.Success,
+          description: `${labels["Logout Successfully"]}`,
         });
         window.location.reload(false);
         router.push("/");
@@ -287,7 +288,7 @@ function MobileHeader() {
                       stroke-linecap="round"
                       stroke-linejoin="round"
                     />
-                  
+
                     <path
                       d="M19.5202 8.66786V8.02082L22.3748 3.50422H22.8442V4.5065H22.527L20.3702 7.91932V7.97007H24.2144V8.66786H19.5202ZM22.5778 10V8.47121V8.16989V3.50422H23.3263V10H22.5778Z"
                       fill="white"
@@ -549,11 +550,14 @@ function MobileHeader() {
                               stroke-width="1.10069"
                             />
                           </svg>
-                          <span className="mx-2 flap "> {t("Manage Store")}</span>
+                          <span className="mx-2 flap ">
+                            {" "}
+                            {t("Manage Store")}
+                          </span>
                         </Link>
                       </div>
                     )}
-                       {((user && user === "Field") ||
+                    {((user && user === "Field") ||
                       (user && user === "Pro")) && (
                       <div className="my-4">
                         <Link
@@ -578,7 +582,10 @@ function MobileHeader() {
                               stroke-width="1.10069"
                             />
                           </svg>
-                          <span className="mx-2 flap"> {t("Manage Field")}</span>
+                          <span className="mx-2 flap">
+                            {" "}
+                            {t("Manage Field")}
+                          </span>
                         </Link>
                       </div>
                     )}
