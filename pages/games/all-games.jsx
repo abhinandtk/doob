@@ -13,6 +13,7 @@ import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { useRouter } from "next/router";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -24,6 +25,7 @@ export async function getStaticProps({ locale }) {
 function AllGamesPage() {
   const router = useRouter();
   const { tab } = router.query;
+  const {t}=useTranslation()
   const [myGames, setMyGames] = useState([]);
   const [gamesJoined, setGamesJoined] = useState([]);
   const [gamesInvited, setGamesInvited] = useState([]);
@@ -32,11 +34,11 @@ function AllGamesPage() {
 
   const getTabName = (tabKey) => {
     if (tabKey === "games") {
-      return "My Games";
+      return t("My Games");
     } else if (tabKey === "joined") {
-      return "Games I Joined";
+      return t("Games I Joined");
     } else if (tabKey === "invited") {
-      return "Games I am Invited";
+      return t("Games I am Invited");
     }
     return "";
   };
@@ -80,7 +82,7 @@ function AllGamesPage() {
       <div className="tour-container">
       <div className="tour-detail-ar">
         <h5 className=" my-4" style={{ fontWeight: "600" }}>
-          All Games
+          {t("All Games")}
         </h5>
         <div className="play_detail_tabs">
           <Tabs
@@ -99,7 +101,7 @@ function AllGamesPage() {
                     cursor: "pointer",
                   }}
                 >
-                  All
+                  {t("All")}
                 </p>
                 {myGames.map((item, index) => (
                   <p
@@ -138,7 +140,7 @@ function AllGamesPage() {
                     cursor: "pointer",
                   }}
                 >
-                  All
+                  {t("All")}
                 </p>
                 {gamesJoined.map((item, index) => (
                   <p
@@ -173,7 +175,7 @@ function AllGamesPage() {
                     cursor: "pointer",
                   }}
                 >
-                  All
+                  {t("All")}
                 </p>
                 {gamesJoined.map((item, index) => (
                   <p

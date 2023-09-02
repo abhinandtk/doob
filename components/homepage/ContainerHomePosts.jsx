@@ -21,11 +21,13 @@ import { useTranslation } from "next-i18next";
 import Login from "@/components/user/Login";
 import { CardImg } from "react-bootstrap";
 import { Modal } from "antd";
+import { useRouter } from "next/router";
 
 function ContainerHomePosts() {
   const { t } = useTranslation();
 
   const { theme } = useTheme();
+  const router = useRouter();
   const apiSuccess = useSelector((state) => state.api);
   const [visibleComment, setVisibleComment] = useState(false);
   const [visibleShared, setVisibleShared] = useState(false);
@@ -173,6 +175,18 @@ function ContainerHomePosts() {
     }
   };
 
+  const profileNavigationHandler = (id) => {
+    if (isAuthenticated) {
+      if (constants.user_id === id) {
+        router.push("/profile");
+      } else {
+        router.push(`/userprofile/${id}`);
+      }
+    } else {
+      setShowLogin(true);
+    }
+  };
+
   return (
     <Fragment>
       {showLogin && <Login setShowLogin={setShowLogin} />}
@@ -249,13 +263,16 @@ function ContainerHomePosts() {
                     ) : item.post_type === "Field" ? (
                       <SharedPostHeaders data={item} />
                     ) : (
-                      <Link
-                        href={
-                          constants.user_id === item.user_detail.id
-                            ? "profile"
-                            : `/userprofile/${item.user_detail.id}`
+                      <div
+                        // href={
+                        //   constants.user_id === item.user_detail.id
+                        //     ? "profile"
+                        //     : `/userprofile/${item.user_detail.id}`
+                        // }
+                        onClick={() =>
+                          profileNavigationHandler(item.user_detail.id)
                         }
-                        style={{ textDecoration: "none", color: "inherit" }}
+                        style={{ color: "inherit", cursor: "pointer" }}
                       >
                         <div className="post__profile">
                           <div className="post__avatar">
@@ -303,7 +320,7 @@ function ContainerHomePosts() {
                             </div>
                           </div>
                         </div>
-                      </Link>
+                      </div>
                     )
                   ) : (
                     <div className="post__profile">
