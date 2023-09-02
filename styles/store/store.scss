@@ -536,6 +536,53 @@ input.nosubmit2 {
   background-clip: padding-box;
 }
 
+
+
+
+.qty_ar {
+  float: right;
+  margin-left: 246px;
+}
+
+.qty_ar .count {
+  color: var(--font-theme-color);
+  display: inline-block;
+  vertical-align: top;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  padding: 0 1px;
+  min-width: 28px;
+  text-align: center;
+  border: 0px;
+}
+
+.qty_ar .plus {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: top;
+  color: white;
+  width: 23px;
+  height: 23px;
+  font: 14px/1.5 Arial, sans-serif;
+  text-align: center;
+  border-radius: 30%;
+  font-size: 16px;
+}
+
+.qty_ar .minus {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: top;
+  color: white;
+  width: 23px;
+  height: 22px;
+  font: 14px/0.5 Arial, sans-serif;
+  text-align: center;
+  border-radius: 30%;
+  background-clip: padding-box;
+}
+
 //nibras change
 .span-icon {
   margin-top: 15px;
@@ -2885,6 +2932,10 @@ input:disabled {
     margin-left: 15px;
   }
 
+  .qty_ar {
+    float: right;
+     margin-left: 0px; 
+}
   .report-section {
     display: flex;
     justify-content: space-between;

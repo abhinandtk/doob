@@ -10,7 +10,8 @@ function GameBookingCard({ data }) {
   const { t } = useTranslation();
 
   const router = useRouter();
-  const scrollRef = useRef();
+  const { locale } = router;
+    const scrollRef = useRef();
 
   return (
     <Fragment>
@@ -43,7 +44,7 @@ function GameBookingCard({ data }) {
                 </div>
               </div>
               <div className="book-content">
-                <div className="book-date">
+                <div className={locale === "en" ? "book-date" : "book-date_ar"}>
                   <h5 style={{ color: "#17A803", fontWeight: "700" }}>
                     {moment(value.stadium_details.date).format("D")}
                   </h5>
@@ -106,7 +107,7 @@ function GameBookingCard({ data }) {
 
               <button
                 type="button"
-                className="yes1-btn float-end"
+                className="yes1-btn float-end "
                 onClick={() =>
                   router.push({
                     pathname: "/games/create-game",

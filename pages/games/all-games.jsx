@@ -78,6 +78,7 @@ function AllGamesPage() {
       <MobileHeader />
       <MainSidebarFixed />
       <div className="tour-container">
+      <div className="tour-detail-ar">
         <h5 className=" my-4" style={{ fontWeight: "600" }}>
           All Games
         </h5>
@@ -86,7 +87,7 @@ function AllGamesPage() {
             defaultActiveKey={activeTab}
             id="my-tabs"
             className=""
-            style={{ justifyContent: "initial", color: "red" }}
+            style={{ justifyContent: "initial", color: "red" ,marginRight:'-40px' }}
             onSelect={handleTabChange}
           >
             <Tab eventKey="games" title={tabButton("games")}>
@@ -200,6 +201,7 @@ function AllGamesPage() {
             </Tab>
           </Tabs>
         </div>
+      </div>
       </div>
       <MobileFooter />
     </div>

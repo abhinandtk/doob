@@ -81,7 +81,7 @@ function FavoriteProducts() {
 
         <div className="content-pages">
           <br></br>
-          <div className="head">{t("Favourite Products")}</div>
+          <div className={locale==='ar'?"head_ar":"head"}>{t("Favourite Products")}</div>
           <div className=" ones" style={{ minHeight: "500px" }}>
             <div className="row row-cols-2 my-2 g-3 p-3 store">
               {favLists &&
@@ -111,14 +111,13 @@ function FavoriteProducts() {
                             onClick={() =>
                               favoriteHandler(item.slug_Id, item.isWish)
                             }
-                            style={{ float: "right" }}
+                            style={{ float: locale === "en" ? "right" : "left" }}
                           >
                             <i
-                              className={`${
-                                item.isWish
+                              className={`${item.isWish
                                   ? "bi bi-suit-heart-fill"
                                   : "bi bi-suit-heart"
-                              }`}
+                                }`}
                               style={{ color: "#17A803" }}
                             ></i>
                           </span>

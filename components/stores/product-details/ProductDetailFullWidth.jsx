@@ -204,7 +204,7 @@ function ProductDetailFullWidth({ product, setApiSuccess }) {
                   ? (
                   <div>
                     {priceView}
-                    <div className="qty">
+                    <div   className={locale==='ar'?"qty_ar":"qty"}>            
                       <div
                         onClick={(e) => handleDecreaseQty(e)}
                         className="minus "
