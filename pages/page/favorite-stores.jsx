@@ -67,7 +67,7 @@ function FavoriteStores() {
         <PagesSideBar currentPage="fav-store" />
         <div className="content-pages">
           <br></br>
-          <div className="head">{t("Favourite Stores")}</div>
+          <div className={locale==='ar'?"head_ar":"head"}>{t("Favourite Stores")}</div>        
           <div className=" ones" style={{ minHeight: "500px" }}>
             <div className="row row-cols-2 g-3   store p-3 ">
               {storeFavList.map((item, index) => (
@@ -109,7 +109,7 @@ function FavoriteStores() {
                               item.is_favorite
                             )
                           }
-                          style={{ float: "right", cursor: "pointer" }}
+                          style={{ float: locale === "en" ? "right" : "left" ,cursor:'pointer' }}
                         >
                           <i
                             className="bi bi-suit-heart-fill"
