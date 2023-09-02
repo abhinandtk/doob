@@ -833,11 +833,11 @@ input.tour {
   font-weight: 700;
   font-size: 17px;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 230px;
+  width: 250px;
 }
 
 .place {
@@ -845,11 +845,13 @@ input.tour {
   font-weight: 400;
   font-size: 15px;
   display: -webkit-box;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 90px;
+  width: 190px;
+  line-height: 16px;
+
 }
 
 .locations {
