@@ -91,7 +91,7 @@ function ProfileHeaderDetails({ data, setSuccess }) {
             fontWeight: "600",
           }}
         >
-          <div>Game</div>
+          <div>{t("Game")}</div>
           <div style={{ textAlign: "right" }}>{t("Rank")}</div>
         </div>
         {data.user_rank &&

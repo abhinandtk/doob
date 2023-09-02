@@ -90,12 +90,12 @@ function UserPasswordChange() {
 
             <div className="my-4 mx-4 ">
               <h6 style={{ fontSize: "14px", fontWeight: "700" }}>
-                Change Password
+                {t("Change Password")}
               </h6>
               <br></br>
               <form onSubmit={(e) => submitHandler(e)}>
                 <div className="form-group my-2 ">
-                  <label for="exampleFormControlInput1">Current Password</label>
+                  <label for="exampleFormControlInput1">{t("Current Password")}</label>
                   <input
                     type="password"
                     className="form-control p-2"
@@ -110,7 +110,7 @@ function UserPasswordChange() {
                   />
                 </div>
                 <div className="form-group my-2">
-                  <label for="exampleFormControlInput1">New Password</label>
+                  <label for="exampleFormControlInput1">{t("New Password")}</label>
                   <input
                     type="password"
                     className="form-control p-2"

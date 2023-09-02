@@ -142,7 +142,7 @@ function NewGameForm({ game, country }) {
       >
         <form>
           <div class="form-group">
-            <label for="exampleFormControlSelect1">Choose a sport</label>
+            <label for="exampleFormControlSelect1">{t("Choose a sport")}</label>
             <select
               class="form-control "
               style={{ border: "0px", background: "#eeeeee", color: "#959595" }}
@@ -150,7 +150,7 @@ function NewGameForm({ game, country }) {
               onChange={(e) => handleChange(e)}
             >
               <option style={{ color: "#959595" }} value="">
-                --Select--
+                {t("--Select--")}
               </option>
               {game.map((item, index) => (
                 <option
@@ -164,7 +164,7 @@ function NewGameForm({ game, country }) {
             </select>
           </div>
           <div class="form-group my-3">
-            <label for="exampleInputPassword1">Select s Date</label>
+            <label for="exampleInputPassword1">{t("Select s Date")}</label>
             <input
               type="date"
               class="form-control play"
@@ -176,7 +176,7 @@ function NewGameForm({ game, country }) {
             />
           </div>
           <div class="form-group">
-            <label for="exampleFormControlSelect1">Choose area</label>
+            <label for="exampleFormControlSelect1">{t("Choose area")}</label>
             <select
               class="form-control "
               style={{ border: "0px", background: "#eeeeee", color: "#959595" }}

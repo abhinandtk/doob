@@ -128,7 +128,7 @@ function ProfileEdit({ data, setSuccess }) {
           </Form.Group>
 
           <Form.Group className="mb-1 ">
-            <Form.Label>Username*</Form.Label>
+            <Form.Label>{t("Username")}*</Form.Label>
             <Form.Control
               id="username"
               type="text"
@@ -141,7 +141,7 @@ function ProfileEdit({ data, setSuccess }) {
             />
           </Form.Group>
 
-          <Form.Label className="">Phone Number*</Form.Label>
+          <Form.Label className="">{t("Phone Number")}*</Form.Label>
           <Form.Group className="mb-2 d-flex justify-content-between align-items-center  ">
             <Form.Select
               id="code"
@@ -174,7 +174,7 @@ function ProfileEdit({ data, setSuccess }) {
           </Form.Group>
 
           <Form.Group className="mb-2 ">
-            <Form.Label>Gender*</Form.Label>
+            <Form.Label>{t("Gender")}*</Form.Label>
             <Form.Select
               id="gender"
               aria-label="Default select example"
@@ -190,7 +190,7 @@ function ProfileEdit({ data, setSuccess }) {
             </Form.Select>
           </Form.Group>
           <Form.Group className="mb-2 ">
-            <Form.Label>Nationality*</Form.Label>
+            <Form.Label>{t("Nationality")}*</Form.Label>
             <Form.Select
               id="nationality"
               aria-label="Default select example"
@@ -210,7 +210,7 @@ function ProfileEdit({ data, setSuccess }) {
           </Form.Group>
 
           <Form.Group className="mb-2 ">
-            <Form.Label>Date of Birth*</Form.Label>
+            <Form.Label>{t("Date of Birth")}*</Form.Label>
             <Form.Control
               id="dob"
               type="date"

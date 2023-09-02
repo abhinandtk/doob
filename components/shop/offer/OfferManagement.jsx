@@ -63,7 +63,7 @@ function OfferManagement() {
     <div class="content-topics ">
       <div className="bottom">
         <h6 className=" ms-4" style={{ color: "#17a803", fontWeight: "700" }}>
-          Offer Products
+          {t("Offer Products")}
         </h6>
 
         <div className="my-4 mx-4 ">

@@ -311,6 +311,18 @@
   "Sponsorship Agreement": "اتفاقية الرعاية",
   "Are you sure to delete this account?": "هل أنت متأكد من حذف هذا الحساب؟",
 
+  "Date of Birth": "تاريخ الميلاد",
+  "Username": "اسم المستخدم",
+  "Phone Number": "رقم الهاتف",
+  "Nationality": "الجنسية",
+  "Please upload an image with dimensions 800x400": "يرجى تحميل صورة بأبعاد 800x400 ",
+  "Choose area": "اختر منطقة",
+  "Select s Date": "اختر تاريخ",
+  "Choose a sport": "اختر نوع الرياضة",
+  "--Select--": "--اختر--",
+  "New Password": "كلمة مرور جديدة",
+  "Current Password": "كلمة المرور الحالية",
+
   "Add Address": "اضف عنوان",
   "Set as Default": "تعيين كافتراضي",
   "Wallet": "محفظة",

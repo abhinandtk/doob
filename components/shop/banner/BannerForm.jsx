@@ -137,7 +137,7 @@ function BannerForm({ bannerSubmitHandler, editData }) {
               <label for="exampleFormControlInput1" id="image">
                 {t("Banner Web Image")}*{" "}
                 <span style={{ color: "red", fontSize: "11px" }}>
-                  (Please upload an image with dimensions 800x400)
+                  ( {t("Please upload an image with dimensions 800x400")})
                 </span>
               </label>
               <input

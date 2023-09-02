@@ -22,7 +22,8 @@ import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 import moment from "moment";
 import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useRouter } from "next/router";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -33,6 +34,9 @@ export async function getStaticProps({ locale }) {
 }
 function StockPage() {
   const { t } = useTranslation();
+  const router = useRouter();
+  const { locale } = router;
+
   const [stockData, setStockData] = useState([]);
   useEffect(() => {
     Axios.get(apis.stockApi, {
@@ -75,7 +79,10 @@ function StockPage() {
                       className="input-theme-prod d-flex justify-content-between  customer my-3"
                     >
                       <span className="sales-report-name">
-                        {item.variant_name}&nbsp;{item.varient_value}&nbsp;
+                        {locale === "en"
+                          ? item.variant_name
+                          : item.variant_name_arabic}
+                        &nbsp;{item.varient_value}&nbsp;
                         {item.multivarient}
                       </span>
                       <span className="sales-order-price">{item.stock}</span>
