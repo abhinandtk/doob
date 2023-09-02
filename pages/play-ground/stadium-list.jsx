@@ -121,6 +121,7 @@ function StadiumListPage() {
       <MobileHeader />
 
       <div className="tour-container">
+        
         <PlaygroundFilter
           playgroundFilterHandler={playgroundFilterHandler}
           setMapShow={setMapShow}
