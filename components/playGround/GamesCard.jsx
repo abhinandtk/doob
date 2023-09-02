@@ -34,7 +34,7 @@ function GamesCard({ data }) {
                             : item.game_images
                             }`}
                           alt="image"
-                          className="book-img"
+                          className={locale === "en" ? "book-img" : "book-img_ar"}
                         ></img>
                       )}
                       {item.game_images && (

@@ -3,8 +3,11 @@ import moment from "moment";
 import Link from "next/link";
 import React, { Fragment } from "react";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 function GamesHistoryCard({ data }) {
   const { t } = useTranslation();
+  const router=useRouter()
+  const {locale}=router;
 
   console.log("data/*89", data);
   return (
@@ -19,13 +22,13 @@ function GamesHistoryCard({ data }) {
             >
               <div key={index} className="card  book">
                 <div className="card-body">
-                  <div className="clearfix dot-web">
+                  <div className="clearfix dot-web" style={{ float: locale === "ar" && "left" }}>
                     <div className="float-end dots">
                       <span>
                         {item.game_image[0] && (
                           <img
                             src={`${constants.port}${item.game_image[0]}`}
-                            className="book-img"
+                            className={locale === "en" ? "book-img" : "book-img_ar"}
                           ></img>
                         )}
                       </span>
@@ -52,7 +55,7 @@ function GamesHistoryCard({ data }) {
                       </svg> */}
                     </div>
                   </div>
-                  <div className="book-content">
+                  <div className={locale === "en" ? "book-content" : "book-content_ar"}>
                     <div className="book-date">
                       <h5 style={{ color: "#17A803", fontWeight: "700" }}>
                         {moment(item.stadium_details.date).format("D")}
