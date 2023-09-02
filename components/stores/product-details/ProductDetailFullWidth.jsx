@@ -111,7 +111,7 @@ function ProductDetailFullWidth({ product, setApiSuccess }) {
               </p>
             )));
       });
-  }, []);
+  }, [product]);
   console.log("det32 firstloading,,", proPrimaryVarientId);
 
   const [quantity, setQuantity] = useState(1);
