@@ -16,9 +16,10 @@ import ModuleSharedPostDetails from "./social/ModuleSharedPostDetails";
 import { useRouter } from "next/router";
 import StoriesMainPage from "./StoriesMainPage";
 import VisibilitySensor from "react-visibility-sensor";
-import { Skeleton } from "antd";
+import { Modal, Skeleton } from "antd";
 import SharePostToUser from "./social/share/SharePostToUser";
 import { useTranslation } from "next-i18next";
+import { CardImg } from "react-bootstrap";
 
 function SingleContainerHomePosts({ story }) {
   const { t } = useTranslation();
@@ -26,9 +27,11 @@ function SingleContainerHomePosts({ story }) {
   const apiSuccess = useSelector((state) => state.api);
   const [visibleComment, setVisibleComment] = useState(false);
   const [visibleShared, setVisibleShared] = useState(false);
+  const [visible, setVisible] = useState(false);
   const [liked, setLiked] = useState(false);
   const [totalLike, setTotalLike] = useState();
   const [isLoading, setIsLoading] = useState(false);
+  const [likedUsersList, setLikedUsersList] = useState([]);
 
   const [postsData, setPostsData] = useState([]);
   const [postId, setPostId] = useState(null);
@@ -37,6 +40,8 @@ function SingleContainerHomePosts({ story }) {
   const router = useRouter();
   const { postSlug } = router.query;
   const { user_id } = router.query;
+  const isAuthenticated = constants.token_id;
+
   useEffect(() => {
     setIsLoading(true);
     const headers = {};
@@ -63,8 +68,7 @@ function SingleContainerHomePosts({ story }) {
             totalLike: post.like || 0,
           }));
           setPostsData(updatedPosts);
-          console.log('console',updatedPosts)
-
+          console.log("console", updatedPosts);
         })
         .catch((error) => {
           // localStorage.removeItem("user-login-tokens");
@@ -167,6 +171,27 @@ function SingleContainerHomePosts({ story }) {
       // Perform actions when the element becomes hidden
     }
   };
+  const likedUsershandler = (slug) => {
+    if (isAuthenticated) {
+      Axios.post(
+        apis.likedUsers,
+        {
+          slug: slug,
+        },
+        {
+          headers: {
+            Authorization: `Token ${constants.token_id}`,
+          },
+        }
+      ).then((res) => {
+        console.log("result56", res);
+        setLikedUsersList(res.data.data);
+        setVisible(true);
+      });
+    } else {
+      // setShowLogin(true);
+    }
+  };
   return (
     <Fragment>
       {/* <div className="text_followers" >My Followers</div> */}
@@ -174,6 +199,55 @@ function SingleContainerHomePosts({ story }) {
         <b>My Follow
         ers</b>
       </div> */}
+      <Modal
+        open={visible}
+        onCancel={() => setVisible(false)}
+        footer={null}
+        // width={500}
+        closable
+        maskClosable
+        centered
+        bodyStyle={{ maxHeight: "50vh", overflowY: "scroll" }}
+        title={t("Liked Users")}
+      >
+        <div style={{ padding: "16px" }}>
+          {likedUsersList &&
+            likedUsersList.map((item, index) => (
+              <div key={index} className="side-menu__suggestion">
+                <div className="side-menu__suggestion-avatar">
+                  {item.image ? (
+                    <CardImg
+                      className="rounded-circle shadow-1-strong "
+                      src={`${constants.port}${item.image}`}
+                      style={{
+                        width: "46px",
+                        height: "46px",
+                        objectFit: "cover",
+                      }}
+                    ></CardImg>
+                  ) : (
+                    <CardImg
+                      className="rounded-circle shadow-1-strong "
+                      src="/images/accounts/user_default.png"
+                      style={{
+                        width: "46px",
+                        height: "46px",
+                        objectFit: "cover",
+                      }}
+                    ></CardImg>
+                  )}
+                </div>
+                <div className="side-menu__suggestion-info">
+                  <p>
+                    <b>{item.name}</b>
+                    <br></br>
+                    {item.username}
+                  </p>
+                </div>
+              </div>
+            ))}
+        </div>
+      </Modal>
       {!isLoading ? (
         postsData.length != 0 &&
         ((postsData[0] && !postsData[0].is_private) ||
@@ -590,7 +664,10 @@ function SingleContainerHomePosts({ story }) {
                       ) : (
                         <>
                           <div className="post__likes">
-                            <h6 className="post-names">
+                            <h6
+                              className="post-names"
+                              onClick={() => likedUsershandler(item.slug)}
+                            >
                               {item.totalLike} {t("Likes")}
                             </h6>
                           </div>
@@ -610,7 +687,7 @@ function SingleContainerHomePosts({ story }) {
               justifyContent: "center",
               alignItems: "center",
               height: "100%",
-              marginTop:"30%"
+              marginTop: "30%",
             }}
           >
             <div>Post is Unavailable..</div>
