@@ -134,7 +134,7 @@ export default function PostActions({
         </Form>
       </Modal>
       <Modal
-        title="Are you sure to delete this post??"
+        title={t("Are you sure to delete this post?")}
         open={visible}
         centered
         closable
@@ -150,7 +150,7 @@ export default function PostActions({
             type="primary"
             onClick={deletePostHandler}
           >
-            {t("Submit")}
+            {t("Confirm")}
           </Button>,
         ]}
       ></Modal>

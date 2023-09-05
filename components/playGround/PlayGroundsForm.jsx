@@ -215,7 +215,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
           onChange={(e) => handleChange(e)}
         >
           <option style={{ color: "#959595" }} value="">
-            --Select--
+            {t("--Select--")}
           </option>
           {area.map((item, index) => (
             <option key={index} style={{ color: "#959595" }} value={item.id}>
@@ -477,7 +477,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
       </div> */}
       <div className="bottoms">
         <h6 className=" mx-4" style={{ color: "#17a803", fontWeight: "700" }}>
-          Slots
+          {t("Slots")}
         </h6>
         <div className="play clearfix">
           {/* <div className="example">

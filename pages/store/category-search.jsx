@@ -90,7 +90,7 @@ function CategorySearchPage() {
                 style={{ padding: "5px 35px" }}
                 onClick={() => setSubcatInput("")}
               >
-                All
+                {t("All")}
               </button>
             </div>
             {!loading

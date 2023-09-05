@@ -22,6 +22,7 @@ import MobileHeader from "@/components/MobileHeader";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { useTranslation } from "react-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { Skeleton } from "antd";
 export async function getStaticProps({ locale }) {
   return {
     props: {
@@ -34,6 +35,7 @@ function StorePage() {
   const [storeData, setStoreData] = useState([]);
   const [banners, setBanners] = useState([]);
   const { t } = useTranslation();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     let headers = {};
@@ -47,6 +49,7 @@ function StorePage() {
       headers,
     })
       .then((res) => {
+        setIsLoading(false);
         setStoreData([res.data.data]);
         setBanners(res.data.data.top_banner);
         console.log("rtrtrtrtrtrtrtrtrtrtrtrt", res);
@@ -79,36 +82,44 @@ function StorePage() {
         </form> */}
         <br></br>
 
-        {storeData.map((content, index) => {
-          return (
-            <div key={index}>
-              <StoreMainBanner banners={content.top_banners} />
-              <br></br>
-              <Stores storeData={content.stores} title={t("Stores")} />
-              <br></br>
-              <StoreBannerCard banners={content.mid_banners} />
-              <br></br>
-              {content.favorite_store.length >= 1 && (
-                <Stores
-                  storeData={content.favorite_store}
-                  title={t("Favourite Stores")}
-                />
-              )}
-              <br></br>
-              <StoreProductsCard
-                products={content.popular_products}
-                title={t("Popular Products")}
-              />{" "}
-              <br></br>
-              {content.favorite_products.length >= 1 && (
+        {!isLoading ? (
+          storeData.map((content, index) => {
+            return (
+              <div key={index}>
+                <StoreMainBanner banners={content.top_banners} />
+                <br></br>
+                <Stores storeData={content.stores} title={t("Stores")} />
+                <br></br>
+                <StoreBannerCard banners={content.mid_banners} />
+                <br></br>
+                {content.favorite_store.length >= 1 && (
+                  <Stores
+                    storeData={content.favorite_store}
+                    title={t("Favourite Stores")}
+                  />
+                )}
+                <br></br>
                 <StoreProductsCard
-                  products={content.favorite_products}
-                  title={t("Favourite Products")}
-                />
-              )}
-            </div>
-          );
-        })}
+                  products={content.popular_products}
+                  title={t("Popular Products")}
+                />{" "}
+                <br></br>
+                {content.favorite_products.length >= 1 && (
+                  <StoreProductsCard
+                    products={content.favorite_products}
+                    title={t("Favourite Products")}
+                  />
+                )}
+              </div>
+            );
+          })
+        ) : (
+          <Skeleton
+            active
+            paragraph={{ rows: 20 }}
+            className="skeleton-container"
+          />
+        )}
       </div>
       <MobileFooter />
     </div>

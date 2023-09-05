@@ -189,9 +189,8 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
         message: constants.Error,
         description: "only admin can change profile",
       });
-      return false; // Prevent file upload
+      return false; 
     }
-    // return true; // Allow file upload
   };
   return (
     <Fragment>
@@ -359,7 +358,7 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
             <div>
               {grpName}
               {isAdmin && (
-                <span onClick={() => setShowEditName(true)}>
+                <span onClick={() => setShowEditName(true)} style={{cursor:"pointer"}}>
                   <i
                     className="bi bi-pencil-fill mx-2"
                     style={{ color: "grey" }}

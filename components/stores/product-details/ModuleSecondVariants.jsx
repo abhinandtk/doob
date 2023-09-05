@@ -2,10 +2,12 @@ import { setProVarient } from "@/Redux/productDetail";
 import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
 import React from "react";
+import { useTranslation } from "next-i18next";
 import { useDispatch, useSelector } from "react-redux";
 
 function ModuleSecondVariants({ product }) {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const router = useRouter();
 
@@ -40,55 +42,53 @@ function ModuleSecondVariants({ product }) {
 
   return (
     <div>
-      {product.secondary_varient === "Size" ? (
-        multiItems.length !== 0 && (
-          <>
-            <h6>Size</h6>
-            {multiItems.map((item, index) => (
-              <div
-                key={index}
-                className="btn-group group  "
-                role="group"
-                aria-label="Second group"
-              >
-                <button
-                  onClick={() => handleButtonActions(item.slug)}
-                  type="button"
-                  className={`btn btn-secondary ${
-                    prVarientId === item.slug ? "outlocks" : "outlock"
-                  }`}
+      {product.secondary_varient === "Size"
+        ? multiItems.length !== 0 && (
+            <>
+              <h6>{t("Size")}</h6>
+              {multiItems.map((item, index) => (
+                <div
+                  key={index}
+                  className="btn-group group"
+                  role="group"
+                  aria-label="Second group"
                 >
-                  {item.value}
-                </button>
-              </div>
-            ))}
-          </>
-        )
-      ) : (
-        <>
-          {" "}
-          <h6>Color</h6>
-          {multiItems.map((item, index) => (
-            <span
-              key={index}
-              onClick={() =>
-                handleButtonActions(item.slug)
-              }
-            >
-              <img
-                className="mx-1"
-                src={`${constants.port}${item.varient_color_image}`}
-                style={{
-                  width: "18px",
-                  height: "18px",
-                  objectFit: "cover",
-                  borderRadius: "50%",
-                }}
-              />
-            </span>
-          ))}
-        </>
-      )}
+                  <button
+                    onClick={() => handleButtonActions(item.slug)}
+                    type="button"
+                    className={`btn btn-secondary ${
+                      prVarientId === item.slug ? "outlocks" : "outlock"
+                    }`}
+                  >
+                    {item.value}
+                  </button>
+                </div>
+              ))}
+            </>
+          )
+        : multiItems.length !== 0 && (
+            <>
+              {" "}
+              <h6>{t("Color")}</h6>
+              {multiItems.map((item, index) => (
+                <span
+                  key={index}
+                  onClick={() => handleButtonActions(item.slug)}
+                >
+                  <img
+                    className="mx-1"
+                    src={`${constants.port}${item.varient_color_image}`}
+                    style={{
+                      width: "18px",
+                      height: "18px",
+                      objectFit: "cover",
+                      borderRadius: "50%",
+                    }}
+                  />
+                </span>
+              ))}
+            </>
+          )}
       {/* <div className="btn-group group  " role="group" aria-label="Second group">
         <button type="button" className="btn btn-outline-secondary outlocks ">
           35

@@ -15,6 +15,7 @@ import MobileFooter from "@/components/shared/MobileFooter";
 import PagesSideBar from "@/components/stores/pages/PagesSideBar";
 import { useRouter } from "next/router";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -27,6 +28,7 @@ function PlayGroundRequest() {
   const labels = Labels();
   const router = useRouter();
   const { locale } = router;
+  const {t}=useTranslation()
 
   const handlePlaygroundForm = (data, game, amenity, slot) => {
     console.log("data", data, game, amenity);
@@ -97,12 +99,12 @@ function PlayGroundRequest() {
                 className=" ms-4"
                 style={{ color: "#17a803", fontWeight: "700" }}
               >
-                Request Playground
+                {t("Request Playground")}
               </h6>
 
               <div className="my-4 mx-4 ">
                 <h6 style={{ fontSize: "14px", fontWeight: "700" }}>
-                  Basic Details
+                {t("Basic Details")}
                 </h6>
                 <PlayGroundsForm handlePlaygroundForm={handlePlaygroundForm} />
               </div>

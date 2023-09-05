@@ -17,9 +17,11 @@ import { toast } from "react-toastify";
 // import {useAuthState} from 'react-firebase-hooks/auth'
 import { message, notification } from "antd";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 function Login({ setActiveModal, setShowLogin }) {
   const router = useRouter();
   const { locale } = router;
+  const { t } = useTranslation();
   const [error, setError] = useState("");
 
   // const [user,setUser] = useAuthState(auth);
@@ -79,6 +81,7 @@ function Login({ setActiveModal, setShowLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const loginSubmitHandler = (e) => {
     e.preventDefault();
@@ -122,11 +125,11 @@ function Login({ setActiveModal, setShowLogin }) {
   return (
     <Modal show={shows} onHide={() => modalHideHandler()}>
       <Modal.Header></Modal.Header>
-      <Modal.Title className="title">Login</Modal.Title>
+      <Modal.Title className="title">{t("Login")}</Modal.Title>
       <Modal.Body>
         <Form onSubmit={(e) => loginSubmitHandler(e)}>
           <Form.Group className="mb-1 pop ">
-            <Form.Label>Email Address</Form.Label>
+            <Form.Label>{t("Email Address")}</Form.Label>
             <Form.Control
               type="text"
               id="email"
@@ -137,20 +140,30 @@ function Login({ setActiveModal, setShowLogin }) {
           </Form.Group>
 
           <Form.Group className="mb-3 pop1" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <Form.Label>{t("Password")}</Form.Label>
+            <div className="password-input" style={{display:"flex",alignItems:"center",width:'105%'}}>
+              <Form.Control
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <div
+                className="password-toggle"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                <i
+                  className={`bi ${showPassword ? "bi-eye-slash" : "bi-eye"}`}
+                ></i>
+              </div>
+            </div>
             <div className="forget" onClick={handleforgetpsw}>
               {" "}
-              Forgot Password
+              {t("Forgot Password")}
             </div>
           </Form.Group>
           <Modal.Footer>
             <Button type="submit" className="mx-auto text-white submit1 ">
-              Login
+              {t("Login")}
             </Button>
           </Modal.Footer>
           <p style={{ color: "red", textAlign: "center" }}>{errorMsg}</p>
@@ -176,7 +189,8 @@ function Login({ setActiveModal, setShowLogin }) {
             controlId="formBasicPassword"
           >
             <Form.Label style={{ color: "#17A803" }} onClick={handleClick}>
-              Don&apos;t have an account? Register
+              {t("Don't have an account?")}
+              {t("Register")}
             </Form.Label>
           </Form.Group>
         </Form>

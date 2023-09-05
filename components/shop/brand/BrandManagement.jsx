@@ -67,7 +67,7 @@ function BrandManagement() {
               return (
                 <>
                   <p key={index} className="foot-ball-small">
-                    {locale==='en' ? item.brand : item.arabic_translator}
+                    {locale === "en" ? item.brand : item.arabic_translator}
                   </p>
                   <div className="toggle">
                     <input
@@ -77,6 +77,7 @@ function BrandManagement() {
                     />
                     <label></label>
                     <span
+                      style={{ cursor: "pointer" }}
                       onClick={() =>
                         router.push({
                           pathname: `/shop/edit-brands/${item.slug_brand}`,

@@ -245,7 +245,7 @@ function StoreSettingsPage() {
             type="primary"
             onClick={deleteAccountHandler}
           >
-            {t("Submit")}
+            {t("Confirm")}
           </Button>,
         ]}
       ></Modal>

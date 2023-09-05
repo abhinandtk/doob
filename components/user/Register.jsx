@@ -87,7 +87,7 @@ function Register({ setActiveModal, countries }) {
         <Modal.Header closeButton></Modal.Header>
         <p style={{ color: "red", textAlign: "center" }}>{errorMsg}</p>
 
-        <Modal.Title className="register">Registration</Modal.Title>
+        <Modal.Title className="register">{t("Registration")}</Modal.Title>
         <Modal.Body>
           <Form onSubmit={(e) => registerSubmit(e)}>
             <Form.Group className="mb-1 white" controlId="formBasicEmail">
@@ -106,7 +106,7 @@ function Register({ setActiveModal, countries }) {
             </Form.Group>
 
             <Form.Group className="mb-1 white">
-              <Form.Label>Username*</Form.Label>
+              <Form.Label>{t("Username")}*</Form.Label>
               <Form.Control
                 id="username"
                 type="text"
@@ -120,7 +120,7 @@ function Register({ setActiveModal, countries }) {
             </Form.Group>
 
             <Form.Group className="mb-1 white">
-              <Form.Label>Email*</Form.Label>
+              <Form.Label>{t("Email")}*</Form.Label>
               <Form.Control
                 id="email"
                 type="email"
@@ -133,7 +133,7 @@ function Register({ setActiveModal, countries }) {
               />
             </Form.Group>
 
-            <Form.Label className="white">Phone Number*</Form.Label>
+            <Form.Label className="white">{t("Phone Number")}*</Form.Label>
             <Form.Group className="mb-2 d-flex justify-content-between align-items-center white ">
               <Form.Select
                 id="code"
@@ -166,7 +166,7 @@ function Register({ setActiveModal, countries }) {
             </Form.Group>
 
             <Form.Group className="mb-2 white">
-              <Form.Label>Gender*</Form.Label>
+              <Form.Label>{t("Gender")}*</Form.Label>
               <Form.Select
                 id="gender"
                 aria-label="Default select example"
@@ -176,13 +176,13 @@ function Register({ setActiveModal, countries }) {
                 value={registerFormData.gender}
                 required
               >
-                <option value="">Select</option>
+                <option value="">{t("--Select--")}</option>
                 <option value="Male">{t("Male")}</option>
                 <option value="Female">{t("Female")}</option>
               </Form.Select>
             </Form.Group>
             <Form.Group className="mb-2 white">
-              <Form.Label>Nationality*</Form.Label>
+              <Form.Label>{t("Nationality")}*</Form.Label>
               <Form.Select
                 id="nationality"
                 aria-label="Default select example"
@@ -192,7 +192,7 @@ function Register({ setActiveModal, countries }) {
                 value={registerFormData.nationality}
                 required
               >
-                <option value="">--Select--</option>
+                <option value="">{t("--Select--")}</option>
                 {countries.map((item) => (
                   <option key={item.id} value={item.country_name}>
                     {item.country_name}
@@ -202,7 +202,7 @@ function Register({ setActiveModal, countries }) {
             </Form.Group>
 
             <Form.Group className="mb-2 white">
-              <Form.Label>Date of Birth*</Form.Label>
+              <Form.Label>{t("Date of Birth")}*</Form.Label>
               <Form.Control
                 id="dob"
                 type="date"
@@ -216,7 +216,7 @@ function Register({ setActiveModal, countries }) {
             </Form.Group>
 
             <Form.Group className="mb-1 white">
-              <Form.Label>Password*</Form.Label>
+              <Form.Label>{t("Password")}*</Form.Label>
               <Form.Control
                 id="password"
                 type="password"
@@ -229,7 +229,7 @@ function Register({ setActiveModal, countries }) {
               />
             </Form.Group>
             <Form.Group className="mb-1 white">
-              <Form.Label>Confirm Password*</Form.Label>
+              <Form.Label>{t("Confirm Password")}*</Form.Label>
               <Form.Control
                 id="confirmpsw"
                 type="password"

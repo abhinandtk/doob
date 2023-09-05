@@ -119,7 +119,7 @@ function AddPlaygroundPage() {
 
               <div className="my-4 mx-4 ">
                 <h6 style={{ fontSize: "14px", fontWeight: "700" }}>
-                  Basic Details
+                  {t("Basic Details")}
                 </h6>
                 <PlayGroundsForm handlePlaygroundForm={handlePlaygroundForm} />
               </div>

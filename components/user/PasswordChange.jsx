@@ -13,9 +13,11 @@ import constants from "@/public/data/my-constants/Constants";
 import apis from "@/public/data/my-constants/Apis";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
+import { useTranslation } from "next-i18next";
 function PasswordChange({setActiveModal}) {
   const [show, setShow] = useState(true);
   const [error, setError] = useState("");
+  const {t}=useTranslation()
 
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
@@ -69,7 +71,7 @@ function PasswordChange({setActiveModal}) {
           marginTop: "24px",
         }}
       >
-        Change Your Password
+        {t("Change Your Password")}
       </Modal.Title>
       <Modal.Title
         style={{ fontSize: "15px", marginLeft: "180px", marginTop: "24px" }}
@@ -81,7 +83,7 @@ function PasswordChange({setActiveModal}) {
             <Form.Control
               type="password"
               className="mx-auto dot"
-              placeholder="Password"
+              placeholder={t("Password")}
               style={{ width: "359px", marginTop: "-29px" }}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -93,7 +95,7 @@ function PasswordChange({setActiveModal}) {
             <Form.Control
               type="text"
               className="mx-auto dot"
-              placeholder="Confirm Password"
+              placeholder={t("Confirm Password")}
               style={{ width: "359px", marginTop: "-29px" }}
               onChange={(e) => setPassword2(e.target.value)}
               required
