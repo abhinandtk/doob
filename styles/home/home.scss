@@ -783,6 +783,9 @@ input.nosubmit1 {
 .post__button--align-right {
   margin-left: auto;
 }
+.post__button--align-right_ar {
+  margin-right: auto;
+}
 
 .post__indicators {
   display: flex;
@@ -1311,6 +1314,7 @@ input.nosubmit1 {
   align-items: center;
   text-align: center;
   display: flex;
+  margin-bottom: 10px;
 }
 
 // .today {

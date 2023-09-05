@@ -28,6 +28,7 @@ function ContainerHomePosts() {
 
   const { theme } = useTheme();
   const router = useRouter();
+  const { locale } = router;
   const apiSuccess = useSelector((state) => state.api);
   const [visibleComment, setVisibleComment] = useState(false);
   const [visibleShared, setVisibleShared] = useState(false);
@@ -400,7 +401,7 @@ function ContainerHomePosts() {
                             <Link
                               href={
                                 constants.user_id ===
-                                item.owner_user_detail.user_detail.id
+                                  item.owner_user_detail.user_detail.id
                                   ? "profile"
                                   : `/userprofile/${item.owner_user_detail.user_detail.id}`
                               }
@@ -466,8 +467,8 @@ function ContainerHomePosts() {
                   <div className="post__buttons">
                     {item.owner_user_detail === null ? (
                       item.post_type === "Product" ||
-                      item.post_type === "Store" ||
-                      item.post_type === "Field" ? (
+                        item.post_type === "Store" ||
+                        item.post_type === "Field" ? (
                         ""
                       ) : (
                         <>
@@ -588,9 +589,9 @@ function ContainerHomePosts() {
 
                     {item.owner_user_detail === null ? (
                       item.post_type === "Product" ||
-                      item.post_type === "Store" ||
-                      item.post_type === "Field" ? (
-                        <button className="post__button post__button--align-right">
+                        item.post_type === "Store" ||
+                        item.post_type === "Field" ? (
+                        <button className={locale === "en" ? "post__button post__button--align-right" : "post__button post__button--align-right_ar"}>
                           <a>
                             <span
                               className="me-2"
@@ -610,8 +611,8 @@ function ContainerHomePosts() {
                               {item.post_type === "Product"
                                 ? `${item.products.Selling_Prize} KD`
                                 : item.post_type === "Field"
-                                ? `${item.stadiums.amount} KD`
-                                : ""}
+                                  ? `${item.stadiums.amount} KD`
+                                  : ""}
                             </span>
                           </a>
                         </button>
@@ -620,7 +621,8 @@ function ContainerHomePosts() {
                           onClick={() => {
                             commentClick(item.post_id, item.slug);
                           }}
-                          className="post__button post__button--align-right"
+                          className={locale === "en" ? "post__button post__button--align-right" : "post__button post__button--align-right_ar"}
+
                         >
                           {item.comment_count} {t("Comments")}
                         </button>
@@ -633,7 +635,7 @@ function ContainerHomePosts() {
                             item.slug
                           );
                         }}
-                        className="post__button post__button--align-right"
+                        className={locale === "en" ? "post__button post__button--align-right" : "post__button post__button--align-right_ar"}
                       >
                         {item.comment_count} {t("Comments")}
                       </button>

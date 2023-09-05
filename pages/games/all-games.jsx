@@ -89,7 +89,7 @@ function AllGamesPage() {
             defaultActiveKey={activeTab}
             id="my-tabs"
             className=""
-            style={{ justifyContent: "initial", color: "red" ,marginRight:'-40px' }}
+            style={{ justifyContent: "initial", color: "red" ,marginRight:'-50px' }}
             onSelect={handleTabChange}
           >
             <Tab eventKey="games" title={tabButton("games")}>
