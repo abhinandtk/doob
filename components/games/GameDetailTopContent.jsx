@@ -112,7 +112,8 @@ function GameDetailTopContent({ details, setOnSuccess }) {
                     {details.game.game_title}
                   </p>
                   <img
-                    className={`logox ${locale === "en" ? "float-end" : "float-start"}`}
+                    className={` ${locale === "en" ? "logox float-end" : "logox_ar float-start"}`}
+
                     src={`${constants.port}${details.stadium.stadium_image[0].images}`}
                   ></img>
                 </div>

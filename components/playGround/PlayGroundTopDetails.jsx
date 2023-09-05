@@ -120,7 +120,8 @@ function PlayGroundTopDetails({ details }) {
                 style={{ width: "100%", height: "auto" }}
               ></img>
             )}
-            <span className="span-icon">
+            <span className={locale === "en" ? " span-icon" : "span_icon_ar"} >
+              {/* className={locale==="en"?" span-icon":"span_icon_ar"} */}
               <ShareToUserChat slug={pgid} type='field' />
               {/* <span
                 onClick={() => handleShareFieldPost()}
@@ -153,7 +154,9 @@ function PlayGroundTopDetails({ details }) {
               <span>
                 <Dropdown
                   className=""
-                  style={{ display: "inline-block", marginLeft: "-10px" }}
+                  
+                  style={{display: "inline-block", marginLeft:  locale === "en" ? "-10px" : "" ,cursor:'pointer', marginRight:  locale === "ar" ? "-20px" : ""}}
+
                 >
                   <Dropdown.Toggle
                     variant=""
