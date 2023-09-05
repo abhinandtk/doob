@@ -38,6 +38,7 @@ function SingleContainerHomePosts({ story }) {
   const [slug, setSlug] = useState(null);
   const [onSuccess, setOnSuccess] = useState(true);
   const router = useRouter();
+  const { locale } = router;
   const { postSlug } = router.query;
   const { user_id } = router.query;
   const isAuthenticated = constants.token_id;
@@ -250,9 +251,9 @@ function SingleContainerHomePosts({ story }) {
       </Modal>
       {!isLoading ? (
         postsData.length != 0 &&
-        ((postsData[0] && !postsData[0].is_private) ||
-          (postsData[0] && postsData[0].is_private === 1) ||
-          (postsData[0] && postsData[0].user_detail.id === loginUser)) ? (
+          ((postsData[0] && !postsData[0].is_private) ||
+            (postsData[0] && postsData[0].is_private === 1) ||
+            (postsData[0] && postsData[0].user_detail.id === loginUser)) ? (
           postsData.map((item, index) => (
             <VisibilitySensor
               partialVisibility={true}
@@ -409,7 +410,7 @@ function SingleContainerHomePosts({ story }) {
                               <Link
                                 href={
                                   constants.user_id ===
-                                  item.owner_user_detail.user_detail.id
+                                    item.owner_user_detail.user_detail.id
                                     ? "profile"
                                     : `/userprofile/${item.owner_user_detail.user_detail.id}`
                                 }
@@ -463,7 +464,7 @@ function SingleContainerHomePosts({ story }) {
                           <img
                             className="post__media"
                             src={`${item.image}`}
-                            // alt="Post Content"
+                          // alt="Post Content"
                           />
                         )}
                         {/* multiple image */}
@@ -480,8 +481,8 @@ function SingleContainerHomePosts({ story }) {
                     <div className="post__buttons">
                       {item.owner_user_detail === null ? (
                         item.post_type === "Product" ||
-                        item.post_type === "Store" ||
-                        item.post_type === "Field" ? (
+                          item.post_type === "Store" ||
+                          item.post_type === "Field" ? (
                           ""
                         ) : (
                           <>
@@ -602,8 +603,8 @@ function SingleContainerHomePosts({ story }) {
 
                       {item.owner_user_detail === null ? (
                         item.post_type === "Product" ||
-                        item.post_type === "Store" ||
-                        item.post_type === "Field" ? (
+                          item.post_type === "Store" ||
+                          item.post_type === "Field" ? (
                           <button className="post__button post__button--align-right">
                             <a>
                               <span
@@ -624,8 +625,8 @@ function SingleContainerHomePosts({ story }) {
                                 {item.post_type === "Product"
                                   ? `${item.products.Selling_Prize} KD`
                                   : item.post_type === "Field"
-                                  ? `${item.stadiums.amount} KD`
-                                  : ""}
+                                    ? `${item.stadiums.amount} KD`
+                                    : ""}
                               </span>
                             </a>
                           </button>
@@ -634,7 +635,7 @@ function SingleContainerHomePosts({ story }) {
                             onClick={() => {
                               commentClick(item.post_id, item.slug);
                             }}
-                            className="post__button post__button--align-right"
+                            className={locale === "en" ? "post__button post__button--align-right" : "post__button post__button--align-right_ar"}
                           >
                             {item.comment_count} {t("Comments")}
                           </button>
