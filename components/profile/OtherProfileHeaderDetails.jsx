@@ -54,9 +54,8 @@ function OtherProfileHeaderDetails({
           message: constants.Success,
           description: `${labels["Requested successfully"]}`,
         });
-      }else{
+      } else {
         setIsSuccess((prev) => !prev);
-
       }
       console.log("reeeeeeesul", res);
     });
@@ -161,7 +160,11 @@ function OtherProfileHeaderDetails({
           <div className="w-40 d-flex flex-column align-items-center">
             <div className="mb-2">
               <img
-                src={`${constants.port}/media/${data.user_image}`}
+                src={
+                  data.user_image
+                    ? `${constants.port}/media/${data.user_image}`
+                    : "/images/accounts/user_default.png"
+                }
                 className="rounded-circle shadow-1-strong"
                 style={{ width: "100px", height: "100px" }}
                 alt="Profile"
@@ -175,7 +178,7 @@ function OtherProfileHeaderDetails({
             <hr className="col-md-12 line"></hr>
 
             <p>
-              <b>Are you sure to unfollow?</b>
+              <b>{t("Are you sure to unfollow?")}</b>
             </p>
           </div>
         </div>
@@ -410,7 +413,10 @@ function OtherProfileHeaderDetails({
                     <button
                       onClick={followHandler}
                       className="side-menu__suggestion-buttons "
-                      style={{ backgroundColor:data.is_requested == 0 ?"#17A803": "grey" }}
+                      style={{
+                        backgroundColor:
+                          data.is_requested == 0 ? "#17A803" : "grey",
+                      }}
                     >
                       {data.is_requested == 0 ? "Follow" : "Requested"}
                     </button>

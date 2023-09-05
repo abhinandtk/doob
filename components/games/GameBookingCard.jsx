@@ -76,7 +76,7 @@ function GameBookingCard({ data }) {
                 <span>
                   {value.hosted_by.profile_pic ? (
                     <img
-                      src={`${constants.port}${value.hosted_by.profile_pic}`}
+                      src={`${constants.port}/media/${value.hosted_by.profile_pic}`}
                       style={{
                         width: "30px",
                         height: "30px",
@@ -101,13 +101,14 @@ function GameBookingCard({ data }) {
                   </span>
                 </span>
                 <p className="my-2" style={{ color: "#959595" }}>
-                  Do you want to invite people?
+                  {t("Do you want to invite people?")}
                 </p>
               </div>
 
               <button
                 type="button"
-                className="yes1-btn float-end "
+                // className="yes1-btn float-end "
+                className={`yes1-btn ${locale==='en'?"float-end":"float-start"}`}
                 onClick={() =>
                   router.push({
                     pathname: "/games/create-game",
@@ -115,7 +116,7 @@ function GameBookingCard({ data }) {
                   })
                 }
               >
-                Yes
+                {t("Yes")}
               </button>
             </div>
           </div>

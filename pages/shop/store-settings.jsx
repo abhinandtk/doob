@@ -21,8 +21,9 @@ import Axios from "axios";
 import { notification } from "antd";
 import { useEffect } from "react";
 import constants from "@/public/data/my-constants/Constants";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import { Labels } from "@/public/data/my-constants/Labels";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -32,9 +33,10 @@ export async function getStaticProps({ locale }) {
   };
 }
 function StoreSettingsPage() {
-  const {t}=useTranslation()
+  const { t } = useTranslation();
   const [storeStatus, setStoreStatus] = useState(true);
   const [onSuccess, setOnSuccess] = useState(false);
+  const labels = Labels();
 
   useEffect(() => {
     Axios.get(apis.storeSettings, {
@@ -63,8 +65,8 @@ function StoreSettingsPage() {
       if (res.data.status === 1) {
         setOnSuccess((prev) => !prev);
         notification.success({
-          message: "Success",
-          description: "Status changed successfully",
+          message: constants.Success,
+          description: `${labels["Status changed successfully"]}`,
         });
       }
     });
