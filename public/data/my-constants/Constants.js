@@ -2,11 +2,13 @@
 let token_id;
 let user_id;
 let domain;
+let currentLang;
 if (typeof window !== 'undefined') {
 
     token_id = localStorage.getItem('user-login-tokens')
     user_id = localStorage.getItem('login-userId')
     domain = window.location.hostname
+    currentLang = document.documentElement.lang || 'en'
 } else {
     token_id = null
     user_id = null
@@ -34,10 +36,10 @@ const constants = {
     'token_id': token_id,
     'user_id': user_id,
     'domain': isLocalhost ? 'http://localhost:3000' : `https://${domain}`,
-    'Error': 'Erorr',
-    'Success': 'Success',
-    'Warning': 'Warning',
-    'Info': 'Info',
+    'Error': currentLang === 'en' ? 'Error' : "خطأ",
+    'Success': currentLang === 'en' ? 'Success' : "نجاح",
+    'Warning': currentLang === 'en' ? 'Warning' : "تحذير",
+    'Info': currentLang === 'en' ? 'Info' : "معلومات",
 }
 
 export default constants

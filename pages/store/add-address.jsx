@@ -15,7 +15,8 @@ import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { useEffect } from "react";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -26,6 +27,8 @@ export async function getStaticProps({ locale }) {
 }
 function AddAddressPage() {
   const router = useRouter();
+  const { t } = useTranslation();
+  const { locale } = router;
 
   const [addressType, setAddressType] = useState("home");
 
@@ -39,19 +42,19 @@ function AddAddressPage() {
       },
     }).then((res) => {
       setCountry(res.data.data.country);
-    //   console.log()
+      //   console.log()
     });
     const countryId = localStorage.getItem("country-select");
     const cityData = country.find(
       (country) => country.country_name === countryId
     );
     if (cityData && cityData.regions) {
-        setAreaData(cityData.regions);
+      setAreaData(cityData.regions);
     }
   }, [country]);
 
   const handleAddAddress = (data, defaultAddress) => {
-    console.log('dfvfvvdv')
+    console.log("dfvfvvdv");
     let body = {};
     if (addressType === "home") {
       body = {
@@ -114,8 +117,8 @@ function AddAddressPage() {
         default: defaultAddress ? "True" : "False",
       };
     }
-    console.log('body',body)
-    console.log('body')
+    console.log("body", body);
+    console.log("body");
     Axios.post(apis.addAddress, body, {
       headers: {
         Authorization: `Token ${constants.token_id}`,
@@ -129,20 +132,25 @@ function AddAddressPage() {
       <MainHeader title="Doob" />
       <MobileHeader />
       <MainSidebarFixed />
-      <div className="store-container  my-5">
-        <h5 className="add-address" >Add a New Address</h5>
-      
+      <div
+        className="store-container my-5"
+        style={{ direction: locale === "en" ? "ltr" : "rtl" }}
+      >
+        <h5 className="add-address">{t("Add a New Address")}</h5>
+
         <div className="card address-card ">
           <div className="card-body p-5  ">
-            <h6>Address Type</h6>
+            <h6>{t("Address Type")}</h6>
             <div className="rrr">
               <button
                 className="button button23"
                 onClick={() => setAddressType("home")}
-                style={{ color: `${addressType === "home" ? "#17A803" : ""}` }}
+                style={{
+                  color: `${addressType === "home" ? "#17A803" : ""}`,
+                }}
               >
                 <i className="bi bi-house"></i>
-                <span className="mx-1">Home</span>
+                <span className="mx-1">{t("Home")}</span>
               </button>
               <button
                 className="button button23"
@@ -152,7 +160,7 @@ function AddAddressPage() {
                 }}
               >
                 <i className="bi bi-briefcase"></i>
-                <span className="mx-1">Office</span>
+                <span className="mx-1">{t("Office")}</span>
               </button>
               <button
                 className="button button23 "
@@ -162,7 +170,7 @@ function AddAddressPage() {
                 }}
               >
                 <i className="bi bi-building"></i>
-                <span className="mx-1">Apartment</span>
+                <span className="mx-1">{t("Apartment")}</span>
               </button>
               <button
                 className="button button23"
@@ -172,20 +180,32 @@ function AddAddressPage() {
                 }}
               >
                 <i className="bi bi-grid "></i>
-                <span className="mx-1">Third Party</span>
+                <span className="mx-1">{t("Third Party")}</span>
               </button>
             </div>
             {addressType === "home" && (
-              <HomeAddress handleAddAddress={handleAddAddress} areaData={areaData}/>
+              <HomeAddress
+                handleAddAddress={handleAddAddress}
+                areaData={areaData}
+              />
             )}
             {addressType === "office" && (
-              <OfficeAddress handleAddAddress={handleAddAddress} areaData={areaData}/>
+              <OfficeAddress
+                handleAddAddress={handleAddAddress}
+                areaData={areaData}
+              />
             )}
             {addressType === "apartment" && (
-              <ApartmentAddress handleAddAddress={handleAddAddress} areaData={areaData}/>
+              <ApartmentAddress
+                handleAddAddress={handleAddAddress}
+                areaData={areaData}
+              />
             )}
             {addressType === "thirdParty" && (
-              <ThirdPartyAddress handleAddAddress={handleAddAddress} areaData={areaData}/>
+              <ThirdPartyAddress
+                handleAddAddress={handleAddAddress}
+                areaData={areaData}
+              />
             )}
           </div>
         </div>
