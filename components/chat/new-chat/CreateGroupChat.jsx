@@ -344,7 +344,7 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
               ))}
           </div>
           <center>
-            {grpName.length > 0 && (
+            {grpName.length > 0 && selectedUser.length > 0 && (
               <div className="right-arrow" onClick={() => createGroupHandler()}>
                 <CheckOutlined />
               </div>

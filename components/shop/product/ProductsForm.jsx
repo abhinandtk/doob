@@ -79,10 +79,10 @@ function ProductsForm({ handleProductAdd, editData }) {
   };
 
   const removeImage = (variantIndex, imageIndex) => {
-    const updatedVariants = [...formData.variants]; // Create a copy of variants array
-    updatedVariants[variantIndex].formFile.splice(imageIndex, 1); // Remove the specified image from the images array
+    const updatedVariants = [...formData.variants];
+    updatedVariants[variantIndex].formFile.splice(imageIndex, 1);
 
-    setFormData({ ...formData, variants: updatedVariants }); // Update the formData state
+    setFormData({ ...formData, variants: updatedVariants });
   };
 
   useEffect(() => {
@@ -355,7 +355,9 @@ function ProductsForm({ handleProductAdd, editData }) {
               </select>
             </div>
             <div className="form-group my-2">
-              <label for="exampleFormControlSelect1">{t("Sub Category")}*</label>
+              <label for="exampleFormControlSelect1">
+                {t("Sub Category")}*
+              </label>
               <select
                 className="add-prod-input form-control p-2"
                 id="subCategory"
@@ -564,8 +566,6 @@ required
                     multiple // Allow selecting multiple images
                     required={editData === "true" ? false : true}
                   />
-
-                  
                 </div>
                 <div
                   style={{
@@ -609,7 +609,9 @@ required
                 </div>
                 {primaryName && (
                   <div className="form-group my-2">
-                    <label for="exampleFormControlSelect1">{primaryName}*</label>
+                    <label for="exampleFormControlSelect1">
+                      {primaryName}*
+                    </label>
                     <select
                       className="add-prod-input form-control p-2"
                       id="color"
@@ -702,12 +704,16 @@ required
                 )}
                 <div className="product-submit ">
                   {index > 0 && (
-                    <h6 onClick={() => removeVariantField(index)}>
+                    <h6
+                      onClick={() => removeVariantField(index)}
+                      style={{ cursor: "pointer" }}
+                    >
                       {t("Remove")}
                     </h6>
                   )}
                   <span>
                     <h6
+                      style={{ cursor: "pointer" }}
                       className="mx-3"
                       onClick={() => duplicateVariant(index)}
                     >

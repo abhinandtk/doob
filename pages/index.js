@@ -22,6 +22,7 @@ import MobileHeader from '@/components/MobileHeader';
 import SharedConfirmation from '@/components/homepage/social/SharedConfirmation';
 import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from 'next-i18next';
 
 export async function getStaticProps({ locale }) {
   return {
@@ -33,6 +34,7 @@ export async function getStaticProps({ locale }) {
 function HomePage() {
   const router = useRouter()
   const { locale } = useRouter()
+  const { t } = useTranslation()
 
   const [countryModalShow, setCountryModalShow] = useState(true);
   const [countryData, setCountryData] = useState([])
@@ -102,19 +104,19 @@ function HomePage() {
 
           </Modal.Header>
           <Modal.Body>
-            <Modal.Title className='title1' >Please Choose Your location</Modal.Title>
+            <Modal.Title className='title1' >{t("Please Choose Your location")}</Modal.Title>
             <Form
               style={{ marginTop: '34px' }}
               onSubmit={countrySubmitHandler}>
 
               <Form.Group className="mb-1 country "  >
-                <Form.Label>Select Country</Form.Label>
+                <Form.Label>{t("Select Country")}</Form.Label>
                 <Form.Select
                   aria-label="Default select example"
                   onChange={handleCountry}
                   required
                 >
-                  <option value=''>Country</option>
+                  <option value=''>{t("Country")}</option>
                   {countryData.map((item) => (
                     <option key={item.id} value={item.country_name}>{item.country_name}</option>
                   ))}
@@ -124,13 +126,13 @@ function HomePage() {
 
 
               <Form.Group className="mb-3 location" >
-                <Form.Label>Select Location</Form.Label>
+                <Form.Label>{t("Select Location")}</Form.Label>
                 <Form.Select
                   aria-label="Default select example"
                   required
                   onChange={(e) => regionChange(e)}
                 >
-                  <option value=''>Locations</option>
+                  <option value=''>{t("Locations")}</option>
                   {regionData.map(item => (
                     <option key={item.id} value={item.id}>{item.region_name}</option>
                   ))}
@@ -142,7 +144,7 @@ function HomePage() {
                   className='mx-auto text-white submit1'
 
                 >
-                  Continue
+                  {t("Continue")}
                 </Button>
               </Modal.Footer>
             </Form>

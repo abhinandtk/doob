@@ -101,6 +101,7 @@ function CategoryManagement() {
 
                     <label></label>
                     <span
+                      style={{ cursor: "pointer" }}
                       onClick={() =>
                         router.push({
                           pathname: `/shop/edit-category/${item.title}`,
@@ -120,7 +121,7 @@ function CategoryManagement() {
                       <>
                         <p key={sub} className="foot-ball-small">
                           {locale === "en" ? sub.title : sub.title_arabic}
-                          </p>
+                        </p>
                         <div className="toggle">
                           <input
                             placeholder="Active"
@@ -130,6 +131,7 @@ function CategoryManagement() {
                           />
                           <label></label>
                           <span
+                            style={{ cursor: "pointer" }}
                             onClick={() =>
                               router.push({
                                 pathname: `/shop/edit-category/${sub.title}`,

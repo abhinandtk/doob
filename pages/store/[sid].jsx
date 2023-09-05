@@ -14,7 +14,7 @@ import moment from "moment";
 import MobileHeader from "@/components/MobileHeader";
 import MobileFooter from "@/components/shared/MobileFooter";
 import StoreProductsCard from "@/components/stores/StoreProductsCard";
-import { Carousel } from "antd";
+import { Carousel, Skeleton } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
@@ -29,7 +29,7 @@ export async function getServerSideProps({ locale }) {
 function StoreDetailPage() {
   const router = useRouter();
   const { sid } = router.query;
-  const {t}=useTranslation()
+  const { t } = useTranslation();
 
   const [searchInput, setSearchInput] = useState("");
   const [success, setSuccess] = useState(false);
@@ -37,6 +37,7 @@ function StoreDetailPage() {
   const [storeCategory, setStoreCategory] = useState([]);
   const [offersData, setOffersData] = useState([]);
   const [storeBanners, setStoreBanners] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     let headers = {};
     const isAuthenticated = constants.token_id;
@@ -58,6 +59,7 @@ function StoreDetailPage() {
         store_id: sid,
       });
       if (res.data.data) {
+        setIsLoading(false);
         setStoreDetails(res.data.data.store[0]);
         setStoreCategory(res.data.data.store[0].categories);
         setOffersData(res.data.data.offers);
@@ -89,79 +91,95 @@ function StoreDetailPage() {
       <MobileHeader />
       <MainSidebarFixed />
       <div className="store-container ">
-        <form className="nosubmit " onSubmit={(e) => handleKeyDown(e)}>
-          <span>
-            {" "}
-            <input
-              className="nosubmit1"
-              onChange={(e) => setSearchInput(e.target.value)}
-              type="search"
-              onKeyDown={handleKeyDown}
-              placeholder={t("Search")}
-            />
-            <span
-            className="dark-theme-color"
-              style={{ cursor: "pointer" }}
-              onClick={() =>
-                router.push({
-                  pathname: "/store/search",
-                  query: {
-                    search: searchInput,
-                    slug: sid,
-                  },
-                })
-              }
-            >
-              {/* <img
+        {isLoading ? (
+          <Skeleton
+            active
+            paragraph={{ rows: 20 }}
+            className="skeleton-container"
+          />
+        ) : (
+          <>
+            <form className="nosubmit " onSubmit={(e) => handleKeyDown(e)}>
+              <span>
+                {" "}
+                <input
+                  className="nosubmit1"
+                  onChange={(e) => setSearchInput(e.target.value)}
+                  type="search"
+                  onKeyDown={handleKeyDown}
+                  placeholder={t("Search")}
+                />
+                <span
+                  className="dark-theme-color"
+                  style={{ cursor: "pointer" }}
+                  onClick={() =>
+                    router.push({
+                      pathname: "/store/search",
+                      query: {
+                        search: searchInput,
+                        slug: sid,
+                      },
+                    })
+                  }
+                >
+                  {/* <img
                 src="/images/store/Fil-icon.png"
                 className="filters-icon"
               ></img> */}
-              {t("Search")}
-            </span>
-          </span>
-          <button type="submit" style={{ display: "none" }}></button>
-        </form>
-        <StoreTopDetails data={storeDetails} setSuccess={setSuccess} />
+                  {t("Search")}
+                </span>
+              </span>
+              <button type="submit" style={{ display: "none" }}></button>
+            </form>
+            <StoreTopDetails data={storeDetails} setSuccess={setSuccess} />
 
-        {/* <StoreBannerCard /> */}
-        {storeBanners.length > 0 && (
-          <section>
-            <Carousel
-              prevArrow={
-                <Button className="carousel-arrow" icon={<LeftOutlined />} />
-              }
-              nextArrow={
-                <Button className="carousel-arrow" icon={<RightOutlined />} />
-              }
-            >
-              {storeBanners.map((ban, index) => (
-                <div key={index}>
-                  <img
-                    src={`${constants.port}${ban.Banner_image}`}
-                    style={{ width: "100%" }}
+            {/* <StoreBannerCard /> */}
+            {storeBanners.length > 0 && (
+              <section>
+                <Carousel
+                  prevArrow={
+                    <Button
+                      className="carousel-arrow"
+                      icon={<LeftOutlined />}
+                    />
+                  }
+                  nextArrow={
+                    <Button
+                      className="carousel-arrow"
+                      icon={<RightOutlined />}
+                    />
+                  }
+                >
+                  {storeBanners.map((ban, index) => (
+                    <div key={index}>
+                      <img
+                        src={`${constants.port}${ban.Banner_image}`}
+                        style={{ width: "100%" }}
+                      />
+                    </div>
+                  ))}
+                </Carousel>
+              </section>
+            )}
+
+            {storeCategory.length >= 1 && (
+              <SearchCategory category={storeCategory} />
+            )}
+
+            {offersData.length > 0 &&
+              offersData.map((item, index) => (
+                <div key={index} className="my-2">
+                  {/* <h5>
+                {item.offer_name}<span className="view">View All</span>
+              </h5> */}
+                  <StoreProductsCard
+                    products={item.product_varient}
+                    title={item.offer_name}
                   />
                 </div>
               ))}
-            </Carousel>
-          </section>
+          </>
         )}
-
-        {storeCategory.length >= 1 && (
-          <SearchCategory category={storeCategory} />
-        )}
-
-        {offersData.length > 0 &&
-          offersData.map((item, index) => (
-            <div key={index} className="my-2">
-              {/* <h5>
-                {item.offer_name}<span className="view">View All</span>
-              </h5> */}
-              <StoreProductsCard
-                products={item.product_varient}
-                title={item.offer_name}
-              />
-            </div>
-          ))}
       </div>
       <MobileFooter />
     </div>

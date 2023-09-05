@@ -146,6 +146,17 @@ function MainHeader({ title }) {
       setShowLogin(true);
     }
   };
+  const cartNavHandler = () => {
+    if (isAuthenticated) {
+      if (asPath.includes("store") || asPath.includes("shop")) {
+        router.push("/store/cart");
+      } else {
+        router.push("/play-ground/play-ground-cart");
+      }
+    } else {
+      setShowLogin(true);
+    }
+  };
 
   return (
     <>
@@ -302,12 +313,8 @@ function MainHeader({ title }) {
                 </svg>
               </Nav.Link>
               <Nav.Link
-                href={`${
-                  // storeCount != 0
-                  asPath.includes("store") || asPath.includes("shop")
-                    ? "/store/cart"
-                    : "/play-ground/play-ground-cart"
-                }`}
+                onClick={() => cartNavHandler()}
+                
               >
                 <div>
                   {asPath.includes("store")

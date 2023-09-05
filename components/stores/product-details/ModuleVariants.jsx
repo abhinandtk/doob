@@ -7,12 +7,14 @@ import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
 import React from "react";
 import { useState } from "react";
+import { useTranslation } from "next-i18next";
 import { useDispatch, useSelector } from "react-redux";
 
 function ModuleVariants({ product }) {
   console.log("ttt-product123", product);
   const router = useRouter();
   const dispatch = useDispatch();
+  const {t}=useTranslation()
   const [primaryIndex, setPrimaryIndex] = useState(
     useSelector((state) => state.product.proPrimaryVarientId)
   );
@@ -50,7 +52,7 @@ function ModuleVariants({ product }) {
       <h6 style={{ marginTop: "-8px" }}>
         {product.primary_varient === "Color" ? (
           <>
-            Color<br></br>
+            {t("Color")}<br></br>
             <div>
               {items.map((item, index) => (
                 <span
@@ -75,7 +77,7 @@ function ModuleVariants({ product }) {
           </>
         ) : (
           <>
-            Size<br></br>
+            {t("Size")}<br></br>
             <div>
               {items.map((item, index) => (
                 <div
