@@ -335,6 +335,17 @@ input.nosubmit2 {
   // right: 65px;
   // top: -17px;
 }
+.foot-png_ar {
+  float: left;
+  margin-top: 380px;
+  position: absolute;
+  margin-right: -103px;
+  width: 85px;
+  height: 60px;
+  z-index: 1;
+  object-fit: cover;
+  left:40px;
+}
 
 .btn-group.group {
   padding: 0px 4px;
@@ -604,6 +615,13 @@ input.nosubmit2 {
   position: absolute;
 }
 
+.span-icon_arab{
+  margin-top: 15px;
+  margin-right: -120px;
+  float:left;
+  position: relative;
+  left: 40px;
+}
 input {
   border: 0;
   width: 2%;
@@ -1666,6 +1684,17 @@ input:disabled {
     right: 25px;
     top: -55px;
   }
+  .foot-png_ar {
+    // float: right;
+    // margin-top: 320px;
+    // position: absolute;
+    // margin-left: -103px;
+    position: inherit;
+    height: 60px;
+    left: 25px;
+    top: -55px;
+  }
+
 
   .content-topic {
     margin-left: 260px;
@@ -1739,6 +1768,16 @@ input:disabled {
     position: inherit;
     height: 60px;
     right: 25px;
+    top: -97px;
+  }
+  .foot-png_ar {
+    // float: right;
+    // margin-top: 270px;
+    // position: absolute;
+    // margin-left: -103px;
+    position: inherit;
+    height: 60px;
+    left: 25px;
     top: -97px;
   }
 
@@ -1828,13 +1867,18 @@ input:disabled {
   }
 
   .foot-png {
-    width: 85px;
+    width: auto;
     position: inherit;
-    height: 60px;
     right: 65px;
     top: -177px;
   }
+  .foot-png_ar {
+    width: auto;
+    position: inherit;
 
+    left: 65px;
+    top: -177px;
+  }
   .sidebar {
     display: none;
   }
@@ -2156,10 +2200,21 @@ input:disabled {
     // margin-top: 140px;
     // position: absolute;
     // margin-left: -103px;
-    width: 85px;
+    width:auto;
     position: inherit;
-    height: 60px;
+ 
     right: 34px;
+    top: -210px;
+  }
+  .foot-png {
+    // float: right;
+    // margin-top: 140px;
+    // position: absolute;
+    // margin-left: -103px;
+    width:auto;
+    position: inherit;
+ 
+    left: 34px;
     top: -210px;
   }
 
@@ -2384,10 +2439,13 @@ input:disabled {
   }
 
   .foot-png {
-    right: 33px;
+    left:-13px;
     top: -234px;
   }
-
+  .foot-png_ar {
+    left: 33px;
+    top: -234px;
+  }
   .qty {
     float: right;
     text-align: end;
@@ -2705,13 +2763,18 @@ input:disabled {
   }
 
   .foot-png {
-    width: 85px;
+    width: auto;
     position: inherit;
-    height: 60px;
     right: 33px;
     top: -264px;
   }
 
+  .foot-png_ar {
+    width: auto;
+    position: inherit;
+    left: 33px;
+    top: -264px;
+  }
   .count1 {
     width: 20%;
   }
@@ -2986,11 +3049,17 @@ input:disabled {
   }
 
   .foot-png {
-    width: 85px;
+    width: auto;
     position: inherit;
-    height: 60px;
-    right: 34px;
-    top: -260px;
+
+    right: 31px;
+    top: -285px;
+  }
+  .foot-png_ar {
+    width: auto;
+    position: inherit;
+    left: 31px;
+    top: -285px;
   }
 }
 

@@ -142,7 +142,9 @@ function StoreTopDetails({ data, setSuccess }) {
           style={{ width: "100%", aspectRatio: "2.2", objectFit: "cover" }}
         ></img>
    
-        <span className="span-icon">
+        <span  className={locale==="en"?"span-icon":"span-icon_arab" }> 
+    
+
           <span style={{ cursor: "pointer" }}>
             <svg
               onClick={() =>
@@ -252,7 +254,8 @@ function StoreTopDetails({ data, setSuccess }) {
             </Dropdown>
           </span>
         </span>
-        <img src={`${constants.port}${data.logo}`} className="foot-png"></img>
+        <img src={`${constants.port}${data.logo}`}   className={locale==="en"?"foot-png":"foot-png_ar"}>    
+        </img>
       </div>
      
       <div className="my-3 store-header-details" >
