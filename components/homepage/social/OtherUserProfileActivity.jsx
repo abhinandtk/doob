@@ -15,6 +15,7 @@ function OtherUserProfileActivity() {
   const [loadMore, setLoadMore] = useState(true);
   const [activityData, setActivityData] = useState([]);
   const router = useRouter();
+  const { locale } = router;
   const { userId } = router.query;
   useEffect(() => {
     const paginationApiUrl = `${apis.otherUserActivity}?page=${page}`;
@@ -42,11 +43,13 @@ function OtherUserProfileActivity() {
   }, [userId, page]);
 
   return (
-    <div>
-      <Card className="card-tab">
+    <div style={{ direction: locale === "ar" && "rtl" }}>
+      <Card className="card-tab" >
+
         {activityData.map((item, index) => (
           <div key={index}>
-            <h6 key={index} className="activity-date">
+            
+            <h6 key={index} className={locale==="en"?"activity-date":"activity-date_ar"}>
               {item.date}
             </h6>
             {item.data.map((item_, index_) => (
@@ -77,7 +80,7 @@ function OtherUserProfileActivity() {
                               {item_.title} {item_.booking.stadium_name}
                             </p>
                           </div>
-                          <p className="small-time ">
+                          <p className={locale==="en"?"small-time":"small-time_ar"}>
                             {moment(item_.created_at).format("hh:mm A")}
                           </p>
                         </div>
@@ -111,7 +114,7 @@ function OtherUserProfileActivity() {
                               Liked {item_.post.user} Post
                             </p>
                           </div>
-                          <p className="small-time ">
+                          <p className={locale==="en"?"small-time":"small-time_ar"}>
                             {moment(item_.created_at).format("hh:mm A")}
                           </p>
                         </div>
@@ -149,7 +152,7 @@ function OtherUserProfileActivity() {
                                 : "Shared a Post"}
                             </p>
                           </div>
-                          <p className="small-time ">
+                          <p className={locale==="en"?"small-time":"small-time_ar"}>
                             {moment(item_.created_at).format("hh:mm A")}
                           </p>
                         </div>
@@ -181,7 +184,7 @@ function OtherUserProfileActivity() {
                           <div className="d-flex justify-content-between align-items-center">
                             <p className=" Book">{item_.title}</p>
                           </div>
-                          <p className="small-time ">
+                          <p className={locale==="en"?"small-time":"small-time_ar"}>
                             {moment(item_.created_at).format("hh:mm A")}
                           </p>
                         </div>
@@ -213,7 +216,7 @@ function OtherUserProfileActivity() {
                           <div className="d-flex justify-content-between align-items-center">
                             <p className=" Book">You &nbsp;{item_.title}</p>
                           </div>
-                          <p className="small-time ">
+                          <p className={locale==="en"?"small-time":"small-time_ar"}>
                             {moment(item_.created_at).format("hh:mm A")}
                           </p>
                         </div>
@@ -251,7 +254,7 @@ function OtherUserProfileActivity() {
                               {item_.title}&nbsp;{item_.order.product_name}
                             </p>
                           </div>
-                          <p className="small-time ">
+                          <p className={locale==="en"?"small-time":"small-time_ar"}>
                             {moment(item_.created_at).format("hh:mm A")}
                           </p>
                         </div>
