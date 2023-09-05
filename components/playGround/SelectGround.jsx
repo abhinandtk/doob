@@ -15,7 +15,8 @@ import { useTranslation } from "next-i18next";
 
 function SelectGround({ details, setSuccess, setDateSelected }) {
   const { t } = useTranslation();
-  const router = useRouter();
+  const router = useRouter()
+  const { locale } = router;
   const inputData = router.query;
   const labels = Labels();
 
@@ -176,18 +177,20 @@ function SelectGround({ details, setSuccess, setDateSelected }) {
                     details.timeslot.map((item, index) => (
                       <div
                         key={index}
-                        className={`d-flex my-2 mx-2  ${
-                          item.is_booked
+                        className={`d-flex my-2 mx-2  ${item.is_booked
                             ? "time-slot1"
                             : selectedSlots.includes(item.id)
-                            ? "time-slot3"
-                            : "time-slot2"
-                        } `}
+                              ? "time-slot3"
+                              : "time-slot2"
+                          } `}
                         onClick={() => {
                           !item.is_booked && handleSlotClick(item.id);
                         }}
                       >
-                        <p style={{ marginTop: "13px", marginLeft: "23px" }}>
+                        {/* <p style={{ marginTop: "13px", marginLeft: "23px" }}> */}
+
+                        <p style={{ marginTop: "13px", marginLeft: locale === "en" ? "23px" : "", marginRight: locale === "ar" ? "23px" : "" }} >
+
                           {moment(item.start_time, "hh:mm:ss").format(
                             "hh:mm A"
                           )}
