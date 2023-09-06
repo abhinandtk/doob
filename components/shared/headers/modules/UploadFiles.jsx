@@ -15,7 +15,6 @@ function UploadFiles({ setUploadShow }) {
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
-
   const [file, setFile] = useState(null);
   const [caption, setCaption] = useState("");
   const [show, setShow] = useState(true);
@@ -122,17 +121,21 @@ function UploadFiles({ setUploadShow }) {
                   <p className="ant-upload-drag-icon">
                     <InboxOutlined />
                   </p>
-                  <p className="ant-upload-text">
+                  <p className=" dark-theme-color ">
                     {t("Click or drag file to upload")}
                   </p>
                 </>
               )}
             </Upload.Dragger>
           </div>
-          <div style={{ width: "100%", marginTop: "1rem" }}>
+          <div
+            className=" dark-theme-color"
+            style={{ width: "100%", marginTop: "1rem" }}
+          >
             {t("Description")}
             <Form.Item>
               <TextArea
+                className="cont-theme-bg"
                 rows={4}
                 value={caption}
                 onChange={(e) => handleCaptionChange(e)}

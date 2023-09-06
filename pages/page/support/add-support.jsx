@@ -107,10 +107,10 @@ function SupportAddPage() {
                     <input
                       required
                       type="text"
-                      class="form-control p-2"
+                      class="form-control input-theme-prod p-2"
                       style={{
                         border: "0px",
-                        background: "#eeeeee",
+
                         color: "grey",
                       }}
                       id="description"
@@ -125,10 +125,10 @@ function SupportAddPage() {
                     <input
                       required
                       type="text"
-                      class="form-control p-2"
+                      class="form-control input-theme-prod p-2"
                       style={{
                         border: "0px",
-                        background: "#eeeeee",
+
                         color: "grey",
                       }}
                       id="category"

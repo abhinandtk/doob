@@ -32,7 +32,7 @@ function SupportAddPage() {
   const [supportList, setSupportList] = useState([]);
   const { t } = useTranslation();
   const router = useRouter();
-  const { locale } = router;  
+  const { locale } = router;
   const labels = Labels();
   const [formData, setFormData] = useState({
     description: "",
@@ -106,10 +106,10 @@ function SupportAddPage() {
                     </label>
                     <input
                       type="text"
-                      class="form-control p-2"
+                      class="form-control input-theme-prod p-2"
                       style={{
                         border: "0px",
-                        background: "#eeeeee",
+
                         color: "grey",
                       }}
                       id="description"
@@ -123,10 +123,10 @@ function SupportAddPage() {
                     </label>
                     <input
                       type="text"
-                      class="form-control p-2"
+                      class="form-control input-theme-prod p-2"
                       style={{
                         border: "0px",
-                        background: "#eeeeee",
+
                         color: "grey",
                       }}
                       id="category"

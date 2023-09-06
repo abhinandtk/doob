@@ -25,7 +25,7 @@ function CreateGamePage() {
       <MainSidebarFixed />
       <div className="tour-container">
         <div className="col ">
-          <div className="card my-5 " style={{ border: "0px" }}>
+          <div className="card my-5 cont-theme-bg" style={{ border: "0px" }}>
             <div className="card-body p-5 ">
               <h5 style={{ fontWeight: "700" }}>{t("Create Game")}</h5>
               <CreateGameForm />

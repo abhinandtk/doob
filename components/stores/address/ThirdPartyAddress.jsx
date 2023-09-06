@@ -80,18 +80,18 @@ function ThirdPartyAddress({ handleAddAddress, areaData, edit }) {
             id="name"
             type="text"
             value={formData.name}
-            className="form-control p-2"
+            className="form-control input-theme-prod p-2"
             onChange={(e) => handleChange(e)}
-            style={{ border: "0px", background: "#eeeeee" }}
+            style={{ border: "0px" }}
           />
         </div>
         <div className="form-group my-2">
           <label for="exampleFormControlSelect1">{t("Select Area")}*</label>
           <select
             id="area"
-            className="form-control p-2"
+            className="form-control input-theme-prod p-2"
             onChange={(e) => handleChange(e)}
-            style={{ border: "0px", background: "#eeeeee" }}
+            style={{ border: "0px" }}
             value={formData.area}
           >
             <option value="">{t("--Select--")}</option>
@@ -108,9 +108,9 @@ function ThirdPartyAddress({ handleAddAddress, areaData, edit }) {
             id="block"
             type="text"
             value={formData.block}
-            className="form-control p-2"
+            className="form-control input-theme-prod p-2"
             onChange={(e) => handleChange(e)}
-            style={{ border: "0px", background: "#eeeeee" }}
+            style={{ border: "0px" }}
           />
         </div>
         <div className="form-group my-2">
@@ -119,9 +119,9 @@ function ThirdPartyAddress({ handleAddAddress, areaData, edit }) {
             id="street"
             type="text"
             value={formData.street}
-            className="form-control p-2"
+            className="form-control input-theme-prod p-2"
             onChange={(e) => handleChange(e)}
-            style={{ border: "0px", background: "#eeeeee" }}
+            style={{ border: "0px" }}
           />
         </div>
         <div className="form-group my-2">
@@ -130,9 +130,9 @@ function ThirdPartyAddress({ handleAddAddress, areaData, edit }) {
             id="avenue"
             type="text"
             value={formData.avenue}
-            className="form-control p-2"
+            className="form-control input-theme-prod p-2"
             onChange={(e) => handleChange(e)}
-            style={{ border: "0px", background: "#eeeeee" }}
+            style={{ border: "0px" }}
           />
         </div>
         <div className="form-group my-2">
@@ -143,9 +143,9 @@ function ThirdPartyAddress({ handleAddAddress, areaData, edit }) {
             id="address"
             type="text"
             value={formData.address}
-            className="form-control p-2"
+            className="form-control input-theme-prod p-2"
             onChange={(e) => handleChange(e)}
-            style={{ border: "0px", background: "#eeeeee" }}
+            style={{ border: "0px" }}
           />
         </div>
 
@@ -155,9 +155,9 @@ function ThirdPartyAddress({ handleAddAddress, areaData, edit }) {
             id="phone"
             type="text"
             value={formData.phone}
-            className="form-control p-2"
+            className="form-control input-theme-prod p-2"
             onChange={(e) => handleChange(e)}
-            style={{ border: "0px", background: "#eeeeee" }}
+            style={{ border: "0px" }}
           />
         </div>
         <div className="form-group my-2 ">
@@ -166,9 +166,9 @@ function ThirdPartyAddress({ handleAddAddress, areaData, edit }) {
             id="remark"
             type="text"
             value={formData.remark}
-            className="form-control p-2"
+            className="form-control input-theme-prod p-2"
             onChange={(e) => handleChange(e)}
-            style={{ border: "0px", background: "#eeeeee" }}
+            style={{ border: "0px" }}
           />
         </div>
         <h6 className="my-4">{t("Provider Address")} </h6>
@@ -178,18 +178,18 @@ function ThirdPartyAddress({ handleAddAddress, areaData, edit }) {
             id="providerName"
             type="text"
             value={formData.providerName}
-            className="form-control p-2"
+            className="form-control input-theme-prod p-2"
             onChange={(e) => handleChange(e)}
-            style={{ border: "0px", background: "#eeeeee" }}
+            style={{ border: "0px" }}
           />
         </div>
         <div className="form-group my-2">
           <label for="exampleFormControlSelect1">{t("Select Area")}*</label>
           <select
             id="providerArea"
-            className="form-control p-2"
+            className="form-control input-theme-prod p-2"
             onChange={(e) => handleChange(e)}
-            style={{ border: "0px", background: "#eeeeee" }}
+            style={{ border: "0px" }}
           >
             <option value="">{t("--Select--")}</option>
             {areaData.map((item, index) => (
@@ -205,9 +205,9 @@ function ThirdPartyAddress({ handleAddAddress, areaData, edit }) {
             id="providerBlock"
             type="text"
             value={formData.providerBlock}
-            className="form-control p-2"
+            className="form-control input-theme-prod p-2"
             onChange={(e) => handleChange(e)}
-            style={{ border: "0px", background: "#eeeeee" }}
+            style={{ border: "0px" }}
           />
         </div>
         <div className="form-group my-2">
@@ -216,9 +216,9 @@ function ThirdPartyAddress({ handleAddAddress, areaData, edit }) {
             id="providerStreet"
             type="text"
             value={formData.providerStreet}
-            className="form-control p-2"
+            className="form-control input-theme-prod p-2"
             onChange={(e) => handleChange(e)}
-            style={{ border: "0px", background: "#eeeeee" }}
+            style={{ border: "0px" }}
           />
         </div>
         <div className="form-group my-2">
@@ -227,15 +227,16 @@ function ThirdPartyAddress({ handleAddAddress, areaData, edit }) {
             id="providerAvenue"
             type="text"
             value={formData.providerAvenue}
-            className="form-control p-2"
+            className="form-control input-theme-prod p-2"
             onChange={(e) => handleChange(e)}
-            style={{ border: "0px", background: "#eeeeee" }}
+            style={{ border: "0px" }}
           />
         </div>
         <div className="form-group my-2 ">
           <Checkbox
             onChange={(e) => setDefaultAddress(e.target.checked)}
             checked={defaultAddress}
+            className="dark-theme-color"
           >
             {t("Make this as the default address")}
           </Checkbox>

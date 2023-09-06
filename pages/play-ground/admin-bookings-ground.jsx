@@ -100,10 +100,9 @@ function AdminGroundBookings() {
           <label for="exampleFormControlSelect1">{t("Booking Status")}</label>
           <select
             placeholder="order status"
-            className="form-control p-2 "
+            className="form-control p-2 input-theme-prod"
             style={{
               border: "0px",
-              background: "#eeeeee",
               color: "#959595",
             }}
             onChange={(e) => setBookingStatus(e.target.value)}

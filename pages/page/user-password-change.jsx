@@ -25,19 +25,18 @@ import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['translation'])),
+      ...(await serverSideTranslations(locale, ["translation"])),
     },
-  }
+  };
 }
 function UserPasswordChange() {
-  
   const { t } = useTranslation();
-  const router=useRouter()
+  const router = useRouter();
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
 
@@ -62,7 +61,7 @@ function UserPasswordChange() {
           message: constants.Success,
           description: `${labels["Password Changed Successfully"]}`,
         });
-        router.back()
+        router.push("/page/settings-page");
       } else {
         notification.error({
           message: constants.Error,
@@ -95,13 +94,14 @@ function UserPasswordChange() {
               <br></br>
               <form onSubmit={(e) => submitHandler(e)}>
                 <div className="form-group my-2 ">
-                  <label for="exampleFormControlInput1">{t("Current Password")}</label>
+                  <label for="exampleFormControlInput1">
+                    {t("Current Password")}
+                  </label>
                   <input
                     type="password"
-                    className="form-control p-2"
+                    className="form-control input-theme-prod p-2"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
                       color: "grey",
                     }}
                     id="name"
@@ -110,13 +110,14 @@ function UserPasswordChange() {
                   />
                 </div>
                 <div className="form-group my-2">
-                  <label for="exampleFormControlInput1">{t("New Password")}</label>
+                  <label for="exampleFormControlInput1">
+                    {t("New Password")}
+                  </label>
                   <input
                     type="password"
-                    className="form-control p-2"
+                    className="form-control input-theme-prod p-2"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
                       color: "grey",
                     }}
                     id="nameArabic"
@@ -129,7 +130,7 @@ function UserPasswordChange() {
                     {t("Submit")}
                   </button>
                   <button
-                    onClick={() => router.back()}
+                    onClick={() => router.push("/page/settings-page")}
                     type="button"
                     className="sub-cart-btn"
                   >

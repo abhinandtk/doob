@@ -150,18 +150,17 @@ function AdminAllOrders() {
           <div className="form-group my-2">
             <label for="exampleFormControlSelect1">{t("Payment Status")}</label>
             <select
-              placeholder="order stsu"
-              className="form-control p-2 "
+              placeholder="order status"
+              className="form-control p-2 input-theme-prod "
               style={{
                 border: "0px",
-                background: "#eeeeee",
                 color: "#959595",
               }}
               value={paymentStatus}
               onChange={(e) => setPaymentStatus(e.target.value)}
             >
               <option value="" style={{ color: "#959595" }}>
-                --Select--
+                {t("--Select--")}
               </option>
               <option value="Pending" style={{ color: "#959595" }}>
                 Pending
@@ -175,17 +174,16 @@ function AdminAllOrders() {
             <label for="exampleFormControlSelect1">{t("Order Status")}</label>
             <select
               placeholder="order stsu"
-              className="form-control p-2 "
+              className="form-control p-2 input-theme-prod"
               style={{
                 border: "0px",
-                background: "#eeeeee",
                 color: "#959595",
               }}
               value={orderStatus}
               onChange={(e) => setOrderStatus(e.target.value)}
             >
               <option value="" style={{ color: "#959595" }}>
-                --Select--
+                {t("--Select--")}
               </option>
               <option value="Ordered" style={{ color: "#959595" }}>
                 Ordered
