@@ -27,8 +27,9 @@ export async function getServerSideProps({ locale }) {
   };
 }
 function StoreDetailPage() {
-  const router = useRouter();
-  const { sid } = router.query;
+  const router = useRouter()
+  const { locale } = router
+    const { sid } = router.query;
   const { t } = useTranslation();
 
   const [searchInput, setSearchInput] = useState("");
@@ -103,7 +104,8 @@ function StoreDetailPage() {
               <span>
                 {" "}
                 <input
-                  className="nosubmit1"
+           
+                  className={locale === "en" ? "nosubmit1" : "nosubmit1_ar"}
                   onChange={(e) => setSearchInput(e.target.value)}
                   type="search"
                   onKeyDown={handleKeyDown}
