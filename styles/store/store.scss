@@ -605,6 +605,12 @@ input.nosubmit2 {
   position: absolute;
 }
 
+
+.tour-detail-ar{
+  :lang(ar) {
+    direction: rtl;
+  }
+}
 //arabic change//
 .span_icon_ar {
   margin-top: 15px;

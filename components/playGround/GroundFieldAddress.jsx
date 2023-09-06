@@ -1,18 +1,23 @@
 import React from "react";
 import { Fragment } from "react";
+import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
-function  GroundFieldAddress({ address }) {
+function GroundFieldAddress({ address }) {
+  const { t } = useTranslation()
+  const router = useRouter()
+  const { locale } = router
   return (
     <Fragment>
-      <div className="col-md-6">
-        <h5>Field Address</h5>
-        {address && 
-          <div  className="card carts">
+      <div className={locale === 'en' ? "col-md-6 order-1" : "col-md-6 order-2"} style={{ direction: locale === 'en' ? "ltr" : "rtl" }}>
+        <h5>{t("Field Address")}</h5>
+        {address &&
+          <div className="card carts">
             <div className="card-body cart-info p-4">
               <div className="cart-location">
                 <svg
                   width="30"
-                  height="19" 
+                  height="19"
                   viewBox="0 0 17 19"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -26,7 +31,7 @@ function  GroundFieldAddress({ address }) {
                     fill="black"
                   />
                 </svg>
-                
+
 
                 <h5 className="mx-3 text-cart">
                   {address.stadium_name}

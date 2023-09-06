@@ -16,6 +16,7 @@ function GroundCartItems({ data, setSuccess }) {
 
   const labels = Labels();
   const router = useRouter();
+  const { locale } = router
   const dispatch = useDispatch();
   const checkoutPlaygroundHandler = () => {
     Axios.post(apis.playgroundCheckout, null, {
@@ -74,7 +75,7 @@ function GroundCartItems({ data, setSuccess }) {
             </h5>
             <p
               className="float-end dark-theme-color"
-              style={{  fontSize: "14px" }}
+              style={{ fontSize: "14px" }}
             >
               {t("Total")}&nbsp;{data.cart_count}&nbsp;{t("items")}
             </p>

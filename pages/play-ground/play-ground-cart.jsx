@@ -11,6 +11,7 @@ import constants from "@/public/data/my-constants/Constants";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -21,6 +22,8 @@ export async function getStaticProps({ locale }) {
 }
 function PlayGroundCartPage() {
   const { t } = useTranslation();
+  const router = useRouter()
+  const { locale } = router
   const [cartFieldData, setCartFieldData] = useState([]);
   const [cartData, setCartData] = useState([]);
   const [success, setSuccess] = useState(true);
@@ -43,10 +46,11 @@ function PlayGroundCartPage() {
       <MobileHeader />
       <MainSidebarFixed />
       <div className="tour-container">
-        <h5 className=" my-4" style={{ fontWeight: "600" }}>
-          {t("My Cart")}
-        </h5>
-        <div className="row">
+
+        <div className="row" >
+          <h5 className=" my-4" style={{ fontWeight: "600", direction: locale === 'en' ? "ltr" : "rtl" }}>
+            {t("My Cart")}
+          </h5>
           {!isLoading ? (
             cartData.cart_details && cartData.cart_details.length != 0 ? (
               <>

@@ -14,6 +14,7 @@ import { useEffect } from "react";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -24,6 +25,8 @@ export async function getStaticProps({ locale }) {
 }
 function CartPage() {
   const [cartDetails, setCartDetails] = useState([]);
+  const router = useRouter()
+  const { locale } = router
   const [cartProducts, setCartProducts] = useState([]);
   const [cartAddress, setCartAddress] = useState([]);
   const [onSuccess, setOnSuccess] = useState(true);
@@ -48,6 +51,7 @@ function CartPage() {
       <MobileHeader />
       <MainSidebarFixed />
       <div className="store-container h-100">
+      <div className="tour-detail-ar">
         <div className="h-100 my-3 ">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col">
@@ -61,8 +65,9 @@ function CartPage() {
                     setOnSuccess={setOnSuccess}
                   />
 
-                  <h5 className="dark-theme-color" style={{ fontSize: "17px" }}>
-                    {t("Order List")}
+                  <h5 className="dark-theme-color"   style={{ fontSize: "17px"}} >
+             
+                  <span></span> {t("Order List")}
                     <span className="view">
                       {t("Total")} {cartDetails.cart_items} {t("items")}
                     </span>
@@ -80,6 +85,7 @@ function CartPage() {
             </div>
           </div>
         </div>
+      </div>
       </div>
       <MobileFooter />
     </Fragment>
