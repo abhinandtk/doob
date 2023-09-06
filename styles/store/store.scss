@@ -300,6 +300,15 @@ input.nosubmit2 {
   font-weight: 400;
 }
 
+.view_ar {
+  font-size: 14px;
+  color: #797b79;
+  margin-right: 0px;
+  float: left;
+  font-weight: 400;
+
+
+}
 .shop {
   row-gap: 6px;
 }
@@ -1093,6 +1102,11 @@ input:disabled {
 
 .add-left {
   margin-left: 7px;
+  position: relative;
+  margin-top: 4px;
+}
+.add-left_ar {
+  margin-right: 7px;
   position: relative;
   margin-top: 4px;
 }

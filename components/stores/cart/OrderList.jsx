@@ -8,12 +8,14 @@ import { Labels } from "@/public/data/my-constants/Labels";
 import { useDispatch } from "react-redux";
 import { toggle } from "@/Redux/updateNavbar";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
 function OrderList({ product, setOnSuccess }) {
   console.log("rrrrrrrrrrrrrrrrrrr", product);
   const [quantity, setQuantity] = useState(parseInt(product.quantity));
   const { t } = useTranslation();
-
+  const router = useRouter()
+  const { locale } = router
   const labels = Labels();
   const dispatch = useDispatch();
 
@@ -87,7 +89,8 @@ function OrderList({ product, setOnSuccess }) {
                   className="pixels-png"
                 ></img>
               </div>
-              <div className=" add-left" style={{ maxWidth: "45%" }}>
+              <div className={locale === "en" ? "add-left" : "add-left_ar"} style={{ maxWidth: "45%" }}>
+            
                 <h6>{product.Name}</h6>
                 {product.product_stock <= 0 ? (
                   <p className="my-1" style={{ color: "red" }}>
