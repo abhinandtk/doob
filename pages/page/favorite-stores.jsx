@@ -109,7 +109,7 @@ function FavoriteStores() {
                               item.is_favorite
                             )
                           }
-                          style={{ float: locale === "en" ? "right" : "left" ,cursor:'pointer' }}
+                          style={{ float: locale === "en" ? "right" : "left" ,cursor:'pointer',top:locale === "ar" ? "0px" : "" }}
                         >
                           <i
                             className="bi bi-suit-heart-fill"

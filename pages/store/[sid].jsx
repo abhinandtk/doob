@@ -126,7 +126,10 @@ function StoreDetailPage() {
                 src="/images/store/Fil-icon.png"
                 className="filters-icon"
               ></img> */}
-                  {t("Search")}
+              &nbsp; 
+              <button type="button" class="btn btn text-dark" style={{color:'#eeeeee'}}>   {t("Search")}</button>
+
+               
                 </span>
               </span>
               <button type="submit" style={{ display: "none" }}></button>
