@@ -97,8 +97,8 @@ function CustomerSalesReport() {
                     <Dropdown.Toggle
                       variant=""
                       id="dropdown-basic"
+                      className="dark-theme-color"
                       style={{
-                        color: "black",
                         borderColor: "transparent",
                         background: "transparent",
                       }}
@@ -124,7 +124,7 @@ function CustomerSalesReport() {
                       src="/images/store/f-icon.png"
                       className="fil-icon"
                     ></img> */}
-                    <button type="button" className="export-btn">
+                    <button type="button" className="export-btn dark-theme-color input-theme-prod">
                       <a
                         href={url}
                         style={{
@@ -149,7 +149,7 @@ function CustomerSalesReport() {
                     customerSale.map((item, index) => (
                       <div
                         key={index}
-                        className=" d-flex justify-content-between  customer my-3"
+                        className="input-theme-prod d-flex justify-content-between  customer my-3"
                       >
                         <span className="sales-report-name">
                           {item.customer_name}

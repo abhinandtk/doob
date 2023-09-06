@@ -194,10 +194,10 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
         <input
           required
           type="text"
-          className="form-control p-2"
+          className="form-control p-2 input-theme-prod"
           style={{
             border: "0px",
-            background: "#eeeeee",
+
             color: "grey",
           }}
           id="name"
@@ -209,8 +209,8 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
         <label for="exampleFormControlSelect1">{t("City")} *</label>
         <select
           required
-          className="form-control "
-          style={{ border: "0px", background: "#eeeeee", color: "#959595" }}
+          className="form-control input-theme-prod"
+          style={{ border: "0px", color: "#959595" }}
           id="city"
           value={formData.city}
           onChange={(e) => handleChange(e)}
@@ -231,10 +231,10 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
         <input
           required
           type="text"
-          className="form-control p-2"
+          className="form-control p-2 input-theme-prod"
           style={{
             border: "0px",
-            background: "#eeeeee",
+
             color: "grey",
           }}
           id="location"
@@ -249,10 +249,10 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
         <input
           required
           type="url"
-          className="form-control p-2"
+          className="form-control p-2 input-theme-prod"
           style={{
             border: "0px",
-            background: "#eeeeee",
+
             color: "grey",
           }}
           id="gmap"
@@ -265,10 +265,10 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
         <input
           required
           type="text"
-          className="form-control p-2"
+          className="form-control p-2 input-theme-prod"
           style={{
             border: "0px",
-            background: "#eeeeee",
+            
             color: "grey",
           }}
           id="latitude"
@@ -281,10 +281,10 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
         <input
           required
           type="text"
-          className="form-control p-2"
+          className="form-control p-2 input-theme-prod"
           style={{
             border: "0px",
-            background: "#eeeeee",
+            
             color: "grey",
           }}
           id="longitude"
@@ -309,13 +309,12 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
         </label>
         <input
           type="file"
-          className="form-control p-2 "
+          className="form-control p-2 input-theme-prod input-theme-prod"
           style={{
             border: "0px",
-            background: "#eeeeee",
             color: "grey",
           }}
-          placeholder="No file choosen"
+          // placeholder="No file choosen"
           id="image"
           onChange={(e) => handleChange(e)}
         />
@@ -325,10 +324,10 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
         <input
           required
           type="time"
-          className="form-control p-2"
+          className="form-control p-2 input-theme-prod"
           style={{
             border: "0px",
-            background: "#eeeeee",
+
             color: "grey",
           }}
           id="opening"
@@ -341,10 +340,10 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
         <input
           required
           type="time"
-          className="form-control p-2"
+          className="form-control p-2 input-theme-prod"
           style={{
             border: "0px",
-            background: "#eeeeee",
+
             color: "grey",
           }}
           id="closing"
@@ -391,10 +390,10 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
         </label>
         <textarea
           required
-          className="form-control"
+          className="form-control  input-theme-prod"
           style={{
             border: "0px",
-            background: "#eeeeee",
+
             color: "grey",
           }}
           id="description"
@@ -411,10 +410,10 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
         </label>
         <textarea
           required
-          className="form-control"
+          className="form-control  input-theme-prod"
           style={{
             border: "0px",
-            background: "#eeeeee",
+
             color: "grey",
           }}
           id="description_ar"
@@ -428,10 +427,10 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
           <h6 style={{ fontSize: "15px", fontWeight: "700" }}>{t("Amount")}</h6>
         </label>
         <textarea
-          className="form-control"
+          className="form-control  input-theme-prod"
           style={{
             border: "0px",
-            background: "#eeeeee",
+
             color: "grey",
           }}
           id="amount"
@@ -560,7 +559,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
               <div
                 key={index}
                 className={`p-3 mx-auto d-flex justify-content-between  ${
-                  index % 2 === 0 ? "times" : "times1"
+                  index % 2 === 0 ? "times input-theme-prod" : "times1"
                 }`}
                 style={{ width: "90%" }}
               >

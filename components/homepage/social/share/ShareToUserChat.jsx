@@ -10,11 +10,14 @@ import { CardImg } from "react-bootstrap";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import Login from "@/components/user/Login";
+import { useEffect } from "react";
+import { useTheme } from "next-themes";
 
 function ShareToUserChat({ slug, type }) {
   const { t } = useTranslation();
   const router = useRouter();
   const { locale } = router;
+  const { theme } = useTheme();
 
   const [visible, setVisible] = useState(false);
   const [searchResult, setSearchResult] = useState([]);
@@ -22,6 +25,10 @@ function ShareToUserChat({ slug, type }) {
   const [names, setNames] = useState("");
   const labels = Labels();
   const [showLogin, setShowLogin] = useState(false);
+  const [svgStroke, setSvgStroke] = useState("");
+  useEffect(() => {
+    setSvgStroke(theme === "dark" ? "white" : "black");
+  }, [theme]);
   const handleChange = (e) => {
     e.preventDefault();
     setNames(e.target.value);
@@ -147,6 +154,7 @@ function ShareToUserChat({ slug, type }) {
           onChange={(e) => handleChange(e)}
         />
         <List
+          className="dark-theme-color"
           dataSource={searchResult}
           renderItem={(item, index) => (
             <List.Item
@@ -185,10 +193,9 @@ function ShareToUserChat({ slug, type }) {
                   <div>
                     <div className="d-flex justify-content-between align-items-center">
                       <p
-                        className="mb-0"
+                        className="mb-0 dark-theme-color"
                         style={{
                           fontWeight: "600",
-                          color: "#000",
                           fontSize: "15px",
                         }}
                       >
@@ -197,9 +204,8 @@ function ShareToUserChat({ slug, type }) {
                     </div>
 
                     <p
-                      className="small "
+                      className="small dark-theme-color"
                       style={{
-                        color: "#000",
                         fontWeight: "400",
                         fontSize: "14px",
                         marginTop: "-3px",
@@ -224,14 +230,14 @@ function ShareToUserChat({ slug, type }) {
                   >
                     <path
                       d="M12.8848 15.9742L18.9425 10.3203"
-                      stroke="black"
+                      stroke={svgStroke}
                       stroke-width="1.50701"
                       stroke-linecap="round"
                       stroke-linejoin="round"
                     />
                     <path
                       d="M4.04074 11.9821C3.0321 11.5114 3.15432 10.1331 4.23215 9.82356L23.9935 4.14849C24.9526 3.87306 25.851 4.71151 25.5559 5.60667L19.4755 24.0506C19.1438 25.0566 17.667 25.1707 17.1627 24.2293L12.975 16.4123C12.8541 16.1866 12.6579 16.0035 12.416 15.8906L4.04074 11.9821Z"
-                      stroke="black"
+                      stroke={svgStroke}
                       stroke-width="1.50701"
                       stroke-linecap="round"
                       stroke-linejoin="round"

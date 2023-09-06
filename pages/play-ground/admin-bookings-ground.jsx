@@ -99,7 +99,7 @@ function AdminGroundBookings() {
         <div className="form-group my-2">
           <label for="exampleFormControlSelect1">{t("Booking Status")}</label>
           <select
-            placeholder="order stsu"
+            placeholder="order status"
             className="form-control p-2 "
             style={{
               border: "0px",
@@ -109,10 +109,10 @@ function AdminGroundBookings() {
             onChange={(e) => setBookingStatus(e.target.value)}
           >
             <option value="" style={{ color: "#959595" }}>
-              --Select--
+              {t("--Select--")}
             </option>
             <option value={1} style={{ color: "#959595" }}>
-              Success
+              {t("Success")}
             </option>
             <option value={0} style={{ color: "#959595" }}>
               {t("Cancel")}
@@ -151,9 +151,8 @@ function AdminGroundBookings() {
 
                     <hr className="mx-auto" style={{ width: "90%" }}></hr>
                     <div
-                      class="p-2 mt-2  mx-auto d-flex justify-content-between align-items-center"
+                      class="p-2 input-theme-prod mt-2  mx-auto d-flex justify-content-between align-items-center"
                       style={{
-                        background: "#eeeeee",
                         borderRadius: "10px",
                         width: "90%",
                       }}
@@ -173,9 +172,8 @@ function AdminGroundBookings() {
                       <span> {moment(item.date).format("DD MMM YYYY")} </span>
                     </div>
                     <div
-                      className="p-2   mx-auto d-flex justify-content-between align-items-center"
+                      className="p-2 input-theme-prod mx-auto d-flex justify-content-between align-items-center"
                       style={{
-                        background: "#eeeeee",
                         borderRadius: "10px",
                         width: "90%",
                       }}
@@ -197,9 +195,8 @@ function AdminGroundBookings() {
                     </div>
 
                     <div
-                      className="p-2 mt-1 mx-auto d-flex justify-content-between align-items-center"
+                      className="p-2 input-theme-prod mt-1 mx-auto d-flex justify-content-between align-items-center"
                       style={{
-                        background: "#eeeeee",
                         borderRadius: "10px",
                         width: "90%",
                       }}
@@ -218,9 +215,8 @@ function AdminGroundBookings() {
                       <span> {item.payment_method} </span>
                     </div>
                     <div
-                      className="p-2  mx-auto d-flex justify-content-between align-items-center"
+                      className="p-2 input-theme-prod  mx-auto d-flex justify-content-between align-items-center"
                       style={{
-                        background: "#eeeeee",
                         borderRadius: "10px",
                         width: "90%",
                       }}

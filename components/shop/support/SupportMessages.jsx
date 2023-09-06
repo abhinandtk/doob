@@ -7,9 +7,11 @@ import { useEffect } from "react";
 import { CardImg } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Axios from "axios";
+import { useTranslation } from "next-i18next";
 function SupportMessages({ data, setSuccess, status }) {
   const router = useRouter();
   const { spId } = router.query;
+  const { t } = useTranslation();
   const inputRef = useRef();
   const [comment, setComment] = useState("");
   const timeSinceComment = (time) => {
@@ -82,7 +84,7 @@ function SupportMessages({ data, setSuccess, status }) {
               </div>
               <div className="message-text">
                 <div className="message-sender">
-                  <p className="mb-0" style={{ fontWeight: "600" }}>
+                  <p className="mb-0 dark-theme-color" style={{ fontWeight: "600" }}>
                     {item.user.username ? item.user.username : "Admin"}&nbsp;
                     <span
                       className="small"
@@ -96,7 +98,7 @@ function SupportMessages({ data, setSuccess, status }) {
                     </span>
                   </p>
                 </div>
-                <p className="small mb-0">{item.message}</p>
+                <p className="small mb-0 dark-theme-color">{item.message}</p>
               </div>
             </div>
           ))}
@@ -114,8 +116,8 @@ function SupportMessages({ data, setSuccess, status }) {
                   >
                     <Form.Control
                       type=""
-                      placeholder="Add a comment"
-                      className="mark"
+                      // placeholder="Add a comment"
+                      className="mark input-theme-prod"
                       style={{ fontSize: "13px", height: "37px" }}
                       onChange={(e) => setComment(e.target.value)}
                       ref={inputRef}
@@ -123,15 +125,14 @@ function SupportMessages({ data, setSuccess, status }) {
                   </Form.Group>
 
                   <p
-                    className="mx-2"
+                    className="mx-2 dark-theme-color"
                     style={{
-                      color: "black",
                       textDecoration: "none",
                       cursor: "pointer",
                     }}
                     onClick={supportMessageHandler}
                   >
-                    Post
+                    {t("Post")}
                   </p>
                 </div>
               </Form>

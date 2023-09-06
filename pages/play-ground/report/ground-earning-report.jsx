@@ -134,9 +134,9 @@ function EarningReport() {
                   <Dropdown className="mx-1">
                     <Dropdown.Toggle
                       variant=""
+                      className=" dark-theme-color"
                       id="dropdown-basic"
                       style={{
-                        color: "black",
                         borderColor: "transparent",
                         background: "transparent",
                       }}
@@ -158,7 +158,7 @@ function EarningReport() {
                     </Dropdown.Menu>
                   </Dropdown>
                   <span>
-                    <button type="button" className="export-btn">
+                    <button type="button" className="export-btn input-theme-prod dark-theme-color">
                       <a
                         href={url}
                         style={{
@@ -198,7 +198,7 @@ function EarningReport() {
                     earningData.playground_report.map((item, index) => (
                       <div
                         key={index}
-                        className="p-3 d-flex justify-content-between  customer"
+                        className="p-3 input-theme-prod d-flex justify-content-between  customer"
                       >
                         <span className="sales-report-name">{item.X}</span>
                         <span>{item.Y} KD</span>

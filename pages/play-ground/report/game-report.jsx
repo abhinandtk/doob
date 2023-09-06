@@ -135,14 +135,16 @@ function GameReport() {
                   <Dropdown className="mx-1">
                     <Dropdown.Toggle
                       variant=""
+                      className="dark-theme-color"
                       id="dropdown-basic"
                       style={{
-                        color: "black",
                         borderColor: "transparent",
                         background: "transparent",
                       }}
                     >
-                      {`${t("Last")} ${selectedDays == 30 ? t("30 days") : selectedDays}`}{" "}
+                      {`${t("Last")} ${
+                        selectedDays == 30 ? t("30 days") : selectedDays
+                      }`}{" "}
                       <i className="bi bi-chevron-down "></i>
                     </Dropdown.Toggle>
 
@@ -159,7 +161,10 @@ function GameReport() {
                     </Dropdown.Menu>
                   </Dropdown>
                   <span>
-                    <button type="button" className="export-btn">
+                    <button
+                      type="button"
+                      className="export-btn dark-theme-color input-theme-prod"
+                    >
                       <a
                         href={url}
                         style={{
@@ -193,7 +198,7 @@ function GameReport() {
                     dataReport.map((item, index) => (
                       <div
                         key={index}
-                        className=" d-flex justify-content-between  customer my-3"
+                        className="input-theme-prod d-flex justify-content-between  customer my-3"
                       >
                         <span className="sales-report-name">{item.Game}</span>
                         <span className="sales-order-number">

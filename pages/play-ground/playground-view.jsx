@@ -93,9 +93,8 @@ function PlaygroundPageAdmin() {
                     </div>
                     <br></br>
                     <div
-                      className="p-2  mx-auto d-flex justify-content-between align-items-center"
+                      className="p-2 input-theme-prod mx-auto d-flex justify-content-between align-items-center"
                       style={{
-                        background: "#eeeeee",
                         borderRadius: "10px",
                         width: "90%",
                       }}
@@ -111,9 +110,8 @@ function PlaygroundPageAdmin() {
                       <span className="book-names1">{item.city}</span>
                     </div>
                     <div
-                      className="p-2  mx-auto d-flex justify-content-between align-items-center"
+                      className="p-2 input-theme-prod mx-auto d-flex justify-content-between align-items-center"
                       style={{
-                        background: "#eeeeee",
                         borderRadius: "10px",
                         width: "90%",
                       }}

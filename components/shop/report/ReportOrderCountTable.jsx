@@ -16,7 +16,7 @@ function ReportOrderCountTable({ reportData, title }) {
           reportData.map((item, index) => (
             <div
               key={index}
-              className=" d-flex justify-content-between  customer my-3"
+              className="input-theme-prod d-flex justify-content-between  customer my-3"
             >
               <span className="sales-report-name">{item.brand_name}</span>
               <span className="sales-order-number">{item.count}</span>
