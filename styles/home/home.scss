@@ -243,6 +243,16 @@ body {
   margin-left: 180px;
   width: 360px;
 }
+.favourite-name{
+   font-size: 14px;
+   font-weight:500;
+   display: -webkit-box;
+   -webkit-line-clamp: 2;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   width: 100%;
+}
 
 .modal-content {
   display: flex;

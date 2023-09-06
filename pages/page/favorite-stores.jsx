@@ -90,9 +90,24 @@ function FavoriteStores() {
                       />
                     </Link>
                     <Card.Body>
-                      <Card.Text
-                        style={{ fontSize: "14px", fontWeight: "500" }}
+                      <Card.Text className="favourite-name"
+                   
                       >
+                         <span
+                          onClick={() =>
+                            removeHandler(
+                              item.store.slug_store,
+                              item.is_favorite
+                            )
+                          }
+                          style={{ float: locale === "en" ? "right" : "left" ,cursor:'pointer',marginTop:locale === "ar" ? "0px" : "" }}
+                        >
+                          <i
+                            className="bi bi-suit-heart-fill"
+                            style={{ color: "#17A803" }}
+                          ></i>
+                         
+                        </span>
                         {" "}
                         <Link
                           href={`/store/${item.store.slug_store}`}
@@ -102,20 +117,10 @@ function FavoriteStores() {
                             ? item.store.title
                             : item.store.title_arabic}
                         </Link>
-                        <span
-                          onClick={() =>
-                            removeHandler(
-                              item.store.slug_store,
-                              item.is_favorite
-                            )
-                          }
-                          style={{ float: locale === "en" ? "right" : "left" ,cursor:'pointer',top:locale === "ar" ? "0px" : "" }}
-                        >
-                          <i
-                            className="bi bi-suit-heart-fill"
-                            style={{ color: "#17A803" }}
-                          ></i>
-                        </span>
+                     
+                    
+                       
+                        
                       </Card.Text>
                     </Card.Body>
                   </Card>
