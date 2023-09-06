@@ -39,7 +39,9 @@ function GroundFieldAddress({ address }) {
                 {/* <img src="/images/edit.png" className="mt-2 edits"></img> */}
               </div>
 
-              <p className="cart-place">{address.location}, {address.city}</p>
+              <p className={locale === 'en' ? "cart-place" : "cart-place_ar"} >{address.location}, {address.city}</p>
+         
+
             </div>
           </div>}
       </div>

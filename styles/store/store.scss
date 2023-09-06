@@ -300,6 +300,15 @@ input.nosubmit2 {
   font-weight: 400;
 }
 
+.view_ar {
+  font-size: 14px;
+  color: #797b79;
+  margin-right: 0px;
+  float: left;
+  font-weight: 400;
+
+
+}
 .shop {
   row-gap: 6px;
 }
@@ -349,7 +358,7 @@ input.nosubmit2 {
   height: 60px;
   z-index: 1;
   object-fit: cover;
-  left: 40px;
+  left: 20px;
 }
 
 .btn-group.group {
@@ -377,6 +386,7 @@ input.nosubmit2 {
   background: #656565;
   color: #fff;
   padding: 0px 2px;
+  margin-top: 12px;
   width: 65px;
   height: 28px;
 }
@@ -628,7 +638,7 @@ input.nosubmit2 {
   margin-right: -120px;
   float: left;
   position: relative;
-  left: 40px;
+  left: 20px;
 }
 input {
   border: 0;
@@ -1093,6 +1103,11 @@ input:disabled {
 
 .add-left {
   margin-left: 7px;
+  position: relative;
+  margin-top: 4px;
+}
+.add-left_ar {
+  margin-right: 7px;
   position: relative;
   margin-top: 4px;
 }

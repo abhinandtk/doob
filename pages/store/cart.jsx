@@ -66,9 +66,8 @@ function CartPage() {
                   />
 
                   <h5 className="dark-theme-color"   style={{ fontSize: "17px"}} >
-             
-                  <span></span> {t("Order List")}
-                    <span className="view">
+                   {t("Order List")}
+                    <span   className={locale === "en" ? "view" : "view_ar"}>
                       {t("Total")} {cartDetails.cart_items} {t("items")}
                     </span>
                   </h5>
