@@ -72,7 +72,7 @@ function EarningReport() {
       earningData.playground_report.map((earn) => earn.X),
     datasets: [
       {
-        label: "Earning report",
+        label: "",
         data:
           earningData.playground_report &&
           earningData.playground_report.map((earn) => earn.Y),
