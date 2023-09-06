@@ -72,7 +72,7 @@ function ShippingAddress({ data, setOnSuccess }) {
             <div className="card-body">
               <div className="d-flex justify-content-between ">
                 <div className="d-flex flex-row align-items-center ">
-                  <div>
+                  <div >
                     <img
                       src="/images/LocationIcon.png"
                       className="me-4 mb-3"
