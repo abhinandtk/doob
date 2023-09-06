@@ -55,7 +55,7 @@ function BrandSaleReport() {
 
   const handleDayChange = (days) => {
     setSelectedDays(
-      days == 30 ? "30 days" : days == 180 ? "6 months" : "1 year"
+      days == 30 ? t("30 days") : days == 180 ? t("6 months") : t("1 year")
     );
     setStartDate(moment().subtract(days, "days").format("YYYY-MM-DD"));
   };
@@ -143,7 +143,7 @@ function BrandSaleReport() {
                         background: "transparent",
                       }}
                     >
-                      {`Last ${selectedDays == 30 ? "30 days" : selectedDays}`}{" "}
+                      {`${t("Last")} ${selectedDays == 30 ? t("30 days") : selectedDays}`}{" "}
                       <i className="bi bi-chevron-down "></i>
                     </Dropdown.Toggle>
 
@@ -181,7 +181,7 @@ function BrandSaleReport() {
 
                 <ReportOrderCountTable
                   reportData={brandReportData}
-                  title="Brand"
+                  title={t("Brand")}
                 />
               </div>
             </div>

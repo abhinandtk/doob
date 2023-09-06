@@ -1,15 +1,17 @@
 import React, { Fragment } from "react";
+import { useTranslation } from "next-i18next";
 
 function ReportOrderCountTable({ reportData, title }) {
   console.log("popopopopopo", reportData);
+  const { t } = useTranslation();
   return (
     <Fragment>
       <div className="customer-sale">
-      <div  className="report-section">
-                    <div >{title}</div>
-                    <div >Order Quantity</div>
-                    <div>Total Amount</div>
-                  </div>
+        <div className="report-section">
+          <div>{title}</div>
+          <div>{t("Order Quantity")}</div>
+          <div>{t("Total Amount")}</div>
+        </div>
         {reportData &&
           reportData.map((item, index) => (
             <div

@@ -27,8 +27,8 @@ export async function getStaticProps({ locale }) {
   };
 }
 function CustomerBookingReport() {
-  const [selectedDays, setSelectedDays] = useState(t("30 days"));
   const { t } = useTranslation();
+  const [selectedDays, setSelectedDays] = useState(t("30 days"));
   const labels = Labels();
 
   const [startDate, setStartDate] = useState(
@@ -54,7 +54,7 @@ function CustomerBookingReport() {
 
   const handleDayChange = (days) => {
     setSelectedDays(
-      days == 30 ? t("30 days") : days == 180 ? "6 months" : "1 year"
+      days == 30 ? t("30 days") : days == 180 ? t("6 months") : t("1 year")
     );
     setStartDate(moment().subtract(days, "days").format("DD-MM-YYYY"));
   };
@@ -115,7 +115,7 @@ function CustomerBookingReport() {
                         background: "transparent",
                       }}
                     >
-                      {`Last ${selectedDays == 30 ? t("30 days") : selectedDays}`}{" "}
+                      {`${t("Last")} ${selectedDays == 30 ? t("30 days") : selectedDays}`}{" "}
                       <i className="bi bi-chevron-down "></i>
                     </Dropdown.Toggle>
 
@@ -152,11 +152,11 @@ function CustomerBookingReport() {
                 <br></br>
                 <div className="customer-sale">
                   <div className="report-section">
-                    <div>User</div> &nbsp; &nbsp; 
-                    <div>Booking Count</div> &nbsp; &nbsp;
-                    <div>Cancel Count</div>  &nbsp;&nbsp;
-                    <div>Wallet Bal</div>  &nbsp; &nbsp;
-                    <div>Total Amount</div>  &nbsp; &nbsp;
+                    <div>{t("User")}</div> &nbsp; &nbsp; 
+                    <div>{t("Booking Count")}</div> &nbsp; &nbsp;
+                    <div>{t("Cancel Count")}</div>  &nbsp;&nbsp;
+                    <div>{t("Wallet Bal")}</div>  &nbsp; &nbsp;
+                    <div>{t("Total Amount")}</div>  &nbsp; &nbsp;
                   </div>
                   {customerSale &&
                     customerSale.map((item, index) => (

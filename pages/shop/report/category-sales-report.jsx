@@ -89,7 +89,7 @@ function CategorySalesReport() {
   }, [startDate, endDate]);
   const handleDayChange = (days) => {
     setSelectedDays(
-      days == 31 ? "30 days" : days == 180 ? "6 months" : "1 year"
+      days == 31 ? t("30 days") : days == 180 ? t("6 months") : t("1 year")
     );
     setStartDate(moment().subtract(days, "days").format("YYYY-MM-DD"));
   };
@@ -138,7 +138,7 @@ function CategorySalesReport() {
                         background: "transparent",
                       }}
                     >
-                      {`Last ${selectedDays == 30 ? "30 days" : selectedDays}`}{" "}
+                      {`${t("Last")} ${selectedDays == 30 ? t("30 days") : selectedDays}`}{" "}
                       <i className="bi bi-chevron-down "></i>
                     </Dropdown.Toggle>
 
@@ -176,8 +176,8 @@ function CategorySalesReport() {
                 <div className="customer-sale">
                   <div className="report-section">
                     <div>{t("Category")}</div>
-                    <div>Order Quantity</div>
-                    <div>Total Amount</div>
+                    <div>{t("Order Quantity")}</div>
+                    <div>{t("Total Amount")}</div>
                   </div>
                   {categoryReportData &&
                     categoryReportData.map((item, index) => (

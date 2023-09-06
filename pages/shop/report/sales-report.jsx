@@ -47,7 +47,7 @@ function SalesReport() {
     labels: salesGraph && salesGraph.map((item) => item.date),
     datasets: [
       {
-        label: "sales report",
+        label: "",
         data: salesGraph && salesGraph.map((item) => item.price),
         fill: false,
         borderColor: "rgb(75, 192, 192)",
@@ -102,7 +102,7 @@ function SalesReport() {
   }, [startDate, endDate]);
   const handleDayChange = (days) => {
     setSelectedDays(
-      days == 31 ? "30 days" : days == 180 ? "6 months" : "1 year"
+      days == 31 ? t("30 days") : days == 180 ? t("6 months") : t("1 year")
     );
     setStartDate(moment().subtract(days, "days").format("YYYY-MM-DD"));
   };
@@ -139,7 +139,7 @@ function SalesReport() {
                         background: "transparent",
                       }}
                     >
-                      {`Last ${selectedDays == 30 ? "30 days" : selectedDays}`}{" "}
+                      {`${t("Last")} ${selectedDays == 30 ? t("30 days") : selectedDays}`}{" "}
                       <i className="bi bi-chevron-down "></i>
                     </Dropdown.Toggle>
 
@@ -174,7 +174,7 @@ function SalesReport() {
                 <Card className="reports">
                   <div>
                     <div className="total-order">
-                      <p className="text-center">Total Orders</p>
+                      <p className="text-center">{t("Total Orders")}</p>
                       <h1 className="text-center ">{salesData.total_orders}</h1>
                     </div>
                   </div>
@@ -183,15 +183,15 @@ function SalesReport() {
                 <br></br>
                 <div className="customer-sale">
                   <div className="p-3 d-flex justify-content-between  customer">
-                    <span className="sales-report-name">Customers</span>
+                    <span className="sales-report-name">{t("Customers")}</span>
                     <span>{salesData.total_customers}</span>
                   </div>
                   <div className="p-3 d-flex justify-content-between my-3 customer">
-                    <span className="sales-report-name">Total Products</span>
+                    <span className="sales-report-name">{t("Total Products")}</span>
                     <span>{salesData.total_products}</span>
                   </div>
                   <div className="p-3 d-flex justify-content-between my-3  customer">
-                    <span className="sales-report-name">Total Orders</span>
+                    <span className="sales-report-name">{t("Total Orders")}</span>
                     <span>{salesData.total_orders}</span>
                   </div>
                 </div>

@@ -95,7 +95,7 @@ function SupportAddPage() {
                   marginBottom: "30px",
                 }}
               >
-                Add Support
+                {t("Add Support")}
               </h6>
 
               <div className="my-4 mx-4 ">

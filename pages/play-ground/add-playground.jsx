@@ -86,7 +86,7 @@ function AddPlaygroundPage() {
           message: constants.Success,
           description: `${labels["PlayGround added"]}`,
         });
-        router.back();
+        router.push("/play-ground/playground-view");
       } else {
         notification.error({
           message: constants.Error,

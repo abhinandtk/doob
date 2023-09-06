@@ -17,14 +17,14 @@ import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 import PlayGroundSideBar from "@/components/playGround/PlayGroundSideBar";
 import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['translation'])),
+      ...(await serverSideTranslations(locale, ["translation"])),
     },
-  }
+  };
 }
 function PlaygroundReport() {
   const [selectedDays, setSelectedDays] = useState(30);
@@ -36,7 +36,9 @@ function PlaygroundReport() {
   );
 
   const today = moment().format("DD-MM-YYYY");
-  const nextDay = moment(today,"DD-MM-YYYY").add(1, "day").format("DD-MM-YYYY");
+  const nextDay = moment(today, "DD-MM-YYYY")
+    .add(1, "day")
+    .format("DD-MM-YYYY");
   const [endDate, setEndDate] = useState(nextDay);
   const [dataReport, setDataReport] = useState([]);
   const [chartData, setChartData] = useState({
@@ -51,7 +53,9 @@ function PlaygroundReport() {
   });
 
   const handleDayChange = (days) => {
-    setSelectedDays(days == 30 ?'30 days' :days == 180 ?'6 months':'1 year');
+    setSelectedDays(
+      days == 30 ? t("30 days") : days == 180 ? t("6 months") : t("1 year")
+    );
     setStartDate(moment().subtract(days, "days").format("DD-MM-YYYY"));
   };
   console.log("change", startDate);
@@ -137,7 +141,7 @@ function PlaygroundReport() {
                         background: "transparent",
                       }}
                     >
-                      {`Last ${selectedDays == 30 ? "30 days" : selectedDays}`}{" "}
+                      {`${t("Last")} ${selectedDays == 30 ? t("30 days") : selectedDays}`}{" "}
                       <i className="bi bi-chevron-down "></i>
                     </Dropdown.Toggle>
 
@@ -154,10 +158,14 @@ function PlaygroundReport() {
                     </Dropdown.Menu>
                   </Dropdown>
                   <span>
-                  <button type="button" className="export-btn">
+                    <button type="button" className="export-btn">
                       <a
                         href={url}
-                        style={{ textDecoration: "none", color: "inherit",target:'_blank' }}
+                        style={{
+                          textDecoration: "none",
+                          color: "inherit",
+                          target: "_blank",
+                        }}
                         download
                         target="_blank"
                       >
@@ -175,22 +183,28 @@ function PlaygroundReport() {
                   </center>
                 </div> */}
                 <div className="customer-sale">
-                 
-                  <div  className="report-section">
-                  <div >PlayGround</div>
-                    <div >Booking Count</div>
-                    <div >Total Amount</div>
+                  <div className="report-section">
+                    <div>{t("PlayGround")}</div>
+                    <div>{t("Booking Count")}</div>
+                    <div>{t("Total Amount")}</div>
                   </div>
-                  {dataReport && dataReport.map((item,index)=>(
-                  <div
-                    key={index}
-                    className=" d-flex justify-content-between  customer my-3"
-                  >
-                    <span className="sales-report-name">{item.stadium_name}</span>
-                    <span className="sales-order-number">{item.booking_count}</span>
-                    <span className="sales-order-price">{item.total_amount} KD</span>
-                  </div>
-                  ))}
+                  {dataReport &&
+                    dataReport.map((item, index) => (
+                      <div
+                        key={index}
+                        className=" d-flex justify-content-between  customer my-3"
+                      >
+                        <span className="sales-report-name">
+                          {item.stadium_name}
+                        </span>
+                        <span className="sales-order-number">
+                          {item.booking_count}
+                        </span>
+                        <span className="sales-order-price">
+                          {item.total_amount} KD
+                        </span>
+                      </div>
+                    ))}
                 </div>
               </div>
             </div>

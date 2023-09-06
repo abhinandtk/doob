@@ -74,7 +74,7 @@ function BookingReport() {
     labels: bookingData.per_day && bookingData.per_day.map((item) => item.X),
     datasets: [
       {
-        label: "no of bookings",
+        label: "",
         data: bookingData.per_day && bookingData.per_day.map((item) => item.Y),
         fill: false,
         borderColor: "rgb(75, 192, 192)",
@@ -105,7 +105,7 @@ function BookingReport() {
   };
   const handleDayChange = (days) => {
     setSelectedDays(
-      days == 30 ? "30 days" : days == 180 ? "6 months" : "1 year"
+      days == 30 ? t("30 days") : days == 180 ? t("6 months") : t("1 year")
     );
     setStartDate(moment().subtract(days, "days").format("DD-MM-YYYY"));
   };
@@ -127,7 +127,7 @@ function BookingReport() {
                 className=" ms-4"
                 style={{ color: "#17a803", fontWeight: "700" }}
               >
-                {("Booking Report")}
+                {t("Booking Report")}
               </h6>
               <div className="my-1 mx-4 ">
                 <div className="update">
@@ -141,7 +141,7 @@ function BookingReport() {
                         background: "transparent",
                       }}
                     >
-                      {`Last ${selectedDays == 30 ? "30 days" : selectedDays}`}{" "}
+                      {`${t("Last")} ${selectedDays == 30 ? t("30 days") : selectedDays}`}{" "}
                       <i className="bi bi-chevron-down "></i>
                     </Dropdown.Toggle>
 
@@ -178,7 +178,7 @@ function BookingReport() {
                 <Card className="reports">
                   <div>
                     <div className="total-order">
-                      <p className="text-center">Total Bookings</p>
+                      <p className="text-center">{t("Total Bookings")}</p>
                       <h1 className="text-center ">
                         {bookingData.booking_count}
                       </h1>
@@ -192,19 +192,19 @@ function BookingReport() {
                 <br></br>
                 <div className="customer-sale">
                   <div className="p-3 d-flex justify-content-between  customer">
-                    <span className="sales-report-name">Customers</span>
+                    <span className="sales-report-name">{t("Customers")}</span>
                     <span>{bookingData.num_customers}</span>
                   </div>
                   <div className="p-3 d-flex justify-content-between my-3 customer">
-                    <span className="sales-report-name">Booked Slots</span>
+                    <span className="sales-report-name">{t("Booked Slots")}</span>
                     <span>{bookingData.booking_count}</span>
                   </div>
                   <div className="p-3 d-flex justify-content-between my-3 customer">
-                    <span className="sales-report-name">Cancel Count</span>
+                    <span className="sales-report-name">{t("Cancel Count")}</span>
                     <span>{bookingData.cancel_count}</span>
                   </div>
                   <div className="p-3 d-flex justify-content-between my-3  customer">
-                    <span className="sales-report-name">Total Bookings</span>
+                    <span className="sales-report-name">{t("Total Bookings")}</span>
                     <span>{bookingData.num_slots}</span>
                   </div>
                 </div>

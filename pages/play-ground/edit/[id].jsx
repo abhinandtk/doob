@@ -33,7 +33,7 @@ export async function getServerSideProps({ locale }) {
   };
 }
 function EditPlaygroundPage() {
-  const {t}=useTranslation()
+  const { t } = useTranslation();
   const router = useRouter();
   const { id } = router.query;
   const labels = Labels();
@@ -97,7 +97,7 @@ function EditPlaygroundPage() {
         message: constants.Success,
         description: `${labels["PlayGround edited"]}`,
       });
-      router.back();
+      router.push("/play-ground/playground-view");
       // }
 
       console.log("success4444444444444444444444edit", res, formData);
@@ -124,7 +124,7 @@ function EditPlaygroundPage() {
 
               <div className="my-4 mx-4 ">
                 <h6 style={{ fontSize: "14px", fontWeight: "700" }}>
-                {t("Basic Details")}
+                  {t("Basic Details")}
                 </h6>
                 <PlayGroundsForm
                   handlePlaygroundForm={handlePlaygroundForm}

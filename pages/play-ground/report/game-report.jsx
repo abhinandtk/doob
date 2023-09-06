@@ -27,8 +27,8 @@ export async function getStaticProps({ locale }) {
   };
 }
 function GameReport() {
-  const [selectedDays, setSelectedDays] = useState("30 days");
   const { t } = useTranslation();
+  const [selectedDays, setSelectedDays] = useState(t("30 days"));
 
   const labels = Labels();
 
@@ -55,7 +55,7 @@ function GameReport() {
 
   const handleDayChange = (days) => {
     setSelectedDays(
-      days == 30 ? "30 days" : days == 180 ? "6 months" : "1 year"
+      days == 30 ? t("30 days") : days == 180 ? t("6 months") : t("1 year")
     );
     setStartDate(moment().subtract(days, "days").format("DD-MM-YYYY"));
   };
@@ -142,7 +142,7 @@ function GameReport() {
                         background: "transparent",
                       }}
                     >
-                      {`Last ${selectedDays == 30 ? "30 days" : selectedDays}`}{" "}
+                      {`${t("Last")} ${selectedDays == 30 ? t("30 days") : selectedDays}`}{" "}
                       <i className="bi bi-chevron-down "></i>
                     </Dropdown.Toggle>
 
@@ -170,7 +170,7 @@ function GameReport() {
                         download
                         target="_blank"
                       >
-                        Export
+                        {t("Export")}
                       </a>
                     </button>
                   </span>
@@ -185,9 +185,9 @@ function GameReport() {
                 </div> */}
                 <div className="customer-sale">
                   <div className="report-section">
-                    <div>Game</div>
-                    <div>Booking Count</div>
-                    <div>Total Amount</div>
+                    <div>{t("Game")}</div>
+                    <div>{t("Booking Count")}</div>
+                    <div>{t("Total Amount")}</div>
                   </div>
                   {dataReport &&
                     dataReport.map((item, index) => (

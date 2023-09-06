@@ -89,7 +89,7 @@ function GroundReportPage() {
                       </span>
                     </h6>
                   </Link>
-                  <Link
+                  {/* <Link
                     href="/play-ground/report/game-report"
                     style={{ textDecoration: "none", color: "inherit" }}
                   >
@@ -108,7 +108,7 @@ function GroundReportPage() {
                         </svg>
                       </span>
                     </h6>
-                  </Link>
+                  </Link> */}
                   <Link
                     href="/play-ground/report/customer-booking-report"
                     style={{ textDecoration: "none", color: "inherit" }}
