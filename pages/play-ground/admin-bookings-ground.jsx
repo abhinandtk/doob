@@ -97,7 +97,7 @@ function AdminGroundBookings() {
         }
       >
         <div className="form-group my-2">
-          <label for="exampleFormControlSelect1">Booking Status</label>
+          <label for="exampleFormControlSelect1">{t("Booking Status")}</label>
           <select
             placeholder="order stsu"
             className="form-control p-2 "
@@ -169,7 +169,7 @@ function AdminGroundBookings() {
                         width: "90%",
                       }}
                     >
-                      <span style={{ color: "#959595" }}>Date</span>
+                      <span style={{ color: "#959595" }}>{t("Date")}</span>
                       <span> {moment(item.date).format("DD MMM YYYY")} </span>
                     </div>
                     <div
@@ -192,7 +192,7 @@ function AdminGroundBookings() {
                         width: "90%",
                       }}
                     >
-                      <span style={{ color: "#959595" }}>Stadium Name</span>
+                      <span style={{ color: "#959595" }}>{t("Stadium Name")}</span>
                       <span className="book-names"> {item.stadium_name}</span>
                     </div>
 
@@ -236,7 +236,7 @@ function AdminGroundBookings() {
                       className="p-2   mx-auto d-flex justify-content-between align-items-center"
                       style={{ width: "90%" }}
                     >
-                      <span style={{ color: "#959595" }}>Booking Status</span>
+                      <span style={{ color: "#959595" }}>{t("Booking Status")}</span>
                       <span
                         style={{
                           color: `${item.status === true ? "#17A803" : "red"} `,
@@ -258,7 +258,7 @@ function AdminGroundBookings() {
                           }}
                           onClick={() => statusUpdateHandler(item.id)}
                         >
-                          Cancel Booking
+                          {t("Cancel Booking")}
                         </span>
                       )}
                     </div>

@@ -27,7 +27,7 @@ export async function getStaticProps({ locale }) {
   };
 }
 function CustomerBookingReport() {
-  const [selectedDays, setSelectedDays] = useState("30 days");
+  const [selectedDays, setSelectedDays] = useState(t("30 days"));
   const { t } = useTranslation();
   const labels = Labels();
 
@@ -54,7 +54,7 @@ function CustomerBookingReport() {
 
   const handleDayChange = (days) => {
     setSelectedDays(
-      days == 30 ? "30 days" : days == 180 ? "6 months" : "1 year"
+      days == 30 ? t("30 days") : days == 180 ? "6 months" : "1 year"
     );
     setStartDate(moment().subtract(days, "days").format("DD-MM-YYYY"));
   };
@@ -115,19 +115,19 @@ function CustomerBookingReport() {
                         background: "transparent",
                       }}
                     >
-                      {`Last ${selectedDays == 30 ? "30 days" : selectedDays}`}{" "}
+                      {`Last ${selectedDays == 30 ? t("30 days") : selectedDays}`}{" "}
                       <i className="bi bi-chevron-down "></i>
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu align="center" className="Menu">
                       <Dropdown.Item onClick={() => handleDayChange(30)}>
-                        Last 30 days
+                        {t("Last 30 days")}
                       </Dropdown.Item>
                       <Dropdown.Item onClick={() => handleDayChange(180)}>
-                        Last 6 months
+                        {t("Last 6 months")}
                       </Dropdown.Item>
                       <Dropdown.Item onClick={() => handleDayChange(360)}>
-                        Last 1 year
+                        {t("Last 1 year")}
                       </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>

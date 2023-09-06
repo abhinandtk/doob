@@ -103,7 +103,7 @@ export default function PostActions({
       {showLogin && <Login setShowLogin={setShowLogin} />}
 
       <Modal
-        title="Why are you reporting this post ??"
+        title={t("Why are you reporting this post?")}
         open={show}
         centered
         closable
@@ -114,7 +114,7 @@ export default function PostActions({
         <Form onSubmitCapture={(e) => postReportHandler(e)}>
           <Form.Item>
             <Input.TextArea
-              placeholder="Please enter your reason for reporting"
+              placeholder={t("Please enter your reason for reporting")}
               autoSize={{ minRows: 5 }}
               // value={reason}
               onChange={(e) => setReason(e.target.value)}
@@ -128,7 +128,7 @@ export default function PostActions({
               type="primary"
               htmlType="submit"
             >
-              Confirm
+              {t("Confirm")}
             </Button>
           </Form.Item>
         </Form>

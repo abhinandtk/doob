@@ -1,3 +1,6 @@
+
+
+
 import constants from "@/public/data/my-constants/Constants";
 import moment from "moment";
 import Link from "next/link";
@@ -104,7 +107,7 @@ function GamesHistoryCard({ data }) {
                       ))}
                       <span className="mx-4" style={{ color: "#959595" }}>
                         {item.participants.length - 4 >= 1
-                          ? `+${item.participants.length - 4} more ${t(
+                          ? `+${item.participants.length - 4} ${t("more")} ${t(
                               "Participants"
                             )}`
                           : ""}

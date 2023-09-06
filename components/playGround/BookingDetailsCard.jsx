@@ -149,7 +149,7 @@ function BookingDetailsCard({ details, setSuccess }) {
                   }}
                   onClick={() => cancelBookingHandler(item.id)}
                 >
-                  Cancel Booking
+                  {t("Cancel Booking")}
                 </span>
               )}
               {/* {moment().format("DD MMM YYYY") !==

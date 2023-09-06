@@ -96,7 +96,7 @@ function UploadFiles({ setUploadShow }) {
             type="primary"
             onClick={uploadSubmitHandler}
           >
-            Share
+            {t("Share")}
           </Button>,
         ]}
       >
@@ -123,7 +123,7 @@ function UploadFiles({ setUploadShow }) {
                     <InboxOutlined />
                   </p>
                   <p className="ant-upload-text">
-                    Click or drag file to upload
+                    {t("Click or drag file to upload")}
                   </p>
                 </>
               )}
@@ -157,7 +157,7 @@ function UploadFiles({ setUploadShow }) {
             type="primary"
             onClick={uploadSubmitHandler}
           >
-            Share
+            {t("Share")}
           </Button>,
         ]}
       >

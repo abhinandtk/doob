@@ -120,9 +120,9 @@ function PlayGroundTopDetails({ details }) {
                 style={{ width: "100%", height: "auto" }}
               ></img>
             )}
-            <span className={locale === "en" ? " span-icon" : "span_icon_ar"} >
+            <span className={locale === "en" ? " span-icon" : "span_icon_ar"}>
               {/* className={locale==="en"?" span-icon":"span_icon_ar"} */}
-              <ShareToUserChat slug={pgid} type='field' />
+              <ShareToUserChat slug={pgid} type="field" />
               {/* <span
                 onClick={() => handleShareFieldPost()}
                 style={{ cursor: "pointer" }}
@@ -154,9 +154,12 @@ function PlayGroundTopDetails({ details }) {
               <span>
                 <Dropdown
                   className=""
-                  
-                  style={{display: "inline-block", marginLeft:  locale === "en" ? "-10px" : "" ,cursor:'pointer', marginRight:  locale === "ar" ? "-20px" : ""}}
-
+                  style={{
+                    display: "inline-block",
+                    marginLeft: locale === "en" ? "-10px" : "",
+                    cursor: "pointer",
+                    marginRight: locale === "ar" ? "-20px" : "",
+                  }}
                 >
                   <Dropdown.Toggle
                     variant=""
@@ -215,13 +218,18 @@ function PlayGroundTopDetails({ details }) {
           </div>
 
           <h5 style={{ fontWeight: "700", fontSize: "18px" }}>
-            {details.stadium_name}
+            {locale === "en" ? details.stadium_name : details.stadium_name_ar}
           </h5>
           <p style={{ fontSize: "14px", color: "gray", fontWeight: "500" }}>
             {details.location},{details.city && details.city.region_name}
           </p>
           <div className="clearfix rating">
-            <span className={`${locale === "en" ? "float-start" : "float-end"} ml-5`} onClick={toggleModal}>
+            <span
+              className={`${
+                locale === "en" ? "float-start" : "float-end"
+              } ml-5`}
+              onClick={toggleModal}
+            >
               <i className="bi bi-star-fill" style={{ color: "yellow" }}></i>
               <span className="mx-2">{details.rating}</span>
             </span>

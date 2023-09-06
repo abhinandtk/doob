@@ -159,7 +159,7 @@ function CreateGameForm() {
             onChange={(e) => changeHandler(e)}
           >
             <option style={{ color: "#959595" }} value="">
-              --Select--
+              {t("--Select--")}
             </option>
             {gameData.map((item, index) => (
               <option key={index} style={{ color: "#959595" }} value={item.id}>
@@ -196,7 +196,7 @@ function CreateGameForm() {
             onChange={(e) => changeHandler(e)}
           >
             <option style={{ color: "#959595" }} value="">
-              --Select--
+              {t("--Select--")}
             </option>
             <option style={{ color: "#959595" }} value="1">
               Private
@@ -223,7 +223,7 @@ function CreateGameForm() {
             onChange={(e) => changeHandler(e)}
           >
             <option style={{ color: "#959595" }} value="">
-              Not Specified
+              {t("Not Specified")}
             </option>
             <option style={{ color: "#959595" }} value="1">
               {t("Male")}
@@ -248,7 +248,7 @@ function CreateGameForm() {
                 onChange={(e) => changeHandler(e)}
               >
                 <option style={{ color: "#959595" }} value="">
-                  From
+                  {t("From")}
                 </option>
                 {options}
               </select>
@@ -269,7 +269,7 @@ function CreateGameForm() {
                 onChange={(e) => changeHandler(e)}
               >
                 <option style={{ color: "#959595" }} value="">
-                  To
+                  {t("To")}
                 </option>
                 {options}
               </select>

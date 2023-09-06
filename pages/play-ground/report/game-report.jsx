@@ -148,13 +148,13 @@ function GameReport() {
 
                     <Dropdown.Menu align="center" className="Menu">
                       <Dropdown.Item onClick={() => handleDayChange(30)}>
-                        Last 30 days
+                        {t("Last 30 days")}
                       </Dropdown.Item>
                       <Dropdown.Item onClick={() => handleDayChange(180)}>
-                        Last 6 months
+                        {t("Last 6 months")}
                       </Dropdown.Item>
                       <Dropdown.Item onClick={() => handleDayChange(360)}>
-                        Last 1 year
+                        {t("Last 1 year")}
                       </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
