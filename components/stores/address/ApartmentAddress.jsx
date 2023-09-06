@@ -79,7 +79,7 @@ function ApartmentAddress({ handleAddAddress, areaData, edit }) {
           />
         </div>
         <div className="form-group my-2">
-          <label for="exampleFormControlSelect1">Select Area*</label>
+          <label for="exampleFormControlSelect1">{t("Select Area")}*</label>
           <select
             id="area"
             className="form-control p-2"
@@ -87,7 +87,7 @@ function ApartmentAddress({ handleAddAddress, areaData, edit }) {
             style={{ border: "0px", background: "#eeeeee" }}
             value={formData.area}
           >
-            <option value="">select</option>
+            <option value="">{t("--Select--")}</option>
             {areaData.map((item, index) => (
               <option key={index} value={item.id}>
                 {item.region_name}
@@ -96,7 +96,7 @@ function ApartmentAddress({ handleAddAddress, areaData, edit }) {
           </select>
         </div>
         <div className="form-group my-2 ">
-          <label for="exampleFormControlInput1">Block*</label>
+          <label for="exampleFormControlInput1">{t("Block")}*</label>
           <input
             id="block"
             type="text"
@@ -107,7 +107,7 @@ function ApartmentAddress({ handleAddAddress, areaData, edit }) {
           />
         </div>
         <div className="form-group my-2">
-          <label for="exampleFormControlInput1">Street*</label>
+          <label for="exampleFormControlInput1">{t("Street")}*</label>
           <input
             id="street"
             type="text"
@@ -118,7 +118,7 @@ function ApartmentAddress({ handleAddAddress, areaData, edit }) {
           />
         </div>
         <div className="form-group my-2">
-          <label for="exampleFormControlInput1">Avenue</label>
+          <label for="exampleFormControlInput1">{t("Avenue")}</label>
           <input
             id="avenue"
             type="text"
@@ -129,7 +129,7 @@ function ApartmentAddress({ handleAddAddress, areaData, edit }) {
           />
         </div>
         <div className="form-group my-2">
-          <label for="exampleFormControlInput1">Building*</label>
+          <label for="exampleFormControlInput1">{t("Building")}*</label>
           <input
             id="building"
             type="text"
@@ -140,7 +140,7 @@ function ApartmentAddress({ handleAddAddress, areaData, edit }) {
           />
         </div>
         <div className="form-group my-2">
-          <label for="exampleFormControlInput1">Floor*</label>
+          <label for="exampleFormControlInput1">{t("Floor")}*</label>
           <input
             id="floor"
             type="text"
@@ -151,7 +151,7 @@ function ApartmentAddress({ handleAddAddress, areaData, edit }) {
           />
         </div>
         <div className="form-group my-2">
-          <label for="exampleFormControlInput1">Flat No</label>
+          <label for="exampleFormControlInput1">{t("Flat No")}</label>
           <input
             id="flatNo"
             type="text"
@@ -162,7 +162,7 @@ function ApartmentAddress({ handleAddAddress, areaData, edit }) {
           />
         </div>
         <div className="form-group my-2">
-          <label for="exampleFormControlInput1">Phone Number</label>
+          <label for="exampleFormControlInput1">{t("Phone Number")}</label>
           <input
             id="phone"
             type="text"
@@ -173,7 +173,7 @@ function ApartmentAddress({ handleAddAddress, areaData, edit }) {
           />
         </div>
         <div className="form-group my-2 ">
-          <label for="exampleFormControlInput1">Remark</label>
+          <label for="exampleFormControlInput1">{t("Remark")}</label>
           <input
             id="remark"
             type="text"
@@ -188,13 +188,13 @@ function ApartmentAddress({ handleAddAddress, areaData, edit }) {
             onChange={(e) => setDefaultAddress(e.target.checked)}
             checked={defaultAddress}
           >
-            Make this as the default address
+            {t("Make this as the default address")}
           </Checkbox>
         </div>{" "}
         <br></br>
         <button type="submit" className="submit-cart-btn ">
           {" "}
-          Save{" "}
+          {t("Save")}{" "}
         </button>
       </div>
     </form>

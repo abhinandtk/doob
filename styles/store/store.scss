@@ -286,6 +286,11 @@ input.nosubmit2 {
     direction: rtl;
   }
 }
+.add-address-form {
+  :lang(ar) {
+    direction: rtl;
+  }
+}
 
 .view {
   font-size: 14px;
@@ -344,7 +349,7 @@ input.nosubmit2 {
   height: 60px;
   z-index: 1;
   object-fit: cover;
-  left:40px;
+  left: 40px;
 }
 
 .btn-group.group {
@@ -548,9 +553,6 @@ input.nosubmit2 {
   background-clip: padding-box;
 }
 
-
-
-
 .qty_ar {
   float: right;
   margin-left: 246px;
@@ -621,10 +623,10 @@ input.nosubmit2 {
   position: absolute;
 }
 
-.span-icon_arab{
+.span-icon_arab {
   margin-top: 15px;
   margin-right: -120px;
-  float:left;
+  float: left;
   position: relative;
   left: 40px;
 }
@@ -1701,7 +1703,6 @@ input:disabled {
     top: -55px;
   }
 
-
   .content-topic {
     margin-left: 260px;
     padding: 10px 5px;
@@ -2206,9 +2207,9 @@ input:disabled {
     // margin-top: 140px;
     // position: absolute;
     // margin-left: -103px;
-    width:auto;
+    width: auto;
     position: inherit;
- 
+
     right: 34px;
     top: -210px;
   }
@@ -2217,9 +2218,9 @@ input:disabled {
     // margin-top: 140px;
     // position: absolute;
     // margin-left: -103px;
-    width:auto;
+    width: auto;
     position: inherit;
- 
+
     left: 34px;
     top: -210px;
   }
@@ -2445,7 +2446,7 @@ input:disabled {
   }
 
   .foot-png {
-    left:-13px;
+    left: -13px;
     top: -234px;
   }
   .foot-png_ar {
@@ -3014,8 +3015,8 @@ input:disabled {
 
   .qty_ar {
     float: right;
-     margin-left: 0px; 
-}
+    margin-left: 0px;
+  }
   .report-section {
     display: flex;
     justify-content: space-between;

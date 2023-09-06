@@ -16,6 +16,7 @@ function NewGameForm({ game, country }) {
   const { t } = useTranslation();
 
   const router = useRouter();
+  const { locale } = router;
   const [visible, setVisible] = useState(false);
   const [area, setArea] = useState([]);
   console.log("res98", country);
@@ -109,7 +110,9 @@ function NewGameForm({ game, country }) {
       <section>
         <div className="game_clearfix">
           <h5
-            className="float-start dark-theme-color"
+            className={`${
+              locale === "en" ? "float-start" : "float-end"
+            } "dark-theme-color"`}
             style={{ fontWeight: "700", fontSize: "19px" }}
           >
             {t("Games")}
@@ -117,7 +120,9 @@ function NewGameForm({ game, country }) {
           <button
             onClick={() => createGameShowHandler()}
             type="button"
-            className="newGame-btn float-end"
+            className={`newGame-btn ${
+              locale === "en" ? "float-end" : "float-start"
+            }`}
           >
             {t("Create New Game")}
           </button>
