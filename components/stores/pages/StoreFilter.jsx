@@ -153,7 +153,7 @@ function StoreFilter({ searchResultHandler }) {
                   >
                     <div>
                       <span className="float-start">
-                        <span className="mx-1">{brand.brand}</span>
+                        <span className="mx-1 ">{brand.brand}</span>
                       </span>
                     </div>
                     <div style={{ flexGrow: 1, textAlign: "right" }}>
@@ -173,7 +173,7 @@ function StoreFilter({ searchResultHandler }) {
                 </h6>
                 <Collapse accordion ghost>
                   {item.categories?.map((cat) => (
-                    <Panel header={cat.title} key={cat.id}>
+                    <Panel className="dark-theme-color" header={cat.title} key={cat.id}>
                       {cat.subcategories?.map((subCat) => (
                         <div
                           key={subCat.id}
@@ -185,7 +185,7 @@ function StoreFilter({ searchResultHandler }) {
                         >
                           <div>
                             <span className="float-start">
-                              <span className="mx-1">{subCat.title}</span>
+                              <span className="mx-1 dark-theme-color">{subCat.title}</span>
                             </span>
                           </div>
                           <div style={{ flexGrow: 1, textAlign: "right" }}>

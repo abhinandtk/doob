@@ -219,7 +219,9 @@ function ShareToUserChat({ slug, type }) {
               </div>
               <div className="mx-2">
                 {selectedItems.includes(item.id) ? (
-                  <div>{t("Send")}</div>
+                  <div className="dark-theme-color">
+                    {t("Sent")}
+                  </div>
                 ) : (
                   <svg
                     width="20"

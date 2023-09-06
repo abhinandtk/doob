@@ -105,7 +105,7 @@ function StoreTopDetails({ data, setSuccess }) {
     <Fragment>
       {showLogin && <Login setShowLogin={setShowLogin} />}
       <Modal
-        title="Why are you reporting this store ??"
+        title={t("Why are you reporting this store?")}
         open={show}
         centered
         closable
@@ -116,9 +116,10 @@ function StoreTopDetails({ data, setSuccess }) {
         <Form onSubmitCapture={(e) => storeReportHandler(e)}>
           <Form.Item>
             <Input.TextArea
-              placeholder="Please enter your reason for reporting"
+              placeholder={t("Please enter your reason for reporting")}
               autoSize={{ minRows: 5 }}
               value={reason}
+              className="cont-theme-bg"
               onChange={(e) => setReason(e.target.value)}
               required
             />
@@ -130,7 +131,7 @@ function StoreTopDetails({ data, setSuccess }) {
               type="primary"
               htmlType="submit"
             >
-              Confirm
+              {t("Confirm")}
             </Button>
           </Form.Item>
         </Form>
