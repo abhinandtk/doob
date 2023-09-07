@@ -132,7 +132,7 @@ function SupportMessages({ data, setSuccess, status }) {
                     }}
                     onClick={supportMessageHandler}
                   >
-                    {t("Post")}
+                    {t("Send")}
                   </p>
                 </div>
               </Form>

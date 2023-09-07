@@ -68,7 +68,7 @@ export function Labels() {
             //Play Ground 
             "PlayGround added": "Play ground added successfully",
             "PlayGround edited": "Play ground edited successfully",
-            "Checkout Successfully": "Checkout Successfully",
+            "Checkout Successfully": "Successfully Checked Out",
             "Booking Cancelled": "Booking Cancelled successfully",
             "Slot Added": "Slot Added successfully",
             "Book one stadium": "At a time can only book one stadium",

@@ -14,8 +14,8 @@ function OrderList({ product, setOnSuccess }) {
   console.log("rrrrrrrrrrrrrrrrrrr", product);
   const [quantity, setQuantity] = useState(parseInt(product.quantity));
   const { t } = useTranslation();
-  const router = useRouter()
-  const { locale } = router
+  const router = useRouter();
+  const { locale } = router;
   const labels = Labels();
   const dispatch = useDispatch();
 
@@ -89,8 +89,10 @@ function OrderList({ product, setOnSuccess }) {
                   className="pixels-png"
                 ></img>
               </div>
-              <div className={locale === "en" ? "add-left" : "add-left_ar"} style={{ maxWidth: "45%" }}>
-            
+              <div
+                className={locale === "en" ? "add-left" : "add-left_ar"}
+                style={{ maxWidth: "45%" }}
+              >
                 <h6>{product.Name}</h6>
                 {product.product_stock <= 0 ? (
                   <p className="my-1" style={{ color: "red" }}>
@@ -104,7 +106,7 @@ function OrderList({ product, setOnSuccess }) {
                     {product.selling_prize} KD
                   </p>
                 ) : (
-                  <p className="my-1" style={{ color: "red",width:'250px' }}>
+                  <p className="my-1" style={{ color: "red", width: "250px" }}>
                     {t("Product is currently unavailable")}
                   </p>
                 )}
@@ -123,9 +125,9 @@ function OrderList({ product, setOnSuccess }) {
           </div>
 
           {product.product_stock !== 0 ? (
-            <div className="qty1 " >
-              <div onClick={() => handleIncreaseQty()} className="plus">
-                +
+            <div className="qty1 ">
+              <div onClick={() => handleDecreaseQty()} className="minus ">
+                -
               </div>
               <input
                 type="number"
@@ -134,8 +136,9 @@ function OrderList({ product, setOnSuccess }) {
                 value={quantity}
                 disabled
               />
-              <div onClick={() => handleDecreaseQty()} className="minus ">
-                -
+
+              <div onClick={() => handleIncreaseQty()} className="plus">
+                +
               </div>
             </div>
           ) : (

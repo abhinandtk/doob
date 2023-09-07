@@ -23,7 +23,7 @@ function SideMenuFooter() {
               className="side-menu__footer-link mx-1 "
               style={{ fontSize: "13px" }}
             >
-              {t("Sponsers")}
+              {t("Sponsors")}
             </a>
           </li>
           <br></br>

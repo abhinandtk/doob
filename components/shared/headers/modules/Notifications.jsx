@@ -12,6 +12,7 @@ import { toggle } from "@/Redux/updateNavbar";
 import { useDispatch } from "react-redux";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
+import Link from "next/link";
 function Notifications({ setNotificationShow }) {
   const { t } = useTranslation();
   const [show, setShow] = useState(true);
@@ -129,7 +130,10 @@ function Notifications({ setNotificationShow }) {
                 <div key={index} className="side-menu__suggestions-contents">
                   {item.type === "Follow" ? (
                     <div className="side-menu__suggestions">
-                      <a href="#" className="side-menu__suggestion-avatars">
+                      <Link
+                        href={`/userprofile/${item.user_id}`}
+                        className="side-menu__suggestion-avatars"
+                      >
                         {item.image ? (
                           <img
                             src={`${constants.port}/media/${item.image}`}
@@ -148,9 +152,12 @@ function Notifications({ setNotificationShow }) {
                             }}
                           />
                         )}
-                      </a>
+                      </Link>
                       <div className="side-menu__suggestion-infos">
-                        <a href="#" style={{ textDecoration: "none" }}>
+                        <Link
+                          href={`/userprofile/${item.user_id}`}
+                          style={{ textDecoration: "none" }}
+                        >
                           {" "}
                           {item.name}
                           <span
@@ -160,7 +167,7 @@ function Notifications({ setNotificationShow }) {
                             Started Following <br></br>you.
                             <span>{notificationTime(item.created_at)}</span>
                           </span>
-                        </a>
+                        </Link>
                       </div>
                       {item.is_following === 1 ? (
                         <button
@@ -189,7 +196,10 @@ function Notifications({ setNotificationShow }) {
                     </div>
                   ) : item.type === "Follow_request" ? (
                     <div className="side-menu__suggestions">
-                      <a href="#" className="side-menu__suggestion-avatars">
+                      <Link
+                        href={`/userprofile/${item.user_id}`}
+                        className="side-menu__suggestion-avatars"
+                      >
                         {item.image ? (
                           <img
                             src={`${constants.port}/media/${item.image}`}
@@ -208,9 +218,12 @@ function Notifications({ setNotificationShow }) {
                             }}
                           />
                         )}
-                      </a>
+                      </Link>
                       <div className="side-menu__suggestion-infos">
-                        <a href="#" style={{ textDecoration: "none" }}>
+                        <Link
+                          href={`/userprofile/${item.user_id}`}
+                          style={{ textDecoration: "none" }}
+                        >
                           {" "}
                           {item.name}
                           <span
@@ -220,7 +233,7 @@ function Notifications({ setNotificationShow }) {
                             requested to follow<br></br>you.
                             <span>{notificationTime(item.created_at)}</span>
                           </span>
-                        </a>
+                        </Link>
                       </div>
 
                       <button
@@ -243,7 +256,7 @@ function Notifications({ setNotificationShow }) {
                     </div>
                   ) : item.type === "Marketting Message" ? (
                     <div className="side-menu__suggestions">
-                      {/* <a href="#" className="side-menu__suggestion-avatars">
+                      {/* <Link href={`/userprofile/${item.user_id}`} className="side-menu__suggestion-avatars">
                         {item.image ? (
                           <img
                             src={`${constants.port}/media/${item.image}`}
@@ -262,9 +275,12 @@ function Notifications({ setNotificationShow }) {
                             }}
                           />
                         )}
-                      </a> */}
+                      </Link> */}
                       <div className="side-menu__suggestion-infos">
-                        <a href="#" style={{ textDecoration: "none" }}>
+                        <Link
+                          href={`/userprofile/${item.user_id}`}
+                          style={{ textDecoration: "none" }}
+                        >
                           {" "}
                           {item.name}
                           <span
@@ -274,7 +290,7 @@ function Notifications({ setNotificationShow }) {
                             {item.message}&nbsp;
                             <span>{notificationTime(item.created_at)}</span>
                           </span>
-                        </a>
+                        </Link>
                       </div>
 
                       <button
@@ -286,7 +302,10 @@ function Notifications({ setNotificationShow }) {
                     </div>
                   ) : item.type === "Game Invitation" ? (
                     <div className="side-menu__suggestions">
-                      <a href="#" className="side-menu__suggestion-avatars">
+                      <Link
+                        href={`/userprofile/${item.user_id}`}
+                        className="side-menu__suggestion-avatars"
+                      >
                         {item.image ? (
                           <img
                             src={`${constants.port}/media/${item.image}`}
@@ -305,9 +324,12 @@ function Notifications({ setNotificationShow }) {
                             }}
                           />
                         )}
-                      </a>
+                      </Link>
                       <div className="side-menu__suggestion-infos">
-                        <a href="#" style={{ textDecoration: "none" }}>
+                        <Link
+                          href={`/userprofile/${item.user_id}`}
+                          style={{ textDecoration: "none" }}
+                        >
                           {" "}
                           {item.name}
                           <span
@@ -317,7 +339,7 @@ function Notifications({ setNotificationShow }) {
                             {item.message}&nbsp;
                             <span>{notificationTime(item.created_at)}</span>
                           </span>
-                        </a>
+                        </Link>
                       </div>
 
                       <button
@@ -336,7 +358,10 @@ function Notifications({ setNotificationShow }) {
                     <></>
                   ) : item.type === "Order" ? (
                     <div className="side-menu__suggestions">
-                      <a href="#" className="side-menu__suggestion-avatars">
+                      <Link
+                        href={`/userprofile/${item.user_id}`}
+                        className="side-menu__suggestion-avatars"
+                      >
                         {item.image ? (
                           <img
                             src={`${constants.port}/media/${item.image}`}
@@ -355,9 +380,12 @@ function Notifications({ setNotificationShow }) {
                             }}
                           />
                         )}
-                      </a>
+                      </Link>
                       <div className="side-menu__suggestion-infos">
-                        <a href="#" style={{ textDecoration: "none" }}>
+                        <Link
+                          href={`/userprofile/${item.user_id}`}
+                          style={{ textDecoration: "none" }}
+                        >
                           {" "}
                           {item.name}
                           <span
@@ -367,7 +395,7 @@ function Notifications({ setNotificationShow }) {
                             {item.message}&nbsp;
                             <span>{notificationTime(item.created_at)}</span>
                           </span>
-                        </a>
+                        </Link>
                       </div>
 
                       <button
@@ -384,7 +412,10 @@ function Notifications({ setNotificationShow }) {
                     </div>
                   ) : item.type === "Order Status Changed" ? (
                     <div className="side-menu__suggestions">
-                      <a href="#" className="side-menu__suggestion-avatars">
+                      <Link
+                        href={`/userprofile/${item.user_id}`}
+                        className="side-menu__suggestion-avatars"
+                      >
                         {item.image ? (
                           <img
                             src={`${constants.port}/media/${item.image}`}
@@ -403,9 +434,12 @@ function Notifications({ setNotificationShow }) {
                             }}
                           />
                         )}
-                      </a>
+                      </Link>
                       <div className="side-menu__suggestion-infos">
-                        <a href="#" style={{ textDecoration: "none" }}>
+                        <Link
+                          href={`/userprofile/${item.user_id}`}
+                          style={{ textDecoration: "none" }}
+                        >
                           {" "}
                           {item.name}
                           <span
@@ -415,7 +449,7 @@ function Notifications({ setNotificationShow }) {
                             {item.message}&nbsp;
                             <span>{notificationTime(item.created_at)}</span>
                           </span>
-                        </a>
+                        </Link>
                       </div>
 
                       <button
@@ -430,9 +464,12 @@ function Notifications({ setNotificationShow }) {
                         {t("View")}
                       </button>
                     </div>
-                  ) : (
+                  ) : item.type === "Stadium Booking" ? (
                     <div className="side-menu__suggestions">
-                      <a href="#" className="side-menu__suggestion-avatars">
+                      <Link
+                        href={`/userprofile/${item.user_id}`}
+                        className="side-menu__suggestion-avatars"
+                      >
                         {item.image ? (
                           <img
                             src={`${constants.port}/media/${item.image}`}
@@ -451,9 +488,65 @@ function Notifications({ setNotificationShow }) {
                             }}
                           />
                         )}
-                      </a>
+                      </Link>
                       <div className="side-menu__suggestion-infos">
-                        <a href="#" style={{ textDecoration: "none" }}>
+                        <Link
+                          href={`/userprofile/${item.user_id}`}
+                          style={{ textDecoration: "none" }}
+                        >
+                          {" "}
+                          {item.name}
+                          <span
+                            className="ms-1 dark-theme-color"
+                            style={{ fontSize: "12px" }}
+                          >
+                            {item.message}&nbsp;
+                            <span>{notificationTime(item.created_at)}</span>
+                          </span>
+                        </Link>
+                      </div>
+
+                      <button
+                        onClick={() =>
+                          router.push({
+                            pathname: "/play-ground/admin-bookings-ground",
+                          })
+                        }
+                        className="side-suggestion-button2"
+                      >
+                        {t("View")}
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="side-menu__suggestions">
+                      <Link
+                        href={`/userprofile/${item.user_id}`}
+                        className="side-menu__suggestion-avatars"
+                      >
+                        {item.image ? (
+                          <img
+                            src={`${constants.port}/media/${item.image}`}
+                            style={{ objectFit: "cover" }}
+                            alt="User Picture"
+                          />
+                        ) : (
+                          <img
+                            src="/images/accounts/user_default.png"
+                            alt="User Picture"
+                            style={{
+                              objectFit: "cover",
+                              // width: "30px",
+                              // height: "30px",
+                              // borderRadius: "50%",
+                            }}
+                          />
+                        )}
+                      </Link>
+                      <div className="side-menu__suggestion-infos">
+                        <Link
+                          href={`/userprofile/${item.user_id}`}
+                          style={{ textDecoration: "none" }}
+                        >
                           {" "}
                           {item.name}
                           {item.type === "Comment" ? (
@@ -473,7 +566,7 @@ function Notifications({ setNotificationShow }) {
                               <span>{notificationTime(item.created_at)}</span>
                             </span>
                           )}
-                        </a>
+                        </Link>
                       </div>
                       <div className="side-suggestion-button1">
                         {" "}

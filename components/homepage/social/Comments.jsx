@@ -21,6 +21,7 @@ function Comments({ setVisibleComment, postId, slug }) {
   const [replayTo, setReplayTo] = useState(null);
   const [isDisabled, setIsDisabled] = useState();
   const [loginUserImg, setLoginUser] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const { theme } = useTheme();
 
   const [successApi, setSuccessApi] = useState(false);
@@ -40,6 +41,7 @@ function Comments({ setVisibleComment, postId, slug }) {
       }
     ).then((res) => {
       console.log("titiitititiitititititiiti", res);
+      setIsLoading(false);
       setLoginUser(res.data.data.login_user);
       setShowComments(res.data.data.comments);
     });
@@ -49,7 +51,7 @@ function Comments({ setVisibleComment, postId, slug }) {
     setVisibleComment(false);
   };
   const commentPostHandler = (e) => {
-    setIsDisabled(true)
+    setIsDisabled(true);
     e.preventDefault();
     let data = { content: comment, post_id: postId };
     if (replayTo) {
@@ -62,7 +64,7 @@ function Comments({ setVisibleComment, postId, slug }) {
       },
     }).then((res) => {
       setComment("");
-      setIsDisabled(false)
+      setIsDisabled(false);
       setSuccessApi((prev) => !prev);
       inputRef.current.value = "";
       setReplayTo(null);
@@ -93,141 +95,148 @@ function Comments({ setVisibleComment, postId, slug }) {
         onCancel={onHideHandler}
         footer={[]}
       >
-        {showComments &&
-          showComments.map((item, index) => (
-            <div key={index} className="d-flex flex-start mt-4 mx-2">
-              <div className="me-2" href="">
-                {item.user.image ? (
-                  <CardImg
-                    className="rounded-circle shadow-1-strong "
-                    src={`${constants.port}/media/${item.user.image}`}
-                    style={{
-                      width: "44px",
-                      height: "44px",
-                      objectFit: "cover",
-                    }}
-                  ></CardImg>
-                ) : (
-                  <CardImg
-                    className="rounded-circle shadow-1-strong "
-                    src="/images/accounts/user_default.png"
-                    style={{
-                      width: "44px",
-                      height: "44px",
-                      objectFit: "cover",
-                    }}
-                  ></CardImg>
-                )}
-              </div>
-              <div
-                className="flex-grow-1 flex-shrink-1 "
-                style={{ marginBottom: "-24px" }}
-              >
-                <div>
-                  <div className="d-flex justify-content-between align-items-center">
-                    <p
-                      className="dark-theme-color mb-0"
-                      style={{ fontWeight: "600" }}
-                    >
-                      {item.user.username}&nbsp;
-                      <span
-                        className="small"
-                        style={{
-                          color: "#959595",
-                          fontWeight: "500",
-                          fontSize: "13px",
-                        }}
+        {isLoading
+          ? null
+          : showComments &&
+            showComments.map((item, index) => (
+              <div key={index} className="d-flex flex-start mt-4 mx-2">
+                <div className="me-2" href="">
+                  {item.user.image ? (
+                    <CardImg
+                      className="rounded-circle shadow-1-strong "
+                      src={`${constants.port}/media/${item.user.image}`}
+                      style={{
+                        width: "44px",
+                        height: "44px",
+                        objectFit: "cover",
+                      }}
+                    ></CardImg>
+                  ) : (
+                    <CardImg
+                      className="rounded-circle shadow-1-strong "
+                      src="/images/accounts/user_default.png"
+                      style={{
+                        width: "44px",
+                        height: "44px",
+                        objectFit: "cover",
+                      }}
+                    ></CardImg>
+                  )}
+                </div>
+                <div
+                  className="flex-grow-1 flex-shrink-1 "
+                  style={{ marginBottom: "-24px" }}
+                >
+                  <div>
+                    <div className="d-flex justify-content-between align-items-center">
+                      <p
+                        className="dark-theme-color mb-0"
+                        style={{ fontWeight: "600" }}
                       >
-                        {timeSinceComment(item.created_at)}
-                      </span>
-                    </p>
-                  </div>
-                  <p className="dark-theme-color small mb-0">{item.content}</p>
-
-                  <div
-                    className="small d-flex align-items-center"
-                    style={{
-                      color: "#959595",
-                      fontWeight: "500",
-                      fontSize: "13px",
-                    }}
-                  >
-                    <span>
-                      <a onClick={() => handleReply(item.id)}>{t("Reply")}</a>
-                    </span>
-                    <span className="ms-3">
-                      <CommentActions
-                        user={item.user.id}
-                        commentId={item.id}
-                        setSuccessApi={setSuccessApi}
-                      />
-                    </span>
-                  </div>
-
-                  {item.replies !== null && item.replies.length > 0
-                    ? item.replies.map((reply, index) => (
-                        <div
-                          key={index}
-                          className="ms-auto mt-2 d-flex align-items-start"
+                        {item.user.username}&nbsp;
+                        <span
+                          className="small"
+                          style={{
+                            color: "#959595",
+                            fontWeight: "500",
+                            fontSize: "13px",
+                          }}
                         >
-                          {reply.user_details.image ? (
-                            <CardImg
-                              className="rounded-circle shadow-1-strong me-3"
-                              src={`${constants.port}${reply.user_details.image}`}
-                              style={{ width: "44px", height: "44px" }}
-                            ></CardImg>
-                          ) : (
-                            <CardImg
-                              className="rounded-circle shadow-1-strong me-3"
-                              src="/images/accounts/user_default.png"
-                              style={{
-                                width: "44px",
-                                height: "44px",
-                                objectFit: "cover",
-                              }}
-                            ></CardImg>
-                          )}
-                          <div className="d-flex flex-column justify-content-between">
-                            <div className="mb-0">
-                              <p className="mb-0" style={{ fontWeight: "600" }}>
-                                {reply.user_details.name}&nbsp;
-                                <span
-                                  className="small"
-                                  style={{
-                                    color: "#959595",
-                                    fontWeight: "500",
-                                    fontSize: "13px",
-                                  }}
+                          {timeSinceComment(item.created_at)}
+                        </span>
+                      </p>
+                    </div>
+                    <p className="dark-theme-color small mb-0">
+                      {item.content}
+                    </p>
+
+                    <div
+                      className="small d-flex align-items-center"
+                      style={{
+                        color: "#959595",
+                        fontWeight: "500",
+                        fontSize: "13px",
+                      }}
+                    >
+                      <span>
+                        <a onClick={() => handleReply(item.id)}>{t("Reply")}</a>
+                      </span>
+                      <span className="ms-3">
+                        <CommentActions
+                          user={item.user.id}
+                          commentId={item.id}
+                          setSuccessApi={setSuccessApi}
+                        />
+                      </span>
+                    </div>
+
+                    {item.replies !== null && item.replies.length > 0
+                      ? item.replies.map((reply, index) => (
+                          <div
+                            key={index}
+                            className="ms-auto mt-2 d-flex align-items-start"
+                          >
+                            {reply.user_details.image ? (
+                              <CardImg
+                                className="rounded-circle shadow-1-strong me-3"
+                                src={`${constants.port}${reply.user_details.image}`}
+                                style={{ width: "44px", height: "44px" }}
+                              ></CardImg>
+                            ) : (
+                              <CardImg
+                                className="rounded-circle shadow-1-strong me-3"
+                                src="/images/accounts/user_default.png"
+                                style={{
+                                  width: "44px",
+                                  height: "44px",
+                                  objectFit: "cover",
+                                }}
+                              ></CardImg>
+                            )}
+                            <div className="d-flex flex-column justify-content-between">
+                              <div className="mb-0">
+                                <p
+                                  className="mb-0"
+                                  style={{ fontWeight: "600" }}
                                 >
-                                  {timeSinceComment(reply.created_at)}
+                                  {reply.user_details.name}&nbsp;
+                                  <span
+                                    className="small"
+                                    style={{
+                                      color: "#959595",
+                                      fontWeight: "500",
+                                      fontSize: "13px",
+                                    }}
+                                  >
+                                    {timeSinceComment(reply.created_at)}
+                                  </span>
+                                </p>
+                                <p className="small mb-0">{reply.content}</p>
+                              </div>
+                              <div
+                                className="small d-flex align-items-center"
+                                style={{
+                                  color: "#959595",
+                                  fontWeight: "500",
+                                  fontSize: "13px",
+                                }}
+                              >
+                                <span>
+                                  <CommentActions
+                                    user={reply.user_details.id}
+                                    commentId={reply.id}
+                                    setSuccessApi={setSuccessApi}
+                                  />
                                 </span>
-                              </p>
-                              <p className="small mb-0">{reply.content}</p>
-                            </div>
-                            <div
-                              className="small d-flex align-items-center"
-                              style={{
-                                color: "#959595",
-                                fontWeight: "500",
-                                fontSize: "13px",
-                              }}
-                            >
-                              <span>
-                                <CommentActions
-                                  user={reply.user_details.id}
-                                  commentId={reply.id}
-                                  setSuccessApi={setSuccessApi}
-                                />
-                              </span>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      ))
-                    : ""}
+                        ))
+                      : ""}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
 
         <div
           className="d-flex flex-start mt-5 mx-2"
@@ -238,7 +247,7 @@ function Comments({ setVisibleComment, postId, slug }) {
               <CardImg
                 className="rounded-circle shadow-1-strong "
                 src={`${constants.port}${loginUserImg}`}
-                style={{ width: "44px", height: "44px" }}
+                style={{ width: "44px", height: "44px",objectFit:"cover" }}
               ></CardImg>
             ) : (
               <CardImg
