@@ -423,7 +423,7 @@ function ContainerHomePosts() {
                             &nbsp;Post
                           </div>
                         </div>
-                        <div className="time">{timeSincePost(item.posted)}</div>
+                        <div  className={locale === "ar" ? "time" : "time_ar"}>{timeSincePost(item.posted)}</div>
                       </div>
                     </div>
                   )}
