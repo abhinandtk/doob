@@ -106,6 +106,9 @@ function StoreDetailPage() {
                 <input
            
                   className={locale === "en" ? "nosubmit1" : "nosubmit1_ar"}
+                              
+                  style={{height:locale==='ar'?'40px':""}}
+                  
                   onChange={(e) => setSearchInput(e.target.value)}
                   type="search"
                   onKeyDown={handleKeyDown}
@@ -129,7 +132,7 @@ function StoreDetailPage() {
                 className="filters-icon"
               ></img> */}
               &nbsp; 
-              <button type="button" className="btn btn  input-theme-prod dark-theme-color" >   {t("Search")}</button>
+              <button type="button" className="btn btn mb-1 input-theme-prod dark-theme-color" >   {t("Search")}</button>
 
                
                 </span>
