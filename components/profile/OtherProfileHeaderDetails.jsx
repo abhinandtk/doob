@@ -143,8 +143,8 @@ function OtherProfileHeaderDetails({
         centered
         onCancel={() => setShow(false)}
         footer={[
-          <Button key="back" type="secondary" onClick={() => setShow(false)}>
-            cancel
+          <Button className='dark-theme-color' key="back" type="secondary" onClick={() => setShow(false)}>
+            {t("Cancel")}
           </Button>,
           <Button
             style={{ backgroundColor: "#17A803" }}
@@ -152,7 +152,7 @@ function OtherProfileHeaderDetails({
             type="primary"
             onClick={handleUnfollow}
           >
-            Confirm
+            {t("Confirm")}
           </Button>,
         ]}
       >

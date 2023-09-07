@@ -55,6 +55,7 @@ function ChatInputUpload({ selectedId, setOnSuccess, onNewMsg }) {
       <form onSubmit={handleSendMessage}>
         <div className="chat_input">
           <input
+            className="input-theme-prod"
             type="text"
             onChange={(e) => setMessages(e.target.value)}
             placeholder="Write your message"

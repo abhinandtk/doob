@@ -99,6 +99,18 @@ function CreateGameForm() {
           message: constants.Success,
           description: `${labels["Game created"]}`,
         });
+        setFormData({
+          title: "",
+          image: "",
+          game: "",
+          participants: "",
+          description: "",
+          visible: "",
+          gender: "",
+          ageFrom: "",
+          ageTo: "",
+          lastDay: "",
+        });
         router.push("/play-ground");
       } else {
         setIsDisabled(false);

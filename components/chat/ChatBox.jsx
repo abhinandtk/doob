@@ -88,7 +88,7 @@ function ChatBox({ selectedId, onNewMsg }) {
         >
           {chatList.map((item, index) => (
             <div ref={divRef} key={index} className="chatbox">
-              <button type="button" class="btn btn-success btn-sm">
+              <button type="button" className="btn btn-success btn-sm">
                 {formatDate(item.date)}
               </button>
               {item.messages.map((msg, index_) => (

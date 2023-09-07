@@ -429,7 +429,7 @@ function SingleContainerHomePosts({ story }) {
                                   ""
                                 )}
                               </Link>
-                              &nbsp;Post
+                              &nbsp;{t("Post")}
                             </div>
                           </div>
                           <div className="time">
@@ -667,6 +667,7 @@ function SingleContainerHomePosts({ story }) {
                           <div className="post__likes">
                             <h6
                               className="post-names"
+                              style={{cursor:"pointer"}}
                               onClick={() => likedUsershandler(item.slug)}
                             >
                               {item.totalLike} {t("Likes")}
