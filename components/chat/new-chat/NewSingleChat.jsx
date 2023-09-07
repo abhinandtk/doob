@@ -60,7 +60,7 @@ function NewSingleChat({ onChatSelect, onNewMsg, onGrpShow }) {
 
   return (
     <Fragment>
-      <div className="leftSide">
+      <div className="leftSide tour-detail-ar">
         <div className="header">
           <div className="text">
             <h6
@@ -74,6 +74,7 @@ function NewSingleChat({ onChatSelect, onNewMsg, onGrpShow }) {
               <span
                 onClick={() => onNewMsg(null)}
                 style={{ cursor: "pointer" }}
+                
               >
                 <svg
                   width="15"
@@ -128,11 +129,12 @@ function NewSingleChat({ onChatSelect, onNewMsg, onGrpShow }) {
             <span>
               {" "}
               <h6
-                style={{
-                  fontWeight: "600",
-                  fontSize: "17px",
-                  marginLeft: "13px",
-                }}
+                // style={{
+                //   fontWeight: "600",
+                //   fontSize: "17px",
+                //   marginLeft: "13px",
+                // }}
+                style={{ fontWeight: "600", fontSize: "17px",  marginRight: locale === 'ar' ? '13px' : "" ,marginLeft: locale === 'en' ? '13px' : "" }}
                 onClick={() => onGrpShow(true)}
               >
                 Add new group
