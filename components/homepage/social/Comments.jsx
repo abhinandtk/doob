@@ -271,7 +271,7 @@ function Comments({ setVisibleComment, postId, slug }) {
                     <Form.Control
                       type=""
                       placeholder={t("Add a comment")}
-                      className="mark"
+                      className="mark dark-theme-color"
                       style={{
                         fontSize: "13px",
                         height: "37px",

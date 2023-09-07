@@ -13,11 +13,13 @@ import constants from "@/public/data/my-constants/Constants";
 import apis from "@/public/data/my-constants/Apis";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { notification } from "antd";
+import { useTranslation } from "next-i18next";
 function ForgetOtp({ setActiveModal }) {
   const [show, setShow] = useState(true);
+  const { t } = useTranslation();
 
   const [fotp, setFotp] = useState("");
-  const labels=Labels()
+  const labels = Labels();
 
   const submitForgotOtp = (e) => {
     e.preventDefault();
@@ -60,12 +62,12 @@ function ForgetOtp({ setActiveModal }) {
           marginTop: "24px",
         }}
       >
-        Enter Your OTP
+        {t("Enter Your OTP")}
       </Modal.Title>
       <Modal.Title
         style={{ fontSize: "15px", marginLeft: "180px", marginTop: "24px" }}
       >
-        To reset your password , Please Enter an OTP
+        {t("To reset your password , Please Enter an OTP")}
       </Modal.Title>
       <Modal.Body>
         <Form onSubmit={(e) => submitForgotOtp(e)}>
@@ -73,8 +75,8 @@ function ForgetOtp({ setActiveModal }) {
             <Form.Label></Form.Label>
             <Form.Control
               type="text"
-              className="mx-auto "
-              placeholder="OTP"
+              className="mx-auto input-theme-prod dark-theme-color"
+              placeholder={t("OTP")}
               style={{ width: "50%", marginTop: "-29px" }}
               onChange={(e) => setFotp(e.target.value)}
               maxLength="6"
@@ -92,7 +94,7 @@ function ForgetOtp({ setActiveModal }) {
                 width: "363px",
               }}
             >
-              Confirm
+              {t("Confirm")}
             </Button>
           </Modal.Footer>
         </Form>

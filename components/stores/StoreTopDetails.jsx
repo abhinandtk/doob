@@ -142,10 +142,8 @@ function StoreTopDetails({ data, setSuccess }) {
           className="img-fluid"
           style={{ width: "100%", aspectRatio: "2.2", objectFit: "cover" }}
         ></img>
-   
-        <span  className={locale==="en"?"span-icon":"span-icon_arab" }> 
-    
 
+        <span className={locale === "en" ? "span-icon" : "span-icon_arab"}>
           <span style={{ cursor: "pointer" }}>
             <svg
               onClick={() =>
@@ -255,18 +253,26 @@ function StoreTopDetails({ data, setSuccess }) {
             </Dropdown>
           </span>
         </span>
-        <img src={`${constants.port}${data.logo}`}   className={locale==="en"?"foot-png":"foot-png_ar"}>    
-        </img>
+        <img
+          src={`${constants.port}${data.logo}`}
+          className={locale === "en" ? "foot-png" : "foot-png_ar"}
+        ></img>
       </div>
-     
-      <div className="my-3 store-header-details" >
+
+      <div className="my-3 store-header-details">
         <div className="row">
           <div className="col-md-6">
             <h5 className="dark-theme-color">{data.title}</h5>
             <p style={{ fontSize: "13px", color: "gray" }}>{data.address}</p>
 
             <ReviewStore data={data} />
-            <p className="dark-theme-color" style={{direction:locale==='ar'?'ltr':"",float:locale==='ar'?'right':""}}>
+            <p
+              className="dark-theme-color"
+              style={{
+                direction: locale === "ar" ? "ltr" : "",
+                float: locale === "ar" ? "right" : "",
+              }}
+            >
               <i className="bi bi-clock"></i>
               <span className="mx-2">
                 {moment(data.start_time, "HH:mm:ss").format("hh:mm A")} -
@@ -276,7 +282,11 @@ function StoreTopDetails({ data, setSuccess }) {
           </div>
 
           <div className="col-md-6">
-            <div className={locale === "en" ? "more" : "more_ar"} onClick={() => setDescShow(!descShow)}>
+            <div
+              style={{ cursor: "pointer" }}
+              className={locale === "en" ? "more" : "more_ar"}
+              onClick={() => setDescShow(!descShow)}
+            >
               {t("More")}
               {descShow ? (
                 <i className="bi bi-chevron-down "></i>

@@ -9,6 +9,7 @@ import CreateGroupChat from "../new-chat/CreateGroupChat";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
+import { useTheme } from "next-themes";
 function ChatHeaderActionsGroup({
   selectedId,
   setOnSuccess,
@@ -21,6 +22,7 @@ function ChatHeaderActionsGroup({
   const [leftVisible, setLeftVisible] = useState(false);
   const router = useRouter();
   const { locale } = router;
+  const { theme } = useTheme();
 
   const clearChatHandler = () => {
     Axios.post(
@@ -192,7 +194,7 @@ function ChatHeaderActionsGroup({
             >
               <path
                 d="M2 7.99251L2 8.00749M2 2L2 2.01498M2 13.985L2 14"
-                stroke="black"
+                stroke={theme==="light"?"black":"white"}
                 stroke-width="2.36268"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -201,19 +203,19 @@ function ChatHeaderActionsGroup({
           </Dropdown.Toggle>
           <Dropdown.Menu align="center" className="Menu">
             <Dropdown.Item onClick={() => setVisible(true)}>
-              Clear chat
+              {t("Clear chat")}
             </Dropdown.Item>
 
             <Dropdown.Item onClick={() => onNewMsg("info")}>
-              Group info
+              {t("Group info")}
             </Dropdown.Item>
             {details.is_admin ? (
               <Dropdown.Item onClick={() => setLeftVisible(true)}>
-                Close group
+                {t("Close group")}
               </Dropdown.Item>
             ) : (
               <Dropdown.Item onClick={() => setLeftVisible(true)}>
-                Exit group
+                {t("Exit group")}
               </Dropdown.Item>
             )}
           </Dropdown.Menu>

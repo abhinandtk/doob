@@ -3,9 +3,11 @@ import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 function StoriesMainPage() {
   const router = useRouter();
   const [storyList, setStoryList] = useState([]);
+  const { t } = useTranslation();
 
   useEffect(() => {
     Axios.get(apis.userStoryList, {
@@ -24,8 +26,8 @@ function StoriesMainPage() {
       style={{ height: `${storyList.length <= 0 ? "0px" : ""}` }}
     >
       {storyList.length > 0 && (
-        <div className="ms-1" style={{ fontWeight: 500 }}>
-          My Followers
+        <div className="ms-1 dark-theme-color" style={{ fontWeight: 500 }}>
+          {t("My Followers")}
         </div>
       )}
       <button className="stories__left-button">

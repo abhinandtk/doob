@@ -82,7 +82,7 @@ function PasswordChange({setActiveModal}) {
             <Form.Label></Form.Label>
             <Form.Control
               type="password"
-              className="mx-auto dot"
+              className="mx-auto dot input-theme-prod dark-theme-color"
               placeholder={t("Password")}
               style={{ width: "359px", marginTop: "-29px" }}
               onChange={(e) => setPassword(e.target.value)}
@@ -94,7 +94,7 @@ function PasswordChange({setActiveModal}) {
             <Form.Label></Form.Label>
             <Form.Control
               type="text"
-              className="mx-auto dot"
+              className="mx-auto dot input-theme-prod dark-theme-color"
               placeholder={t("Confirm Password")}
               style={{ width: "359px", marginTop: "-29px" }}
               onChange={(e) => setPassword2(e.target.value)}
@@ -112,7 +112,7 @@ function PasswordChange({setActiveModal}) {
                 width: "363px",
               }}
             >
-              Confirm
+              {t("Confirm")}
             </Button>
            
           </Modal.Footer>

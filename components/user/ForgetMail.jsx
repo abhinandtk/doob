@@ -13,31 +13,33 @@ import constants from "@/public/data/my-constants/Constants";
 import apis from "@/public/data/my-constants/Apis";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
+import { useTranslation } from "next-i18next";
 function ForgetEmail({ setActiveModal }) {
   const [show, setShow] = useState(true);
+  const { t } = useTranslation();
 
   const [email, setEmail] = useState("");
 
-  const labels=Labels()
+  const labels = Labels();
 
   const submitForgotEmail = (e) => {
     e.preventDefault();
     Axios.post(apis.forgetemail, {
       email: email,
     }).then((res) => {
-      console.log('res12',res)
+      console.log("res12", res);
       if (res.data.status === 1) {
         setActiveModal("forgetotp");
         localStorage.setItem("forget-psw-email", email);
         notification.success({
-          message:constants.Success,
-          description:`${labels['New OTP has send']}`
-        })
-      }else{
+          message: constants.Success,
+          description: `${labels["New OTP has send"]}`,
+        });
+      } else {
         notification.error({
-          message:constants.Error,
-          description:`${labels['Email address does not exist']}`
-        })
+          message: constants.Error,
+          description: `${labels["Email address does not exist"]}`,
+        });
       }
     });
   };
@@ -49,7 +51,7 @@ function ForgetEmail({ setActiveModal }) {
         style={{ display: "flex", justifyContent: "center", marginTop: "10px" }}
       >
         <img
-          src="../images/1.png"
+          src="/images/1.png"
           style={{ width: "64px", height: "64px" }}
         ></img>
       </Modal.Title>
@@ -63,7 +65,7 @@ function ForgetEmail({ setActiveModal }) {
           marginTop: "24px",
         }}
       >
-        Confirm Your Email
+        {t("Confirm Your Email")}
       </Modal.Title>
       <Modal.Title
         style={{
@@ -73,7 +75,7 @@ function ForgetEmail({ setActiveModal }) {
           marginTop: "24px",
         }}
       >
-        To reset your password , Please Enter a Email{" "}
+        {t(" To reset your password , Please Enter a Email")}{" "}
       </Modal.Title>
       <Modal.Body>
         <Form onSubmit={(e) => submitForgotEmail(e)}>
@@ -81,7 +83,7 @@ function ForgetEmail({ setActiveModal }) {
             <Form.Label></Form.Label>
             <Form.Control
               type="email"
-              className="mx-auto dot"
+              className="mx-auto dot input-theme-prod dark-theme-color"
               placeholder="Email"
               style={{ width: "50%", marginTop: "-29px" }}
               onChange={(e) => setEmail(e.target.value)}
@@ -99,7 +101,7 @@ function ForgetEmail({ setActiveModal }) {
                 width: "363px",
               }}
             >
-              Confirm
+              {t("Confirm")}
             </Button>
           </Modal.Footer>
         </Form>

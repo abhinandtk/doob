@@ -16,7 +16,7 @@ function GroundCartItems({ data, setSuccess }) {
 
   const labels = Labels();
   const router = useRouter();
-  const { locale } = router
+  const { locale } = router;
   const dispatch = useDispatch();
   const checkoutPlaygroundHandler = () => {
     Axios.post(apis.playgroundCheckout, null, {
@@ -35,6 +35,12 @@ function GroundCartItems({ data, setSuccess }) {
           query: {
             booking_id: res.data.data.booking_id,
           },
+        });
+      } else {
+        notification.error({
+          messsage: constants.Error,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       }
 
@@ -70,9 +76,7 @@ function GroundCartItems({ data, setSuccess }) {
       {data && (
         <div className="col-md-6">
           <div className="clearfix numbers">
-            <h5 className="float-start dark-theme-color" >
-              {t("Slots")}
-            </h5>
+            <h5 className="float-start dark-theme-color">{t("Slots")}</h5>
             <p
               className="float-end dark-theme-color"
               style={{ fontSize: "14px" }}

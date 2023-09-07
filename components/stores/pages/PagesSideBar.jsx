@@ -167,7 +167,7 @@ function PagesSideBar({ currentPage }) {
             {t("Favourite Products")}
           </span>
         </Link>
-        <Link href="/page/address-page" style={{ textDecoration: "none" }}>
+        {/* <Link href="/page/address-page" style={{ textDecoration: "none" }}>
           <svg
             width="22"
             height="21"
@@ -190,7 +190,7 @@ function PagesSideBar({ currentPage }) {
           >
             {t("Address")}
           </span>
-        </Link>
+        </Link> */}
         <Link
           href="/play-ground/all-bookings"
           style={{ textDecoration: "none" }}

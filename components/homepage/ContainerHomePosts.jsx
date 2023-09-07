@@ -701,7 +701,7 @@ function ContainerHomePosts() {
         <div className="post__medias" style={{ marginTop: "9px" }}>
           <img
             className="post__media"
-            src="../images/Group 13.png"
+            src="/images/Group 13.png"
             alt="Post Content"
           />
         </div>

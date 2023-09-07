@@ -96,6 +96,7 @@ function Register({ setActiveModal, countries }) {
                 id="name"
                 type="text"
                 placeholder=""
+                className="input-theme-prod dark-theme-color"
                 onChange={(e) => {
                   handleInputChange(e);
                 }}
@@ -111,6 +112,7 @@ function Register({ setActiveModal, countries }) {
                 id="username"
                 type="text"
                 placeholder=""
+                className="input-theme-prod dark-theme-color"
                 onChange={(e) => {
                   handleInputChange(e);
                 }}
@@ -125,6 +127,7 @@ function Register({ setActiveModal, countries }) {
                 id="email"
                 type="email"
                 placeholder=""
+                className="input-theme-prod dark-theme-color"
                 onChange={(e) => {
                   handleInputChange(e);
                 }}
@@ -137,7 +140,7 @@ function Register({ setActiveModal, countries }) {
             <Form.Group className="mb-2 d-flex justify-content-between align-items-center white ">
               <Form.Select
                 id="code"
-                className="dot"
+                className="dot input-theme-prod dark-theme-color"
                 onChange={(e) => {
                   handleInputChange(e);
                 }}
@@ -156,7 +159,7 @@ function Register({ setActiveModal, countries }) {
                 type="text"
                 maxLength="10"
                 placeholder=""
-                className="dot1"
+                className="dot1 input-theme-prod dark-theme-color"
                 onChange={(e) => {
                   handleInputChange(e);
                 }}
@@ -169,6 +172,7 @@ function Register({ setActiveModal, countries }) {
               <Form.Label>{t("Gender")}*</Form.Label>
               <Form.Select
                 id="gender"
+                className="input-theme-prod dark-theme-color"
                 aria-label="Default select example"
                 onChange={(e) => {
                   handleInputChange(e);
@@ -184,6 +188,7 @@ function Register({ setActiveModal, countries }) {
             <Form.Group className="mb-2 white">
               <Form.Label>{t("Nationality")}*</Form.Label>
               <Form.Select
+                className="input-theme-prod dark-theme-color"
                 id="nationality"
                 aria-label="Default select example"
                 onChange={(e) => {
@@ -207,6 +212,7 @@ function Register({ setActiveModal, countries }) {
                 id="dob"
                 type="date"
                 placeholder=""
+                className="input-theme-prod dark-theme-color"
                 onChange={(e) => {
                   handleInputChange(e);
                 }}
@@ -221,6 +227,7 @@ function Register({ setActiveModal, countries }) {
                 id="password"
                 type="password"
                 placeholder=""
+                className="input-theme-prod dark-theme-color"
                 onChange={(e) => {
                   handleInputChange(e);
                 }}
@@ -234,6 +241,7 @@ function Register({ setActiveModal, countries }) {
                 id="confirmpsw"
                 type="password"
                 placeholder=""
+                className="input-theme-prod dark-theme-color"
                 onChange={(e) => {
                   handleInputChange(e);
                 }}

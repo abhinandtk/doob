@@ -50,53 +50,55 @@ function SharePostToUser({ slug }) {
     // } else {
     //   setSelectedItems([...selectedItems, id]);
     // }
-    Axios.post(
-      apis.createChat,
-      {
-        type: "single",
-        user: id,
-      },
-      {
-        headers: {
-          Authorization: `Token ${constants.token_id}`,
+    if (!selectedItems.includes(id)) {
+      Axios.post(
+        apis.createChat,
+        {
+          type: "single",
+          user: id,
         },
-      }
-    ).then((res) => {
-      console.log("res787", res);
-      if (res.data.status === 1) {
-        Axios.post(
-          apis.sendMessage,
-          {
-            chat_id: res.data.data.id,
-            body: `${constants.domain}/page/post/${slug}`,
+        {
+          headers: {
+            Authorization: `Token ${constants.token_id}`,
           },
-          {
-            headers: {
-              Authorization: `Token ${constants.token_id}`,
+        }
+      ).then((res) => {
+        console.log("res787", res);
+        if (res.data.status === 1) {
+          Axios.post(
+            apis.sendMessage,
+            {
+              chat_id: res.data.data.id,
+              body: `${constants.domain}/page/post/${slug}`,
             },
-          }
-        ).then((res) => {
-          if (res.data.status === 1) {
-            notification.success({
-              message: constants.Success,
-              description: `${labels["Share post user"]}`,
-            });
-          } else {
-            notification.error({
-              message: constants.Error,
-              description:
-                locale === "en" ? res.data.message_en : res.data.message_ar,
-            });
-          }
-        });
-      } else {
-        notification.error({
-          message: constants.Error,
-          description:
-            locale === "en" ? res.data.message_en : res.data.message_ar,
-        });
-      }
-    });
+            {
+              headers: {
+                Authorization: `Token ${constants.token_id}`,
+              },
+            }
+          ).then((res) => {
+            if (res.data.status === 1) {
+              notification.success({
+                message: constants.Success,
+                description: `${labels["Share post user"]}`,
+              });
+            } else {
+              notification.error({
+                message: constants.Error,
+                description:
+                  locale === "en" ? res.data.message_en : res.data.message_ar,
+              });
+            }
+          });
+        } else {
+          notification.error({
+            message: constants.Error,
+            description:
+              locale === "en" ? res.data.message_en : res.data.message_ar,
+          });
+        }
+      });
+    }
   };
   const doneHandler = () => {
     setVisible(false);
@@ -208,7 +210,7 @@ function SharePostToUser({ slug }) {
               </div>
               <div className="mx-2">
                 {selectedItems.includes(item.id) ? (
-                  <div>{t("Send")}</div>
+                  <div className="dark-theme-color">{t("Sent")}</div>
                 ) : (
                   <svg
                     width="20"

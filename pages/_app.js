@@ -21,7 +21,8 @@ function App({ Component, pageProps }) {
   // Set the lang attribute based on the selected locale
   useEffect(() => {
     document.documentElement.lang = router.locale || "en";
-  }, [router.locale]);
+    document.documentElement.style.setProperty("color-scheme", theme === "dark" ? "white" : "black");
+  }, [router.locale, theme]);
 
   return (
     <Provider store={store}>

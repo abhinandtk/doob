@@ -8,9 +8,11 @@ import constants from "@/public/data/my-constants/Constants";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
+import { useTheme } from "next-themes";
 function ChatHeaderActions({ selectedId, setOnSuccess, details }) {
   const { t } = useTranslation();
   const router = useRouter();
+  const { theme } = useTheme();
   const { locale } = router;
   const labels = Labels();
   const [visible, setVisible] = useState(false);
@@ -209,7 +211,7 @@ function ChatHeaderActions({ selectedId, setOnSuccess, details }) {
             >
               <path
                 d="M2 7.99251L2 8.00749M2 2L2 2.01498M2 13.985L2 14"
-                stroke="black"
+                stroke={theme === "light" ? "black" : "white"}
                 stroke-width="2.36268"
                 stroke-linecap="round"
                 stroke-linejoin="round"

@@ -114,6 +114,7 @@ function HomePage() {
                 <Form.Select
                   aria-label="Default select example"
                   onChange={handleCountry}
+                  className="input-theme-prod dark-theme-color"
                   required
                 >
                   <option value=''>{t("Country")}</option>
@@ -128,6 +129,7 @@ function HomePage() {
               <Form.Group className="mb-3 location" >
                 <Form.Label>{t("Select Location")}</Form.Label>
                 <Form.Select
+                  className="input-theme-prod dark-theme-color"
                   aria-label="Default select example"
                   required
                   onChange={(e) => regionChange(e)}

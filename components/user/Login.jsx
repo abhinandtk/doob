@@ -132,6 +132,7 @@ function Login({ setActiveModal, setShowLogin }) {
             <Form.Label>{t("Email Address")}</Form.Label>
             <Form.Control
               type="text"
+              className="input-theme-prod dark-theme-color"
               id="email"
               placeholder="Email"
               onChange={(e) => setEmail(e.target.value)}
@@ -141,12 +142,17 @@ function Login({ setActiveModal, setShowLogin }) {
 
           <Form.Group className="mb-3 pop1" controlId="formBasicPassword">
             <Form.Label>{t("Password")}</Form.Label>
-            <div className="password-input" style={{display:"flex",alignItems:"center",width:'105%'}}>
+            <div
+              className="password-input"
+              style={{ display: "flex", alignItems: "center", width: "105%" }}
+            >
               <Form.Control
                 type={showPassword ? "text" : "password"}
+                className="input-theme-prod dark-theme-color"
                 placeholder="Password"
                 onChange={(e) => setPassword(e.target.value)}
               />
+              &nbsp;
               <div
                 className="password-toggle"
                 onClick={() => setShowPassword(!showPassword)}
@@ -156,7 +162,7 @@ function Login({ setActiveModal, setShowLogin }) {
                 ></i>
               </div>
             </div>
-            <div className="forget" onClick={handleforgetpsw}>
+            <div className="forget dark-theme-color" onClick={handleforgetpsw}>
               {" "}
               {t("Forgot Password")}
             </div>

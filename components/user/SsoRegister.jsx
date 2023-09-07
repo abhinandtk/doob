@@ -86,7 +86,7 @@ function SsoRegister({ setActiveModal, countries }) {
             </Form.Group>
 
             <Form.Group className="mb-1" style={{ marginLeft: "180px" }}>
-              <Form.Label>Username*</Form.Label>
+              <Form.Label>{t("Username")}*</Form.Label>
               <Form.Control
                 id="username"
                 type="text"
@@ -101,7 +101,7 @@ function SsoRegister({ setActiveModal, countries }) {
             </Form.Group>
 
             <Form.Group className="mb-1" style={{ marginLeft: "180px" }}>
-              <Form.Label>Email*</Form.Label>
+              <Form.Label>{t("Email")}*</Form.Label>
               <Form.Control
                 id="email"
                 type="text"
@@ -116,7 +116,7 @@ function SsoRegister({ setActiveModal, countries }) {
             </Form.Group>
 
             <Form.Label style={{ marginLeft: "176px" }}>
-              Phone Number*
+              {t("Phone Number")}*
             </Form.Label>
             <Form.Group
               className=" d-flex justify-content-between align-items-center "
@@ -155,7 +155,7 @@ function SsoRegister({ setActiveModal, countries }) {
             </Form.Group>
 
             <Form.Group className="mb-1" style={{ marginLeft: "180px" }}>
-              <Form.Label>Gender</Form.Label>
+              <Form.Label>{t("Gender")}*</Form.Label>
               <Form.Select
                 id="gender"
                 aria-label="Default select example"
@@ -170,7 +170,7 @@ function SsoRegister({ setActiveModal, countries }) {
               </Form.Select>
             </Form.Group>
             <Form.Group className="mb-1" style={{ marginLeft: "180px" }}>
-              <Form.Label>Nationality</Form.Label>
+              <Form.Label>{t("Nationality")}*</Form.Label>
               <Form.Select
                 id="nationality"
                 aria-label="Default select example"
@@ -186,7 +186,7 @@ function SsoRegister({ setActiveModal, countries }) {
             </Form.Group>
 
             <Form.Group className="mb-1" style={{ marginLeft: "180px" }}>
-              <Form.Label>Date of Birth</Form.Label>
+              <Form.Label>{t("Date of Birth")}*</Form.Label>
               <Form.Control
                 id="dob"
                 type="text"
