@@ -51,7 +51,7 @@ function GameBookingCard({ data }) {
                   <p>{moment(value.stadium_details.date).format("MMM")}</p>
                 </div>
                 <div className="book-details">
-                  <p style={{ color: "#959595" }}>
+                  <p style={{color: "#959595", textAlign:locale==='ar'?'right':"",direction:locale==='ar'?'ltr':""}}>
                     {moment(
                       value.stadium_details.timeslots[0]["start_time"],
                       "hh:mm:ss"
