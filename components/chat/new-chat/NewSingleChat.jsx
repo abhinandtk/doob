@@ -64,6 +64,7 @@ function NewSingleChat({ onChatSelect, onNewMsg, onGrpShow }) {
         <div className="header">
           <div className="text">
             <h6
+              className="dark-theme-color"
               style={{
                 fontWeight: "600",
                 fontSize: "17px",
@@ -98,7 +99,7 @@ function NewSingleChat({ onChatSelect, onNewMsg, onGrpShow }) {
             <input
               type="text"
               onChange={(e) => searchChangeHandler(e)}
-              placeholder="Search Contacts"
+              placeholder={t("Search Contacts")}
             ></input>
           </div>
         </div>
@@ -133,9 +134,10 @@ function NewSingleChat({ onChatSelect, onNewMsg, onGrpShow }) {
                   fontSize: "17px",
                   marginLeft: "13px",
                 }}
+                className="dark-theme-color"
                 onClick={() => onGrpShow(true)}
               >
-                Add new group
+                {t("Add new group")}
               </h6>
             </span>
           </div>

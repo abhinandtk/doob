@@ -189,7 +189,7 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
         message: constants.Error,
         description: "only admin can change profile",
       });
-      return false; 
+      return false;
     }
   };
   return (
@@ -199,7 +199,7 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
         onCancel={() => setVisible(false)}
         footer={null}
         centered
-        title="Add Members"
+        title={t("Add Members")}
       >
         <Input
           placeholder="Enter names"
@@ -272,6 +272,7 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
         <div className="header">
           <div className="text">
             <h6
+              className="dark-theme-color"
               style={{
                 fontWeight: "600",
                 fontSize: "17px",
@@ -297,7 +298,7 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
                   />
                 </svg>
               </span>
-              Group Info
+              {t("Group Info")}
             </h6>
           </div>
           <div className="mx-2">
@@ -308,7 +309,7 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
                 style={{ backgroundColor: "#17A803" }}
                 onClick={() => editGroupHandler()}
               >
-                Save
+                {t("Save")}
               </Button>
             )}
           </div>
@@ -355,10 +356,13 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
                 />
               )}
             </div>
-            <div>
+            <div className="dark-theme-color">
               {grpName}
               {isAdmin && (
-                <span onClick={() => setShowEditName(true)} style={{cursor:"pointer"}}>
+                <span
+                  onClick={() => setShowEditName(true)}
+                  style={{ cursor: "pointer" }}
+                >
                   <i
                     className="bi bi-pencil-fill mx-2"
                     style={{ color: "grey" }}
@@ -366,13 +370,13 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
                 </span>
               )}
             </div>
-            <p>
+            <p className="dark-theme-color">
               {selectedUser.length}&nbsp; {t("Participants")}
             </p>
             {showEditName && (
               <Input
                 className="my-2"
-                placeholder="Group Name"
+                placeholder={t("Group Name")}
                 onChange={(e) => setGrpName(e.target.value)}
                 value={grpName}
                 style={{
@@ -391,7 +395,7 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
               display: "flex",
             }}
           >
-            <p style={{ width: "50%" }}>Group members</p>
+            <p className="dark-theme-color" style={{ width: "50%" }}>{t("Group members")}</p>
             {isAdmin && (
               <div
                 className="mx-2"
@@ -403,7 +407,7 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
                   style={{ backgroundColor: "#17A803" }}
                   onClick={() => setVisible(true)}
                 >
-                  Add members
+                  {t("Add members")}
                 </Button>
               </div>
             )}
@@ -432,7 +436,7 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
                     </div>
                   </div>
                   {item.user.is_admin && (
-                    <p className="grp-admin-label mx-2">Group Admin</p>
+                    <p className="grp-admin-label mx-2">{t("Group Admin")}</p>
                   )}
                   {isAdmin && currentUser != item.user.id && (
                     <p onClick={() => removeUserHandler(item.user.id)}>

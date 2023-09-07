@@ -195,6 +195,7 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
         <div className="header">
           <div className="text">
             <h6
+              className="dark-theme-color"
               style={{
                 fontWeight: "600",
                 fontSize: "17px",
@@ -302,7 +303,9 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
               display: "flex",
             }}
           >
-            <p style={{ width: "50%" }}>Group members</p>
+            <p style={{ width: "50%" }} className="dark-theme-color">
+              {t("Group members")}
+            </p>
             <div className="mx-2" style={{ width: "50%", textAlign: "right" }}>
               <Button
                 type="primary"
@@ -310,7 +313,7 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
                 style={{ backgroundColor: "#17A803" }}
                 onClick={() => setVisible(true)}
               >
-                Add members
+                {t("Add members")}
               </Button>
             </div>
           </div>
