@@ -135,14 +135,18 @@ function GameDetailTopContent({ details, setOnSuccess }) {
                   </span>
                   <br></br>
                   <span>
-                    <i class="bi bi-clock"></i>
+                    <i class="bi bi-clock"  style={{float:locale==='ar'?'right':""}}></i>
                     <span
                       className="mx-2"
-                      style={{ fontWeight: "500", fontSize: "14px" }}
+               
+                      style={{fontWeight: "500", fontSize: "14px" , float:locale==='ar'?'right':""}}
                     >
                       {dateConvertHandler(details.game_date)}
                     </span>
-                    <span style={{ fontWeight: "500", fontSize: "14px" }}>
+                    <span   style={{fontWeight: "500", fontSize: "14px" , float:locale==='ar'?'right':"",direction:locale==='ar'?'ltr':""}}>
+                                
+                  
+                      
                       {details.stadium.time_slots &&
                         timeConvertHandler(
                           details.stadium.time_slots[0].start_time

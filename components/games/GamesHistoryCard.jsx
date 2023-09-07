@@ -59,7 +59,7 @@ function GamesHistoryCard({ data }) {
                     </div>
                   </div>
                   <div className={locale === "en" ? "book-content" : "book-content_ar"}>
-                    <div className="book-date">
+                    <div className="book-date"   >
                       <h5 style={{ color: "#17A803", fontWeight: "700" }}>
                         {moment(item.stadium_details.date).format("D")}
                       </h5>
@@ -69,7 +69,7 @@ function GamesHistoryCard({ data }) {
                       <h5 className="card-texts">
                         {item.stadium_details.game_title}
                       </h5>
-                      <p style={{ color: "#959595" }}>
+                      <p style={{color: "#959595", textAlign:locale==='ar'?'right':"",direction:locale==='ar'?'ltr':""}}>                 
                         {moment(
                           item.stadium_details.timeslots[0]["start_time"],
                           "hh:mm:ss"

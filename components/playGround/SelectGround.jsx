@@ -189,7 +189,7 @@ function SelectGround({ details, setSuccess, setDateSelected }) {
                       >
                         {/* <p style={{ marginTop: "13px", marginLeft: "23px" }}> */}
 
-                        <p style={{ marginTop: "13px", marginLeft: locale === "en" ? "23px" : "", marginRight: locale === "ar" ? "23px" : "" }} >
+                        <p style={{ marginTop: "13px", marginLeft: locale === "en" ? "23px" : "", marginRight: locale === "ar" ? "23px" : "" ,direction: locale === "ar" ? "ltr" : "" }} >
 
                           {moment(item.start_time, "hh:mm:ss").format(
                             "hh:mm A"
