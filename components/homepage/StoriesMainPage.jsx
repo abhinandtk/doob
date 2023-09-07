@@ -3,9 +3,11 @@ import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 function StoriesMainPage() {
   const router = useRouter();
   const [storyList, setStoryList] = useState([]);
+  const {t}=useTranslation()
 
   useEffect(() => {
     Axios.get(apis.userStoryList, {
@@ -25,7 +27,7 @@ function StoriesMainPage() {
     >
       {storyList.length > 0 && (
         <div className="ms-1" style={{ fontWeight: 500 }}>
-          My Followers
+          {t("My Followers")}
         </div>
       )}
       <button className="stories__left-button">
@@ -37,7 +39,7 @@ function StoriesMainPage() {
         </svg>
       </button>
 
-      <div className="stories__content">
+      <div className="stories__content " >
         {/* <button className="story story--has-story">
           <div className="story__avatar">
             <div className="story__border">
@@ -135,8 +137,56 @@ function StoriesMainPage() {
               <img src="../images/str9.png" alt="User Picture" />
             </div>
           </div>
-        </button> */}
-        {/* <button className="story">
+        </button>
+        <button className="story">
+          <div className="story__avatar">
+            <div className="story__border">
+              <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+                <circle r="31" cy="32" cx="32" />
+              </svg>
+            </div>
+            <div className="story__picture">
+              <img src="../images/str5.png" alt="User Picture" />
+            </div>
+          </div>
+        </button>
+        <button className="story">
+          <div className="story__avatar">
+            <div className="story__border">
+              <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+                <circle r="31" cy="32" cx="32" />
+              </svg>
+            </div>
+            <div className="story__picture">
+              <img src="../images/str6.png" alt="User Picture" />
+            </div>
+          </div>
+        </button>
+        <button className="story">
+          <div className="story__avatar">
+            <div className="story__border">
+              <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+                <circle r="31" cy="32" cx="32" />
+              </svg>
+            </div>
+            <div className="story__picture">
+              <img src="../images/str7.png" alt="User Picture" />
+            </div>
+          </div>
+        </button>
+        <button className="story">
+          <div className="story__avatar">
+            <div className="story__border">
+              <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+                <circle r="31" cy="32" cx="32" />
+              </svg>
+            </div>
+            <div className="story__picture">
+              <img src="../images/str9.png" alt="User Picture" />
+            </div>
+          </div>
+        </button>
+        <button className="story">
           <div className="story__avatar">
             <div className="story__border">
               <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">

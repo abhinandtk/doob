@@ -4,22 +4,24 @@ import ChatHeaderActions from "./ChatHeaderActions";
 import constants from "@/public/data/my-constants/Constants";
 import ChatHeaderActionsGroup from "./ChatHeaderActionsGroup";
 import moment from "moment";
+import { useRouter } from "next/router";
 
 function ChatBoxHeader({ details, selectedId, setOnSuccess, onNewMsg }) {
+  const router = useRouter()
+  const { locale } = router;
   console.log("trtrtrtrtrweee", details);
   function lastSeenHandler(lastLoginTime) {
     const currentTime = moment();
     const loginTime = moment(lastLoginTime);
-
     const timeDiff = currentTime.diff(loginTime, "minutes");
 
     return timeDiff <= 3;
   }
   return (
     <Fragment>
-      <div className="header-full-chat">
+      <div className="header-full-chat tour-detail-ar ">
         {details && (
-          <div className="header">
+          <div className="header ">
             <div className="imgText">
               <div className="userimg">
                 {details.type === "group" ? (
@@ -30,7 +32,7 @@ function ChatBoxHeader({ details, selectedId, setOnSuccess, onNewMsg }) {
                         : "/images/accounts/group_default.png"
                     }
                     alt=""
-                    className="pic"
+                    className={locale === "en" ? "pic" : "pic_ar"}
                   ></img>
                 ) : (
                   <img
@@ -40,23 +42,26 @@ function ChatBoxHeader({ details, selectedId, setOnSuccess, onNewMsg }) {
                         : "/images/accounts/user_default.png"
                     }
                     alt=""
-                    className="pic"
+                    className={locale === "en" ? "pic" : "pic_ar"}
+           
+                    
                   ></img>
                   
                 )}
               
                 <p
-                  style={{
-                    marginLeft: "90px",
-                    marginTop: "36px",
-                    fontWeight: "600",
-                    fontSize: "14px",
-                    minWidth: "100px",
-                  }}
+                  style={{ marginTop: "36px", fontWeight: "600", fontSize: "14px", minWidth: "100px", marginRight: locale === 'ar' ? '90px' : "" ,marginLeft: locale === 'en' ? '90px' : "" }}
+                // style={{
+                //   marginLeft: "90px",
+                //   marginTop: "36px",
+                //   fontWeight: "600",
+                //   fontSize: "14px",
+                //   minWidth: "100px",
+                // }}
                 >
                   {details.name}
                   <br></br>
-                  {lastSeenHandler(details.last_login) && details.type!=="group"&&(
+                  {lastSeenHandler(details.last_login) && details.type !== "group" && (
                     <span
                       style={{
                         fontWeight: "400",
@@ -70,7 +75,7 @@ function ChatBoxHeader({ details, selectedId, setOnSuccess, onNewMsg }) {
                   &nbsp;
                 </p>
               </div>
-              {lastSeenHandler(details.last_login) && details.type!=="group"&&(
+              {lastSeenHandler(details.last_login) && details.type !== "group" && (
                 <svg
                   width="10"
                   height="10"

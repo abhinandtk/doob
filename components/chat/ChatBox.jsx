@@ -12,9 +12,12 @@ import ChatInputUpload from "./ChatInputUpload";
 import { useRef } from "react";
 import { Realtime } from "ably";
 import Link from "next/link";
+import { useRouter } from "next/router";
 function ChatBox({ selectedId, onNewMsg }) {
   const [chatHeader, setChatHeader] = useState(null);
   const [chatList, setChatList] = useState([]);
+  const router = useRouter();
+  const { locale } = router;
   const [onSuccess, setOnSuccess] = useState(false);
   const currentUser = constants.user_id;
   const ably = new Realtime({
@@ -74,7 +77,8 @@ function ChatBox({ selectedId, onNewMsg }) {
 
   return (
     <Fragment>
-      <div className="rightSide1">
+
+      <div className="rightSide1 ">
         <ChatBoxHeader
           details={chatHeader}
           selectedId={selectedId}
@@ -83,7 +87,7 @@ function ChatBox({ selectedId, onNewMsg }) {
         />
 
         <div
-          className="chat-container"
+          className="chat-container tour-detail-ar "
           style={{ height: "70%", overflow: "auto" }}
         >
           {chatList.map((item, index) => (
@@ -129,7 +133,7 @@ function ChatBox({ selectedId, onNewMsg }) {
                               </p>
                             )}
                           </div>
-                          <div className="my_chatam">
+                          <div className="my_chatam" style={{direction:locale==='ar'?'ltr':"", float:locale==='ar'?'left':""}}>
                             {moment(msg.date).format("hh:mm A")}
                           </div>
                         </div>

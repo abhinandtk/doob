@@ -543,20 +543,23 @@ input.nosubmit1 {
 
 .stories__content {
   display: flex;
-  overflow-x: auto;
+  overflow-x: scroll;
   overflow-y: hidden;
   gap: 16px;
   padding: 15px 0px;
   position: relative;
   margin-left: -6px;
   scroll-behavior: smooth;
-  scrollbar-width: none;
   width: 745px;
 }
 
 .stories__content::-webkit-scrollbar {
   display: none;
 }
+
+// .stories__content::-webkit-scrollbar-thumb {
+//   background: transparent;
+// }
 
 .posts {
   display: flex;
@@ -601,7 +604,6 @@ input.nosubmit1 {
   background-color: transparent;
   border: none;
   cursor: pointer;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1775,6 +1777,17 @@ input.nosubmit1 {
   position: absolute;
   top: 0;
   left: 0;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-top: 35px;
+  margin-left: 35px;
+  border-radius: 50%;
+}
+.pic_ar{
+  position: absolute;
+  top: 0;
+  left: 70px;
   width: 50px;
   height: 50px;
   object-fit: cover;
