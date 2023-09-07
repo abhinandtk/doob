@@ -316,7 +316,8 @@ function ContainerHomePosts() {
                                 )}
                               </a>
                             </div>
-                            <div className="time">
+                            <div  className= "time" style={{direction:locale==='ar'?'ltr':""}}>
+
                               {timeSincePost(item.posted)}
                             </div>
                           </div>
@@ -423,7 +424,7 @@ function ContainerHomePosts() {
                             &nbsp;Post
                           </div>
                         </div>
-                        <div  className={locale === "ar" ? "time" : "time_ar"}>{timeSincePost(item.posted)}</div>
+                        <div  className= "time" style={{direction:locale==='ar'?'ltr':""}}>{timeSincePost(item.posted)}</div>
                       </div>
                     </div>
                   )}

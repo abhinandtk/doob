@@ -266,7 +266,7 @@ function StoreTopDetails({ data, setSuccess }) {
             <p style={{ fontSize: "13px", color: "gray" }}>{data.address}</p>
 
             <ReviewStore data={data} />
-            <p className="dark-theme-color">
+            <p className="dark-theme-color" style={{direction:locale==='ar'?'ltr':"",float:locale==='ar'?'right':""}}>
               <i className="bi bi-clock"></i>
               <span className="mx-2">
                 {moment(data.start_time, "HH:mm:ss").format("hh:mm A")} -
@@ -277,7 +277,7 @@ function StoreTopDetails({ data, setSuccess }) {
 
           <div className="col-md-6">
             <div className={locale === "en" ? "more" : "more_ar"} onClick={() => setDescShow(!descShow)}>
-              More
+              {t("More")}
               {descShow ? (
                 <i className="bi bi-chevron-down "></i>
               ) : (
