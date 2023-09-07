@@ -120,7 +120,7 @@ function GamesCard({ data }) {
                   </div>
                   <div className="book-details">
                     <h5 className="book-head">{item.title}</h5>
-                    <p className="book-time-date">
+                    <p className="book-time-date" style={{direction:locale==='ar'?'ltr':"",textAlign:locale==='ar'?'right':""}}>
                       {moment(
                         item.stadium.time_slots[0]["start_time"],
                         "hh:mm:ss"
