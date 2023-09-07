@@ -78,7 +78,7 @@ function SupportPage() {
                 supportList.map((item, index) => (
                   <div key={index} className="my-3">
                     <div
-                      className="   mx-auto d-flex justify-content-between align-items-center"
+                      className="dark-theme-color mx-auto d-flex justify-content-between align-items-center"
                       style={{ width: "90%" }}
                     >
                       <span style={{ fontWeight: "500" }}>

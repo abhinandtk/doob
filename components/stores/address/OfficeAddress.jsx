@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
-function OfficeAddress({ handleAddAddress, areaData,edit }) {
+function OfficeAddress({ handleAddAddress, areaData, edit }) {
   const { t } = useTranslation();
   console.log("area34", areaData);
   const router = useRouter();
@@ -49,7 +49,7 @@ function OfficeAddress({ handleAddAddress, areaData,edit }) {
           officePhone: res.data.data.officenumber,
           remark: res.data.data.remark,
         });
-        setDefaultAddress(res.data.data.is_default)
+        setDefaultAddress(res.data.data.is_default);
       });
     }
   }, []);
@@ -72,18 +72,18 @@ function OfficeAddress({ handleAddAddress, areaData,edit }) {
             id="name"
             type="text"
             value={formData.name}
-            className="form-control p-2"
+            className="form-control input-theme-prod p-2"
             onChange={(e) => handleChange(e)}
-            style={{ border: "0px", background: "#eeeeee" }}
+            style={{ border: "0px" }}
           />
         </div>
         <div className="form-group my-2">
           <label for="exampleFormControlSelect1">{t("Select Area")}*</label>
           <select
             id="area"
-            className="form-control p-2"
+            className="form-control input-theme-prod p-2"
             onChange={(e) => handleChange(e)}
-            style={{ border: "0px", background: "#eeeeee" }}
+            style={{ border: "0px" }}
             value={formData.area}
           >
             <option value="">{t("--Select--")}</option>
@@ -100,9 +100,9 @@ function OfficeAddress({ handleAddAddress, areaData,edit }) {
             id="block"
             type="text"
             value={formData.block}
-            className="form-control p-2"
+            className="form-control input-theme-prod p-2"
             onChange={(e) => handleChange(e)}
-            style={{ border: "0px", background: "#eeeeee" }}
+            style={{ border: "0px" }}
           />
         </div>
         <div className="form-group my-2">
@@ -111,9 +111,9 @@ function OfficeAddress({ handleAddAddress, areaData,edit }) {
             id="street"
             type="text"
             value={formData.street}
-            className="form-control p-2"
+            className="form-control input-theme-prod p-2"
             onChange={(e) => handleChange(e)}
-            style={{ border: "0px", background: "#eeeeee" }}
+            style={{ border: "0px" }}
           />
         </div>
         <div className="form-group my-2">
@@ -122,9 +122,9 @@ function OfficeAddress({ handleAddAddress, areaData,edit }) {
             id="avenue"
             type="text"
             value={formData.avenue}
-            className="form-control p-2"
+            className="form-control input-theme-prod p-2"
             onChange={(e) => handleChange(e)}
-            style={{ border: "0px", background: "#eeeeee" }}
+            style={{ border: "0px" }}
           />
         </div>
         <div className="form-group my-2">
@@ -133,9 +133,9 @@ function OfficeAddress({ handleAddAddress, areaData,edit }) {
             type="text"
             id="officeName"
             value={formData.officeName}
-            className="form-control p-2"
+            className="form-control input-theme-prod p-2"
             onChange={(e) => handleChange(e)}
-            style={{ border: "0px", background: "#eeeeee" }}
+            style={{ border: "0px" }}
           />
         </div>
 
@@ -145,9 +145,9 @@ function OfficeAddress({ handleAddAddress, areaData,edit }) {
             id="phone"
             type="text"
             value={formData.phone}
-            className="form-control p-2"
+            className="form-control input-theme-prod p-2"
             onChange={(e) => handleChange(e)}
-            style={{ border: "0px", background: "#eeeeee" }}
+            style={{ border: "0px" }}
           />
         </div>
         <div className="form-group my-2">
@@ -156,9 +156,9 @@ function OfficeAddress({ handleAddAddress, areaData,edit }) {
             id="officePhone"
             type="text"
             value={formData.officePhone}
-            className="form-control p-2"
+            className="form-control input-theme-prod p-2"
             onChange={(e) => handleChange(e)}
-            style={{ border: "0px", background: "#eeeeee" }}
+            style={{ border: "0px" }}
           />
         </div>
         <div className="form-group my-2 ">
@@ -167,15 +167,16 @@ function OfficeAddress({ handleAddAddress, areaData,edit }) {
             id="remark"
             type="text"
             value={formData.remark}
-            className="form-control p-2"
+            className="form-control input-theme-prod p-2"
             onChange={(e) => handleChange(e)}
-            style={{ border: "0px", background: "#eeeeee" }}
+            style={{ border: "0px" }}
           />
         </div>
         <div className="form-group my-2 ">
           <Checkbox
             onChange={(e) => setDefaultAddress(e.target.checked)}
             checked={defaultAddress}
+            className="dark-theme-color"
           >
             {t("Make this as the default address")}
           </Checkbox>

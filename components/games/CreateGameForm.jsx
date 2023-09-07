@@ -73,7 +73,7 @@ function CreateGameForm() {
   };
 
   const submitHandler = (e) => {
-    setIsDisabled(true)
+    setIsDisabled(true);
     e.preventDefault();
     console.log("form", formData);
     const formdata = new FormData();
@@ -101,7 +101,7 @@ function CreateGameForm() {
         });
         router.push("/play-ground");
       } else {
-        setIsDisabled(false)
+        setIsDisabled(false);
         notification.error({
           message: constants.Error,
           description:
@@ -117,13 +117,14 @@ function CreateGameForm() {
     <div>
       <form onSubmit={(e) => submitHandler(e)}>
         <div className="form-group my-3">
-          <label for="exampleInputPassword1">{t("Title")}</label>
+          <label for="exampleInputPassword1">{t("Title")}*</label>
           <input
+            required
             type="text"
-            className="form-control p-2"
+            className="form-control input-theme-prod p-2"
             style={{
               border: "0px",
-              background: "#eeeeee",
+
               color: "#959595",
             }}
             id="title"
@@ -131,14 +132,15 @@ function CreateGameForm() {
           />
         </div>
         <div className="form-group my-1">
-          <label for="exampleFormControlInput1">{t("Image")}</label>
+          <label for="exampleFormControlInput1">{t("Image")}*</label>
           <input
+            required
             type="file"
             id="image"
-            className="form-control p-2 "
+            className="form-control input-theme-prod p-2 "
             style={{
               border: "0px",
-              background: "#eeeeee",
+
               color: "grey",
             }}
             placeholder="No file choosen"
@@ -146,13 +148,13 @@ function CreateGameForm() {
           />
         </div>
         <div className="form-group my-2">
-          <label for="example ormControlSelect1">{t("Game")}</label>
+          <label for="example ormControlSelect1">{t("Game")}*</label>
           <select
             required
-            className="form-control p-2 "
+            className="form-control input-theme-prod p-2 "
             style={{
               border: "0px",
-              background: "#eeeeee",
+
               color: "#959595",
             }}
             id="game"
@@ -169,12 +171,13 @@ function CreateGameForm() {
           </select>
         </div>
         <div className="form-group my-3">
-          <label for="exampleFormControlTextarea1">{t("Description")}</label>
+          <label for="exampleFormControlTextarea1">{t("Description")}*</label>
           <textarea
-            className="form-control"
+            required
+            className="form-control input-theme-prod"
             style={{
               border: "0px",
-              background: "#eeeeee",
+
               color: "grey",
             }}
             id="description"
@@ -183,13 +186,13 @@ function CreateGameForm() {
           ></textarea>
         </div>
         <div className="form-group my-2">
-          <label for="example ormControlSelect1">{t("Visible to")}</label>
+          <label for="example ormControlSelect1">{t("Visible to")}*</label>
           <select
             required
-            className="form-control p-2 "
+            className="form-control input-theme-prod p-2 "
             style={{
               border: "0px",
-              background: "#eeeeee",
+
               color: "#959595",
             }}
             id="visible"
@@ -210,13 +213,13 @@ function CreateGameForm() {
           </select>
         </div>
         <div className="form-group my-3">
-          <label for="exampleFormControlSelect1">{t("Gender")}</label>
+          <label for="exampleFormControlSelect1">{t("Gender")}*</label>
           <select
             required
-            className="form-control p-2 "
+            className="form-control input-theme-prod p-2 "
             style={{
               border: "0px",
-              background: "#eeeeee",
+
               color: "#959595",
             }}
             id="gender"
@@ -236,12 +239,13 @@ function CreateGameForm() {
         <div className="row">
           <div className="col-md-6">
             <div className="form-group my-2">
-              <label for="exampleFormControlSelect1">{t("Age")}</label>
+              <label for="exampleFormControlSelect1">{t("Age")}*</label>
               <select
-                className="form-control p-2 "
+                required
+                className="form-control input-theme-prod p-2 "
                 style={{
                   border: "0px",
-                  background: "#eeeeee",
+
                   color: "#959595",
                 }}
                 id="ageFrom"
@@ -256,13 +260,13 @@ function CreateGameForm() {
           </div>
           <div className="col-md-6">
             <div className="form-group my-2">
-              <label for="exampleFormControlSelect1">{"Age"}</label>
+              <label for="exampleFormControlSelect1">{"Age"}*</label>
               <select
                 required
-                className="form-control p-2 "
+                className="form-control input-theme-prod p-2 "
                 style={{
                   border: "0px",
-                  background: "#eeeeee",
+
                   color: "#959595",
                 }}
                 id="ageTo"
@@ -278,14 +282,15 @@ function CreateGameForm() {
         </div>
         <div className="form-group my-3">
           <label for="exampleInputPassword1">
-            {t("Number of Participants")}
+            {t("Number of Participants")}*
           </label>
           <input
+            required
             type="text"
-            className="form-control p-2"
+            className="form-control input-theme-prod p-2"
             style={{
               border: "0px",
-              background: "#eeeeee",
+
               color: "#959595",
             }}
             id="participants"
@@ -293,13 +298,14 @@ function CreateGameForm() {
           />
         </div>
         <div className="form-group my-3">
-          <label for="exampleInputPassword1">{t("Last day of joining")}</label>
+          <label for="exampleInputPassword1">{t("Last day of joining")}*</label>
           <input
+            required
             type="date"
-            className="form-control p-2"
+            className="form-control input-theme-prod p-2"
             style={{
               border: "0px",
-              background: "#eeeeee",
+
               color: "#959595",
             }}
             min={moment().format("YYYY-MM-DD")}

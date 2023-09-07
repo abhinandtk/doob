@@ -88,10 +88,10 @@ function BannerForm({ bannerSubmitHandler, editData }) {
               <input
                 required
                 type="text"
-                class="form-control p-2"
+                class="form-control input-theme-prod p-2"
                 style={{
                   border: "0px",
-                  background: "#eeeeee",
+
                   color: "grey",
                 }}
                 id="name"
@@ -104,10 +104,10 @@ function BannerForm({ bannerSubmitHandler, editData }) {
               <input
                 required
                 type="text"
-                class="form-control p-2"
+                class="form-control input-theme-prod p-2"
                 style={{
                   border: "0px",
-                  background: "#eeeeee",
+
                   color: "grey",
                 }}
                 id="bannerUrl"
@@ -122,10 +122,10 @@ function BannerForm({ bannerSubmitHandler, editData }) {
               <input
                 required
                 type="number"
-                class="form-control p-2"
+                class="form-control input-theme-prod p-2"
                 style={{
                   border: "0px",
-                  background: "#eeeeee",
+
                   color: "grey",
                 }}
                 id="display"
@@ -144,10 +144,10 @@ function BannerForm({ bannerSubmitHandler, editData }) {
                 required={editData !== "true"}
                 type="file"
                 id="image"
-                className="form-control  p-2 "
+                className="form-control input-theme-prod  p-2 "
                 style={{
                   border: "0px",
-                  background: "#eeeeee",
+
                   color: "grey",
                 }}
                 placeholder="No file choosen"
@@ -161,10 +161,10 @@ function BannerForm({ bannerSubmitHandler, editData }) {
               <input
                 type="file"
                 id="appImage"
-                className="form-control  p-2 "
+                className="form-control input-theme-prod  p-2 "
                 style={{
                   border: "0px",
-                  background: "#eeeeee",
+                  
                   color: "grey",
                 }}
                 placeholder="No file choosen"
@@ -174,10 +174,10 @@ function BannerForm({ bannerSubmitHandler, editData }) {
             <div className="form-group my-2">
               <label for="exampleFormControlSelect1">{t("Banner Type")}</label>
               <select
-                className="form-control p-2"
+                className="form-control input-theme-prod p-2"
                 style={{
                   border: "0px",
-                  background: "#eeeeee",
+
                   color: "grey",
                 }}
                 id="type"

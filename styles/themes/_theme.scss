@@ -32,6 +32,9 @@
   .input-theme-prod {
     background-color: #eeeeee;
   }
+  .cont-theme-bg {
+    background-color: #ffffff;
+  }
 }
 
 [data-theme="dark"] {
@@ -117,5 +120,8 @@
   }
   .input-theme-prod {
     background-color: #3b444a;
+  }
+  .cont-theme-bg {
+    background-color: #343c42;
   }
 }

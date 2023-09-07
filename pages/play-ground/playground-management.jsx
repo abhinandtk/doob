@@ -121,7 +121,7 @@ function PlaygroundManagementPage() {
           <div className="play-0  ">
             <Card className="doct-card input-theme-prod">
               <Card.Body>
-                <Card.Title className="  playss ">
+                <Card.Title className="playss ">
                   <svg
                     width="42"
                     className="play-icons"

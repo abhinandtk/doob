@@ -143,7 +143,7 @@ function AddAddressPage() {
             <h6>{t("Address Type")}</h6>
             <div className="rrr">
               <button
-                className="button button23"
+                className="button button23 input-theme-prod"
                 onClick={() => setAddressType("home")}
                 style={{
                   color: `${addressType === "home" ? "#17A803" : ""}`,
@@ -153,7 +153,7 @@ function AddAddressPage() {
                 <span className="mx-1">{t("Home")}</span>
               </button>
               <button
-                className="button button23"
+                className="button button23 input-theme-prod"
                 onClick={() => setAddressType("office")}
                 style={{
                   color: `${addressType === "office" ? "#17A803" : ""}`,
@@ -163,7 +163,7 @@ function AddAddressPage() {
                 <span className="mx-1">{t("Office")}</span>
               </button>
               <button
-                className="button button23 "
+                className="button button23 input-theme-prod "
                 onClick={() => setAddressType("apartment")}
                 style={{
                   color: `${addressType === "apartment" ? "#17A803" : ""}`,
@@ -173,7 +173,7 @@ function AddAddressPage() {
                 <span className="mx-1">{t("Apartment")}</span>
               </button>
               <button
-                className="button button23"
+                className="button button23 input-theme-prod"
                 onClick={() => setAddressType("thirdParty")}
                 style={{
                   color: `${addressType === "thirdParty" ? "#17A803" : ""}`,

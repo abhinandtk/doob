@@ -47,7 +47,7 @@ function AllGamesPage() {
     <div className="btn-group me-2" role="group" aria-label="Second group">
       <button
         type="button"
-        className={`${
+        className={`dark-theme-color ${
           activeTab === tabKey
             ? "btn btn-outline-secondary games2"
             : "btn btn-outline-secondary games1"

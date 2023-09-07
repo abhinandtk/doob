@@ -137,8 +137,8 @@ function BrandSaleReport() {
                     <Dropdown.Toggle
                       variant=""
                       id="dropdown-basic"
+                      className="dark-theme-color"
                       style={{
-                        color: "black",
                         borderColor: "transparent",
                         background: "transparent",
                       }}
@@ -160,7 +160,7 @@ function BrandSaleReport() {
                     </Dropdown.Menu>
                   </Dropdown>
                   <span>
-                    <button type="button" className="export-btn">
+                    <button type="button" className="export-btn dark-theme-color input-theme-prod">
                       <a
                         href={url}
                         style={{ textDecoration: "none", color: "inherit" }}

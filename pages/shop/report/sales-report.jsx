@@ -133,8 +133,8 @@ function SalesReport() {
                     <Dropdown.Toggle
                       variant=""
                       id="dropdown-basic"
+                      className="dark-theme-color"
                       style={{
-                        color: "black",
                         borderColor: "transparent",
                         background: "transparent",
                       }}
@@ -156,7 +156,7 @@ function SalesReport() {
                     </Dropdown.Menu>
                   </Dropdown>
                   <span>
-                    <button type="button" className="export-btn">
+                    <button type="button" className="export-btn dark-theme-color input-theme-prod">
                       <a
                         href={url}
                         target="_blank"
@@ -182,15 +182,15 @@ function SalesReport() {
 
                 <br></br>
                 <div className="customer-sale">
-                  <div className="p-3 d-flex justify-content-between  customer">
+                  <div className="p-3 input-theme-prod d-flex justify-content-between  customer">
                     <span className="sales-report-name">{t("Customers")}</span>
                     <span>{salesData.total_customers}</span>
                   </div>
-                  <div className="p-3 d-flex justify-content-between my-3 customer">
+                  <div className="p-3 input-theme-prod d-flex justify-content-between my-3 customer">
                     <span className="sales-report-name">{t("Total Products")}</span>
                     <span>{salesData.total_products}</span>
                   </div>
-                  <div className="p-3 d-flex justify-content-between my-3  customer">
+                  <div className="p-3 input-theme-prod d-flex justify-content-between my-3  customer">
                     <span className="sales-report-name">{t("Total Orders")}</span>
                     <span>{salesData.total_orders}</span>
                   </div>

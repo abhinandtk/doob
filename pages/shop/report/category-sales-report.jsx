@@ -132,8 +132,8 @@ function CategorySalesReport() {
                     <Dropdown.Toggle
                       variant=""
                       id="dropdown-basic"
+                      className="dark-theme-color"
                       style={{
-                        color: "black",
                         borderColor: "transparent",
                         background: "transparent",
                       }}
@@ -155,7 +155,7 @@ function CategorySalesReport() {
                     </Dropdown.Menu>
                   </Dropdown>
                   <span>
-                    <button type="button" className="export-btn">
+                    <button type="button" className="export-btn dark-theme-color input-theme-prod">
                       <a
                         href={url}
                         style={{ textDecoration: "none", color: "inherit" }}
@@ -183,7 +183,7 @@ function CategorySalesReport() {
                     categoryReportData.map((item, index) => (
                       <div
                         key={index}
-                        className=" d-flex justify-content-between  customer my-3"
+                        className="input-theme-prod d-flex justify-content-between  customer my-3"
                       >
                         <span className="sales-report-name">
                           {item.category_name}

@@ -117,6 +117,7 @@ function ProfileEdit({ data, setSuccess }) {
             <Form.Control
               id="name"
               type="text"
+              className="cont-theme-bg"
               placeholder=""
               onChange={(e) => {
                 handleInputChange(e);
@@ -132,6 +133,7 @@ function ProfileEdit({ data, setSuccess }) {
             <Form.Control
               id="username"
               type="text"
+              className="cont-theme-bg"
               placeholder=""
               onChange={(e) => {
                 handleInputChange(e);
@@ -145,7 +147,7 @@ function ProfileEdit({ data, setSuccess }) {
           <Form.Group className="mb-2 d-flex justify-content-between align-items-center  ">
             <Form.Select
               id="code"
-              className="dot"
+              className="dot cont-theme-bg"
               onChange={(e) => {
                 handleInputChange(e);
               }}
@@ -164,7 +166,7 @@ function ProfileEdit({ data, setSuccess }) {
               type="text"
               maxLength="10"
               placeholder=""
-              className="dot1"
+              className="dot1 cont-theme-bg"
               onChange={(e) => {
                 handleInputChange(e);
               }}
@@ -177,6 +179,7 @@ function ProfileEdit({ data, setSuccess }) {
             <Form.Label>{t("Gender")}*</Form.Label>
             <Form.Select
               id="gender"
+              className="cont-theme-bg"
               aria-label="Default select example"
               onChange={(e) => {
                 handleInputChange(e);
@@ -184,7 +187,7 @@ function ProfileEdit({ data, setSuccess }) {
               value={profileFormData.gender}
               required
             >
-              <option value="">Select</option>
+              <option value="">{t("--Select--")}</option>
               <option value="Male">{t("Male")}</option>
               <option value="Female">{t("Female")}</option>
             </Form.Select>
@@ -193,6 +196,7 @@ function ProfileEdit({ data, setSuccess }) {
             <Form.Label>{t("Nationality")}*</Form.Label>
             <Form.Select
               id="nationality"
+              className="cont-theme-bg"
               aria-label="Default select example"
               onChange={(e) => {
                 handleInputChange(e);
@@ -214,6 +218,7 @@ function ProfileEdit({ data, setSuccess }) {
             <Form.Control
               id="dob"
               type="date"
+              className="cont-theme-bg"
               placeholder=""
               onChange={(e) => {
                 handleInputChange(e);
@@ -242,7 +247,11 @@ function ProfileEdit({ data, setSuccess }) {
       </Modal>
       <button
         onClick={() => setShowEdit(true)}
-        className={locale==="en"?" btn profile-edit-btn1":"btn profile-edit-btn1_ar"}
+        className={
+          locale === "en"
+            ? " btn profile-edit-btn1"
+            : "btn profile-edit-btn1_ar"
+        }
       >
         {t("Edit")}
       </button>

@@ -86,10 +86,10 @@ function OffersForm({ OfferSubmitHandler, editData }) {
               <input
                 required
                 type="text"
-                class="form-control p-2"
+                class="form-control input-theme-prod p-2"
                 style={{
                   border: "0px",
-                  background: "#eeeeee",
+                  
                   color: "grey",
                 }}
                 id="name"
@@ -104,10 +104,10 @@ function OffersForm({ OfferSubmitHandler, editData }) {
               <input
                 required
                 type="text"
-                class="form-control p-2"
+                class="form-control input-theme-prod p-2"
                 style={{
                   border: "0px",
-                  background: "#eeeeee",
+                  
                   color: "grey",
                 }}
                 id="nameArabic"
@@ -115,14 +115,14 @@ function OffersForm({ OfferSubmitHandler, editData }) {
                 onChange={(e) => handleOfferChange(e)}
               />
             </div>
-            <div class="form-group my-2">
+            <div class="form-group  my-2">
               <label for="exampleFormControlSelect1">
                 {t("Offer Products")}*
               </label>
               <Select
                 required
                 mode="multiple"
-                style={{ width: "100%" }}
+                style={{ width: "100%"}}
                 placeholder="Select items"
                 value={selectedItems}
                 onChange={handleSelectChange}

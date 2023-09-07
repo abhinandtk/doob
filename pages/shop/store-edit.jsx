@@ -157,10 +157,10 @@ function StoreEditPage() {
                   <input
                     required
                     type="text"
-                    className="form-control p-2"
+                    className="form-control input-theme-prod p-2"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
+                      
                       color: "grey",
                     }}
                     id="title"
@@ -175,10 +175,10 @@ function StoreEditPage() {
                   <input
                     required
                     type="text"
-                    className="form-control p-2"
+                    className="form-control input-theme-prod p-2"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
+                      
                       color: "grey",
                     }}
                     id="title_ar"
@@ -193,10 +193,10 @@ function StoreEditPage() {
                   <textarea
                     required
                     type="text"
-                    className="form-control p-2"
+                    className="form-control input-theme-prod p-2"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
+                      
                       color: "grey",
                     }}
                     rows={3}
@@ -212,10 +212,10 @@ function StoreEditPage() {
                   <textarea
                     required
                     type="text"
-                    className="form-control p-2"
+                    className="form-control input-theme-prod p-2"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
+                      
                       color: "grey",
                     }}
                     rows={3}
@@ -229,10 +229,10 @@ function StoreEditPage() {
                   <textarea
                     required
                     type="text"
-                    className="form-control p-2"
+                    className="form-control input-theme-prod p-2"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
+                      
                       color: "grey",
                     }}
                     rows={3}
@@ -246,10 +246,10 @@ function StoreEditPage() {
                   <input
                     required
                     type="text"
-                    className="form-control p-2"
+                    className="form-control input-theme-prod p-2"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
+                      
                       color: "grey",
                     }}
                     id="location"
@@ -265,10 +265,10 @@ function StoreEditPage() {
                   <input
                     required
                     type="number"
-                    className="form-control p-2"
+                    className="form-control input-theme-prod p-2"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
+                      
                       color: "grey",
                     }}
                     id="contact"
@@ -283,10 +283,10 @@ function StoreEditPage() {
                   <input
                     required
                     type="email"
-                    className="form-control p-2"
+                    className="form-control input-theme-prod p-2"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
+                      
                       color: "grey",
                     }}
                     id="email"
@@ -298,10 +298,10 @@ function StoreEditPage() {
                   <label for="exampleFormControlInput1">{t("Logo")}*</label>
                   <input
                     type="file"
-                    className="form-control p-2"
+                    className="form-control input-theme-prod p-2"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
+                      
                       color: "grey",
                     }}
                     id="logo"
@@ -314,10 +314,10 @@ function StoreEditPage() {
                   </label>
                   <input
                     type="file"
-                    className="form-control p-2"
+                    className="form-control input-theme-prod p-2"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
+                      
                       color: "grey",
                     }}
                     id="cover"
@@ -332,10 +332,10 @@ function StoreEditPage() {
                   <input
                     required
                     type="time"
-                    className="form-control p-2"
+                    className="form-control input-theme-prod p-2"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
+                      
                       color: "grey",
                     }}
                     id="start"
@@ -348,10 +348,10 @@ function StoreEditPage() {
                   <input
                     required
                     type="time"
-                    className="form-control p-2"
+                    className="form-control input-theme-prod p-2"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
+                      
                       color: "grey",
                     }}
                     id="end"

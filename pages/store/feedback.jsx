@@ -86,7 +86,7 @@ function FeedbackPage() {
                 id="title"
                 type="text"
                 placeholder={t("Title")}
-                className="  mx-2  op"
+                className="input-theme-prod mx-2 op"
                 style={{ width: "90%" }}
                 value={formData.title}
                 onChange={(e) => changeHandler(e)}
@@ -98,7 +98,7 @@ function FeedbackPage() {
                 id="email"
                 type="email"
                 placeholder={t("Email")}
-                className="  mx-2   op"
+                className="input-theme-prod mx-2 op"
                 style={{ width: "90%" }}
                 value={formData.email}
                 onChange={(e) => changeHandler(e)}
@@ -106,7 +106,7 @@ function FeedbackPage() {
             </Form.Group>
             <Form.Group className="mb-3 " controlId="formBasicEmail">
               <textarea
-                class="form-control   mx-2 op"
+                className="form-control input-theme-prod mx-2 op"
                 style={{ width: "90%", height: "190px" }}
                 id="description"
                 rows="3"

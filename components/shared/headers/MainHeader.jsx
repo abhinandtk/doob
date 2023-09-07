@@ -734,7 +734,7 @@ function MainHeader({ title }) {
       </Navbar>
 
       <Modal
-        title="Logout"
+        title={t("Logout")}
         open={confirmLogout}
         onCancel={() => setConfirmLogout(false)}
         centered
