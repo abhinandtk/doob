@@ -12,6 +12,7 @@ import NewMessageList from "@/components/chat/NewMessageList";
 import GroupInfo from "@/components/chat/GroupInfo";
 import MobileHeader from "@/components/MobileHeader";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useRouter } from "next/router";
 export async function getStaticProps({ locale }) {
   return {
     props: {
@@ -20,7 +21,9 @@ export async function getStaticProps({ locale }) {
   };
 }
 function MessagesPage() {
-  const [selectedChatId, setSelectedChatId] = useState(null);
+  const router = useRouter();
+  const { chatId } = router.query;
+  const [selectedChatId, setSelectedChatId] = useState(chatId ? chatId : null);
   const [showNewMsg, setShowNewMsg] = useState(null);
   const showChatHandler = (id) => {
     setSelectedChatId(id);
@@ -28,11 +31,11 @@ function MessagesPage() {
   const showNewMsgHandler = (state) => {
     setShowNewMsg(state);
   };
-  console.log("selectedChatId", selectedChatId);
+  console.log("selectedChatId", chatId, selectedChatId);
   return (
     <div>
       <MainHeader title="Doob" />
-      <MobileHeader/>
+      <MobileHeader />
       <MobileFooter />
       <MainSidebarFixed />
 
@@ -46,7 +49,7 @@ function MessagesPage() {
           <GroupInfo
             selectedId={selectedChatId}
             // onChatSelect={showChatHandler}
-            onNewMsg={showNewMsgHandler} 
+            onNewMsg={showNewMsgHandler}
           />
         ) : (
           <MessagesList
