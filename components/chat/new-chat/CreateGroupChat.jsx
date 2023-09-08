@@ -286,7 +286,7 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
             </Upload>
             <Input
               className="my-2"
-              placeholder="Group Name"
+              placeholder={t("Group Name")}
               onChange={(e) => setGrpName(e.target.value)}
               style={{
                 border: "none",
