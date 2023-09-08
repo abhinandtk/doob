@@ -123,7 +123,7 @@ function Login({ setActiveModal, setShowLogin }) {
     setShowLogin(false);
   };
   return (
-    <Modal show={shows} onHide={() => modalHideHandler()}>
+    <Modal show={shows} onHide={() => modalHideHandler()}  style={{paddingLeft:'0px'}}>
       <Modal.Header></Modal.Header>
       <Modal.Title className="title">{t("Login")}</Modal.Title>
       <Modal.Body>

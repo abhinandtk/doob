@@ -13,6 +13,8 @@ function ShippingAddress({ data, setOnSuccess }) {
   const { t } = useTranslation();
   console.log('reultadd',data)
   const Router = useRouter();
+  const router = useRouter();
+  const { locale } = router;
 
   const [visible, setVisible] = useState(false);
 
@@ -75,7 +77,8 @@ function ShippingAddress({ data, setOnSuccess }) {
                   <div >
                     <img
                       src="/images/LocationIcon.png"
-                      className="me-4 mb-3"
+                      className={`${locale==='en'?"me-4 mb-3":"mx-2 mb-3"}`}
+
                     ></img>
                   </div>
                   <div className="ms-1 mt-3">

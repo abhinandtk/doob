@@ -555,17 +555,17 @@ input.nosubmit1 {
   padding: 15px 0px;
   position: relative;
   margin-left: -6px;
-  scroll-behavior: smooth;
   width: 745px;
 }
 
 .stories__content::-webkit-scrollbar {
-  display: none;
+  height: 3px;
+  border-radius: 50%;
 }
 
-// .stories__content::-webkit-scrollbar-thumb {
-//   background: transparent;
-// }
+.stories__content::-webkit-scrollbar-thumb {
+  background: rgb(179, 177, 177);
+}
 
 .posts {
   display: flex;
