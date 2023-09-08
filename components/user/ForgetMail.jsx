@@ -87,9 +87,9 @@ function ForgetEmail({ setActiveModal }) {
             <Form.Label></Form.Label>
             <Form.Control
               type="email"
-              className="mx-auto dot input-theme-prod dark-theme-color"
+              className="mx-auto dot modal-in input-theme-prod dark-theme-color"
               placeholder="Email"
-              style={{ width: "50%", marginTop: "-29px" }}
+              style={{  marginTop: "-29px" }}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
@@ -98,12 +98,8 @@ function ForgetEmail({ setActiveModal }) {
           <Modal.Footer>
             <Button
               type="submit"
-              className="text-white mx-auto mt-2 "
-              style={{
-                backgroundColor: "#17A803",
-                fontWeight: "600",
-                width: "363px",
-              }}
+              className="text-white mx-auto mt-2 modal-bt"
+              
             >
               {isLoading ? (
                 <>

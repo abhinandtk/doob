@@ -47,7 +47,7 @@ function ForgetOtp({ setActiveModal }) {
   return (
     <Modal show={show} onHide={() => setShow(false)} className="login">
       <Modal.Header closeButton></Modal.Header>
-      <Modal.Title style={{ marginLeft: "340px", marginTop: "10px" }}>
+      <Modal.Title style={{ marginLeft: "auto", marginTop: "10px",marginRight:'auto'}}>
         <img
           src="/images/1.png"
           style={{ width: "64px", height: "64px" }}
@@ -58,14 +58,15 @@ function ForgetOtp({ setActiveModal }) {
         style={{
           fontWeight: "700",
           fontSize: "16px",
-          marginLeft: "300px",
+          marginLeft: "auto",
+          marginRight: "auto",
           marginTop: "24px",
         }}
       >
         {t("Enter Your OTP")}
       </Modal.Title>
       <Modal.Title
-        style={{ fontSize: "15px", marginLeft: "180px", marginTop: "24px" }}
+        style={{ fontSize: "15px", marginLeft: "auto", marginTop: "24px" ,marginRight:'auto' }}
       >
         {t("To reset your password , Please Enter an OTP")}
       </Modal.Title>
@@ -75,9 +76,9 @@ function ForgetOtp({ setActiveModal }) {
             <Form.Label></Form.Label>
             <Form.Control
               type="text"
-              className="mx-auto input-theme-prod dark-theme-color"
+              className="mx-auto modal-in input-theme-prod dark-theme-color"
               // placeholder={t("OTP")}
-              style={{ width: "50%", marginTop: "-29px" }}
+              style={{  marginTop: "-29px" }}
               onChange={(e) => setFotp(e.target.value)}
               maxLength="6"
               required

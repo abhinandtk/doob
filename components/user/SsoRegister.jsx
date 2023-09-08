@@ -181,7 +181,7 @@ function SsoRegister({ setActiveModal, countries }) {
                 value={ssoRegisterForm.nationality}
               >
                 <option value="INDIA">INDIA</option>
-                <option value="usa">uSA</option>
+                <option value="usa">USA</option>
               </Form.Select>
             </Form.Group>
 

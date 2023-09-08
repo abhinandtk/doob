@@ -23,6 +23,9 @@ $primary-color: #17a803;
     padding: 3px;
   }
 }
+.modal-in{
+  width: 359px;
+}
 
 .game-choose1 {
   .ant-modal-footer .ant-btn {
@@ -137,7 +140,22 @@ $primary-color: #17a803;
     margin: 0;
   }
 }
+.modal-bt{
+ 
+    background-color: #17A803;
+    font-weight: 600;
+    width: 363px;
+}
 
 .ant-empty-description {
   color: var(--font-theme-color);
+}
+
+@media (max-width: 567px) {
+  .modal-in{
+    width: 100%;
+  }
+  .modal-bt{
+    width: 100%;
+}
 }

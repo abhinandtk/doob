@@ -57,7 +57,7 @@ function PasswordChange({ setActiveModal }) {
   return (
     <Modal show={show} onHide={() => setShow(false)} className="login">
       <Modal.Header closeButton></Modal.Header>
-      <Modal.Title style={{ marginLeft: "340px", marginTop: "10px" }}>
+      <Modal.Title style={{ marginLeft: "auto", marginTop: "10px",marginRight:'auto'}}>
         <img
           src="/images/1.png"
           style={{ width: "64px", height: "64px" }}
@@ -68,7 +68,8 @@ function PasswordChange({ setActiveModal }) {
         style={{
           fontWeight: "700",
           fontSize: "16px",
-          marginLeft: "300px",
+          marginLeft: "auto",
+          marginRight: "auto",
           marginTop: "24px",
         }}
       >
@@ -83,26 +84,29 @@ function PasswordChange({ setActiveModal }) {
             <Form.Label></Form.Label>
             <Form.Control
               type="password"
-              className="mx-auto dot input-theme-prod dark-theme-color"
+              className="mx-auto dot modal-in input-theme-prod dark-theme-color"
               placeholder={t("Password")}
-              style={{ width: "359px", marginTop: "-29px" }}
+              style={{  marginTop: "-29px" }}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
           </Form.Group>
           <br></br>
+           
+       
           <Form.Group className="" controlId="exampleForm.ControlInput1">
             <Form.Label></Form.Label>
             <Form.Control
               type="text"
-              className="mx-auto dot input-theme-prod dark-theme-color"
+              className="mx-auto dot modal-in input-theme-prod dark-theme-color"
               placeholder={t("Confirm Password")}
-              style={{ width: "359px", marginTop: "-29px" }}
+              style={{  marginTop: "-29px" }}
               onChange={(e) => setPassword2(e.target.value)}
               required
             />
-            &nbsp;
-            <div
+          
+          </Form.Group>
+          <div
               className="password-toggle"
               onClick={() => setShowPassword(!showPassword)}
             >
@@ -112,17 +116,12 @@ function PasswordChange({ setActiveModal }) {
                 style={{ cursor: "pointer" }}
               ></i>
             </div>
-          </Form.Group>
 
           <Modal.Footer>
             <Button
               type="submit"
-              className="text-white mx-auto mt-2 "
-              style={{
-                backgroundColor: "#17A803",
-                fontWeight: "600",
-                width: "363px",
-              }}
+              className="text-white modal-bt  mx-auto mt-2 "
+            
             >
               {t("Confirm")}
             </Button>
