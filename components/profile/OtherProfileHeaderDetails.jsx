@@ -10,6 +10,7 @@ import moment from "moment";
 import StarInfo from "./StarInfo";
 import { useTheme } from "next-themes";
 import { useTranslation } from "next-i18next";
+import MessageFromProfile from "./MessageFromProfile";
 function OtherProfileHeaderDetails({
   data,
   id,
@@ -143,7 +144,12 @@ function OtherProfileHeaderDetails({
         centered
         onCancel={() => setShow(false)}
         footer={[
-          <Button className='dark-theme-color' key="back" type="secondary" onClick={() => setShow(false)}>
+          <Button
+            className="dark-theme-color"
+            key="back"
+            type="secondary"
+            onClick={() => setShow(false)}
+          >
             {t("Cancel")}
           </Button>,
           <Button
@@ -393,22 +399,25 @@ function OtherProfileHeaderDetails({
                       className="side-menu__suggestion-buttons "
                       style={{ backgroundColor: "#EFEFEF", color: "#000000" }}
                     >
-                      Unblock
+                      {t("Unblock")}
                     </button>
                   ) : blockedfrom ? (
                     ""
                   ) : data.is_following === 1 ? (
-                    <button
-                      onClick={() => setShow(true)}
-                      className="side-menu__suggestion-buttons "
-                      style={{
-                        backgroundColor:
-                          theme === "dark" ? "#EFEFEF" : "#EFEFEF",
-                        color: "#000000",
-                      }}
-                    >
-                      {t("Following")} <i className="bi bi-chevron-down "></i>
-                    </button>
+                    <>
+                      <button
+                        onClick={() => setShow(true)}
+                        className="side-menu__suggestion-buttons "
+                        style={{
+                          backgroundColor:
+                            theme === "dark" ? "#EFEFEF" : "#EFEFEF",
+                          color: "#000000",
+                        }}
+                      >
+                        {t("Following")} <i className="bi bi-chevron-down "></i>
+                      </button>
+                      <MessageFromProfile />
+                    </>
                   ) : isPrivate ? (
                     <button
                       onClick={followHandler}
@@ -421,16 +430,20 @@ function OtherProfileHeaderDetails({
                       {data.is_requested == 0 ? "Follow" : "Requested"}
                     </button>
                   ) : (
-                    <button
-                      onClick={followHandler}
-                      className="side-menu__suggestion-buttons "
-                    >
-                      {t("Follow")}{" "}
-                    </button>
+                    <>
+                      <button
+                        onClick={followHandler}
+                        className="side-menu__suggestion-buttons "
+                      >
+                        {t("Follow")}{" "}
+                      </button>
+                      <MessageFromProfile />
+                    </>
                   )}
+
                   {(data.usertype === "Pro" || data.usertype === "Store") && (
                     <button
-                      className="side-menu__suggestion-button3 "
+                      className="side-menu__suggestion-buttons "
                       style={{ backgroundColor: "#17A803" }}
                       onClick={() =>
                         router.push(
@@ -443,14 +456,13 @@ function OtherProfileHeaderDetails({
                   )}
                   {(data.usertype === "Pro" || data.usertype === "Field") && (
                     <button
-                      className="side-menu__suggestion-button3 "
+                      className="side-menu__suggestion-buttons "
                       style={{ backgroundColor: "#17A803" }}
                       onClick={() => setShowField(true)}
                     >
                       {t("Book Now")}
                     </button>
                   )}
-                  {/* <button className="side-menu__suggestion-button3 ">Message</button> */}
                 </ul>
               </div>
               <Dropdown className="Drop">
@@ -534,13 +546,16 @@ function OtherProfileHeaderDetails({
             <div className="following">
               {" "}
               {data.is_following === 1 ? (
-                <button
-                  onClick={() => setShow(true)}
-                  className="side-menu__suggestion-buttons "
-                  style={{ backgroundColor: "#EFEFEF", color: "#000000" }}
-                >
-                  {t("Following")} <i className="bi bi-chevron-down "></i>
-                </button>
+                <>
+                  <button
+                    onClick={() => setShow(true)}
+                    className="side-menu__suggestion-buttons "
+                    style={{ backgroundColor: "#EFEFEF", color: "#000000" }}
+                  >
+                    {t("Following")} <i className="bi bi-chevron-down "></i>
+                  </button>
+                  <MessageFromProfile />
+                </>
               ) : isPrivate ? (
                 <button
                   onClick={followHandler}
@@ -550,16 +565,19 @@ function OtherProfileHeaderDetails({
                   {data.is_requested == 0 ? "Request" : "Requested"}
                 </button>
               ) : (
-                <button
-                  onClick={followHandler}
-                  className="side-menu__suggestion-buttons "
-                >
-                  {t("Follow")}{" "}
-                </button>
+                <>
+                  <button
+                    onClick={followHandler}
+                    className="side-menu__suggestion-buttons "
+                  >
+                    {t("Follow")}{" "}
+                  </button>
+                  <MessageFromProfile />
+                </>
               )}
               {(data.usertype === "Pro" || data.usertype === "Store") && (
                 <button
-                  className="side-menu__suggestion-button3 "
+                  className="side-menu__suggestion-buttons "
                   style={{ backgroundColor: "#17A803" }}
                   onClick={() =>
                     router.push(
@@ -572,14 +590,14 @@ function OtherProfileHeaderDetails({
               )}
               {(data.usertype === "Pro" || data.usertype === "Field") && (
                 <button
-                  className="side-menu__suggestion-button3 "
+                  className="side-menu__suggestion-buttons "
                   style={{ backgroundColor: "#17A803" }}
                   onClick={() => setShowField(true)}
                 >
                   {t("Book Now")}
                 </button>
               )}
-              {/* <button className="side-menu__suggestion-button3 ">Message</button> */}
+              {/* <button className="side-menu__suggestion-buttons ">Message</button> */}
             </div>
           </div>
         </Card.Body>
