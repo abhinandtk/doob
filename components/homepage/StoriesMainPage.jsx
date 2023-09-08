@@ -4,7 +4,6 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
-import { useTranslation } from "next-i18next";
 function StoriesMainPage() {
   const router = useRouter();
   const [storyList, setStoryList] = useState([]);

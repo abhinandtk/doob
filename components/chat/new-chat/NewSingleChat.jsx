@@ -75,8 +75,8 @@ function NewSingleChat({ onChatSelect, onNewMsg, onGrpShow }) {
               {" "}
               <span
                 onClick={() => onNewMsg(null)}
-                style={{ cursor: "pointer" }}
-                
+                style={{ cursor: "pointer",marginLeft:locale==='ar'?'12px':""}}
+            
               >
                 <svg
                   width="15"

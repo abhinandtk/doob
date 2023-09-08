@@ -268,7 +268,7 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
           style={{ height: "250px", overflowY: "auto" }}
         />
       </Modal>
-      <div className="leftSide">
+      <div className="leftSide tour-detail-ar">
         <div className="header">
           <div className="text">
             <h6
@@ -282,7 +282,7 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
               {" "}
               <span
                 onClick={() => onNewMsg(null)}
-                style={{ cursor: "pointer" }}
+                style={{ cursor: "pointer",marginLeft:locale==='ar'?'12px':""}}
               >
                 <svg
                   width="15"
@@ -427,7 +427,8 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
                       alt=""
                     />
                   </div>
-                  <div className="details">
+               
+                  <div className="details" style={{ marginRight:locale==='ar'?'12px':""}}  >
                     <div className="listHead">
                       <p>{item.user.name}</p>
                     </div>
