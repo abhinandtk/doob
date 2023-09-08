@@ -36,13 +36,13 @@ function BookingDetailsCard({ details, setSuccess }) {
       if (res.data.status === 1) {
         setSuccess((prev) => !prev);
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Booking Cancelled"]}`,
         });
       } else {
         setSuccess((prev) => !prev);
         notification.error({
-          message: constants.Error,
+          message: t("Error"),
           description:
             locale === "en" ? res.data.message_en : res.data.message_ar,
         });

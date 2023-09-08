@@ -27,7 +27,7 @@ function GroundCartItems({ data, setSuccess }) {
       dispatch(toggle());
       if (res.data.status === 1) {
         notification.success({
-          messsage: constants.Success,
+          messsage: t("Success"),
           description: `${labels["Checkout Successfully"]}`,
         });
         router.push({
@@ -38,7 +38,7 @@ function GroundCartItems({ data, setSuccess }) {
         });
       } else {
         notification.error({
-          messsage: constants.Error,
+          messsage: t("Error"),
           description:
             locale === "en" ? res.data.message_en : res.data.message_ar,
         });
@@ -64,7 +64,7 @@ function GroundCartItems({ data, setSuccess }) {
       if (res.data.status === 1) {
         setSuccess((prev) => !prev);
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Slot removed from cart successfully"]}`,
         });
       }

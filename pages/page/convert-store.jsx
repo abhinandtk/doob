@@ -103,12 +103,12 @@ function ConvertStoreForm() {
       console.log("resultfrom", res);
       if (res.data.status === 1) {
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Requested successfully"]}`,
         });
       } else {
         notification.error({
-          message: constants.Error,
+          message: t("Error"),
           description:
             locale === "en" ? res.data.message_en : res.data.message_ar,
         });

@@ -1,4 +1,9 @@
 {
+  "Success": "Success",
+  "Error": "Error",
+  "Warning": "Warning",
+  "Info": "Info",
+
   "Report": "Report",
   "Send": "Send",
   "Share": "Share",

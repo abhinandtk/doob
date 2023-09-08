@@ -68,7 +68,7 @@ function OrderList({ product, setOnSuccess }) {
       setOnSuccess((prev) => !prev);
       dispatch(toggle());
       notification.success({
-        message: constants.Success,
+        message: t("Success"),
         description: `${labels["Item removed from cart successfully"]}`,
       });
       console.log("removeweeeeeeeeeeeeeee", res);

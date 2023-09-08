@@ -60,13 +60,13 @@ function UserPasswordChange() {
     ).then((res) => {
       if (res.data.status === 1) {
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Password Changed Successfully"]}`,
         });
         router.push("/page/settings-page");
       } else {
         notification.error({
-          message: constants.Error,
+          message: t("Error"),
           description: `${labels["Current password is incorrect"]}`,
         });
       }

@@ -90,12 +90,12 @@ function ShareToUserChat({ slug, type }) {
           ).then((res) => {
             if (res.data.status === 1) {
               notification.success({
-                message: constants.Success,
+                message: t("Success"),
                 description: `${labels["Share post user"]}`,
               });
             } else {
               notification.error({
-                message: constants.Error,
+                message: t("Error"),
                 description:
                   locale === "en" ? res.data.message_en : res.data.message_ar,
               });
@@ -103,7 +103,7 @@ function ShareToUserChat({ slug, type }) {
           });
         } else {
           notification.error({
-            message: constants.Error,
+            message: t("Error"),
             description:
               locale === "en" ? res.data.message_en : res.data.message_ar,
           });

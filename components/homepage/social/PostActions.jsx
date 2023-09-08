@@ -42,7 +42,7 @@ export default function PostActions({
     ).then((res) => {
       setShow(false);
       notification.success({
-        message: constants.Success,
+        message: t("Success"),
         description: `${labels["Reported successfully"]}`,
       });
     });
@@ -62,7 +62,7 @@ export default function PostActions({
     ).then((res) => {
       setOnSuccess((prev) => !prev);
       notification.success({
-        message: constants.Success,
+        message: t("Success"),
         description: `${labels["Post deleted successfully"]}`,
       });
       if (singlePost) {

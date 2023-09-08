@@ -7,12 +7,13 @@ import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { Labels } from "@/public/data/my-constants/Labels";
+import { useTranslation } from "next-i18next";
 
 function FollowingList({ setFollowingListShow, setSuccess }) {
   const [visible, setVisible] = useState(true);
   const [following, setFollowing] = useState([]);
   const labels=Labels()
-
+  const { t } = useTranslation();
   // const [showFollow, setShowFollow] = useState(true);
   const [apiSuccess, setApiSuccess] = useState(false);
 
@@ -42,7 +43,7 @@ function FollowingList({ setFollowingListShow, setSuccess }) {
         });
         if(response.data.status===1){
           notification.success({
-            message:constants.Success,
+            message:t("Success"),
             description:`${labels['Unfollowed successfully']}`
           })
         }

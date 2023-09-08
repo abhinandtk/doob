@@ -36,7 +36,7 @@ function SharedConfirmation({ postId, setVisibleShared, setOnSuccess }) {
         });
         if (res.data.status === 1) {
           notification.success({
-            message: constants.Success,
+            message: t("Success"),
             description: `${labels["Post shared successfully"]}`,
           });
           setOnSuccess((prev) => !prev);

@@ -40,13 +40,13 @@ function ChatHeaderActionsGroup({
       if (res.data.status === 1) {
         setVisible(false);
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description:
             locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       } else {
         notification.error({
-          message: constants.Error,
+          message: t("Error"),
           description:
             locale === "en" ? res.data.message_en : res.data.message_ar,
         });
@@ -69,12 +69,12 @@ function ChatHeaderActionsGroup({
       setLeftVisible(false);
       if (res.data.status === 1) {
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Left group"]}`,
         });
       } else {
         notification.error({
-          message: constants.Error,
+          message: t("Error"),
           description:
             locale === "en" ? res.data.message_en : res.data.message_ar,
         });

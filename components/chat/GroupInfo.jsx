@@ -91,12 +91,12 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
       if (res.data.status === 1) {
         setApiSuccess((prev) => !prev);
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Add members"]}`,
         });
       } else {
         notification.error({
-          message: constants.Error,
+          message: t("Error"),
           description:
             locale === "en" ? res.data.message_en : res.data.message_ar,
         });
@@ -122,12 +122,12 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
       if (res.data.status === 1) {
         setApiSuccess((prev) => !prev);
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Remove members"]}`,
         });
       } else {
         notification.error({
-          message: constants.Error,
+          message: t("Error"),
           description:
             locale === "en" ? res.data.message_en : res.data.message_ar,
         });
@@ -168,7 +168,7 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
       console.log("res", res);
       if (res.data.status === 1) {
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description:
             locale === "en" ? res.data.message_en : res.data.message_ar,
         });
@@ -176,7 +176,7 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
         onNewMsg(null);
       } else {
         notification.error({
-          message: constants.Error,
+          message: t("Error"),
           description:
             locale === "en" ? res.data.message_en : res.data.message_ar,
         });
@@ -186,7 +186,7 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
   const beforeUpload = (file) => {
     if (!isAdmin) {
       notification.error({
-        message: constants.Error,
+        message: t("Error"),
         description: "only admin can change profile",
       });
       return false;

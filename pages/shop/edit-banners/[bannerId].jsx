@@ -13,6 +13,7 @@ import MobileFooter from "@/components/shared/MobileFooter";
 import { Labels } from "@/public/data/my-constants/Labels";
 import BannerForm from "@/components/shop/banner/BannerForm";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 export async function getServerSideProps({ locale }) {
   return {
@@ -22,6 +23,7 @@ export async function getServerSideProps({ locale }) {
   };
 }
 function EditBannerPage() {
+  const { t } = useTranslation();
   const router = useRouter();
   const { bannerId } = router.query;
 
@@ -49,7 +51,7 @@ function EditBannerPage() {
       if (res.data.status === 1) {
         router.push("/shop/banner-management");
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Banner edited successfully"]}`,
         });
       }

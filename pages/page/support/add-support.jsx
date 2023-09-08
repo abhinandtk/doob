@@ -62,12 +62,12 @@ function SupportAddPage() {
       if (res.data.status === 1) {
         router.push("/page/support");
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Support added"]}`,
         });
       } else {
         notification.error({
-          message: constants.Error,
+          message: t("Error"),
           description:
             locale === "en" ? res.data.message_en : res.data.message_ar,
         });

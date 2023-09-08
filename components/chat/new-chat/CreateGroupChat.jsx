@@ -50,7 +50,7 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
     const selected = searchResult.find((item) => item.id === id);
     if (selectedUser.includes(selected)) {
       notification.info({
-        message: constants.Info,
+        message: t("Info"),
         description: `${labels["User already selected"]}`,
       });
     } else {
@@ -100,7 +100,7 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
       console.log("res", res);
       if (res.data.status === 1) {
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description:
             locale === "en" ? res.data.message_en : res.data.message_ar,
         });
@@ -108,7 +108,7 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
         onNewMsg(null);
       } else {
         notification.error({
-          message: constants.Error,
+          message: t("Error"),
           description:
             locale === "en" ? res.data.message_en : res.data.message_ar,
         });
@@ -251,7 +251,7 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
                 const maxSizeInMB = 1;
                 if (fileSizeInMB > maxSizeInMB) {
                   notification.error({
-                    message: constants.Error,
+                    message: t("Error"),
                     description: "Please upload image with size less than 1 mb",
                   });
                   return false;

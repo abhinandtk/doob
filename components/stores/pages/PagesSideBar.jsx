@@ -36,7 +36,7 @@ function PagesSideBar({ currentPage }) {
         localStorage.removeItem("hasReloaded");
 
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Logout Successfully"]}`,
         });
         router.push("/");
@@ -45,7 +45,7 @@ function PagesSideBar({ currentPage }) {
         localStorage.removeItem("user-login-tokens");
         localStorage.removeItem("hasReloaded");
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Logout Successfully"]}`,
         });
         router.push("/");

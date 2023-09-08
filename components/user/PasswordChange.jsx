@@ -43,7 +43,7 @@ function PasswordChange({ setActiveModal }) {
         console.log("ree", res);
         if (res.data.status === 1) {
           notification.success({
-            message: constants.Success,
+            message: t("Success"),
             description: `${labels["Password Changed Successfully"]}`,
           });
           setActiveModal("login");

@@ -75,7 +75,7 @@ function MobileHeader() {
       if (res.data.status === 1) {
         localStorage.removeItem("user-login-tokens");
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Logout Successfully"]}`,
         });
         window.location.reload(false);

@@ -18,7 +18,10 @@ import moment from "moment";
 import { useRouter } from "next/router";
 import { Labels } from "@/public/data/my-constants/Labels";
 const { Option } = Select;
+import { useTranslation } from "next-i18next";
+
 function SupportPage() {
+  const { t } = useTranslation();
   const [supportList, setSupportList] = useState([]);
   const router = useRouter();
   const labels = Labels();
@@ -50,12 +53,12 @@ function SupportPage() {
       if (res.data.status === 1) {
         router.back()
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Support added"]}`,
         });
       } else {
         notification.error({
-          message: constants.Error,
+          message: t("Error"),
           description: res.data.message_en,
         });
       }

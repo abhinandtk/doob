@@ -35,13 +35,13 @@ function ForgetEmail({ setActiveModal }) {
         setActiveModal("forgetotp");
         localStorage.setItem("forget-psw-email", email);
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["New OTP has send"]}`,
         });
         setIsLoading(false);
       } else {
         notification.error({
-          message: constants.Error,
+          message: t("Error"),
           description: `${labels["Email address does not exist"]}`,
         });
       }

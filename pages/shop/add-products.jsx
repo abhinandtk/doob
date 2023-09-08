@@ -13,6 +13,7 @@ import { useRouter } from "next/router";
 import { notification } from "antd";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -22,6 +23,7 @@ export async function getStaticProps({ locale }) {
   };
 }
 function AddProductPage() {
+  const { t } = useTranslation();
   const router = useRouter();
   const { locale } = router;
   const handleProductAdd = (formData) => {
@@ -68,7 +70,7 @@ function AddProductPage() {
         router.push("/shop/product-management");
       } else {
         notification.error({
-          message: constants.Error,
+          message: t("Error"),
           description:
             locale === "en" ? res.data.message_en : res.data.message_ar,
         });

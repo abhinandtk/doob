@@ -71,7 +71,7 @@ function AdminGroundBookings() {
     ).then((res) => {
       setOnSuccess((prev) => !prev);
       notification.success({
-        message: constants.Success,
+        message: t("Success"),
         description: `${labels["Booking Cancelled"]}`,
       });
     });

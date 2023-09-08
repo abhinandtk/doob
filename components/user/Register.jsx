@@ -68,7 +68,7 @@ function Register({ setActiveModal, countries }) {
             localStorage.setItem("otp-email", registerFormData.email);
           } else {
             notification.error({
-              message: constants.Error,
+              message: t("Error"),
               description:
                 locale === "en" ? res.data.message_en : res.data.message_ar,
             });

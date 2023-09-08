@@ -103,7 +103,7 @@ function MatchTimelinePage() {
 
         setVisible(false);
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Match details created"]}`,
         });
       }

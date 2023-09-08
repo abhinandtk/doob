@@ -90,7 +90,7 @@ function MainHeader({ title }) {
           localStorage.removeItem("hasReloaded");
 
           notification.success({
-            message: constants.Success,
+            message: t("Success"),
             description: `${labels["Logout Successfully"]}`,
           });
           router.push("/");
@@ -102,7 +102,7 @@ function MainHeader({ title }) {
           localStorage.removeItem("user-login-tokens");
           localStorage.removeItem("hasReloaded");
           notification.success({
-            message: constants.Success,
+            message: t("Success"),
             description: `${labels["Logout Successfully"]}`,
           });
           router.push("/");
@@ -116,7 +116,7 @@ function MainHeader({ title }) {
       .catch((error) => {
         localStorage.removeItem("user-login-tokens");
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Logout Successfully"]}`,
         });
         router.push("/");

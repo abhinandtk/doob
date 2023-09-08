@@ -68,7 +68,7 @@ function ProductDetailTopDetails({ product, setApiSuccess }) {
     ).then((res) => {
       console.log("res87", res);
       notification.success({
-        message: constants.Success,
+        message: t("Success"),
         description: `${labels["Product shared"]}`,
       });
     });

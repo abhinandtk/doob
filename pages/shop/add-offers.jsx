@@ -14,6 +14,7 @@ import MobileFooter from "@/components/shared/MobileFooter";
 import OffersForm from "@/components/shop/offer/OffersForm";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from "next-i18next";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -23,6 +24,7 @@ export async function getStaticProps({ locale }) {
   };
 }
 function AddOffersPage() {
+  const { t } = useTranslation();
   const router = useRouter();
 
   const labels = Labels();
@@ -52,7 +54,7 @@ function AddOffersPage() {
       if (res.data.status === 1) {
         router.push("/shop/offer-management");
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Offers added successfully"]}`,
         });
       }

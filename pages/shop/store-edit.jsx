@@ -119,12 +119,12 @@ function StoreEditPage() {
       if (res.data.status === 1) {
         router.push("/shop/store-settings");
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Store edited successfully"]}`,
         });
       } else {
         notification.error({
-          message: constants.Error,
+          message: t("Error"),
           description:
             locale === "en" ? res.data.message_en : res.data.message_ar,
         });

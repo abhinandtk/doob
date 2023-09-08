@@ -14,6 +14,7 @@ import MobileFooter from "@/components/shared/MobileFooter";
 import OffersForm from "@/components/shop/offer/OffersForm";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 export async function getServerSideProps({ locale }) {
   return {
@@ -23,6 +24,7 @@ export async function getServerSideProps({ locale }) {
   };
 }
 function EditOffersPage() {
+  const { t } = useTranslation();
   const router = useRouter();
   const {slugId}=router.query
 
@@ -54,7 +56,7 @@ function EditOffersPage() {
       if (res.data.status === 1) {
         router.push("/shop/offer-management");
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Offer edited successfully"]}`,
         });
       }

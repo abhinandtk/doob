@@ -50,13 +50,13 @@ function GameDetailTopContent({ details, setOnSuccess }) {
     ).then((res) => {
       if (res.data.status === 1) {
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Joined game"]}`,
         });
         setOnSuccess((prev) => !prev);
       } else {
         notification.error({
-          message: constants.Error,
+          message: t("Error"),
           description:
             locale === "en" ? res.data.message_en : res.data.message_ar,
         });
@@ -81,7 +81,7 @@ function GameDetailTopContent({ details, setOnSuccess }) {
       setOnSuccess((prev) => !prev);
       if (res.data.status === 1) {
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Left game"]}`,
         });
       }

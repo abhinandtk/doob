@@ -71,7 +71,7 @@ function StoreTopDetails({ data, setSuccess }) {
     ).then((res) => {
       if (res.data.status === 1) {
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Store shared"]}`,
         });
       }
@@ -95,7 +95,7 @@ function StoreTopDetails({ data, setSuccess }) {
       setShow(false);
       setReason("");
       notification.success({
-        message: constants.Success,
+        message: t("Success"),
         description: `${labels["Reported successfully"]}`,
       });
     });

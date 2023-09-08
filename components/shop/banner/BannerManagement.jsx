@@ -43,7 +43,7 @@ function BannerManagement() {
       if (res.data.status === 1) {
         setOnSuccess((prev) => !prev);
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Banner deleted successfully"]}`,
         });
       }

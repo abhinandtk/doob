@@ -48,13 +48,13 @@ function SideExplorePlayers() {
       if (res.data.status === 1) {
         setSuccess((prev) => !prev);
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Followed successfully"]}`,
         });
       } else if (res.data.status === 3) {
         setSuccess((prev) => !prev);
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Requested successfully"]}`,
         });
       }

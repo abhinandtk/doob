@@ -7,7 +7,10 @@ import apis from "@/public/data/my-constants/Apis";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { notification } from "antd";
 import ReviewPlayground from "@/components/playGround/review/ReviewPlayground";
+import { useTranslation } from "next-i18next";
+
 function PlayGroundTopDetails({ details }) {
+  const { t } = useTranslation();
   const router = useRouter();
   const { pgid } = router.query;
   const labels=Labels()
@@ -29,7 +32,7 @@ function PlayGroundTopDetails({ details }) {
     ).then((res) => {
       if (res.data.status === 1) {
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["PlayGround shared"]}`,
         });
       }

@@ -86,7 +86,7 @@ function StoreSettingsPage() {
       if (res.data.status === 1) {
         setOnSuccess((prev) => !prev);
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Status changed successfully"]}`,
         });
       }
@@ -124,7 +124,7 @@ function StoreSettingsPage() {
           if (res.data.status === 1) {
             localStorage.removeItem("user-login-tokens");
             notification.success({
-              message: constants.Success,
+              message: t("Success"),
               description: `${labels["Logout Successfully"]}`,
             });
             router.push("/");
@@ -152,12 +152,12 @@ function StoreSettingsPage() {
       setOnSuccess((prev) => !prev);
       if (res.data.status === 1) {
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Unblocked user successfully"]}`,
         });
       } else {
         notification.error({
-          message: constants.Error,
+          message: t("Error"),
           description:
             locale === "en" ? res.data.message_en : res.data.message_ar,
         });

@@ -30,7 +30,7 @@ function UploadFiles({ setUploadShow }) {
       setCaption(e.target.value);
     } else {
       notification.error({
-        message: constants.Error,
+        message: t("Error"),
         description: "Character limit exceeded ",
       });
     }

@@ -133,13 +133,13 @@ function EditAddressPage() {
       if (res.data.status === 1) {
         router.back();
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description:
             locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       } else {
         notification.error({
-          message: constants.Error,
+          message: t("Error"),
           description:
             locale === "en" ? res.data.message_en : res.data.message_ar,
         });

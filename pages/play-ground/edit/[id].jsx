@@ -94,7 +94,7 @@ function EditPlaygroundPage() {
     ).then((res) => {
       // if (res.data.status === 1) {
       notification.success({
-        message: constants.Success,
+        message: t("Success"),
         description: `${labels["PlayGround edited"]}`,
       });
       router.push("/play-ground/playground-view");

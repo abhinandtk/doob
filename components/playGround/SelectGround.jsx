@@ -77,19 +77,19 @@ function SelectGround({ details, setSuccess, setDateSelected }) {
         dispatch(toggle());
         if (res.data.status === 1) {
           notification.success({
-            message: constants.Success,
+            message: t("Success"),
             description: `${labels["Slot Added"]}`,
           });
         } else if (res.data.status === 0) {
           notification.error({
-            messsage: constants.Error,
+            messsage: t("Error"),
             description: `${labels["Book one stadium"]}`,
           });
         }
       });
     } else {
       notification.info({
-        messsage: constants.Info,
+        messsage: t("Info"),
         description: `${labels["Please select a slot"]}`,
       });
     }

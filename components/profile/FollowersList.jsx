@@ -41,7 +41,7 @@ function FollowersList({ setFollowersListShow, setSuccess }) {
         setSuccess((prev) => !prev);
         if (res.data.status === 1) {
           notification.success({
-            message: constants.Success,
+            message: t("Success"),
             description: `${labels["Remove user"]}`,
           });
         }

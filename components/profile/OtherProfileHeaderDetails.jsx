@@ -46,13 +46,13 @@ function OtherProfileHeaderDetails({
       if (res.data.status === 1) {
         setIsSuccess((prev) => !prev);
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Followed successfully"]}`,
         });
       } else if (res.data.status === 3) {
         setIsSuccess((prev) => !prev);
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Requested successfully"]}`,
         });
       } else {
@@ -93,12 +93,12 @@ function OtherProfileHeaderDetails({
       setIsSuccess((prev) => !prev);
       if (res.data.status === 1) {
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Blocked user successfully"]}`,
         });
       } else {
         notification.error({
-          message: constants.Error,
+          message: t("Error"),
           description:
             locale === "en" ? res.data.message_en : res.data.message_ar,
         });
@@ -122,12 +122,12 @@ function OtherProfileHeaderDetails({
       setIsSuccess((prev) => !prev);
       if (res.data.status === 1) {
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Unblocked user successfully"]}`,
         });
       } else {
         notification.error({
-          message: constants.Error,
+          message: t("Error"),
           description:
             locale === "en" ? res.data.message_en : res.data.message_ar,
         });

@@ -32,7 +32,7 @@ function CommentActions({ user, commentId, setSuccessApi }) {
       setSuccessApi((prev) => !prev);
       setShow(false);
       notification.success({
-        message: constants.Success,
+        message: t("Success"),
         description: `${labels["Reported successfully"]}`,
       });
     });
@@ -53,7 +53,7 @@ function CommentActions({ user, commentId, setSuccessApi }) {
       setVisible(false);
       setSuccessApi((prev) => !prev);
       notification.success({
-        message: constants.Success,
+        message: t("Success"),
         description: `${labels["Comment deleted successfully"]}`,
       });
     });

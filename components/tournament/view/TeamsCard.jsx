@@ -79,17 +79,17 @@ function TeamsCard({
       console.log("resy", res);
       if (res.data.status === 1) {
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Team created"]}`,
         });
       } else if (res.data.status === 2) {
         notification.error({
-          message: constants.Error,
+          message: t("Error"),
           description: `${labels["Tournament maximum participants"]}`,
         });
       } else {
         notification.error({
-          message: constants.Error,
+          message: t("Error"),
           description:
             locale === "en" ? res.data.message_en : res.data.message_ar,
         });
@@ -110,7 +110,7 @@ function TeamsCard({
         setOnSuccess((prev) => !prev);
         if (res.data.status === 1) {
           notification.success({
-            message: constants.Success,
+            message: t("Success"),
             description: `${labels["Team deleted"]}`,
           });
         }
@@ -137,12 +137,12 @@ function TeamsCard({
       setOnSuccess((prev) => !prev);
       if (res.data.status === 1) {
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Match draw created"]}`,
         });
       } else {
         notification.error({
-          message: constants.Error,
+          message: t("Error"),
           description:
             locale === "en" ? res.data.message_en : res.data.message_ar,
         });

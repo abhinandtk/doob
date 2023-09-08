@@ -77,13 +77,13 @@ function ProfileEdit({ data, setSuccess }) {
         setSuccess((prev) => !prev);
         setShowEdit(false);
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description:
             locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       } else {
         notification.error({
-          message: constants.Error,
+          message: t("Error"),
           description:
             locale === "en" ? res.data.message_en : res.data.message_ar,
         });

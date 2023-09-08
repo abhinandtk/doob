@@ -32,12 +32,12 @@ function ForgetOtp({ setActiveModal }) {
         setActiveModal("passwordchange");
         localStorage.setItem("forgot-psw-token", res.data.data.token);
         notification.success({
-          message: constants.Success,
+          message: t("Success"),
           description: `${labels["Otp verification is complete"]}`,
         });
       } else {
         notification.error({
-          message: constants.Error,
+          message: t("Error"),
           description: `${labels["Otp is invalid"]}`,
         });
       }
