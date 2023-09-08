@@ -6,6 +6,7 @@ import {
   Dropdown,
   Modal,
   Button,
+  Spinner,
 } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Axios from "axios";
@@ -19,10 +20,12 @@ function ForgetEmail({ setActiveModal }) {
   const { t } = useTranslation();
 
   const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const labels = Labels();
 
   const submitForgotEmail = (e) => {
+    setIsLoading(true);
     e.preventDefault();
     Axios.post(apis.forgetemail, {
       email: email,
@@ -35,6 +38,7 @@ function ForgetEmail({ setActiveModal }) {
           message: constants.Success,
           description: `${labels["New OTP has send"]}`,
         });
+        setIsLoading(false);
       } else {
         notification.error({
           message: constants.Error,
@@ -101,7 +105,21 @@ function ForgetEmail({ setActiveModal }) {
                 width: "363px",
               }}
             >
-              {t("Confirm")}
+              {isLoading ? (
+                <>
+                  {t("Loading")}
+                  <Spinner
+                    as="span"
+                    animation="border"
+                    size="sm"
+                    variant="light"
+                    role="status"
+                    aria-hidden="true"
+                  />
+                </>
+              ) : (
+                t("Confirm")
+              )}
             </Button>
           </Modal.Footer>
         </Form>

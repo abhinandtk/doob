@@ -39,6 +39,8 @@ function UserPasswordChange() {
   const router = useRouter();
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword2, setShowPassword2] = useState(false);
 
   const labels = Labels();
 
@@ -97,33 +99,75 @@ function UserPasswordChange() {
                   <label for="exampleFormControlInput1">
                     {t("Current Password")}
                   </label>
-                  <input
-                    type="password"
-                    className="form-control input-theme-prod p-2"
+                  <div
+                    className="password-input"
                     style={{
-                      border: "0px",
-                      color: "grey",
+                      display: "flex",
+                      alignItems: "center",
+                      width: "105%",
                     }}
-                    id="name"
-                    // value={formData.name}
-                    onChange={(e) => setPassword1(e.target.value)}
-                  />
+                  >
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      className="form-control input-theme-prod p-2"
+                      style={{
+                        border: "0px",
+                        color: "grey",
+                      }}
+                      id="name"
+                      // value={formData.name}
+                      onChange={(e) => setPassword1(e.target.value)}
+                    />
+                    &nbsp;
+                    <div
+                      className="password-toggle"
+                      onClick={() => setShowPassword(!showPassword)}
+                    >
+                      <i
+                        className={`bi ${
+                          showPassword ? "bi-eye-slash" : "bi-eye"
+                        }`}
+                        style={{ cursor: "pointer" }}
+                      ></i>
+                    </div>
+                  </div>
                 </div>
                 <div className="form-group my-2">
                   <label for="exampleFormControlInput1">
                     {t("New Password")}
                   </label>
-                  <input
-                    type="password"
-                    className="form-control input-theme-prod p-2"
+                  <div
+                    className="password-input"
                     style={{
-                      border: "0px",
-                      color: "grey",
+                      display: "flex",
+                      alignItems: "center",
+                      width: "105%",
                     }}
-                    id="nameArabic"
-                    // value={formData.nameArabic}
-                    onChange={(e) => setPassword2(e.target.value)}
-                  />
+                  >
+                    <input
+                      type={showPassword2 ? "text" : "password"}
+                      className="form-control input-theme-prod p-2"
+                      style={{
+                        border: "0px",
+                        color: "grey",
+                      }}
+                      id="nameArabic"
+                      // value={formData.nameArabic}
+                      onChange={(e) => setPassword2(e.target.value)}
+                    />
+                    &nbsp;
+                    <div
+                      className="password-toggle"
+                      onClick={() => setShowPassword2(!showPassword2)}
+                    >
+                      <i
+                        className={`bi ${
+                          showPassword2 ? "bi-eye-slash" : "bi-eye"
+                        }`}
+                        style={{ cursor: "pointer" }}
+                      ></i>
+                    </div>
+                  </div>
                 </div>
                 <div className="product-submit my-3">
                   <button type="submit" className="submit-cart-btn">
