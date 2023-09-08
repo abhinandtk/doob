@@ -76,7 +76,7 @@ function ForgetOtp({ setActiveModal }) {
             <Form.Control
               type="text"
               className="mx-auto input-theme-prod dark-theme-color"
-              placeholder={t("OTP")}
+              // placeholder={t("OTP")}
               style={{ width: "50%", marginTop: "-29px" }}
               onChange={(e) => setFotp(e.target.value)}
               maxLength="6"

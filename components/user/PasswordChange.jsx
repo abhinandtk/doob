@@ -14,14 +14,15 @@ import apis from "@/public/data/my-constants/Apis";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { useTranslation } from "next-i18next";
-function PasswordChange({setActiveModal}) {
+function PasswordChange({ setActiveModal }) {
   const [show, setShow] = useState(true);
   const [error, setError] = useState("");
-  const {t}=useTranslation()
+  const { t } = useTranslation();
+  const [showPassword, setShowPassword] = useState(false);
 
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
-  const labels=Labels()
+  const labels = Labels();
 
   const submitPasswordChange = (e) => {
     e.preventDefault();
@@ -42,10 +43,10 @@ function PasswordChange({setActiveModal}) {
         console.log("ree", res);
         if (res.data.status === 1) {
           notification.success({
-            message:constants.Success,
-            description:`${labels['Password Changed Successfully']}`
-          })
-          setActiveModal('login')
+            message: constants.Success,
+            description: `${labels["Password Changed Successfully"]}`,
+          });
+          setActiveModal("login");
         }
       });
     } else {
@@ -100,10 +101,21 @@ function PasswordChange({setActiveModal}) {
               onChange={(e) => setPassword2(e.target.value)}
               required
             />
+            &nbsp;
+            <div
+              className="password-toggle"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {/* Use Bootstrap icons here */}
+              <i
+                className={`bi ${showPassword ? "bi-eye-slash" : "bi-eye"}`}
+                style={{ cursor: "pointer" }}
+              ></i>
+            </div>
           </Form.Group>
 
           <Modal.Footer>
-          <Button
+            <Button
               type="submit"
               className="text-white mx-auto mt-2 "
               style={{
@@ -114,7 +126,6 @@ function PasswordChange({setActiveModal}) {
             >
               {t("Confirm")}
             </Button>
-           
           </Modal.Footer>
           <center>
             <p style={{ color: "red" }}>{error}</p>

@@ -134,7 +134,7 @@ function Login({ setActiveModal, setShowLogin }) {
               type="text"
               className="input-theme-prod dark-theme-color"
               id="email"
-              placeholder="Email"
+              // placeholder="Email"
               onChange={(e) => setEmail(e.target.value)}
               aria-describedby="passwordHelpBlock"
             />
@@ -149,7 +149,7 @@ function Login({ setActiveModal, setShowLogin }) {
               <Form.Control
                 type={showPassword ? "text" : "password"}
                 className="input-theme-prod dark-theme-color"
-                placeholder="Password"
+                // placeholder="Password"
                 onChange={(e) => setPassword(e.target.value)}
               />
               &nbsp;
