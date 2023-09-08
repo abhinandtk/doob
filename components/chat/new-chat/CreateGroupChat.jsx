@@ -191,7 +191,7 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
           style={{ height: "250px", overflowY: "auto" }}
         />
       </Modal>
-      <div className="leftSide">
+      <div className="leftSide tour-detail-ar">
         <div className="header">
           <div className="text">
             <h6
@@ -205,7 +205,7 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
               {" "}
               <span
                 onClick={() => onGrpShow(false)}
-                style={{ cursor: "pointer" }}
+                style={{ cursor: "pointer",marginLeft:locale==='ar'?'12px':""}}
               >
                 <svg
                   width="15"
