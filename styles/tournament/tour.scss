@@ -1099,7 +1099,7 @@ input.tour {
   border: 0px;
   border-radius: 15px;
   height: 125px;
-  margin-top: 22px;
+  margin-top: 30px;
   width: 100%;
   background-color: var(--row-list-alt);
 }
@@ -1749,6 +1749,13 @@ td {
   width: 32px;
   height: 32px;
 }
+.play-tour {
+  
+  margin-left: 10px;
+  object-fit: cover;
+  width: 32px;
+  height: 32px;
+}
 
 .live-contents {
   position: absolute;
@@ -2268,6 +2275,11 @@ td {
 .Live-Watches {
   display: flex;
   justify-content: center;
+}
+.Live-Watching {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 15px;
 }
 
 .watch-play1 {
@@ -2868,6 +2880,16 @@ input.nosubmit-shop {
 .Match-content {
   display: flex;
   position: relative;
+  width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.Match-contents {
+  display: flex;
+  position: relative;
+  width: 70%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .columns {
@@ -4052,6 +4074,9 @@ input.nosubmit-shop {
     text-overflow: ellipsis;
     width: 100%;
   }
+  .Match-contents {
+    width: 90%;
+  }
   .live-btn_ar {
     background-color: #17a803;
     font-weight: 400;
@@ -5232,7 +5257,18 @@ input.nosubmit-shop {
     position: absolute;
     margin-top: 18px;
   }
+  .ahmed_ar {
+    
+    margin-right: 32px;
+}
+.name_ar {
+  margin-right: 17px;
+}
+.views_ar {
+  color: #959595;
+  margin-right: -168px;
 
+}
   .watch2 {
     margin-left: 290px;
     position: absolute;
@@ -5360,7 +5396,10 @@ input.nosubmit-shop {
     display: inline-flex;
     width: 100%;
   }
-
+  .views_ar {
+    color: #959595;
+    margin-right: -205px;
+}
   .topnav span {
     float: left;
     display: block;

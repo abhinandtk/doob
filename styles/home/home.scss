@@ -1740,6 +1740,18 @@ input.nosubmit1 {
     color: var(--font-theme-color);
   }
 }
+.chats-para{
+  margin-top: 36px; 
+  font-weight: 600;
+   font-size: 14px;
+    min-width: 100px;
+    // display: -webkit-box;
+    // -webkit-line-clamp: 1;
+    // -webkit-box-orient: vertical;
+    // overflow: hidden;
+    // text-overflow: ellipsis;
+    // width: 190px;
+}
 
 .container .rightSides {
   position: relative;

@@ -99,7 +99,7 @@ function ChatBox({ selectedId, onNewMsg }) {
                 <>
                   {msg.message_type === "create" ? (
                     <div className="create-msg">
-                      <p className="px-1 my-2">
+                      <p className="p-2 my-2">
                         {`${
                           currentUser == msg.chat.id ? "You" : msg.chat.name
                         }`}
