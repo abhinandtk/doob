@@ -7,13 +7,15 @@ import { useTranslation } from "next-i18next";
 import Login from "@/components/user/Login";
 import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
+import { activeModalShow } from "@/Redux/loginShow";
 
 function MainSidebarFixed() {
   const { theme } = useTheme();
   const { t } = useTranslation();
   const router = useRouter();
   const [svgStroke, setSvgStroke] = useState("");
-  const [showLogin, setShowLogin] = useState(false);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setSvgStroke(theme === "dark" ? "white" : "black");
@@ -23,13 +25,11 @@ function MainSidebarFixed() {
     if (isAuthenticated) {
       router.push("/profile");
     } else {
-      setShowLogin(true);
+      dispatch(activeModalShow("login"));
     }
   };
   return (
     <>
-      {showLogin && <Login setShowLogin={setShowLogin} />}
-
       <aside className="sidebar">
         <nav>
           <Link href="/" style={{ textDecoration: "none" }}>

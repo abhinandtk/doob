@@ -21,7 +21,9 @@ import MapGame from "@/components/playGround/MapGames";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import PlaygroundBanner from "@/components/playGround/PlaygroundBanner";
-import Login from "@/components/user/Login";
+import AuthenticationModals from "@/components/shared/AuthenticationModals";
+import { useDispatch } from "react-redux";
+import { activeModalShow } from "@/Redux/loginShow";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -37,7 +39,7 @@ function PlayGroundPage() {
   const [country, setCountry] = useState([]);
   const [homePageData, setHomePageData] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [showLogin, setShowLogin] = useState(false);
+  const dispatch = useDispatch();
 
   const isAuthenticated = constants.token_id;
 
@@ -100,7 +102,7 @@ function PlayGroundPage() {
         query: { tab: "invited" },
       });
     } else {
-      setShowLogin(true);
+      dispatch(activeModalShow("login"));
     }
   };
   const handleAllGames = () => {
@@ -110,7 +112,7 @@ function PlayGroundPage() {
         query: { tab: "games" },
       });
     } else {
-      setShowLogin(true);
+      dispatch(activeModalShow("login"));
     }
   };
   return (
@@ -118,7 +120,7 @@ function PlayGroundPage() {
       <MainHeader title="Doob" />
       <MobileHeader />
       <MainSidebarFixed />
-      {showLogin && <Login setShowLogin={setShowLogin} />}
+      <AuthenticationModals />
 
       <div className="tour-container">
         {/* <form className="nosubmit ">

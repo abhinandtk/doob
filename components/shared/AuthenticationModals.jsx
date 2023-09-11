@@ -13,16 +13,21 @@ import PasswordChange from "@/components/user/PasswordChange";
 import SsoRegister from "@/components/user/SsoRegister";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import { activeModalShow } from "@/Redux/loginShow";
 function AuthenticationModals() {
   const router = useRouter();
   const { locale } = useRouter();
   const { t } = useTranslation();
 
+  const activemodal = useSelector((state) => state.activeShow.activeModal);
+  const dispatch = useDispatch();
+
   const [countryModalShow, setCountryModalShow] = useState(true);
   const [countryData, setCountryData] = useState([]);
   const [regionData, setRegionData] = useState([]);
 
-  const [activemodal, setActiveModal] = useState(null);
+  //   const [activemodal, setActiveModal] = useState(null);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -57,7 +62,7 @@ function AuthenticationModals() {
     e.preventDefault();
 
     setCountryModalShow(false);
-    setActiveModal("login");
+    dispatch(activeModalShow("login"));
   };
 
   useEffect(() => {
@@ -65,10 +70,11 @@ function AuthenticationModals() {
       setCountryData(res.data.country);
     });
   }, []);
+  console.log("activeModal", activemodal);
   return (
     <div>
       {" "}
-      {constants.token_id === null ? (
+      {constants.country === null ? (
         <Modal
           show={countryModalShow}
           // onHide={() => setCountryModalShow(false)}
@@ -124,25 +130,13 @@ function AuthenticationModals() {
       ) : (
         <></>
       )}
-      {activemodal === "login" && <Login setActiveModal={setActiveModal} />}
-      {activemodal === "register" && (
-        <Register countries={countryData} setActiveModal={setActiveModal} />
-      )}
-      {activemodal === "registerotp" && (
-        <RegisterOtpVerification setActiveModal={setActiveModal} />
-      )}
-      {activemodal === "forgetemail" && (
-        <ForgetEmail setActiveModal={setActiveModal} />
-      )}
-      {activemodal === "forgetotp" && (
-        <ForgetOtp setActiveModal={setActiveModal} />
-      )}
-      {activemodal === "passwordchange" && (
-        <PasswordChange setActiveModal={setActiveModal} />
-      )}
-      {activemodal === "ssoregister" && (
-        <SsoRegister countries={countryData} setActiveModal={setActiveModal} />
-      )}
+      {activemodal === "login" && <Login />}
+      {activemodal === "register" && <Register countries={countryData} />}
+      {activemodal === "registerotp" && <RegisterOtpVerification />}
+      {activemodal === "forgetemail" && <ForgetEmail />}
+      {activemodal === "forgetotp" && <ForgetOtp />}
+      {activemodal === "passwordchange" && <PasswordChange />}
+      {activemodal === "ssoregister" && <SsoRegister countries={countryData} />}
     </div>
   );
 }

@@ -14,12 +14,15 @@ import apis from "@/public/data/my-constants/Apis";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { notification } from "antd";
 import { useTranslation } from "next-i18next";
-function ForgetOtp({ setActiveModal }) {
+import { useDispatch } from "react-redux";
+import { activeModalShow } from "@/Redux/loginShow";
+function ForgetOtp() {
   const [show, setShow] = useState(true);
   const { t } = useTranslation();
 
   const [fotp, setFotp] = useState("");
   const labels = Labels();
+  const dispatch = useDispatch();
 
   const submitForgotOtp = (e) => {
     e.preventDefault();
@@ -29,7 +32,7 @@ function ForgetOtp({ setActiveModal }) {
     }).then((res) => {
       console.log("res", res);
       if (res.data.status === 1) {
-        setActiveModal("passwordchange");
+        dispatch(activeModalShow("passwordchange"));
         localStorage.setItem("forgot-psw-token", res.data.data.token);
         notification.success({
           message: t("Success"),
@@ -47,7 +50,9 @@ function ForgetOtp({ setActiveModal }) {
   return (
     <Modal show={show} onHide={() => setShow(false)} className="login">
       <Modal.Header closeButton></Modal.Header>
-      <Modal.Title style={{ marginLeft: "auto", marginTop: "10px",marginRight:'auto'}}>
+      <Modal.Title
+        style={{ marginLeft: "auto", marginTop: "10px", marginRight: "auto" }}
+      >
         <img
           src="/images/1.png"
           style={{ width: "64px", height: "64px" }}
@@ -66,7 +71,12 @@ function ForgetOtp({ setActiveModal }) {
         {t("Enter Your OTP")}
       </Modal.Title>
       <Modal.Title
-        style={{ fontSize: "15px", marginLeft: "auto", marginTop: "24px" ,marginRight:'auto' }}
+        style={{
+          fontSize: "15px",
+          marginLeft: "auto",
+          marginTop: "24px",
+          marginRight: "auto",
+        }}
       >
         {t("To reset your password , Please Enter an OTP")}
       </Modal.Title>
@@ -78,7 +88,7 @@ function ForgetOtp({ setActiveModal }) {
               type="text"
               className="mx-auto modal-in input-theme-prod dark-theme-color"
               // placeholder={t("OTP")}
-              style={{  marginTop: "-29px" }}
+              style={{ marginTop: "-29px" }}
               onChange={(e) => setFotp(e.target.value)}
               maxLength="6"
               required

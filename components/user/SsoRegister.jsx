@@ -12,7 +12,7 @@ import Form from "react-bootstrap/Form";
 import axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import { useTranslation } from "next-i18next";
-function SsoRegister({ setActiveModal, countries }) {
+function SsoRegister({ countries }) {
   const { t } = useTranslation();
   const [show, setShow] = useState(true);
 

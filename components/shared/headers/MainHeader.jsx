@@ -21,6 +21,7 @@ import LanguageSwitcher from "./LanguageSwitcher";
 import { useTranslation } from "next-i18next";
 import Login from "@/components/user/Login";
 import { Labels } from "@/public/data/my-constants/Labels";
+import { activeModalShow } from "@/Redux/loginShow";
 function MainHeader({ title }) {
   const { t } = useTranslation();
   const router = useRouter();
@@ -38,7 +39,6 @@ function MainHeader({ title }) {
   const [confirmLogout, setConfirmLogout] = useState(false);
   const [uploadShow, setUploadShow] = useState(false);
   const [notificationShow, setNotificationShow] = useState(false);
-  const [showLogin, setShowLogin] = useState(false);
 
   const storeCount = useSelector((state) => state.storeCartCount.storeCount);
   const groundCart = useSelector((state) => state.groundCartCount.groundCount);
@@ -87,6 +87,7 @@ function MainHeader({ title }) {
       .then((res) => {
         if (res.data.status === 1) {
           localStorage.removeItem("user-login-tokens");
+          localStorage.removeItem("country-select");
           localStorage.removeItem("hasReloaded");
 
           notification.success({
@@ -129,21 +130,21 @@ function MainHeader({ title }) {
     if (isAuthenticated) {
       router.push(path);
     } else {
-      setShowLogin(true);
+      dispatch(activeModalShow("login"));
     }
   };
   const notificationHandler = () => {
     if (isAuthenticated) {
       setNotificationShow(!notificationShow);
     } else {
-      setShowLogin(true);
+      dispatch(activeModalShow("login"));
     }
   };
   const hamburgerHandler = () => {
     if (isAuthenticated) {
       setShow(true);
     } else {
-      setShowLogin(true);
+      dispatch(activeModalShow("login"));
     }
   };
   const cartNavHandler = () => {
@@ -154,14 +155,12 @@ function MainHeader({ title }) {
         router.push("/play-ground/play-ground-cart");
       }
     } else {
-      setShowLogin(true);
+      dispatch(activeModalShow("login"));
     }
   };
 
   return (
     <>
-      {showLogin && <Login setShowLogin={setShowLogin} />}
-
       <Head>
         <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
@@ -312,10 +311,7 @@ function MainHeader({ title }) {
                   />
                 </svg>
               </Nav.Link>
-              <Nav.Link
-                onClick={() => cartNavHandler()}
-                
-              >
+              <Nav.Link onClick={() => cartNavHandler()}>
                 <div>
                   {asPath.includes("store")
                     ? storeCount > 0 && (

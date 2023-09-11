@@ -10,17 +10,17 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import moment from "moment";
-import Login from "../user/Login";
+import { useDispatch } from "react-redux";
+import { activeModalShow } from "@/Redux/loginShow";
 
 function NewGameForm({ game, country }) {
   const { t } = useTranslation();
-
+  const dispatch = useDispatch();
   const router = useRouter();
   const { locale } = router;
   const [visible, setVisible] = useState(false);
   const [area, setArea] = useState([]);
   console.log("res98", country);
-  const [showLogin, setShowLogin] = useState(false);
 
   const isAuthenticated = constants.token_id;
 
@@ -99,14 +99,12 @@ function NewGameForm({ game, country }) {
     if (isAuthenticated) {
       setVisible(true);
     } else {
-      setShowLogin(true);
+      dispatch(activeModalShow("login"));
     }
   };
 
   return (
     <Fragment>
-      {showLogin && <Login setShowLogin={setShowLogin} />}
-
       <section>
         <div className="game_clearfix">
           <h5
@@ -189,7 +187,7 @@ function NewGameForm({ game, country }) {
               onChange={(e) => handleChange(e)}
             >
               <option style={{ color: "#959595" }} value="">
-                --Select--
+                {t("--Select--")}
               </option>
               {area.map((item, index) => (
                 <option

@@ -123,6 +123,7 @@ function StoreSettingsPage() {
         ).then((res) => {
           if (res.data.status === 1) {
             localStorage.removeItem("user-login-tokens");
+            localStorage.removeItem("country-select");
             notification.success({
               message: t("Success"),
               description: `${labels["Logout Successfully"]}`,

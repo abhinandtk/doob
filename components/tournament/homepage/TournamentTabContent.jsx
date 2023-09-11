@@ -6,6 +6,8 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import Login from "@/components/user/Login";
+import { useDispatch } from "react-redux";
+import { activeModalShow } from "@/Redux/loginShow";
 
 function TournamentTabContent({ data }) {
   const { t } = useTranslation();
@@ -13,7 +15,7 @@ function TournamentTabContent({ data }) {
   console.log("dataLive", data);
   const router = useRouter();
   const { locale } = router;
-  const [showLogin, setShowLogin] = useState(false);
+  const dispatch = useDispatch();
   const getMatchTime = (time, date) => {
     const startDate = moment(date, "YYYY-MM-DD");
     const startTime = moment(time, "HH:mm:ss");
@@ -48,22 +50,29 @@ function TournamentTabContent({ data }) {
     if (isAuthenticated) {
       router.push("/tournament/all-tournament");
     } else {
-      setShowLogin(true);
+      dispatch(activeModalShow("login"));
+    }
+  };
+  const navigationTourHandler = (slug) => {
+    const isAuthenticated = constants.token_id;
+    if (isAuthenticated) {
+      router.push(`/tournament/${slug}`);
+    } else {
+      dispatch(activeModalShow("login"));
     }
   };
   return (
     <Fragment>
-      {showLogin && <Login setShowLogin={setShowLogin} />}
       <h6 className="my-2 dark-theme-color" style={{ fontWeight: "600" }}>
         {t("Live Tournaments")}
       </h6>
       <div className="row ">
         <div className="col-lg-7 col-md-12">
           {data.map((item, index) => (
-            <Link
+            <div
               key={index}
-              href={`/tournament/${item.tournament_slug}`}
-              style={{ textDecoration: "none", color: "inherit" }}
+              style={{ cursor: "pointer" }}
+              onClick={() => navigationTourHandler(item.tournament_slug)}
             >
               <div key={index} className="card  tournaments ">
                 <img
@@ -116,7 +125,9 @@ function TournamentTabContent({ data }) {
                     </div>
                   </div>
 
-                  <div className={locale === "ar" ? "video-play_ar" : "video-play"}>
+                  <div
+                    className={locale === "ar" ? "video-play_ar" : "video-play"}
+                  >
                     <svg
                       width="16"
                       height="19"
@@ -143,7 +154,7 @@ function TournamentTabContent({ data }) {
                   </div>
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
 
           <button
@@ -158,7 +169,9 @@ function TournamentTabContent({ data }) {
           <div className="live-ads">
             <img
               src="/images/tournament/Group 12.png"
-              className={locale === "ar" ? "tournament-imx_ar" : "tournament-imx"}
+              className={
+                locale === "ar" ? "tournament-imx_ar" : "tournament-imx"
+              }
             ></img>
           </div>
         </div>

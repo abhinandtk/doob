@@ -9,22 +9,22 @@ import { Labels } from "@/public/data/my-constants/Labels";
 import { CardImg } from "react-bootstrap";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
-import Login from "@/components/user/Login";
 import { useEffect } from "react";
 import { useTheme } from "next-themes";
+import { useDispatch } from "react-redux";
+import { activeModalShow } from "@/Redux/loginShow";
 
 function ShareToUserChat({ slug, type }) {
   const { t } = useTranslation();
   const router = useRouter();
   const { locale } = router;
   const { theme } = useTheme();
-
+  const dispatch = useDispatch();
   const [visible, setVisible] = useState(false);
   const [searchResult, setSearchResult] = useState([]);
   const [selectedItems, setSelectedItems] = useState([]);
   const [names, setNames] = useState("");
   const labels = Labels();
-  const [showLogin, setShowLogin] = useState(false);
   const [svgStroke, setSvgStroke] = useState("");
   useEffect(() => {
     setSvgStroke(theme === "dark" ? "white" : "black");
@@ -122,13 +122,12 @@ function ShareToUserChat({ slug, type }) {
     if (isAuthenticated) {
       setVisible(true);
     } else {
-      setShowLogin(true);
+      dispatch(activeModalShow("login"));
     }
   };
 
   return (
     <Fragment>
-      {showLogin && <Login setShowLogin={setShowLogin} />}
       <Modal
         open={visible}
         onCancel={() => {

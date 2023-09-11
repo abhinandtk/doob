@@ -12,14 +12,14 @@ const { Panel } = Collapse;
 import { useTranslation } from "next-i18next";
 import { Dropdown } from "react-bootstrap";
 import ShareToUserChat from "../homepage/social/share/ShareToUserChat";
-import Login from "../user/Login";
+import { activeModalShow } from "@/Redux/loginShow";
+import { useDispatch } from "react-redux";
 
 function StoreTopDetails({ data, setSuccess }) {
   const { t } = useTranslation();
-  const [showLogin, setShowLogin] = useState(false);
   const [reason, setReason] = useState("");
   const [show, setShow] = useState(false);
-
+  const dispatch = useDispatch();
   const [descShow, setDescShow] = useState(false);
   const router = useRouter();
   const { locale } = router;
@@ -56,9 +56,18 @@ function StoreTopDetails({ data, setSuccess }) {
         console.log("wishlistresult5", res);
       });
     } else {
-      setShowLogin(true);
+      dispatch(activeModalShow("login"));
     }
   };
+  const reportModalShowHandler = () => {
+    const isAuthenticated = constants.token_id;
+    if (isAuthenticated) {
+      setShow(true);
+    } else {
+      dispatch(activeModalShow("login"));
+    }
+  };
+
   const handleShareStorePost = (slug) => {
     Axios.post(
       apis.shareStoreToPost,
@@ -103,7 +112,6 @@ function StoreTopDetails({ data, setSuccess }) {
 
   return (
     <Fragment>
-      {showLogin && <Login setShowLogin={setShowLogin} />}
       <Modal
         title={t("Why are you reporting this store?")}
         open={show}
@@ -245,7 +253,7 @@ function StoreTopDetails({ data, setSuccess }) {
                   {t("Send")}
                 </Dropdown.Item>
                 {constants.user_id != data.user && (
-                  <Dropdown.Item onClick={() => setShow(true)}>
+                  <Dropdown.Item onClick={() => reportModalShowHandler()}>
                     {t("Report")}
                   </Dropdown.Item>
                 )}
