@@ -3,16 +3,18 @@ import Axios from "axios";
 import constants from "@/public/data/my-constants/Constants";
 import { useState, useEffect } from "react";
 import apis from "@/public/data/my-constants/Apis";
-import { Modal, TimePicker } from "antd";
+import { Modal, TimePicker, notification } from "antd";
 import { Button } from "react-bootstrap";
 import moment from "moment";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
+import { Labels } from "@/public/data/my-constants/Labels";
 function PlayGroundsForm({ handlePlaygroundForm, editData }) {
   const { t } = useTranslation();
   const router = useRouter();
   const btnRef = useRef(null);
   const { id } = router.query;
+  const labels = Labels();
   const [game, setGame] = useState([]);
   const [amenity, setAmenity] = useState([]);
   const [gameChecked, setGameChecked] = useState([]);
@@ -179,10 +181,22 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
       btnRef.current.disabled = true;
     }
     try {
-      await handlePlaygroundForm(formData, gameChecked, amenityChecked, slots);
+      if (slots.length >= 1) {
+        await handlePlaygroundForm(
+          formData,
+          gameChecked,
+          amenityChecked,
+          slots
+        );
+      } else {
+        notification.error({
+          message: t("Error"),
+          description: `${labels["Please select a slot"]}`,
+        });
+      }
     } finally {
       if (btnRef.current) {
-        btnRef.current.disabled = false; // Re-enable the button
+        btnRef.current.disabled = false;
       }
     }
   };

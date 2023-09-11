@@ -79,7 +79,7 @@ function ForgetEmail({ setActiveModal }) {
           marginTop: "24px",
         }}
       >
-        {t(" To reset your password , Please Enter a Email")}{" "}
+        {t("To reset your password , Please Enter a Email")}{" "}
       </Modal.Title>
       <Modal.Body>
         <Form onSubmit={(e) => submitForgotEmail(e)}>
