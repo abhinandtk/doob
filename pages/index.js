@@ -23,6 +23,7 @@ import SharedConfirmation from '@/components/homepage/social/SharedConfirmation'
 import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next';
+import AuthenticationModals from '@/components/shared/AuthenticationModals';
 
 export async function getStaticProps({ locale }) {
   return {
@@ -32,61 +33,61 @@ export async function getStaticProps({ locale }) {
   }
 }
 function HomePage() {
-  const router = useRouter()
-  const { locale } = useRouter()
-  const { t } = useTranslation()
+  // const router = useRouter()
+  // const { locale } = useRouter()
+  // const { t } = useTranslation()
 
-  const [countryModalShow, setCountryModalShow] = useState(true);
-  const [countryData, setCountryData] = useState([])
-  const [regionData, setRegionData] = useState([])
+  // const [countryModalShow, setCountryModalShow] = useState(true);
+  // const [countryData, setCountryData] = useState([])
+  // const [regionData, setRegionData] = useState([])
 
 
 
-  const [activemodal, setActiveModal] = useState(null)
+  // const [activemodal, setActiveModal] = useState(null)
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    const hasReloaded = localStorage.getItem('hasReloaded');
-    if (!token && !hasReloaded) {
+  // useEffect(() => {
+  //   const token = localStorage.getItem('token');
+  //   const hasReloaded = localStorage.getItem('hasReloaded');
+  //   if (!token && !hasReloaded) {
 
-      localStorage.setItem('hasReloaded', true);
+  //     localStorage.setItem('hasReloaded', true);
 
-      window.location.reload();
-    }
+  //     window.location.reload();
+  //   }
 
-  }, [])
+  // }, [])
 
-  const handleCountry = (e) => {
-    setRegionData([])
-    const countryId = e.target.value;
-    localStorage.setItem('country-select', countryId)
-    const cData = countryData.find((country => country.country_name === countryId))
+  // const handleCountry = (e) => {
+  //   setRegionData([])
+  //   const countryId = e.target.value;
+  //   localStorage.setItem('country-select', countryId)
+  //   const cData = countryData.find((country => country.country_name === countryId))
 
-    if (cData && cData.regions) {
-      setRegionData(cData.regions)
-    }
-  };
+  //   if (cData && cData.regions) {
+  //     setRegionData(cData.regions)
+  //   }
+  // };
 
-  const regionChange = (e) => {
-    const regId = e.target.value;
-    console.log('idddd', regId)
-    localStorage.setItem('region-select', regId)
-  }
+  // const regionChange = (e) => {
+  //   const regId = e.target.value;
+  //   console.log('idddd', regId)
+  //   localStorage.setItem('region-select', regId)
+  // }
 
-  const countrySubmitHandler = (e) => {
-    e.preventDefault()
+  // const countrySubmitHandler = (e) => {
+  //   e.preventDefault()
 
-    setCountryModalShow(false)
-    setActiveModal('login')
+  //   setCountryModalShow(false)
+  //   setActiveModal('login')
 
-  }
+  // }
 
-  useEffect(() => {
-    axios.post(apis.country)
-      .then((res) => {
-        setCountryData(res.data.country)
-      })
-  }, [])
+  // useEffect(() => {
+  //   axios.post(apis.country)
+  //     .then((res) => {
+  //       setCountryData(res.data.country)
+  //     })
+  // }, [])
 
 
   return (
@@ -94,7 +95,8 @@ function HomePage() {
       <MainHeader title='Doob' />
       <MobileHeader />
       <MainSidebarFixed />
-      {constants.token_id === null ? (
+      <AuthenticationModals />
+      {/* {constants.token_id === null ? (
         <Modal
           show={countryModalShow}
           // onHide={() => setCountryModalShow(false)} 
@@ -163,7 +165,7 @@ function HomePage() {
       {activemodal === 'forgetemail' && <ForgetEmail setActiveModal={setActiveModal} />}
       {activemodal === 'forgetotp' && <ForgetOtp setActiveModal={setActiveModal} />}
       {activemodal === 'passwordchange' && <PasswordChange setActiveModal={setActiveModal} />}
-      {activemodal === 'ssoregister' && <SsoRegister countries={countryData} setActiveModal={setActiveModal} />}
+      {activemodal === 'ssoregister' && <SsoRegister countries={countryData} setActiveModal={setActiveModal} />} */}
 
       <main className="main-container">
         <section className="content-container">

@@ -187,7 +187,7 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
     if (!isAdmin) {
       notification.error({
         message: t("Error"),
-        description: "only admin can change profile",
+        description: t("Only admin can change profile"),
       });
       return false;
     }
@@ -352,6 +352,10 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
                   icon={<DeleteOutlined />}
                   onClick={() => {
                     setGroupProfilePic(null);
+                    notification.success({
+                      message: t("Success"),
+                      description: t("Removed Successfully"),
+                    });
                   }}
                 />
               )}

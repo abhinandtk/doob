@@ -73,6 +73,28 @@
       }
     }
   }
+  .review-md {
+    .ant-modal {
+      .ant-modal-content {
+        background-color: var(--posts-bg);
+        .ant-modal-close-x {
+          color: var(--white-color);
+        }
+        .ant-modal-body {
+          color: #ffff;
+          .form-control {
+            border: none;
+          }
+        }
+        .ant-modal-header {
+          background-color: var(--primary);
+          .ant-modal-title {
+            color: var(--white-color);
+          }
+        }
+      }
+    }
+  }
 
   .ant-modal {
     .ant-modal-content {

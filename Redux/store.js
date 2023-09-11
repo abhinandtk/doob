@@ -8,6 +8,7 @@ import updateNavbarReducer from "./updateNavbar";
 import notificationReducer from './notificationCount';
 import messagesReducer from './messagesCount';
 import chatUpdateReducer from "./chatRefresh"
+import activeModalReducer from "./loginShow"
 export const store = configureStore({
   reducer: {
     slot: slotReducer,
@@ -19,5 +20,6 @@ export const store = configureStore({
     notificationCount: notificationReducer,
     chatCount: messagesReducer,
     chatUsers: chatUpdateReducer,
+    activeShow: activeModalReducer,
   },
 });

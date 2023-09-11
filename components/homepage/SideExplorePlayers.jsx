@@ -111,7 +111,7 @@ function SideExplorePlayers() {
               </Link>
               <button
                 onClick={() => exploreFollowHandler(item.id)}
-                className="side-menu__suggestion-button"
+                className="side-menu__suggestion-button dark-theme-color" 
                 style={{ [locale === "en" ? "marginLeft" : "marginRight"]: "auto" }}
               >
                 {t("Follow")}
