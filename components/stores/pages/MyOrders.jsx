@@ -60,7 +60,8 @@ function MyOrders() {
         class="content-topic "
         style={{ direction: locale === "en" ? "ltr" : "rtl" }}
       >
-        <h5 className="mt-4 ms-4 dark-theme-color">{t("Order History")}</h5>
+        <h5  className={locale === "en" ? "mt-4 ms-4 dark-theme-color" : "mt-4 mx-4 dark-theme-color"}>{t("Order History")}</h5>
+    
         {ordersList.map((item, index) => {
           return (
             <div key={index} className="dark-theme-color">

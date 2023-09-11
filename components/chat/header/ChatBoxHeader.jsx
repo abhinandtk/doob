@@ -49,8 +49,8 @@ function ChatBoxHeader({ details, selectedId, setOnSuccess, onNewMsg }) {
                   
                 )}
               
-                <p
-                  style={{ marginTop: "36px", fontWeight: "600", fontSize: "14px", minWidth: "100px", marginRight: locale === 'ar' ? '90px' : "" ,marginLeft: locale === 'en' ? '90px' : "" }}
+                <p className="chats-para"
+                  style={{ marginRight: locale === 'ar' ? '90px' : "" ,marginLeft: locale === 'en' ? '90px' : "" }}
                 // style={{
                 //   marginLeft: "90px",
                 //   marginTop: "36px",
