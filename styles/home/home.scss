@@ -1744,6 +1744,7 @@ input.nosubmit1 {
   margin-top: 36px; 
   font-weight: 600;
    font-size: 14px;
+
     min-width: 100px;
     // display: -webkit-box;
     // -webkit-line-clamp: 1;
@@ -1804,7 +1805,7 @@ input.nosubmit1 {
 .pic_ar{
   position: absolute;
   top: 0;
-  left: 70px;
+  right: 34px;
   width: 50px;
   height: 50px;
   object-fit: cover;
