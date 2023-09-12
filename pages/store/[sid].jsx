@@ -18,6 +18,7 @@ import { Carousel, Skeleton } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import AuthenticationModals from "@/components/shared/AuthenticationModals";
 
 export async function getServerSideProps({ locale }) {
   return {
@@ -27,9 +28,9 @@ export async function getServerSideProps({ locale }) {
   };
 }
 function StoreDetailPage() {
-  const router = useRouter()
-  const { locale } = router
-    const { sid } = router.query;
+  const router = useRouter();
+  const { locale } = router;
+  const { sid } = router.query;
   const { t } = useTranslation();
 
   const [searchInput, setSearchInput] = useState("");
@@ -91,6 +92,7 @@ function StoreDetailPage() {
       <MainHeader title="Doob" />
       <MobileHeader />
       <MainSidebarFixed />
+      <AuthenticationModals />
       <div className="store-container ">
         {isLoading ? (
           <Skeleton
@@ -104,11 +106,8 @@ function StoreDetailPage() {
               <span>
                 {" "}
                 <input
-           
                   className={locale === "en" ? "nosubmit1" : "nosubmit1_ar"}
-                              
-                  style={{height:locale==='ar'?'40px':""}}
-                  
+                  style={{ height: locale === "ar" ? "40px" : "" }}
                   onChange={(e) => setSearchInput(e.target.value)}
                   type="search"
                   onKeyDown={handleKeyDown}
@@ -131,10 +130,14 @@ function StoreDetailPage() {
                 src="/images/store/Fil-icon.png"
                 className="filters-icon"
               ></img> */}
-              &nbsp; 
-              <button type="button" className="btn btn mb-1 input-theme-prod dark-theme-color" >   {t("Search")}</button>
-
-               
+                  &nbsp;
+                  <button
+                    type="button"
+                    className="btn btn mb-1 input-theme-prod dark-theme-color"
+                  >
+                    {" "}
+                    {t("Search")}
+                  </button>
                 </span>
               </span>
               <button type="submit" style={{ display: "none" }}></button>

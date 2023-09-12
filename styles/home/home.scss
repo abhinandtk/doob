@@ -1740,18 +1740,17 @@ input.nosubmit1 {
     color: var(--font-theme-color);
   }
 }
-.chats-para{
-  margin-top: 36px; 
+.chats-para {
+  margin-top: 36px;
   font-weight: 600;
-   font-size: 14px;
-
-    min-width: 100px;
-    // display: -webkit-box;
-    // -webkit-line-clamp: 1;
-    // -webkit-box-orient: vertical;
-    // overflow: hidden;
-    // text-overflow: ellipsis;
-    // width: 190px;
+  font-size: 14px;
+  min-width: 100px;
+  // display: -webkit-box;
+  // -webkit-line-clamp: 1;
+  // -webkit-box-orient: vertical;
+  // overflow: hidden;
+  // text-overflow: ellipsis;
+  // width: 190px;
 }
 
 .container .rightSides {
@@ -1802,7 +1801,7 @@ input.nosubmit1 {
   margin-left: 35px;
   border-radius: 50%;
 }
-.pic_ar{
+.pic_ar {
   position: absolute;
   top: 0;
   right: 34px;
@@ -2078,7 +2077,11 @@ input.nosubmit1 {
     transparent 50%,
     transparent
   );
+
+  
 }
+
+
 
 .frnd_chatam {
   color: #959595;
@@ -2416,14 +2419,14 @@ p.note {
 .field {
   font-size: 15px;
   font-weight: 500;
-  margin-left: 20px;
+  margin: 0 20px;
   margin-bottom: -12px;
 }
 
 .head {
   font-size: 20px;
   font-weight: 500;
-  margin-left: 14px;
+  margin: 0 14px;
 }
 .head_ar {
   font-size: 20px;

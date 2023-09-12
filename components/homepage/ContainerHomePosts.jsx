@@ -9,7 +9,7 @@ import SharedConfirmation from "./social/SharedConfirmation";
 import moment from "moment";
 import Link from "next/link";
 import MobileFooter from "../shared/MobileFooter";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import SharedPostHeaders from "./social/ModuleSharedPostHeaders";
 import ModuleSharedPostImage from "./social/ModuleSharedPostImage";
 import ModuleSharedPostDetails from "./social/ModuleSharedPostDetails";
@@ -22,10 +22,11 @@ import Login from "@/components/user/Login";
 import { CardImg } from "react-bootstrap";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
+import { activeModalShow } from "@/Redux/loginShow";
 
 function ContainerHomePosts() {
   const { t } = useTranslation();
-
+  const dispatch = useDispatch();
   const { theme } = useTheme();
   const router = useRouter();
   const { locale } = router;
@@ -42,7 +43,6 @@ function ContainerHomePosts() {
   const [slug, setSlug] = useState(null);
   const [loadMore, setLoadMore] = useState(true);
   const [onSuccess, setOnSuccess] = useState(true);
-  const [showLogin, setShowLogin] = useState(false);
 
   const isAuthenticated = constants.token_id;
   useEffect(() => {
@@ -117,7 +117,7 @@ function ContainerHomePosts() {
       setPostId(post_id);
       setSlug(slug);
     } else {
-      setShowLogin(true);
+      dispatch(activeModalShow("login"));
     }
   };
   const sharedClick = (id) => {
@@ -172,7 +172,7 @@ function ContainerHomePosts() {
         setVisible(true);
       });
     } else {
-      setShowLogin(true);
+      dispatch(activeModalShow("login"));
     }
   };
 
@@ -184,13 +184,12 @@ function ContainerHomePosts() {
         router.push(`/userprofile/${id}`);
       }
     } else {
-      setShowLogin(true);
+      dispatch(activeModalShow("login"));
     }
   };
 
   return (
     <Fragment>
-      {showLogin && <Login setShowLogin={setShowLogin} />}
       <Modal
         open={visible}
         onCancel={() => setVisible(false)}
@@ -316,8 +315,12 @@ function ContainerHomePosts() {
                                 )}
                               </a>
                             </div>
-                            <div  className= "time" style={{direction:locale==='ar'?'ltr':""}}>
-
+                            <div
+                              className="time"
+                              style={{
+                                direction: locale === "ar" ? "ltr" : "",
+                              }}
+                            >
                               {timeSincePost(item.posted)}
                             </div>
                           </div>
@@ -402,7 +405,7 @@ function ContainerHomePosts() {
                             <Link
                               href={
                                 constants.user_id ===
-                                  item.owner_user_detail.user_detail.id
+                                item.owner_user_detail.user_detail.id
                                   ? "profile"
                                   : `/userprofile/${item.owner_user_detail.user_detail.id}`
                               }
@@ -424,7 +427,12 @@ function ContainerHomePosts() {
                             &nbsp;Post
                           </div>
                         </div>
-                        <div  className= "time" style={{direction:locale==='ar'?'ltr':""}}>{timeSincePost(item.posted)}</div>
+                        <div
+                          className="time"
+                          style={{ direction: locale === "ar" ? "ltr" : "" }}
+                        >
+                          {timeSincePost(item.posted)}
+                        </div>
                       </div>
                     </div>
                   )}
@@ -468,8 +476,8 @@ function ContainerHomePosts() {
                   <div className="post__buttons">
                     {item.owner_user_detail === null ? (
                       item.post_type === "Product" ||
-                        item.post_type === "Store" ||
-                        item.post_type === "Field" ? (
+                      item.post_type === "Store" ||
+                      item.post_type === "Field" ? (
                         ""
                       ) : (
                         <>
@@ -590,9 +598,15 @@ function ContainerHomePosts() {
 
                     {item.owner_user_detail === null ? (
                       item.post_type === "Product" ||
-                        item.post_type === "Store" ||
-                        item.post_type === "Field" ? (
-                        <button className={locale === "en" ? "post__button post__button--align-right" : "post__button post__button--align-right_ar"}>
+                      item.post_type === "Store" ||
+                      item.post_type === "Field" ? (
+                        <button
+                          className={
+                            locale === "en"
+                              ? "post__button post__button--align-right"
+                              : "post__button post__button--align-right_ar"
+                          }
+                        >
                           <a>
                             <span
                               className="me-2"
@@ -612,8 +626,8 @@ function ContainerHomePosts() {
                               {item.post_type === "Product"
                                 ? `${item.products.Selling_Prize} KD`
                                 : item.post_type === "Field"
-                                  ? `${item.stadiums.amount} KD`
-                                  : ""}
+                                ? `${item.stadiums.amount} KD`
+                                : ""}
                             </span>
                           </a>
                         </button>
@@ -622,8 +636,11 @@ function ContainerHomePosts() {
                           onClick={() => {
                             commentClick(item.post_id, item.slug);
                           }}
-                          className={locale === "en" ? "post__button post__button--align-right" : "post__button post__button--align-right_ar"}
-
+                          className={
+                            locale === "en"
+                              ? "post__button post__button--align-right"
+                              : "post__button post__button--align-right_ar"
+                          }
                         >
                           {item.comment_count} {t("Comments")}
                         </button>
@@ -636,7 +653,11 @@ function ContainerHomePosts() {
                             item.slug
                           );
                         }}
-                        className={locale === "en" ? "post__button post__button--align-right" : "post__button post__button--align-right_ar"}
+                        className={
+                          locale === "en"
+                            ? "post__button post__button--align-right"
+                            : "post__button post__button--align-right_ar"
+                        }
                       >
                         {item.comment_count} {t("Comments")}
                       </button>

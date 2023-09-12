@@ -183,7 +183,7 @@ function ChatBox({ selectedId, onNewMsg }) {
                               )}
                             </p>
                           </div>
-                          <div className="frnd_chatam">
+                          <div className="frnd_chatam"   style={{direction:locale==='ar'?'ltr':"",float:locale==='ar'?'right':""}}>
                             {moment(msg.date).format("hh:mm A")}
                           </div>
                         </div>

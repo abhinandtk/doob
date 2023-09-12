@@ -70,7 +70,6 @@ function MessagesList({ onChatSelect, onNewMsg }) {
   }, [updateChat, searchQuery, onSuccess]);
   return (
     <Fragment>
-      
       <div className="leftSide tour-detail-ar ">
         <div className="header">
           <div className="text">
@@ -127,7 +126,10 @@ function MessagesList({ onChatSelect, onNewMsg }) {
                       : "transparent",
                 }}
               >
-                <div className="imgBox" style={{marginLeft:locale==='ar'?'10px':""}}>
+                <div
+                  className="imgBox"
+                  style={{ marginLeft: locale === "ar" ? "10px" : "" }}
+                >
                   <img
                     src={
                       item.recipeint.user_image
@@ -144,8 +146,11 @@ function MessagesList({ onChatSelect, onNewMsg }) {
                       <svg
                         width="10"
                         height="10"
-                       
-                        style={{   position: "absolute", marginTop: "35px",marginRight:locale==='ar'?'30px':""}}
+                        style={{
+                          position: "absolute",
+                          marginTop: "35px",
+                          marginRight: locale === "ar" ? "30px" : "",
+                        }}
                         viewBox="0 0 10 10"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -185,8 +190,16 @@ function MessagesList({ onChatSelect, onNewMsg }) {
                   </div>
                   <div className="message_p">
                     <p className="last_msg">{item.last_message}</p>
-                    <p className="time" style={{textAlign:locale==='ar'?'left':"", direction:locale==='ar'?'ltr':""}}>
-                      {moment(item.date).format("hh:mm A")}
+                    <p
+                      className="time"
+                      style={{
+                        textAlign: locale === "ar" ? "left" : "",
+                        direction: locale === "ar" ? "ltr" : "",
+                      }}
+                    >
+                      {moment().isSame(moment(item.date), "day")
+                        ? moment(item.date).format("hh:mm A")
+                        : moment(item.date).format("DD-MM-YY")}
                     </p>
                   </div>
                 </div>

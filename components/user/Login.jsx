@@ -18,11 +18,14 @@ import { toast } from "react-toastify";
 import { message, notification } from "antd";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
-function Login({ setActiveModal, setShowLogin }) {
+import { activeModalShow } from "@/Redux/loginShow";
+import { useDispatch } from "react-redux";
+function Login() {
   const router = useRouter();
   const { locale } = router;
   const { t } = useTranslation();
   const [error, setError] = useState("");
+  const dispatch = useDispatch();
 
   // const [user,setUser] = useAuthState(auth);
   // const googleAuth = new GoogleAuthProvider();
@@ -35,7 +38,7 @@ function Login({ setActiveModal, setShowLogin }) {
   //     fcm_token:"fromweb"
   //   }).then((res)=>{
   //     if (res.data.status===0){
-  //       setActiveModal('ssoregister')
+  //       dispatch(activeModalShow('ssoregister'));
 
   //     }else{
   //       localStorage.setItem('user-login-tokens',res.data.data.token)
@@ -70,10 +73,10 @@ function Login({ setActiveModal, setShowLogin }) {
   // }
 
   const handleClick = () => {
-    setActiveModal("register");
+    dispatch(activeModalShow("register"));
   };
   const handleforgetpsw = () => {
-    setActiveModal("forgetemail");
+    dispatch(activeModalShow("forgetemail"));
   };
 
   const [shows, setShows] = useState(true);
@@ -100,7 +103,7 @@ function Login({ setActiveModal, setShowLogin }) {
         localStorage.setItem("user-login-tokens", res.data.data.token);
         localStorage.setItem("login-userId", res.data.data.user_id);
         window.location.reload(false);
-        setActiveModal("");
+        dispatch(activeModalShow(""));
         console.log("login success ");
         toast.success("successinfo");
       } else if (res.data.status === 0) {
@@ -120,10 +123,14 @@ function Login({ setActiveModal, setShowLogin }) {
   };
   const modalHideHandler = () => {
     setShows(false);
-    setShowLogin(false);
+    dispatch(activeModalShow(null));
   };
   return (
-    <Modal show={shows} onHide={() => modalHideHandler()}  style={{paddingLeft:'0px'}}>
+    <Modal
+      show={shows}
+      onHide={() => modalHideHandler()}
+      style={{ paddingLeft: "0px" }}
+    >
       <Modal.Header></Modal.Header>
       <Modal.Title className="title">{t("Login")}</Modal.Title>
       <Modal.Body>
@@ -194,7 +201,10 @@ function Login({ setActiveModal, setShowLogin }) {
             className="mb-1 text-center"
             controlId="formBasicPassword"
           >
-            <Form.Label style={{ color: "#17A803" }} onClick={handleClick}>
+            <Form.Label
+              style={{ color: "#17A803", cursor: "pointer" }}
+              onClick={handleClick}
+            >
               {t("Don't have an account?")}
               {t("Register")}
             </Form.Label>

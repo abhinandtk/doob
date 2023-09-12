@@ -25,6 +25,7 @@ function MainHeader() {
           ).then((res)=>{
             if (res.data.status === 1){
                 localStorage.removeItem('user-login-tokens')
+                localStorage.removeItem("country-select");
             }
           });
         

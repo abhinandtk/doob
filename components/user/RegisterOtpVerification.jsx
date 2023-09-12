@@ -12,13 +12,16 @@ import Axios from "axios";
 import constants from "@/public/data/my-constants/Constants";
 import apis from "@/public/data/my-constants/Apis";
 import { useTranslation } from "next-i18next";
-function RegisterOtpVerification({ setActiveModal }) {
+import { useDispatch } from "react-redux";
+import { activeModalShow } from "@/Redux/loginShow";
+function RegisterOtpVerification() {
   const [show, setShow] = useState(true);
   const [otp, setOtp] = useState("");
   const { t } = useTranslation();
 
   const [showResendButton, setShowResendButton] = useState(false);
   const [resendTimer, setResendTimer] = useState(60);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     let interval;
@@ -49,7 +52,7 @@ function RegisterOtpVerification({ setActiveModal }) {
       otp: otp,
     }).then((res) => {
       if (res.data.status === 1) {
-        setActiveModal("login");
+        dispatch(activeModalShow("login"));
         localStorage.setItem("regist-token-id", res.data.token);
       }
     });

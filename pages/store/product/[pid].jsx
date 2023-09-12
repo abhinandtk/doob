@@ -13,6 +13,7 @@ import MobileFooter from "@/components/shared/MobileFooter";
 import { useDispatch } from "react-redux";
 import { setProVarient } from "@/Redux/productDetail";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import AuthenticationModals from "@/components/shared/AuthenticationModals";
 
 export async function getServerSideProps({ locale }) {
   return {
@@ -67,6 +68,7 @@ function ProductDetailPage() {
       <MainHeader title="Doob" />
       <MobileHeader />
       <MainSidebarFixed />
+      <AuthenticationModals />
 
       <div className="store-container">
         {/* <form className="nosubmit ">
@@ -83,7 +85,10 @@ function ProductDetailPage() {
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col">
               <div className="card cart">
-                <div className="card-body p-4 product-det-full" style={{ direction: locale === "en" ? "ltr" : "rtl" }}>
+                <div
+                  className="card-body p-4 product-det-full"
+                  style={{ direction: locale === "en" ? "ltr" : "rtl" }}
+                >
                   <div className="row ">
                     <ProductDetailFullWidth
                       product={productDetails}

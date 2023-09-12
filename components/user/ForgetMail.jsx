@@ -15,12 +15,15 @@ import apis from "@/public/data/my-constants/Apis";
 import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { useTranslation } from "next-i18next";
-function ForgetEmail({ setActiveModal }) {
+import { useDispatch } from "react-redux";
+import { activeModalShow } from "@/Redux/loginShow";
+function ForgetEmail() {
   const [show, setShow] = useState(true);
   const { t } = useTranslation();
 
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
 
   const labels = Labels();
 
@@ -32,7 +35,7 @@ function ForgetEmail({ setActiveModal }) {
     }).then((res) => {
       console.log("res12", res);
       if (res.data.status === 1) {
-        setActiveModal("forgetotp");
+        dispatch(activeModalShow("forgetotp"));
         localStorage.setItem("forget-psw-email", email);
         notification.success({
           message: t("Success"),
@@ -49,7 +52,14 @@ function ForgetEmail({ setActiveModal }) {
   };
 
   return (
-    <Modal show={show} onHide={() => setShow(false)} className="login">
+    <Modal
+      show={show}
+      onHide={() => {
+        setShow(false);
+        dispatch(activeModalShow(null));
+      }}
+      className="login"
+    >
       <Modal.Header closeButton></Modal.Header>
       <Modal.Title
         style={{ display: "flex", justifyContent: "center", marginTop: "10px" }}
@@ -79,7 +89,7 @@ function ForgetEmail({ setActiveModal }) {
           marginTop: "24px",
         }}
       >
-        {t(" To reset your password , Please Enter a Email")}{" "}
+        {t("To reset your password , Please Enter a Email")}{" "}
       </Modal.Title>
       <Modal.Body>
         <Form onSubmit={(e) => submitForgotEmail(e)}>
@@ -89,18 +99,14 @@ function ForgetEmail({ setActiveModal }) {
               type="email"
               className="mx-auto dot modal-in input-theme-prod dark-theme-color"
               placeholder="Email"
-              style={{  marginTop: "-29px" }}
+              style={{ marginTop: "-29px" }}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
           </Form.Group>
 
           <Modal.Footer>
-            <Button
-              type="submit"
-              className="text-white mx-auto mt-2 modal-bt"
-              
-            >
+            <Button type="submit" className="text-white mx-auto mt-2 modal-bt">
               {isLoading ? (
                 <>
                   {t("Loading")}

@@ -15,12 +15,15 @@ import { notification } from "antd";
 import constants from "@/public/data/my-constants/Constants";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
-function Register({ setActiveModal, countries }) {
+import { activeModalShow } from "@/Redux/loginShow";
+import { useDispatch } from "react-redux";
+function Register({ countries }) {
   const { t } = useTranslation();
   const [show, setShow] = useState(true);
   const [errorMsg, setErrorMsg] = useState("");
   const router = useRouter();
   const { locale } = router;
+  const dispatch = useDispatch();
 
   const selectedCountry = localStorage.getItem("country-select");
   const [registerFormData, setRegisterFormData] = useState({
@@ -64,7 +67,7 @@ function Register({ setActiveModal, countries }) {
         .then((res) => {
           console.log("resreg", res);
           if (res.data.status === 1) {
-            setActiveModal("registerotp");
+            dispatch(activeModalShow("registerotp"));
             localStorage.setItem("otp-email", registerFormData.email);
           } else {
             notification.error({
@@ -82,7 +85,13 @@ function Register({ setActiveModal, countries }) {
     }
   };
   return (
-    <Modal show={show} onHide={() => setShow(false)}>
+    <Modal
+      show={show}
+      onHide={() => {
+        setShow(false);
+        dispatch(activeModalShow(null));
+      }}
+    >
       <div className="modal-contents">
         <Modal.Header closeButton></Modal.Header>
         <p style={{ color: "red", textAlign: "center" }}>{errorMsg}</p>

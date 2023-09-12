@@ -8,6 +8,9 @@ import { Labels } from "@/public/data/my-constants/Labels";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import Login from "@/components/user/Login";
+import AuthenticationModals from "@/components/shared/AuthenticationModals";
+import { useDispatch } from "react-redux";
+import { activeModalShow } from "@/Redux/loginShow";
 
 export default function PostActions({
   postId,
@@ -23,7 +26,7 @@ export default function PostActions({
   const [reason, setReason] = useState("");
   const router = useRouter();
   const labels = Labels("en");
-  const [showLogin, setShowLogin] = useState(false);
+  const dispatch = useDispatch();
 
   const postReportHandler = (e) => {
     console.log("ppppppppppp", postId);
@@ -86,7 +89,7 @@ export default function PostActions({
     if (isAuthenticated) {
       setShow(true);
     } else {
-      setShowLogin(true);
+      dispatch(activeModalShow("login"));
     }
   };
   const deleteModalHandler = () => {
@@ -94,13 +97,13 @@ export default function PostActions({
     if (isAuthenticated) {
       setVisible(true);
     } else {
-      setShowLogin(true);
+      dispatch(activeModalShow("login"));
     }
   };
 
   return (
     <>
-      {showLogin && <Login setShowLogin={setShowLogin} />}
+      {/* <AuthenticationModals /> */}
 
       <Modal
         title={t("Why are you reporting this post?")}

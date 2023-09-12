@@ -7,12 +7,14 @@ import { useRouter } from "next/router";
 import moment from "moment";
 import { useTranslation } from "next-i18next";
 import Login from "../user/Login";
+import { activeModalShow } from "@/Redux/loginShow";
+import { useDispatch } from "react-redux";
 
 function PlayGroundCard({ content }) {
   const router = useRouter();
   const { locale } = router;
+  const dispatch = useDispatch();
   const { t } = useTranslation();
-  const [showLogin, setShowLogin] = useState(false);
   const isAuthenticated = constants.token_id;
   const handleNavigation = (slug, id) => {
     if (isAuthenticated) {
@@ -24,13 +26,12 @@ function PlayGroundCard({ content }) {
         },
       });
     } else {
-      setShowLogin(true);
+      dispatch(activeModalShow("login"));
     }
   };
 
   return (
     <Fragment>
-      {showLogin && <Login setShowLogin={setShowLogin} />}
       <div style={{ direction: locale === "ar" ? "rtl" : "ltr" }}>
         <div className="clearfix jst mt-3 ">
           <h5

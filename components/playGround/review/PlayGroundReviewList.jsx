@@ -114,7 +114,7 @@ function PlayGroundReviewList({ reviewData, setOnSuccess }) {
                     className="rounded-circle shadow-1-strong "
                     src={
                       item.user_image
-                        ? `${constants.port}${item.user_image}`
+                        ? `${constants.port}/media/${item.user_image}`
                         : "/images/accounts/user_default.png"
                     }
                     style={{
@@ -131,10 +131,9 @@ function PlayGroundReviewList({ reviewData, setOnSuccess }) {
                   <div>
                     <div className="d-flex justify-content-between align-items-center">
                       <p
-                        className="mb-0"
+                        className="mb-0 dark-theme-color"
                         style={{
                           fontWeight: "600",
-                          color: "#000",
                           fontSize: "15px",
                         }}
                       >
@@ -146,9 +145,8 @@ function PlayGroundReviewList({ reviewData, setOnSuccess }) {
                     </div>
 
                     <p
-                      className="col-md-7"
+                      className="col-md-7 dark-theme-color"
                       style={{
-                        color: "#000",
                         fontWeight: "400",
                         fontSize: "14px",
                         float: "left",

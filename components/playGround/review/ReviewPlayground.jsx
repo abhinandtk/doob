@@ -12,7 +12,7 @@ import MobileFooter from "@/components/shared/MobileFooter";
 import { Modal } from "antd";
 import PlayGroundReviewList from "./PlayGroundReviewList";
 import PlayGroundReviewForm from "./PlayGroundReviewForm";
-function ReviewPlayground({setVisible}) {
+function ReviewPlayground({ setVisible }) {
   const [reviewData, setReviewData] = useState([]);
   const [reviewAdded, setReviewAdded] = useState([]);
   const [onSuccess, setOnSuccess] = useState(false);
@@ -41,35 +41,37 @@ function ReviewPlayground({setVisible}) {
   }, [onSuccess]);
   return (
     <Fragment>
-      <Modal open={true} onCancel={handleCancel} footer={null}>
-        {/* <section className="h-100 h-custom"> */}
+      <div className="review-md">
+        <Modal open={true} onCancel={handleCancel} footer={null}>
+          {/* <section className="h-100 h-custom"> */}
           {/* <div className="store-container  my-4"> */}
-            {/* <div className="row d-flex justify-content-center align-items-center h-100  ">
+          {/* <div className="row d-flex justify-content-center align-items-center h-100  ">
               <h5>Reviews</h5> */}
-              {/* <div className=" "> */}
-                {/* <div className="review card "> */}
-                  <div className="card-body p-5 ">
-                    <div className="row">
-                      {reviewAdded.length === 0 ? (
-                        <PlayGroundReviewForm
-                          setOnSuccess={setOnSuccess}
-                          userImg={reviewData[0] && reviewData[0].current_user_image}
-                        />
-                      ) : (
-                        <></>
-                      )}
-                      <PlayGroundReviewList
-                        reviewData={reviewData}
-                        setOnSuccess={setOnSuccess}
-                      />
-                    </div>
-                  </div>
-                {/* </div> */}
-              {/* </div> */}
-            {/* </div> */}
+          {/* <div className=" "> */}
+          {/* <div className="review card "> */}
+          <div className="card-body p-5 ">
+            <div className="row">
+              {reviewAdded.length === 0 ? (
+                <PlayGroundReviewForm
+                  setOnSuccess={setOnSuccess}
+                  userImg={reviewData[0] && reviewData[0].current_user_image}
+                />
+              ) : (
+                <></>
+              )}
+              <PlayGroundReviewList
+                reviewData={reviewData}
+                setOnSuccess={setOnSuccess}
+              />
+            </div>
+          </div>
           {/* </div> */}
-        {/* </section> */}
-      </Modal>
+          {/* </div> */}
+          {/* </div> */}
+          {/* </div> */}
+          {/* </section> */}
+        </Modal>
+      </div>
     </Fragment>
   );
 }

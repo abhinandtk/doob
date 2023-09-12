@@ -79,11 +79,11 @@ function ChatBoxHeader({ details, selectedId, setOnSuccess, onNewMsg }) {
                 <svg
                   width="10"
                   height="10"
-                  style={{
-                    marginTop: "63px",
-                    left: "70px",
-                    position: "absolute",
-                  }}
+                   
+
+                  style={{   marginTop: "63px",position: "absolute",left: locale === "en" ? "70px" : "",right: locale === "ar" ? "70px" : ""  }}
+
+
                   viewBox="0 0 10 10"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"

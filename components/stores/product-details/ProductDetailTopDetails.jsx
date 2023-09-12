@@ -8,19 +8,20 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { Fragment } from "react";
 import { Dropdown } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ReviewProduct from "../review/ReviewProduct";
 import { useTranslation } from "next-i18next";
 import ShareToUserChat from "@/components/homepage/social/share/ShareToUserChat";
 import Login from "@/components/user/Login";
+import { activeModalShow } from "@/Redux/loginShow";
 
 function ProductDetailTopDetails({ product, setApiSuccess }) {
   console.log("===============", product);
   const { t } = useTranslation();
+  const dispatch = useDispatch();
 
   const router = useRouter();
   const { locale } = router;
-  const [showLogin, setShowLogin] = useState(false);
 
   const labels = Labels();
   let productStock;
@@ -32,24 +33,24 @@ function ProductDetailTopDetails({ product, setApiSuccess }) {
   product.Product_Items.map((item, index) => {
     item.multivarient.length !== 0
       ? item.multivarient.map((item_, index_) => {
-        if (item_.slug_id === prVarientId) {
-          productStock = item_.stock;
-          productNameExtension =
-            "| " + item.values_values + "| " + item_.values;
-        }
-      })
+          if (item_.slug_id === prVarientId) {
+            productStock = item_.stock;
+            productNameExtension =
+              "| " + item.values_values + "| " + item_.values;
+          }
+        })
       : item.slug_id === prVarientId &&
-      ((productNameExtension = "| " + item.values_values),
+        ((productNameExtension = "| " + item.values_values),
         (productStock = item.stock));
   });
   useEffect(() => {
     product.Product_Items.map((item, index) => {
       item.multivarient.length !== 0
         ? item.multivarient.map((item_, index_) => {
-          if (item_.slug_id === prVarientId) {
-            setwishlistStatus(item_.wishlist_status === 0 ? false : true);
-          }
-        })
+            if (item_.slug_id === prVarientId) {
+              setwishlistStatus(item_.wishlist_status === 0 ? false : true);
+            }
+          })
         : setwishlistStatus(item.wishlist_status === 0 ? false : true);
     });
   }, [prVarientId]);
@@ -94,7 +95,7 @@ function ProductDetailTopDetails({ product, setApiSuccess }) {
         // setApiSuccess((prev) => !prev);
       });
     } else {
-      setShowLogin(true);
+      dispatch(activeModalShow("login"));
     }
   };
   const handleSend = async () => {
@@ -110,8 +111,6 @@ function ProductDetailTopDetails({ product, setApiSuccess }) {
 
   return (
     <Fragment>
-      {showLogin && <Login setShowLogin={setShowLogin} />}
-
       <span className={locale === "en" ? "float" : "float_ar"}>
         {/* <i
           className={`${

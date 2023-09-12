@@ -104,7 +104,7 @@ function PlayGroundTopDetails({ details }) {
               type="primary"
               htmlType="submit"
             >
-              Confirm
+              {t("Confirm")}
             </Button>
           </Form.Item>
         </Form>

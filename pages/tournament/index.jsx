@@ -12,8 +12,10 @@ import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import Login from "@/components/user/Login";
 import { useRouter } from "next/router";
+import AuthenticationModals from "@/components/shared/AuthenticationModals";
+import { activeModalShow } from "@/Redux/loginShow";
+import { useDispatch } from "react-redux";
 export async function getStaticProps({ locale }) {
   return {
     props: {
@@ -26,9 +28,9 @@ function TournamentHomePage() {
   const [liveTourData, setLiveTourData] = useState([]);
   const [rankData, setRankData] = useState([]);
   const [activeTab, setActiveTab] = useState("tournaments");
-  const [showLogin, setShowLogin] = useState(false);
   const router = useRouter();
   const { locale } = router;
+  const dispatch = useDispatch();
   useEffect(() => {
     let headers = {};
     const isAuthenticated = constants.token_id;
@@ -50,7 +52,7 @@ function TournamentHomePage() {
     if (isAuthenticated) {
       setActiveTab("ranks");
     } else {
-      setShowLogin(true);
+      dispatch(activeModalShow("login"));
     }
   };
 
@@ -59,9 +61,9 @@ function TournamentHomePage() {
       <MainHeader title="Doob" />
       <MobileHeader />
       <MainSidebarFixed />
-      {showLogin && <Login setShowLogin={setShowLogin} />}
+      <AuthenticationModals />
       <div className="tour-container">
-        <div style={{ direction: locale === 'ar' ? "rtl" : "ltr" }}>
+        <div style={{ direction: locale === "ar" ? "rtl" : "ltr" }}>
           <div className="top-head-tour dark-theme-color">
             <h5 className=" my-4" style={{ fontWeight: "600" }}>
               {t("Tournaments")}
@@ -69,16 +71,18 @@ function TournamentHomePage() {
             <div className="topnav">
               <span
                 onClick={() => setActiveTab("tournaments")}
-                className={`${activeTab === "tournaments" ? "active" : ""
-                  } dark-theme-color`}
+                className={`${
+                  activeTab === "tournaments" ? "active" : ""
+                } dark-theme-color`}
                 style={{ cursor: "pointer" }}
               >
                 {t("Tournaments")}
               </span>
               <span
                 onClick={() => rankTabHandler()}
-                className={`${activeTab === "ranks" ? "active" : ""
-                  } dark-theme-color`}
+                className={`${
+                  activeTab === "ranks" ? "active" : ""
+                } dark-theme-color`}
                 style={{ cursor: "pointer" }}
               >
                 {t("Ranks")}

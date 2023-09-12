@@ -21,11 +21,10 @@ import { notification } from "antd";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { toggle } from "@/Redux/updateNavbar";
 import { useTranslation } from "next-i18next";
-import Login from "@/components/user/Login";
+import { activeModalShow } from "@/Redux/loginShow";
 
 function ProductDetailFullWidth({ product, setApiSuccess }) {
   const { t } = useTranslation();
-  const [showLogin, setShowLogin] = useState(false);
   const labels = Labels();
   const dispatch = useDispatch();
   const router = useRouter();
@@ -172,13 +171,11 @@ function ProductDetailFullWidth({ product, setApiSuccess }) {
         console.log("res", res);
       });
     } else {
-      setShowLogin(true);
+      dispatch(activeModalShow("login"));
     }
   };
   return (
     <Fragment>
-      {showLogin && <Login setShowLogin={setShowLogin} />}
-
       {product.map((product, index) => {
         return (
           <>
@@ -199,12 +196,11 @@ function ProductDetailFullWidth({ product, setApiSuccess }) {
                   </p>
                 ) : product.Product_Brand.status === "Active" &&
                   product.Product_Category.status == true &&
-                  product.status === "Active" 
-                  // varientStatus === "Active" 
-                  ? (
+                  product.status === "Active" ? (
+                  // varientStatus === "Active"
                   <div>
                     {priceView}
-                    <div   className={locale==='ar'?"qty_ar":"qty"}>            
+                    <div className={locale === "ar" ? "qty_ar" : "qty"}>
                       <div
                         onClick={(e) => handleDecreaseQty(e)}
                         className="minus "
