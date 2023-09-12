@@ -798,19 +798,23 @@ input:disabled {
 }
 
 .edit {
-  margin-right: -32px;
-  width: 12px;
-  height: 12px;
+  margin-right: -60px;
+  width: 50px;
+  height: 20px;
   float: right;
-  margin-top: -17px;
+  margin-top: -19px;
 }
 
 .edit-offer-list {
-  width: 12px;
-  height: 12px;
+  width: 22px;
+  height: 22px;
   float: right;
 }
-
+.edit-trash-list {
+  width: 18px;
+  height: 18px;
+  float: right;
+}
 .sides a {
   display: block;
   color: black;
@@ -1091,6 +1095,7 @@ input:disabled {
   font-weight: 600;
   margin-top: -14px;
 }
+
 
 .address-card {
   margin-top: -9px;

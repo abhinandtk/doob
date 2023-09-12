@@ -11,7 +11,7 @@ function GameBookingCard({ data }) {
 
   const router = useRouter();
   const { locale } = router;
-    const scrollRef = useRef();
+  const scrollRef = useRef();
 
   return (
     <Fragment>
@@ -21,7 +21,8 @@ function GameBookingCard({ data }) {
             <div className="card-body">
               <div className="clearfix  dot-web">
                 <div className="float-end dots">
-                  <svg
+                  &nbsp;
+                  {/* <svg
                     width="28"
                     height="27"
                     viewBox="0 0 28 27"
@@ -40,7 +41,7 @@ function GameBookingCard({ data }) {
                       d="M12.4629 6.5147C12.4629 5.91504 12.9701 5.42892 13.5959 5.42892C14.2216 5.42892 14.7289 5.91504 14.7289 6.5147C14.7289 7.11436 14.2216 7.60049 13.5959 7.60049C12.9701 7.60049 12.4629 7.11436 12.4629 6.5147Z"
                       fill="black"
                     />
-                  </svg>
+                  </svg> */}
                 </div>
               </div>
               <div className="book-content">
@@ -51,7 +52,7 @@ function GameBookingCard({ data }) {
                   <p>{moment(value.stadium_details.date).format("MMM")}</p>
                 </div>
                 <div className="book-details">
-                  <p style={{color: "#959595", textAlign:locale==='ar'?'right':"",direction:locale==='ar'?'ltr':""}}>
+                  <p style={{ color: "#959595", textAlign: locale === 'ar' ? 'right' : "", direction: locale === 'ar' ? 'ltr' : "" }}>
                     {moment(
                       value.stadium_details.timeslots[0]["start_time"],
                       "hh:mm:ss"
@@ -59,7 +60,7 @@ function GameBookingCard({ data }) {
                     to{" "}
                     {moment(
                       value.stadium_details.timeslots[
-                        value.stadium_details.timeslots.length - 1
+                      value.stadium_details.timeslots.length - 1
                       ]["end_time"],
                       "hh:mm:ss"
                     ).format("hh:mm A")}
@@ -108,7 +109,7 @@ function GameBookingCard({ data }) {
               <button
                 type="button"
                 // className="yes1-btn float-end "
-                className={`yes1-btn ${locale==='en'?"float-end":"float-start"}`}
+                className={`yes1-btn ${locale === 'en' ? "float-end" : "float-start"}`}
                 onClick={() =>
                   router.push({
                     pathname: "/games/create-game",
