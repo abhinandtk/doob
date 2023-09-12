@@ -173,7 +173,7 @@ function MainHeader({ title }) {
         variant="dark"
         sticky="top"
         className="web-nav"
-        style={{ zIndex: 100 }}
+        style={{ zIndex: 100, direction: locale === "ar" ? "rtl" : "ltr" }}
       >
         <Container fluid>
           <Navbar.Brand href="/">
@@ -300,7 +300,7 @@ function MainHeader({ title }) {
                 <svg
                   width="24"
                   height="20"
-                  className="search"
+                  className={`search ${locale === "ar" ? "mx-1" : ""}`}
                   viewBox="0 0 23 22"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"

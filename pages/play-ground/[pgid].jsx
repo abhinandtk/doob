@@ -14,6 +14,7 @@ import MobileHeader from "@/components/MobileHeader";
 import { useRouter } from "next/router";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { Skeleton } from "antd";
 
 export async function getServerSideProps({ locale }) {
   return {
@@ -27,6 +28,8 @@ function PlayGroundDetailPage() {
   const inputData = router.query;
   const [groundData, setGroundData] = useState([]);
   const [amenitiesData, setAmenitiesData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
   console.log("ggggggggggggggg", inputData, {
     stadium_id: inputData.stadium_id,
     date: inputData.date,
@@ -47,6 +50,7 @@ function PlayGroundDetailPage() {
     ).then((res) => {
       setGroundData(res.data.data.stadium_details);
       setAmenitiesData(res.data.data.stadium_details.amnities);
+      setIsLoading(false);
 
       console.log("trrtrtrtop879", res);
     });
@@ -67,11 +71,22 @@ function PlayGroundDetailPage() {
             ></img>
           </span>
         </form> */}
-        <div className="field-details">
-          <PlayGroundTopDetails details={groundData} />
-          <AmenitiesList amenitiesData={amenitiesData} />
-          <SelectGround details={groundData} setDateSelected={setDateSelected} />
-        </div>
+        {isLoading ? (
+          <Skeleton
+            active
+            paragraph={{ rows: 20 }}
+            className="skeleton-container"
+          />
+        ) : (
+          <div className="field-details">
+            <PlayGroundTopDetails details={groundData} />
+            <AmenitiesList amenitiesData={amenitiesData} />
+            <SelectGround
+              details={groundData}
+              setDateSelected={setDateSelected}
+            />
+          </div>
+        )}
       </div>
       <MobileFooter />
     </Fragment>
