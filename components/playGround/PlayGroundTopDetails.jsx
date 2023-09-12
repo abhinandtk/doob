@@ -170,35 +170,11 @@ function PlayGroundTopDetails({ details }) {
                       background: "transparent",
                     }}
                   >
-                    <svg
-                      width="35"
-                      height="34"
-                      viewBox="0 0 35 34"
-                      fill="none"
-                      className="ms-1"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M15.9854 24.9206C15.9854 24.156 16.6322 23.5361 17.43 23.5361C18.2279 23.5361 18.8747 24.156 18.8747 24.9206C18.8747 25.6853 18.2279 26.3051 17.43 26.3051C16.6322 26.3051 15.9854 25.6853 15.9854 24.9206Z"
-                        stroke="white"
-                        stroke-width="1.4447"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M15.9854 16.614C15.9854 15.8494 16.6322 15.2295 17.43 15.2295C18.2279 15.2295 18.8747 15.8494 18.8747 16.614C18.8747 17.3786 18.2279 17.9985 17.43 17.9985C16.6322 17.9985 15.9854 17.3786 15.9854 16.614Z"
-                        stroke="white"
-                        stroke-width="1.4447"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M15.9854 8.30686C15.9854 7.54223 16.6322 6.92236 17.43 6.92236C18.2279 6.92236 18.8747 7.54223 18.8747 8.30686C18.8747 9.0715 18.2279 9.69136 17.43 9.69136C16.6322 9.69136 15.9854 9.0715 15.9854 8.30686Z"
-                        stroke="white"
-                        stroke-width="1.4447"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
+
+                    <svg width="28" height="27" viewBox="0 0 205 197" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M93.958 147.344C93.958 142.823 97.7822 139.158 102.5 139.158C107.217 139.158 111.041 142.823 111.041 147.344C111.041 151.865 107.217 155.529 102.5 155.529C97.7822 155.529 93.958 151.865 93.958 147.344Z" stroke="white" stroke-width="8.54167" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M93.958 98.2291C93.958 93.7082 97.7822 90.0433 102.5 90.0433C107.217 90.0433 111.041 93.7082 111.041 98.2291C111.041 102.75 107.217 106.415 102.5 106.415C97.7822 106.415 93.958 102.75 93.958 98.2291Z" stroke="white" stroke-width="8.54167" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M93.958 49.1145C93.958 44.5936 97.7822 40.9287 102.5 40.9287C107.217 40.9287 111.041 44.5936 111.041 49.1145C111.041 53.6354 107.217 57.3003 102.5 57.3003C97.7822 57.3003 93.958 53.6354 93.958 49.1145Z" stroke="white" stroke-width="8.54167" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                   </Dropdown.Toggle>
 
@@ -225,9 +201,8 @@ function PlayGroundTopDetails({ details }) {
           </p>
           <div className="clearfix rating">
             <span
-              className={`${
-                locale === "en" ? "float-start" : "float-end"
-              } ml-5`}
+              className={`${locale === "en" ? "float-start" : "float-end"
+                } ml-5`}
               onClick={toggleModal}
             >
               <i className="bi bi-star-fill" style={{ color: "yellow" }}></i>
