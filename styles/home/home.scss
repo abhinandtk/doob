@@ -2082,6 +2082,49 @@ input.nosubmit1 {
 }
 
 
+.message_ar {
+  position: relative;
+  display: flex;
+  width: 100%;
+  word-break: break-all;
+  clear: both;
+}
+
+.message_ar p {
+  position: relative;
+  right: 0;
+  text-align: left;
+  max-width: 65%;
+  padding: 8px 12px 12px;
+
+  background: #17a803;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 0.9em;
+}
+
+.message_ar p::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -12px;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(
+    225deg,
+    #343c42 0%,
+    #343c42 50%,
+    transparent 50%,
+    transparent
+  );
+
+  
+}
+
+
+
+
+
 
 .frnd_chatam {
   color: #959595;
@@ -2126,6 +2169,7 @@ input.nosubmit1 {
   color: #fff;
   margin-bottom: 8px;
 }
+
 
 .message.frnd_message p::before {
   content: "";

@@ -139,7 +139,8 @@ function ChatBox({ selectedId, onNewMsg }) {
                         </div>
                       ) : (
                         <div>
-                          <div className="message frnd_message">
+                          <div        className={locale === "en" ? "message frnd_message" : "message_ar frnd_message"} >
+                   
                             {chatHeader.type === "group" && (
                               <img
                                 src={

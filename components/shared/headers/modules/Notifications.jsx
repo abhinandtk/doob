@@ -127,7 +127,8 @@ function Notifications({ setNotificationShow }) {
         }}
         bodyStyle={{ maxHeight: "70vh", overflowY: "scroll" }}
       >
-        <section className="side-menu-sections ">
+        <section className="side-menu-sections " style={{direction:locale==='ar'?'rtl':""}}>
+          
           <div className="side-menu__suggestions-sections ">
             {notificationData.map((item, index) => {
               return (
@@ -166,10 +167,11 @@ function Notifications({ setNotificationShow }) {
                           {item.name}
                           <span
                             className="ms-1 dark-theme-color"
-                            style={{ fontSize: "12px" }}
+                            
+                            style={{fontSize: "12px",marginRight:locale==='ar'?'10px':""}}
                           >
                             Started Following <br></br>you.
-                            <span>{notificationTime(item.created_at)}</span>
+                            <span style={{marginRight:locale==='ar'?'10px':""}} >{notificationTime(item.created_at)}</span>
                           </span>
                         </Link>
                       </div>
@@ -232,10 +234,10 @@ function Notifications({ setNotificationShow }) {
                           {item.name}
                           <span
                             className="ms-1 dark-theme-color"
-                            style={{ fontSize: "12px" }}
+                            style={{fontSize: "12px",marginRight:locale==='ar'?'10px':""}}
                           >
                             requested to follow<br></br>you.
-                            <span>{notificationTime(item.created_at)}</span>
+                            <span style={{marginRight:locale==='ar'?'10px':""}} >{notificationTime(item.created_at)}</span>
                           </span>
                         </Link>
                       </div>
@@ -289,10 +291,10 @@ function Notifications({ setNotificationShow }) {
                           {item.name}
                           <span
                             className="ms-1 dark-theme-color"
-                            style={{ fontSize: "12px" }}
+                            style={{fontSize: "12px",marginRight:locale==='ar'?'10px':""}}
                           >
                             {item.message}&nbsp;
-                            <span>{notificationTime(item.created_at)}</span>
+                            <span style={{marginRight:locale==='ar'?'10px':""}} >{notificationTime(item.created_at)}</span>
                           </span>
                         </Link>
                       </div>
@@ -338,10 +340,10 @@ function Notifications({ setNotificationShow }) {
                           {item.name}
                           <span
                             className="ms-1 dark-theme-color"
-                            style={{ fontSize: "12px" }}
+                            style={{fontSize: "12px",marginRight:locale==='ar'?'10px':""}}
                           >
                             {item.message}&nbsp;
-                            <span>{notificationTime(item.created_at)}</span>
+                            <span style={{marginRight:locale==='ar'?'10px':""}} >{notificationTime(item.created_at)}</span>
                           </span>
                         </Link>
                       </div>
@@ -394,10 +396,10 @@ function Notifications({ setNotificationShow }) {
                           {item.name}
                           <span
                             className="ms-1 dark-theme-color"
-                            style={{ fontSize: "12px" }}
+                            style={{fontSize: "12px",marginRight:locale==='ar'?'10px':""}}
                           >
                             {item.message}&nbsp;
-                            <span>{notificationTime(item.created_at)}</span>
+                            <span style={{marginRight:locale==='ar'?'10px':""}} >{notificationTime(item.created_at)}</span>
                           </span>
                         </Link>
                       </div>
@@ -448,10 +450,10 @@ function Notifications({ setNotificationShow }) {
                           {item.name}
                           <span
                             className="ms-1 dark-theme-color"
-                            style={{ fontSize: "12px" }}
+                            style={{fontSize: "12px",marginRight:locale==='ar'?'10px':""}}
                           >
                             {item.message}&nbsp;
-                            <span>{notificationTime(item.created_at)}</span>
+                            <span style={{marginRight:locale==='ar'?'10px':""}} >{notificationTime(item.created_at)}</span>
                           </span>
                         </Link>
                       </div>
@@ -502,10 +504,10 @@ function Notifications({ setNotificationShow }) {
                           {item.name}
                           <span
                             className="ms-1 dark-theme-color"
-                            style={{ fontSize: "12px" }}
+                            style={{fontSize: "12px",marginRight:locale==='ar'?'10px':""}}
                           >
                             {item.message}&nbsp;
-                            <span>{notificationTime(item.created_at)}</span>
+                            <span style={{marginRight:locale==='ar'?'10px':""}} >{notificationTime(item.created_at)}</span>
                           </span>
                         </Link>
                       </div>
@@ -549,14 +551,15 @@ function Notifications({ setNotificationShow }) {
                       <div className="side-menu__suggestion-infos">
                         <Link
                           href={`/userprofile/${item.user_id}`}
-                          style={{ textDecoration: "none" }}
+                       
+                          style={{textDecoration: "none",marginRight:locale==='ar'?'15px':""}}
                         >
                           {" "}
                           {item.name}
                           {item.type === "Comment" ? (
                             <span
                               className="ms-1 dark-theme-color"
-                              style={{ fontSize: "12px" }}
+                              style={{fontSize: "12px",marginRight:locale==='ar'?'10px':""}}
                             >
                               Commented on your post.
                               <span>{notificationTime(item.created_at)}</span>
@@ -564,10 +567,10 @@ function Notifications({ setNotificationShow }) {
                           ) : (
                             <span
                               className="ms-1 dark-theme-color"
-                              style={{ fontSize: "12px" }}
+                              style={{fontSize: "12px",marginRight:locale==='ar'?'10px':""}}
                             >
                               Liked your photo.
-                              <span>{notificationTime(item.created_at)}</span>
+                              <span style={{marginRight:locale==='ar'?'10px':""}} >{notificationTime(item.created_at)}</span>
                             </span>
                           )}
                         </Link>
