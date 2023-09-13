@@ -52,7 +52,7 @@ function ProfileHeaderDetails({ data, setSuccess }) {
       console.log("iiooooooooooooooooooooooooooo", res);
       setSuccess((prev) => !prev);
       setUploadImageUrl(URL.createObjectURL(file));
-      message.success("profile image updated successfully");
+      message.success(t("Profile image updated successfully"));
       setVisible(false);
     });
   };
@@ -70,7 +70,7 @@ function ProfileHeaderDetails({ data, setSuccess }) {
         setSuccess((prev) => !prev);
         setLoading(false);
       }
-      message.success("profile image deleted successfully");
+      message.success(t("Profile image deleted successfully"));
     });
   };
 
@@ -186,12 +186,11 @@ function ProfileHeaderDetails({ data, setSuccess }) {
         <Card className="cord">
           <Card.Body>
             <div className="row">
-              <div className={`col-md-6 ${locale === 'ar' && 'order-2'}`}>
+              <div className={`col-md-6 ${locale === "ar" && "order-2"}`}>
                 <button
                   onClick={() => setShowRank(true)}
                   className="btn profile-edit-btn"
-                  style={{float:locale==="ar"&&"right"}}
-
+                  style={{ float: locale === "ar" && "right" }}
                 >
                   {t("Rank")}
                 </button>
@@ -220,8 +219,11 @@ function ProfileHeaderDetails({ data, setSuccess }) {
                   <img src="/images/accounts/camera.png" alt=""></img>
                 </div>
               </div>
-              <div className={`col-md-6 ${locale === 'ar' && 'order-1'}`}>
-                <div className="profile-stats" style={{ marginLeft: locale === "en" ? "-130px" : "0px" }}>
+              <div className={`col-md-6 ${locale === "ar" && "order-1"}`}>
+                <div
+                  className="profile-stats"
+                  style={{ marginLeft: locale === "en" ? "-130px" : "0px" }}
+                >
                   <ul>
                     <h1 className="profile-user-name">
                       {data.name}

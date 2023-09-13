@@ -145,7 +145,7 @@ function AddressPage() {
             {addressList.map((item, index) => (
               <div
                 key={index}
-                style={{ border: item.default ? "1px solid #17A803" : "" }}
+                style={{ border: item.default ? "1px solid #17A803" : "" ,margin:"10px"}}
               >
                 <Card key={index} className="input-theme-prod">
                   <div

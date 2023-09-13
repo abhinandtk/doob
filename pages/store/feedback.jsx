@@ -14,6 +14,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import MobileHeader from "@/components/MobileHeader";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { Labels } from "@/public/data/my-constants/Labels";
+import { useRouter } from "next/router";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -23,8 +24,10 @@ export async function getStaticProps({ locale }) {
   };
 }
 function FeedbackPage() {
-  const labels=Labels()
+  const labels = Labels();
   const { t } = useTranslation();
+  const router = useRouter();
+  const { locale } = router;
   const [formData, setFormData] = useState({
     title: "",
     email: "",
@@ -75,47 +78,64 @@ function FeedbackPage() {
       <div className="side-container">
         <PagesSideBar currentPage="feedback" />
 
-        <div className="content-page">
+        <div
+          className="content-page"
+          style={{ direction: locale === "en" ? "ltr" : "rtl" }}
+        >
           <br></br>
           <div className="head dark-theme-color">{t("Feedback")}</div>
 
           <Form className="my-3" onSubmit={(e) => submitHandler(e)}>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Group className="mb-3 m-2" controlId="formBasicEmail">
+              <Form.Label className="dark-theme-color">{t("Title")}*</Form.Label>
               <Form.Control
                 required
                 id="title"
                 type="text"
-                placeholder={t("Title")}
+                placeholder=""
                 className="input-theme-prod mx-2 op"
                 style={{ width: "90%" }}
                 value={formData.title}
                 onChange={(e) => changeHandler(e)}
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Group className="mb-3 m-2" controlId="formBasicEmail">
+              <Form.Label className="dark-theme-color">{t("Email")}*</Form.Label>
+
               <Form.Control
                 required
                 id="email"
                 type="email"
-                placeholder={t("Email")}
+                placeholder=""
                 className="input-theme-prod mx-2 op"
                 style={{ width: "90%" }}
                 value={formData.email}
                 onChange={(e) => changeHandler(e)}
               />
             </Form.Group>
-            <Form.Group className="mb-3 " controlId="formBasicEmail">
+            <Form.Group className="mb-3 m-2 " controlId="formBasicEmail">
+              <Form.Label className="dark-theme-color">
+                {t("Description")}
+              </Form.Label>
+
               <textarea
                 className="form-control input-theme-prod mx-2 op"
                 style={{ width: "90%", height: "190px" }}
                 id="description"
                 rows="3"
-                placeholder={t("Description")}
+                placeholder=""
                 value={formData.description}
                 onChange={(e) => changeHandler(e)}
               ></textarea>
             </Form.Group>
-            <button type="submit" className="side-menus__suggestions-btns">
+            <button
+              type="submit"
+              style={{
+                float: locale === "en" ? "right" : "left",
+                marginLeft: locale === "en" ? "" : "62px",
+              }}
+              className="side-menus__suggestions-btns"
+            >
               {t("Submit")}
             </button>
           </Form>

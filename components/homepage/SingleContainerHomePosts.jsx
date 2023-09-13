@@ -652,7 +652,11 @@ function SingleContainerHomePosts({ story }) {
                               item.owner_user_detail.orginal_post_slug
                             );
                           }}
-                          className="post__button post__button--align-right"
+                          className={
+                            locale === "en"
+                              ? "dark-theme-color post__button post__button--align-right"
+                              : "dark-theme-color post__button post__button--align-right_ar"
+                          }
                         >
                           {item.comment_count} {t("Comments")}
                         </button>

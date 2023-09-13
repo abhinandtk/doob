@@ -45,10 +45,10 @@ function BookingSuccessPage() {
                 className="text-center
             "
               >
-                You have Successfully Booked
+                {t("You have Successfully Booked")}
               </h5>
               <p className="text-center">
-                Do you want invite people to this game?
+                {t("Do you want invite people to this game?")}
               </p>
               <Button
                 onClick={() =>
@@ -62,14 +62,14 @@ function BookingSuccessPage() {
                 style={{ width: "100px" }}
               >
                 {" "}
-                Yes{" "}
+                {t("Yes")}{" "}
               </Button>
               <p
                 style={{ cursor: "pointer" }}
                 onClick={() => router.push("/play-ground")}
                 className="text-center my-2"
               >
-                No
+                {t("No")}
               </p>
             </div>
           </div>

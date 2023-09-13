@@ -220,15 +220,15 @@ function ChatHeaderActions({ selectedId, setOnSuccess, details }) {
           </Dropdown.Toggle>
           <Dropdown.Menu align="center" className="Menu">
             <Dropdown.Item onClick={() => setVisible(true)}>
-              Clear chat
+              {t("Clear chat")}
             </Dropdown.Item>
             {details.is_block ? (
               <Dropdown.Item onClick={() => unBlockUserHandler()}>
-                Unblock
+                {t("Unblock")}
               </Dropdown.Item>
             ) : (
               <Dropdown.Item onClick={() => setBlockShow(true)}>
-                Block
+                {t("Block")}
               </Dropdown.Item>
             )}
           </Dropdown.Menu>

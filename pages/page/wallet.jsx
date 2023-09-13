@@ -21,6 +21,7 @@ import MobileFooter from "@/components/shared/MobileFooter";
 import PagesSideBar from "@/components/stores/pages/PagesSideBar";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -33,6 +34,8 @@ function WalletPage() {
   const [walletData, setWalletData] = useState([]);
   const [totalCount, setTotalCount] = useState("");
   const today = moment();
+  const router = useRouter();
+  const { locale } = router;
   const targetDate = moment("2023-06-15");
 
   const diffInDays = targetDate.diff(today, "days");
@@ -109,14 +112,15 @@ function WalletPage() {
                 </span>
                 <span className="mx-2">{t("My Wallet")}</span>{" "}
               </Card.Text>
+              <Card.Text className="text-white ">{t("Total Wallet")}</Card.Text>
               <Card.Title className="text-white ">
                 {" "}
                 {totalCount ? totalCount : "0.000"} KD
+                <span style={{ float: locale === "en" ? "right" : "left" }}>
+                  {t("Transactions History")}
+                </span>
               </Card.Title>
-              <Card.Text className="text-white ">
-                {t("Total Wallet")}
-                <span style={{ float: "right" }}>{t("Transactions History")}</span>
-              </Card.Text>
+              <Card.Text className="text-white "></Card.Text>
             </Card.Body>
           </Card>
           <br></br>
@@ -142,7 +146,7 @@ function WalletPage() {
                   </div>
 
                   <p className=" expires-date ">
-                    {item.balance} KD expires in{" "}
+                    {item.balance} KD {t("expires in")}{" "}
                     {moment(item.expiry_date).diff(moment(), "days")} days
                   </p>
                 </div>

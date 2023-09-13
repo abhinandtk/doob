@@ -19,6 +19,7 @@ function Notifications({ setNotificationShow }) {
   const [notificationData, setNotificationData] = useState([]);
   const [followStatus, setFollowStatus] = useState(false);
   const router = useRouter();
+  const { locale } = router;
   const labels = Labels();
   const dispatch = useDispatch();
   useEffect(() => {
@@ -112,7 +113,7 @@ function Notifications({ setNotificationShow }) {
   return (
     <div style={{ position: "relative" }}>
       <Modal
-        title="Notifications"
+        title={t("Notifications")}
         open={show}
         onCancel={() => {
           setShow(false);
@@ -120,7 +121,10 @@ function Notifications({ setNotificationShow }) {
         }}
         maskClosable
         footer={null}
-        style={{ position: "absolute", right: 0 }}
+        style={{
+          position: "absolute",
+          [locale === "en" ? "right" : "left"]: 0,
+        }}
         bodyStyle={{ maxHeight: "70vh", overflowY: "scroll" }}
       >
         <section className="side-menu-sections ">
@@ -568,7 +572,12 @@ function Notifications({ setNotificationShow }) {
                           )}
                         </Link>
                       </div>
-                      <div className="side-suggestion-button1">
+                      <div
+                        className="side-suggestion-button1"
+                        onClick={() =>
+                          router.push(`/page/post/${item.post_slug}`)
+                        }
+                      >
                         {" "}
                         <img
                           src={`${constants.port}${item.liked_post}`}

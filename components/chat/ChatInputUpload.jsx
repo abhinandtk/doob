@@ -61,7 +61,7 @@ function ChatInputUpload({ selectedId, setOnSuccess, onNewMsg }) {
             className="input-theme-prod"
             type="text"
             onChange={(e) => setMessages(e.target.value)}
-            placeholder="Write your message"
+            placeholder=""
             value={messages}
           />
 

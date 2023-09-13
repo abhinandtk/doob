@@ -1,9 +1,8 @@
 {
-
-  "Success":"نجاح",
-  "Error":"خطأ",
-  "Warning":"تحذير",
-  "Info":"معلومات",
+  "Success": "نجاح",
+  "Error": "خطأ",
+  "Warning": "تحذير",
+  "Info": "معلومات",
 
   "Report": "تقرير",
   "Send": "يرسل",
@@ -425,6 +424,14 @@
   "To reset your password , Please Enter an OTP": "لإعادة تعيين كلمة المرور الخاصة بك، الرجاء إدخال رمز المرة الواحدة (OTP)",
   "Enter Your OTP": "إدخال رمز المرة الواحدة (OTP) الخاص بك",
   "My Followers": "متابعيني",
+  "Removed Successfully": "تم الحذف بنجاح",
+  "Only admin can change profile": "يمكن للمشرف فقط تغيير الملف الشخصي",
+  "Review Deleted": "تم حذف المراجعة",
+  "Share your review": "شارك مراجعتك",
+  "Review Added": "تمت إضافة المراجعة",
+  "Notifications": "الإشعارات",
+  "Profile image deleted successfully": "تم حذف صورة الملف الشخصي بنجاح",
+  "Profile image updated successfully": "تم تحديث صورة الملف الشخصي بنجاح",
 
   "Add Address": "اضف عنوان",
   "Set as Default": "تعيين كافتراضي",

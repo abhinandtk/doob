@@ -48,7 +48,7 @@ function StoreReviewForm({ setOnSuccess, userImg }) {
     }).then((res) => {
       console.log("result74", res);
       setOnSuccess((prev) => !prev);
-      message.success("Review Added");
+      message.success(t("Review Added"));
     });
   };
   return (
@@ -90,7 +90,7 @@ function StoreReviewForm({ setOnSuccess, userImg }) {
             style={{
               border: "0px",
             }}
-            placeholder="Share your Review "
+            placeholder={t("Share your review")}
             id="description"
             rows="3"
             onChange={(e) => handleChange(e)}

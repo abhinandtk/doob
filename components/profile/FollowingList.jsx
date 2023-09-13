@@ -68,7 +68,7 @@ function FollowingList({ setFollowingListShow, setSuccess }) {
         maskClosable
         centered
         bodyStyle={{ maxHeight: "50vh", overflowY: "scroll" }}
-        title="Followings"
+        title={t("Following")}
       >
         <div style={{ padding: "16px" }}>
           {following.map((item, index) => (

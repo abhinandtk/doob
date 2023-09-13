@@ -67,10 +67,10 @@ function StoreProductsCard({ products, title }) {
         {title}
         {/* <span className="view">View All</span> */}
       </h5>
-      <div className="row row-cols-2 store ">
+      <div className="row row-cols-2 store my-2">
         {updatedStore &&
           updatedStore.map((item, index) => (
-            <div key={index} className="col-md-4 col-lg-3 col-sm-6 col-xs-6   ">
+            <div key={index} className="col-md-4 col-lg-3 col-sm-6 col-xs-6 ">
               <Card
                 key={index}
                 style={{

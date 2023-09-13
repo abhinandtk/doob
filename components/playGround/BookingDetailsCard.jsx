@@ -76,14 +76,14 @@ function BookingDetailsCard({ details, setSuccess }) {
               }}
             >
               <span style={{ color: "#959595" }}>{t("Date")}</span>
-              <span> {moment(item.date).format("DD MMM YYYY")} </span>
+              <span style={{ direction: "ltr" }}> {moment(item.date).format("DD MMM YYYY")} </span>
             </div>
             <div
               className="p-2 order-list-alt mx-auto d-flex justify-content-between align-items-center"
               style={{ width: "90%" }}
             >
               <span style={{ color: "#959595" }}>{t("Slot")} </span>
-              <span>
+              <span style={{ direction: "ltr" }}>
                 {moment(item.start_time, "hh:mm:ss").format("hh:mm A")} -{" "}
                 {moment(item.end_time, "hh:mm:ss").format("hh:mm A")}
               </span>

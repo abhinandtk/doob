@@ -70,7 +70,8 @@ function ChatHeaderActionsGroup({
       if (res.data.status === 1) {
         notification.success({
           message: t("Success"),
-          description: `${labels["Left group"]}`,
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       } else {
         notification.error({
@@ -194,7 +195,7 @@ function ChatHeaderActionsGroup({
             >
               <path
                 d="M2 7.99251L2 8.00749M2 2L2 2.01498M2 13.985L2 14"
-                stroke={theme==="light"?"black":"white"}
+                stroke={theme === "light" ? "black" : "white"}
                 stroke-width="2.36268"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -207,7 +208,7 @@ function ChatHeaderActionsGroup({
             </Dropdown.Item>
 
             <Dropdown.Item onClick={() => onNewMsg("info")}>
-              {t("Group info")}
+              {t("Group Info")}
             </Dropdown.Item>
             {details.is_admin ? (
               <Dropdown.Item onClick={() => setLeftVisible(true)}>

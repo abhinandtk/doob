@@ -157,6 +157,7 @@ function ShareToUserChat({ slug, type }) {
         <List
           className="dark-theme-color"
           dataSource={searchResult}
+          locale={{ emptyText: ' ' }}
           renderItem={(item, index) => (
             <List.Item
               key={index}

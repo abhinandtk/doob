@@ -58,7 +58,7 @@ function PagesSideBar({ currentPage }) {
   return (
     <Fragment>
       <Modal
-        title="Logout"
+        title={t("Logout")}
         open={show}
         onCancel={() => setShow(false)}
         centered
@@ -66,7 +66,7 @@ function PagesSideBar({ currentPage }) {
         maskClosable
         footer={[
           <Button
-            className="no-hover-effect"
+            className="no-hover-effect dark-theme-color"
             onClick={() => {
               setShow(false);
             }}
@@ -76,16 +76,16 @@ function PagesSideBar({ currentPage }) {
             {t("Cancel")}
           </Button>,
           <Button
-            className="no-hover-effect"
+            className="no-hover-effect dark-theme-color"
             onClick={logoutHandle}
             key="submit"
-            style={{ backgroundColor: "#17A803", color: "black" }}
+            style={{ backgroundColor: "#17A803" }}
           >
-            Logout
+            {t("Logout")}
           </Button>,
         ]}
       >
-        <p>Are you sure to logout</p>
+        <p>{t("Are you sure to logout?")}</p>
       </Modal>
       <div className="sides">
         <Link href="/page/wallet" style={{ textDecoration: "none" }}>

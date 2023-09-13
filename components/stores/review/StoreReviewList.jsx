@@ -6,8 +6,10 @@ import { useState } from "react";
 import { CardImg } from "react-bootstrap";
 import { Rate, message } from "antd";
 import Axios from "axios";
+import { useTranslation } from "next-i18next";
 function StoreReviewList({ reviewData, setOnSuccess }) {
   console.log("oooppppooopopopopopopopo", reviewData);
+  const {t}=useTranslation()
 
   const deleteReview = (id) => {
     console.log("reviewdelete", id);
@@ -26,7 +28,7 @@ function StoreReviewList({ reviewData, setOnSuccess }) {
     ).then((res) => {
       console.log("reviewdelete", res);
       setOnSuccess((prev) => !prev);
-      message.success("Review Deleted");
+      message.success(t("Review Deleted"));
     });
   };
 
@@ -71,10 +73,10 @@ function StoreReviewList({ reviewData, setOnSuccess }) {
                     <div>
                       <div className="d-flex justify-content-between align-items-center">
                         <p
-                          className="mb-0"
+                          className="mb-0 dark-theme-color"
                           style={{
                             fontWeight: "600",
-                            color: "#000",
+
                             fontSize: "15px",
                           }}
                         >
@@ -86,9 +88,8 @@ function StoreReviewList({ reviewData, setOnSuccess }) {
                       </div>
 
                       <p
-                        className="col-md-7"
+                        className="col-md-7 dark-theme-color"
                         style={{
-                          color: "#000",
                           fontWeight: "400",
                           fontSize: "14px",
                           float: "left",
@@ -152,10 +153,9 @@ function StoreReviewList({ reviewData, setOnSuccess }) {
                   <div>
                     <div className="d-flex justify-content-between align-items-center">
                       <p
-                        className="mb-0"
+                        className="mb-0 dark-theme-color"
                         style={{
                           fontWeight: "600",
-                          color: "#000",
                           fontSize: "15px",
                         }}
                       >
@@ -167,9 +167,8 @@ function StoreReviewList({ reviewData, setOnSuccess }) {
                     </div>
 
                     <p
-                      className="col-md-7"
+                      className="col-md-7 dark-theme-color"
                       style={{
-                        color: "#000",
                         fontWeight: "400",
                         fontSize: "14px",
                         float: "left",

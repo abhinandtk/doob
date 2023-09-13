@@ -57,7 +57,7 @@ function ProductReviewForm({ setOnSuccess, userImg }) {
         image: "",
       });
       setOnSuccess((prev) => !prev);
-      message.success("Review Added");
+      message.success(t("Review Added"));
     });
   };
   return (
@@ -91,7 +91,7 @@ function ProductReviewForm({ setOnSuccess, userImg }) {
             style={{
               border: "0px",
             }}
-            placeholder="Share your Review "
+            placeholder={t("Share your review")}
             id="description"
             rows="3"
             onChange={(e) => handleChange(e)}
