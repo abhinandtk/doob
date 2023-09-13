@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Poppins:wght@300&display=swap");
 @import "themes/theme";
+@import "themes/language";
 $primary-color: #17a803;
 
 body {
@@ -2077,10 +2078,7 @@ input.nosubmit1 {
     transparent 50%,
     transparent
   );
-
-  
 }
-
 
 .message_ar {
   position: relative;
@@ -2117,14 +2115,7 @@ input.nosubmit1 {
     transparent 50%,
     transparent
   );
-
-  
 }
-
-
-
-
-
 
 .frnd_chatam {
   color: #959595;
@@ -2169,7 +2160,6 @@ input.nosubmit1 {
   color: #fff;
   margin-bottom: 8px;
 }
-
 
 .message.frnd_message p::before {
   content: "";

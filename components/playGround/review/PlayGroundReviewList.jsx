@@ -38,7 +38,7 @@ function PlayGroundReviewList({ reviewData, setOnSuccess }) {
                   key={index}
                   className="d-flex flex-start justify-content-end mt-4 mx-2"
                 >
-                  <a className="me-2" href="">
+                  <a className="mx-2" href="">
                     <CardImg
                       className="rounded-circle shadow-1-strong "
                       src={
@@ -78,7 +78,7 @@ function PlayGroundReviewList({ reviewData, setOnSuccess }) {
                         style={{
                           fontWeight: "400",
                           fontSize: "14px",
-                          float: "left",
+                          // float: "left",
                         }}
                       >
                         {item.review}
@@ -108,7 +108,7 @@ function PlayGroundReviewList({ reviewData, setOnSuccess }) {
 
             {content.other_user.map((item, index) => (
               <div key={index} className="d-flex flex-start mt-4 mx-2">
-                <a className="me-2" href="">
+                <a className="mx-2" href="">
                   <CardImg
                     className="rounded-circle shadow-1-strong "
                     src={
@@ -148,7 +148,7 @@ function PlayGroundReviewList({ reviewData, setOnSuccess }) {
                       style={{
                         fontWeight: "400",
                         fontSize: "14px",
-                        float: "left",
+                        // float: "left",
                       }}
                     >
                       {item.review}

@@ -15,6 +15,7 @@ function StoreFilter({ searchResultHandler }) {
   const { t } = useTranslation();
 
   const router = useRouter();
+  const { locale } = router;
   const [searchInput, setSearchInput] = useState(router.query.search);
 
   const data = router.query;
@@ -136,6 +137,7 @@ function StoreFilter({ searchResultHandler }) {
         centered
         footer={[
           <Button
+            type="secondary"
             className="dark-theme-color"
             key="back"
             onClick={() => clearFilterHandler()}
@@ -171,7 +173,12 @@ function StoreFilter({ searchResultHandler }) {
                         <span className="mx-1 ">{brand.brand}</span>
                       </span>
                     </div>
-                    <div style={{ flexGrow: 1, textAlign: "right" }}>
+                    <div
+                      style={{
+                        flexGrow: 1,
+                        textAlign: locale === "en" ? "right" : "left",
+                      }}
+                    >
                       <input
                         className="mx-3"
                         id={brand.id}
@@ -209,7 +216,12 @@ function StoreFilter({ searchResultHandler }) {
                               </span>
                             </span>
                           </div>
-                          <div style={{ flexGrow: 1, textAlign: "right" }}>
+                          <div
+                            style={{
+                              flexGrow: 1,
+                              textAlign: locale === "en" ? "right" : "left",
+                            }}
+                          >
                             <input
                               className="mx-3"
                               id={subCat.id}

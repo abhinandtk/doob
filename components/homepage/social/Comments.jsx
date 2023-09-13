@@ -100,7 +100,7 @@ function Comments({ setVisibleComment, postId, slug }) {
           : showComments &&
             showComments.map((item, index) => (
               <div key={index} className="d-flex flex-start mt-4 mx-2">
-                <div className="me-2" href="">
+                <div className="mx-2" href="">
                   {item.user.image ? (
                     <CardImg
                       className="rounded-circle shadow-1-strong "
@@ -178,7 +178,7 @@ function Comments({ setVisibleComment, postId, slug }) {
                           >
                             {reply.user_details.image ? (
                               <CardImg
-                                className="rounded-circle shadow-1-strong me-3"
+                                className="rounded-circle shadow-1-strong mx-2"
                                 src={`${constants.port}${reply.user_details.image}`}
                                 style={{ width: "44px", height: "44px" }}
                               ></CardImg>
@@ -242,7 +242,7 @@ function Comments({ setVisibleComment, postId, slug }) {
           className="d-flex flex-start mt-5 mx-2"
           style={{ position: "sticky", bottom: "0" }}
         >
-          <div className="me-2" href="">
+          <div className="mx-2" href="">
             {loginUserImg ? (
               <CardImg
                 className="rounded-circle shadow-1-strong "

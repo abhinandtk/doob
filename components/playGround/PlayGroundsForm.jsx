@@ -211,8 +211,6 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
           className="form-control p-2 input-theme-prod"
           style={{
             border: "0px",
-
-            color: "grey",
           }}
           id="name"
           value={formData.name}
@@ -248,8 +246,6 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
           className="form-control p-2 input-theme-prod"
           style={{
             border: "0px",
-
-            color: "grey",
           }}
           id="location"
           value={formData.location}
@@ -266,8 +262,6 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
           className="form-control p-2 input-theme-prod"
           style={{
             border: "0px",
-
-            color: "grey",
           }}
           id="gmap"
           value={formData.gmap}
@@ -283,7 +277,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
           style={{
             border: "0px",
             
-            color: "grey",
+            
           }}
           id="latitude"
           value={formData.latitude}
@@ -299,7 +293,7 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
           style={{
             border: "0px",
             
-            color: "grey",
+            
           }}
           id="longitude"
           value={formData.longitude}
@@ -326,7 +320,6 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
           className="form-control p-2 input-theme-prod input-theme-prod"
           style={{
             border: "0px",
-            color: "grey",
           }}
           // placeholder="No file choosen"
           id="image"
@@ -341,8 +334,6 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
           className="form-control p-2 input-theme-prod"
           style={{
             border: "0px",
-
-            color: "grey",
           }}
           id="opening"
           value={formData.opening}
@@ -357,8 +348,6 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
           className="form-control p-2 input-theme-prod"
           style={{
             border: "0px",
-
-            color: "grey",
           }}
           id="closing"
           value={formData.closing}
@@ -407,8 +396,6 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
           className="form-control  input-theme-prod"
           style={{
             border: "0px",
-
-            color: "grey",
           }}
           id="description"
           onChange={(e) => handleChange(e)}
@@ -427,8 +414,6 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
           className="form-control  input-theme-prod"
           style={{
             border: "0px",
-
-            color: "grey",
           }}
           id="description_ar"
           onChange={(e) => handleChange(e)}
@@ -444,8 +429,6 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
           className="form-control  input-theme-prod"
           style={{
             border: "0px",
-
-            color: "grey",
           }}
           id="amount"
           value={formData.amount}

@@ -43,7 +43,7 @@ function StoreReviewList({ reviewData, setOnSuccess }) {
                   key={index}
                   className="d-flex flex-start justify-content-end mt-4 mx-2"
                 >
-                  <a className="me-2" href="">
+                  <a className="mx-2" href="">
                     {item.user_image ? (
                       <CardImg
                         className="rounded-circle shadow-1-strong "
@@ -92,7 +92,7 @@ function StoreReviewList({ reviewData, setOnSuccess }) {
                         style={{
                           fontWeight: "400",
                           fontSize: "14px",
-                          float: "left",
+                          // float: "left",
                         }}
                       >
                         {item.description}
@@ -123,7 +123,7 @@ function StoreReviewList({ reviewData, setOnSuccess }) {
 
             {content.other_user.map((item, index) => (
               <div key={index} className="d-flex flex-start mt-4 mx-2">
-                <a className="me-2" href="">
+                <a className="mx-2" href="">
                   {item.user_image ? (
                     <CardImg
                       className="rounded-circle shadow-1-strong "
@@ -171,7 +171,7 @@ function StoreReviewList({ reviewData, setOnSuccess }) {
                       style={{
                         fontWeight: "400",
                         fontSize: "14px",
-                        float: "left",
+                        // float: "left",
                       }}
                     >
                       {item.description}

@@ -63,7 +63,7 @@ function CommentActions({ user, commentId, setSuccessApi }) {
     <>
       <Modal
         zIndex={1100}
-        title="Why are you reporting this comment ??"
+        title={t("Why are you reporting this comment?")}
         open={show}
         centered
         closable
@@ -74,7 +74,8 @@ function CommentActions({ user, commentId, setSuccessApi }) {
         <Form onSubmitCapture={(e) => commentReportHandler(e)}>
           <Form.Item>
             <Input.TextArea
-              placeholder="Please enter your reason for reporting"
+              className="input-theme-prod"
+              placeholder=""
               autoSize={{ minRows: 5 }}
               // value={reason}
               onChange={(e) => setReason(e.target.value)}
@@ -95,14 +96,14 @@ function CommentActions({ user, commentId, setSuccessApi }) {
               type="primary"
               htmlType="submit"
             >
-              Confirm
+              {t("Confirm")}
             </Button>
           </Form.Item>
         </Form>
       </Modal>
       <Modal
         zIndex={1100}
-        title="Are you sure to delete this comment??"
+        title={t("Are you sure to delete this comment?")}
         open={visible}
         centered
         closable
@@ -138,7 +139,9 @@ function CommentActions({ user, commentId, setSuccessApi }) {
 
         <Dropdown.Menu align="center" className="Menu">
           {constants.user_id !== user ? (
-            <Dropdown.Item onClick={() => setShow(true)}>{t("Report")}</Dropdown.Item>
+            <Dropdown.Item onClick={() => setShow(true)}>
+              {t("Report")}
+            </Dropdown.Item>
           ) : (
             <Dropdown.Item onClick={() => setVisible(true)}>
               {t("Delete")}

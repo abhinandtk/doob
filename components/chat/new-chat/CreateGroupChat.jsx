@@ -138,7 +138,7 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
               onClick={() => handleSelect(item.id)}
             >
               <div className="d-flex flex-start mt-4 mx-2">
-                <span className="me-2">
+                <span className="mx-2">
                   <CardImg
                     className="rounded-circle shadow-1-strong "
                     src={

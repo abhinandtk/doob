@@ -18,6 +18,7 @@ import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import { useRouter } from "next/router";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from "next-i18next";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -28,6 +29,7 @@ export async function getStaticProps({ locale }) {
 }
 function BookingSuccessPage() {
   const router = useRouter();
+  const {t}=useTranslation()
   const { booking_id } = router.query;
   console.log("query", router.query,booking_id);
   return (

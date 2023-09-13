@@ -22,8 +22,8 @@ export async function getStaticProps({ locale }) {
 }
 function PlayGroundCartPage() {
   const { t } = useTranslation();
-  const router = useRouter()
-  const { locale } = router
+  const router = useRouter();
+  const { locale } = router;
   const [cartFieldData, setCartFieldData] = useState([]);
   const [cartData, setCartData] = useState([]);
   const [success, setSuccess] = useState(true);

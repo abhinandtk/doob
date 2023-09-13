@@ -165,7 +165,7 @@ function ShareToUserChat({ slug, type }) {
               onClick={() => handleClick(item.id)}
             >
               <div className="d-flex flex-start mt-4 mx-2">
-                <a className="me-2" href="">
+                <a className="mx-2" href="">
                   {item.image ? (
                     <CardImg
                       className="rounded-circle shadow-1-strong "

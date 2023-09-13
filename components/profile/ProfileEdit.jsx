@@ -204,7 +204,7 @@ function ProfileEdit({ data, setSuccess }) {
               value={profileFormData.nationality}
               required
             >
-              <option value="">--Select--</option>
+              <option value="">{t("--Select-")}-</option>
               {countryData.map((item) => (
                 <option key={item.id} value={item.country_name}>
                   {item.country_name}
@@ -236,7 +236,7 @@ function ProfileEdit({ data, setSuccess }) {
               style={{ backgroundColor: "#17A803" }}
               key="submit"
               type="submit"
-              className=" btn profile-edit-btn1"
+              className="m-0 btn profile-edit-btn1"
 
               // onClick={(e) => editProfileSubmit(e)}
             >

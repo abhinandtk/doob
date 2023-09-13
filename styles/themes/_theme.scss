@@ -32,9 +32,11 @@
   }
   .input-theme-prod {
     background-color: #eeeeee;
+    color: #000;
   }
   .cont-theme-bg {
     background-color: #ffffff;
+    color: #000;
   }
 }
 
@@ -132,8 +134,10 @@
   }
   .input-theme-prod {
     background-color: #3b444a;
+    color: var(--white-color);
   }
   .cont-theme-bg {
     background-color: #343c42;
+    color: var(--white-color);
   }
 }
