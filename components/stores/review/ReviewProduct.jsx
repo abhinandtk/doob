@@ -14,8 +14,10 @@ import { useRouter } from "next/router";
 
 import { Modal } from "antd";
 import { useSelector } from "react-redux";
+import { useTranslation } from "next-i18next";
 
-function ReviewProduct({ data ,product}) {
+function ReviewProduct({ data, product }) {
+  const { t } = useTranslation();
   const [reviewData, setReviewData] = useState([]);
   const [reviewAdded, setReviewAdded] = useState([]);
   const [onSuccess, setOnSuccess] = useState(false);
@@ -55,7 +57,7 @@ function ReviewProduct({ data ,product}) {
             ? product.product_review.average_rating
             : "0"}
           <span className="mx-2" style={{ color: "grey" }}>
-            ({product.product_review.count} reviews)
+            ({product.product_review.count} {t("reviews")})
           </span>
         </p>
       </span>

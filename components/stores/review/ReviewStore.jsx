@@ -15,15 +15,16 @@ import MobileFooter from "@/components/shared/MobileFooter";
 import StoreReviewList from "./StoreReviewList";
 import StoreReviewForm from "./StoreReviewForm";
 import { Modal } from "antd";
+import { useTranslation } from "next-i18next";
 
 function ReviewStore({ data }) {
+  const { t } = useTranslation();
   const [reviewData, setReviewData] = useState([]);
   const [reviewAdded, setReviewAdded] = useState([]);
   const [onSuccess, setOnSuccess] = useState(false);
   const [visible, setVisible] = useState(false);
   const router = useRouter();
   const { sid } = router.query;
-
 
   useEffect(() => {
     Axios.post(
@@ -48,15 +49,15 @@ function ReviewStore({ data }) {
       <span>
         <p
           className="mx-1 dark-theme-color"
-          style={{cursor:"pointer"}}
+          style={{ cursor: "pointer" }}
           onClick={() => setVisible(true)}
         >
           <i className="bi bi-star-fill" style={{ color: "yellow" }}></i>
           {data.review_average_rating}{" "}
-          <span style={{ color: "grey" }}>({data.review_count} reviews)</span>
+          <span style={{ color: "grey" }}>({data.review_count} {t("reviews")})</span>
         </p>
       </span>
-      <Modal open={visible} onCancel={()=>setVisible(false)} footer={null}>
+      <Modal open={visible} onCancel={() => setVisible(false)} footer={null}>
         <div className="card-body p-5 ">
           <div className="row">
             {reviewAdded.length === 0 ? (

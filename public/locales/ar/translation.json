@@ -177,7 +177,9 @@
   "Banner Type": "نوع اللافتة",
   "Edit Banners": "تحرير اللافتات",
   "View More": "عرض المزيد",
+  "More": "أكثر",
   "Add support": "إضافة دعم",
+  "Requested": "مطلوب",
 
   "Filter": "منقي",
   "Rating": "تقييم",
@@ -414,6 +416,8 @@
   "Please upload image with size less than 1 mb": "الرجاء تحميل صورة بحجم أقل من 1 ميجابايت",
   "Close group": "إغلاق المجموعة",
   "Clear chat": "مسح الدردشة",
+  "Clear": "واضح",
+  "reviews": "مراجعات",
   "Exit group": "الخروج من المجموعة",
   "Resend OTP in": "إعادة إرسال رمز المرور الثانوي خلال",
   "seconds": "ثواني",

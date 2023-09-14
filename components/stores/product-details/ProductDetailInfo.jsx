@@ -1,7 +1,9 @@
 import React from "react";
 import { Button } from "react-bootstrap";
+import { useTranslation } from "next-i18next";
 
 function ProductDetailInfo() {
+  const { t } = useTranslation();
   return (
     <div className="col-md-5 ">
       <div className=" justify-content-between align-items-center ">
@@ -73,7 +75,7 @@ function ProductDetailInfo() {
         <h5 className="col-md-9">COPA SENSE.4 FxG Football Shoes For Men</h5>
         <p className="mx-1">
           <i className="bi bi-star-fill" style={{ color: "yellow" }}></i>4.5{" "}
-          <span style={{ color: "grey" }}>(203 reviews)</span>
+          <span style={{ color: "grey" }}>(203 {t("reviews")})</span>
         </p>
         <p style={{ fontSize: "14px", fontWeight: "400" }}>
           Lorem z ipsum dolor sit amet, consectetur adipiscing elit. Facilisis

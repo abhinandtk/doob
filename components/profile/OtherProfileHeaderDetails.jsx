@@ -427,7 +427,7 @@ function OtherProfileHeaderDetails({
                           data.is_requested == 0 ? "#17A803" : "grey",
                       }}
                     >
-                      {data.is_requested == 0 ? "Follow" : "Requested"}
+                      {data.is_requested == 0 ? t("Follow") : "Requested"}
                     </button>
                   ) : (
                     <>
@@ -560,9 +560,12 @@ function OtherProfileHeaderDetails({
                 <button
                   onClick={followHandler}
                   className="side-menu__suggestion-buttons "
-                  style={{ backgroundColor: "grey" }}
+                  style={{
+                    backgroundColor:
+                      data.is_requested == 0 ? "#17A803" : "grey",
+                  }}
                 >
-                  {data.is_requested == 0 ? "Request" : "Requested"}
+                  {data.is_requested == 0 ? t("Follow") : t("Requested")}
                 </button>
               ) : (
                 <>

@@ -180,7 +180,7 @@ function Notifications({ setNotificationShow }) {
                           onClick={() => unFollowAccount(item.user_id)}
                           className="side-suggestion-button1"
                         >
-                          Following
+                          {t("Following")}
                         </button>
                       ) : item.is_requested == 1 ? (
                         <button
@@ -189,14 +189,14 @@ function Notifications({ setNotificationShow }) {
                           style={{ backgroundColor: "grey" }}
                           className="side-suggestion-button2"
                         >
-                          Requested
+                          {t("Requested")}
                         </button>
                       ) : (
                         <button
                           onClick={() => followAccount(item.user_id)}
                           className="side-suggestion-button2"
                         >
-                          Follow
+                          {t("Follow")}
                         </button>
                       )}
                     </div>

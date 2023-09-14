@@ -73,7 +73,7 @@ function FollowingList({ setFollowingListShow, setSuccess }) {
         <div style={{ padding: "16px" }}>
           {following.map((item, index) => (
             <div key={index} className="side-menu__suggestion">
-              <div className="side-menu__suggestion-avatar">
+              <div className="mx-2 side-menu__suggestion-avatar">
                 {item.image ? (
                   <CardImg
                     className="rounded-circle shadow-1-strong "
@@ -105,7 +105,7 @@ function FollowingList({ setFollowingListShow, setSuccess }) {
               </div>
               {item.showFollow ? (
                 <button className="side-menu__suggestion-buttons ">
-                  Follow <i className="bi bi-chevron-down "></i>
+                  {t("Follow")} <i className="bi bi-chevron-down "></i>
                 </button>
               ) : (
                 <button
@@ -114,7 +114,7 @@ function FollowingList({ setFollowingListShow, setSuccess }) {
                   style={{ marginTop: "-2px" }}
                 >
                   {" "}
-                  Following
+                  {t("Following")}
                 </button>
               )}
             </div>

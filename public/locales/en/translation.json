@@ -179,6 +179,8 @@
   "Edit Banners": "Edit Banners",
   "View More": "View More",
   "Add support": "Add support",
+  "More": "More",
+  "Requested": "Requested",
 
   "Filter": "Filter",
   "Rating": "Rating",
@@ -413,6 +415,8 @@
   "Please upload image with size less than 1 mb": "Please upload image with size less than 1 mb",
   "Close group": "Close group",
   "Clear chat": "Clear chat",
+  "Clear": "Clear",
+  "reviews": "reviews",
   "Exit group": "Exit group",
   "Resend OTP in": "Resend OTP in",
   "seconds": "seconds",
@@ -433,7 +437,7 @@
   "Profile image updated successfully": "Profile image updated successfully",
 
   "Back to Home": "Back to Home",
-  "Star User":"Star User",
+  "Star User": "Star User",
   "Continue Shopping": "Continue Shopping",
   "Your order has been Placed Successfully": "Your order has been Placed Successfully",
   "Payment Successful": "Payment Successful",

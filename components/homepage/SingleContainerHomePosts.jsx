@@ -215,7 +215,7 @@ function SingleContainerHomePosts({ story }) {
           {likedUsersList &&
             likedUsersList.map((item, index) => (
               <div key={index} className="side-menu__suggestion">
-                <div className="side-menu__suggestion-avatar">
+                <div className="mx-2 side-menu__suggestion-avatar">
                   {item.image ? (
                     <CardImg
                       className="rounded-circle shadow-1-strong "
