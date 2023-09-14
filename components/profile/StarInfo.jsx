@@ -1,14 +1,15 @@
 import { Modal } from "antd";
 import React, { useState } from "react";
 import { Fragment } from "react";
+import { useTranslation } from "next-i18next";
 
 function StarInfo() {
   const [showTooltip, setShowTooltip] = useState(false);
-
+  const { t } = useTranslation();
   return (
     <Fragment>
       <Modal
-        title="Star User"
+        title={t("Star User")}
         open={showTooltip}
         onCancel={() => setShowTooltip(false)}
         closable
@@ -17,27 +18,23 @@ function StarInfo() {
         footer={null}
       >
         <div className="star-info-content">
-          <p>To become a Star User, unlock special recognition!</p>
+          <p>{t("To become a Star User, unlock special recognition!")}</p>
           <ul>
             <li>
-              Shine Bright: Your profile will be highlighted as a Star User,
-              setting you apart from others.
+              {t("Shine Bright: Your profile will be highlighted as a StarUser,setting you apart from others.")}
             </li>
             <li>
-              Exclusive Access: Gain early access to new features, updates, and
-              exciting opportunities.
+              {t("Exclusive Access: Gain early access to new features, updates, and exciting opportunities.")}
             </li>
             <li>
-              Priority Support: Receive top-notch assistance with any questions
-              or issues you may encounter.
+              {t("Priority Support: Receive top-notch assistance with any questions or issues you may encounter.")}
             </li>
             <li>
-              Community Recognition: Be recognized and celebrated for your
-              valuable contributions within our community.
+              {t("Community Recognition: Be recognized and celebrated for your valuable contributions within our community.")}
             </li>
           </ul>
           <p>
-            Become a Star User today and experience the perks of standing out!
+            {t("Become a Star User today and experience the perks of standing out!")}
           </p>
         </div>
       </Modal>

@@ -60,7 +60,7 @@ function MessagesPage() {
         {selectedChatId ? (
           <ChatBox selectedId={selectedChatId} onNewMsg={showNewMsgHandler} />
         ) : (
-          <DefaultChatBox />
+          <DefaultChatBox onNewMsg={showNewMsgHandler} />
         )}
       </div>
       <MobileFooter />

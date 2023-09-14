@@ -2,7 +2,7 @@ import React from "react";
 import { Fragment } from "react";
 import { useTranslation } from "next-i18next";
 
-function DefaultChatBox() {
+function DefaultChatBox({ onNewMsg }) {
   const { t } = useTranslation();
   return (
     <Fragment>
@@ -31,7 +31,9 @@ function DefaultChatBox() {
               {t("Send Photos and Message to Friend's or Group")}
             </p>
           </div>
-          <div className="sent">{t("Send Messages")}</div>
+          <div className="sent" onClick={() => onNewMsg("new")}>
+            {t("Send Messages")}
+          </div>
         </div>
       </div>
     </Fragment>

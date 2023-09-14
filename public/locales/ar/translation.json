@@ -434,6 +434,7 @@
   "Profile image updated successfully": "تم تحديث صورة الملف الشخصي بنجاح",
 
   "Back to Home": "العودة إلى الصفحة الرئيسية",
+  "Star User": "المستخدم النجم",
   "Continue Shopping": "متابعة التسوق",
   "Your order has been Placed Successfully": "تم تقديم طلبك بنجاح",
   "Payment Successful": "نجاح الدفع",
@@ -444,7 +445,12 @@
   "Why are you reporting this comment?": "لماذا تقوم بالإبلاغ عن هذا التعليق؟",
   "Are you sure you want to delete this comment?": "هل أنت متأكد أنك تريد حذف هذا التعليق؟",
   "Are you sure to delete this comment?": "هل أنت متأكد من حذف هذا التعليق؟",
-
+  "To become a Star User, unlock special recognition!": "لتصبح مستخدم نجمي، قم بفتح التعرف الخاص!",
+  "Shine Bright: Your profile will be highlighted as a StarUser,setting you apart from others.": "تألق بفتح: سيتم تسليط الضوء على ملفك الشخصي كمستخدم نجمي، مما يميزك عن الآخرين.",
+  "Exclusive Access: Gain early access to new features, updates, and exciting opportunities.": "وصول حصري: احصل على وصول مبكر إلى ميزات جديدة، وتحديثات، وفرص مثيرة.",
+  "Priority Support: Receive top-notch assistance with any questions or issues you may encounter.": "الدعم الأولوي: تلقي المساعدة من الدرجة الأولى مع أي أسئلة أو مشاكل قد تواجهها.",
+  "Community Recognition: Be recognized and celebrated for your valuable contributions within our community.": "اعتراف المجتمع: كن معترفًا واحتفى بمساهماتك القيمة داخل مجتمعنا.",
+  "Become a Star User today and experience the perks of standing out!": "كن مستخدمًا نجميًا اليوم واستمتع بامتيازات التميز!",
 
   "Add Address": "اضف عنوان",
   "Set as Default": "تعيين كافتراضي",
