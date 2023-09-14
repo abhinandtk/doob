@@ -31,7 +31,7 @@ function MainHeader({ title }) {
   useEffect(() => {
     setSvgStroke(theme === "dark" ? "white" : "black");
     setBgHead(theme === "dark" ? "dark" : "white");
-  }, [theme]);
+  }, [theme]); 
   const { locale } = useRouter();
   const { asPath } = router;
   const labels = Labels();
