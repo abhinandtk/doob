@@ -13,6 +13,7 @@ import { useRouter } from "next/router";
 import { notification } from "antd";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 export async function getServerSideProps({ locale }) {
   return {
@@ -24,6 +25,8 @@ export async function getServerSideProps({ locale }) {
 function ProductEditPage() {
   const router = useRouter();
   const { id } = router.query;
+  const { t } = useTranslation();
+  const { locale } = router;
   console.log("router.query", router.query.id, "opo", id);
   const handleProductAdd = (formData) => {
     console.log("formedit55555", formData.variants[0].formFile);
@@ -65,27 +68,20 @@ function ProductEditPage() {
         },
       }
     ).then((res) => {
-      router.push("/shop/product-management");
-      notification.success({
-        message: "Success",
-        description: "Product Edited successfully",
-      });
-      console.log("product8id", res, apis.addProduct, {
-        product_id: id,
-        name: formData.name,
-        arabic_translator: formData.nameArabic,
-        description: formData.description,
-        arabic_description: formData.description_ar,
-        varient_type_id: formData.primary,
-        multivarient_id: formData.secondary,
-        product_brand_id: formData.brand,
-        // product_category_id: formData.category,
-        thumbnail_image: formData.thumbnail,
-        product_category_id: formData.subCategory,
-        tags: formData.tag,
-        status: formData.status,
-        variants: variants,
-      });
+      if (res.data.status === 1) {
+        router.push("/shop/product-management");
+        notification.success({
+          message: t("Success"),
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
+        });
+      } else {
+        notification.error({
+          message: t("Error"),
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
+        });
+      }
     });
   };
   return (
@@ -100,7 +96,6 @@ function ProductEditPage() {
         </div>
       </div>
       <MobileFooter />
-
     </Fragment>
   );
 }

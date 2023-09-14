@@ -47,7 +47,7 @@ function ReviewStore({ data }) {
     <Fragment>
       <span>
         <p
-          className="mx-1"
+          className="mx-1 dark-theme-color"
           style={{cursor:"pointer"}}
           onClick={() => setVisible(true)}
         >

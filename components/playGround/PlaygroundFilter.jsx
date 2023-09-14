@@ -15,6 +15,7 @@ function PlaygroundFilter({ playgroundFilterHandler, setMapShow, pageCount }) {
   const { t } = useTranslation();
 
   const router = useRouter();
+  const { locale } = router;
   const data = router.query;
   console.log("44444", data);
 
@@ -235,7 +236,12 @@ function PlaygroundFilter({ playgroundFilterHandler, setMapShow, pageCount }) {
                     <span className="mx-1">{item.name}</span>
                   </span>
                 </div>
-                <div style={{ flexGrow: 1, textAlign: "right" }}>
+                <div
+                  style={{
+                    flexGrow: 1,
+                    textAlign: locale === "en" ? "right" : "left",
+                  }}
+                >
                   <input
                     className="mx-3"
                     id={item.id}

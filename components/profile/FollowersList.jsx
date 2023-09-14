@@ -65,7 +65,7 @@ function FollowersList({ setFollowersListShow, setSuccess }) {
         maskClosable
         centered
         bodyStyle={{ maxHeight: "50vh", overflowY: "scroll" }}
-        title="Followers"
+        title={t("Followers")}
       >
         <div style={{ padding: "16px" }}>
           {followers &&

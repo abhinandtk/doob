@@ -74,7 +74,9 @@ function GroundCartItems({ data, setSuccess }) {
   return (
     <Fragment>
       {data && (
-        <div className="col-md-6">
+        <div
+          className={locale === "en" ? "col-md-6 order-1" : "col-md-6 order"}
+        >
           <div className="clearfix numbers">
             <h5 className="float-start dark-theme-color">{t("Slots")}</h5>
             <p

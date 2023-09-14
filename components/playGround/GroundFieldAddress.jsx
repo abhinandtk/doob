@@ -9,7 +9,7 @@ function GroundFieldAddress({ address }) {
   const { locale } = router
   return (
     <Fragment>
-      <div className={locale === 'en' ? "col-md-6 order-1" : "col-md-6 order-2"} style={{ direction: locale === 'en' ? "ltr" : "rtl" }}>
+      <div className={locale === 'en' ? "col-md-6 order" : "col-md-6 order-1"} style={{ direction: locale === 'en' ? "ltr" : "rtl" }}>
         <h5>{t("Field Address")}</h5>
         {address &&
           <div className="card carts">

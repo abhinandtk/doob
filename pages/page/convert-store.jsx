@@ -142,10 +142,10 @@ function ConvertStoreForm() {
                   <input
                     required
                     type="text"
-                    className="form-control p-2"
+                    className="form-control p-2 input-theme-prod"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
+
                       color: "grey",
                     }}
                     id="title"
@@ -154,14 +154,16 @@ function ConvertStoreForm() {
                   />
                 </div>
                 <div className="form-group my-2 ">
-                  <label for="exampleFormControlInput1">{t("Arabic Title")}*</label>
+                  <label for="exampleFormControlInput1">
+                    {t("Arabic Title")}*
+                  </label>
                   <input
                     required
                     type="text"
-                    className="form-control p-2"
+                    className="form-control p-2 input-theme-prod"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
+
                       color: "grey",
                     }}
                     id="title_ar"
@@ -176,10 +178,10 @@ function ConvertStoreForm() {
                   <textarea
                     required
                     type="text"
-                    className="form-control p-2"
+                    className="form-control p-2 input-theme-prod"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
+
                       color: "grey",
                     }}
                     rows={3}
@@ -190,15 +192,15 @@ function ConvertStoreForm() {
                 </div>
                 <div className="form-group my-2">
                   <label for="exampleFormControlInput1">
-                     {t("Arabic Description")}*
+                    {t("Arabic Description")}*
                   </label>
                   <textarea
                     required
                     type="text"
-                    className="form-control p-2"
+                    className="form-control p-2 input-theme-prod"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
+
                       color: "grey",
                     }}
                     rows={3}
@@ -212,10 +214,10 @@ function ConvertStoreForm() {
                   <textarea
                     required
                     type="text"
-                    className="form-control p-2"
+                    className="form-control p-2 input-theme-prod"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
+
                       color: "grey",
                     }}
                     rows={3}
@@ -229,10 +231,10 @@ function ConvertStoreForm() {
                   <input
                     required
                     type="text"
-                    className="form-control p-2"
+                    className="form-control p-2 input-theme-prod"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
+
                       color: "grey",
                     }}
                     id="location"
@@ -247,10 +249,10 @@ function ConvertStoreForm() {
                   <input
                     required
                     type="text"
-                    className="form-control p-2"
+                    className="form-control p-2 input-theme-prod"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
+
                       color: "grey",
                     }}
                     id="gmap"
@@ -265,10 +267,10 @@ function ConvertStoreForm() {
                   <input
                     required
                     type="number"
-                    className="form-control p-2"
+                    className="form-control p-2 input-theme-prod"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
+
                       color: "grey",
                     }}
                     id="contact"
@@ -277,14 +279,16 @@ function ConvertStoreForm() {
                   />
                 </div>
                 <div className="form-group my-2 ">
-                  <label for="exampleFormControlInput1">{t("Store E-mail")}*</label>
+                  <label for="exampleFormControlInput1">
+                    {t("Store E-mail")}*
+                  </label>
                   <input
                     required
                     type="email"
-                    className="form-control p-2"
+                    className="form-control p-2 input-theme-prod"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
+
                       color: "grey",
                     }}
                     id="email"
@@ -297,10 +301,10 @@ function ConvertStoreForm() {
                   <input
                     required
                     type="file"
-                    className="form-control p-2"
+                    className="form-control p-2 input-theme-prod"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
+
                       color: "grey",
                     }}
                     id="logo"
@@ -315,10 +319,10 @@ function ConvertStoreForm() {
                   <input
                     required
                     type="file"
-                    className="form-control p-2"
+                    className="form-control p-2 input-theme-prod"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
+
                       color: "grey",
                     }}
                     id="cover"
@@ -334,10 +338,10 @@ function ConvertStoreForm() {
                   <input
                     required
                     type="time"
-                    className="form-control p-2"
+                    className="form-control p-2 input-theme-prod"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
+
                       color: "grey",
                     }}
                     id="start"
@@ -350,10 +354,10 @@ function ConvertStoreForm() {
                   <input
                     required
                     type="time"
-                    className="form-control p-2"
+                    className="form-control p-2 input-theme-prod"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
+
                       color: "grey",
                     }}
                     id="end"
@@ -363,14 +367,16 @@ function ConvertStoreForm() {
                 </div>
 
                 <div className="form-group my-2">
-                  <label for="exampleFormControlInput1">{t("Trade Name")}*</label>
+                  <label for="exampleFormControlInput1">
+                    {t("Trade Name")}*
+                  </label>
                   <input
                     required
                     type="text"
-                    className="form-control p-2"
+                    className="form-control p-2 input-theme-prod"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
+
                       color: "grey",
                     }}
                     id="tradeName"
@@ -379,14 +385,16 @@ function ConvertStoreForm() {
                   />
                 </div>
                 <div className="form-group my-2">
-                  <label for="exampleFormControlInput1">{t("Trade License No")}*</label>
+                  <label for="exampleFormControlInput1">
+                    {t("Trade License No")}*
+                  </label>
                   <input
                     required
                     type="text"
-                    className="form-control p-2"
+                    className="form-control p-2 input-theme-prod"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
+
                       color: "grey",
                     }}
                     id="licenseNo"
@@ -401,10 +409,10 @@ function ConvertStoreForm() {
                   <input
                     required
                     type="text"
-                    className="form-control p-2"
+                    className="form-control p-2 input-theme-prod"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
+
                       color: "grey",
                     }}
                     id="foundYear"
@@ -419,10 +427,10 @@ function ConvertStoreForm() {
                   <input
                     required
                     type="text"
-                    className="form-control p-2"
+                    className="form-control p-2 input-theme-prod"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
+
                       color: "grey",
                     }}
                     id="contractNo"
@@ -437,10 +445,10 @@ function ConvertStoreForm() {
                   <input
                     required
                     type="file"
-                    className="form-control p-2"
+                    className="form-control p-2 input-theme-prod"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
+
                       color: "grey",
                     }}
                     id="signature"
@@ -455,10 +463,10 @@ function ConvertStoreForm() {
                   <input
                     required
                     type="file"
-                    className="form-control p-2"
+                    className="form-control p-2 input-theme-prod"
                     style={{
                       border: "0px",
-                      background: "#eeeeee",
+
                       color: "grey",
                     }}
                     id="sponsorship"

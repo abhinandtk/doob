@@ -638,8 +638,8 @@ function ContainerHomePosts() {
                           }}
                           className={
                             locale === "en"
-                              ? "post__button post__button--align-right"
-                              : "post__button post__button--align-right_ar"
+                              ? "dark-theme-color post__button post__button--align-right"
+                              : "dark-theme-color post__button post__button--align-right_ar"
                           }
                         >
                           {item.comment_count} {t("Comments")}

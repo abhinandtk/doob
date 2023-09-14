@@ -154,7 +154,7 @@ function SharePostToUser({ slug }) {
               onClick={() => handleClick(item.id)}
             >
               <div className="d-flex flex-start mt-4 mx-2 ">
-                <a className="me-2" href="">
+                <a className="mx-2" href="">
                   {item.image ? (
                     <CardImg
                       className="rounded-circle shadow-1-strong "
@@ -255,14 +255,14 @@ function SharePostToUser({ slug }) {
         >
           <path
             d="M12.8848 15.9742L18.9425 10.3203"
-            stroke="black"
+            stroke={svgStroke}
             stroke-width="1.50701"
             stroke-linecap="round"
             stroke-linejoin="round"
           />
           <path
             d="M4.04074 11.9821C3.0321 11.5114 3.15432 10.1331 4.23215 9.82356L23.9935 4.14849C24.9526 3.87306 25.851 4.71151 25.5559 5.60667L19.4755 24.0506C19.1438 25.0566 17.667 25.1707 17.1627 24.2293L12.975 16.4123C12.8541 16.1866 12.6579 16.0035 12.416 15.8906L4.04074 11.9821Z"
-            stroke="black"
+            stroke={svgStroke}
             stroke-width="1.50701"
             stroke-linecap="round"
             stroke-linejoin="round"

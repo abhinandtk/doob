@@ -1,11 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import { Fragment } from "react";
-import { Button } from "react-bootstrap";
+// import { Button } from "react-bootstrap";
 import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
-import { Collapse, Modal, Rate, Slider } from "antd";
+import { Button, Collapse, Modal, Rate, Slider } from "antd";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
@@ -15,10 +15,10 @@ function StoreFilter({ searchResultHandler }) {
   const { t } = useTranslation();
 
   const router = useRouter();
+  const { locale } = router;
   const [searchInput, setSearchInput] = useState(router.query.search);
 
   const data = router.query;
-  console.log("44444", router.query.slug);
 
   const [visible, setVisible] = useState(false);
   const [listData, setListData] = useState([]);
@@ -42,6 +42,7 @@ function StoreFilter({ searchResultHandler }) {
       count
     );
   }, [router.query.slug]);
+  console.log("44444", count);
 
   useEffect(() => {
     if (router.query.slug) {
@@ -99,6 +100,12 @@ function StoreFilter({ searchResultHandler }) {
     );
     setVisible(false);
   };
+  const clearFilterHandler = (e) => {
+    setBrandChecked([]);
+    setCategoryChecked([]);
+    setRange(["", ""]);
+    setCount(0);
+  };
 
   return (
     <Fragment>
@@ -113,7 +120,7 @@ function StoreFilter({ searchResultHandler }) {
             value={searchInput}
             placeholder={t("Search")}
           />
-          <span onClick={() => setVisible(true)}>
+          <span onClick={() => setVisible(true)} style={{ cursor: "pointer" }}>
             <img
               src="/images/store/Fil-icon.png"
               className="filters-icon"
@@ -128,15 +135,25 @@ function StoreFilter({ searchResultHandler }) {
         onCancel={() => setVisible(false)}
         maskClosable
         centered
-        footer={
+        footer={[
+          <Button
+            type="secondary"
+            className="dark-theme-color"
+            key="back"
+            onClick={() => clearFilterHandler()}
+          >
+            {t("Clear")}
+          </Button>,
+          ,
           <Button
             onClick={(e) => submitSearchHandler(e)}
+            key="submit"
             type="submit"
             className="modals-btn "
           >
             {t("Submit")}
-          </Button>
-        }
+          </Button>,
+        ]}
       >
         <form>
           {listData &&
@@ -156,7 +173,12 @@ function StoreFilter({ searchResultHandler }) {
                         <span className="mx-1 ">{brand.brand}</span>
                       </span>
                     </div>
-                    <div style={{ flexGrow: 1, textAlign: "right" }}>
+                    <div
+                      style={{
+                        flexGrow: 1,
+                        textAlign: locale === "en" ? "right" : "left",
+                      }}
+                    >
                       <input
                         className="mx-3"
                         id={brand.id}
@@ -173,7 +195,11 @@ function StoreFilter({ searchResultHandler }) {
                 </h6>
                 <Collapse accordion ghost>
                   {item.categories?.map((cat) => (
-                    <Panel className="dark-theme-color" header={cat.title} key={cat.id}>
+                    <Panel
+                      className="dark-theme-color"
+                      header={cat.title}
+                      key={cat.id}
+                    >
                       {cat.subcategories?.map((subCat) => (
                         <div
                           key={subCat.id}
@@ -185,10 +211,17 @@ function StoreFilter({ searchResultHandler }) {
                         >
                           <div>
                             <span className="float-start">
-                              <span className="mx-1 dark-theme-color">{subCat.title}</span>
+                              <span className="mx-1 dark-theme-color">
+                                {subCat.title}
+                              </span>
                             </span>
                           </div>
-                          <div style={{ flexGrow: 1, textAlign: "right" }}>
+                          <div
+                            style={{
+                              flexGrow: 1,
+                              textAlign: locale === "en" ? "right" : "left",
+                            }}
+                          >
                             <input
                               className="mx-3"
                               id={subCat.id}
@@ -216,7 +249,7 @@ function StoreFilter({ searchResultHandler }) {
                 <h6 style={{ fontSize: "15px", fontWeight: "700" }}>
                   {t("Rating")}
                 </h6>
-                <Rate onChange={handleStarChange} />
+                <Rate value={count} onChange={handleStarChange} />
               </div>
             ))}
         </form>

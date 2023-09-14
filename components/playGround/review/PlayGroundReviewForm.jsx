@@ -51,7 +51,7 @@ function PlayGroundReviewForm({ setOnSuccess, userImg }) {
         image: "",
       });
       setOnSuccess((prev) => !prev);
-      message.success("Review Added");
+      message.success(t("Review Added"));
     });
   };
   return (
@@ -80,12 +80,11 @@ function PlayGroundReviewForm({ setOnSuccess, userImg }) {
       <form onSubmit={(e) => handleProductReview(e)}>
         <div className="form-group">
           <textarea
-            className="form-control op p-4  "
+            className="form-control op p-4 input-theme-prod "
             style={{
-              backgroundColor: "#EEEEEE",
               border: "0px",
             }}
-            placeholder="Share your Review "
+            placeholder={t("Share your review")}
             id="description"
             rows="3"
             onChange={(e) => handleChange(e)}
@@ -93,9 +92,8 @@ function PlayGroundReviewForm({ setOnSuccess, userImg }) {
           <br></br>
           <input
             type="file"
-            className="form-control op p-3 "
+            className="form-control op p-3 input-theme-prod"
             style={{
-              backgroundColor: "#EEEEEE",
               border: "0px",
             }}
             id="image"

@@ -18,6 +18,7 @@ import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import { useRouter } from "next/router";
 import MobileFooter from "@/components/shared/MobileFooter";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from "next-i18next";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -28,6 +29,7 @@ export async function getStaticProps({ locale }) {
 }
 function OrderSuccessPage() {
   const router = useRouter();
+  const {t}=useTranslation()
 
   return (
     <div>
@@ -44,24 +46,24 @@ function OrderSuccessPage() {
                 className="text-center
             "
               >
-                Payment Successful
+                {t("Payment Successful")}
               </h5>
               <p className="text-center">
-                Your order has been Placed Successfully
+                {t("Your order has been Placed Successfully")}
               </p>
               <Button
                 onClick={() => router.push("/store")}
                 type="submit"
                 className="payment-btn "
               >
-                Continue Shopping
+                {("Continue Shopping")}
               </Button>
               <p
                 style={{ cursor: "pointer" }}
                 onClick={() => router.push("/")}
                 className="text-center my-2"
               >
-                Back to Home
+                {t("Back to Home")}
               </p>
             </div>
           </div>
