@@ -433,6 +433,19 @@
   "Profile image deleted successfully": "تم حذف صورة الملف الشخصي بنجاح",
   "Profile image updated successfully": "تم تحديث صورة الملف الشخصي بنجاح",
 
+  "Back to Home": "العودة إلى الصفحة الرئيسية",
+  "Continue Shopping": "متابعة التسوق",
+  "Your order has been Placed Successfully": "تم تقديم طلبك بنجاح",
+  "Payment Successful": "نجاح الدفع",
+  "You have Successfully Booked": "لقد حجزت بنجاح",
+  "Do you want to invite people to this game?": "هل ترغب في دعوة أشخاص إلى هذه اللعبة؟",
+  "expires in": "ينتهي في",
+  "Why are you reporting this field?": "لماذا تقوم بالإبلاغ عن هذا الحقل؟",
+  "Why are you reporting this comment?": "لماذا تقوم بالإبلاغ عن هذا التعليق؟",
+  "Are you sure you want to delete this comment?": "هل أنت متأكد أنك تريد حذف هذا التعليق؟",
+  "Are you sure to delete this comment?": "هل أنت متأكد من حذف هذا التعليق؟",
+
+
   "Add Address": "اضف عنوان",
   "Set as Default": "تعيين كافتراضي",
   "Wallet": "محفظة",

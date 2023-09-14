@@ -700,7 +700,7 @@ function SingleContainerHomePosts({ story }) {
               marginTop: "30%",
             }}
           >
-            <div>Post is Unavailable..</div>
+            <div className="dark-theme-color">Post is Unavailable..</div>
           </div>
         )
       ) : null}

@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectSlots } from "@/Redux/playGroundCart";
+import { resetSelectedSlots, selectSlots } from "@/Redux/playGroundCart";
 import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
@@ -15,14 +15,14 @@ import { useTranslation } from "next-i18next";
 
 function SelectGround({ details, setSuccess, setDateSelected }) {
   const { t } = useTranslation();
-  const router = useRouter()
+  const router = useRouter();
   const { locale } = router;
   const inputData = router.query;
   const labels = Labels();
 
   const { selectedSlots } = useSelector((state) => state.slot);
   const dispatch = useDispatch();
-  console.log("sloooooot777777777", inputData.date);
+  console.log("resultcartsloooooot777777777", selectedSlots);
 
   const [date, setDate] = useState(
     inputData.date
@@ -39,15 +39,6 @@ function SelectGround({ details, setSuccess, setDateSelected }) {
   };
 
   const addTocartHandler = () => {
-    console.log("resultcartsuccesstttttttttttttttt", {
-      time_slots: selectedSlots,
-      stadium_name: inputData.stadium_id,
-      amount: details.amount,
-      slot_type: "static slot",
-      game: inputData.sports_id ? inputData.sports_id : details.game[0].id,
-      date: date,
-    });
-
     // if (inputData.sports_id || gameId) {
     if (selectedSlots.length >= 1) {
       Axios.post(
@@ -75,6 +66,7 @@ function SelectGround({ details, setSuccess, setDateSelected }) {
           date: date,
         });
         dispatch(toggle());
+        dispatch(resetSelectedSlots());
         if (res.data.status === 1) {
           notification.success({
             message: t("Success"),
@@ -177,20 +169,27 @@ function SelectGround({ details, setSuccess, setDateSelected }) {
                     details.timeslot.map((item, index) => (
                       <div
                         key={index}
-                        className={`d-flex my-2 mx-2  ${item.is_booked
+                        className={`d-flex my-2 mx-2  ${
+                          item.is_booked
                             ? "time-slot1"
                             : selectedSlots.includes(item.id)
-                              ? "time-slot3"
-                              : "time-slot2"
-                          } `}
+                            ? "time-slot3"
+                            : "time-slot2"
+                        } `}
                         onClick={() => {
                           !item.is_booked && handleSlotClick(item.id);
                         }}
                       >
                         {/* <p style={{ marginTop: "13px", marginLeft: "23px" }}> */}
 
-                        <p style={{ marginTop: "13px", marginLeft: locale === "en" ? "23px" : "", marginRight: locale === "ar" ? "23px" : "" ,direction: locale === "ar" ? "ltr" : "" }} >
-
+                        <p
+                          style={{
+                            marginTop: "13px",
+                            marginLeft: locale === "en" ? "23px" : "",
+                            marginRight: locale === "ar" ? "23px" : "",
+                            direction: locale === "ar" ? "ltr" : "",
+                          }}
+                        >
                           {moment(item.start_time, "hh:mm:ss").format(
                             "hh:mm A"
                           )}

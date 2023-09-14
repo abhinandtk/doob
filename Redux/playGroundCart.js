@@ -16,9 +16,12 @@ const slotSelectSlice = createSlice({
                 state.selectedSlots = [...state.selectedSlots, slotId]
             }
 
-        }
+        },
+        resetSelectedSlots: (state) => {
+            state.selectedSlots = [];
+        },
     }
 })
 
-export const {selectSlots} = slotSelectSlice.actions;
-export default  slotSelectSlice.reducer
+export const { selectSlots, resetSelectedSlots } = slotSelectSlice.actions;
+export default slotSelectSlice.reducer

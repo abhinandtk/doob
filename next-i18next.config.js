@@ -3,7 +3,7 @@ module.exports = {
         locales: ['en', 'ar'],
         defaultLocale: 'en',
         localeDetection: false,
-        defaultNS: 'translation',
-        keySeparator: true,
+        // keySeparator: true,
     },
+    defaultNS: 'translation',
 }

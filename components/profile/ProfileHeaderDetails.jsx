@@ -92,7 +92,9 @@ function ProfileHeaderDetails({ data, setSuccess }) {
           }}
         >
           <div>{t("Game")}</div>
-          <div style={{ textAlign: "right" }}>{t("Rank")}</div>
+          <div style={{ textAlign: locale === "en" ? "right" : "left" }}>
+            {t("Rank")}
+          </div>
         </div>
         {data.user_rank &&
           data.user_rank.map((item, index) => (
@@ -104,7 +106,9 @@ function ProfileHeaderDetails({ data, setSuccess }) {
               }}
             >
               <div>{item.game}</div>
-              <div style={{ textAlign: "right" }}>#{item.rank}</div>
+              <div style={{ textAlign: locale === "en" ? "right" : "left" }}>
+                #{item.rank}
+              </div>
             </div>
           ))}
       </Modal>

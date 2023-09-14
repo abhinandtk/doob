@@ -27,7 +27,7 @@ function GroundCartItems({ data, setSuccess }) {
       dispatch(toggle());
       if (res.data.status === 1) {
         notification.success({
-          messsage: t("Success"),
+          message: t("Success"),
           description: `${labels["Checkout Successfully"]}`,
         });
         router.push({
@@ -38,7 +38,7 @@ function GroundCartItems({ data, setSuccess }) {
         });
       } else {
         notification.error({
-          messsage: t("Error"),
+          message: t("Error"),
           description:
             locale === "en" ? res.data.message_en : res.data.message_ar,
         });

@@ -6,10 +6,12 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { notification } from "antd";
 import { useTranslation } from "next-i18next";
+import { useTheme } from "next-themes";
 
 function NewSingleChat({ onChatSelect, onNewMsg, onGrpShow }) {
   const router = useRouter();
   const { locale } = router;
+  const { theme } = useTheme();
   const [searchInput, setSearchInput] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const { t } = useTranslation();
@@ -46,7 +48,7 @@ function NewSingleChat({ onChatSelect, onNewMsg, onGrpShow }) {
         },
       }
     ).then((res) => {
-      console.log('selectuser123',res)
+      console.log("selectuser123", res);
       if (res.data.status === 1) {
         onChatSelect(res.data.data.id);
       } else {
@@ -75,8 +77,10 @@ function NewSingleChat({ onChatSelect, onNewMsg, onGrpShow }) {
               {" "}
               <span
                 onClick={() => onNewMsg(null)}
-                style={{ cursor: "pointer",marginLeft:locale==='ar'?'12px':""}}
-            
+                style={{
+                  cursor: "pointer",
+                  marginLeft: locale === "ar" ? "12px" : "",
+                }}
               >
                 <svg
                   width="15"
@@ -88,7 +92,7 @@ function NewSingleChat({ onChatSelect, onNewMsg, onGrpShow }) {
                 >
                   <path
                     d="M5.84842 12.8221C6.0442 13.0178 6.28878 13.1156 6.53357 13.1156C6.77834 13.1156 7.02292 13.0178 7.21872 12.8221C7.61028 12.4305 7.61028 11.8188 7.21872 11.4272L3.35251 7.53656H14.0213C14.5596 7.53656 15 7.0962 15 6.55787C15 6.01953 14.5596 5.57916 14.0213 5.57916H3.35251L7.24315 1.68853C7.6347 1.29697 7.6347 0.685225 7.24315 0.293666C6.85159 -0.0978886 6.23985 -0.0978886 5.84829 0.293666L0.293666 5.87276C-0.0978886 6.26431 -0.0978886 6.87606 0.293666 7.26762L5.84842 12.8221Z"
-                    fill="black"
+                    fill={theme === "dark" ? "white" : "black"}
                   />
                 </svg>
               </span>
@@ -136,7 +140,12 @@ function NewSingleChat({ onChatSelect, onNewMsg, onGrpShow }) {
                 //   fontSize: "17px",
                 //   marginLeft: "13px",
                 // }}
-                style={{ fontWeight: "600", fontSize: "17px",  marginRight: locale === 'ar' ? '13px' : "" ,marginLeft: locale === 'en' ? '13px' : "" }}
+                style={{
+                  fontWeight: "600",
+                  fontSize: "17px",
+                  marginRight: locale === "ar" ? "13px" : "",
+                  marginLeft: locale === "en" ? "13px" : "",
+                }}
                 className="dark-theme-color"
                 onClick={() => onGrpShow(true)}
               >

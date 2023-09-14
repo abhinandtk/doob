@@ -27,6 +27,7 @@ body {
   width: 255px;
 }
 
+
 .navbar__button {
   flex: 1 0 auto;
   display: flex;
@@ -307,8 +308,6 @@ input.nosubmit2 {
   margin-right: 0px;
   float: left;
   font-weight: 400;
-
-
 }
 .shop {
   row-gap: 6px;
@@ -619,8 +618,7 @@ input.nosubmit2 {
   position: absolute;
 }
 
-
-.tour-detail-ar{
+.tour-detail-ar {
   :lang(ar) {
     direction: rtl;
   }
@@ -1096,7 +1094,6 @@ input:disabled {
   font-weight: 600;
   margin-top: -14px;
 }
-
 
 .address-card {
   margin-top: -9px;

@@ -199,7 +199,11 @@ function MainHeader({ title }) {
 
                   <Dropdown.Menu
                     align="end"
-                    style={{ backgroundColor: "#17A803", borderRadius: "0px" }}
+                    style={{
+                      backgroundColor: "#17A803",
+                      borderRadius: "0px",
+                      textAlign: "inherit",
+                    }}
                   >
                     <Dropdown.Item
                       onClick={() => setUploadShow(true)}
@@ -439,6 +443,7 @@ function MainHeader({ title }) {
                   placement={locale === "en" ? "end" : "start"}
                   show={show}
                   style={{
+                    direction: locale === "en" ? "ltr" : "rtl",
                     backgroundColor: theme === "dark" ? "black" : "white",
                   }}
                   onHide={() => setShow(false)}
