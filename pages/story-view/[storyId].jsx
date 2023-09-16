@@ -13,6 +13,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Stories, { WithSeeMore } from "react-insta-stories";
 import { Avatar, Card, List } from "antd";
 import Axios from "axios";
+import moment from "moment";
 export async function getServerSideProps({ locale }) {
   return {
     props: {
@@ -42,9 +43,15 @@ function StoriesView() {
     });
   }, []);
 
+  function timeSincePost(posted) {
+    const timeDiff = moment.duration(moment().diff(moment(posted)));
+    const timeString = timeDiff.humanize() + " ago";
+    return timeString;
+  }
+
   const stories = [];
   storyList.map((item) => {
-    console.log("storyData7",item);
+    console.log("storyData733", item);
     const user = item.user;
     item.story.map((storyData) =>
       stories.push({
@@ -52,7 +59,7 @@ function StoriesView() {
         duration: 5000,
         header: {
           heading: user.name,
-          subheading: "Posted 30m ago",
+          subheading: `Posted ${timeSincePost(storyData.posted)}`,
           profileImage: `${constants.port}/media/${user.image}`,
         },
       })
@@ -106,9 +113,6 @@ function StoriesView() {
                 stories={stories}
                 // renderers={}
                 // onStoryEnd={(s, st) => console.log("story ended", s, st)}
-                // onAllStoriesEnd={(s, st) =>
-                //   console.log("story all stories ended", s, st)
-                // }
                 // onStoryStart={(s, st) => console.log("story started", s, st)}
                 // defaultInterval={1500}
                 // width={432}
