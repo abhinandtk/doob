@@ -74,14 +74,14 @@ function StoriesMainPage() {
         {storyList &&
           storyList.map((item, index) => (
             <button
-              onClick={() =>
-                router.push({
-                  pathname: `/story-view/${item.user_detail.name}`,
-                  query: {
-                    user_id: item.user_detail.id,
-                  },
-                })
-              }
+              // onClick={() =>
+              //   router.push({
+              //     pathname: `/story-view/${item.user_detail.name}`,
+              //     query: {
+              //       user_id: item.user_detail.id,
+              //     },
+              //   })
+              // }
               key={index}
               className="story story--has-story"
             >
@@ -98,8 +98,8 @@ function StoriesMainPage() {
                 <div className="story__picture">
                   <img
                     src={
-                      item.user_detail.image
-                        ? `${constants.port}/media/${item.user_detail.image}`
+                      item.user.image
+                        ? `${constants.port}/media/${item.user.image}`
                         : "/images/accounts/user_default.png"
                     }
                     style={{

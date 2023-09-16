@@ -523,7 +523,7 @@ input {
 .select {
   color: var(--font-theme-color);
   background: transparent;
-  border: 1px solid black;
+  border: 1px solid var(--font-theme-color);
 }
 
 .select:hover {

@@ -147,8 +147,8 @@ function NewGameForm({ game, country }) {
           <div class="form-group">
             <label for="exampleFormControlSelect1">{t("Choose a sport")}</label>
             <select
-              class="form-control "
-              style={{ border: "0px", background: "#eeeeee", color: "#959595" }}
+              class="form-control input-theme-prod"
+              style={{ border: "0px" }}
               id="sport"
               onChange={(e) => handleChange(e)}
             >
@@ -170,8 +170,8 @@ function NewGameForm({ game, country }) {
             <label for="exampleInputPassword1">{t("Select s Date")}</label>
             <input
               type="date"
-              class="form-control play"
-              style={{ border: "0px", background: "#eeeeee", color: "#959595" }}
+              class="form-control input-theme-prod play"
+              style={{ border: "0px" }}
               id="date"
               placeholder="Date"
               min={moment().format("YYYY-MM-DD")}
@@ -181,8 +181,8 @@ function NewGameForm({ game, country }) {
           <div class="form-group">
             <label for="exampleFormControlSelect1">{t("Choose area")}</label>
             <select
-              class="form-control "
-              style={{ border: "0px", background: "#eeeeee", color: "#959595" }}
+              class="form-control input-theme-prod"
+              style={{ border: "0px" }}
               id="area"
               onChange={(e) => handleChange(e)}
             >

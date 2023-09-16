@@ -93,7 +93,7 @@ function CategoriesForm({ categorySubmitHandler, editData }) {
                 id="parentCat"
                 onChange={(e) => handleCategoryChange(e)}
               >
-                <option value="">select</option>
+                <option value="">{t("--Select--")}</option>
                 {categoryList.map((item, index) => (
                   <option
                     key={index}

@@ -1,35 +1,18 @@
-import {
-  Container,
-  Nav,
-  Navbar,
-  Dropdown,
-  Modal,
-  Button,
-  CardImg,
-} from "react-bootstrap";
-import Offcanvas from "react-bootstrap/Offcanvas";
 import React, { Fragment, useEffect, useState } from "react";
-import Form from "react-bootstrap/Form";
-import SideExplorePlayers from "@/components/homepage/SideExplorePlayers";
-import ContainerHomePosts from "@/components/homepage/ContainerHomePosts";
+
 import axios from "axios";
 import constants from "@/public/data/my-constants/Constants";
 import apis from "@/public/data/my-constants/Apis";
-import Login from "@/components/user/Login";
-import Register from "@/components/user/Register";
-import ForgetEmail from "@/components/user/ForgetMail";
-import RegisterOtpVerification from "@/components/user/RegisterOtpVerification";
-import ForgetOtp from "@/components/user/ForgetOtp";
-import PasswordChange from "@/components/user/PasswordChange";
-import SsoRegister from "@/components/user/SsoRegister";
-import SharedConfirmation from "@/components/homepage/social/SharedConfirmation";
+
 import MainHeader from "@/components/shared/headers/MainHeader";
 import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import SingleContainerHomePosts from "@/components/homepage/SingleContainerHomePosts";
 import StoriesMainPage from "@/components/homepage/StoriesMainPage";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-
+import Stories, { WithSeeMore } from "react-insta-stories";
+import { Avatar, Card, List } from "antd";
+import Axios from "axios";
 export async function getServerSideProps({ locale }) {
   return {
     props: {
@@ -39,13 +22,76 @@ export async function getServerSideProps({ locale }) {
 }
 function StoriesView() {
   const [countryData, setCountryData] = useState([]);
-
+  const [storyList, setStoryList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     axios.post(apis.country).then((res) => {
       setCountryData(res.data.country);
     });
   }, []);
 
+  useEffect(() => {
+    Axios.get(apis.userStoryList, {
+      headers: {
+        Authorization: `Token ${constants.token_id}`,
+      },
+    }).then((res) => {
+      setStoryList(res.data.data.user_story);
+      setIsLoading(false);
+      console.log("response67", res);
+    });
+  }, []);
+
+  const stories = [];
+  storyList.map((item) => {
+    console.log("storyData7");
+
+    const user = item.user;
+    item.story.map((storyData) =>
+      stories.push({
+        url: `${constants.port}${storyData.image}`,
+        duration: 5000,
+        header: {
+          heading: user.name,
+          subheading: "Posted 30m ago",
+          profileImage: `${constants.port}/media/${user.image}`,
+        },
+      })
+    );
+  });
+
+  console.log("storyData7", stories);
+
+  const stories2 = [
+    {
+      url: "https://i.ibb.co/fY1DmQW/8aacdef9ba37db60c7a96271877cfbb5.jpg",
+      duration: 5000,
+      header: {
+        heading: "Mohit Karekar",
+        subheading: "Posted 30m ago",
+        profileImage:
+          "https://i.ibb.co/fY1DmQW/8aacdef9ba37db60c7a96271877cfbb5.jpg",
+      },
+    },
+    {
+      url: "https://i.ibb.co/MGbfDTH/Group-13.png",
+      duration: 5000,
+      header: {
+        heading: "Mohit Karekar",
+        subheading: "Posted 30m ago",
+        profileImage: "https://i.ibb.co/MGbfDTH/Group-13.png",
+      },
+    },
+    {
+      url: "https://i.ibb.co/fY1DmQW/8aacdef9ba37db60c7a96271877cfbb5.jpg",
+      duration: 5000,
+      header: {
+        heading: "Mohit Karekars",
+        subheading: "Posted 30m ago",
+        profileImage: "https://i.ibb.co/MGbfDTH/Group-13.png",
+      },
+    },
+  ];
   return (
     <Fragment>
       <MainHeader title="Doob" />
@@ -55,8 +101,22 @@ function StoriesView() {
         <section className="content-container">
           <div className="content">
             {/* <StoriesMainPage /> */}
+            {stories.length > 0 && (
+              <Stories
+                loop={true}
+                stories={stories}
+                // onStoryEnd={(s, st) => console.log("story ended", s, st)}
+                // onAllStoriesEnd={(s, st) =>
+                //   console.log("story all stories ended", s, st)
+                // }
+                // onStoryStart={(s, st) => console.log("story started", s, st)}
+                // defaultInterval={1500}
+                // width={432}
+                // height={768}
+              />
+            )}
 
-            <SingleContainerHomePosts story={true} />
+            {/* <SingleContainerHomePosts story={true} /> */}
           </div>
         </section>
       </main>

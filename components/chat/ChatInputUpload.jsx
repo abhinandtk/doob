@@ -56,7 +56,10 @@ function ChatInputUpload({ selectedId, setOnSuccess, onNewMsg }) {
   return (
     <Fragment>
       <form onSubmit={handleSendMessage}>
-        <div className="chat_input"   style={{direction:locale==='ar'?'rtl':""}}>
+        <div
+          className="chat_input"
+          style={{ direction: locale === "ar" ? "rtl" : "" }}
+        >
           <input
             className="input-theme-prod"
             type="text"

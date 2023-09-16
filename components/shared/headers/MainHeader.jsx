@@ -22,6 +22,7 @@ import { useTranslation } from "next-i18next";
 import Login from "@/components/user/Login";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { activeModalShow } from "@/Redux/loginShow";
+import UploadStory from "./modules/UploadStory";
 function MainHeader({ title }) {
   const { t } = useTranslation();
   const router = useRouter();
@@ -31,13 +32,14 @@ function MainHeader({ title }) {
   useEffect(() => {
     setSvgStroke(theme === "dark" ? "white" : "black");
     setBgHead(theme === "dark" ? "dark" : "white");
-  }, [theme]); 
+  }, [theme]);
   const { locale } = useRouter();
   const { asPath } = router;
   const labels = Labels();
   const [show, setShow] = useState(false);
   const [confirmLogout, setConfirmLogout] = useState(false);
   const [uploadShow, setUploadShow] = useState(false);
+  const [addStoryShow, setAddStoryShow] = useState(false);
   const [notificationShow, setNotificationShow] = useState(false);
 
   const storeCount = useSelector((state) => state.storeCartCount.storeCount);
@@ -247,6 +249,28 @@ function MainHeader({ title }) {
                       </svg>
                       Live
                     </Dropdown.Item> */}
+                    <Dropdown.Item
+                      onClick={() => setAddStoryShow(true)}
+                      className="text-white "
+                      style={{ backgroundColor: "#17A803" }}
+                    >
+                      <svg
+                        width="24"
+                        height="20"
+                        viewBox="0 0 24 25"
+                        fill="none"
+                        className="mx-2"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0.210938 0.851562V23.8943H23.2537V0.851562H0.210938ZM22.1015 7.76438H16.3409V2.0037H22.1015V7.76438ZM15.1887 2.0037V7.76438H8.27589V2.0037H15.1887ZM1.36307 8.91652H7.12376V15.8293H1.36307V8.91652ZM8.27589 8.91652H15.1887V15.8293H8.27589V8.91652ZM7.12376 2.0037V7.76438H1.36307V2.0037H7.12376ZM1.36307 22.7422V16.9815H7.12376V22.7422H1.36307ZM8.27589 16.9815H15.1887V22.7422H8.27589V16.9815ZM22.1015 22.7422H16.3409V16.9815H22.1015V22.7422ZM16.3409 15.8293V8.91652H22.1015V15.8293H16.3409Z"
+                          fill="white"
+                          stroke="white"
+                          stroke-width="0.303194"
+                        />
+                      </svg>
+                      {t("Add Story")}
+                    </Dropdown.Item>
                     <Dropdown.Item
                       onClick={() =>
                         router.push({
@@ -799,6 +823,7 @@ function MainHeader({ title }) {
       </Modal>
 
       {uploadShow && <UploadFiles setUploadShow={setUploadShow} />}
+      {addStoryShow && <UploadStory setAddStoryShow={setAddStoryShow} />}
       {notificationShow && (
         <Notifications setNotificationShow={setNotificationShow} />
       )}

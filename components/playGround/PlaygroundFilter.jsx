@@ -156,7 +156,7 @@ function PlaygroundFilter({ playgroundFilterHandler, setMapShow, pageCount }) {
       >
         <form>
           <div class="form-group">
-            <label for="exampleFormControlSelect1">Choose a sport</label>
+            <label for="exampleFormControlSelect1">{t("Choose a Sport")}</label>
             <select
               class="form-control "
               style={{ border: "0px", background: "#eeeeee", color: "#959595" }}
@@ -165,7 +165,7 @@ function PlaygroundFilter({ playgroundFilterHandler, setMapShow, pageCount }) {
               value={formData.sport}
             >
               <option style={{ color: "#959595" }} value="">
-                --Select--
+                {t("--Select--")}
               </option>
               {game.map((item, index) => (
                 <option
@@ -179,7 +179,7 @@ function PlaygroundFilter({ playgroundFilterHandler, setMapShow, pageCount }) {
             </select>
           </div>
           <div class="form-group my-3">
-            <label for="exampleInputPassword1">Select s Date</label>
+            <label for="exampleInputPassword1">{t("Select Date")}</label>
             <input
               type="date"
               class="form-control play"
@@ -192,7 +192,7 @@ function PlaygroundFilter({ playgroundFilterHandler, setMapShow, pageCount }) {
             />
           </div>
           <div class="form-group">
-            <label for="exampleFormControlSelect1">Choose area</label>
+            <label for="exampleFormControlSelect1">{t("Choose Area")}</label>
             <select
               class="form-control "
               style={{ border: "0px", background: "#eeeeee", color: "#959595" }}
@@ -216,7 +216,7 @@ function PlaygroundFilter({ playgroundFilterHandler, setMapShow, pageCount }) {
           </div>
 
           <div>
-            <h6 style={{ fontSize: "15px", fontWeight: "700" }}>Choose File</h6>
+            <h6 style={{ fontSize: "15px", fontWeight: "700" }}>{t("Choose Amenities")}</h6>
             {amenity.map((item, index) => (
               <div
                 key={index}
