@@ -1104,11 +1104,14 @@ input.nosubmit1 {
   font-weight: 600;
   color: var(--font-theme-color);
   text-decoration: none;
-  max-width: 200px;
+  width: 200px;
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: nowrap;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
 }
+
 
 .side-menu__suggestion-infos a:hover {
   text-decoration: underline;

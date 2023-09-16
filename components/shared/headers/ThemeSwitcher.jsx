@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
+import { useRouter } from "next/router";
 export default function ThemeSwitcher() {
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
-
-  // useEffect only runs on the client, so now we can safely show the UI
+  const router = useRouter();
+  const { locale } = router;
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -15,8 +16,9 @@ export default function ThemeSwitcher() {
   return (
     <>
       
-      <div
+      <div 
         onClick={() => setTheme(resolvedTheme === "light" ? "dark" : "light")}
+        style={{marginLeft:locale==='ar'?'-10px':""}}
       >
         <span>
           {resolvedTheme === "light" ? (
