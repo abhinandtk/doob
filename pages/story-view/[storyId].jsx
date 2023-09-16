@@ -44,8 +44,7 @@ function StoriesView() {
 
   const stories = [];
   storyList.map((item) => {
-    console.log("storyData7");
-
+    console.log("storyData7",item);
     const user = item.user;
     item.story.map((storyData) =>
       stories.push({
@@ -62,36 +61,36 @@ function StoriesView() {
 
   console.log("storyData7", stories);
 
-  const stories2 = [
-    {
-      url: "https://i.ibb.co/fY1DmQW/8aacdef9ba37db60c7a96271877cfbb5.jpg",
-      duration: 5000,
-      header: {
-        heading: "Mohit Karekar",
-        subheading: "Posted 30m ago",
-        profileImage:
-          "https://i.ibb.co/fY1DmQW/8aacdef9ba37db60c7a96271877cfbb5.jpg",
-      },
-    },
-    {
-      url: "https://i.ibb.co/MGbfDTH/Group-13.png",
-      duration: 5000,
-      header: {
-        heading: "Mohit Karekar",
-        subheading: "Posted 30m ago",
-        profileImage: "https://i.ibb.co/MGbfDTH/Group-13.png",
-      },
-    },
-    {
-      url: "https://i.ibb.co/fY1DmQW/8aacdef9ba37db60c7a96271877cfbb5.jpg",
-      duration: 5000,
-      header: {
-        heading: "Mohit Karekars",
-        subheading: "Posted 30m ago",
-        profileImage: "https://i.ibb.co/MGbfDTH/Group-13.png",
-      },
-    },
-  ];
+  // const stories2 = [
+  //   {
+  //     url: "https://i.ibb.co/fY1DmQW/8aacdef9ba37db60c7a96271877cfbb5.jpg",
+  //     duration: 5000,
+  //     header: {
+  //       heading: "Mohit Karekar",
+  //       subheading: "Posted 30m ago",
+  //       profileImage:
+  //         "https://i.ibb.co/fY1DmQW/8aacdef9ba37db60c7a96271877cfbb5.jpg",
+  //     },
+  //   },
+  //   {
+  //     url: "https://i.ibb.co/MGbfDTH/Group-13.png",
+  //     duration: 5000,
+  //     header: {
+  //       heading: "Mohit Karekar",
+  //       subheading: "Posted 30m ago",
+  //       profileImage: "https://i.ibb.co/MGbfDTH/Group-13.png",
+  //     },
+  //   },
+  //   {
+  //     url: "https://i.ibb.co/fY1DmQW/8aacdef9ba37db60c7a96271877cfbb5.jpg",
+  //     duration: 5000,
+  //     header: {
+  //       heading: "Mohit Karekars",
+  //       subheading: "Posted 30m ago",
+  //       profileImage: "https://i.ibb.co/MGbfDTH/Group-13.png",
+  //     },
+  //   },
+  // ];
   return (
     <Fragment>
       <MainHeader title="Doob" />
@@ -105,6 +104,7 @@ function StoriesView() {
               <Stories
                 loop={true}
                 stories={stories}
+                // renderers={}
                 // onStoryEnd={(s, st) => console.log("story ended", s, st)}
                 // onAllStoriesEnd={(s, st) =>
                 //   console.log("story all stories ended", s, st)
