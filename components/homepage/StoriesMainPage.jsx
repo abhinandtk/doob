@@ -39,7 +39,7 @@ function StoriesMainPage() {
         </svg>
       </button>
 
-      <div className="stories__content " >
+      <div className="stories__content ">
         {/* <button className="story story--has-story">
           <div className="story__avatar">
             <div className="story__border">
@@ -74,14 +74,11 @@ function StoriesMainPage() {
         {storyList &&
           storyList.map((item, index) => (
             <button
-              // onClick={() =>
-              //   router.push({
-              //     pathname: `/story-view/${item.user_detail.name}`,
-              //     query: {
-              //       user_id: item.user_detail.id,
-              //     },
-              //   })
-              // }
+              onClick={() =>
+                router.push({
+                  pathname: `/story-view/${index}`,
+                })
+              }
               key={index}
               className="story story--has-story"
             >

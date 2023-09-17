@@ -14,6 +14,7 @@ import Stories, { WithSeeMore } from "react-insta-stories";
 import { Avatar, Card, List } from "antd";
 import Axios from "axios";
 import moment from "moment";
+import { useRouter } from "next/router";
 export async function getServerSideProps({ locale }) {
   return {
     props: {
@@ -25,6 +26,10 @@ function StoriesView() {
   const [countryData, setCountryData] = useState([]);
   const [storyList, setStoryList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const router = useRouter();
+  const { storyId } = router.query;
+
+  const [currentStoryIndex, setCurrentStoryIndex] = useState(storyId);
   useEffect(() => {
     axios.post(apis.country).then((res) => {
       setCountryData(res.data.country);
@@ -41,7 +46,7 @@ function StoriesView() {
       setIsLoading(false);
       console.log("response67", res);
     });
-  }, []);
+  }, [storyId]);
 
   function timeSincePost(posted) {
     const timeDiff = moment.duration(moment().diff(moment(posted)));
@@ -49,55 +54,36 @@ function StoriesView() {
     return timeString;
   }
 
-  const stories = [];
-  storyList.map((item) => {
-    console.log("storyData733", item);
-    const user = item.user;
-    item.story.map((storyData) =>
-      stories.push({
+  function handleStoryEnd() {
+    // Check if there are more stories
+    if (currentStoryIndex < storyList.length - 1) {
+      // Increment the current story index
+      setCurrentStoryIndex(currentStoryIndex + 1);
+    } else {
+      // All stories have ended, you can handle this case here
+      console.log("All stories have ended.");
+    }
+  }
+  let formattedStoryList;
+  // Render stories based on the current story index
+  if (storyList) {
+    formattedStoryList = storyList.map((userItem) => {
+      const userStories = userItem.story.map((storyData) => ({
         url: `${constants.port}${storyData.image}`,
         duration: 5000,
         header: {
-          heading: user.name,
+          heading: userItem.user.name,
           subheading: `Posted ${timeSincePost(storyData.posted)}`,
-          profileImage: `${constants.port}/media/${user.image}`,
+          profileImage: `${constants.port}/media/${userItem.user.image}`,
         },
-      })
-    );
-  });
+      }));
 
-  console.log("storyData7", stories);
+      return { story: userStories };
+    });
+  }
 
-  // const stories2 = [
-  //   {
-  //     url: "https://i.ibb.co/fY1DmQW/8aacdef9ba37db60c7a96271877cfbb5.jpg",
-  //     duration: 5000,
-  //     header: {
-  //       heading: "Mohit Karekar",
-  //       subheading: "Posted 30m ago",
-  //       profileImage:
-  //         "https://i.ibb.co/fY1DmQW/8aacdef9ba37db60c7a96271877cfbb5.jpg",
-  //     },
-  //   },
-  //   {
-  //     url: "https://i.ibb.co/MGbfDTH/Group-13.png",
-  //     duration: 5000,
-  //     header: {
-  //       heading: "Mohit Karekar",
-  //       subheading: "Posted 30m ago",
-  //       profileImage: "https://i.ibb.co/MGbfDTH/Group-13.png",
-  //     },
-  //   },
-  //   {
-  //     url: "https://i.ibb.co/fY1DmQW/8aacdef9ba37db60c7a96271877cfbb5.jpg",
-  //     duration: 5000,
-  //     header: {
-  //       heading: "Mohit Karekars",
-  //       subheading: "Posted 30m ago",
-  //       profileImage: "https://i.ibb.co/MGbfDTH/Group-13.png",
-  //     },
-  //   },
-  // ];
+  const currentStory = formattedStoryList[currentStoryIndex];
+
   return (
     <Fragment>
       <MainHeader title="Doob" />
@@ -107,12 +93,14 @@ function StoriesView() {
         <section className="content-container">
           <div className="content">
             {/* <StoriesMainPage /> */}
-            {stories.length > 0 && (
+            {formattedStoryList.length > 0 && currentStory && (
               <Stories
                 loop={true}
-                stories={stories}
-                // renderers={}
-                // onStoryEnd={(s, st) => console.log("story ended", s, st)}
+                stories={currentStory.story}
+                progressStyles={false}
+                onAllStoriesEnd={() =>
+                  setCurrentStoryIndex(currentStoryIndex + 1)
+                }
                 // onStoryStart={(s, st) => console.log("story started", s, st)}
                 // defaultInterval={1500}
                 // width={432}
