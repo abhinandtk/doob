@@ -24,7 +24,7 @@ $primary-color: #17a803;
     padding: 3px;
   }
 }
-.modal-in{
+.modal-in {
   width: 359px;
 }
 
@@ -141,11 +141,10 @@ $primary-color: #17a803;
     margin: 0;
   }
 }
-.modal-bt{
- 
-    background-color: #17A803;
-    font-weight: 600;
-    width: 363px;
+.modal-bt {
+  background-color: #17a803;
+  font-weight: 600;
+  width: 363px;
 }
 
 .ant-empty-description {
@@ -153,14 +152,13 @@ $primary-color: #17a803;
 }
 
 @media (max-width: 567px) {
-  .modal-in{
+  .modal-in {
     width: 100%;
   }
-  .modal-bt{
+  .modal-bt {
     width: 100%;
+  }
 }
-}
-
 
 /* Story.css */
 
@@ -173,4 +171,46 @@ $primary-color: #17a803;
   width: 100%;
   height: auto;
   margin-bottom: 8px;
+}
+
+.story-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 320px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  padding: 16px;
+}
+
+/* Style the header section */
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.header .username {
+  font-weight: bold;
+}
+
+/* Style the story image */
+.story-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+/* Style the caption */
+.caption {
+  font-size: 14px;
+  text-align: center;
 }

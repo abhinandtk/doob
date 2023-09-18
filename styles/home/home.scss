@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Poppins:wght@300&display=swap");
 @import "themes/theme";
 @import "themes/language";
+@import "home/story";
 $primary-color: #17a803;
 
 body {
@@ -1109,9 +1110,8 @@ input.nosubmit1 {
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 2;
--webkit-box-orient: vertical;
+  -webkit-box-orient: vertical;
 }
-
 
 .side-menu__suggestion-infos a:hover {
   text-decoration: underline;

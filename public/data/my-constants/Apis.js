@@ -85,6 +85,7 @@ const apis = {
     'editProfile': `${constants.port}/social/Api/edit_profile_api`,
 
     'addStory': `${constants.port}/social/Api/add_story`,
+    'deleteStory': `${constants.port}/social/Api/delete_story`,
 
 
     //store module

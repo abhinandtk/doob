@@ -7,6 +7,8 @@ import { useTranslation } from "next-i18next";
 function StoriesMainPage() {
   const router = useRouter();
   const [storyList, setStoryList] = useState([]);
+  const [loginedStoryList, setLoginedStoryList] = useState([]);
+
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -16,6 +18,7 @@ function StoriesMainPage() {
       },
     }).then((res) => {
       setStoryList(res.data.data.user_story);
+      setLoginedStoryList(res.data.data.requested_user_story);
       console.log("response67", res);
     });
   }, []);
@@ -71,6 +74,48 @@ function StoriesMainPage() {
             </div>
           </div>
         </button> */}
+        {loginedStoryList &&
+          loginedStoryList.map((item, index) => (
+            <button
+              onClick={() =>
+                router.push({
+                  pathname: `/story-view/${index}`,
+                  query: {
+                    logined_user: true,
+                  },
+                })
+              }
+              key={index}
+              className="story story--has-story"
+            >
+              <div className="story__avatar">
+                <div className="story__border">
+                  <svg
+                    width="64"
+                    height="64"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle r="31" cy="32" cx="32" />
+                  </svg>
+                </div>
+                <div className="story__picture">
+                  <img
+                    src={
+                      item.user.image
+                        ? `${constants.port}/media/${item.user.image}`
+                        : "/images/accounts/user_default.png"
+                    }
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      borderRadius: "50%",
+                      objectFit: "cover",
+                    }}
+                  />
+                </div>
+              </div>
+            </button>
+          ))}
         {storyList &&
           storyList.map((item, index) => (
             <button

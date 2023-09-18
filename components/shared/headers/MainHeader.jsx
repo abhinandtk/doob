@@ -175,7 +175,7 @@ function MainHeader({ title }) {
         variant="dark"
         sticky="top"
         className="web-nav"
-        style={{ zIndex: 100, direction: locale === "ar" ? "rtl" : "ltr" }}
+        style={{ zIndex: 1003, direction: locale === "ar" ? "rtl" : "ltr" }}
       >
         <Container fluid>
           <Navbar.Brand href="/">
