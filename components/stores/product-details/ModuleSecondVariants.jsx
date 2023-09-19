@@ -71,21 +71,30 @@ function ModuleSecondVariants({ product }) {
               {" "}
               <h6>{t("Color")}</h6>
               {multiItems.map((item, index) => (
-                <span
-                  key={index}
-                  onClick={() => handleButtonActions(item.slug)}
+                <div
+                  className={`my-1 ${
+                    prVarientId === item.slug
+                      ? "circle-select"
+                      : "circle-unselect"
+                  }
+                `}
                 >
-                  <img
-                    className="mx-1"
-                    src={`${constants.port}${item.varient_color_image}`}
-                    style={{
-                      width: "18px",
-                      height: "18px",
-                      objectFit: "cover",
-                      borderRadius: "50%",
-                    }}
-                  />
-                </span>
+                  <span
+                    key={index}
+                    onClick={() => handleButtonActions(item.slug)}
+                  >
+                    <img
+                      className="mx-1 my-1"
+                      src={`${constants.port}${item.varient_color_image}`}
+                      style={{
+                        width: "18px",
+                        height: "18px",
+                        objectFit: "cover",
+                        borderRadius: "50%",
+                      }}
+                    />
+                  </span>
+                </div>
               ))}
             </>
           )}

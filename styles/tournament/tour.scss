@@ -2921,7 +2921,11 @@ input.nosubmit-shop {
     0 0 0 15px var(--color-bg-secondary);
 
   img {
-    width: 40px;
+    width: 50px;
+    height: 50px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
   }
 }
 
@@ -4097,11 +4101,11 @@ input.nosubmit-shop {
     margin-right: auto;
   }
 
-  .Teams-logo img {
-    width: auto;
-    height: 37px;
-    object-fit: cover;
-  }
+  // .Teams-logo img {
+  //   width: auto;
+  //   height: 37px;
+  //   object-fit: cover;
+  // }
 
   .tour-container {
     width: auto;

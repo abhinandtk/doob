@@ -14,13 +14,13 @@ function ModuleVariants({ product }) {
   console.log("ttt-product123", product);
   const router = useRouter();
   const dispatch = useDispatch();
-  const {t}=useTranslation()
+  const { t } = useTranslation();
   const [primaryIndex, setPrimaryIndex] = useState(
     useSelector((state) => state.product.proPrimaryVarientId)
   );
   const prVarientId = useSelector((state) => state.product.proVarient);
   const items = [];
-  console.log("ttt-productitems", product.Product_Items);
+  console.log("ttt-productitems det32 secondvarId", product.Product_Items);
 
   product.Product_Items.map((item, index) => {
     const isExist = (obj) => obj.varent_id === item.varent_id;
@@ -37,9 +37,14 @@ function ModuleVariants({ product }) {
     }
   });
 
-  console.log("ttt-items module", items);
-
   const handleButtonActions = (varent_id, secondVarientSlug) => {
+    console.log(
+      "00000000000000",
+      primaryIndex,
+      varent_id,
+      prVarientId,
+      secondVarientSlug
+    );
     setPrimaryIndex(varent_id);
     dispatch(setProPrimaryVarientId(varent_id));
     dispatch(setProVarient(secondVarientSlug));
@@ -52,32 +57,48 @@ function ModuleVariants({ product }) {
       <h6 style={{ marginTop: "-8px" }}>
         {product.primary_varient === "Color" ? (
           <>
-            {t("Color")}<br></br>
+            {t("Color")}
+            <br></br>
             <div>
               {items.map((item, index) => (
-                <span
-                  key={index}
-                  onClick={() =>
-                    handleButtonActions(item.varent_id, item.secondVarientSlug)
+                <div
+                  className={`my-1 ${
+                    prVarientId === item.secondVarientSlug
+                      ? "circle-select"
+                      : primaryIndex === item.varent_id
+                      ? "circle-select"
+                      : "circle-unselect"
                   }
+              `}
                 >
-                  <img
-                    className="mx-1"
-                    src={`${constants.port}${item.varient_color_image}`}
-                    style={{
-                      width: "18px",
-                      height: "18px",
-                      objectFit: "cover",
-                      borderRadius: "50%",
-                    }}
-                  />
-                </span>
+                  <span
+                    key={index}
+                    onClick={() =>
+                      handleButtonActions(
+                        item.varent_id,
+                        item.secondVarientSlug
+                      )
+                    }
+                  >
+                    <img
+                      className="mx-1 my-1"
+                      src={`${constants.port}${item.varient_color_image}`}
+                      style={{
+                        width: "18px",
+                        height: "18px",
+                        objectFit: "cover",
+                        borderRadius: "50%",
+                      }}
+                    />
+                  </span>
+                </div>
               ))}
             </div>
           </>
         ) : (
           <>
-            {t("Size")}<br></br>
+            {t("Size")}
+            <br></br>
             <div>
               {items.map((item, index) => (
                 <div
