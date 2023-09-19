@@ -100,7 +100,7 @@ function DoublesMatchCard({ data }) {
                     ></img>
                   )}
                 </div>
-                <div className="time-wins">
+                <div className="time-wins" style={{direction:"ltr"}}>
                   {data.start_time ? (
                     moment(data.start_time, "hh:mm:ss").format("hh:mm A")
                   ) : (

@@ -458,7 +458,10 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
                               }
                             />
                           </div>
-                          <h2 className="Teams-name"> {content.team_A.team_A}</h2>
+                          <h2 className="Teams-name">
+                            {" "}
+                            {content.team_A.team_A}
+                          </h2>
                         </div>
                         {home &&
                           home.tournament_details.tournament_type !==
@@ -522,6 +525,7 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
                           </div>
                           <div
                             className="time-wins"
+                            style={{ direction: "ltr" }}
                             onClick={() => showTimeModalHandler(content.id)}
                           >
                             {content.start_time ? (
@@ -553,7 +557,9 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
                               }
                             />
                           </div>
-                          <h2 className="Teams-name">{content.team_B.team_B}</h2>
+                          <h2 className="Teams-name">
+                            {content.team_B.team_B}
+                          </h2>
                         </div>
                         {home &&
                           home.tournament_details.tournament_type !==

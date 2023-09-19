@@ -278,7 +278,7 @@ function TournamentDetailPage() {
                   {homeTabData &&
                   homeTabData.tournament_details.tournament_type ===
                     "Single" ? (
-                    <MatchCards data={homeTabData.last_match} />
+                    <MatchCards data={homeTabData.last_match} home={homeTabData}/>
                   ) : (
                     <DoublesMatchCard data={homeTabData.last_match} />
                   )}

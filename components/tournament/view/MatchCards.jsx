@@ -3,7 +3,7 @@ import moment from "moment";
 import React, { Fragment, useEffect, useState } from "react";
 import MatchTimer from "../MatchTimer";
 
-function MatchCards({ data }) {
+function MatchCards({ data, home }) {
   console.log("livematch", data);
 
   return (
@@ -40,7 +40,7 @@ function MatchCards({ data }) {
                     {data.team_B_score != null ? data.team_B_score : "___"}
                   </span>
                 </div>
-                <div className="Match-date">
+                <div className="date-wins">
                   {data.match_date ? (
                     moment(data.match_date).format("DD MMM YYYY")
                   ) : (
@@ -50,7 +50,7 @@ function MatchCards({ data }) {
                     ></img>
                   )}
                 </div>
-                <div className="Match-time-lapsed">
+                <div className="time-wins" style={{direction:"ltr"}}>
                   {data.start_time ? (
                     moment(data.start_time, "hh:mm:ss").format("hh:mm A")
                   ) : (
@@ -62,7 +62,7 @@ function MatchCards({ data }) {
                     type="button"
                     className=" btn-outline-secondary Matches-Time "
                   >
-                    <MatchTimer match={data} />
+                    <MatchTimer match={data} home={home} />
                   </button>
                 </div>
               </div>
