@@ -5,7 +5,7 @@ import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 
 function RankTabContent({ data }) {
-  const {t}=useTranslation()
+  const { t } = useTranslation();
   console.log("dfdata", data);
   const [selectedMatch, setSelectedMatch] = useState(
     data[0]?.game_type || null
@@ -54,12 +54,12 @@ function RankTabContent({ data }) {
                   </Tab>
                   <Tab eventKey="profile" title={t("Female")}>
                     {content.female.length >= 1 && (
-                      <RankingTable data={content.male} />
+                      <RankingTable data={content.female} />
                     )}
                   </Tab>
                   <Tab eventKey="messages" title={t("Junior")}>
                     {content.junior.length >= 1 && (
-                      <RankingTable data={content.male} />
+                      <RankingTable data={content.junior} />
                     )}
                   </Tab>
                 </Tabs>
@@ -71,8 +71,9 @@ function RankTabContent({ data }) {
           <div className="live-ads">
             <img
               src="../images/tournament/Group 12.png"
-      
-              className={`${locale === "ar" ? "tournament-imx1_ar" : "tournament-imx1"}`}
+              className={`${
+                locale === "ar" ? "tournament-imx1_ar" : "tournament-imx1"
+              }`}
             ></img>
           </div>
         </div>

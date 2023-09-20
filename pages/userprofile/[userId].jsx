@@ -131,12 +131,12 @@ function OtherUserAccount() {
           </section>
         ) : (
           <div className="profile-private">
-            <h5 className="text-center">
+            <h5 className="text-center dark-theme-color">
               {blockedfrom || blockedby
                 ? t("Currently unavailable")
                 : t("This Account is Private")}
             </h5>
-            <p className="text-center">
+            <p className="text-center dark-theme-color">
               {!blockedfrom && !blockedby
                 ? t("Follow to see their photos and videos")
                 : null}

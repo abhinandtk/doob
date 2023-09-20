@@ -282,7 +282,7 @@ function PagesSideBar({ currentPage }) {
             {t("Settings")}{" "}
           </span>
         </Link>
-        <span style={{ padding: "16px", cursor: "pointer" }}>
+        <a style={{ padding: "16px", cursor: "pointer" }}>
           <svg
             width="22"
             height="24"
@@ -298,7 +298,7 @@ function PagesSideBar({ currentPage }) {
           <span onClick={() => setShow(true)} className="mx-2 dark-theme-color">
             {t("Logout")}
           </span>
-        </span>
+        </a>
       </div>
     </Fragment>
   );

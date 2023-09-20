@@ -11,8 +11,7 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 function ShippingAddress({ data, setOnSuccess }) {
   const { t } = useTranslation();
-  console.log('reultadd',data)
-  const Router = useRouter();
+  console.log("reultadd", data);
   const router = useRouter();
   const { locale } = router;
 
@@ -42,7 +41,7 @@ function ShippingAddress({ data, setOnSuccess }) {
       >
         <Button
           key="add"
-          onClick={() => Router.push("/store/add-address")}
+          onClick={() => router.push("/store/add-address")}
           type="primary"
           style={{ backgroundColor: "#17A803" }}
         >
@@ -74,11 +73,12 @@ function ShippingAddress({ data, setOnSuccess }) {
             <div className="card-body">
               <div className="d-flex justify-content-between ">
                 <div className="d-flex flex-row align-items-center ">
-                  <div >
+                  <div>
                     <img
                       src="/images/LocationIcon.png"
-                      className={`${locale==='en'?"me-4 mb-3":"mx-2 mb-3"}`}
-
+                      className={`${
+                        locale === "en" ? "me-4 mb-3" : "mx-2 mb-3"
+                      }`}
                     ></img>
                   </div>
                   <div className="ms-1 mt-3">
@@ -106,6 +106,7 @@ function ShippingAddress({ data, setOnSuccess }) {
                   >
                     <span>
                       <img src="/images/Edit.png" className="mt-4 mx-4"></img>
+                      
                       {/* <EnvironmentOutlined /> */}
                     </span>
                   </div>
@@ -124,7 +125,7 @@ function ShippingAddress({ data, setOnSuccess }) {
         >
           <Button
             key="add"
-            onClick={() => Router.push("/store/add-address")}
+            onClick={() => router.push("/store/add-address")}
             type="primary"
             style={{ backgroundColor: "#17A803" }}
           >

@@ -26,9 +26,9 @@ function StoriesMainPage() {
   return (
     <div
       className="stories"
-      style={{ height: `${storyList.length <= 0 ? "0px" : ""}` }}
+      style={{ height: `${storyList || loginedStoryList ? "" : "0px"}` }}
     >
-      {storyList.length > 0 && (
+      {(storyList || loginedStoryList) && (
         <div className="ms-1 dark-theme-color" style={{ fontWeight: 500 }}>
           {t("My Followers")}
         </div>
@@ -43,37 +43,6 @@ function StoriesMainPage() {
       </button>
 
       <div className="stories__content ">
-        {/* <button className="story story--has-story">
-          <div className="story__avatar">
-            <div className="story__border">
-              <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-                <circle r="31" cy="32" cx="32" />
-                <defs>
-                  <linearGradient
-                    y2="0"
-                    x2="1"
-                    y1="1"
-                    x1="0"
-                    id="--story-gradient"
-                  >
-                    <stop offset="0" stop-color="#f09433" />
-                    <stop offset="0.25" stop-color="#e6683c" />
-                    <stop offset="0.5" stop-color="#dc2743" />
-                    <stop offset="0.75" stop-color="#cc2366" />
-                    <stop offset="1" stop-color="#bc1888" />
-                  </linearGradient>
-                </defs>
-              </svg>
-            </div>
-            <div className="story__picture">
-              <img src="../images/str2.png " alt="User Picture"></img>
-              <img
-                src="../images/male-rugby-player-holding-ball-with-color-effect.jpg"
-                alt="User Picture"
-              />
-            </div>
-          </div>
-        </button> */}
         {loginedStoryList &&
           loginedStoryList.map((item, index) => (
             <button
@@ -155,127 +124,6 @@ function StoriesMainPage() {
               </div>
             </button>
           ))}
-
-        {/* <button className="story">
-          <div className="story__avatar">
-            <div className="story__border">
-              <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-                <circle r="31" cy="32" cx="32" />
-              </svg>
-            </div>
-            <div className="story__picture">
-              <img src="../images/str7.png" alt="User Picture" />
-            </div>
-          </div>
-        </button>
-        <button className="story">
-          <div className="story__avatar">
-            <div className="story__border">
-              <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-                <circle r="31" cy="32" cx="32" />
-              </svg>
-            </div>
-            <div className="story__picture">
-              <img src="../images/str9.png" alt="User Picture" />
-            </div>
-          </div>
-        </button>
-        <button className="story">
-          <div className="story__avatar">
-            <div className="story__border">
-              <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-                <circle r="31" cy="32" cx="32" />
-              </svg>
-            </div>
-            <div className="story__picture">
-              <img src="../images/str5.png" alt="User Picture" />
-            </div>
-          </div>
-        </button>
-        <button className="story">
-          <div className="story__avatar">
-            <div className="story__border">
-              <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-                <circle r="31" cy="32" cx="32" />
-              </svg>
-            </div>
-            <div className="story__picture">
-              <img src="../images/str6.png" alt="User Picture" />
-            </div>
-          </div>
-        </button>
-        <button className="story">
-          <div className="story__avatar">
-            <div className="story__border">
-              <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-                <circle r="31" cy="32" cx="32" />
-              </svg>
-            </div>
-            <div className="story__picture">
-              <img src="../images/str7.png" alt="User Picture" />
-            </div>
-          </div>
-        </button>
-        <button className="story">
-          <div className="story__avatar">
-            <div className="story__border">
-              <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-                <circle r="31" cy="32" cx="32" />
-              </svg>
-            </div>
-            <div className="story__picture">
-              <img src="../images/str9.png" alt="User Picture" />
-            </div>
-          </div>
-        </button>
-        <button className="story">
-          <div className="story__avatar">
-            <div className="story__border">
-              <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-                <circle r="31" cy="32" cx="32" />
-              </svg>
-            </div>
-            <div className="story__picture">
-              <img src="../images/str5.png" alt="User Picture" />
-            </div>
-          </div>
-        </button>
-        <button className="story">
-          <div className="story__avatar">
-            <div className="story__border">
-              <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-                <circle r="31" cy="32" cx="32" />
-              </svg>
-            </div>
-            <div className="story__picture">
-              <img src="../images/str6.png" alt="User Picture" />
-            </div>
-          </div>
-        </button>
-        <button className="story">
-          <div className="story__avatar">
-            <div className="story__border">
-              <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-                <circle r="31" cy="32" cx="32" />
-              </svg>
-            </div>
-            <div className="story__picture">
-              <img src="../images/str7.png" alt="User Picture" />
-            </div>
-          </div>
-        </button>
-        <button className="story">
-          <div className="story__avatar">
-            <div className="story__border">
-              <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-                <circle r="31" cy="32" cx="32" />
-              </svg>
-            </div>
-            <div className="story__picture">
-              <img src="../images/str9.png" alt="User Picture" />
-            </div>
-          </div>
-        </button> */}
       </div>
       <button className="stories__right-button">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">

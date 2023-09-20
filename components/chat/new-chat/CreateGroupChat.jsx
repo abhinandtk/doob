@@ -160,10 +160,9 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
                   <div>
                     <div className="d-flex justify-content-between align-items-center">
                       <p
-                        className="mb-0"
+                        className="mb-0 dark-theme-color"
                         style={{
                           fontWeight: "600",
-                          color: "#000",
                           fontSize: "15px",
                         }}
                       >
@@ -172,9 +171,8 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
                     </div>
 
                     <p
-                      className="small "
+                      className="small dark-theme-color"
                       style={{
-                        color: "#000",
                         fontWeight: "400",
                         fontSize: "14px",
                         marginTop: "-3px",
@@ -205,7 +203,10 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
               {" "}
               <span
                 onClick={() => onGrpShow(false)}
-                style={{ cursor: "pointer",marginLeft:locale==='ar'?'12px':""}}
+                style={{
+                  cursor: "pointer",
+                  marginLeft: locale === "ar" ? "12px" : "",
+                }}
               >
                 <svg
                   width="15"

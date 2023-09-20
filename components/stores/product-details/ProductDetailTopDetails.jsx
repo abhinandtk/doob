@@ -14,6 +14,7 @@ import { useTranslation } from "next-i18next";
 import ShareToUserChat from "@/components/homepage/social/share/ShareToUserChat";
 import Login from "@/components/user/Login";
 import { activeModalShow } from "@/Redux/loginShow";
+import { useTheme } from "next-themes";
 
 function ProductDetailTopDetails({ product, setApiSuccess }) {
   console.log("===============", product);
@@ -22,6 +23,7 @@ function ProductDetailTopDetails({ product, setApiSuccess }) {
 
   const router = useRouter();
   const { locale } = router;
+  const { theme } = useTheme();
 
   const labels = Labels();
   let productStock;
@@ -174,7 +176,7 @@ function ProductDetailTopDetails({ product, setApiSuccess }) {
                 padding: "0px",
               }}
             >
-              <svg
+              {/* <svg
                 width="22"
                 height="20"
                 viewBox="0 0 22 20"
@@ -199,6 +201,35 @@ function ProductDetailTopDetails({ product, setApiSuccess }) {
                   d="M10.3735 4.99984C10.3735 4.5396 10.7629 4.1665 11.2431 4.1665C11.7233 4.1665 12.1127 4.5396 12.1127 4.99984C12.1127 5.46007 11.7233 5.83317 11.2431 5.83317C10.7629 5.83317 10.3735 5.46007 10.3735 4.99984Z"
                   stroke="black"
                   stroke-width="0.814796"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg> */}
+              <svg
+                width="28"
+                height="27"
+                viewBox="0 0 205 197"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M93.958 147.344C93.958 142.823 97.7822 139.158 102.5 139.158C107.217 139.158 111.041 142.823 111.041 147.344C111.041 151.865 107.217 155.529 102.5 155.529C97.7822 155.529 93.958 151.865 93.958 147.344Z"
+                  stroke={theme === "dark" ? "white" : "black"}
+                  stroke-width="5.54167"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M93.958 98.2291C93.958 93.7082 97.7822 90.0433 102.5 90.0433C107.217 90.0433 111.041 93.7082 111.041 98.2291C111.041 102.75 107.217 106.415 102.5 106.415C97.7822 106.415 93.958 102.75 93.958 98.2291Z"
+                  stroke={theme === "dark" ? "white" : "black"}
+                  stroke-width="5.54167"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M93.958 49.1145C93.958 44.5936 97.7822 40.9287 102.5 40.9287C107.217 40.9287 111.041 44.5936 111.041 49.1145C111.041 53.6354 107.217 57.3003 102.5 57.3003C97.7822 57.3003 93.958 53.6354 93.958 49.1145Z"
+                  stroke={theme === "dark" ? "white" : "black"}
+                  stroke-width="5.54167"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 />

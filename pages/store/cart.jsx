@@ -25,8 +25,8 @@ export async function getStaticProps({ locale }) {
 }
 function CartPage() {
   const [cartDetails, setCartDetails] = useState([]);
-  const router = useRouter()
-  const { locale } = router
+  const router = useRouter();
+  const { locale } = router;
   const [cartProducts, setCartProducts] = useState([]);
   const [cartAddress, setCartAddress] = useState([]);
   const [onSuccess, setOnSuccess] = useState(true);
@@ -51,40 +51,43 @@ function CartPage() {
       <MobileHeader />
       <MainSidebarFixed />
       <div className="store-container h-100">
-      <div className="tour-detail-ar">
-        <div className="h-100 my-3 ">
-          <div className="row d-flex justify-content-center align-items-center h-100">
-            <div className="col">
-              <h5 fw-bold className="dark-theme-color">
-                {t("My Cart")}
-              </h5>
-              <div className="row">
-                <div className="col-lg-7">
-                  <ShippingAddress
-                    data={cartAddress}
-                    setOnSuccess={setOnSuccess}
-                  />
-
-                  <h5 className="dark-theme-color"   style={{ fontSize: "17px"}} >
-                   {t("Order List")}
-                    <span   className={locale === "en" ? "view" : "view_ar"}>
-                      {t("Total")} {cartDetails.cart_items} {t("items")}
-                    </span>
-                  </h5>
-                  {cartProducts.map((product, index) => (
-                    <OrderList
-                      key={index}
-                      product={product}
+        <div className="tour-detail-ar">
+          <div className="h-100 my-3 ">
+            <div className="row d-flex justify-content-center align-items-center h-100">
+              <div className="col">
+                <h5 fw-bold className="dark-theme-color">
+                  {t("My Cart")}
+                </h5>
+                <div className="row">
+                  <div className="col-lg-7">
+                    <ShippingAddress
+                      data={cartAddress}
                       setOnSuccess={setOnSuccess}
                     />
-                  ))}
+
+                    <h5
+                      className="dark-theme-color"
+                      style={{ fontSize: "17px" }}
+                    >
+                      {t("Order List")}
+                      <span className={locale === "en" ? "view" : "view_ar"}>
+                        {t("Total")} {cartDetails.cart_items} {t("items")}
+                      </span>
+                    </h5>
+                    {cartProducts.map((product, index) => (
+                      <OrderList
+                        key={index}
+                        product={product}
+                        setOnSuccess={setOnSuccess}
+                      />
+                    ))}
+                  </div>
+                  <CheckoutSideSection data={cartDetails} />
                 </div>
-                <CheckoutSideSection data={cartDetails} />
               </div>
             </div>
           </div>
         </div>
-      </div>
       </div>
       <MobileFooter />
     </Fragment>

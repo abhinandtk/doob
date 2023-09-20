@@ -237,10 +237,9 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
                   <div>
                     <div className="d-flex justify-content-between align-items-center">
                       <p
-                        className="mb-0"
+                        className="mb-0 dark-theme-color"
                         style={{
                           fontWeight: "600",
-                          color: "#000",
                           fontSize: "15px",
                         }}
                       >
@@ -249,9 +248,8 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
                     </div>
 
                     <p
-                      className="small "
+                      className="small dark-theme-color"
                       style={{
-                        color: "#000",
                         fontWeight: "400",
                         fontSize: "14px",
                         marginTop: "-3px",
@@ -282,7 +280,10 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
               {" "}
               <span
                 onClick={() => onNewMsg(null)}
-                style={{ cursor: "pointer",marginLeft:locale==='ar'?'12px':""}}
+                style={{
+                  cursor: "pointer",
+                  marginLeft: locale === "ar" ? "12px" : "",
+                }}
               >
                 <svg
                   width="15"
@@ -399,7 +400,9 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
               display: "flex",
             }}
           >
-            <p className="dark-theme-color" style={{ width: "50%" }}>{t("Group members")}</p>
+            <p className="dark-theme-color" style={{ width: "50%" }}>
+              {t("Group members")}
+            </p>
             {isAdmin && (
               <div
                 className="mx-2"
@@ -431,8 +434,11 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
                       alt=""
                     />
                   </div>
-               
-                  <div className="details" style={{ marginRight:locale==='ar'?'12px':""}}  >
+
+                  <div
+                    className="details"
+                    style={{ marginRight: locale === "ar" ? "12px" : "" }}
+                  >
                     <div className="listHead">
                       <p>{item.user.name}</p>
                     </div>

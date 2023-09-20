@@ -263,7 +263,7 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
         title="Select Stadium"
       >
         <Input
-          placeholder="Enter Stadium"
+          placeholder={t("Enter Stadium")}
           // value={names}
           onChange={(e) => handleChangeStadium(e)}
         />
@@ -301,10 +301,9 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
                   <div>
                     <div className="d-flex justify-content-between align-items-center">
                       <p
-                        className="mb-0"
+                        className="mb-0 dark-theme-color"
                         style={{
                           fontWeight: "600",
-                          color: "#000",
                           fontSize: "15px",
                         }}
                       >
@@ -313,9 +312,8 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
                     </div>
 
                     <p
-                      className="small "
+                      className="small dark-theme-color"
                       style={{
-                        color: "#000",
                         fontWeight: "400",
                         fontSize: "14px",
                         marginTop: "-3px",
@@ -335,7 +333,7 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
 
       <Modal
         open={visible}
-        title="Enter Match Score"
+        title={t("Enter Match Score")}
         onCancel={() => setVisible(false)}
         footer={
           <Button
@@ -350,29 +348,31 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
       >
         <Input.Group compact>
           <Input
+            // className="cont-theme-bg"
             style={{ width: "30%" }}
             value={teamAScore}
             onChange={(e) => setTeamAScore(e.target.value)}
-            placeholder="Team A Score"
+            placeholder={t("Team A Score")}
           />
           <span style={{ margin: "0 8px" }}>-</span>
           <Input
+            // className="cont-theme-bg"
             type="number"
             style={{ width: "40%" }}
             value={teamBScore}
             onChange={(e) => setTeamBScore(e.target.value)}
-            placeholder="Team B Score"
+            placeholder={t("Team B Score")}
           />
         </Input.Group>
         <br></br>
 
         <Select
           // defaultValue=""
-          placeholder="Match Status"
+          placeholder={t("Match Status")}
           style={{
             border: "0px",
             background: "#eeeeee",
-            color: "grey",
+            color: "red",
             width: "100%",
           }}
           id="team"
@@ -388,7 +388,7 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
       </Modal>
       <Modal
         open={visibleDate}
-        title="Enter Date"
+        title={t("Enter Date")}
         onCancel={() => setVisibleDate(false)}
         footer={
           <Button
@@ -404,14 +404,14 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
         <DatePicker
           showTime
           format="YYYY-MM-DD"
-          placeholder="Select Date "
+          placeholder={t("Select Date")}
           onChange={(date) => setMatchDate(date)}
           value={matchDate}
         />
       </Modal>
       <Modal
         open={visibleTime}
-        title="Enter Time"
+        title={t("Enter Time")}
         onCancel={() => setVisibleTime(false)}
         footer={
           <Button
@@ -425,7 +425,7 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
         }
       >
         <TimePicker
-          placeholder="Select Time "
+          placeholder={t("Select Time")}
           format="HH:mm:ss"
           onChange={(time) => setMatchTime(time)}
           value={matchTime}

@@ -223,10 +223,9 @@ function DoublesTeamsCard({
                       <div>
                         <div className="d-flex justify-content-between align-items-center">
                           <p
-                            className="mb-0"
+                            className="mb-0 dark-theme-color"
                             style={{
                               fontWeight: "600",
-                              color: "#000",
                               fontSize: "15px",
                             }}
                           >
@@ -235,9 +234,8 @@ function DoublesTeamsCard({
                         </div>
 
                         <p
-                          className="small "
+                          className="small dark-theme-color"
                           style={{
-                            color: "#000",
                             fontWeight: "400",
                             fontSize: "14px",
                             marginTop: "-3px",
@@ -300,10 +298,9 @@ function DoublesTeamsCard({
                       <div>
                         <div className="d-flex justify-content-between align-items-center">
                           <p
-                            className="mb-0"
+                            className="mb-0 dark-theme-color"
                             style={{
                               fontWeight: "600",
-                              color: "#000",
                               fontSize: "15px",
                             }}
                           >
@@ -312,9 +309,8 @@ function DoublesTeamsCard({
                         </div>
 
                         <p
-                          className="small "
+                          className="small dark-theme-color"
                           style={{
-                            color: "#000",
                             fontWeight: "400",
                             fontSize: "14px",
                             marginTop: "-3px",

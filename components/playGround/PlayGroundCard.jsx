@@ -35,7 +35,7 @@ function PlayGroundCard({ content }) {
       <div style={{ direction: locale === "ar" ? "rtl" : "ltr" }}>
         <div className="clearfix jst mt-3 ">
           <h5
-            className={locale === "ar" ? "float-end" : "float-start"}
+            className={locale === "ar" ? "float-end my-3" : "float-start my-3"}
             style={{ fontWeight: "700", fontSize: "19px", marginLeft: "0px" }}
           >
             {t("Playgrounds near me")}
