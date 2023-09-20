@@ -62,6 +62,7 @@ function ModuleVariants({ product }) {
             <div>
               {items.map((item, index) => (
                 <div
+                  key={index}
                   className={`my-1 ${
                     prVarientId === item.secondVarientSlug
                       ? "circle-select"

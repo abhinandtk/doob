@@ -72,6 +72,7 @@ function ModuleSecondVariants({ product }) {
               <h6>{t("Color")}</h6>
               {multiItems.map((item, index) => (
                 <div
+                  key={index}
                   className={`my-1 ${
                     prVarientId === item.slug
                       ? "circle-select"
