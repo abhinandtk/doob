@@ -467,6 +467,15 @@
   "Add a Story": "إضافة قصة",
   "Caption": "تسمية",
 
+  "Enter Match Score": "أدخل نتيجة المباراة",
+  "Match Status": "حالة المباراة",
+  "Enter Date": "أدخل التاريخ",
+  "Enter Time": "أدخل الوقت",
+  "Select Time": "اختر الوقت",
+  "Team B Score": "نتيجة الفريق ب",
+  "Team A Score": "نتيجة الفريق أ",
+  "Enter Stadium": "أدخل اسم الملعب",
+
   "Add Address": "اضف عنوان",
   "Set as Default": "تعيين كافتراضي",
   "Wallet": "محفظة",

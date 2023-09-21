@@ -85,13 +85,6 @@ function StoriesView() {
     });
   };
 
-  function handleStoryEnd() {
-    if (currentStoryIndex < storyList.length - 1) {
-      setCurrentStoryIndex(currentStoryIndex + 1);
-    } else {
-      router.push("/");
-    }
-  }
   let formattedStoryList;
   let loginedUserStory;
   if (loginedStoryList) {
@@ -244,6 +237,17 @@ function StoriesView() {
   const currentStory = logined_user
     ? loginedUserStory[0]
     : formattedStoryList[currentStoryIndex];
+  function handleStoryEnd() {
+    if (logined_user) {
+      router.push("/");
+    } else {
+      if (currentStoryIndex < storyList.length - 1) {
+        setCurrentStoryIndex(currentStoryIndex + 1);
+      } else {
+        router.push("/");
+      }
+    }
+  }
 
   return (
     <Fragment>

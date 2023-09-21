@@ -275,7 +275,9 @@ function StoreTopDetails({ data, setSuccess }) {
       <div className="my-3 store-header-details">
         <div className="row">
           <div className="col-md-6">
-            <h5 className="dark-theme-color">{data.title}</h5>
+            <h5 className="dark-theme-color">
+              {locale === "en" ? data.title : data.title_arabic}
+            </h5>
             <p style={{ fontSize: "13px", color: "gray" }}>{data.address}</p>
 
             <ReviewStore data={data} />
@@ -313,7 +315,9 @@ function StoreTopDetails({ data, setSuccess }) {
             <div className="text">
               <div className="description">
                 <h5 className="dark-theme-color">{t("Description")}</h5>
-                <p className="col-md-12 dark-theme-gd">{data.description}</p>
+                <p className="col-md-12 dark-theme-gd">
+                  {locale === "en" ? data.description : data.arabic_description}
+                </p>
               </div>
             </div>
           )}

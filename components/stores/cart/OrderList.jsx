@@ -93,7 +93,7 @@ function OrderList({ product, setOnSuccess }) {
                 className={locale === "en" ? "add-left" : "add-left_ar"}
                 style={{ maxWidth: "45%" }}
               >
-                <h6>{product.Name}</h6>
+                <h6>{locale === "en" ? product.Name : product.arabic_name}</h6>
                 {product.product_stock <= 0 ? (
                   <p className="my-1" style={{ color: "red" }}>
                     {t("Out of Stock")}

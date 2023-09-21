@@ -165,7 +165,12 @@ function MainHeader({ title }) {
     <>
       <Head>
         <title>{title}</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="icon"
+          href="/images/favicon_doob.png"
+          // sizes="32x16"
+          type="image/png"
+        />
       </Head>
 
       <Navbar

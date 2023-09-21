@@ -58,7 +58,7 @@ function CategorySearchPage() {
       console.log("888888", subCatInput, res);
     });
   }, [id, subCatInput, searchInput]);
-
+  let counter = 0;
   return (
     <Fragment>
       <MainHeader title="Doob" />
@@ -87,7 +87,10 @@ function CategorySearchPage() {
               <button
                 type="button"
                 className="btn btn-outline-secondary"
-                style={{ padding: "5px 35px" }}
+                style={{
+                  padding: "5px 35px",
+                  background: subCatInput === "" ? "#17A308" : "",
+                }}
                 onClick={() => setSubcatInput("")}
               >
                 {t("All")}
@@ -104,7 +107,13 @@ function CategorySearchPage() {
                     aria-label="Second group"
                     onClick={() => setSubcatInput(item.id)}
                   >
-                    <button type="button" className="btn btn-secondary">
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                      style={{
+                        background: subCatInput === item.id ? "#17A308" : "",
+                      }}
+                    >
                       {locale === "en" ? item.title : item.title_arabic}
                     </button>
                   </div>
