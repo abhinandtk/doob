@@ -11,8 +11,8 @@ body {
   height: 100%;
   background-color: var(--primary);
 }
-.profile-tabs-pg{
-  :lang(ar){
+.profile-tabs-pg {
+  :lang(ar) {
     direction: rtl;
   }
 }
@@ -274,7 +274,7 @@ body {
   display: flex;
   justify-content: center;
   color: var(--font-theme-color);
-  :lang(ar){
+  :lang(ar) {
     direction: rtl;
   }
 }
@@ -475,16 +475,15 @@ body {
   width: 60%;
 }
 
-
 .small-time {
-  color:var(--user-name-color);
+  color: var(--user-name-color);
   font-weight: 500;
   font-size: 14px;
   margin-top: -5px;
   text-align: left;
 }
 .small-time_ar {
-  color:var(--user-name-color);
+  color: var(--user-name-color);
   font-weight: 500;
   font-size: 14px;
   margin-top: -5px;
@@ -586,7 +585,7 @@ body {
     cursor: pointer;
     height: 30px;
   }
-  .following{
+  .following {
     margin-top: 32px;
   }
 
@@ -677,7 +676,7 @@ body {
     cursor: pointer;
     height: 30px;
   }
-  .following{
+  .following {
     margin-top: 32px;
   }
   .tab-container {
@@ -737,7 +736,6 @@ body {
     width: 80%;
     margin-right: 23px;
   }
-  
 }
 
 @media (max-width: 1025px) {
@@ -843,7 +841,7 @@ body {
     cursor: pointer;
     height: 30px;
   }
-  .following{
+  .following {
     margin-top: 32px;
   }
 }
@@ -1262,7 +1260,7 @@ body {
     cursor: pointer;
     height: 30px;
   }
-  .following{
+  .following {
     margin-top: 32px;
   }
 }
@@ -1462,12 +1460,11 @@ body {
     text-align: -webkit-center;
     margin-left: 0;
     margin-top: 10px;
-    
-}
-.nav-tabs {
-  border-bottom: 0px solid transparent;
-  margin-top: 0px;
-}
+  }
+  .nav-tabs {
+    border-bottom: 0px solid transparent;
+    margin-top: 0px;
+  }
 
   .profile-users-names {
     font-size: 15px;
@@ -1613,7 +1610,7 @@ body {
     cursor: pointer;
     height: 30px;
   }
-  .following{
+  .following {
     margin-top: 32px;
   }
 }
@@ -1781,7 +1778,7 @@ body {
     font-size: 14px;
     margin-top: 12px;
     text-align: right;
-}
+  }
   .avatar {
     width: 100px;
     height: 100px;
@@ -1790,9 +1787,8 @@ body {
     bottom: 0px;
   }
   .stories {
-
     margin-top: 23px;
-}
+  }
 }
 @media (max-width: 450px) {
   .sidebar {
@@ -1814,7 +1810,6 @@ body {
     position: relative;
     margin: 0 auto;
     bottom: -34px;
-
   }
   .profile-users-name {
     font-size: 23px;

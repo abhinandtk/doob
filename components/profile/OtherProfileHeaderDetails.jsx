@@ -304,10 +304,11 @@ function OtherProfileHeaderDetails({
       <Card className="cord">
         <Card.Body>
           <div className="row">
-            <div className="col-md-6">
+            <div className={`col-md-6 ${locale === "ar" && "order-2"}`}>
               <button
                 onClick={() => setShowRank(true)}
                 className="btn profile-edit-btn"
+                style={{ float: locale === "ar" && "right" }}
               >
                 {t("Rank")}
               </button>
@@ -327,8 +328,11 @@ function OtherProfileHeaderDetails({
                 )}
               </div>
             </div>
-            <div className="col-md-6">
-              <div className="profile-stats">
+            <div className={`col-md-6 ${locale === "ar" && "order-1"}`}>
+              <div
+                className="profile-stats"
+                style={{ marginLeft: locale === "en" ? "-130px" : "0px" }}
+              >
                 <ul>
                   <h1 className="profile-user-name">{data.name}</h1>
                   {data.account_type === "star" ? (
@@ -382,7 +386,7 @@ function OtherProfileHeaderDetails({
                   <li>
                     <span>
                       {" "}
-                      <img src="../images/accounts/kuwait.png" alt=""></img>
+                      <img src="/images/accounts/kuwait.png" alt=""></img>
                     </span>
                     <span className="profile-stat-count mx-1">
                       {data.country}{" "}
@@ -425,7 +429,7 @@ function OtherProfileHeaderDetails({
                           data.is_requested == 0 ? "#17A803" : "grey",
                       }}
                     >
-                      {data.is_requested == 0 ? t("Follow") : "Requested"}
+                      {data.is_requested == 0 ? t("Follow") : t("Requested")}
                     </button>
                   ) : (
                     <>
@@ -463,7 +467,10 @@ function OtherProfileHeaderDetails({
                   )}
                 </ul>
               </div>
-              <Dropdown className="Drop">
+              <Dropdown
+                className="Drop"
+                style={{ float: locale === "en" ? "right" : "left",top:locale === "en" ? "" : "-88%" }}
+              >
                 <Dropdown.Toggle
                   variant=""
                   id="dropdown-basic"

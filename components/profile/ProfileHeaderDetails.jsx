@@ -336,7 +336,7 @@ function ProfileHeaderDetails({ data, setSuccess }) {
                 className="user-online-indicator"
                 onClick={uploadShowHandler}
               >
-                <img src="../images/accounts/camera.png" alt="" />
+                <img src="/images/accounts/camera.png" alt="" />
               </div>
               {loading ? (
                 <Spin
@@ -353,7 +353,7 @@ function ProfileHeaderDetails({ data, setSuccess }) {
               ) : (
                 <img
                   className="user-avatar"
-                  src="../images/accounts/user_default.png"
+                  src="/images/accounts/user_default.png"
                   alt=""
                 />
               )}

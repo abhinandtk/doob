@@ -194,7 +194,7 @@ function ProductDetailFullWidth({ product, setApiSuccess }) {
 
                 {productStock <= 0 ? (
                   <p className="my-1" style={{ color: "red" }}>
-                    Out of stock
+                    {t("Out of stock")}
                   </p>
                 ) : product.Product_Brand.status === "Active" &&
                   product.Product_Category.status == true &&
