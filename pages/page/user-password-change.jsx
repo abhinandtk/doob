@@ -37,6 +37,7 @@ export async function getStaticProps({ locale }) {
 function UserPasswordChange() {
   const { t } = useTranslation();
   const router = useRouter();
+  const { locale } = router;
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -83,7 +84,10 @@ function UserPasswordChange() {
       <div className="store-container">
         <div className="bottom">
           <PagesSideBar currentPage="settings" />
-          <div className="content-topics ">
+          <div
+            className="content-topics"
+            style={{ direction: locale === "en" ? "ltr" : "rtl" }}
+          >
             <h6
               className=" my-4"
               style={{ color: "#17a803", fontWeight: "700" }}
@@ -170,7 +174,7 @@ function UserPasswordChange() {
                   </div>
                 </div>
                 <div className="product-submit my-3">
-                  <button type="submit" className="submit-cart-btn">
+                  <button type="submit" className="mx-2 submit-cart-btn">
                     {t("Submit")}
                   </button>
                   <button

@@ -122,10 +122,10 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
         onCancel={() => setVisible(false)}
         footer={null}
         centered
-        title="Add Members"
+        title={t("Add members")}
       >
         <Input
-          placeholder="Enter names"
+          placeholder={t("Enter names")}
           // value={names}
           onChange={(e) => handleChange(e)}
         />

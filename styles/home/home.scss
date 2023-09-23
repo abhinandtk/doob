@@ -3545,9 +3545,9 @@ p.note {
     margin-left: 22px;
   }
 
-  .leftSide {
-    display: none;
-  }
+  // .leftSide {
+  //   display: none;
+  // }
 
   .rightSide {
     display: block;
@@ -3995,5 +3995,11 @@ p.note {
   .white {
     margin-left: 6px;
     width: 100%;
+  }
+}
+
+@media (max-width: 527px) {
+  .mobile-hidden {
+    display: none;
   }
 }

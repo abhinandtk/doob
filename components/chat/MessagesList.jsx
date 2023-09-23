@@ -6,12 +6,18 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { useState } from "react";
 import moment from "moment";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useTheme } from "next-themes";
 import { Realtime } from "ably";
 import { useTranslation } from "next-i18next";
+import { chatMobileHidden } from "@/Redux/chatMobile";
 function MessagesList({ onChatSelect, onNewMsg }) {
   const router = useRouter();
+
+  const isMobileHidden = useSelector(
+    (state) => state.chatMobile.isMobileHidden
+  );
+  const dispatch = useDispatch();
   const { locale } = router;
   const [inboxUsers, setInboxUsers] = useState([]);
   const [currentId, setCurrentId] = useState(null);
@@ -70,7 +76,11 @@ function MessagesList({ onChatSelect, onNewMsg }) {
   }, [updateChat, searchQuery, onSuccess]);
   return (
     <Fragment>
-      <div className="leftSide tour-detail-ar ">
+      <div
+        className={`leftSide tour-detail-ar ${
+          isMobileHidden ? "mobile-hidden" : ""
+        }`}
+      >
         <div className="header">
           <div className="text">
             <h6
@@ -113,6 +123,7 @@ function MessagesList({ onChatSelect, onNewMsg }) {
                 key={index}
                 onClick={() => {
                   setOnSuccess((prev) => !prev);
+                  dispatch(chatMobileHidden(true));
                   onChatSelect(item.chat.id);
                   setCurrentId(item.chat.id);
                 }}

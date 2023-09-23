@@ -199,10 +199,10 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
         onCancel={() => setVisible(false)}
         footer={null}
         centered
-        title={t("Add Members")}
+        title={t("Add members")}
       >
         <Input
-          placeholder="Enter names"
+          placeholder={t("Enter names")}
           // value={names}
           onChange={(e) => handleChange(e)}
         />
