@@ -4227,12 +4227,7 @@ input.nosubmit-shop {
     color: #000000;
     font-weight: 500;
     font-size: 14px;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    width: 130px;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
+   
   }
 
   .field-btn {
@@ -5647,7 +5642,7 @@ input.nosubmit-shop {
 
 @media (max-width: 440px) {
   .tour-container {
-    width: 85%;
+    width: 80%;
     margin-bottom: 70px;
     margin-right: auto;
     margin-left: auto;
@@ -5906,6 +5901,7 @@ input.nosubmit-shop {
     border: 1px solid black;
     width: 100%;
     font-size: 11px;
+    font-weight: 700;
   }
 
   .games2 {
