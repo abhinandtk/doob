@@ -1760,13 +1760,13 @@ body {
   }
   .Book {
     font-weight: 500;
-    color: #000;
+    color: var(--font-theme-color);
     font-size: 12px;
     margin-top: 4px;
     width: 220px;
   }
   .small-time {
-    color: #000;
+    color: var(--user-name-color);
     font-weight: 500;
     font-size: 12px;
     margin-top: 0px;
@@ -1892,7 +1892,7 @@ body {
 
   .Book {
     font-weight: 500;
-    color: #000;
+    color: var(--font-theme-color);
     font-size: 11px;
     margin-bottom: -13px;
     width: 190px;
@@ -1904,7 +1904,7 @@ body {
     text-overflow: ellipsis;
   }
   .small-time {
-    color: #000;
+    color: var(--user-name-color);
     font-weight: 500;
     font-size: 12px;
     margin-top: 33px;
@@ -1963,14 +1963,14 @@ body {
 @media (max-width: 375px) {
   .Book {
     font-weight: 500;
-    color: #000;
+    color: var(--font-theme-color);
     font-size: 9px;
     margin-bottom: -8px;
     width: auto;
     margin-left: 0px;
   }
   .small-time {
-    color: #000;
+    color: var(--user-name-color);
     font-weight: 500;
     margin-top: 9px;
     text-align: left;
