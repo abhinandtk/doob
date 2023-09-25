@@ -469,7 +469,10 @@ function OtherProfileHeaderDetails({
               </div>
               <Dropdown
                 className="Drop"
-                style={{ float: locale === "en" ? "right" : "left",top:locale === "en" ? "" : "-88%" }}
+                style={{
+                  float: locale === "en" ? "right" : "left",
+                  top: locale === "en" ? "" : "-88%",
+                }}
               >
                 <Dropdown.Toggle
                   variant=""
@@ -505,7 +508,11 @@ function OtherProfileHeaderDetails({
           <div className="avatar">
             <img
               className="user-avatar"
-              src={`${constants.port}/media/${data.user_image}`}
+              src={
+                data.user_image
+                  ? `${constants.port}/media/${data.user_image}`
+                  : "/images/accounts/user_default.png"
+              }
               alt=""
             />
           </div>
