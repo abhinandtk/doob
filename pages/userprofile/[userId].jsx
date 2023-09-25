@@ -13,6 +13,7 @@ import Link from "next/link";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import OtherUserProfileActivity from "@/components/homepage/social/OtherUserProfileActivity";
 import { useTranslation } from "next-i18next";
+import MobileFooter from "@/components/shared/MobileFooter";
 
 export async function getServerSideProps({ locale }) {
   return {
@@ -122,6 +123,9 @@ function OtherUserAccount() {
                     </p>
                   )}
                 </div>
+                <div className="post-bottoms"></div>
+                <br></br>
+              
               </Tab>
               <Tab eventKey={2} title={t("Activities")}>
                 <hr className=" line "></hr>
@@ -144,6 +148,7 @@ function OtherUserAccount() {
           </div>
         )}
       </div>
+      <MobileFooter />
     </Fragment>
   );
 }
