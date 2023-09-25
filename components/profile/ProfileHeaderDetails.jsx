@@ -321,7 +321,7 @@ function ProfileHeaderDetails({ data, setSuccess }) {
         </Card>
 
         <Card className="ceed">
-          <Card.Body>
+          <Card.Body className="dark-theme-color">
             <button
               onClick={() => setShowRank(true)}
               className="btn profile-edit-btn"
@@ -347,7 +347,7 @@ function ProfileHeaderDetails({ data, setSuccess }) {
               ) : data.user_image ? (
                 <img
                   className="user-avatar"
-                  src={`${constants.port}${data.user_image}`}
+                  src={`${constants.port}/media/${data.user_image}`}
                   alt=""
                 />
               ) : (
