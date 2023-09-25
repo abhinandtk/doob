@@ -3018,7 +3018,7 @@ input.nosubmit-shop {
 ///// medai query start ////
 @media (max-width: 1360px) {
   .tour-container {
-    width: 100%;
+    
     margin-left: 0px;
     padding: 0px 12px;
   }
@@ -3324,7 +3324,7 @@ input.nosubmit-shop {
 
 @media (max-width: 1200px) {
   .tour-container {
-    width: 100%;
+    width: 90%;
   }
 
   .play-container {
@@ -3402,7 +3402,7 @@ input.nosubmit-shop {
 
 @media (max-width: 1100px) {
   .tour-container {
-    width: 100%;
+    width: 90%;
   }
 
   .football {
@@ -3700,7 +3700,7 @@ input.nosubmit-shop {
     margin-top: 0px;
   }
   .tour-container {
-    width: 100%;
+    width: 90%;
   }
 
   .play-container {
@@ -3778,7 +3778,7 @@ input.nosubmit-shop {
   //   padding: 11px;
   // }
   .tour-container {
-    width: 100%;
+    width: 90%;
   }
 
   .field-info {
@@ -3966,7 +3966,7 @@ input.nosubmit-shop {
 
 @media (max-width: 659px) {
   .tour-container {
-    width: 100%;
+    width: 90%;
   }
 
   .tournament4 {
@@ -4109,9 +4109,9 @@ input.nosubmit-shop {
   // }
 
   .tour-container {
-    width: auto;
-    margin-right: 13px;
-    margin-right: 0px;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .play-container {
@@ -4593,7 +4593,7 @@ input.nosubmit-shop {
   }
 
   .tournament2 {
-    width: 98%;
+    width: 100%;
   }
 
   .tournament3 {
@@ -5647,9 +5647,10 @@ input.nosubmit-shop {
 
 @media (max-width: 440px) {
   .tour-container {
-    width: auto;
+    width: 85%;
     margin-bottom: 70px;
-    margin-right: 0px;
+    margin-right: auto;
+    margin-left: auto;
   }
 
   .play-container {
@@ -6390,9 +6391,6 @@ input.nosubmit-shop {
 }
 
 @media (max-width: 375px) {
-  .tour-container {
-    width: auto;
-  }
 
   .play-container {
     width: auto;

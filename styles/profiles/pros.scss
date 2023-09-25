@@ -1893,21 +1893,21 @@ body {
   .Book {
     font-weight: 500;
     color: #000;
-    font-size: 11px;
-    margin-bottom: -13px;
-    width: 190px;
-    margin-left: -15px;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 13px;
+    // margin-bottom: -13px;
+    // width: 190px;
+    // margin-left: -15px;
+    // display: -webkit-box;
+    // -webkit-line-clamp: 1;
+    // -webkit-box-orient: vertical;
+    // overflow: hidden;
+    // text-overflow: ellipsis;
   }
   .small-time {
     color: #000;
     font-weight: 500;
     font-size: 12px;
-    margin-top: 33px;
+    // margin-top: 33px;
     text-align: left;
   }
   .booked {
@@ -1964,15 +1964,14 @@ body {
   .Book {
     font-weight: 500;
     color: #000;
-    font-size: 9px;
+    font-size: 13px;
     margin-bottom: -8px;
-    width: auto;
     margin-left: 0px;
   }
   .small-time {
     color: #000;
     font-weight: 500;
-    margin-top: 9px;
+    // margin-top: 9px;
     text-align: left;
     margin-left: 0px;
     font-size: 9px;
