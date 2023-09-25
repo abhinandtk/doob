@@ -10,6 +10,8 @@ import { CardImg } from "react-bootstrap";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { useEffect } from "react";
 import { useTranslation } from "next-i18next";
+import { chatMobileHidden } from "@/Redux/chatMobile";
+import { useDispatch } from "react-redux";
 
 function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
   const [apiSuccess, setApiSuccess] = useState(false);
@@ -21,6 +23,7 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
   const labels = Labels();
   const router = useRouter();
   const { locale } = router;
+  const dispatch = useDispatch();
 
   const [selectedUser, setSelectedUser] = useState([]);
   const [selectedUserId, setSelectedUserId] = useState([]);
@@ -174,6 +177,7 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
         });
         // onChatSelect(res.data.data.chat_id);
         onNewMsg(null);
+        dispatch(chatMobileHidden(true));
       } else {
         notification.error({
           message: t("Error"),
@@ -279,7 +283,10 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
             >
               {" "}
               <span
-                onClick={() => onNewMsg(null)}
+                onClick={() => {
+                  onNewMsg(null);
+                  dispatch(chatMobileHidden(true));
+                }}
                 style={{
                   cursor: "pointer",
                   marginLeft: locale === "ar" ? "12px" : "",

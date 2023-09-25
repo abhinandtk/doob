@@ -13,6 +13,7 @@ import { useRef } from "react";
 import { Realtime } from "ably";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
 function ChatBox({ selectedId, onNewMsg }) {
   const [chatHeader, setChatHeader] = useState(null);
   const [chatList, setChatList] = useState([]);
@@ -20,6 +21,9 @@ function ChatBox({ selectedId, onNewMsg }) {
   const { locale } = router;
   const [onSuccess, setOnSuccess] = useState(false);
   const currentUser = constants.user_id;
+  const isMobileHidden = useSelector(
+    (state) => state.chatMobile.isMobileHidden
+  );
   const ably = new Realtime({
     key: "dGiWMQ.qq3hMA:fOVhH1gp60ls_buWMB5F71wmw1IYa8cOSGrhMQe_iK8",
   });
@@ -77,8 +81,7 @@ function ChatBox({ selectedId, onNewMsg }) {
 
   return (
     <Fragment>
-
-      <div className="rightSide1 ">
+      <div className={`rightSide1 ${isMobileHidden ? "" : "mobile-hidden"}`}>
         <ChatBoxHeader
           details={chatHeader}
           selectedId={selectedId}
@@ -87,7 +90,7 @@ function ChatBox({ selectedId, onNewMsg }) {
         />
 
         <div
-          className="chat-container tour-detail-ar "
+          className="chat-container tour-detail-ar"
           style={{ height: "70%", overflow: "auto" }}
         >
           {chatList.map((item, index) => (
@@ -133,14 +136,25 @@ function ChatBox({ selectedId, onNewMsg }) {
                               </p>
                             )}
                           </div>
-                          <div className="my_chatam" style={{direction:locale==='ar'?'ltr':"", float:locale==='ar'?'left':""}}>
+                          <div
+                            className="my_chatam"
+                            style={{
+                              direction: locale === "ar" ? "ltr" : "",
+                              float: locale === "ar" ? "left" : "",
+                            }}
+                          >
                             {moment(msg.date).format("hh:mm A")}
                           </div>
                         </div>
                       ) : (
                         <div>
-                          <div        className={locale === "en" ? "message frnd_message" : "message_ar frnd_message"} >
-                   
+                          <div
+                            className={
+                              locale === "en"
+                                ? "message frnd_message"
+                                : "message_ar frnd_message"
+                            }
+                          >
                             {chatHeader.type === "group" && (
                               <img
                                 src={
@@ -184,7 +198,13 @@ function ChatBox({ selectedId, onNewMsg }) {
                               )}
                             </p>
                           </div>
-                          <div className="frnd_chatam"   style={{direction:locale==='ar'?'ltr':"",float:locale==='ar'?'right':""}}>
+                          <div
+                            className="frnd_chatam"
+                            style={{
+                              direction: locale === "ar" ? "ltr" : "",
+                              float: locale === "ar" ? "right" : "",
+                            }}
+                          >
                             {moment(msg.date).format("hh:mm A")}
                           </div>
                         </div>

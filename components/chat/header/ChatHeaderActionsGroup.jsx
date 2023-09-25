@@ -10,6 +10,8 @@ import { Labels } from "@/public/data/my-constants/Labels";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import { useTheme } from "next-themes";
+import { useDispatch } from "react-redux";
+import { chatMobileHidden } from "@/Redux/chatMobile";
 function ChatHeaderActionsGroup({
   selectedId,
   setOnSuccess,
@@ -23,7 +25,7 @@ function ChatHeaderActionsGroup({
   const router = useRouter();
   const { locale } = router;
   const { theme } = useTheme();
-
+  const dispatch = useDispatch();
   const clearChatHandler = () => {
     Axios.post(
       apis.clearChat,
@@ -207,7 +209,12 @@ function ChatHeaderActionsGroup({
               {t("Clear chat")}
             </Dropdown.Item>
 
-            <Dropdown.Item onClick={() => onNewMsg("info")}>
+            <Dropdown.Item
+              onClick={() => {
+                onNewMsg("info");
+                dispatch(chatMobileHidden(false));
+              }}
+            >
               {t("Group Info")}
             </Dropdown.Item>
             {details.is_admin ? (

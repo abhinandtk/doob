@@ -2,7 +2,7 @@ const { createSlice } = require("@reduxjs/toolkit")
 
 
 const INITIAL_STATE = {
-    isMobileHidden: false
+    isMobileHidden: false,
 }
 
 const chatMobileViewSlice = createSlice({
@@ -13,8 +13,9 @@ const chatMobileViewSlice = createSlice({
             return {
                 isMobileHidden: action.payload
             }
-        }
-    }
+        },
+    },
+
 })
 export const { chatMobileHidden } = chatMobileViewSlice.actions;
 export default chatMobileViewSlice.reducer;
