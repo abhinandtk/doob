@@ -2243,15 +2243,9 @@ input:disabled {
     top: -210px;
   }
   .foot-png {
-    // float: right;
-    // margin-top: 140px;
-    // position: absolute;
-    // margin-left: -103px;
-    width: auto;
-    position: inherit;
-
-    left: 34px;
+    position: absolute;
     top: -210px;
+    right: 4%;
   }
 
   .more {
@@ -2475,12 +2469,13 @@ input:disabled {
   }
 
   .foot-png {
-    left: -13px;
+    
     top: -234px;
   }
   .foot-png_ar {
-    left: 33px;
+    position: absolute;
     top: -234px;
+    left: 2%;
   }
   .qty {
     float: right;
@@ -2800,15 +2795,13 @@ input:disabled {
 
   .foot-png {
     width: auto;
-    position: inherit;
-    right: 33px;
+    position: absolute;
     top: -264px;
   }
 
   .foot-png_ar {
     width: auto;
-    position: inherit;
-    left: 33px;
+    position: absolute;
     top: -264px;
   }
   .count1 {
@@ -3043,8 +3036,9 @@ input:disabled {
   }
 
   .qty_ar {
-    float: right;
-    margin-left: 0px;
+    float: left;
+    width: 30%;
+
   }
   .report-section {
     display: flex;
@@ -3086,15 +3080,13 @@ input:disabled {
 
   .foot-png {
     width: auto;
-    position: inherit;
-
-    right: 31px;
+    position: absolute;
     top: -285px;
   }
   .foot-png_ar {
     width: auto;
-    position: inherit;
-    left: 31px;
+    position: absolute;
+   
     top: -285px;
   }
 }
@@ -3105,8 +3097,10 @@ input:disabled {
   color: grey;
 }
 
-// @media (max-width:1245px) {
-//   .store-container {
-//     margin-left: 200px;
-//   }
-// }
+@media (max-width:330px) {
+  .qty_ar {
+    float: left;
+    width: 32%;
+
+  }
+}
