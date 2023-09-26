@@ -502,7 +502,7 @@ function OtherProfileHeaderDetails({
         </Card.Body>
       </Card>
       <Card className="ceed">
-        <Card.Body>
+        <Card.Body className="dark-theme-color">
           {/* <button className=" profile-edits-btn">{t("Rank")}</button> */}
 
           <div className="avatar">
