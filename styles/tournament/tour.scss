@@ -5839,7 +5839,7 @@ input.nosubmit-shop {
     object-fit: cover;
     border-radius: 50%;
     margin-top: 12px;
-    margin-left: 9px;
+    margin-left: 0px;
   }
 
   .green-text {
@@ -6139,7 +6139,8 @@ input.nosubmit-shop {
   width: 90%;
   height: 160px;
   margin-top: 43px;
-  margin-left: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .green_ar {
   border: 0px;
@@ -6148,7 +6149,8 @@ input.nosubmit-shop {
   width: 90%;
   height: 160px;
   margin-top: 43px;
-  margin-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .grey {
@@ -6158,7 +6160,8 @@ input.nosubmit-shop {
   width: 90%;
   height: 110px;
   margin-top: 13px;
-  margin-left: 20px;
+  margin-left: auto;
+  margin-right: auto;
   color: var(--font-theme-color);
 }
 .grey_ar {
@@ -6168,7 +6171,8 @@ input.nosubmit-shop {
   width: 90%;
   height: 110px;
   margin-top: 13px;
-  margin-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
   color: var(--font-theme-color);
 }
 
@@ -6260,7 +6264,7 @@ input.nosubmit-shop {
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 74%;
+    width: 84%;
   }
 
   .id {
@@ -6297,7 +6301,8 @@ input.nosubmit-shop {
     width: 90%;
     height: 160px;
     margin-top: 43px;
-    margin-left: 20px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .grey {
@@ -6307,7 +6312,8 @@ input.nosubmit-shop {
     width: 90%;
     height: 110px;
     margin-top: 13px;
-    margin-left: 20px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .green-details {
@@ -6574,7 +6580,8 @@ input.nosubmit-shop {
     width: 90%;
     height: 160px;
     margin-top: 43px;
-    margin-left: 20px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .grey {
@@ -6584,12 +6591,13 @@ input.nosubmit-shop {
     width: 90%;
     height: 110px;
     margin-top: 13px;
-    margin-left: 20px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .green-details {
     margin-top: 18px;
-    margin-left: 106px;
+    margin-left: 94px;
     position: absolute;
   }
 
@@ -6632,7 +6640,16 @@ input.nosubmit-shop {
     margin-top: 15px;
     width: 120px;
   }
-
+  .ranks-number {
+    font-size: 16px;
+    font-weight: 400;
+    color: white;
+}
+.ranks {
+  font-size: 12px;
+  font-weight: 300;
+  color: white;
+}
   .play-icons {
     margin-left: 5px;
     margin-top: 7px;
@@ -6657,8 +6674,19 @@ input.nosubmit-shop {
     width: 147px;
     color: #000000;
   }
+  .views {
+    color: #959595;
+    margin-left: -147px;
+    font-size: 14px;
 }
-
+}
+@media (max-width: 375px) {
+  .green-border {
+    border-bottom: 1px solid white;
+    margin-top: 15px;
+    width: 80px;
+  }
+}
 .selected-name-match {
   color: #17a803;
   text-align: center;
