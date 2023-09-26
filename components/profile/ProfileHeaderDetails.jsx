@@ -322,15 +322,18 @@ function ProfileHeaderDetails({ data, setSuccess }) {
 
         <Card className="ceed">
           <Card.Body className="dark-theme-color">
+            <div className="d-flex">
             <button
               onClick={() => setShowRank(true)}
               className="btn profile-edit-btn"
             >
               {t("Rank")}
             </button>
+            <ProfileEdit data={data} setSuccess={setSuccess} />
+            </div>
 
-            {/* <button className=" profile-edits-btn">Rank</button>
-                <button className="profile-edit-btn2">Edit</button>  */}
+            {/* {/* <button className=" profile-edits-btn">Rank</button> */}
+            {/* <button className="profile-edit-btn2">Edit</button>   */}
             <div className="avatar">
               <div
                 className="user-online-indicator"

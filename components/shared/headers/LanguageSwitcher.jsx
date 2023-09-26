@@ -18,10 +18,32 @@ function LanguageSwitcher() {
     setSvgStroke(theme === "dark" ? "white" : "black");
   }, [theme]);
   return (
-    <Dropdown className="Drop">
+    // <Dropdown className="Drop">
+    //   <Dropdown.Toggle
+    //     variant=""
+    //     id="responsive-dropdown"
+    //     style={{
+    //       color: svgStroke,
+    //       borderColor: "transparent",
+    //       background: "transparent",
+    //     }}
+    //   >
+    //     {locale.toUpperCase()} <i className="bi bi-chevron-down "></i>
+    //   </Dropdown.Toggle>
+
+    //   <Dropdown.Menu align="center" className="Menu">
+    //     <Dropdown.Item onClick={() => changeLanguage("en")}>
+    //       English
+    //     </Dropdown.Item>
+    //     <Dropdown.Item onClick={() => changeLanguage("ar")}>
+    //       {t("Arabic")}
+    //     </Dropdown.Item>
+    //   </Dropdown.Menu>
+    // </Dropdown>
+    <Dropdown>
       <Dropdown.Toggle
-        variant=""
-        id="dropdown-basic"
+        variant="success"
+        id="responsive-dropdown"
         style={{
           color: svgStroke,
           borderColor: "transparent",
@@ -30,8 +52,7 @@ function LanguageSwitcher() {
       >
         {locale.toUpperCase()} <i className="bi bi-chevron-down "></i>
       </Dropdown.Toggle>
-
-      <Dropdown.Menu align="center" className="Menu">
+      <Dropdown.Menu>
         <Dropdown.Item onClick={() => changeLanguage("en")}>
           English
         </Dropdown.Item>

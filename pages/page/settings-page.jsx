@@ -25,6 +25,8 @@ import { useRouter } from "next/router";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import ThemeSwitcher from "@/components/shared/headers/ThemeSwitcher";
+import LanguageSwitcher from "@/components/shared/headers/LanguageSwitcher";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -408,29 +410,33 @@ function StoreSettingsPage() {
                       </span>
                     </h6>
                   </div>
-                  <div onClick={() => setVisible(true)}>
+                  <div
+                    className="d-flex my-3"
+                    style={{ justifyContent: "space-between" }}
+                  >
                     <h6
-                      className="my-4 dark-theme-color"
+                      className=" dark-theme-color"
                       style={{ cursor: "pointer" }}
                     >
-                      {t("Delete Account")}{" "}
-                      <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="currentColor"
-                          className="bi bi-chevron-right arrow-icon"
-                          viewBox="0 0 16 16"
-                          style={{ marginRight: "50px" }}
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-                          />
-                        </svg>
-                      </span>
+                      {t("Theme")}{" "}
                     </h6>
+                    <div style={{ marginRight: "50px" }}>
+                      <ThemeSwitcher />
+                    </div>
+                  </div>
+                  <div
+                    className="d-flex"
+                    style={{ justifyContent: "space-between" }}
+                  >
+                    <h6
+                      className=" dark-theme-color"
+                      style={{ cursor: "pointer" }}
+                    >
+                      {t("Language")}{" "}
+                    </h6>
+                    <div style={{ marginRight: "30px" }}>
+                      <LanguageSwitcher />
+                    </div>
                   </div>
                 </div>
               </div>

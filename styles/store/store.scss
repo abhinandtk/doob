@@ -1500,7 +1500,7 @@ input:disabled {
   .content-topic {
     margin-right: 20px;
     padding: 4px;
-    background-color: white;
+    background: var(--contents-bg);
     width: 80%;
     height: 540px;
   }
@@ -1735,7 +1735,7 @@ input:disabled {
   .content-topic {
     margin-left: 260px;
     padding: 10px 5px;
-    background-color: white;
+    background: var(--contents-bg);
     width: 70%;
   }
 
@@ -1882,7 +1882,7 @@ input:disabled {
   .content-topic {
     margin-left: -0px;
     height: 100%;
-    background: white;
+    background: var(--contents-bg);
     width: 100%;
   }
 
@@ -1950,7 +1950,7 @@ input:disabled {
 
   .content-topic {
     height: 100%;
-    background: white;
+    background: var(--contents-bg);
     width: 100%;
   }
 
@@ -2057,7 +2057,7 @@ input:disabled {
   .content-topic {
     margin-left: 0px;
     height: 100%;
-    background: white;
+    background: var(--contents-bg);
     width: 100%;
   }
 
@@ -2082,7 +2082,7 @@ input:disabled {
   .content-topic {
     margin-left: 0px;
     height: 100%;
-    background: white;
+    background: var(--contents-bg);
     width: 100%;
     margin-bottom: 75px;
   }
@@ -2457,7 +2457,7 @@ input:disabled {
   .content-topic {
     margin-right: 0px;
     height: 100%;
-    background: white;
+    background: var(--contents-bg);
     width: 100%;
     margin-left: 0px;
   }
@@ -2789,7 +2789,7 @@ input:disabled {
   .content-topic {
     margin-left: 0px;
     height: 100%;
-    background: white;
+    background: var(--contents-bg);
     width: 100%;
   }
 

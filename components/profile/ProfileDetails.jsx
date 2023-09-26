@@ -61,25 +61,26 @@ function ProfileDetails() {
               <hr className=" line"></hr>
 
               <div className="row images">
-                {postDetails && postDetails.map((item, index) => {
-                  return (
-                    <div
-                      key={index}
-                      className="col-lg-4 col-md-6 col-sm-4 col-xs-2"
-                      tabindex="0"
-                    >
-                      <Link href={`/page/post/${item.slug}`}>
-                        <img
-                          key={index}
-                          src={`${constants.port}${item.image}`}
-                          className="image"
-                          alt=""
-                          style={{ objectFit: "cover" }}
-                        />
-                      </Link>
-                    </div>
-                  );
-                })}
+                {postDetails &&
+                  postDetails.map((item, index) => {
+                    return (
+                      <div
+                        key={index}
+                        className="col-lg-4 col-md-6 col-sm-4 col-xs-2"
+                        tabindex="0"
+                      >
+                        <Link href={`/page/post/${item.slug}`}>
+                          <img
+                            key={index}
+                            src={`${constants.port}${item.image}`}
+                            className="image"
+                            alt=""
+                            style={{ objectFit: "cover" }}
+                          />
+                        </Link>
+                      </div>
+                    );
+                  })}
                 {loadMore && (
                   <p
                     onClick={() => setPage((prev) => prev + 1)}
@@ -90,6 +91,8 @@ function ProfileDetails() {
                   </p>
                 )}
               </div>
+              <div className="post-bottoms"></div>
+              <br></br>
             </Tab>
             <Tab eventKey={2} title={t("Activities")}>
               <hr className=" line "></hr>
