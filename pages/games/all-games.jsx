@@ -81,6 +81,7 @@ function AllGamesPage() {
       <MainSidebarFixed />
       <div className="tour-container">
       <div className="tour-detail-ar">
+        <div className="all-Game">
         <h5 className=" my-4" style={{ fontWeight: "600" }}>
           {t("All Games")}
         </h5>
@@ -202,6 +203,7 @@ function AllGamesPage() {
               </div>
             </Tab>
           </Tabs>
+        </div>
         </div>
       </div>
       </div>

@@ -5095,7 +5095,7 @@ input.nosubmit-shop {
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 15px;
+    font-size: 14px;
     width: 190px;
   }
 
@@ -5625,7 +5625,10 @@ input.nosubmit-shop {
     margin-left: -26px;
     text-align: center;
   }
-
+.all-Game{
+right: 8%;
+position: relative;
+}
   .watch1 {
     margin-right: 123px;
     position: absolute;
@@ -6176,6 +6179,7 @@ input.nosubmit-shop {
   color: var(--font-theme-color);
 }
 
+
 .green-details {
   margin-top: 18px;
   margin-left: 120px;
@@ -6183,7 +6187,7 @@ input.nosubmit-shop {
 }
 .green-details_ar {
   margin-top: 18px;
-  margin-right: 120px;
+  margin-right: 109px;
   position: absolute;
 }
 
@@ -6215,6 +6219,21 @@ input.nosubmit-shop {
     margin-top: 2px;
     position: absolute;
   }
+
+  
+  .green-details_ar {
+    margin-top: 18px;
+    margin-right: 95px;
+    position: absolute;
+}
+.ranks-content_ar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-top: 5px;
+  column-gap: 12px;
+  line-height: 12px;
+}
 
   .grey-match {
     font-size: 15px;
@@ -6398,6 +6417,11 @@ input.nosubmit-shop {
     width: auto;
   }
 
+  .league {
+    font-weight: 700;
+    font-size: 12px;
+    margin-top: 12px;
+}
   .side-play {
     display: none;
   }
