@@ -15,10 +15,9 @@ export default function ThemeSwitcher() {
 
   return (
     <>
-      
-      <div 
+      <div
         onClick={() => setTheme(resolvedTheme === "light" ? "dark" : "light")}
-        style={{marginLeft:locale==='ar'?'-10px':""}}
+        style={{ marginLeft: locale === "ar" ? "-10px" : "" }}
       >
         <span>
           {resolvedTheme === "light" ? (

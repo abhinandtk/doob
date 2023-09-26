@@ -27,6 +27,7 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import ThemeSwitcher from "@/components/shared/headers/ThemeSwitcher";
 import LanguageSwitcher from "@/components/shared/headers/LanguageSwitcher";
+import LanguageSwitcherMobile from "@/components/shared/headers/LanguageSwitcherMobile";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -435,7 +436,7 @@ function StoreSettingsPage() {
                       {t("Language")}{" "}
                     </h6>
                     <div style={{ marginRight: "30px" }}>
-                      <LanguageSwitcher />
+                      <LanguageSwitcherMobile />
                     </div>
                   </div>
                 </div>
