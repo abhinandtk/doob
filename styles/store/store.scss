@@ -1512,7 +1512,7 @@ input:disabled {
   .sides {
     padding: 12px 7px;
     width: 200px;
-    background-color: #ffffff;
+    background-color: var(--contents-bg);
   }
 
   .home {
@@ -1523,7 +1523,7 @@ input:disabled {
   .content-topics {
     margin-right: 20px;
     padding: 4px;
-    background-color: white;
+    background: var(--contents-bg);
     width: 80%;
     height: 540px;
   }
@@ -1655,7 +1655,7 @@ input:disabled {
   .sides {
     padding: 12px 7px;
     width: 200px;
-    background-color: #ffffff;
+    background-color: var(--contents-bg);
 
     margin-left: 0px;
   }
@@ -1686,7 +1686,7 @@ input:disabled {
   .sides {
     padding: 12px 7px;
     width: 200px;
-    background-color: #ffffff;
+    background-color: var(--contents-bg);
     margin-left: 20px;
   }
 }
@@ -1748,7 +1748,7 @@ input:disabled {
   .sides {
     padding: 12px 7px;
     width: 200px;
-    background-color: #ffffff;
+    background-color: var(--contents-bg);
 
     margin-left: 20px;
   }
@@ -1756,7 +1756,7 @@ input:disabled {
   .content-topics {
     margin-left: 260px;
     padding: 10px 5px;
-    background-color: white;
+    background: var(--contents-bg);
     width: 75%;
   }
 
@@ -1893,7 +1893,7 @@ input:disabled {
   .content-topics {
     margin-left: -0px;
     height: 100%;
-    background: white;
+    background: var(--contents-bg);
     width: 100%;
   }
 
@@ -1957,7 +1957,7 @@ input:disabled {
   .sides {
     padding: 12px 7px;
     width: 200px;
-    background-color: #ffffff;
+    background-color: var(--contents-bg);
     position: absolute;
 
     // margin-left: 29px;
@@ -1966,7 +1966,7 @@ input:disabled {
   .content-topics {
     // margin-right: 20px;
     height: 100%;
-    background: white;
+    background: var(--contents-bg);
     width: 100%;
   }
 
@@ -2404,7 +2404,7 @@ input:disabled {
   .content-topics {
     height: 100%;
     margin-bottom: 75px;
-    background: white;
+    background: var(--contents-bg);
     width: 100%;
     margin-bottom: 75px;
     margin-left: 0px;
@@ -2469,7 +2469,6 @@ input:disabled {
   }
 
   .foot-png {
-    
     top: -234px;
   }
   .foot-png_ar {
@@ -2685,7 +2684,7 @@ input:disabled {
   .content-topics {
     height: 100%;
     margin-bottom: 75px;
-    background: white;
+    background: var(--contents-bg);
     width: 100%;
     margin-bottom: 75px;
     margin-left: 0px;
@@ -2968,7 +2967,7 @@ input:disabled {
   .content-topics {
     height: 100%;
     margin-bottom: 75px;
-    background: white;
+    background: var(--contents-bg);
     width: 100%;
     margin-bottom: 75px;
     margin-left: 0px;
@@ -3038,7 +3037,6 @@ input:disabled {
   .qty_ar {
     float: left;
     width: 30%;
-
   }
   .report-section {
     display: flex;
@@ -3086,7 +3084,7 @@ input:disabled {
   .foot-png_ar {
     width: auto;
     position: absolute;
-   
+
     top: -285px;
   }
 }
@@ -3097,10 +3095,9 @@ input:disabled {
   color: grey;
 }
 
-@media (max-width:330px) {
+@media (max-width: 330px) {
   .qty_ar {
     float: left;
     width: 32%;
-
   }
 }

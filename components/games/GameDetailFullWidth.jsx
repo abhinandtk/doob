@@ -59,8 +59,8 @@ function GameDetailFullWidth() {
           </div>
         ) : (
           <div className="profile-private">
-            <h5 className="text-center">This Game is Private</h5>
-            <p className="text-center">Currently unavailable</p>
+            <h5 className="text-center">{t("This Game is Private")}</h5>
+            <p className="text-center">{t("Currently unavailable")}</p>
           </div>
         )
       ) : null}

@@ -8,12 +8,14 @@ import constants from "@/public/data/my-constants/Constants";
 import GameInviteUser from "./GameInviteUser";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
+import { useTheme } from "next-themes";
 function GameParticipantsList({ participants, setOnSuccess }) {
   const { t } = useTranslation();
   console.log("result6567", participants);
   const router = useRouter();
   const { locale } = router;
   const { gameId } = router.query;
+  const { theme } = useTheme();
   const handleShare = () => {
     // e.preventDefault();
     // e.stopPropagation();
@@ -53,10 +55,11 @@ function GameParticipantsList({ participants, setOnSuccess }) {
           key={index}
           className="clearfix players my-4"
           style={{
-            opacity: `${item.participation_status == 2 || item.participation_status == 5
+            opacity: `${
+              item.participation_status == 2 || item.participation_status == 5
                 ? "50%"
                 : ""
-              }`,
+            }`,
           }}
         >
           <div className="participants">
@@ -88,8 +91,8 @@ function GameParticipantsList({ participants, setOnSuccess }) {
                   {item.participation_status === 1
                     ? t("Joined")
                     : item.participation_status === 3
-                      ? t("Invited")
-                      : ""}
+                    ? t("Invited")
+                    : ""}
                 </p>
                 <p
                   className="mx-2"
@@ -106,8 +109,14 @@ function GameParticipantsList({ participants, setOnSuccess }) {
 
       <div className="clearfix players  my-4">
         <p className={locale === "en" ? "float-start" : "float-end"}>
-          {t("Share via link")}<br></br>
-          <span className="game-share">{router.asPath}</span>
+          {t("Share via link")}
+          <br></br>
+          <span
+            className="game-share dark-theme-color"
+            style={{ direction: "ltr" }}
+          >
+            {router.asPath}
+          </span>
         </p>
         <span onClick={() => handleShare()} style={{ cursor: "pointer" }}>
           <svg
@@ -120,14 +129,14 @@ function GameParticipantsList({ participants, setOnSuccess }) {
           >
             <path
               d="M1.08079 6.17646C0.427011 5.84957 0.506232 4.89236 1.20485 4.67739L14.0137 0.736219C14.6353 0.544939 15.2176 1.12722 15.0263 1.74888L11.0852 14.5577C10.8702 15.2563 9.91298 15.3355 9.58609 14.6818L6.87177 9.25312C6.79337 9.09633 6.66623 8.96918 6.50943 8.89079L1.08079 6.17646Z"
-              stroke="black"
+              stroke={theme === "dark" ? "white" : "black"}
               stroke-width="1.02343"
               stroke-linecap="round"
               stroke-linejoin="round"
             />
             <path
               d="M6.8125 8.94988L10.7389 5.02344"
-              stroke="black"
+              stroke={theme === "dark" ? "white" : "black"}
               stroke-width="1.02343"
               stroke-linecap="round"
               stroke-linejoin="round"
