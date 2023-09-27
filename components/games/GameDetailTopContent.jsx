@@ -112,8 +112,11 @@ function GameDetailTopContent({ details, setOnSuccess }) {
                     {details.game.game_title}
                   </p>
                   <img
-                    className={` ${locale === "en" ? "logox float-end" : "logox_ar float-start"}`}
-
+                    className={` ${
+                      locale === "en"
+                        ? "logox float-end"
+                        : "logox_ar float-start"
+                    }`}
                     src={`${constants.port}${details.stadium.stadium_image[0].images}`}
                   ></img>
                 </div>
@@ -135,18 +138,28 @@ function GameDetailTopContent({ details, setOnSuccess }) {
                   </span>
                   <br></br>
                   <span>
-                    <i class="bi bi-clock"  style={{float:locale==='ar'?'right':""}}></i>
+                    <i
+                      class="bi bi-clock"
+                      style={{ float: locale === "ar" ? "right" : "" }}
+                    ></i>
                     <span
                       className="mx-2"
-               
-                      style={{fontWeight: "500", fontSize: "14px" , float:locale==='ar'?'right':""}}
+                      style={{
+                        fontWeight: "500",
+                        fontSize: "14px",
+                        float: locale === "ar" ? "right" : "",
+                      }}
                     >
                       {dateConvertHandler(details.game_date)}
                     </span>
-                    <span   style={{fontWeight: "500", fontSize: "14px" , float:locale==='ar'?'right':"",direction:locale==='ar'?'ltr':""}}>
-                                
-                  
-                      
+                    <span
+                      style={{
+                        fontWeight: "500",
+                        fontSize: "14px",
+                        float: locale === "ar" ? "right" : "",
+                        direction: locale === "ar" ? "ltr" : "",
+                      }}
+                    >
                       {details.stadium.time_slots &&
                         timeConvertHandler(
                           details.stadium.time_slots[0].start_time
@@ -229,7 +242,9 @@ function GameDetailTopContent({ details, setOnSuccess }) {
             <h5 style={{ fontWeight: "700", fontSize: "15px" }}>
               {t("Description")}
             </h5>
-            <p className="col-md-12 game-description">{details.description}</p>
+            <p className="col-md-12 game-description dark-theme-color">
+              {details.description}
+            </p>
           </div>
           {/* <div>
             <div style={{ float: "right", color: "#17A803" }}>

@@ -225,7 +225,10 @@ function GamesCard({ data }) {
                       ></img>
                       <span className="mx-2 ">
                         <span className="hosts">{t("Hosted by")}</span>
-                        <span className="host-name">
+                        <span
+                          className="host-name"
+                          style={{ direction: "ltr" }}
+                        >
                           {" "}
                           &nbsp;{item.hosted_by.hosted_by}
                         </span>

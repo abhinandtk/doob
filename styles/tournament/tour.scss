@@ -1384,7 +1384,7 @@ input.tour {
 .grey {
   border: 0px;
   border-radius: 8px;
-  background: #eeeeee;
+  background: var(--row-list-alt);
   width: 470px;
   height: 110px;
   margin-top: 13px;
@@ -1478,7 +1478,6 @@ input.tour {
   font-size: 20px;
   font-weight: 600;
 }
-
 
 // .grey-details1 {
 //   margin-left: 137px;
@@ -1655,9 +1654,9 @@ td {
 
 .top-teams {
   background: var(--dark-sec-white);
+  color: var(--font-theme-color);
   width: 60%;
   height: 45px;
-  color: var(--font-theme-color);
 }
 
 .team1 {
@@ -3018,7 +3017,6 @@ input.nosubmit-shop {
 ///// medai query start ////
 @media (max-width: 1360px) {
   .tour-container {
-    
     margin-left: 0px;
     padding: 0px 12px;
   }
@@ -3092,7 +3090,7 @@ input.nosubmit-shop {
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
-    background-color: #eeeeee;
+    background-color: var(--dark-sec-white);
   }
   input.nosubmit1_ar {
     border: 0px solid #eeeeee;
@@ -3104,7 +3102,7 @@ input.nosubmit-shop {
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
-    background-color: #eeeeee;
+    background-color: var(--dark-sec-white);
   }
 
   input.nosubmit-shop {
@@ -3202,7 +3200,7 @@ input.nosubmit-shop {
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
-    background-color: #eeeeee;
+    background-color: var(--dark-sec-white);
   }
 
   input.nosubmit1_ar {
@@ -3215,7 +3213,7 @@ input.nosubmit-shop {
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
-    background-color: #eeeeee;
+    background-color: var(--dark-sec-white);
   }
 
   input.nosubmit-shop {
@@ -3276,7 +3274,7 @@ input.nosubmit-shop {
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
-    background-color: #eeeeee;
+    background-color: var(--dark-sec-white);
   }
   input.nosubmit1_ar {
     border: 0px solid #eeeeee;
@@ -3288,7 +3286,7 @@ input.nosubmit-shop {
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
-    background-color: #eeeeee;
+    background-color: var(--dark-sec-white);
   }
 
   input.nosubmit-shop {
@@ -3341,7 +3339,7 @@ input.nosubmit-shop {
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
-    background-color: #eeeeee;
+    background-color: var(--dark-sec-white);
   }
   input.nosubmit1_ar {
     border: 0px solid #eeeeee;
@@ -3353,7 +3351,7 @@ input.nosubmit-shop {
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
-    background-color: #eeeeee;
+    background-color: var(--dark-sec-white);
   }
 
   input.nosubmit-shop {
@@ -3430,7 +3428,7 @@ input.nosubmit-shop {
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
-    background-color: #eeeeee;
+    background-color: var(--dark-sec-white);
   }
 
   input.nosubmit1_ar {
@@ -3443,7 +3441,7 @@ input.nosubmit-shop {
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
-    background-color: #eeeeee;
+    background-color: var(--dark-sec-white);
   }
 
   input.nosubmit-shop {
@@ -3470,7 +3468,7 @@ input.nosubmit-shop {
   .play-topic {
     margin-left: 260px;
     padding: 10px 5px;
-    background-color: white;
+    background: var(--contents-bg);
     width: 75%;
   }
 
@@ -3532,7 +3530,7 @@ input.nosubmit-shop {
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
-    background-color: #eeeeee;
+    background-color: var(--dark-sec-white);
   }
 
   input.nosubmit1_ar {
@@ -3545,7 +3543,7 @@ input.nosubmit-shop {
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
-    background-color: #eeeeee;
+    background-color: var(--dark-sec-white);
   }
 
   input.nosubmit-shop {
@@ -3657,7 +3655,7 @@ input.nosubmit-shop {
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
-    background-color: #eeeeee;
+    background-color: var(--dark-sec-white);
   }
 
   input.nosubmit1_ar {
@@ -3670,7 +3668,7 @@ input.nosubmit-shop {
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
-    background-color: #eeeeee;
+    background-color: var(--dark-sec-white);
   }
 
   input.nosubmit-shop {
@@ -3848,7 +3846,7 @@ input.nosubmit-shop {
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
-    background-color: #eeeeee;
+    background-color: var(--dark-sec-white);
   }
 
   input.nosubmit1_ar {
@@ -3861,7 +3859,7 @@ input.nosubmit-shop {
     margin-left: -2px;
     margin-top: 35px;
     border-radius: 5px;
-    background-color: #eeeeee;
+    background-color: var(--dark-sec-white);
   }
 
   input.nosubmit-shop {
@@ -4180,7 +4178,7 @@ input.nosubmit-shop {
   }
 
   .book-head {
-    color: #000000;
+    color: var(--font-theme-color);
     font-weight: 700;
     font-size: 15px;
     display: -webkit-box;
@@ -4198,13 +4196,13 @@ input.nosubmit-shop {
   }
 
   .booked-month {
-    color: #000000;
+    color: var(--font-theme-color);
     font-weight: 400;
     font-size: 14px;
   }
 
   .book-grounds {
-    color: #000000;
+    color: var(--font-theme-color);
     font-weight: 500;
     font-size: 14px;
     display: -webkit-box;
@@ -4227,7 +4225,6 @@ input.nosubmit-shop {
     color: #000000;
     font-weight: 500;
     font-size: 14px;
-   
   }
 
   .field-btn {
@@ -4263,7 +4260,7 @@ input.nosubmit-shop {
   }
 
   .book-places {
-    color: #000000;
+    color: var(--font-theme-color);
     font-weight: 500;
     font-size: 14px;
     display: -webkit-box;
@@ -4617,7 +4614,7 @@ input.nosubmit-shop {
   .grey {
     border: 0px;
     border-radius: 8px;
-    background: #eeeeee;
+    background: var(--row-list-alt);
     width: 90%;
     height: 110px;
     margin-top: 13px;
@@ -4645,10 +4642,9 @@ input.nosubmit-shop {
 
   .grey-content {
     display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 11px;
-  margin-top: 10px;
-   
+    grid-template-columns: 1fr 1fr;
+    column-gap: 11px;
+    margin-top: 10px;
   }
 
   // .grey-details2 {
@@ -4672,7 +4668,8 @@ input.nosubmit-shop {
   }
 
   .top-teams {
-    background: #eeeeee;
+    background: var(--dark-sec-white);
+    // color: var(--font-theme-color);
     width: 100%;
     height: 45px;
   }
@@ -4850,7 +4847,7 @@ input.nosubmit-shop {
   .play-topic {
     height: 100%;
     margin-bottom: 75px;
-    background: white;
+    background: var(--contents-bg);
     width: 100%;
     margin-bottom: 75px;
     margin-left: 0px;
@@ -5227,7 +5224,7 @@ input.nosubmit-shop {
   }
 
   .host-name {
-    color: #000000;
+    color: var(--font-theme-color);
     font-size: 14px;
     display: -webkit-box;
     -webkit-line-clamp: 1;
@@ -5274,7 +5271,6 @@ input.nosubmit-shop {
     float: right;
     margin-top: 18px;
   }
-  
 }
 
 // @media(max-width:501px) {
@@ -5436,7 +5432,7 @@ input.nosubmit-shop {
   .grey {
     border: 0px;
     border-radius: 8px;
-    background: #eeeeee;
+    background: var(--row-list-alt);
     width: 90%;
     height: 110px;
     margin-left: 20px;
@@ -5625,10 +5621,10 @@ input.nosubmit-shop {
     margin-left: -26px;
     text-align: center;
   }
-.all-Game{
-right: 8%;
-position: relative;
-}
+  .all-Game {
+    right: 8%;
+    position: relative;
+  }
   .watch1 {
     margin-right: 123px;
     position: absolute;
@@ -6179,7 +6175,6 @@ position: relative;
   color: var(--font-theme-color);
 }
 
-
 .green-details {
   margin-top: 18px;
   margin-left: 120px;
@@ -6209,8 +6204,6 @@ position: relative;
   font-weight: 600;
 }
 
-
-
 @media (max-width: 432px) {
   .play-details {
     line-height: 12px;
@@ -6220,26 +6213,24 @@ position: relative;
     position: absolute;
   }
 
-  
   .green-details_ar {
     margin-top: 18px;
     margin-right: 95px;
     position: absolute;
-}
-.ranks-content_ar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  margin-top: 5px;
-  column-gap: 12px;
-  line-height: 12px;
-}
+  }
+  .ranks-content_ar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-top: 5px;
+    column-gap: 12px;
+    line-height: 12px;
+  }
 
   .grey-match {
     font-size: 15px;
     font-weight: 400;
   }
-  
 
   .plays-img {
     width: 105px;
@@ -6327,7 +6318,7 @@ position: relative;
   .grey {
     border: 0px;
     border-radius: 8px;
-    background: #eeeeee;
+    background: var(--row-list-alt);
     width: 90%;
     height: 110px;
     margin-top: 13px;
@@ -6412,7 +6403,6 @@ position: relative;
 }
 
 @media (max-width: 375px) {
-
   .play-container {
     width: auto;
   }
@@ -6421,7 +6411,7 @@ position: relative;
     font-weight: 700;
     font-size: 12px;
     margin-top: 12px;
-}
+  }
   .side-play {
     display: none;
   }
@@ -6611,7 +6601,7 @@ position: relative;
   .grey {
     border: 0px;
     border-radius: 8px;
-    background: #eeeeee;
+    background: var(--row-list-alt);
     width: 90%;
     height: 110px;
     margin-top: 13px;
@@ -6655,7 +6645,6 @@ position: relative;
     font-size: 14px;
     font-weight: 600;
   }
-
 }
 
 @media (max-width: 375px) {
@@ -6668,12 +6657,12 @@ position: relative;
     font-size: 16px;
     font-weight: 400;
     color: white;
-}
-.ranks {
-  font-size: 12px;
-  font-weight: 300;
-  color: white;
-}
+  }
+  .ranks {
+    font-size: 12px;
+    font-weight: 300;
+    color: white;
+  }
   .play-icons {
     margin-left: 5px;
     margin-top: 7px;
@@ -6702,7 +6691,7 @@ position: relative;
     color: #959595;
     margin-left: -147px;
     font-size: 14px;
-}
+  }
 }
 @media (max-width: 375px) {
   .green-border {
