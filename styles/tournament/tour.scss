@@ -2139,6 +2139,21 @@ td {
   font-size: 15px;
   margin-top: 12px;
 }
+.leagues {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+}
+.leag1{
+  float: right;
+}
+.leag2{
+margin-left: auto;
+  
+}
+
+
 
 .league1 {
   font-weight: 400;
@@ -6220,7 +6235,11 @@ position: relative;
     position: absolute;
   }
 
-  
+  .league {
+    font-weight: 700;
+    font-size: 12px;
+    margin-top: 12px;
+}
   .green-details_ar {
     margin-top: 18px;
     margin-right: 95px;
