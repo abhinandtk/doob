@@ -2292,6 +2292,11 @@ td {
   font-size: 16px;
   color: var(--font-theme-color);
 }
+.gametwo{
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--font-theme-color);
+}
 
 .left-time {
   color: #17a803;
@@ -4115,6 +4120,12 @@ input.nosubmit-shop {
     color: var(--font-theme-color);
     width: 80%;
   }
+  .gametwo{
+    font-weight: 600;
+    font-size: 11px;
+    color: var(--font-theme-color);
+    width: 80%;
+  }
   
 
   .Match-contents {
@@ -5777,7 +5788,7 @@ input.nosubmit-shop {
     height: 50px;
     border-radius: 7px;
     position: absolute;
-    margin-right: -38px;
+    margin-right: -27px;
     object-fit: cover;
 }
 
