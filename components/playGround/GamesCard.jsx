@@ -60,7 +60,7 @@ function GamesCard({ data }) {
                       )}
                     </span>
                     <span onClick={(e) => e.preventDefault()}>
-                      <Dropdown className="">
+                      <Dropdown  className={locale === "en" ? "" : "drops_ar"  }>
                         <Dropdown.Toggle
                           variant=""
                           id="dropdown-basic"

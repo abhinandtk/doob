@@ -85,7 +85,7 @@ function GamesHistoryCard({ data }) {
                       <p className="card-texts1">
                         {item.stadium_details.stadium_name}
                       </p>
-                      <p>
+                      <p className="gameones">
                         {item.stadium_details.location},{" "}
                         {item.stadium_details.city}
                       </p>
