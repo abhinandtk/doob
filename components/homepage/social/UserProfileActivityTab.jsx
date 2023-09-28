@@ -68,7 +68,8 @@ function UserProfileActivityTab() {
                       >
                         <div>
                           <div className="d-flex justify-content-between align-items-center">
-                            <p className=" Books">
+                            <p className={locale==="en"?"Books":"Books_ar"}>
+                            
                               {item_.title} {item_.booking.stadium_name}
                             </p>
                           </div>
