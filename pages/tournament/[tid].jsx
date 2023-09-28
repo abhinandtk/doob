@@ -205,8 +205,8 @@ function TournamentDetailPage() {
 
                 <div class="card-body ">
                   <div className="">
-                    <div className="league_clearfix">
-                      <div className="float-start mx-2">
+                    <div className="leagues">
+                      <div className=" leag1">
                         <h6 className="league">
                           {homeTabData.tournament_details.tournament_name}
                         </h6>
@@ -214,7 +214,7 @@ function TournamentDetailPage() {
                           {homeTabData.tournament_details.game_name}
                         </p>
                       </div>
-                      <div className="float-end my-3 mx-3">
+                      <div className={locale === "en" ? "leag2" : "leag2_ar"} >
                         <span>
                           <img
                             src="/images/tournament/match.png"

@@ -322,10 +322,10 @@ function ProfileHeaderDetails({ data, setSuccess }) {
 
         <Card className="ceed">
           <Card.Body className="dark-theme-color">
-            <div className="d-flex">
+            <div className="edit-rank">
             <button
               onClick={() => setShowRank(true)}
-              className="btn profile-edit-btn"
+              className={locale==='en'?"btn profile-edit-btn":"btn profile-edit-btn_ar"}
             >
               {t("Rank")}
             </button>
