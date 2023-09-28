@@ -68,7 +68,7 @@ function UserProfileActivityTab() {
                       >
                         <div>
                           <div className="d-flex justify-content-between align-items-center">
-                            <p className=" Book">
+                            <p className=" Books">
                               {item_.title} {item_.booking.stadium_name}
                             </p>
                           </div>

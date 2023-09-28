@@ -231,6 +231,12 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+.edit-rank_ar{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  direction: rtl;
+}
+
 
 .profile-edit-btn {
   font-size: 15px;
@@ -505,6 +511,18 @@ body {
   width: 60%;
 }
 
+.Books {
+  font-weight: 500;
+  color: var(--font-theme-color);
+  font-size: 15px;
+  margin-bottom: 5px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  // -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 60%;
+} 
 .small-time {
   color: var(--user-name-color);
   font-weight: 500;
@@ -1871,6 +1889,15 @@ body {
     margin-top: 4px;
     width: 220px;
   }
+  .Books {
+    font-weight: 500;
+    color: var(--font-theme-color);
+    font-size: 12px;
+    margin-top: 4px;
+    width: 220px;
+  }
+
+
   .small-time {
     color: var(--user-name-color);
     font-weight: 500;
@@ -2009,6 +2036,22 @@ body {
     // overflow: hidden;
     // text-overflow: ellipsis;
   }
+
+  .Books {
+    font-weight: 500;
+    color: var(--font-theme-color);
+    font-size: 13px;
+    width: 210px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+    text-align: left;
+    margin-left: 3px;
+  }
+
   .small-time {
     color: var(--user-name-color);
     font-weight: 500;
@@ -2075,6 +2118,21 @@ body {
     margin-left: 0px;
     display: flex;
   }
+
+  .Books {
+    font-weight: 500;
+    color: var(--font-theme-color);
+    font-size: 13px;
+    width: 140px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+    margin-left: 2px;
+  }
+
   .small-time {
     color: var(--user-name-color);
     font-weight: 500;
@@ -2082,5 +2140,21 @@ body {
     text-align: left;
     margin-left: 0px;
     font-size: 9px;
+  }
+}
+@media (max-width: 320px) {
+
+  .Books {
+    font-weight: 500;
+    color: var(--font-theme-color);
+    font-size: 13px;
+    width: 140px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+    margin-left: 2px;
   }
 }

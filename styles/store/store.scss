@@ -1352,6 +1352,11 @@ input:disabled {
 .time-slot {
   margin-top: 12px;
 }
+.product-text{
+   font-weight: 500;
+   width:80%;
+   font-size: 16px;
+}
 
 .headers {
   justify-content: space-between;
@@ -3055,6 +3060,7 @@ input:disabled {
     position: relative;
     font-size: 13px;
     text-align: left;
+    width: 20%;
   }
 
   .sales-order-price {
@@ -3075,6 +3081,11 @@ input:disabled {
     width: 82%;
     margin-left: -2px;
   }
+  .product-text{
+    font-weight: 500;
+    width:60%;
+    font-size: 14px;
+ }
 
   .foot-png {
     width: auto;
