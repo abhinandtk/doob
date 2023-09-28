@@ -2289,7 +2289,7 @@ td {
 .gameones{
   font-weight: 600;
   font-size: 16px;
-  color: #000;
+  color: var(--font-theme-color);
 }
 
 .left-time {
@@ -4111,7 +4111,7 @@ input.nosubmit-shop {
   .gameones{
     font-weight: 500;
     font-size: 12px;
-    color: #000;
+    color: var(--font-theme-color);
     width: 80%;
   }
   
@@ -4917,7 +4917,7 @@ input.nosubmit-shop {
   .play-topics {
     height: 100%;
     margin-bottom: 75px;
-    background: white;
+    background: var(--contents-bg);
     width: 100%;
     margin-bottom: 75px;
     margin-left: 0px;
