@@ -2286,6 +2286,11 @@ td {
   text-align: center;
   margin-bottom: 2px;
 }
+.gameones{
+  font-weight: 600;
+  font-size: 16px;
+  color: #000;
+}
 
 .left-time {
   color: #17a803;
@@ -4103,6 +4108,14 @@ input.nosubmit-shop {
     width: 100%;
   }
 
+  .gameones{
+    font-weight: 500;
+    font-size: 12px;
+    color: #000;
+    width: 80%;
+  }
+  
+
   .Match-contents {
     width: 90%;
   }
@@ -5750,7 +5763,7 @@ input.nosubmit-shop {
     height: 50px;
     border-radius: 7px;
     position: absolute;
-    margin-left: -45px;
+    margin-left: -50px;
     object-fit: cover;
 }
   .book-img_ar {
