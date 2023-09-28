@@ -71,12 +71,26 @@ body {
 .profile-edit-btn {
   font-size: 15px;
   line-height: 1.8;
-  background: #eeeeee;
+  background: var(--profile-btn-rank);
   border-radius: 0.3rem;
-  padding: 0 22px;
+  width: 80px;
   margin-left: 3px;
   font-weight: 600;
+  border: 0px;
+  color: var(--font-theme-color);
 }
+.profile-edit-btn_ar {
+  font-size: 15px;
+  line-height: 1.8;
+  background: var(--profile-btn-rank);
+  border-radius: 0.3rem;
+  width: 80px;
+  margin-left: 3px;
+  font-weight: 600;
+  border: 0px;
+  color: var(--font-theme-color);
+}
+
 .profile-edit-btn1 {
   font-size: 15px;
   line-height: 1.8;
@@ -213,6 +227,10 @@ body {
   font-weight: 600;
   color: #000;
 }
+.edit-rank{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 
 .profile-edit-btn {
   font-size: 15px;
@@ -225,6 +243,18 @@ body {
   border: 0px;
   color: var(--font-theme-color);
 }
+.profile-edit-btn_ar {
+  font-size: 15px;
+  line-height: 1.8;
+  background: var(--profile-btn-rank);
+  border-radius: 0.3rem;
+  padding: 0 22px;
+  margin-left: 3px;
+  font-weight: 600;
+  border: 0px;
+  color: var(--font-theme-color);
+}
+
 .profile-edit-btn1 {
   font-size: 15px;
   line-height: 1.8;
@@ -551,6 +581,19 @@ body {
     margin-top: 23px;
     height: 100%;
   }
+  .profile-edit-btn1_ar {
+    font-size: 15px;
+    line-height: 1.8;
+    background: #8a8a8a;
+    color: white;
+    border-radius: 0.3rem;
+    padding: 0 22px;
+    font-weight: 600;
+    border: 0px;
+    margin-top: 0%;
+    position: absolute;
+    left: 3%;
+}
 
   .side-menu__suggestion-buttons {
     cursor: pointer;
@@ -643,6 +686,19 @@ body {
     margin-top: 23px;
     height: 100%;
   }
+  .profile-edit-btn1_ar {
+    font-size: 15px;
+    line-height: 1.8;
+    background: #8a8a8a;
+    color: white;
+    border-radius: 0.3rem;
+    padding: 0 22px;
+    font-weight: 600;
+    border: 0px;
+    position: absolute;
+    left: 3%;
+    margin-top: 0%;
+}
   .side-menu__suggestion-buttons {
     cursor: pointer;
     font-size: 12px;
@@ -765,9 +821,9 @@ body {
     background: #8a8a8a;
     color: white;
     border-radius: 0.3rem;
-    padding: 0 22px;
+    width: 80px;
     font-weight: 600;
-    margin-left: 1px;
+    float: right;
     border: 0px;
   }
 
@@ -920,6 +976,18 @@ body {
     width: 100px;
     height: 37px;
   }
+  .profile-edit-btn1_ar {
+    font-size: 15px;
+    line-height: 1.8;
+    background: #8a8a8a;
+    color: white;
+    border-radius: 0.3rem;
+    padding: 0 22px;
+    font-weight: 600;
+    border: 0px;
+    position: absolute;
+    left: 3%;
+}
 }
 
 @media (max-width: 769px) {
@@ -952,6 +1020,7 @@ body {
     padding: 0 22px;
     font-weight: 600;
     margin-left: 8px;
+    float: right;
   }
   .profile-cam1 {
     float: right;
@@ -1619,6 +1688,43 @@ body {
   .image-cam {
     position: relative;
   }
+
+  .profile-edit-btn1_ar {
+    font-size: 15px;
+    line-height: 1.8;
+    background: #8a8a8a;
+    color: white;
+    border-radius: 0.3rem;
+    padding: 0 22px;
+    font-weight: 600;
+    margin-left: 0px;
+    border: 0px;
+    float: left;
+}
+  .profile-edit-btn {
+    font-size: 15px;
+    line-height: 1.8;
+    background: var(--profile-btn-rank);
+    border-radius: 0.3rem;
+    width: 80px;
+    margin-left: 3px;
+    font-weight: 600;
+    border: 0px;
+    color: var(--font-theme-color);
+}
+.profile-edit-btn_ar {
+  font-size: 15px;
+  line-height: 1.8;
+  background: var(--profile-btn-rank);
+  border-radius: 0.3rem;
+  width: 80px;
+  margin-left: 3px;
+  font-weight: 600;
+  border: 0px;
+  color: var(--font-theme-color);
+  float: right;
+}
+.pr
   .sidebar {
     display: none;
   }
@@ -1907,7 +2013,7 @@ body {
     color: var(--user-name-color);
     font-weight: 500;
     font-size: 12px;
-    // margin-top: 33px;
+    margin-top: 13px;
     text-align: left;
   }
   .booked {
@@ -1967,11 +2073,12 @@ body {
     font-size: 13px;
     margin-bottom: -8px;
     margin-left: 0px;
+    display: flex;
   }
   .small-time {
     color: var(--user-name-color);
     font-weight: 500;
-    // margin-top: 9px;
+    margin-top: 9px;
     text-align: left;
     margin-left: 0px;
     font-size: 9px;

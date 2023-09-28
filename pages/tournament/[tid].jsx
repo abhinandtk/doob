@@ -214,7 +214,7 @@ function TournamentDetailPage() {
                           {homeTabData.tournament_details.game_name}
                         </p>
                       </div>
-                      <div className="leag2 ">
+                      <div className={locale === "en" ? "leag2" : "leag2_ar"} >
                         <span>
                           <img
                             src="/images/tournament/match.png"

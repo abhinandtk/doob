@@ -334,11 +334,11 @@ function DoublesTeamsCard({
         teamsData.map((item, index) => (
           <div
             key={index}
-            className="rounded border-0 d-flex p-1 top-teams   my-3"
+            className="rounded border-0  p-1 top-teams   my-3"
           >
             <p
-              className=" mb-2 mx-3"
-              style={{ fontWeight: "500", fontSize: "14px", width: "50%" }}
+              className=" mb-2  top-teams-one"
+      
             >
               {item.team_logo.team_logo ? (
                 <img
@@ -354,8 +354,8 @@ function DoublesTeamsCard({
               &nbsp;{item.team_name.team_name}
             </p>
             <p
-              className=" mb-2 mx-3"
-              style={{ fontWeight: "500", fontSize: "14px", width: "50%" }}
+              className=" mb-2  top-teams-two"
+              
             >
               {item.team_logo.team_logo_2 ? (
                 <img
