@@ -310,7 +310,7 @@ function TeamsCard({
             type="button"
             className="teams-btn my-4"
           >
-            Draw
+            {t("Draw")}
           </button>
         ) : (
           <button
@@ -321,6 +321,8 @@ function TeamsCard({
             {t("Add")}
           </button>
         ))}
+      <div className="post-bottoms ">&nbsp;</div>
+      <br></br>
     </Fragment>
   );
 }

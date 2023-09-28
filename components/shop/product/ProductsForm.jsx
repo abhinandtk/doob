@@ -284,7 +284,9 @@ function ProductsForm({ handleProductAdd, editData }) {
         </h6>
 
         <div className="my-4 mx-4 ">
-          <h6 style={{ fontSize: "14px", fontWeight: "700" }}>{t("Basic Details")}</h6>
+          <h6 style={{ fontSize: "14px", fontWeight: "700" }}>
+            {t("Basic Details")}
+          </h6>
           <form onSubmit={(e) => submitHandler(e)}>
             <div className="form-group my-2 ">
               <label for="exampleFormControlInput1">{t("Name")}*</label>

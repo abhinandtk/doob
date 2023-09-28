@@ -374,17 +374,17 @@ function ProfileHeaderDetails({ data, setSuccess }) {
               <div className="profile-role">@{data.username}</div>
               <div className="profile-followers">
                 {data.post_count}
-                <span style={{ color: "#959595" }}>posts</span>
+                <span style={{ color: "#959595" }}>{t("Posts")}</span>
                 <span
                   onClick={() => setFollowersListShow(true)}
                   className="mx-1"
                 >
                   {data.followers_count}{" "}
-                  <span style={{ color: "#959595" }}>followers</span>
+                  <span style={{ color: "#959595" }}>{t("Followers")}</span>
                 </span>
                 <span onClick={() => setFollowingListShow(true)}>
                   {data.following_count}{" "}
-                  <span style={{ color: "#959595" }}>following</span>
+                  <span style={{ color: "#959595" }}>{t("Following")}</span>
                 </span>{" "}
               </div>
               <div className="profile-age">
