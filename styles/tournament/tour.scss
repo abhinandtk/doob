@@ -5746,13 +5746,21 @@ input.nosubmit-shop {
   }
 
   .book-img {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border-radius: 7px;
     position: absolute;
     margin-left: -65px;
     object-fit: cover;
   }
+  .book-img_ar {
+    width: 60px;
+    height: 60px;
+    border-radius: 7px;
+    position: absolute;
+    margin-right: -38px;
+    object-fit: cover;
+}
 
   .play-details {
     line-height: 12px;
@@ -5875,11 +5883,20 @@ input.nosubmit-shop {
   }
 
   .book-details {
-    margin-left: 10px;
+    margin-left: 0px;
     line-height: 12px;
     font-weight: 500;
   }
 
+  .Join-btn {
+    background-color: #17a803;
+    font-weight: 400;
+    border: 0px;
+    color: white;
+    padding: 3px 15px;
+    border-radius: 6px;
+    margin-top: -3px;
+}
   .book-names {
     font-size: 14px;
     display: -webkit-box;
