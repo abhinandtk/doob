@@ -101,10 +101,12 @@ function GameDetailTopContent({ details, setOnSuccess }) {
                 ></img>
               )}
             </div>
-            <div className="col-md-4 mx-4">
+            <div  className={locale === "en" ? "col-md-4 mx-4" : "col-md-4 "}>
+              
               <div className="game-info">
                 <h5 className="game-head">{details.title}</h5>
                 <div className="field-clearfix ">
+                  
                   <p
                     className={locale === "en" ? "float-start" : "float-end"}
                     style={{ fontSize: "15px", fontWeight: "500" }}

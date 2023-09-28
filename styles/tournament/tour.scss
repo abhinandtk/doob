@@ -911,9 +911,6 @@ input.tour {
   margin-top: -6px;
 }
 
-.field-content {
-  margin-top: 14px;
-}
 
 .More {
   margin-top: -26px;
@@ -1516,6 +1513,10 @@ input.tour {
   text-overflow: ellipsis;
   width: 190px;
 }
+.field-content {
+  margin-top: 50px;
+}
+
 
 .green-details {
   margin-top: 18px;
@@ -4271,10 +4272,10 @@ input.nosubmit-shop {
     font-weight: 400;
     border: 0px;
     color: white;
-    margin-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
     border-radius: 6px;
     margin-top: 34px;
-    width: 100%;
     text-align: center;
   }
 
@@ -5460,6 +5461,10 @@ input.nosubmit-shop {
     width: 100%;
   }
 
+  .field-content {
+    margin-top: 200px;
+  }
+
   .views_ar {
     color: #959595;
     margin-right: -205px;
@@ -5718,6 +5723,7 @@ input.nosubmit-shop {
     margin-right: auto;
     margin-left: auto;
   }
+
 
   .play-container {
     width: auto;
@@ -6455,6 +6461,10 @@ input.nosubmit-shop {
     width: 60%;
   }
 
+  .games12 {
+   float: right;
+
+}
   .live1 {
     display: flex;
     flex-wrap: wrap;
@@ -6752,6 +6762,9 @@ input.nosubmit-shop {
     font-size: 14px;
     font-weight: 600;
   }
+  .field-content {
+    margin-top: 220px;
+}
 }
 
 @media (max-width: 375px) {
@@ -6812,7 +6825,11 @@ input.nosubmit-shop {
     width: 80px;
   }
 }
-
+@media (max-width:320px){
+  .field-content {
+    margin-top: 260px;
+}
+}
 .selected-name-match {
   color: #17a803;
   text-align: center;
