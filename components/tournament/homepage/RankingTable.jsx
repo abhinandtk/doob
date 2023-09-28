@@ -23,7 +23,7 @@ function RankingTable({ data }) {
                     router.push(`/tournament/player/${item.username}`)
                   }
                   key={index}
-                  className={` ${locale === "ar" ? "table-row_ar p-3" : "table-row"}`}
+                  className={` ${locale === "ar" ? "table-row_ar p-3" : "table-row p-3"}`}
                   style={{ cursor: "pointer" }}
                 >
                   <div className="col col-1 mt-4  id " data-label="Job Id">
