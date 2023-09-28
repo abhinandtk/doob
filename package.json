@@ -34,7 +34,7 @@
     "next-themes": "^0.2.1",
     "randomcolor": "^0.6.2",
     "react": "18.2.0",
-    "react-bootstrap": "^2.7.2",
+    "react-bootstrap": "^2.9.0",
     "react-bootstrap-dropdown": "^0.3.0",
     "react-chartjs-2": "^5.2.0",
     "react-circular-progressbar": "^2.1.0",
