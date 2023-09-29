@@ -15,7 +15,7 @@ function RankingTable({ data }) {
     <Fragment>
       {data && (
         <div className={locale === "ar" ? "tables_ar" : "tables"}>
-          <ul className="responsive-table ">
+          <ul className="responsive-table">
             {data.map((item, index) =>
               index === 0 ? (
                 <li
@@ -38,6 +38,7 @@ function RankingTable({ data }) {
                           : "/images/accounts/user_default.png"
                       }
                       className="tour_rank_img"
+                      
                     ></img>
                   </span>
 
