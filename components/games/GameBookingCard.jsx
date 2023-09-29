@@ -65,8 +65,8 @@ function GameBookingCard({ data }) {
                       "hh:mm:ss"
                     ).format("hh:mm A")}
                   </p>
-                  <p>{value.stadium_details.stadium_name}</p>
-                  <p>
+                  <p className="gameones">{value.stadium_details.stadium_name}</p>
+                  <p className="gametwo">
                     {value.stadium_details.location},{" "}
                     {value.stadium_details.city}
                   </p>

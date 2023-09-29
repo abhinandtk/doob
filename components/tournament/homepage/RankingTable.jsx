@@ -15,7 +15,7 @@ function RankingTable({ data }) {
     <Fragment>
       {data && (
         <div className={locale === "ar" ? "tables_ar" : "tables"}>
-          <ul className="responsive-table ">
+          <ul className="responsive-table">
             {data.map((item, index) =>
               index === 0 ? (
                 <li
@@ -23,7 +23,7 @@ function RankingTable({ data }) {
                     router.push(`/tournament/player/${item.username}`)
                   }
                   key={index}
-                  className="table-row p-3"
+                  className={` ${locale === "ar" ? "table-row_ar p-3" : "table-row p-3"}`}
                   style={{ cursor: "pointer" }}
                 >
                   <div className="col col-1 mt-4  id " data-label="Job Id">
@@ -38,6 +38,7 @@ function RankingTable({ data }) {
                           : "/images/accounts/user_default.png"
                       }
                       className="tour_rank_img"
+                      
                     ></img>
                   </span>
 
