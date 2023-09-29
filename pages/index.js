@@ -89,7 +89,7 @@ function HomePage() {
   //     })
   // }, [])
 
-
+  
   return (
     <Fragment>
       <MainHeader title='Doob' />
@@ -169,7 +169,7 @@ function HomePage() {
 
       <main className="main-container">
         <section className="content-container">
-          <div className="content">
+          <div className="content" style={{ margin: "0px" }}>
             <StoriesMainPage />
 
             <ContainerHomePosts />
