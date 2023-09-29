@@ -502,6 +502,28 @@ function ContainerHomePosts() {
                               />
                             </svg>
                           </button>
+                          <button
+                            onClick={() => {
+                              commentClick(item.post_id, item.slug);
+                            }}
+                            className="post__button "
+                          >
+                            <svg
+                              width="30"
+                              height="30"
+                              viewBox="0 0 30 30"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M14.9911 15.0132V15.0256M9.88392 15.0132V15.0256M20.0982 15.0132V15.0256M3.5 25L5.15982 20.1314C3.72528 18.057 3.20633 15.6004 3.69946 13.2184C4.19258 10.8364 5.66423 8.69107 7.84077 7.18131C10.0173 5.67155 12.7506 4.9001 15.5325 5.01038C18.3144 5.12066 20.9556 6.10518 22.9649 7.78088C24.9743 9.45658 26.2151 11.7094 26.4567 14.1206C26.6982 16.5317 25.9241 18.937 24.2782 20.8893C22.6323 22.8416 20.2267 24.2081 17.5086 24.7345C14.7905 25.261 11.9449 24.9117 9.50089 23.7516L3.5 25Z"
+                                stroke={theme === "dark" ? "white" : "black"}
+                                stroke-width="1.4"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </button>
                           {/* <button
                             onClick={() => {
                               sharedClick(item.post_id);
@@ -536,33 +558,60 @@ function ContainerHomePosts() {
                         </>
                       )
                     ) : (
-                      <button
-                        onClick={() =>
-                          likeHandler(
-                            item.owner_user_detail.orginal_post_id,
-                            index,
-                            true
-                          )
-                        }
-                        className="post__button "
-                      >
-                        <svg
-                          width="30"
-                          height="30"
-                          viewBox="0 0 34 32"
-                          stroke="black"
-                          fill={`${item.liked ? "#17A803" : "white"}`}
-                          xmlns="http://www.w3.org/2000/svg"
+                      <>
+                        <button
+                          onClick={() =>
+                            likeHandler(
+                              item.owner_user_detail.orginal_post_id,
+                              index,
+                              true
+                            )
+                          }
+                          className="post__button "
                         >
-                          <path
-                            d="M17.0002 26.6668C17.0002 26.6668 4.25024 19.9834 4.25024 11.9633C4.25024 3.94313 14.1669 3.27478 17.0002 9.54977C19.8336 3.27478 29.7502 3.94313 29.7502 11.9633C29.7502 19.9834 17.0002 26.6668 17.0002 26.6668Z"
-                            stroke={`${item.liked ? "none" : "black"}`}
-                            stroke-width="1.507"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          />
-                        </svg>
-                      </button>
+                          <svg
+                            width="30"
+                            height="30"
+                            viewBox="0 0 34 32"
+                            stroke="black"
+                            fill={`${item.liked ? "#17A803" : "white"}`}
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M17.0002 26.6668C17.0002 26.6668 4.25024 19.9834 4.25024 11.9633C4.25024 3.94313 14.1669 3.27478 17.0002 9.54977C19.8336 3.27478 29.7502 3.94313 29.7502 11.9633C29.7502 19.9834 17.0002 26.6668 17.0002 26.6668Z"
+                              stroke={`${item.liked ? "none" : "black"}`}
+                              stroke-width="1.507"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </button>
+                        <button
+                          onClick={() => {
+                            commentClick(
+                              item.owner_user_detail.orginal_post_id,
+                              item.slug
+                            );
+                          }}
+                          className="post__button "
+                        >
+                          <svg
+                            width="30"
+                            height="30"
+                            viewBox="0 0 30 30"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M14.9911 15.0132V15.0256M9.88392 15.0132V15.0256M20.0982 15.0132V15.0256M3.5 25L5.15982 20.1314C3.72528 18.057 3.20633 15.6004 3.69946 13.2184C4.19258 10.8364 5.66423 8.69107 7.84077 7.18131C10.0173 5.67155 12.7506 4.9001 15.5325 5.01038C18.3144 5.12066 20.9556 6.10518 22.9649 7.78088C24.9743 9.45658 26.2151 11.7094 26.4567 14.1206C26.6982 16.5317 25.9241 18.937 24.2782 20.8893C22.6323 22.8416 20.2267 24.2081 17.5086 24.7345C14.7905 25.261 11.9449 24.9117 9.50089 23.7516L3.5 25Z"
+                              stroke={theme === "dark" ? "white" : "black"}
+                              stroke-width="1.4"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </button>
+                      </>
                     )}
 
                     {/* <button
@@ -596,7 +645,7 @@ function ContainerHomePosts() {
                     </svg>
                   </button> */}
 
-                    {item.owner_user_detail === null ? (
+                    {/* {item.owner_user_detail === null ? (
                       item.post_type === "Product" ||
                       item.post_type === "Store" ||
                       item.post_type === "Field" ? (
@@ -661,7 +710,7 @@ function ContainerHomePosts() {
                       >
                         {item.comment_count} {t("Comments")}
                       </button>
-                    )}
+                    )} */}
                   </div>
 
                   <div className="post__infos">

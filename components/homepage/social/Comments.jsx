@@ -70,7 +70,7 @@ function Comments({ setVisibleComment, postId, slug }) {
       setReplayTo(null);
     });
   };
-  const handleReply = (commentId) => {
+  const handleReply = (commentId,name) => {
     setReplayTo(commentId);
     inputRef.current.focus();
   };
@@ -221,6 +221,18 @@ function Comments({ setVisibleComment, postId, slug }) {
                                   fontSize: "13px",
                                 }}
                               >
+                                <span className="mx-2">
+                                  <a
+                                    onClick={() =>
+                                      handleReply(
+                                        item.id,
+                                        reply.user_details.name
+                                      )
+                                    }
+                                  >
+                                    {t("Reply")}
+                                  </a>
+                                </span>
                                 <span>
                                   <CommentActions
                                     user={reply.user_details.id}
@@ -247,7 +259,7 @@ function Comments({ setVisibleComment, postId, slug }) {
               <CardImg
                 className="rounded-circle shadow-1-strong "
                 src={`${constants.port}${loginUserImg}`}
-                style={{ width: "44px", height: "44px",objectFit:"cover" }}
+                style={{ width: "44px", height: "44px", objectFit: "cover" }}
               ></CardImg>
             ) : (
               <CardImg

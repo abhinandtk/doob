@@ -37,30 +37,39 @@ function SupportAddPage() {
   const [formData, setFormData] = useState({
     description: "",
     category: "",
+    formFile: "",
   });
   const handleChange = (e) => {
     e.preventDefault();
     const newFormData = { ...formData };
-    newFormData[e.target.id] = e.target.value;
-    setFormData({ ...newFormData });
+    if (e.target.id === "formFile") {
+      if (e.target.files && e.target.files.length > 0) {
+        newFormData[e.target.id] = e.target.files[0];
+        setFormData({ ...newFormData });
+      } else {
+        console.error("No file was selected. Please choose a file.");
+      }
+    } else {
+      newFormData[e.target.id] = e.target.value;
+      setFormData({ ...newFormData });
+    }
   };
   const submitHandler = (e) => {
     console.log("uuuuuuu", formData);
     e.preventDefault();
-    Axios.post(
-      apis.createSupport,
-      {
-        description: formData.description,
-        category: formData.category,
+    console.log("uuuuuuu", formData);
+    let inputData = new FormData();
+    inputData.append("description", formData.description);
+    inputData.append("category", formData.category);
+    inputData.append("image", formData.formFile);
+
+    Axios.post(apis.createSupport, inputData, {
+      headers: {
+        Authorization: `Token ${constants.token_id}`,
       },
-      {
-        headers: {
-          Authorization: `Token ${constants.token_id}`,
-        },
-      }
-    ).then((res) => {
+    }).then((res) => {
       if (res.data.status === 1) {
-        router.back();
+        router.push("/page/support");
         notification.success({
           message: t("Success"),
           description: `${labels["Support added"]}`,
@@ -101,10 +110,52 @@ function SupportAddPage() {
               <div className="my-4 mx-4 ">
                 <form onSubmit={(e) => submitHandler(e)}>
                   <div className="form-group my-2">
+                    <label for="exampleFormControlSelect1">
+                      {t("Category")}*
+                    </label>
+                    <select
+                      required
+                      className="form-control input-theme-prod"
+                      style={{ border: "0px", color: "#959595" }}
+                      id="category"
+                      value={formData.category}
+                      onChange={(e) => handleChange(e)}
+                    >
+                      <option style={{ color: "#959595" }} value="">
+                        {t("--Select--")}
+                      </option>
+                      <option style={{ color: "#959595" }} value="Store Manage">
+                        {t("Store Manage")}
+                      </option>
+                      <option style={{ color: "#959595" }} value="Field Manage">
+                        {t("Field Manage")}
+                      </option>
+                      <option
+                        style={{ color: "#959595" }}
+                        value="Product Related"
+                      >
+                        {t("Product Related")}
+                      </option>
+                      <option style={{ color: "#959595" }} value="Slot Related">
+                        {t("Slot Related")}
+                      </option>
+                      <option
+                        style={{ color: "#959595" }}
+                        value="Payment Related"
+                      >
+                        {t("Payment Related")}
+                      </option>
+                      <option style={{ color: "#959595" }} value="Others">
+                        {t("Others")}
+                      </option>
+                    </select>
+                  </div>
+                  <div className="form-group my-2">
                     <label for="exampleFormControlInput1">
-                      {t("Description")}
+                      {t("Description")}*
                     </label>
                     <input
+                      required
                       type="text"
                       class="form-control input-theme-prod p-2"
                       style={{
@@ -118,20 +169,15 @@ function SupportAddPage() {
                     />
                   </div>
                   <div className="form-group my-2">
-                    <label for="exampleFormControlInput1">
-                      {t("Category")}
+                    <label for="exampleFormControlInput1" id="formfile">
+                      {t("Attachment")}
                     </label>
                     <input
-                      type="text"
+                      type="file"
+                      id="formFile"
                       class="form-control input-theme-prod p-2"
-                      style={{
-                        border: "0px",
-
-                        color: "grey",
-                      }}
-                      id="category"
+                      placeholder={t("No file choosen")}
                       onChange={(e) => handleChange(e)}
-                      value={formData.category}
                     />
                   </div>
 

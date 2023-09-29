@@ -15,7 +15,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 const { Option } = Select;
 import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import MobileHeader from "@/components/MobileHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import PlayGroundSideBar from "@/components/playGround/PlayGroundSideBar";
@@ -24,9 +24,9 @@ import MobileFooter from "@/components/shared/MobileFooter";
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['translation'])),
+      ...(await serverSideTranslations(locale, ["translation"])),
     },
-  }
+  };
 }
 function SupportPage() {
   const router = useRouter();
@@ -65,7 +65,9 @@ function SupportPage() {
                 {t("Support")}
                 <span>
                   <Button
-                    onClick={() => router.push("/play-ground/support/add-support")}
+                    onClick={() =>
+                      router.push("/play-ground/support/add-support")
+                    }
                     type="button"
                     className="order-btn "
                   >
@@ -89,7 +91,9 @@ function SupportPage() {
                           ? "Open"
                           : item.status == 1
                           ? "Resolved"
-                          : "Closed"}
+                          : item.status == 2
+                          ? "Closed"
+                          : "Pending"}
                       </span>
                     </div>
 

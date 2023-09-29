@@ -97,7 +97,7 @@ function OtherUserAccount() {
               id="uncontrolled-tab-example"
               style={{ display: "flex", justifyContent: "space-evenly" }}
             >
-              <Tab eventKey={1} title={t("Feeds")}>
+              <Tab eventKey={1} title={t("Posts")}>
                 <hr className=" line"></hr>
 
                 <div className="row images">
@@ -125,7 +125,6 @@ function OtherUserAccount() {
                 </div>
                 <div className="post-bottoms"></div>
                 <br></br>
-              
               </Tab>
               <Tab eventKey={2} title={t("Activities")}>
                 <hr className=" line "></hr>

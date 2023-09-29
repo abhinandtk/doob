@@ -4,10 +4,12 @@ import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
+import UploadStory from "../shared/headers/modules/UploadStory";
 function StoriesMainPage() {
   const router = useRouter();
   const [storyList, setStoryList] = useState([]);
   const [loginedStoryList, setLoginedStoryList] = useState([]);
+  const [addStoryShow, setAddStoryShow] = useState(false);
 
   const { t } = useTranslation();
 
@@ -22,6 +24,11 @@ function StoriesMainPage() {
       console.log("response67", res);
     });
   }, []);
+  const addStoryHandler = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setAddStoryShow(true);
+  };
 
   return (
     <div
@@ -68,7 +75,7 @@ function StoriesMainPage() {
                   </svg>
                 </div>
                 <div className="story__picture">
-                  <img
+                  {/* <img
                     src={
                       item.user.image
                         ? `${constants.port}/media/${item.user.image}`
@@ -80,7 +87,26 @@ function StoriesMainPage() {
                       borderRadius: "50%",
                       objectFit: "cover",
                     }}
-                  />
+                  /> */}
+                  <div className="story__picture-container">
+                    <img
+                      src={
+                        item.user.image
+                          ? `${constants.port}/media/${item.user.image}`
+                          : "/images/accounts/user_default.png"
+                      }
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        borderRadius: "50%",
+                        objectFit: "cover",
+                      }}
+                      className="story__image"
+                    />
+                  </div>
+                </div>
+                <div className="add-icon" onClick={addStoryHandler}>
+                  +
                 </div>
               </div>
             </button>
@@ -125,6 +151,7 @@ function StoriesMainPage() {
             </button>
           ))}
       </div>
+      {addStoryShow && <UploadStory setAddStoryShow={setAddStoryShow} />}
       <button className="stories__right-button">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
           <path

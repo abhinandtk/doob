@@ -118,12 +118,14 @@ function SupportDetailsPage() {
                     style={{ width: "90%" }}
                   >
                     <span style={{ color: "#959595" }}>{t("Status")}</span>
-                    <span>
+                    <span style={{ color: "#959595" }}>
                       {supportDetails.status == 0
                         ? "Open"
                         : supportDetails.status == 1
                         ? "Resolved"
-                        : "Closed"}
+                        : supportDetails.status == 2
+                        ? "Closed"
+                        : "Pending"}
                     </span>
                   </div>
                 </div>

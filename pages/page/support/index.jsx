@@ -19,14 +19,14 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 const { Option } = Select;
 import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['translation'])),
+      ...(await serverSideTranslations(locale, ["translation"])),
     },
-  }
+  };
 }
 function SupportPage() {
   const router = useRouter();
@@ -81,7 +81,10 @@ function SupportPage() {
                       className="   mx-auto d-flex justify-content-between align-items-center"
                       style={{ width: "90%" }}
                     >
-                      <span className="dark-theme-color" style={{ fontWeight: "500" }}>
+                      <span
+                        className="dark-theme-color"
+                        style={{ fontWeight: "500" }}
+                      >
                         #{item.ticket_no}
                       </span>
                       <span className="dark-theme-color">
@@ -89,7 +92,9 @@ function SupportPage() {
                           ? "Open"
                           : item.status == 1
                           ? "Resolved"
-                          : "Closed"}
+                          : item.status == 2
+                          ? "Closed"
+                          : "Pending"}
                       </span>
                     </div>
 

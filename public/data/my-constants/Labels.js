@@ -66,8 +66,8 @@ export function Labels() {
 
 
             //Play Ground 
-            "PlayGround added": "Play ground added successfully",
-            "PlayGround edited": "Play ground edited successfully",
+            "PlayGround added": "Field added successfully",
+            "PlayGround edited": "Field edited successfully",
             "Checkout Successfully": "Successfully Checked Out",
             "Booking Cancelled": "Booking Cancelled successfully",
             "Slot Added": "Slot Added successfully",
@@ -76,7 +76,7 @@ export function Labels() {
             "Slot removed from cart successfully": "Item removed from cart successfully",
             "Joined game": "Joined game successfully",
             "Left game": "Left game successfully",
-            "PlayGround shared": "PlayGround shared successfully",
+            "PlayGround shared": "Field shared successfully",
             "Invited Successfully": "Invited Successfully",
             "Field request": "Field requested successfully",
             "Please select a slot": "Please select a slot",

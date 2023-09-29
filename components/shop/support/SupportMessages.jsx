@@ -84,7 +84,10 @@ function SupportMessages({ data, setSuccess, status }) {
               </div>
               <div className="message-text">
                 <div className="message-sender">
-                  <p className="mb-0 dark-theme-color" style={{ fontWeight: "600" }}>
+                  <p
+                    className="mb-0 dark-theme-color"
+                    style={{ fontWeight: "600" }}
+                  >
                     {item.user.username ? item.user.username : "Admin"}&nbsp;
                     <span
                       className="small"
@@ -107,7 +110,7 @@ function SupportMessages({ data, setSuccess, status }) {
         <div className="post-message-input">
           <div className="message-avatar">{/* Render avatar */}</div>
           <div className="message-input">
-            {status != 2 && (
+            {status != 2 && status != 1 && (
               <Form onSubmit={supportMessageHandler}>
                 <div className="d-flex justify-content-between align-items-center">
                   <Form.Group

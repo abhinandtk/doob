@@ -74,7 +74,7 @@ function GroundReportPage() {
                     style={{ textDecoration: "none", color: "inherit" }}
                   >
                     <h6 className="my-4">
-                      {t("Playground Bookings Report")}
+                      {t("Field Bookings Report")}
                       <span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"

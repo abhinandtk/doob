@@ -38,7 +38,7 @@ function PlayGroundCard({ content }) {
             className={locale === "ar" ? "float-end my-3" : "float-start my-3"}
             style={{ fontWeight: "700", fontSize: "19px", marginLeft: "0px" }}
           >
-            {t("Playgrounds near me")}
+            {t("Fields near me")}
           </h5>
           <p className="float-end" style={{ color: "#959595" }}>
             {/* View all */}

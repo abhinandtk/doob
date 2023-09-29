@@ -62,7 +62,7 @@ function PlaygroundManagementPage() {
 
       <div class="play-container  my-5">
         <h5 className="dark-theme-color fw-bold">
-          {t("Playground Management")}
+          {t("Field Management")}
           <span
             className="home"
             style={{ float: "right", display: "block", marginRight: "7px" }}
@@ -295,7 +295,7 @@ function PlaygroundManagementPage() {
                 />
               </svg>
 
-              <p className="play-manage dark-theme-color">{t("Playground")}</p>
+              <p className="play-manage dark-theme-color">{t("Field")}</p>
             </div>
           </Link>
           {/* <div className="docu1  ">
