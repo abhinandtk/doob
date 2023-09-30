@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { Modal, Form, Input, Button } from "antd";
+import { Modal, Form, Input, Button, Collapse } from "antd";
 import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
 import constants from "@/public/data/my-constants/Constants";
@@ -14,10 +14,13 @@ import { useTranslation } from "next-i18next";
 function UploadFiles({ setUploadShow }) {
   const dispatch = useDispatch();
   const { t } = useTranslation();
+  const { Panel } = Collapse;
 
   const [file, setFile] = useState(null);
   const [caption, setCaption] = useState("");
   const [show, setShow] = useState(true);
+  const [hideLike, setHideLike] = useState(false);
+  const [hideComment, setHIdeComment] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
 
   const handleFileChange = (e) => {
@@ -42,6 +45,8 @@ function UploadFiles({ setUploadShow }) {
       {
         caption: caption,
         image: file,
+        hide_comment: hideComment,
+        hide_like: hideLike,
       },
       {
         headers: {
@@ -51,7 +56,16 @@ function UploadFiles({ setUploadShow }) {
       }
     )
       .then((res) => {
-        console.log("Eroor:", res);
+        console.log(
+          "Eroor:",
+          {
+            caption: caption,
+            image: file,
+            hide_comment: hideComment,
+            hide_like: hideLike,
+          },
+          res
+        );
         if (res.data.status === 1) {
           console.log("sucesss");
           dispatch(apiCallSuccess());
@@ -144,6 +158,48 @@ function UploadFiles({ setUploadShow }) {
             </Form.Item>
           </div>
         </Form>
+        <Collapse bordered={false}>
+          <Panel header={t("Advanced settings")} key="1">
+            <div>
+              <p className="dark-theme-color">
+                {t("Hide like and view counts")}
+              </p>
+              <div
+                className="toggle1"
+                style={{ marginRight: "0px", marginTop: "-35px" }}
+              >
+                {" "}
+                <input
+                  placeholder="Active"
+                  onChange={(e) => setHideLike(e.target.checked ? true : false)}
+                  checked={hideLike}
+                  type="checkbox"
+                />
+                <label></label>{" "}
+              </div>
+            </div>
+            <div>
+              <p className="dark-theme-color">{t("Turn off commenting")}</p>
+              <div
+                className="toggle1"
+                style={{ marginRight: "0px", marginTop: "-35px" }}
+              >
+                {" "}
+                <input
+                  placeholder="Active"
+                  onChange={(e) =>
+                    setHIdeComment(e.target.checked ? true : false)
+                  }
+                  checked={hideComment}
+                  type="checkbox"
+                />
+                <label></label>{" "}
+              </div>
+            </div>
+          </Panel>
+
+          {/* Add more panels as needed */}
+        </Collapse>
       </Modal>
 
       <Modal

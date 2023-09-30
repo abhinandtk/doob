@@ -9,6 +9,7 @@ function StoriesMainPage() {
   const router = useRouter();
   const [storyList, setStoryList] = useState([]);
   const [loginedStoryList, setLoginedStoryList] = useState([]);
+  const [userImage, setUserImage] = useState(null);
   const [addStoryShow, setAddStoryShow] = useState(false);
 
   const { t } = useTranslation();
@@ -21,6 +22,7 @@ function StoriesMainPage() {
     }).then((res) => {
       setStoryList(res.data.data.user_story);
       setLoginedStoryList(res.data.data.requested_user_story);
+      setUserImage(res.data.data.user_image);
       console.log("response67", res);
     });
   }, []);
@@ -50,7 +52,7 @@ function StoriesMainPage() {
       </button>
 
       <div className="stories__content ">
-        {loginedStoryList &&
+        {loginedStoryList ? (
           loginedStoryList.map((item, index) => (
             <button
               onClick={() =>
@@ -91,8 +93,8 @@ function StoriesMainPage() {
                   <div className="story__picture-container">
                     <img
                       src={
-                        item.user.image
-                          ? `${constants.port}/media/${item.user.image}`
+                        userImage
+                          ? `${constants.port}${userImage}`
                           : "/images/accounts/user_default.png"
                       }
                       style={{
@@ -110,7 +112,39 @@ function StoriesMainPage() {
                 </div>
               </div>
             </button>
-          ))}
+          ))
+        ) : (
+          <button className="story story--has-story">
+            <div className="story__avatar">
+              <div className="story__border">
+                <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+                  <circle r="31" cy="32" cx="32" />
+                </svg>
+              </div>
+              <div className="story__picture">
+                <div className="story__picture-container">
+                  <img
+                    src={
+                      userImage
+                        ? `${constants.port}${userImage}`
+                        : "/images/accounts/user_default.png"
+                    }
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      borderRadius: "50%",
+                      objectFit: "cover",
+                    }}
+                    className="story__image"
+                  />
+                </div>
+              </div>
+              <div className="add-icon" onClick={addStoryHandler}>
+                +
+              </div>
+            </div>
+          </button>
+        )}
         {storyList &&
           storyList.map((item, index) => (
             <button

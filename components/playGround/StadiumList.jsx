@@ -15,7 +15,7 @@ function StadiumList({ stadiumData }) {
     <Fragment>
       <div className="tour-detail-ar">
         <h5 style={{ fontWeight: "700" }} className="my-2">
-          {t("Select Playground")}
+          {t("Select Field")}
         </h5>
         <div className="row">
           {stadiumData !== undefined ? (

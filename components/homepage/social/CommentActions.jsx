@@ -7,7 +7,8 @@ import constants from "@/public/data/my-constants/Constants";
 import { Labels } from "@/public/data/my-constants/Labels";
 import { useTranslation } from "next-i18next";
 
-function CommentActions({ user, commentId, setSuccessApi }) {
+function CommentActions({ user, commentId, setSuccessApi, postOwner }) {
+
   const { t } = useTranslation();
   const [show, setShow] = useState(false);
   const [visible, setVisible] = useState(false);
@@ -138,11 +139,12 @@ function CommentActions({ user, commentId, setSuccessApi }) {
         </Dropdown.Toggle>
 
         <Dropdown.Menu align="center" className="Menu">
-          {constants.user_id !== user ? (
+          {constants.user_id != user && (
             <Dropdown.Item onClick={() => setShow(true)}>
               {t("Report")}
             </Dropdown.Item>
-          ) : (
+          )}
+          {(constants.user_id == user || constants.user_id == postOwner) && (
             <Dropdown.Item onClick={() => setVisible(true)}>
               {t("Delete")}
             </Dropdown.Item>

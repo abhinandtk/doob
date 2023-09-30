@@ -502,28 +502,30 @@ function ContainerHomePosts() {
                               />
                             </svg>
                           </button>
-                          <button
-                            onClick={() => {
-                              commentClick(item.post_id, item.slug);
-                            }}
-                            className="post__button "
-                          >
-                            <svg
-                              width="30"
-                              height="30"
-                              viewBox="0 0 30 30"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
+                          {!item.hide_comment && (
+                            <button
+                              onClick={() => {
+                                commentClick(item.post_id, item.slug);
+                              }}
+                              className="post__button "
                             >
-                              <path
-                                d="M14.9911 15.0132V15.0256M9.88392 15.0132V15.0256M20.0982 15.0132V15.0256M3.5 25L5.15982 20.1314C3.72528 18.057 3.20633 15.6004 3.69946 13.2184C4.19258 10.8364 5.66423 8.69107 7.84077 7.18131C10.0173 5.67155 12.7506 4.9001 15.5325 5.01038C18.3144 5.12066 20.9556 6.10518 22.9649 7.78088C24.9743 9.45658 26.2151 11.7094 26.4567 14.1206C26.6982 16.5317 25.9241 18.937 24.2782 20.8893C22.6323 22.8416 20.2267 24.2081 17.5086 24.7345C14.7905 25.261 11.9449 24.9117 9.50089 23.7516L3.5 25Z"
-                                stroke={theme === "dark" ? "white" : "black"}
-                                stroke-width="1.4"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              />
-                            </svg>
-                          </button>
+                              <svg
+                                width="30"
+                                height="30"
+                                viewBox="0 0 30 30"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M14.9911 15.0132V15.0256M9.88392 15.0132V15.0256M20.0982 15.0132V15.0256M3.5 25L5.15982 20.1314C3.72528 18.057 3.20633 15.6004 3.69946 13.2184C4.19258 10.8364 5.66423 8.69107 7.84077 7.18131C10.0173 5.67155 12.7506 4.9001 15.5325 5.01038C18.3144 5.12066 20.9556 6.10518 22.9649 7.78088C24.9743 9.45658 26.2151 11.7094 26.4567 14.1206C26.6982 16.5317 25.9241 18.937 24.2782 20.8893C22.6323 22.8416 20.2267 24.2081 17.5086 24.7345C14.7905 25.261 11.9449 24.9117 9.50089 23.7516L3.5 25Z"
+                                  stroke={theme === "dark" ? "white" : "black"}
+                                  stroke-width="1.4"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                              </svg>
+                            </button>
+                          )}
                           {/* <button
                             onClick={() => {
                               sharedClick(item.post_id);
@@ -722,15 +724,17 @@ function ContainerHomePosts() {
                       <ModuleSharedPostDetails data={item} />
                     ) : (
                       <>
-                        <div className="post__likes">
-                          <h6
-                            className="post-names"
-                            style={{ cursor: "pointer" }}
-                            onClick={() => likedUsershandler(item.slug)}
-                          >
-                            {item.totalLike} {t("Likes")}
-                          </h6>
-                        </div>
+                        {!item.hide_like && (
+                          <div className="post__likes">
+                            <h6
+                              className="post-names"
+                              style={{ cursor: "pointer" }}
+                              onClick={() => likedUsershandler(item.slug)}
+                            >
+                              {item.totalLike} {t("Likes")}
+                            </h6>
+                          </div>
+                        )}
                         <div className="comments">{item.caption}</div>
                       </>
                     )}

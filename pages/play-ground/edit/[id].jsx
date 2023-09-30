@@ -119,7 +119,7 @@ function EditPlaygroundPage() {
                 className=" ms-4"
                 style={{ color: "#17a803", fontWeight: "700" }}
               >
-                {t("Edit Playground")}
+                {t("Edit Field")}
               </h6>
 
               <div className="my-4 mx-4 ">

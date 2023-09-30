@@ -99,7 +99,7 @@ function PlayGroundRequest() {
                 className=" ms-4"
                 style={{ color: "#17a803", fontWeight: "700" }}
               >
-                {t("Request Playground")}
+                {t("Request Field")}
               </h6>
 
               <div className="my-4 mx-4 ">

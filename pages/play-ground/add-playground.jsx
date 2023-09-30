@@ -114,7 +114,7 @@ function AddPlaygroundPage() {
                 className=" ms-4"
                 style={{ color: "#17a803", fontWeight: "700" }}
               >
-                {t("Add Playground")}
+                {t("Add Field")}
               </h6>
 
               <div className="my-4 mx-4 ">

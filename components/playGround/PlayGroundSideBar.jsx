@@ -140,7 +140,7 @@ function PlayGroundSideBar({ currentPage }) {
           className="mx-2 dark-theme-color"
           style={{ color: `${currentPage === "playground" ? "#17A803" : ""}` }}
         >
-          {t("Playground")}
+          {t("Field")}
         </span>
       </Link>
 

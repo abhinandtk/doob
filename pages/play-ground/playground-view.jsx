@@ -53,14 +53,14 @@ function PlaygroundPageAdmin() {
                 className=" mx-4"
                 style={{ color: "#17a803", fontWeight: "700" }}
               >
-                {t("Playground")} 
+                {t("Field")} 
               </h6>
               <Button
                 onClick={() => router.push("/play-ground/add-playground")}
                 type="button"
                 className="order1-btn "
               > 
-                {t("Add Playground")}
+                {t("Add Field")}
               </Button> 
               {groundView &&
                 groundView.map((item, index) => (

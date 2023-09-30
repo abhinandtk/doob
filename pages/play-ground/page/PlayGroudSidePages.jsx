@@ -109,7 +109,7 @@ function PlayGroudSidePages({currentPage}) {
             fill="black"
           />
         </svg>
-        <span className="mx-2" style={{color:`${currentPage === 'playground' ? '#17A803' : ''}`}}>{t("Playground")}</span>
+        <span className="mx-2" style={{color:`${currentPage === 'playground' ? '#17A803' : ''}`}}>{t("Field")}</span>
       </Link>
 
       <a href="#services">

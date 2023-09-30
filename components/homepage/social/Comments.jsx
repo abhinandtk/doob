@@ -19,8 +19,10 @@ function Comments({ setVisibleComment, postId, slug }) {
   const [comment, setComment] = useState("");
   const [showComments, setShowComments] = useState([]);
   const [replayTo, setReplayTo] = useState(null);
+  const [replayUser, setReplayUser] = useState(null);
   const [isDisabled, setIsDisabled] = useState();
   const [loginUserImg, setLoginUser] = useState([]);
+  const [postOwner, setPostOwner] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const { theme } = useTheme();
 
@@ -40,8 +42,9 @@ function Comments({ setVisibleComment, postId, slug }) {
         },
       }
     ).then((res) => {
-      console.log("titiitititiitititititiiti", res);
+      console.log("titiitititiitititititiiti", res, res.data.data.comments);
       setIsLoading(false);
+      setPostOwner(res.data.data.post_owner_id);
       setLoginUser(res.data.data.login_user);
       setShowComments(res.data.data.comments);
     });
@@ -53,7 +56,14 @@ function Comments({ setVisibleComment, postId, slug }) {
   const commentPostHandler = (e) => {
     setIsDisabled(true);
     e.preventDefault();
-    let data = { content: comment, post_id: postId };
+    let commentMsg;
+    if (replayUser) {
+      commentMsg = `@${replayUser} ${comment}`;
+    } else {
+      commentMsg = comment;
+    }
+    console.log("name546", commentMsg);
+    let data = { content: commentMsg, post_id: postId };
     if (replayTo) {
       data.parent_id = replayTo;
     }
@@ -68,9 +78,14 @@ function Comments({ setVisibleComment, postId, slug }) {
       setSuccessApi((prev) => !prev);
       inputRef.current.value = "";
       setReplayTo(null);
+      setReplayUser(null);
     });
   };
-  const handleReply = (commentId,name) => {
+  const handleReply = (commentId, name) => {
+    if (name) {
+      setReplayUser(name);
+    }
+    console.log("name", name);
     setReplayTo(commentId);
     inputRef.current.focus();
   };
@@ -165,6 +180,7 @@ function Comments({ setVisibleComment, postId, slug }) {
                         <CommentActions
                           user={item.user.id}
                           commentId={item.id}
+                          postOwner={postOwner}
                           setSuccessApi={setSuccessApi}
                         />
                       </span>
@@ -236,6 +252,7 @@ function Comments({ setVisibleComment, postId, slug }) {
                                 <span>
                                   <CommentActions
                                     user={reply.user_details.id}
+                                    postOwner={postOwner}
                                     commentId={reply.id}
                                     setSuccessApi={setSuccessApi}
                                   />
