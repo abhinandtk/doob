@@ -305,13 +305,13 @@ function OtherProfileHeaderDetails({
         <Card.Body>
           <div className="row">
             <div className={`col-md-6 ${locale === "ar" && "order-2"}`}>
-              <button
+              {/* <button
                 onClick={() => setShowRank(true)}
                 className="btn profile-edit-btn"
                 style={{ float: locale === "ar" && "right" }}
               >
                 {t("Rank")}
-              </button>
+              </button> */}
               <div className="profile-image">
                 {data.user_image ? (
                   <img
@@ -381,6 +381,15 @@ function OtherProfileHeaderDetails({
                       {t("Gender")}:
                     </span>{" "}
                     <span> {data.gender}</span>
+                  </li>
+                  <li>
+                    <span
+                      className="profile-stat-count"
+                      onClick={() => setShowRank(true)}
+                      style={{ color: "#959595", cursor: "pointer" }}
+                    >
+                      {t("Rank")}
+                    </span>{" "}
                   </li>
                   <br></br>
                   <li>
@@ -543,6 +552,13 @@ function OtherProfileHeaderDetails({
               {t("Age")}:<span>{data.age}</span>
               <span className="mx-2">
                 {t("Gender")}: {data.gender}
+              </span>
+              <span
+                className="mx-2"
+                onClick={() => setShowRank(true)}
+                style={{ cursor: "pointer" }}
+              >
+                {t("Rank")}
               </span>
             </div>
             <div className="profile-country">

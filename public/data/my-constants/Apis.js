@@ -75,6 +75,7 @@ const apis = {
     'acceptRequest': `${constants.port}/social/Api/follow_request_accept`,
     'rejectRequest': `${constants.port}/social/Api/follow_request_reject`,
     'likedUsers': `${constants.port}/social/Api/liked_users`,
+    'userPostList': `${constants.port}/social/Api/user_post_list`,
 
     'blockUser': `${constants.port}/social/Api/user_block_api`,
     'unblockUser': `${constants.port}/social/Api/user_unblock_api`,

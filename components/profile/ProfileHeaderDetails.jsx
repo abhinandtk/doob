@@ -191,13 +191,13 @@ function ProfileHeaderDetails({ data, setSuccess }) {
           <Card.Body>
             <div className="row">
               <div className={`col-md-6 ${locale === "ar" && "order-2"}`}>
-                <button
+                {/* <button
                   onClick={() => setShowRank(true)}
                   className="btn profile-edit-btn"
                   style={{ float: locale === "ar" && "right" }}
                 >
                   {t("Rank")}
-                </button>
+                </button> */}
                 <div className="profile-image">
                   {loading ? (
                     <Spin
@@ -284,6 +284,15 @@ function ProfileHeaderDetails({ data, setSuccess }) {
                       </span>{" "}
                       <span> {data.gender}</span>
                     </li>
+                    <li>
+                      <span
+                        onClick={() => setShowRank(true)}
+                        className="profile-stat-count"
+                        style={{ color: "#959595", cursor: "pointer" }}
+                      >
+                        {t("Rank")}
+                      </span>{" "}
+                    </li>
                     <br></br>
                     <li>
                       <span>
@@ -322,15 +331,19 @@ function ProfileHeaderDetails({ data, setSuccess }) {
 
         <Card className="ceed">
           <Card.Body className="dark-theme-color">
-            <div className={locale==='en'?"edit-rank":"edit-rank_ar"}>
-            
-            <button
-              onClick={() => setShowRank(true)}
-              className={locale==='en'?"btn profile-edit-btn":"btn profile-edit-btn_ar"}
-            >
-              {t("Rank")}
-            </button>
-            <ProfileEdit data={data} setSuccess={setSuccess} />
+            <div className={locale === "en" ? "edit-rank" : "edit-rank_ar"}>
+              {/* <button
+                onClick={() => setShowRank(true)}
+                className={
+                  locale === "en"
+                    ? "btn profile-edit-btn"
+                    : "btn profile-edit-btn_ar"
+                }
+              >
+                {t("Rank")}
+              </button> */}
+              &nbsp;
+              <ProfileEdit data={data} setSuccess={setSuccess} />
             </div>
 
             {/* {/* <button className=" profile-edits-btn">Rank</button> */}
@@ -391,6 +404,13 @@ function ProfileHeaderDetails({ data, setSuccess }) {
                 {t("Age")}:<span>{data.age}</span>
                 <span className="mx-2">
                   {t("Gender")}: {data.gender}
+                </span>
+                <span
+                  className="mx-2"
+                  onClick={() => setShowRank(true)}
+                  style={{ cursor: "pointer" }}
+                >
+                  {t("Rank")}
                 </span>
               </div>
               <div className="profile-country">

@@ -35,13 +35,13 @@ function StoriesMainPage() {
   return (
     <div
       className="stories"
-      style={{ height: `${storyList || loginedStoryList ? "" : "0px"}` }}
+      // style={{ height: `${storyList || loginedStoryList ? "" : "0px"}` }}
     >
-      {(storyList || loginedStoryList) && (
+      {/* {(storyList || loginedStoryList) && ( */}
         <div className="ms-1 dark-theme-color" style={{ fontWeight: 500 }}>
           {t("My Followers")}
         </div>
-      )}
+      {/* )} */}
       <button className="stories__left-button">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
           <path
@@ -51,7 +51,7 @@ function StoriesMainPage() {
         </svg>
       </button>
 
-      <div className="stories__content ">
+      <div className="stories__content">
         {loginedStoryList ? (
           loginedStoryList.map((item, index) => (
             <button

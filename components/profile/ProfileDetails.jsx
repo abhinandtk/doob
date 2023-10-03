@@ -32,7 +32,7 @@ function ProfileDetails() {
     }).then((res) => {
       setUserDetails(res.data.data.user_details);
       setLoadMore(!!res.data.next);
-
+      console.log("POsts result=-----------------------", res);
       if (page === 1) {
         setPostDetails(res.data.data.post_details);
       } else {
@@ -44,6 +44,7 @@ function ProfileDetails() {
       console.log("POsts result=-----------------------", res);
     });
   }, [success, apiSuccess, page]);
+  console.log("POsts result=-----------------------");
 
   return (
     <Fragment>
@@ -69,7 +70,14 @@ function ProfileDetails() {
                         className="col-lg-4 col-md-6 col-sm-4 col-xs-2"
                         tabindex="0"
                       >
-                        <Link href={`/page/post/${item.slug}`}>
+                        <Link
+                          href={{
+                            pathname: `/page/all-post-view/${item.user}`,
+                            query: {
+                              pIndex: index,
+                            },
+                          }}
+                        >
                           <img
                             key={index}
                             src={`${constants.port}${item.image}`}

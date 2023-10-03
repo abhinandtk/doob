@@ -171,7 +171,6 @@ function HomePage() {
         <section className="content-container">
           <div className="content" style={{ margin: "0px" }}>
             <StoriesMainPage />
-
             <ContainerHomePosts />
 
           </div>

@@ -3,10 +3,9 @@ import MainHeader from "@/components/shared/headers/MainHeader";
 import MainSidebarFixed from "@/components/shared/sidebar/MainSidebarFixed";
 import axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
-
 import MobileHeader from "@/components/MobileHeader";
-import SingleContainerHomePosts from "@/components/homepage/SingleContainerHomePosts";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import SingleContainerHomePosts from "@/components/homepage/SingleContainerHomePosts";
 
 export async function getServerSideProps({ locale }) {
   return {
@@ -15,7 +14,7 @@ export async function getServerSideProps({ locale }) {
     },
   };
 }
-function SingleHomePage() {
+function AllPostView() {
   const [countryModalShow, setCountryModalShow] = useState(true);
   const [countryData, setCountryData] = useState([]);
   const [regionData, setRegionData] = useState([]);
@@ -36,13 +35,12 @@ function SingleHomePage() {
       <main className="main-container">
         <section className="content-container">
           <div className="content">
-            <SingleContainerHomePosts />
+            <SingleContainerHomePosts allPost={true} />
           </div>
-          {/* <SideExplorePlayers /> */}
         </section>
       </main>
     </Fragment>
   );
 }
 
-export default SingleHomePage;
+export default AllPostView;

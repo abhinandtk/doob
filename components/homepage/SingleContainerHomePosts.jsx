@@ -20,8 +20,9 @@ import { Modal, Skeleton } from "antd";
 import SharePostToUser from "./social/share/SharePostToUser";
 import { useTranslation } from "next-i18next";
 import { CardImg } from "react-bootstrap";
+import { useRef } from "react";
 
-function SingleContainerHomePosts({ story }) {
+function SingleContainerHomePosts({ story, allPost }) {
   const { t } = useTranslation();
 
   const apiSuccess = useSelector((state) => state.api);
@@ -40,8 +41,17 @@ function SingleContainerHomePosts({ story }) {
   const router = useRouter();
   const { locale } = router;
   const { postSlug } = router.query;
-  const { user_id } = router.query;
+  const { user_id, pIndex } = router.query;
   const isAuthenticated = constants.token_id;
+
+  const scrollRef = useRef(null);
+  useEffect(() => {
+    console.log("scrolllllllllllllll", scrollRef.current);
+    if (scrollRef.current) {
+      const scrollElement = scrollRef.current;
+      scrollElement.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [scrollRef]);
 
   useEffect(() => {
     setIsLoading(true);
@@ -76,15 +86,15 @@ function SingleContainerHomePosts({ story }) {
           console.error(error);
         });
     } else {
-      Axios.post(
-        apis.SinglePostView,
-        {
-          slug_post: postSlug,
-        },
-        {
-          headers: headers,
-        }
-      )
+      const apiUrl = allPost ? apis.userPostList : apis.SinglePostView;
+      const requestData = allPost
+        ? { user_id: postSlug }
+        : {
+            slug_post: postSlug,
+          };
+      Axios.post(apiUrl, requestData, {
+        headers: headers,
+      })
         .then((res) => {
           setIsLoading(false);
           const updatedPosts = res.data.data.map((post) => ({
@@ -258,6 +268,7 @@ function SingleContainerHomePosts({ story }) {
             <VisibilitySensor
               partialVisibility={true}
               key={index}
+              ref={index === pIndex ? scrollRef : null}
               onChange={(isVisible) =>
                 handleVisibilityChange(isVisible, item.post_id)
               }
