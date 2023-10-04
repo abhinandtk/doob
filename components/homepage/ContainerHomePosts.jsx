@@ -151,7 +151,6 @@ function ContainerHomePosts() {
       });
     } else {
       console.log("Element is now hidden");
-      // Perform actions when the element becomes hidden
     }
   };
   const likedUsershandler = (slug) => {
