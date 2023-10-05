@@ -20,7 +20,7 @@ import { useTheme } from "next-themes";
 import { useTranslation } from "next-i18next";
 import Login from "@/components/user/Login";
 import { CardImg } from "react-bootstrap";
-import { Modal } from "antd";
+import { Image, Modal } from "antd";
 import { useRouter } from "next/router";
 import { activeModalShow } from "@/Redux/loginShow";
 
@@ -44,6 +44,9 @@ function ContainerHomePosts() {
   const [loadMore, setLoadMore] = useState(true);
   const [onSuccess, setOnSuccess] = useState(true);
 
+  const [popupVisible, setPopupVisible] = useState(false);
+  const [popupBanner, setPopupBanner] = useState(null);
+
   const isAuthenticated = constants.token_id;
   useEffect(() => {
     const paginationApiUrl = `${apis.homepageapi}?page=${page}`;
@@ -59,6 +62,7 @@ function ContainerHomePosts() {
     })
       .then((res) => {
         console.log("we33333333333333333333333333333", res);
+        setPopupBanner(res.data.data.pop_up_banner[0]);
         setLoadMore(!!res.data.next);
         const updatedPosts = res.data.data.posts.map((post) => ({
           ...post,
@@ -186,9 +190,44 @@ function ContainerHomePosts() {
       dispatch(activeModalShow("login"));
     }
   };
+  const closePopup = () => {
+    setPopupVisible(false);
+    localStorage.setItem("popupLastShown", moment().format("YYYY-MM-DD"));
+  };
+
+  useEffect(() => {
+    const lastShowDate = localStorage.getItem("popupLastShown");
+    const currentDate = moment().format("YYYY-MM-DD");
+    if (lastShowDate != currentDate && popupBanner !== null) {
+      setPopupVisible(true);
+    }
+  }, [popupBanner]);
 
   return (
     <Fragment>
+      <Modal
+        open={popupVisible}
+        onCancel={closePopup}
+        footer={null}
+        title="&nbsp;"
+        closable
+        maskClosable
+        centered
+      >
+        {popupBanner && popupBanner.image && (
+          <a
+            style={{ maxHeight: "80vh", overflowY: "auto" }}
+            href={popupBanner?.link}
+            target="_blank"
+          >
+            <img
+              src={`${constants.port}${popupBanner?.image}`}
+              alt="Popup Image"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+          </a>
+        )}
+      </Modal>
       <Modal
         open={visible}
         onCancel={() => setVisible(false)}

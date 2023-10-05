@@ -230,7 +230,7 @@ function ProductsForm({ handleProductAdd, editData }) {
       variants[index][e.target.id] = e.target.value;
       return { ...prev, variants };
     });
-    console.log("trrrrrrrrrrrrrrrrrruiououo8745884", formData);
+    // console.log("trrrrrrrrrrrrrrrrrruiououo8745884", formData);
   };
 
   const addVariantFields = () => {

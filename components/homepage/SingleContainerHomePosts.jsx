@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useLayoutEffect } from "react";
 import { useState, useEffect } from "react";
 import Axios from "axios";
 import apis from "@/public/data/my-constants/Apis";
@@ -50,12 +50,13 @@ function SingleContainerHomePosts({ story, allPost }) {
   const [page, setPage] = useState(1);
 
   const scrollRef = useRef(null);
-  useEffect(() => {
-    console.log("scrolllllllllllllll", scrollRef.current);
+  const scrollToPost = () => {
     if (scrollRef.current) {
-      const scrollElement = scrollRef.current;
-      scrollElement.scrollIntoView({ behavior: "smooth" });
+      scrollRef.current.scrollIntoView();
     }
+  };
+  useEffect(() => {
+    scrollToPost();
   }, [scrollRef]);
 
   useEffect(() => {
@@ -287,63 +288,151 @@ function SingleContainerHomePosts({ story, allPost }) {
           (postsData[0] && postsData[0].user_detail.id === loginUser)) ? (
           postsData.map((item, index) => (
             <VisibilitySensor
-            partialVisibility={true}
-            key={index}
-            ref={index === pIndex ? scrollRef : null}
-            onChange={(isVisible) =>
-              handleVisibilityChange(isVisible, item.post_id)
-            }
-          >
-            <div key={index} className="posts">
-              <article className="post">
-                <div className="post__header">
-                  {item.owner_user_detail === null ? (
-                    item.post_type === "Product" ? (
-                      <SharedPostHeaders data={item} />
-                    ) : item.post_type === "Store" ? (
-                      <SharedPostHeaders data={item} />
-                    ) : item.post_type === "Field" ? (
-                      <SharedPostHeaders data={item} />
-                    ) : (
-                      <div
-                        // href={
-                        //   constants.user_id === item.user_detail.id
-                        //     ? "profile"
-                        //     : `/userprofile/${item.user_detail.id}`
-                        // }
-                        onClick={() =>
-                          profileNavigationHandler(item.user_detail.id)
-                        }
-                        style={{ color: "inherit", cursor: "pointer" }}
-                      >
-                        <div className="post__profile">
-                          <div className="post__avatar">
-                            {item.user_detail.image ? (
-                              <img
-                                src={`${constants.port}/media/${item.user_detail.image}`}
-                                alt="User Picture"
-                                style={{
-                                  objectFit: "cover",
-                                  width: "100%",
-                                  height: "100%",
-                                }}
-                              />
-                            ) : (
-                              <img
-                                src="/images/accounts/user_default.png"
-                                alt="User Picture"
-                                style={{
-                                  objectFit: "cover",
-                                  width: "100%",
-                                  height: "100%",
-                                }}
-                              />
-                            )}
-                          </div>
+              partialVisibility={true}
+              key={index}
+              onChange={(isVisible) =>
+                handleVisibilityChange(isVisible, item.post_id)
+              }
+            >
+              <div
+                key={index}
+                className="posts"
+                ref={index == parseInt(pIndex) ? scrollRef : null}
+              >
+                <article className="post">
+                  <div className="post__header">
+                    {item.owner_user_detail === null ? (
+                      item.post_type === "Product" ? (
+                        <SharedPostHeaders data={item} />
+                      ) : item.post_type === "Store" ? (
+                        <SharedPostHeaders data={item} />
+                      ) : item.post_type === "Field" ? (
+                        <SharedPostHeaders data={item} />
+                      ) : (
+                        <div
+                          // href={
+                          //   constants.user_id === item.user_detail.id
+                          //     ? "profile"
+                          //     : `/userprofile/${item.user_detail.id}`
+                          // }
+                          onClick={() =>
+                            profileNavigationHandler(item.user_detail.id)
+                          }
+                          style={{ color: "inherit", cursor: "pointer" }}
+                        >
+                          <div className="post__profile">
+                            <div className="post__avatar">
+                              {item.user_detail.image ? (
+                                <img
+                                  src={`${constants.port}/media/${item.user_detail.image}`}
+                                  alt="User Picture"
+                                  style={{
+                                    objectFit: "cover",
+                                    width: "100%",
+                                    height: "100%",
+                                  }}
+                                />
+                              ) : (
+                                <img
+                                  src="/images/accounts/user_default.png"
+                                  alt="User Picture"
+                                  style={{
+                                    objectFit: "cover",
+                                    width: "100%",
+                                    height: "100%",
+                                  }}
+                                />
+                              )}
+                            </div>
 
-                          <div className="users">
-                            <div className="post__likes">
-                              <a className="post__user">
+                            <div className="users">
+                              <div className="post__likes">
+                                <a className="post__user">
+                                  {item.user_detail.name}
+                                  {item.user_detail.account_type === "star" ? (
+                                    <span>
+                                      <img
+                                        src="/images/Star.png"
+                                        className="mx-1 mb-1"
+                                      ></img>
+                                    </span>
+                                  ) : (
+                                    ""
+                                  )}
+                                </a>
+                              </div>
+                              <div
+                                className="time"
+                                style={{
+                                  direction: locale === "ar" ? "ltr" : "",
+                                }}
+                              >
+                                {timeSincePost(item.posted)}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    ) : (
+                      <div className="post__profile">
+                        <div className="post__avatar">
+                          {item.owner_user_detail.user_detail.image ? (
+                            <img
+                              src={`${constants.port}/media/${item.owner_user_detail.user_detail.image}`}
+                              alt="User Picture"
+                              style={{
+                                objectFit: "cover",
+                                width: "100%",
+                                height: "100%",
+                              }}
+                            />
+                          ) : (
+                            <img
+                              src="/images/accounts/user_default.png"
+                              alt="User Picture"
+                              style={{
+                                objectFit: "cover",
+                                width: "100%",
+                                height: "100%",
+                              }}
+                            />
+                          )}
+                        </div>
+                        <div className="post__avatar1">
+                          {item.user_detail.image ? (
+                            <img
+                              src={`${constants.port}/media/${item.user_detail.image}`}
+                              alt="User Picture"
+                              style={{
+                                objectFit: "cover",
+                                width: "100%",
+                                height: "100%",
+                              }}
+                            />
+                          ) : (
+                            <img
+                              src="/images/accounts/user_default.png"
+                              alt="User Picture"
+                              style={{
+                                objectFit: "cover",
+                                width: "100%",
+                                height: "100%",
+                              }}
+                            />
+                          )}
+                        </div>
+
+                        <div className="users">
+                          <div className="post__likes">
+                            <div className="post__user">
+                              <Link
+                                href={
+                                  constants.user_id === item.user_detail.id
+                                    ? "/profile"
+                                    : `/userprofile/${item.user_detail.id}`
+                                }
+                                style={{ textDecoration: "none" }}
+                              >
                                 {item.user_detail.name}
                                 {item.user_detail.account_type === "star" ? (
                                   <span>
@@ -355,220 +444,140 @@ function SingleContainerHomePosts({ story, allPost }) {
                                 ) : (
                                   ""
                                 )}
-                              </a>
+                              </Link>
+                              <span
+                                className="mx-1"
+                                style={{ color: "#616661" }}
+                              >
+                                Shared
+                              </span>
+                              <Link
+                                href={
+                                  constants.user_id ===
+                                  item.owner_user_detail.user_detail.id
+                                    ? "profile"
+                                    : `/userprofile/${item.owner_user_detail.user_detail.id}`
+                                }
+                                style={{ textDecoration: "none" }}
+                              >
+                                {item.owner_user_detail.user_detail.name}
+                                {item.owner_user_detail.user_detail
+                                  .account_type === "star" ? (
+                                  <span>
+                                    <img
+                                      src="/images/Star.png"
+                                      className="mx-1 mb-1"
+                                    ></img>
+                                  </span>
+                                ) : (
+                                  ""
+                                )}
+                              </Link>
+                              &nbsp;Post
                             </div>
-                            <div
-                              className="time"
-                              style={{
-                                direction: locale === "ar" ? "ltr" : "",
-                              }}
-                            >
-                              {timeSincePost(item.posted)}
-                            </div>
+                          </div>
+                          <div
+                            className="time"
+                            style={{ direction: locale === "ar" ? "ltr" : "" }}
+                          >
+                            {timeSincePost(item.posted)}
                           </div>
                         </div>
                       </div>
-                    )
-                  ) : (
-                    <div className="post__profile">
-                      <div className="post__avatar">
-                        {item.owner_user_detail.user_detail.image ? (
-                          <img
-                            src={`${constants.port}/media/${item.owner_user_detail.user_detail.image}`}
-                            alt="User Picture"
-                            style={{
-                              objectFit: "cover",
-                              width: "100%",
-                              height: "100%",
-                            }}
-                          />
-                        ) : (
-                          <img
-                            src="/images/accounts/user_default.png"
-                            alt="User Picture"
-                            style={{
-                              objectFit: "cover",
-                              width: "100%",
-                              height: "100%",
-                            }}
-                          />
-                        )}
-                      </div>
-                      <div className="post__avatar1">
-                        {item.user_detail.image ? (
-                          <img
-                            src={`${constants.port}/media/${item.user_detail.image}`}
-                            alt="User Picture"
-                            style={{
-                              objectFit: "cover",
-                              width: "100%",
-                              height: "100%",
-                            }}
-                          />
-                        ) : (
-                          <img
-                            src="/images/accounts/user_default.png"
-                            alt="User Picture"
-                            style={{
-                              objectFit: "cover",
-                              width: "100%",
-                              height: "100%",
-                            }}
-                          />
-                        )}
-                      </div>
+                    )}
 
-                      <div className="users">
-                        <div className="post__likes">
-                          <div className="post__user">
-                            <Link
-                              href={
-                                constants.user_id === item.user_detail.id
-                                  ? "/profile"
-                                  : `/userprofile/${item.user_detail.id}`
-                              }
-                              style={{ textDecoration: "none" }}
-                            >
-                              {item.user_detail.name}
-                              {item.user_detail.account_type === "star" ? (
-                                <span>
-                                  <img
-                                    src="/images/Star.png"
-                                    className="mx-1 mb-1"
-                                  ></img>
-                                </span>
-                              ) : (
-                                ""
-                              )}
-                            </Link>
-                            <span className="mx-1" style={{ color: "#616661" }}>
-                              Shared
-                            </span>
-                            <Link
-                              href={
-                                constants.user_id ===
-                                item.owner_user_detail.user_detail.id
-                                  ? "profile"
-                                  : `/userprofile/${item.owner_user_detail.user_detail.id}`
-                              }
-                              style={{ textDecoration: "none" }}
-                            >
-                              {item.owner_user_detail.user_detail.name}
-                              {item.owner_user_detail.user_detail
-                                .account_type === "star" ? (
-                                <span>
-                                  <img
-                                    src="/images/Star.png"
-                                    className="mx-1 mb-1"
-                                  ></img>
-                                </span>
-                              ) : (
-                                ""
-                              )}
-                            </Link>
-                            &nbsp;Post
-                          </div>
-                        </div>
-                        <div
-                          className="time"
-                          style={{ direction: locale === "ar" ? "ltr" : "" }}
-                        >
-                          {timeSincePost(item.posted)}
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                  <button className="post__more-options">
-                    <PostActions
-                      data={item}
-                      postId={item.post_id}
-                      user={item.user_detail.id}
-                      sharedClick={sharedClick}
-                      setOnSuccess={setOnSuccess}
-                    />
-                  </button>
-                </div>
-
-                <div className="post__content-img">
-                  {item.post_type === "Product" ? (
-                    <ModuleSharedPostImage data={item} />
-                  ) : item.post_type === "Store" ? (
-                    <ModuleSharedPostImage data={item} />
-                  ) : item.post_type === "Field" ? (
-                    <ModuleSharedPostImage data={item} />
-                  ) : (
-                    <div className="post__medias">
-                      <img
-                        className="post__media"
-                        src={`${item.image}`}
-                        alt="Post Content"
+                    <button className="post__more-options">
+                      <PostActions
+                        data={item}
+                        postId={item.post_id}
+                        user={item.user_detail.id}
+                        sharedClick={sharedClick}
+                        setOnSuccess={setOnSuccess}
                       />
-                      {/* multiple image */}
-                      {/* <img
+                    </button>
+                  </div>
+
+                  <div className="post__content-img">
+                    {item.post_type === "Product" ? (
+                      <ModuleSharedPostImage data={item} />
+                    ) : item.post_type === "Store" ? (
+                      <ModuleSharedPostImage data={item} />
+                    ) : item.post_type === "Field" ? (
+                      <ModuleSharedPostImage data={item} />
+                    ) : (
+                      <div className="post__medias">
+                        <img
+                          className="post__media"
+                          src={`${item.image}`}
+                          alt="Post Content"
+                        />
+                        {/* multiple image */}
+                        {/* <img
                     className="post__media"
                     src="../images/soccer-into-goal-success-concept 2.png"
                     alt="Post Content"
                   /> */}
-                    </div>
-                  )}
-                </div>
+                      </div>
+                    )}
+                  </div>
 
-                <div className="post__footer">
-                  <div className="post__buttons">
-                    {item.owner_user_detail === null ? (
-                      item.post_type === "Product" ||
-                      item.post_type === "Store" ||
-                      item.post_type === "Field" ? (
-                        ""
-                      ) : (
-                        <>
-                          <button
-                            onClick={() => likeHandler(item.post_id, index)}
-                            className="post__button "
-                          >
-                            <svg
-                              width="30"
-                              height="30"
-                              viewBox="0 0 34 32"
-                              stroke="black"
-                              fill={`${item.liked ? "#17A803" : "white"}`}
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M17.0002 26.6668C17.0002 26.6668 4.25024 19.9834 4.25024 11.9633C4.25024 3.94313 14.1669 3.27478 17.0002 9.54977C19.8336 3.27478 29.7502 3.94313 29.7502 11.9633C29.7502 19.9834 17.0002 26.6668 17.0002 26.6668Z"
-                                stroke={`${item.liked ? "none" : "black"}`}
-                                stroke-width="1.507"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              />
-                            </svg>
-                          </button>
-                          {!item.hide_comment && (
+                  <div className="post__footer">
+                    <div className="post__buttons">
+                      {item.owner_user_detail === null ? (
+                        item.post_type === "Product" ||
+                        item.post_type === "Store" ||
+                        item.post_type === "Field" ? (
+                          ""
+                        ) : (
+                          <>
                             <button
-                              onClick={() => {
-                                commentClick(item.post_id, item.slug);
-                              }}
+                              onClick={() => likeHandler(item.post_id, index)}
                               className="post__button "
                             >
                               <svg
                                 width="30"
                                 height="30"
-                                viewBox="0 0 30 30"
-                                fill="none"
+                                viewBox="0 0 34 32"
+                                stroke="black"
+                                fill={`${item.liked ? "#17A803" : "white"}`}
                                 xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
-                                  d="M14.9911 15.0132V15.0256M9.88392 15.0132V15.0256M20.0982 15.0132V15.0256M3.5 25L5.15982 20.1314C3.72528 18.057 3.20633 15.6004 3.69946 13.2184C4.19258 10.8364 5.66423 8.69107 7.84077 7.18131C10.0173 5.67155 12.7506 4.9001 15.5325 5.01038C18.3144 5.12066 20.9556 6.10518 22.9649 7.78088C24.9743 9.45658 26.2151 11.7094 26.4567 14.1206C26.6982 16.5317 25.9241 18.937 24.2782 20.8893C22.6323 22.8416 20.2267 24.2081 17.5086 24.7345C14.7905 25.261 11.9449 24.9117 9.50089 23.7516L3.5 25Z"
-                                  stroke={theme === "dark" ? "white" : "black"}
-                                  stroke-width="1.4"
+                                  d="M17.0002 26.6668C17.0002 26.6668 4.25024 19.9834 4.25024 11.9633C4.25024 3.94313 14.1669 3.27478 17.0002 9.54977C19.8336 3.27478 29.7502 3.94313 29.7502 11.9633C29.7502 19.9834 17.0002 26.6668 17.0002 26.6668Z"
+                                  stroke={`${item.liked ? "none" : "black"}`}
+                                  stroke-width="1.507"
                                   stroke-linecap="round"
                                   stroke-linejoin="round"
                                 />
                               </svg>
                             </button>
-                          )}
-                          {/* <button
+                            {!item.hide_comment && (
+                              <button
+                                onClick={() => {
+                                  commentClick(item.post_id, item.slug);
+                                }}
+                                className="post__button "
+                              >
+                                <svg
+                                  width="30"
+                                  height="30"
+                                  viewBox="0 0 30 30"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M14.9911 15.0132V15.0256M9.88392 15.0132V15.0256M20.0982 15.0132V15.0256M3.5 25L5.15982 20.1314C3.72528 18.057 3.20633 15.6004 3.69946 13.2184C4.19258 10.8364 5.66423 8.69107 7.84077 7.18131C10.0173 5.67155 12.7506 4.9001 15.5325 5.01038C18.3144 5.12066 20.9556 6.10518 22.9649 7.78088C24.9743 9.45658 26.2151 11.7094 26.4567 14.1206C26.6982 16.5317 25.9241 18.937 24.2782 20.8893C22.6323 22.8416 20.2267 24.2081 17.5086 24.7345C14.7905 25.261 11.9449 24.9117 9.50089 23.7516L3.5 25Z"
+                                    stroke={
+                                      theme === "dark" ? "white" : "black"
+                                    }
+                                    stroke-width="1.4"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                  />
+                                </svg>
+                              </button>
+                            )}
+                            {/* <button
                             onClick={() => {
                               sharedClick(item.post_id);
                             }}
@@ -598,67 +607,67 @@ function SingleContainerHomePosts({ story, allPost }) {
                               />
                             </svg>
                           </button> */}
-                          <SharePostToUser slug={item.slug} />
+                            <SharePostToUser slug={item.slug} />
+                          </>
+                        )
+                      ) : (
+                        <>
+                          <button
+                            onClick={() =>
+                              likeHandler(
+                                item.owner_user_detail.orginal_post_id,
+                                index,
+                                true
+                              )
+                            }
+                            className="post__button "
+                          >
+                            <svg
+                              width="30"
+                              height="30"
+                              viewBox="0 0 34 32"
+                              stroke="black"
+                              fill={`${item.liked ? "#17A803" : "white"}`}
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M17.0002 26.6668C17.0002 26.6668 4.25024 19.9834 4.25024 11.9633C4.25024 3.94313 14.1669 3.27478 17.0002 9.54977C19.8336 3.27478 29.7502 3.94313 29.7502 11.9633C29.7502 19.9834 17.0002 26.6668 17.0002 26.6668Z"
+                                stroke={`${item.liked ? "none" : "black"}`}
+                                stroke-width="1.507"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </button>
+                          <button
+                            onClick={() => {
+                              commentClick(
+                                item.owner_user_detail.orginal_post_id,
+                                item.slug
+                              );
+                            }}
+                            className="post__button "
+                          >
+                            <svg
+                              width="30"
+                              height="30"
+                              viewBox="0 0 30 30"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M14.9911 15.0132V15.0256M9.88392 15.0132V15.0256M20.0982 15.0132V15.0256M3.5 25L5.15982 20.1314C3.72528 18.057 3.20633 15.6004 3.69946 13.2184C4.19258 10.8364 5.66423 8.69107 7.84077 7.18131C10.0173 5.67155 12.7506 4.9001 15.5325 5.01038C18.3144 5.12066 20.9556 6.10518 22.9649 7.78088C24.9743 9.45658 26.2151 11.7094 26.4567 14.1206C26.6982 16.5317 25.9241 18.937 24.2782 20.8893C22.6323 22.8416 20.2267 24.2081 17.5086 24.7345C14.7905 25.261 11.9449 24.9117 9.50089 23.7516L3.5 25Z"
+                                stroke={theme === "dark" ? "white" : "black"}
+                                stroke-width="1.4"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </button>
                         </>
-                      )
-                    ) : (
-                      <>
-                        <button
-                          onClick={() =>
-                            likeHandler(
-                              item.owner_user_detail.orginal_post_id,
-                              index,
-                              true
-                            )
-                          }
-                          className="post__button "
-                        >
-                          <svg
-                            width="30"
-                            height="30"
-                            viewBox="0 0 34 32"
-                            stroke="black"
-                            fill={`${item.liked ? "#17A803" : "white"}`}
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M17.0002 26.6668C17.0002 26.6668 4.25024 19.9834 4.25024 11.9633C4.25024 3.94313 14.1669 3.27478 17.0002 9.54977C19.8336 3.27478 29.7502 3.94313 29.7502 11.9633C29.7502 19.9834 17.0002 26.6668 17.0002 26.6668Z"
-                              stroke={`${item.liked ? "none" : "black"}`}
-                              stroke-width="1.507"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </button>
-                        <button
-                          onClick={() => {
-                            commentClick(
-                              item.owner_user_detail.orginal_post_id,
-                              item.slug
-                            );
-                          }}
-                          className="post__button "
-                        >
-                          <svg
-                            width="30"
-                            height="30"
-                            viewBox="0 0 30 30"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M14.9911 15.0132V15.0256M9.88392 15.0132V15.0256M20.0982 15.0132V15.0256M3.5 25L5.15982 20.1314C3.72528 18.057 3.20633 15.6004 3.69946 13.2184C4.19258 10.8364 5.66423 8.69107 7.84077 7.18131C10.0173 5.67155 12.7506 4.9001 15.5325 5.01038C18.3144 5.12066 20.9556 6.10518 22.9649 7.78088C24.9743 9.45658 26.2151 11.7094 26.4567 14.1206C26.6982 16.5317 25.9241 18.937 24.2782 20.8893C22.6323 22.8416 20.2267 24.2081 17.5086 24.7345C14.7905 25.261 11.9449 24.9117 9.50089 23.7516L3.5 25Z"
-                              stroke={theme === "dark" ? "white" : "black"}
-                              stroke-width="1.4"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </button>
-                      </>
-                    )}
+                      )}
 
-                    {/* <button
+                      {/* <button
                     onClick={() => {
                       sharedClick(item.post_id);
                     }}
@@ -689,7 +698,7 @@ function SingleContainerHomePosts({ story, allPost }) {
                     </svg>
                   </button> */}
 
-                    {/* {item.owner_user_detail === null ? (
+                      {/* {item.owner_user_detail === null ? (
                       item.post_type === "Product" ||
                       item.post_type === "Store" ||
                       item.post_type === "Field" ? (
@@ -755,36 +764,36 @@ function SingleContainerHomePosts({ story, allPost }) {
                         {item.comment_count} {t("Comments")}
                       </button>
                     )} */}
-                  </div>
+                    </div>
 
-                  <div className="post__infos">
-                    {item.post_type === "Product" ? (
-                      <ModuleSharedPostDetails data={item} />
-                    ) : item.post_type === "Store" ? (
-                      <ModuleSharedPostDetails data={item} />
-                    ) : item.post_type === "Field" ? (
-                      <ModuleSharedPostDetails data={item} />
-                    ) : (
-                      <>
-                        {!item.hide_like && (
-                          <div className="post__likes">
-                            <h6
-                              className="post-names"
-                              style={{ cursor: "pointer" }}
-                              onClick={() => likedUsershandler(item.slug)}
-                            >
-                              {item.totalLike} {t("Likes")}
-                            </h6>
-                          </div>
-                        )}
-                        <div className="comments">{item.caption}</div>
-                      </>
-                    )}
+                    <div className="post__infos">
+                      {item.post_type === "Product" ? (
+                        <ModuleSharedPostDetails data={item} />
+                      ) : item.post_type === "Store" ? (
+                        <ModuleSharedPostDetails data={item} />
+                      ) : item.post_type === "Field" ? (
+                        <ModuleSharedPostDetails data={item} />
+                      ) : (
+                        <>
+                          {!item.hide_like && (
+                            <div className="post__likes">
+                              <h6
+                                className="post-names"
+                                style={{ cursor: "pointer" }}
+                                onClick={() => likedUsershandler(item.slug)}
+                              >
+                                {item.totalLike} {t("Likes")}
+                              </h6>
+                            </div>
+                          )}
+                          <div className="comments">{item.caption}</div>
+                        </>
+                      )}
+                    </div>
                   </div>
-                </div>
-              </article>
-            </div>
-          </VisibilitySensor>
+                </article>
+              </div>
+            </VisibilitySensor>
           ))
         ) : (
           <div
