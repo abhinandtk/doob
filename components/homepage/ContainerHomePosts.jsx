@@ -198,7 +198,7 @@ function ContainerHomePosts() {
   useEffect(() => {
     const lastShowDate = localStorage.getItem("popupLastShown");
     const currentDate = moment().format("YYYY-MM-DD");
-    if (lastShowDate != currentDate && popupBanner !== null) {
+    if (lastShowDate != currentDate && popupBanner) {
       setPopupVisible(true);
     }
   }, [popupBanner]);

@@ -177,7 +177,7 @@ function AdminGroundBookings() {
                         width: "90%",
                       }}
                     >
-                      <span style={{ color: "#959595" }}>Slot </span>
+                      <span style={{ color: "#959595" }}>{t("Slot")} </span>
                       <span>
                         {moment(item.start_time, "hh:mm:ss").format("hh:mm A")}{" "}
                         - {moment(item.end_time, "hh:mm:ss").format("hh:mm A")}
@@ -189,7 +189,7 @@ function AdminGroundBookings() {
                         width: "90%",
                       }}
                     >
-                      <span style={{ color: "#959595" }}>{t("Stadium Name")}</span>
+                      <span style={{ color: "#959595" }}>{t("Field Name")}</span>
                       <span className="book-names"> {item.stadium_name}</span>
                     </div>
 

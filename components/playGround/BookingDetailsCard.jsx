@@ -94,7 +94,7 @@ function BookingDetailsCard({ details, setSuccess }) {
                 width: "90%",
               }}
             >
-              <span style={{ color: "#959595" }}>{t("Stadium Name")}</span>
+              <span style={{ color: "#959595" }}>{t("Field Name")}</span>
               <span className="book-names"> {item.stadium_name}</span>
             </div>
 
