@@ -18,16 +18,16 @@ export async function getServerSideProps({ locale }) {
   };
 }
 function PlayerDetailsPage() {
-  const { t } = useTranslation()
-  const router = useRouter()
+  const { t } = useTranslation();
+  const router = useRouter();
   const { locale } = router;
-  const { prId } = router.query;
+  const { prId, title } = router.query;
 
   const [rankDetails, setRankDetails] = useState();
   useEffect(() => {
     Axios.post(
       apis.playerDetails,
-      { player_username: prId },
+      { player_username: prId, game_title: title },
       {
         headers: {
           Authorization: `Token ${constants.token_id}`,
@@ -53,8 +53,9 @@ function PlayerDetailsPage() {
             <div className="row ">
               <div className="col-md-7">
                 <div class="card  tournament4 ">
-
-                  <div className={locale === "ar" ? "card green_ar" : "card green"}>
+                  <div
+                    className={locale === "ar" ? "card green_ar" : "card green"}
+                  >
                     <div className="card-body">
                       <div className="green-content">
                         <img
@@ -65,22 +66,36 @@ function PlayerDetailsPage() {
                           }
                           className="green-imx"
                         ></img>
-                        <div className={locale === "ar" ? "green-details_ar" : "green-details"}>
-
+                        <div
+                          className={
+                            locale === "ar"
+                              ? "green-details_ar"
+                              : "green-details"
+                          }
+                        >
                           <h5 className="green-text">
                             {rankDetails.player_name}
                           </h5>
                           <div className="green-border"></div>
 
-
-                          <div className={locale === "ar" ? "ranks-content_ar" : "ranks-content"}>
+                          <div
+                            className={
+                              locale === "ar"
+                                ? "ranks-content_ar"
+                                : "ranks-content"
+                            }
+                          >
                             <div className="rank-detail">
                               <h6 className="ranks">{t("Rank")}</h6>
-                              <p className="ranks-number">#{rankDetails.rank}</p>
+                              <p className="ranks-number">
+                                #{rankDetails.rank}
+                              </p>
                             </div>
                             <div className="rank-detail1">
                               <h6 className="ranks">{t("Points")}</h6>
-                              <p className="ranks-number">{rankDetails.points}</p>
+                              <p className="ranks-number">
+                                {rankDetails.points}
+                              </p>
                             </div>
                           </div>
                         </div>
@@ -88,18 +103,30 @@ function PlayerDetailsPage() {
                     </div>
                   </div>
 
-
-                  <div className={locale === "ar" ? "card grey_ar" : "card grey"}>
+                  <div
+                    className={locale === "ar" ? "card grey_ar" : "card grey"}
+                  >
                     <div className="card-body">
-                      <div className={locale === "ar" ? "grey-content_ar" : "grey-content"} style={{ direction: locale === 'ar' ? "ltr" : "" }}>
+                      <div
+                        className={
+                          locale === "ar" ? "grey-content_ar" : "grey-content"
+                        }
+                        style={{ direction: locale === "ar" ? "ltr" : "" }}
+                      >
                         <div className="grey-details">
                           <h5 className="grey-number">
                             {rankDetails.Matches_Played}
                           </h5>
                           <p className="grey-match">{t("Matches Played")}</p>
                         </div>
-                        
-                        <div className={locale === "ar" ? "grey-details1_ar" : "grey-details1"}>
+
+                        <div
+                          className={
+                            locale === "ar"
+                              ? "grey-details1_ar"
+                              : "grey-details1"
+                          }
+                        >
                           <h5 className="grey-number">
                             {rankDetails.Matches_Won}
                           </h5>
@@ -108,9 +135,16 @@ function PlayerDetailsPage() {
                       </div>
                     </div>
                   </div>
-                  <div className={locale === "ar" ? "card grey_ar" : "card grey"}>
+                  <div
+                    className={locale === "ar" ? "card grey_ar" : "card grey"}
+                  >
                     <div className="card-body">
-                      <div className={locale === "ar" ? "grey-content_ar" : "grey-content"} style={{ direction: locale === 'ar' ? "ltr" : "" }}>
+                      <div
+                        className={
+                          locale === "ar" ? "grey-content_ar" : "grey-content"
+                        }
+                        style={{ direction: locale === "ar" ? "ltr" : "" }}
+                      >
                         <div className="grey-details">
                           <h5 className="grey-number">{rankDetails.goal}</h5>
                           <p className="grey-match">{t("Goals")}</p>
@@ -119,34 +153,59 @@ function PlayerDetailsPage() {
                           <h5 className="grey-number">
                             {rankDetails.tournament_played}
                           </h5>
-                          <p className="grey-match">{t("Tournaments Played")}</p>
+                          <p className="grey-match">
+                            {t("Tournaments Played")}
+                          </p>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div className={locale === "ar" ? "card grey_ar" : "card grey"}>
+                  <div
+                    className={locale === "ar" ? "card grey_ar" : "card grey"}
+                  >
                     <div className="card-body">
-                      <div className={locale === "ar" ? "grey-content_ar" : "grey-content"} style={{ direction: locale === 'ar' ? "ltr" : "" }}>
+                      <div
+                        className={
+                          locale === "ar" ? "grey-content_ar" : "grey-content"
+                        }
+                        style={{ direction: locale === "ar" ? "ltr" : "" }}
+                      >
                         <div className="grey-details">
                           <h5 className="grey-number">
                             {rankDetails.final_played}
                           </h5>
                           <p className="grey-match">{t("Finals Played")}</p>
                         </div>
-                        <div className={locale === "ar" ? "grey-details3_ar" : "grey-details3"}>
+                        <div
+                          className={
+                            locale === "ar"
+                              ? "grey-details3_ar"
+                              : "grey-details3"
+                          }
+                        >
                           <h5 className="grey-number">
                             {rankDetails.semifinal_played}
                           </h5>
-                          <p className="grey-match">{t("Semi-finals Played")}</p>
+                          <p className="grey-match">
+                            {t("Semi-finals Played")}
+                          </p>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div className={locale === "ar" ? "card grey_ar" : "card grey"}>
+                  <div
+                    className={locale === "ar" ? "card grey_ar" : "card grey"}
+                  >
                     <div className="card-body">
-                      <div className={locale === "ar" ? "grey-content_ar" : "grey-content"}>
+                      <div
+                        className={
+                          locale === "ar" ? "grey-content_ar" : "grey-content"
+                        }
+                      >
                         <div className="grey-details">
-                          <h5 className="grey-number">{rankDetails.final_won}</h5>
+                          <h5 className="grey-number">
+                            {rankDetails.final_won}
+                          </h5>
                           <p className="grey-match">{t("Finals Won")}</p>
                         </div>
                       </div>
@@ -163,7 +222,6 @@ function PlayerDetailsPage() {
                 </div>
               </div>
             </div>
-
           )}
         </div>
       </div>

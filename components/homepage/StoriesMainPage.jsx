@@ -38,9 +38,9 @@ function StoriesMainPage() {
       // style={{ height: `${storyList || loginedStoryList ? "" : "0px"}` }}
     >
       {/* {(storyList || loginedStoryList) && ( */}
-        <div className="ms-1 dark-theme-color" style={{ fontWeight: 500 }}>
-          {t("My Followers")}
-        </div>
+      <div className="ms-1 dark-theme-color" style={{ fontWeight: 500 }}>
+        {t("My Followers")}
+      </div>
       {/* )} */}
       <button className="stories__left-button">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -90,7 +90,7 @@ function StoriesMainPage() {
                       objectFit: "cover",
                     }}
                   /> */}
-                  <div className="story__picture-container">
+                  <div className="story__picture">
                     <img
                       src={
                         userImage

@@ -173,9 +173,20 @@ export default function PostActions({
 
         <Dropdown.Menu align="center" className="Menu">
           {constants.user_id !== user ? (
-            <Dropdown.Item onClick={() => reportModalHandler()}>
-              {t("Report")}
-            </Dropdown.Item>
+            <>
+              <Dropdown.Item onClick={() => reportModalHandler()}>
+                {t("Report")}
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() =>
+                  router.push({
+                    pathname: `/page/restrict-profile/${user}`,
+                  })
+                }
+              >
+                {t("Restrict")}
+              </Dropdown.Item>
+            </>
           ) : (
             <Dropdown.Item onClick={() => deleteModalHandler()}>
               {t("Delete")}

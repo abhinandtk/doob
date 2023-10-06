@@ -153,23 +153,23 @@ function TournamentDetailPage() {
       <MainSidebarFixed />
 
       <div className="tour-container" style={{ minHeight: "600px" }}>
-      <div className="tour-detail-ar">
-        <div className="row ">
-          <div className="col-lg-7 col-md-12">
-            {homeTabData && homeTabData.tournament_details && (
-              <div class="card  tournament2 my-5">
-                <img
-                  src={`${constants.port}${homeTabData.tournament_details.image}`}
-                  className="live-image2"
-                  alt="Card image cap"
-                />
-                <div className="live-icon1">
-                  <span
-                    // onClick={() => handleShare()}
-                    style={{ cursor: "pointer",padding:"10px" }}
-                  >
-                    <ShareToUserChat slug={tid} type="tour"/>
-                    {/* <span className="mx-4">
+        <div className="tour-detail-ar">
+          <div className="row ">
+            <div className="col-lg-7 col-md-12">
+              {homeTabData && homeTabData.tournament_details && (
+                <div class="card  tournament2 my-5">
+                  <img
+                    src={`${constants.port}${homeTabData.tournament_details.image}`}
+                    className="live-image2"
+                    alt="Card image cap"
+                  />
+                  <div className="live-icon1">
+                    <span
+                      // onClick={() => handleShare()}
+                      style={{ cursor: "pointer", padding: "10px" }}
+                    >
+                      <ShareToUserChat slug={tid} type="tour" />
+                      {/* <span className="mx-4">
                       <svg
                         width="5"
                         height="18"
@@ -200,152 +200,161 @@ function TournamentDetailPage() {
                         />
                       </svg>
                     </span> */}
-                  </span>
-                </div>
+                    </span>
+                  </div>
 
-                <div class="card-body ">
-                  <div className="">
-                    <div className="leagues">
-                      <div className=" leag1">
-                        <h6 className="league">
-                          {homeTabData.tournament_details.tournament_name}
-                        </h6>
-                        <p className="league1">
-                          {homeTabData.tournament_details.game_name}
-                        </p>
-                      </div>
-                      <div className={locale === "en" ? "leag2" : "leag2_ar"} >
-                        <span>
-                          <img
-                            src="/images/tournament/match.png"
-                            className="knock-img1"
-                          ></img>
-                          <span className="mx-1 knock-text1">
-                            {homeTabData.tournament_details.match_mode}
+                  <div class="card-body ">
+                    <div className="">
+                      <div className="leagues">
+                        <div className=" leag1">
+                          <h6 className="league">
+                            {homeTabData.tournament_details.tournament_name}
+                          </h6>
+                          <p className="league1">
+                            {homeTabData.tournament_details.game_name}
+                          </p>
+                        </div>
+                        <div className={locale === "en" ? "leag2" : "leag2_ar"}>
+                          <span>
+                            <img
+                              src="/images/tournament/match.png"
+                              className="knock-img1"
+                            ></img>
+                            <span className="mx-1 knock-text1">
+                              {homeTabData.tournament_details.match_mode}
+                            </span>
                           </span>
-                        </span>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+              )}
+            </div>
+            <div className="col-lg-5 col-md-6">
+              <div className="live-ads">
+                <img
+                  src="/images/tournament/Group 12.png"
+                  className={
+                    locale === "ar" ? "tournament-imx2_ar" : "tournament-imx2"
+                  }
+                ></img>
               </div>
-            )}
-          </div>
-          <div className="col-lg-5 col-md-6">
-            <div className="live-ads">
-              <img
-                src="/images/tournament/Group 12.png"
-                className={locale === "ar" ? "tournament-imx2_ar" : "tournament-imx2"}
-              ></img>
             </div>
           </div>
-        </div>
 
-        <div className="tour_detail_tabs">
-          <Tabs
-            defaultActiveKey="Home"
-            id="my-tabs"
-            className=""
-            style={{ justifyContent: "initial", color: "red" ,marginRight:"-40px"}}
-            onSelect={handleTabChange}
-          >
-            <Tab eventKey="Home" title={tabButton("Home")}>
-              {homeTabData && homeTabData.next_match && (
-                <>
-                  <h6
-                    className="my-4"
-                    style={{ fontSize: "15px", fontWeight: "600" }}
-                  >
-                    {t("Next Match")}
-                  </h6>
-                  {homeTabData &&
-                  homeTabData.tournament_details.tournament_type ===
-                    "Single" ? (
-                    <MatchCards data={homeTabData.next_match} />
-                  ) : (
-                    <DoublesMatchCard data={homeTabData.next_match} />
-                  )}
-                </>
-              )}
-              {homeTabData && homeTabData.last_match && (
-                <>
-                  <h6
-                    className="my-4"
-                    style={{ fontSize: "15px", fontWeight: "600" }}
-                  >
-                    {t("Last Match")}
-                  </h6>
-                  {homeTabData &&
-                  homeTabData.tournament_details.tournament_type ===
-                    "Single" ? (
-                    <MatchCards data={homeTabData.last_match} home={homeTabData}/>
-                  ) : (
-                    <DoublesMatchCard data={homeTabData.last_match} />
-                  )}
-                </>
-              )}
-            </Tab>
-            <Tab eventKey="Teams" title={tabButton("Teams")}>
-              {homeTabData &&
-              homeTabData.tournament_details.tournament_type === "Single" ? (
-                <TeamsCard
-                  teamsData={teamsTabData}
-                  setOnSuccess={setOnSuccess}
-                  admin={adminList}
-                  matchGenerate={matchGenerate}
-                />
-              ) : homeTabData &&
-                homeTabData.tournament_details.tournament_type ===
-                  "Draw_Partner" ? (
-                teamsTabData.length <= 0 ? (
+          <div className="tour_detail_tabs">
+            <Tabs
+              defaultActiveKey="Home"
+              id="my-tabs"
+              className=""
+              style={{
+                justifyContent: "initial",
+                color: "red",
+                marginRight: "-40px",
+              }}
+              onSelect={handleTabChange}
+            >
+              <Tab eventKey="Home" title={tabButton("Home")}>
+                {homeTabData && homeTabData.next_match && (
+                  <>
+                    <h6
+                      className="my-4"
+                      style={{ fontSize: "15px", fontWeight: "600" }}
+                    >
+                      {t("Next Match")}
+                    </h6>
+                    {homeTabData &&
+                    homeTabData.tournament_details.tournament_type ===
+                      "Single" ? (
+                      <MatchCards data={homeTabData.next_match} />
+                    ) : (
+                      <DoublesMatchCard data={homeTabData.next_match} />
+                    )}
+                  </>
+                )}
+                {homeTabData && homeTabData.last_match && (
+                  <>
+                    <h6
+                      className="my-4"
+                      style={{ fontSize: "15px", fontWeight: "600" }}
+                    >
+                      {t("Last Match")}
+                    </h6>
+                    {homeTabData &&
+                    homeTabData.tournament_details.tournament_type ===
+                      "Single" ? (
+                      <MatchCards
+                        data={homeTabData.last_match}
+                        home={homeTabData}
+                      />
+                    ) : (
+                      <DoublesMatchCard data={homeTabData.last_match} />
+                    )}
+                  </>
+                )}
+              </Tab>
+              <Tab eventKey="Teams" title={tabButton("Teams")}>
+                {homeTabData &&
+                homeTabData.tournament_details.tournament_type === "Single" ? (
                   <TeamsCard
-                    teamsData={teamsTempTabData}
+                    teamsData={teamsTabData}
                     setOnSuccess={setOnSuccess}
                     admin={adminList}
-                    temp={true}
-                    maxTeam={
-                      homeTabData &&
-                      homeTabData.tournament_details.maximum_participants
-                    }
+                    matchGenerate={matchGenerate}
                   />
+                ) : homeTabData &&
+                  homeTabData.tournament_details.tournament_type ===
+                    "Draw_Partner" ? (
+                  teamsTabData.length <= 0 ? (
+                    <TeamsCard
+                      teamsData={teamsTempTabData}
+                      setOnSuccess={setOnSuccess}
+                      admin={adminList}
+                      temp={true}
+                      maxTeam={
+                        homeTabData &&
+                        homeTabData.tournament_details.maximum_participants
+                      }
+                    />
+                  ) : (
+                    <DoublesTeamsCard
+                      teamsData={teamsTabData}
+                      setOnSuccess={setOnSuccess}
+                      admin={adminList}
+                      temp={true}
+                    />
+                  )
                 ) : (
                   <DoublesTeamsCard
                     teamsData={teamsTabData}
                     setOnSuccess={setOnSuccess}
                     admin={adminList}
-                    temp={true}
+                    matchGenerate={matchGenerate}
                   />
-                )
-              ) : (
-                <DoublesTeamsCard
-                  teamsData={teamsTabData}
+                )}
+              </Tab>
+              <Tab eventKey="Matches" title={tabButton("Matches")}>
+                <TournamentMatches
+                  data={matchesTabData}
                   setOnSuccess={setOnSuccess}
                   admin={adminList}
-                  matchGenerate={matchGenerate}
+                  home={homeTabData}
                 />
-              )}
-            </Tab>
-            <Tab eventKey="Matches" title={tabButton("Matches")}>
-              <TournamentMatches
-                data={matchesTabData}
-                setOnSuccess={setOnSuccess}
-                admin={adminList}
-                home={homeTabData}
-              />
-            </Tab>
-            <Tab eventKey="Fixture" title={tabButton("Fixture")}>
-              <FixtureView
-                data={matchesTabData}
-                setOnSuccess={setOnSuccess}
-                admin={adminList}
-                home={homeTabData}
-              />
-            </Tab>
-          </Tabs>
+              </Tab>
+              <Tab eventKey="Fixture" title={tabButton("Fixture")}>
+                <FixtureView
+                  data={matchesTabData}
+                  setOnSuccess={setOnSuccess}
+                  admin={adminList}
+                  home={homeTabData}
+                />
+              </Tab>
+            </Tabs>
+          </div>
         </div>
+        <MobileFooter />
       </div>
-      <MobileFooter />
-    </div>
     </div>
   );
 }

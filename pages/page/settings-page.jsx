@@ -40,6 +40,10 @@ function StoreSettingsPage() {
   const { t } = useTranslation();
   const labels = Labels();
   const [accountStatus, setAccountStatus] = useState(false);
+  const [privacyStatus, setPrivacyStatus] = useState({
+    age: false,
+    followers: false,
+  });
   const [userType, setUserType] = useState(null);
   const [onSuccess, setOnSuccess] = useState(false);
   const [visible, setVisible] = useState(false);
@@ -54,6 +58,10 @@ function StoreSettingsPage() {
       },
     }).then((res) => {
       setAccountStatus(res.data.data.is_private);
+      setPrivacyStatus({
+        age: res.data.data.hide_age,
+        followers: res.data.data.hide_followers_count,
+      });
       setUserType(res.data.data.user_type);
       console.log("storeset", res, res.data.data.is_private);
     });
@@ -64,7 +72,6 @@ function StoreSettingsPage() {
       },
     }).then((res) => {
       setBlockedList(res.data.data);
-      console.log("console.log", res);
     });
   }, [onSuccess]);
   console.log("resstatus", accountStatus);
@@ -91,6 +98,46 @@ function StoreSettingsPage() {
         notification.success({
           message: t("Success"),
           description: `${labels["Status changed successfully"]}`,
+        });
+      }
+    });
+  };
+  const privacyHandlerChange = (e) => {
+    e.preventDefault();
+    console.log(
+      "resultpfprivacy first inpuuuuuuuuuuuuuuuut",
+      privacyStatus.age,
+      privacyStatus.followers
+    );
+
+    const newStatus = { ...privacyStatus };
+    newStatus[e.target.id] = e.target.checked;
+    setPrivacyStatus({ ...newStatus });
+
+    Axios.put(
+      apis.privacy_age_followers,
+      {
+        hide_age: newStatus.age,
+        hide_followers_count: newStatus.followers,
+      },
+      {
+        headers: {
+          Authorization: `Token ${constants.token_id}`,
+        },
+      }
+    ).then((res) => {
+      if (res.data.status === 1) {
+        setOnSuccess((prev) => !prev);
+        notification.success({
+          message: t("Success"),
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
+        });
+      } else {
+        notification.error({
+          message: t("Error"),
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
         });
       }
     });
@@ -184,7 +231,7 @@ function StoreSettingsPage() {
         maskClosable
         centered
         bodyStyle={{ maxHeight: "50vh", overflowY: "scroll" }}
-        title={t("Blocked users")}
+        title={t("Blocked Users")}
       >
         <div style={{ padding: "16px" }}>
           {blockedList &&
@@ -226,7 +273,7 @@ function StoreSettingsPage() {
                   style={{ backgroundColor: "#EFEFEF", color: "#000000" }}
                 >
                   {" "}
-                  Unblock
+                  {t("Unblock")}
                 </button>
               </div>
             ))}
@@ -279,6 +326,38 @@ function StoreSettingsPage() {
                       placeholder="Active"
                       onChange={(e) => statusHandlerChange(e)}
                       checked={accountStatus}
+                      type="checkbox"
+                    />
+                    <label></label>{" "}
+                  </div>
+                  <h6 className="my-4 dark-theme-color">
+                    {t("Hide Followers")}
+                  </h6>{" "}
+                  <div
+                    className="toggle1"
+                    style={{ marginRight: "50px", marginTop: "-40px" }}
+                  >
+                    {" "}
+                    <input
+                      id="followers"
+                      placeholder="Active"
+                      onChange={(e) => privacyHandlerChange(e)}
+                      checked={privacyStatus.followers}
+                      type="checkbox"
+                    />
+                    <label></label>{" "}
+                  </div>
+                  <h6 className="my-4 dark-theme-color">{t("Hide Age")}</h6>{" "}
+                  <div
+                    className="toggle1"
+                    style={{ marginRight: "50px", marginTop: "-40px" }}
+                  >
+                    {" "}
+                    <input
+                      id="age"
+                      placeholder="Active"
+                      onChange={(e) => privacyHandlerChange(e)}
+                      checked={privacyStatus.age}
                       type="checkbox"
                     />
                     <label></label>{" "}
@@ -411,6 +490,30 @@ function StoreSettingsPage() {
                       </span>
                     </h6>
                   </div>
+                  <Link
+                    href="/page/restricted-users-list"
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    <h6 className="my-4 dark-theme-color">
+                      {t("Restricted Users")}
+                      <span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          className="bi bi-chevron-right arrow-icon"
+                          viewBox="0 0 16 16"
+                          style={{ marginRight: "50px" }}
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+                          />
+                        </svg>
+                      </span>
+                    </h6>
+                  </Link>
                   <div
                     className="d-flex my-3"
                     style={{ justifyContent: "space-between" }}

@@ -44,17 +44,19 @@ function TournamentHomePage() {
     }).then((res) => {
       setLiveTourData(res.data.data.live_tournaments);
       setRankData(res.data.data.ranks);
-      console.log("ddddddata", res.data.data.setLiveTourData);
+      console.log("ddddddata", res);
     });
   }, []);
   const rankTabHandler = () => {
     const isAuthenticated = constants.token_id;
     if (isAuthenticated) {
       setActiveTab("ranks");
+      console.log("ddddddata /888888888888888")
     } else {
       dispatch(activeModalShow("login"));
     }
   };
+  console.log('ddddddata ',activeTab)
 
   return (
     <div>

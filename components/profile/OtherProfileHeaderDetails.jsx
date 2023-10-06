@@ -344,35 +344,45 @@ function OtherProfileHeaderDetails({
                   )}
                   <br></br>
                   <h1 className="profile-user-names">@{data.username}</h1>
+                  {!data.hide_followers_count && (
+                    <>
+                      <br></br>
+                      <li>
+                        <span className="profile-stat-count">
+                          {data.post_count}
+                        </span>{" "}
+                        <span style={{ color: "#959595" }}>{t("Posts")}</span>
+                      </li>
+                      <li>
+                        <span className="profile-stat-count">
+                          {data.followers_count}
+                        </span>{" "}
+                        <span style={{ color: "#959595" }}>
+                          {t("Followers")}
+                        </span>
+                      </li>
+                      <li>
+                        <span className="profile-stat-count">
+                          {data.following_count}
+                        </span>{" "}
+                        <span style={{ color: "#959595" }}>
+                          {t("Following")}
+                        </span>
+                      </li>
+                    </>
+                  )}
                   <br></br>
-                  <li>
-                    <span className="profile-stat-count">
-                      {data.post_count}
-                    </span>{" "}
-                    <span style={{ color: "#959595" }}>{t("Posts")}</span>
-                  </li>
-                  <li>
-                    <span className="profile-stat-count">
-                      {data.followers_count}
-                    </span>{" "}
-                    <span style={{ color: "#959595" }}>{t("Followers")}</span>
-                  </li>
-                  <li>
-                    <span className="profile-stat-count">
-                      {data.following_count}
-                    </span>{" "}
-                    <span style={{ color: "#959595" }}>{t("Following")}</span>
-                  </li>
-                  <br></br>
-                  <li>
-                    <span
-                      className="profile-stat-count "
-                      style={{ color: "#959595" }}
-                    >
-                      {t("Age")}:
-                    </span>{" "}
-                    <span>{data.age}</span>
-                  </li>
+                  {!data.hide_age && (
+                    <li>
+                      <span
+                        className="profile-stat-count "
+                        style={{ color: "#959595" }}
+                      >
+                        {t("Age")}:
+                      </span>{" "}
+                      <span>{data.age}</span>
+                    </li>
+                  )}
                   <li>
                     <span
                       className="profile-stat-count"
@@ -536,20 +546,26 @@ function OtherProfileHeaderDetails({
             </span> */}
             </div>
             <div className="profile-role">@{data.username}</div>
-            <div className="profile-followers">
-              {data.post_count}{" "}
-              <span style={{ color: "#959595" }}>{t("Posts")}</span>
-              <span className="mx-1">
-                {data.followers_count}{" "}
-                <span style={{ color: "#959595" }}>{t("Followers")}</span>
-              </span>
-              <span>
-                {data.following_count}{" "}
-                <span style={{ color: "#959595" }}>{t("Following")}</span>
-              </span>{" "}
-            </div>
+            {!data.hide_followers_count && (
+              <div className="profile-followers">
+                {data.post_count}{" "}
+                <span style={{ color: "#959595" }}>{t("Posts")}</span>
+                <span className="mx-1">
+                  {data.followers_count}{" "}
+                  <span style={{ color: "#959595" }}>{t("Followers")}</span>
+                </span>
+                <span>
+                  {data.following_count}{" "}
+                  <span style={{ color: "#959595" }}>{t("Following")}</span>
+                </span>{" "}
+              </div>
+            )}
             <div className="profile-age">
-              {t("Age")}:<span>{data.age}</span>
+              {!data.hide_age && (
+                <span>
+                  {t("Age")}:{data.age}
+                </span>
+              )}
               <span className="mx-2">
                 {t("Gender")}: {data.gender}
               </span>

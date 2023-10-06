@@ -44,12 +44,13 @@ function OtherUserProfileActivity() {
 
   return (
     <div style={{ direction: locale === "ar" && "rtl" }}>
-      <Card className="card-tab" >
-
+      <Card className="card-tab">
         {activityData.map((item, index) => (
           <div key={index}>
-            
-            <h6 key={index} className={locale==="en"?"activity-date":"activity-date_ar"}>
+            <h6
+              key={index}
+              className={locale === "en" ? "activity-date" : "activity-date_ar"}
+            >
               {item.date}
             </h6>
             {item.data.map((item_, index_) => (
@@ -80,7 +81,11 @@ function OtherUserProfileActivity() {
                               {item_.title} {item_.booking.stadium_name}
                             </p>
                           </div>
-                          <p className={locale==="en"?"small-time":"small-time_ar"}>
+                          <p
+                            className={
+                              locale === "en" ? "small-time" : "small-time_ar"
+                            }
+                          >
                             {moment(item_.created_at).format("hh:mm A")}
                           </p>
                         </div>
@@ -114,7 +119,11 @@ function OtherUserProfileActivity() {
                               Liked {item_.post.user} Post
                             </p>
                           </div>
-                          <p className={locale==="en"?"small-time":"small-time_ar"}>
+                          <p
+                            className={
+                              locale === "en" ? "small-time" : "small-time_ar"
+                            }
+                          >
                             {moment(item_.created_at).format("hh:mm A")}
                           </p>
                         </div>
@@ -152,7 +161,11 @@ function OtherUserProfileActivity() {
                                 : "Shared a Post"}
                             </p>
                           </div>
-                          <p className={locale==="en"?"small-time":"small-time_ar"}>
+                          <p
+                            className={
+                              locale === "en" ? "small-time" : "small-time_ar"
+                            }
+                          >
                             {moment(item_.created_at).format("hh:mm A")}
                           </p>
                         </div>
@@ -184,7 +197,11 @@ function OtherUserProfileActivity() {
                           <div className="d-flex justify-content-between align-items-center">
                             <p className=" Book">{item_.title}</p>
                           </div>
-                          <p className={locale==="en"?"small-time":"small-time_ar"}>
+                          <p
+                            className={
+                              locale === "en" ? "small-time" : "small-time_ar"
+                            }
+                          >
                             {moment(item_.created_at).format("hh:mm A")}
                           </p>
                         </div>
@@ -216,7 +233,11 @@ function OtherUserProfileActivity() {
                           <div className="d-flex justify-content-between align-items-center">
                             <p className=" Book">You &nbsp;{item_.title}</p>
                           </div>
-                          <p className={locale==="en"?"small-time":"small-time_ar"}>
+                          <p
+                            className={
+                              locale === "en" ? "small-time" : "small-time_ar"
+                            }
+                          >
                             {moment(item_.created_at).format("hh:mm A")}
                           </p>
                         </div>
@@ -254,7 +275,11 @@ function OtherUserProfileActivity() {
                               {item_.title}&nbsp;{item_.order.product_name}
                             </p>
                           </div>
-                          <p className={locale==="en"?"small-time":"small-time_ar"}>
+                          <p
+                            className={
+                              locale === "en" ? "small-time" : "small-time_ar"
+                            }
+                          >
                             {moment(item_.created_at).format("hh:mm A")}
                           </p>
                         </div>

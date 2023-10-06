@@ -49,17 +49,26 @@ function RankTabContent({ data }) {
                 >
                   <Tab eventKey="home" title={t("Male")}>
                     {content.male.length >= 1 && (
-                      <RankingTable data={content.male} />
+                      <RankingTable
+                        data={content.male}
+                        title={content.game_type}
+                      />
                     )}
                   </Tab>
                   <Tab eventKey="profile" title={t("Female")}>
                     {content.female.length >= 1 && (
-                      <RankingTable data={content.female} />
+                      <RankingTable
+                        data={content.female}
+                        title={content.game_type}
+                      />
                     )}
                   </Tab>
                   <Tab eventKey="messages" title={t("Junior")}>
                     {content.junior.length >= 1 && (
-                      <RankingTable data={content.junior} />
+                      <RankingTable
+                        data={content.junior}
+                        title={content.game_type}
+                      />
                     )}
                   </Tab>
                 </Tabs>

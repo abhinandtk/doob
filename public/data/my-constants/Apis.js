@@ -29,6 +29,7 @@ const apis = {
     "settings": `${constants.port}/API/list_user_status`,
     "update_delete_account": `${constants.port}/API/update_user_status`,
     "changePasswordSettings": `${constants.port}/API/change_password`,
+    "privacy_age_followers": `${constants.port}/API/toggle_age_followers`,
 
     //chat module
     'inboxUser': `${constants.port}/social/Api/inbox`,
@@ -87,6 +88,8 @@ const apis = {
 
     'addStory': `${constants.port}/social/Api/add_story`,
     'deleteStory': `${constants.port}/social/Api/delete_story`,
+    'restriction': `${constants.port}/social/Api/add_restriction`,
+    'restrictedUsers': `${constants.port}/social/Api/view_user_restriction`,
 
 
     //store module

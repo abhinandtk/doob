@@ -5,9 +5,9 @@ import React from "react";
 import { Fragment } from "react";
 import { useTranslation } from "next-i18next";
 
-function RankingTable({ data }) {
+function RankingTable({ data, title }) {
   console.log("rrrrrrrrreeeeeeeeeeeee", data);
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   const router = useRouter();
   const { locale } = router;
@@ -20,17 +20,26 @@ function RankingTable({ data }) {
               index === 0 ? (
                 <li
                   onClick={() =>
-                    router.push(`/tournament/player/${item.username}`)
+                    router.push({
+                      pathname: `/tournament/player/${item.username}`,
+                      query: {
+                        title: title,
+                      },
+                    })
                   }
                   key={index}
-                  className={` ${locale === "ar" ? "table-row_ar p-3" : "table-row p-3"}`}
+                  className={` ${
+                    locale === "ar" ? "table-row_ar p-3" : "table-row p-3"
+                  }`}
                   style={{ cursor: "pointer" }}
                 >
                   <div className="col col-1 mt-4  id " data-label="Job Id">
                     #{index + 1}
                   </div>
 
-                  <span   className={` ${locale === "ar" ? "ahmed_ar" : "ahmed"}`}>
+                  <span
+                    className={` ${locale === "ar" ? "ahmed_ar" : "ahmed"}`}
+                  >
                     <img
                       src={
                         item.image
@@ -38,18 +47,21 @@ function RankingTable({ data }) {
                           : "/images/accounts/user_default.png"
                       }
                       className="tour_rank_img"
-                      
                     ></img>
                   </span>
 
-                  <span                 
-                    className={`col col-8 mt-3 ${locale === "ar" ? "name_ar" : "name"}`}
+                  <span
+                    className={`col col-8 mt-3 ${
+                      locale === "ar" ? "name_ar" : "name"
+                    }`}
                     data-label="Customer Name"
                   >
                     {item.name}
                   </span>
                   <div
-                    className={`col col-1 mt-3 ${locale === "ar" ? "views_ar" : "views"}`}
+                    className={`col col-1 mt-3 ${
+                      locale === "ar" ? "views_ar" : "views"
+                    }`}
                     data-label="Payment Status"
                   >
                     {t("View")}
@@ -91,7 +103,9 @@ function RankingTable({ data }) {
                   </span>
 
                   <div
-                    className={`col col-1 mt-3 ${locale === "ar" ? "views1_ar" : "views1"}`}
+                    className={`col col-1 mt-3 ${
+                      locale === "ar" ? "views1_ar" : "views1"
+                    }`}
                     data-label="Payment Status"
                   >
                     {t("View")}
