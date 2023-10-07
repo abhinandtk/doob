@@ -189,7 +189,7 @@ function PlaygroundReport() {
                 </div> */}
                 <div className="customer-sale">
                   <div className="report-section">
-                    <div>{t("PlayGround")}</div>
+                    <div>{t("Field")}</div>
                     <div>{t("Booking Count")}</div>
                     <div>{t("Total Amount")}</div>
                   </div>

@@ -35,7 +35,8 @@ function RestrictedUsersPage() {
       setRestrictedList(res.data.data);
     });
   }, [onSuccess]);
-  const removeRestrictHandler = (id) => {
+  const removeRestrictHandler = (e, id) => {
+    e.stopPropagation();
     Axios.delete(apis.restrictedUsers, {
       data: { restriction_id: id },
       headers: {
@@ -107,7 +108,7 @@ function RestrictedUsersPage() {
                           </p>
                         </div>
                         <button
-                          onClick={() => removeRestrictHandler(item.id)}
+                          onClick={(e) => removeRestrictHandler(e, item.id)}
                           className="side-menu__suggestion-buttons"
                           style={{
                             backgroundColor: "#EFEFEF",

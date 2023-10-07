@@ -85,6 +85,7 @@ function OtherUserProfileActivity() {
                             className={
                               locale === "en" ? "small-time" : "small-time_ar"
                             }
+                            style={{ direction: "ltr" }}
                           >
                             {moment(item_.created_at).format("hh:mm A")}
                           </p>
@@ -123,6 +124,7 @@ function OtherUserProfileActivity() {
                             className={
                               locale === "en" ? "small-time" : "small-time_ar"
                             }
+                            style={{ direction: "ltr" }}
                           >
                             {moment(item_.created_at).format("hh:mm A")}
                           </p>
@@ -165,6 +167,7 @@ function OtherUserProfileActivity() {
                             className={
                               locale === "en" ? "small-time" : "small-time_ar"
                             }
+                            style={{ direction: "ltr" }}
                           >
                             {moment(item_.created_at).format("hh:mm A")}
                           </p>
@@ -201,6 +204,7 @@ function OtherUserProfileActivity() {
                             className={
                               locale === "en" ? "small-time" : "small-time_ar"
                             }
+                            style={{ direction: "ltr" }}
                           >
                             {moment(item_.created_at).format("hh:mm A")}
                           </p>
@@ -237,6 +241,7 @@ function OtherUserProfileActivity() {
                             className={
                               locale === "en" ? "small-time" : "small-time_ar"
                             }
+                            style={{ direction: "ltr" }}
                           >
                             {moment(item_.created_at).format("hh:mm A")}
                           </p>
@@ -279,6 +284,7 @@ function OtherUserProfileActivity() {
                             className={
                               locale === "en" ? "small-time" : "small-time_ar"
                             }
+                            style={{ direction: "ltr" }}
                           >
                             {moment(item_.created_at).format("hh:mm A")}
                           </p>

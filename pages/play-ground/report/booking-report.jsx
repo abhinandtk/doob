@@ -88,17 +88,17 @@ function BookingReport() {
       x: {
         grid: {
           display: false,
-          borderDash: [10, 5], 
-          borderDashOffset: 5, 
-          drawTicks: true, 
+          borderDash: [10, 5],
+          borderDashOffset: 5,
+          drawTicks: true,
         },
       },
       y: {
         grid: {
           display: false,
           borderDash: [10, 5],
-          borderDashOffset: 5, 
-          drawTicks: true, 
+          borderDashOffset: 5,
+          drawTicks: true,
         },
       },
     },
@@ -141,7 +141,9 @@ function BookingReport() {
                         background: "transparent",
                       }}
                     >
-                      {`${t("Last")} ${selectedDays == 30 ? t("30 days") : selectedDays}`}{" "}
+                      {`${t("Last")} ${
+                        selectedDays == 30 ? t("30 days") : selectedDays
+                      }`}{" "}
                       <i className="bi bi-chevron-down "></i>
                     </Dropdown.Toggle>
 
@@ -158,7 +160,10 @@ function BookingReport() {
                     </Dropdown.Menu>
                   </Dropdown>
                   <span>
-                    <button type="button" className="export-btn  input-theme-prod dark-theme-color">
+                    <button
+                      type="button"
+                      className="export-btn  input-theme-prod dark-theme-color"
+                    >
                       <a
                         href={url}
                         style={{
@@ -196,15 +201,21 @@ function BookingReport() {
                     <span>{bookingData.num_customers}</span>
                   </div>
                   <div className="p-3 input-theme-prod d-flex justify-content-between my-3 customer">
-                    <span className="sales-report-name">{t("Booked Slots")}</span>
+                    <span className="sales-report-name">
+                      {t("Booked Slots")}
+                    </span>
                     <span>{bookingData.booking_count}</span>
                   </div>
                   <div className="p-3 input-theme-prod d-flex justify-content-between my-3 customer">
-                    <span className="sales-report-name">{t("Cancel Count")}</span>
+                    <span className="sales-report-name">
+                      {t("Cancel Count")}
+                    </span>
                     <span>{bookingData.cancel_count}</span>
                   </div>
                   <div className="p-3 input-theme-prod d-flex justify-content-between my-3  customer">
-                    <span className="sales-report-name">{t("Total Bookings")}</span>
+                    <span className="sales-report-name">
+                      {t("Total Bookings")}
+                    </span>
                     <span>{bookingData.num_slots}</span>
                   </div>
                 </div>

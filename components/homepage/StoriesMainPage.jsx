@@ -122,7 +122,7 @@ function StoriesMainPage() {
                 </svg>
               </div>
               <div className="story__picture">
-                <div className="story__picture-container">
+                <div className="story__picture">
                   <img
                     src={
                       userImage
