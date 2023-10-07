@@ -16,8 +16,11 @@ import { setProVarient } from "@/Redux/productDetail";
 import { useDispatch } from "react-redux";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
+import { notification } from "antd";
+import { useTranslation } from "next-i18next";
 
 function StoreProductsCard({ products, title }) {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const router = useRouter();
   const { locale } = router;
@@ -44,6 +47,7 @@ function StoreProductsCard({ products, title }) {
         },
       }
     ).then((res) => {
+      console.log("ttttttttttt87", res);
       let updatedItem = {};
 
       if (res.data.status === 1) {
@@ -51,6 +55,11 @@ function StoreProductsCard({ products, title }) {
           ...updatedStore.find((item) => item.slug_product_varient === id),
           isWish: !favorite,
         };
+        notification.success({
+          message: t("Success"),
+          description:
+            locale === "en" ? res.data.message_en : res.data.message_ar,
+        });
       }
       setUpdatedStore((prevStore) =>
         prevStore.map((item) =>

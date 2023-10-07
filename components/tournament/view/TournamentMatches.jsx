@@ -445,7 +445,14 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
 
               {item.matches.map((content, index_) => (
                 <>
-                  <div key={index_} className="card  tournaments ">
+                  <div
+                    key={index_}
+                    className="card  tournaments "
+                    style={{ cursor: "pointer" }}
+                    onClick={() =>
+                      router.push(`/tournament/match/${content.id}`)
+                    }
+                  >
                     <div className="Match-content">
                       <div className="columns">
                         <div className="Teams Teams--home">
@@ -487,7 +494,8 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
                         <div className="Match-details">
                           <div
                             className="Match-score"
-                            onClick={() =>
+                            onClick={(e) => {
+                              e.stopPropagation();
                               handleModalShow(
                                 content.id,
                                 content.team_A_id,
@@ -495,8 +503,8 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
                                 content.match_status,
                                 content.team_A_score,
                                 content.team_B_score
-                              )
-                            }
+                              );
+                            }}
                           >
                             <span className="Match-score-number match-score-number--leading">
                               {content.team_A_score != null
@@ -512,7 +520,10 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
                           </div>
                           <div
                             className="date-wins"
-                            onClick={() => showDateModalHandler(content.id)}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              showDateModalHandler(content.id);
+                            }}
                           >
                             {content.match_date ? (
                               moment(content.match_date).format("DD MMM YYYY")
@@ -526,7 +537,10 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
                           <div
                             className="time-wins"
                             style={{ direction: "ltr" }}
-                            onClick={() => showTimeModalHandler(content.id)}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              showTimeModalHandler(content.id);
+                            }}
                           >
                             {content.start_time ? (
                               moment(content.start_time, "hh:mm:ss").format(
@@ -600,7 +614,10 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
                         />
                       </svg>{" "}
                       <p
-                        onClick={() => showStadiumModalHandler(content.id)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          showStadiumModalHandler(content.id);
+                        }}
                         className="mx-2 stadium"
                       >
                         {content.stadium_name

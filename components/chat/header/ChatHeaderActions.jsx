@@ -10,6 +10,7 @@ import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import { useTheme } from "next-themes";
 function ChatHeaderActions({ selectedId, setOnSuccess, details }) {
+  console.log("msgdetails", details);
   const { t } = useTranslation();
   const router = useRouter();
   const { theme } = useTheme();
@@ -231,6 +232,13 @@ function ChatHeaderActions({ selectedId, setOnSuccess, details }) {
                 {t("Block")}
               </Dropdown.Item>
             )}
+            <Dropdown.Item
+              onClick={() =>
+                router.push(`/page/restrict-profile/${details.id}`)
+              }
+            >
+              {t("Restrict")}
+            </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </ul>

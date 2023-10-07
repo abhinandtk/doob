@@ -514,6 +514,11 @@ function OtherProfileHeaderDetails({
                       {t("Block")}
                     </Dropdown.Item>
                   )}
+                  <Dropdown.Item
+                    onClick={() => router.push(`/page/restrict-profile/${id}`)}
+                  >
+                    {t("Restrict")}
+                  </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </div>

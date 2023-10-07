@@ -51,12 +51,10 @@ function TournamentHomePage() {
     const isAuthenticated = constants.token_id;
     if (isAuthenticated) {
       setActiveTab("ranks");
-      console.log("ddddddata /888888888888888")
     } else {
       dispatch(activeModalShow("login"));
     }
   };
-  console.log('ddddddata ',activeTab)
 
   return (
     <div>
