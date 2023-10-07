@@ -74,7 +74,6 @@ function ShareToUserChat({ slug, type }) {
           },
         }
       ).then((res) => {
-        console.log("res787", res);
         if (res.data.status === 1) {
           Axios.post(
             apis.sendMessage,

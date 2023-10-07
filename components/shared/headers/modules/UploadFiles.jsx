@@ -56,16 +56,7 @@ function UploadFiles({ setUploadShow }) {
       }
     )
       .then((res) => {
-        console.log(
-          "Eroor:",
-          {
-            caption: caption,
-            image: file,
-            hide_comment: hideComment,
-            hide_like: hideLike,
-          },
-          res
-        );
+        
         if (res.data.status === 1) {
           console.log("sucesss");
           dispatch(apiCallSuccess());

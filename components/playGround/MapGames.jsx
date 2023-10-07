@@ -46,7 +46,6 @@ const AnyReactComponent = ({ text, gameTitle, onclick }) => {
 };
 
 export default function MapGame({ data }) {
-  console.log("functionmap", data);
   const defaultProps = {
     center: {
       lat: 29.3117,

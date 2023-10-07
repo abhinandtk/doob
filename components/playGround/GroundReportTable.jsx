@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 
 function GroundReportTable({ reportData, title }) {
-  console.log("popopopopopo", reportData);
   return (
     <Fragment>
       <div className="customer-sale">

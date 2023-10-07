@@ -43,7 +43,6 @@ function BannerForm({ bannerSubmitHandler, editData }) {
       setFormData({ ...newForm });
     }
   };
-  console.log("selectedItems", selectedItems);
 
   useEffect(() => {
     if (editData === "true") {

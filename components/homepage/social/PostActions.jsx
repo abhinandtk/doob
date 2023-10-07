@@ -29,7 +29,6 @@ export default function PostActions({
   const dispatch = useDispatch();
 
   const postReportHandler = (e) => {
-    console.log("ppppppppppp", postId);
     e.preventDefault();
     Axios.post(
       apis.reportpost,

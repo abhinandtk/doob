@@ -10,7 +10,6 @@ import { Labels } from "@/public/data/my-constants/Labels";
 import { useTranslation } from "next-i18next";
 
 function GameDetailTopContent({ details, setOnSuccess }) {
-  console.log("jjjj4909090909", details);
   const { t } = useTranslation();
 
   const labels = Labels();
@@ -30,11 +29,7 @@ function GameDetailTopContent({ details, setOnSuccess }) {
   };
 
   const joinGameHandler = (id) => {
-    console.log("joingame", {
-      user_id: [id],
-      game_slug: gameId,
-      type: "join",
-    });
+    
     Axios.post(
       apis.inviteUser,
       {
@@ -85,7 +80,6 @@ function GameDetailTopContent({ details, setOnSuccess }) {
           description: `${labels["Left game"]}`,
         });
       }
-      console.log("jjjj4leftgame", res);
     });
   };
   return (

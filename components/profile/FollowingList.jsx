@@ -24,7 +24,6 @@ function FollowingList({ setFollowingListShow, setSuccess }) {
       },
     }).then((res) => {
       setFollowing(res.data.data);
-      console.log("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr", res);
     });
   }, [apiSuccess]);
 

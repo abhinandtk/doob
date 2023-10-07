@@ -121,7 +121,6 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
 
   const addSlotHandler = () => {
     if (start_time && end_time) {
-      console.log("00/**/*/*/*/*/*", start_time);
       const newSlot = {
         start_time: start_time.format("H:mm"),
         end_time: end_time.format("H:mm"),
@@ -146,7 +145,6 @@ function PlayGroundsForm({ handlePlaygroundForm, editData }) {
           },
         }
       ).then((res) => {
-        console.log("edit345", res);
         if (res.data.status == 1) {
           setFormData({
             name: res.data.data.list.stadium_name,

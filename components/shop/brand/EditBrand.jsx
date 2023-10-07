@@ -14,8 +14,7 @@ function EditBrand() {
   const editData = router.query;
   const {t}=useTranslation()
 
-  // console.log('id4555555555555555555555',id)
-  // console.log('id455555555555555daaaaaaaaata5555555',item)
+  
  
   const handleBrandForm = (data) => {
     console.log('popopooooooooooooooo',editData)

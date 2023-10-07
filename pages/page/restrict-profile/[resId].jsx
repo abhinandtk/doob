@@ -46,7 +46,6 @@ function StoreSettingsPage() {
         },
       }
     ).then((res) => {
-      console.log("resp[onse restrict", res);
       setRestrictStatus({
         post: res.data.data.post,
         story: res.data.data.story,

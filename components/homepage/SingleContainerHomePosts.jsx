@@ -117,7 +117,6 @@ function SingleContainerHomePosts({ story, allPost }) {
     }
   }, [onSuccess, apiSuccess, visibleComment, postSlug, user_id]);
 
-  console.log("weweweee", postsData);
 
   const likeHandler = (postId, index, isSharedPost) => {
     // e.preventDefault()

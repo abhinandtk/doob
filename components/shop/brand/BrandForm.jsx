@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useTranslation } from "next-i18next";
 function BrandForm({ handleBrandForm, editDetails }) {
   const { t } = useTranslation();
-  console.log("popopooooooooooooooo78", editDetails);
   // console.log('popopooooooooooooooo',editDetails.icon)
   const router = useRouter();
   const [formData, setFormData] = useState({

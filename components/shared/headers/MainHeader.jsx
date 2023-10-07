@@ -71,7 +71,6 @@ function MainHeader({ title }) {
       console.log("count", res);
     });
   }, [updateState]);
-  console.log("storreCount", user);
 
   const logoutHandle = (e) => {
     setConfirmLogout(false);

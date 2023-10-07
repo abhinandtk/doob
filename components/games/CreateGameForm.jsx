@@ -75,7 +75,6 @@ function CreateGameForm() {
   const submitHandler = (e) => {
     setIsDisabled(true);
     e.preventDefault();
-    console.log("form", formData);
     const formdata = new FormData();
     formdata.append("booking_id", booking_id);
     formdata.append("title", formData.title);

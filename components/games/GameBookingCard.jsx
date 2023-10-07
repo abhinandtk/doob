@@ -6,7 +6,6 @@ import { Fragment } from "react";
 import { useTranslation } from "next-i18next";
 
 function GameBookingCard({ data }) {
-  console.log("ffffffffffff", data);
   const { t } = useTranslation();
 
   const router = useRouter();

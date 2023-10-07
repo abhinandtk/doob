@@ -17,7 +17,6 @@ function ProfileEdit({ data, setSuccess }) {
   const [countryData, setCountryData] = useState([]);
   const router = useRouter();
   const { locale } = router;
-  console.log("444478", data);
 
   const [profileFormData, setProfileFormData] = useState({
     name: "",

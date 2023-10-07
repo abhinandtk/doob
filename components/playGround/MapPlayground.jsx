@@ -22,7 +22,6 @@ const markerStyle = {
 };
 
 export default function MapPlayGround({ data }) {
-  console.log("rrrrrrrr", data);
   const defaultProps = {
     center: {
       lat: 29.3117,

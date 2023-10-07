@@ -54,7 +54,6 @@ function AuthenticationModals() {
 
   const regionChange = (e) => {
     const regId = e.target.value;
-    console.log("idddd", regId);
     localStorage.setItem("region-select", regId);
   };
 
@@ -70,7 +69,6 @@ function AuthenticationModals() {
       setCountryData(res.data.country);
     });
   }, []);
-  console.log("activeModal", activemodal);
   return (
     <div>
       {" "}

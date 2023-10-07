@@ -12,7 +12,6 @@ function GamesHistoryCard({ data }) {
   const router=useRouter()
   const {locale}=router;
 
-  console.log("data/*89", data);
   return (
     <Fragment>
       <div className="">

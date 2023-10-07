@@ -13,7 +13,6 @@ function ChatBoxHeader({ details, selectedId, setOnSuccess, onNewMsg }) {
   const { locale } = router;
 
   const dispatch = useDispatch();
-  console.log("trtrtrtrtrweee", details);
   function lastSeenHandler(lastLoginTime) {
     const currentTime = moment();
     const loginTime = moment(lastLoginTime);

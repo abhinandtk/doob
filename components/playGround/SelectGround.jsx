@@ -22,7 +22,6 @@ function SelectGround({ details, setSuccess, setDateSelected }) {
 
   const { selectedSlots } = useSelector((state) => state.slot);
   const dispatch = useDispatch();
-  console.log("resultcartsloooooot777777777", selectedSlots);
 
   const [date, setDate] = useState(
     inputData.date
@@ -31,11 +30,9 @@ function SelectGround({ details, setSuccess, setDateSelected }) {
   );
   const [gameId, setGameId] = useState("");
   const [visible, setVisible] = useState(false);
-  console.log("deeeeee", selectedSlots);
 
   const handleSlotClick = (slotId) => {
     dispatch(selectSlots({ slotId }));
-    console.log("checkkkkkkkkkkkkkkkkk");
   };
 
   const addTocartHandler = () => {
@@ -57,14 +54,7 @@ function SelectGround({ details, setSuccess, setDateSelected }) {
           },
         }
       ).then((res) => {
-        console.log("resultcart", res, {
-          time_slots: selectedSlots,
-          stadium_name: inputData.stadium_id,
-          amount: details.amount,
-          slot_type: "static slot",
-          game: inputData.sports_id ? inputData.sports_id : details.game[0].id,
-          date: date,
-        });
+        
         dispatch(toggle());
         dispatch(resetSelectedSlots());
         if (res.data.status === 1) {

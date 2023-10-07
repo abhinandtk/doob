@@ -10,16 +10,12 @@ import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 function BookingDetailsCard({ details, setSuccess }) {
   const { t } = useTranslation();
-  console.log("hai log", details);
   const router = useRouter();
   const { locale } = router;
 
   const labels = Labels();
 
   const cancelBookingHandler = (id) => {
-    console.log({
-      id: id,
-    });
 
     Axios.post(
       apis.cancelBooking,
@@ -32,7 +28,6 @@ function BookingDetailsCard({ details, setSuccess }) {
         },
       }
     ).then((res) => {
-      console.log("book", res);
       if (res.data.status === 1) {
         setSuccess((prev) => !prev);
         notification.success({

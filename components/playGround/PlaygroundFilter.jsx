@@ -17,7 +17,6 @@ function PlaygroundFilter({ playgroundFilterHandler, setMapShow, pageCount }) {
   const router = useRouter();
   const { locale } = router;
   const data = router.query;
-  console.log("44444", data);
 
   const [visible, setVisible] = useState(false);
   const [searchKey, setSearchKey] = useState("");
@@ -48,7 +47,6 @@ function PlaygroundFilter({ playgroundFilterHandler, setMapShow, pageCount }) {
     }).then((res) => {
       setAmenity(res.data.data.amenities);
       setGame(res.data.data.games);
-      console.log("ggggggggg", res.data.data);
     });
 
     Axios.get(apis.commonList, {
@@ -64,11 +62,9 @@ function PlaygroundFilter({ playgroundFilterHandler, setMapShow, pageCount }) {
   useEffect(() => {
     if (country.length > 0) {
       const userCountry = localStorage.getItem("country-select");
-      console.log("res988", userCountry);
       const areaData = country.find(
         (country) => country.country_name === userCountry
       );
-      console.log("kkkkkk", areaData);
       setArea(areaData.regions);
     }
   }, [country]);

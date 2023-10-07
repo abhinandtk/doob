@@ -11,7 +11,6 @@ import { useDispatch } from "react-redux";
 import { toggle } from "@/Redux/updateNavbar";
 import { useTranslation } from "next-i18next";
 function GroundCartItems({ data, setSuccess }) {
-  console.log("groundCart", data);
   const { t } = useTranslation();
 
   const labels = Labels();

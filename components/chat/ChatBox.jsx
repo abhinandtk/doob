@@ -30,7 +30,6 @@ function ChatBox({ selectedId, onNewMsg }) {
   const channel = ably.channels.get(currentUser);
   channel.subscribe((message) => {
     setOnSuccess((prev) => !prev);
-    console.log("dddddd", message);
   });
   useEffect(() => {
     Axios.post(

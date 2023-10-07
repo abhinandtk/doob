@@ -19,7 +19,6 @@ function ProfileHeaderDetails({ data, setSuccess }) {
   const { locale } = router;
   const [visible, setVisible] = useState(false);
   const [uploadImageUrl, setUploadImageUrl] = useState(null);
-  console.log("4444", data);
 
   const [followersListShow, setFollowersListShow] = useState(false);
   const [followingListShow, setFollowingListShow] = useState(false);
@@ -49,7 +48,6 @@ function ProfileHeaderDetails({ data, setSuccess }) {
         Authorization: `Token ${constants.token_id}`,
       },
     }).then((res) => {
-      console.log("iiooooooooooooooooooooooooooo", res);
       setSuccess((prev) => !prev);
       setUploadImageUrl(URL.createObjectURL(file));
       message.success(t("Profile image updated successfully"));

@@ -36,9 +36,7 @@ function MessagesList({ onChatSelect, onNewMsg }) {
   const channel = ably.channels.get(currentUser);
   channel.subscribe((message) => {
     setOnSuccess((prev) => !prev);
-    console.log("dddddd", message);
   });
-  console.log("updateChat");
 
   function lastSeenHandler(lastLoginTime, n) {
     const currentTime = moment();

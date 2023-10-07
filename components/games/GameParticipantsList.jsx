@@ -11,7 +11,6 @@ import { useTranslation } from "next-i18next";
 import { useTheme } from "next-themes";
 function GameParticipantsList({ participants, setOnSuccess }) {
   const { t } = useTranslation();
-  console.log("result6567", participants);
   const router = useRouter();
   const { locale } = router;
   const { gameId } = router.query;
@@ -28,7 +27,6 @@ function GameParticipantsList({ participants, setOnSuccess }) {
   };
 
   const removeHandler = (id) => {
-    console.log("id324", id);
     Axios.post(
       apis.removeUser,
       {

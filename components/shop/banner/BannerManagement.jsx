@@ -39,7 +39,6 @@ function BannerManagement() {
         },
       }
     ).then((res) => {
-      console.log("resdelee", res);
       if (res.data.status === 1) {
         setOnSuccess((prev) => !prev);
         notification.success({

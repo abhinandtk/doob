@@ -10,7 +10,6 @@ import { useTranslation } from "next-i18next";
 function CategoriesForm({ categorySubmitHandler, editData }) {
   const router = useRouter();
   const { t } = useTranslation();
-  console.log("cattttttttttttttttttttttsada", editData);
   const [categoryList, setCategoryList] = useState([]);
   const [formData, setFormData] = useState({
     name: "",

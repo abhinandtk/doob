@@ -20,7 +20,6 @@ function NewGameForm({ game, country }) {
   const { locale } = router;
   const [visible, setVisible] = useState(false);
   const [area, setArea] = useState([]);
-  console.log("res98", country);
 
   const isAuthenticated = constants.token_id;
 
@@ -33,11 +32,9 @@ function NewGameForm({ game, country }) {
   useEffect(() => {
     if (country.length > 0) {
       const userCountry = localStorage.getItem("country-select");
-      console.log("res988", userCountry);
       const areaData = country.find(
         (country) => country.country_name === userCountry
       );
-      console.log("kkkkkk", areaData);
       setArea(areaData.regions);
     }
   }, [country]);
@@ -65,7 +62,6 @@ function NewGameForm({ game, country }) {
   };
   const searchNewGameHandler = (e) => {
     e.preventDefault();
-    console.log("ddddddddddddddaaaate", formData);
     Axios.post(
       apis.listStadium,
       {

@@ -70,10 +70,8 @@ function MobileHeader() {
       dispatch(updateNotificationCount(res.data.data.notification_count));
       dispatch(updateMessageCount(res.data.data.total_count));
       setUser(res.data.data.user_type);
-      console.log("count", res);
     });
   }, [updateState]);
-  console.log("storreCount", user);
 
   const logoutHandle = (e) => {
     setConfirmLogout(false);

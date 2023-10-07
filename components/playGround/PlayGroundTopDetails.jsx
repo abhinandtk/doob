@@ -74,7 +74,6 @@ function PlayGroundTopDetails({ details }) {
       });
     });
   };
-  console.log("qqqqqqqqqqqqqqq", details, pgid);
   //   console.log("qqqqqqqqqqqqqqq45", details.city.region_name);
   return (
     <Fragment>

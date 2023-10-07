@@ -90,7 +90,6 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
         },
       }
     ).then((res) => {
-      console.log("rescon", res);
       if (res.data.status === 1) {
         setApiSuccess((prev) => !prev);
         notification.success({
@@ -121,7 +120,6 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
         },
       }
     ).then((res) => {
-      console.log("rescon", res);
       if (res.data.status === 1) {
         setApiSuccess((prev) => !prev);
         notification.success({
@@ -137,10 +135,8 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
       }
     });
   };
-  console.log("selectedUser", selectedUser, selectedUserId);
 
   const handleUpload = (file) => {
-    console.log("imagetyu");
     const formData = new FormData();
     formData.append("file_field_name", file);
 
@@ -149,7 +145,6 @@ function GroupInfo({ onChatSelect, onNewMsg, onGrpShow, selectedId }) {
         Authorization: `Token ${constants.token_id}`,
       },
     }).then((res) => {
-      console.log("imagetyu", res);
       setGroupProfilePic(res.data.image_url);
     });
   };

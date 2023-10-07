@@ -30,7 +30,6 @@ function AddBrand() {
           description:'Brand Added Successfully'
         })
         router.push("/shop/brand-management")
-        console.log('brasnddddddddddddddddddddddddddddddd',res)
     })
   }
   return (

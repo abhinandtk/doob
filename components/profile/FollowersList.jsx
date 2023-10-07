@@ -23,7 +23,6 @@ function FollowersList({ setFollowersListShow, setSuccess }) {
         Authorization: `Token ${constants.token_id}`,
       },
     }).then((res) => {
-      console.log("lkkkl", res);
       setFollowers(res.data.data);
     });
   }, [apiSuccess]);

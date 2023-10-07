@@ -8,7 +8,6 @@ import { Rate, message } from "antd";
 import Axios from "axios";
 import { useTranslation } from "next-i18next";
 function PlayGroundReviewList({ reviewData, setOnSuccess }) {
-  console.log("oooppppooopopopopopopopo", reviewData);
   const { t } = useTranslation();
   const deleteReview = (id) => {
     Axios.post(

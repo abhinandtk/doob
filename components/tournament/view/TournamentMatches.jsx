@@ -260,7 +260,7 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
         onCancel={() => setVisibleStadium(false)}
         footer={null}
         centered
-        title="Select Stadium"
+        title={t("Select Stadium")}
       >
         <Input
           placeholder={t("Enter Stadium")}
@@ -275,8 +275,6 @@ function TournamentMatches({ data, setOnSuccess, admin, home }) {
               style={{ padding: "0px" }}
               onClick={() => {
                 setStadiumId(item.id);
-                console.log("opppppppppppppppppppp", item.id);
-
                 handleMatchUpdate(item.id, "stadium");
               }}
             >

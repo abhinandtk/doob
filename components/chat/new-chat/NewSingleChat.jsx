@@ -48,7 +48,6 @@ function NewSingleChat({ onChatSelect, onNewMsg, onGrpShow }) {
         },
       }
     ).then((res) => {
-      console.log("selectuser123", res);
       if (res.data.status === 1) {
         onChatSelect(res.data.data.id);
       } else {

@@ -30,10 +30,7 @@ function SharedConfirmation({ postId, setVisibleShared, setOnSuccess }) {
     )
       .then((res) => {
         setVisibleShared(false);
-        console.log("8898989898989898989899", {
-          parent_id: postId,
-          post_type: "Shared",
-        });
+        
         if (res.data.status === 1) {
           notification.success({
             message: t("Success"),

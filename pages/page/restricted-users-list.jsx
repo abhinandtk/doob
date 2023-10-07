@@ -101,7 +101,10 @@ function RestrictedUsersPage() {
                           ></CardImg>
                         </div>
                         <div className="side-menu__suggestion-info">
-                          <p style={{ margintop: "" }}>
+                          <p
+                            className="dark-theme-color"
+                            style={{ margintop: "" }}
+                          >
                             <b>{item.receipent_user.name}</b>
                             <br></br>
                             {item.receipent_user.username}

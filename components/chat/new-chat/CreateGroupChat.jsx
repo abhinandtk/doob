@@ -63,10 +63,8 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
     setSelectedUser(selectedUser.filter((item) => item.id != id));
     setSelectedUserId(selectedUserId.filter((item) => item != id));
   };
-  console.log("selectedUser", selectedUser, selectedUserId);
 
   const handleUpload = (file) => {
-    console.log("imagetyu");
     const formData = new FormData();
     formData.append("file_field_name", file);
 
@@ -75,14 +73,12 @@ function CreateGroupChat({ onChatSelect, onNewMsg, onGrpShow }) {
         Authorization: `Token ${constants.token_id}`,
       },
     }).then((res) => {
-      console.log("imagetyu", res);
       setGroupProfilePicLink(res.data.image_url);
       setGroupProfilePic(file);
     });
   };
 
   const createGroupHandler = () => {
-    console.log("inputsdcd");
     Axios.post(
       apis.createChat,
       {

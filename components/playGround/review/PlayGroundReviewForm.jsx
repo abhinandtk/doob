@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 function PlayGroundReviewForm({ setOnSuccess, userImg }) {
   const { t } = useTranslation();
-  console.log("rwd", userImg);
   const router = useRouter();
   const { pgid } = router.query;
   const [count, setCount] = useState(0);
@@ -44,7 +43,6 @@ function PlayGroundReviewForm({ setOnSuccess, userImg }) {
         Authorization: `Token ${constants.token_id}`,
       },
     }).then((res) => {
-      console.log("addreview", res);
       setCount(0);
       setReviewForm({
         description: "",

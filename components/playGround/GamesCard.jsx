@@ -14,7 +14,6 @@ function GamesCard({ data }) {
   const { theme } = useTheme();
   const { locale } = router;
 
-  console.log("daaaaaaaaaaaaaaa", data);
   return (
     <Fragment>
       {data &&
