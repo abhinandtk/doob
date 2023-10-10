@@ -117,7 +117,6 @@ function SingleContainerHomePosts({ story, allPost }) {
     }
   }, [onSuccess, apiSuccess, visibleComment, postSlug, user_id]);
 
-
   const likeHandler = (postId, index, isSharedPost) => {
     // e.preventDefault()
     const updatedPosts = [...postsData];
@@ -192,6 +191,7 @@ function SingleContainerHomePosts({ story, allPost }) {
     }
   };
   const likedUsershandler = (slug) => {
+    const isAuthenticated = constants.token_id;
     if (isAuthenticated) {
       Axios.post(
         apis.likedUsers,
@@ -214,6 +214,7 @@ function SingleContainerHomePosts({ story, allPost }) {
   };
 
   const profileNavigationHandler = (id) => {
+    const isAuthenticated = constants.token_id;
     if (isAuthenticated) {
       if (constants.user_id === id) {
         router.push("/profile");

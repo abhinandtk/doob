@@ -321,7 +321,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                 onChange={(e) => handleChange(e)}
                 required
               >
-                <option value="">--Selelct--</option>
+                <option value="">{t("--Selelct--")}</option>
                 {brandData.map((item, index) => (
                   <option
                     selected={editData === "true" && formData.brand == item.id}
@@ -342,7 +342,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                 onChange={(e) => handleChange(e)}
                 required
               >
-                <option value="">--Selelct--</option>
+                <option value="">{t("--Selelct--")}</option>
                 {categoryData.map((item, index) => (
                   <option
                     selected={
@@ -367,7 +367,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                 required
                 value={formData.subCategory}
               >
-                <option value="">--Select--</option>
+                <option value="">{t("--Selelct--")}</option>
                 {subCategory.map((item, index) => (
                   <option
                     selected={
@@ -416,7 +416,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                 onChange={(e) => handleChange(e)}
                 required
               >
-                <option value="">--Select--</option>
+                <option value="">{t("--Selelct--")}</option>
                 {variantData.map((item, index) => (
                   <option
                     selected={
@@ -439,7 +439,7 @@ function ProductsForm({ handleProductAdd, editData }) {
                 id="secondary"
                 onChange={(e) => handleChange(e)}
               >
-                <option value="">--Select--</option>
+                <option value="">{t("--Selelct--")}</option>
                 {variantData.map((item, index) => (
                   <option
                     selected={
@@ -620,7 +620,7 @@ required
                       onChange={(e) => handleVariantChange(e, index)}
                       required
                     >
-                      <option value="">--Select--</option>
+                      <option value="">{t("--Selelct--")}</option>
                       {primaryValues.map((item_, index) => (
                         <option
                           selected={
@@ -645,7 +645,7 @@ required
                       id="size"
                       onChange={(e) => handleVariantChange(e, index)}
                     >
-                      <option value="">--Select--</option>
+                      <option value="">{t("--Selelct--")}</option>
                       {secondaryValues.map((item_, index) => (
                         <option
                           selected={

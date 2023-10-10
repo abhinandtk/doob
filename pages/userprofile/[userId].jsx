@@ -103,7 +103,7 @@ function OtherUserAccount() {
                 <div className="row images">
                   {postDetails.map((item, index) => (
                     <div key={index} className="col-md-4" tabindex="0">
-                      <Link href={`/page/post/${item.slug}`}>
+                      <Link href={`/page/all-post-view/${userId}`}>
                         <img
                           src={`${constants.port}${item.image}`}
                           style={{ objectFit: "cover" }}

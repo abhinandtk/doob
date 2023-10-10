@@ -7,12 +7,14 @@ function PlaygroundBanner({ banners }) {
     <Carousel className="mx-1">
       {banners.map((item, index) => (
         <Carousel.Item key={index} interval={1000}>
-          <img
-            className=" w-100 "
-            src={`${constants.port}${item.image}`}
-            style={{ width: "100%", aspectRatio: "2.6" }}
-            alt="First slide"
-          />
+          <a href={item.link} target="_blank">
+            <img
+              className=" w-100 "
+              src={`${constants.port}${item.image}`}
+              style={{ width: "100%", aspectRatio: "2.6" }}
+              alt="First slide"
+            />
+          </a>
         </Carousel.Item>
       ))}
     </Carousel>
