@@ -10,8 +10,8 @@ import FollowingList from "./FollowingList";
 import StarInfo from "./StarInfo";
 import { useTheme } from "next-themes";
 import ProfileEdit from "./ProfileEdit";
-import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 
 function ProfileHeaderDetails({ data, setSuccess }) {
   const { t } = useTranslation();
@@ -187,7 +187,7 @@ function ProfileHeaderDetails({ data, setSuccess }) {
       <div className="container2">
         <Card className="cord">
           <Card.Body>
-            <div className="row">
+            <div className="row"  >
               <div className={`col-md-6 ${locale === "ar" && "order-2"}`}>
                 {/* <button
                   onClick={() => setShowRank(true)}
@@ -245,6 +245,8 @@ function ProfileHeaderDetails({ data, setSuccess }) {
                     <br></br>
                     <h1 className="profile-user-names">@{data.username}</h1>
                     <br></br>
+                    <h7 className="bio-name">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without r{data.bio}</h7><br />
+
                     <li>
                       <span className="profile-stat-count">
                         {data.post_count}

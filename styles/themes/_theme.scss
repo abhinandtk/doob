@@ -38,6 +38,10 @@
     background-color: #ffffff;
     color: #000;
   }
+  .bio1::placeholder {
+    color: black !important;
+  }
+  
 }
 
 [data-theme="dark"] {
@@ -140,4 +144,8 @@
     background-color: #343c42;
     color: var(--white-color);
   }
+  .bio1::placeholder {
+    color: white !important;
+  }
+  
 }

@@ -26,6 +26,7 @@ function ProfileEdit({ data, setSuccess }) {
     gender: "",
     nationality: "",
     dob: "",
+    bio: "",
   });
 
   useEffect(() => {
@@ -38,6 +39,7 @@ function ProfileEdit({ data, setSuccess }) {
         gender: data.gender,
         nationality: data.country,
         dob: data.dob,
+        bio: data.bio,
       });
     }
     Axios.post(apis.country).then((res) => {
@@ -63,6 +65,7 @@ function ProfileEdit({ data, setSuccess }) {
         gender: profileFormData.gender,
         nationality: profileFormData.nationality,
         dob: profileFormData.dob,
+        bio: profileFormData.bio,
         country_code: profileFormData.code,
       },
       {
@@ -141,6 +144,28 @@ function ProfileEdit({ data, setSuccess }) {
               required
             />
           </Form.Group>
+          <section>
+          <Form.Group className="mb-1 ">
+            <Form.Label>{t("Bio")}*</Form.Label>
+            <Form.Control
+            as="textarea"
+            rows={3}
+            maxLength={150}
+              id="bio"
+              type="text"
+              className="bio1 cont-theme-bg"
+              placeholder="Type your bio"
+              onChange={(e) => {
+                handleInputChange(e);
+
+              }}
+              value={profileFormData.bio}
+
+             
+              required
+            />
+          </Form.Group>
+          </section>
 
           <Form.Label className="">{t("Phone Number")}*</Form.Label>
           <Form.Group className="mb-2 d-flex justify-content-between align-items-center  ">

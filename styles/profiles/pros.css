@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Poppins:wght@300&display=swap");
+
 body {
   background: #EEEEEE;
 }
@@ -295,7 +296,8 @@ body {
   justify-content: space-around;
 }
 
-#tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+#tabs .nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
   color: #f3f3f3;
   background-color: transparent;
   border-color: transparent transparent #f3f3f3;
@@ -471,18 +473,21 @@ body {
     margin-top: 23px;
     height: 100%;
   }
+
   .container2 {
     width: 810px;
     margin-left: 300px;
     margin-top: 23px;
     height: 100%;
   }
+
   .tab-container {
     width: 810px;
     margin-left: 300px;
     margin-top: 23px;
     height: 100%;
   }
+
   .images {
     position: relative;
     width: 100%;
@@ -492,14 +497,17 @@ body {
     margin-top: 10px;
     row-gap: 17px;
   }
+
   .image {
     width: 100%;
     height: 100%;
   }
+
   .line {
     color: #000;
     width: 100%;
   }
+
   .profile-image {
     float: right;
     display: flex;
@@ -508,11 +516,13 @@ body {
     margin-right: 125px;
     margin-top: -4px;
   }
+
   .card-tab {
     width: 810px;
     height: 850px;
   }
 }
+
 @media (max-width: 1249px) {
   .container2 {
     width: 810px;
@@ -520,12 +530,14 @@ body {
     margin-top: 23px;
     height: 100%;
   }
+
   .tab-container {
     width: 810px;
     margin-left: 300px;
     margin-top: 23px;
     height: 100%;
   }
+
   .profile-image {
     float: right;
     display: flex;
@@ -534,14 +546,17 @@ body {
     margin-right: 125px;
     margin-top: -4px;
   }
+
   .card-tab {
     width: 810px;
     height: 850px;
   }
+
   .line {
     color: #000;
     width: 100%;
   }
+
   .images {
     position: relative;
     width: 100%;
@@ -551,19 +566,23 @@ body {
     margin-top: 10px;
     row-gap: 17px;
   }
+
   .image {
     width: 100%;
     height: 100%;
   }
+
   .line1 {
     color: #000;
     width: 700px;
     margin-right: 23px;
   }
+
   .create-btns {
     display: none;
   }
 }
+
 @media (max-width: 1100px) {
   .container2 {
     width: 710px;
@@ -571,12 +590,14 @@ body {
     margin-top: 23px;
     height: 100%;
   }
+
   .tab-container {
     width: 710px;
     margin-left: 300px;
     margin-top: 23px;
     height: 100%;
   }
+
   .profile-image {
     float: right;
     display: flex;
@@ -585,6 +606,7 @@ body {
     margin-right: 75px;
     margin-top: -4px;
   }
+
   .profile-edit-btn1 {
     font-size: 15px;
     line-height: 1.8;
@@ -595,18 +617,22 @@ body {
     font-weight: 600;
     margin-left: 8px;
   }
+
   .card-tab {
     width: 710px;
     height: 850px;
   }
+
   .image {
     width: 100%;
     height: 100%;
   }
+
   .line {
     color: #000;
     width: 100%;
   }
+
   .profile-stats {
     margin-top: 50px;
     margin-left: -70px;
@@ -614,6 +640,7 @@ body {
     display: flex;
     justify-content: center;
   }
+
   .images {
     position: relative;
     width: 100%;
@@ -623,12 +650,14 @@ body {
     margin-top: 10px;
     row-gap: 17px;
   }
+
   .line1 {
     color: #000;
     width: 80%;
     margin-right: 23px;
   }
 }
+
 @media (max-width: 1025px) {
   .container2 {
     width: 610px;
@@ -636,12 +665,14 @@ body {
     margin-top: 23px;
     height: 100%;
   }
+
   .tab-container {
     width: 610px;
     margin-left: 300px;
     margin-top: 23px;
     height: 100%;
   }
+
   .profile-image {
     float: right;
     display: flex;
@@ -650,6 +681,7 @@ body {
     margin-right: 45px;
     margin-top: -2px;
   }
+
   .profile-edit-btn1 {
     font-size: 15px;
     line-height: 1.8;
@@ -661,10 +693,12 @@ body {
     margin-left: 1px;
     border: 0px;
   }
+
   .card-tab {
     width: 610px;
     height: 850px;
   }
+
   .profile-stats {
     margin-top: 50px;
     margin-left: -60px;
@@ -672,10 +706,12 @@ body {
     display: flex;
     justify-content: center;
   }
+
   .image {
     width: 100%;
     height: 100%;
   }
+
   .images {
     position: relative;
     width: 100%;
@@ -685,10 +721,12 @@ body {
     margin-top: 10px;
     row-gap: 17px;
   }
+
   .line {
     color: #000;
     width: 100%;
   }
+
   .profile-stats li {
     display: inline;
     font-size: 15px;
@@ -696,6 +734,7 @@ body {
     cursor: pointer;
   }
 }
+
 @media (max-width: 936px) {
   .container2 {
     width: 610px;
@@ -703,12 +742,14 @@ body {
     margin-top: 23px;
     height: 100%;
   }
+
   .tab-container {
     width: 610px;
     margin-left: 150px;
     margin-top: 23px;
     height: 100%;
   }
+
   .profile-image {
     float: right;
     display: flex;
@@ -717,6 +758,7 @@ body {
     margin-right: 45px;
     margin-top: -5px;
   }
+
   .profile-edit-btn1 {
     font-size: 15px;
     line-height: 1.8;
@@ -727,10 +769,12 @@ body {
     font-weight: 600;
     margin-left: 8px;
   }
+
   .card-tab {
     width: 100%;
     height: 100%;
   }
+
   .profile-stats {
     margin-top: 50px;
     margin-left: -70px;
@@ -738,10 +782,12 @@ body {
     display: flex;
     justify-content: center;
   }
+
   .image {
     width: 100%;
     height: 100%;
   }
+
   .images {
     position: relative;
     width: 100%;
@@ -751,21 +797,26 @@ body {
     margin-top: 10px;
     row-gap: 17px;
   }
+
   .line {
     color: #000;
     width: 100%;
   }
+
   .mobile-nav {
     display: block;
   }
+
   .web-nav {
     display: none;
   }
+
   .mobile-logo {
     width: 100px;
     height: 37px;
   }
 }
+
 @media (max-width: 769px) {
   .container2 {
     width: 610px;
@@ -773,12 +824,14 @@ body {
     margin-top: 23px;
     height: 100%;
   }
+
   .tab-container {
     width: 610px;
     margin-left: 98px;
     margin-top: 23px;
     height: 100%;
   }
+
   .profile-image {
     float: right;
     display: flex;
@@ -787,6 +840,7 @@ body {
     margin-right: 34px;
     margin-top: 4px;
   }
+
   .profile-edit-btn1 {
     font-size: 15px;
     line-height: 1.8;
@@ -797,6 +851,7 @@ body {
     font-weight: 600;
     margin-left: 8px;
   }
+
   .profile-cam1 {
     float: right;
     display: flex;
@@ -807,6 +862,7 @@ body {
     margin-right: -175px;
     margin-top: 144px;
   }
+
   .profile-stats {
     margin-top: 50px;
     margin-left: -70px;
@@ -814,10 +870,12 @@ body {
     display: flex;
     justify-content: center;
   }
+
   .image {
     width: 100%;
     height: 100%;
   }
+
   .images {
     position: relative;
     width: 100%;
@@ -827,42 +885,52 @@ body {
     margin-top: 10px;
     row-gap: 17px;
   }
+
   .cord {
     height: 100%;
     width: 100%;
   }
+
   .create-btns {
     display: none;
   }
 }
+
 @media (max-width: 768px) {
   .sidebar {
     display: none;
   }
+
   .ceed {
     display: block;
   }
+
   .cord {
     display: none;
   }
+
   .ceed {
     height: 100%;
     width: 100%;
   }
+
   .container2 {
     width: 530px;
     height: 100%;
   }
+
   .tab-container {
     width: 490px;
     height: 100%;
   }
+
   .avatar {
     width: 100px;
     height: 100px;
     position: relative;
     margin: 0 auto;
   }
+
   .user-online-indicator {
     width: 45px;
     height: 45px;
@@ -872,51 +940,62 @@ body {
     border-radius: 50%;
     z-index: 4;
   }
+
   .avatar .user-avatar {
     width: 150%;
     height: 150%;
     object-fit: cover;
     border-radius: 50%;
   }
+
   .main-ceed {
     display: flex;
     align-items: center;
     flex-direction: column;
     margin-top: 57px;
   }
+
   .profile-name {
     font-size: 20px;
     font-weight: 600;
   }
+
   .profile-age {
     font-size: "14px";
   }
+
   .profile-role {
     font-size: 14px;
     font-weight: 500;
   }
+
   .profile-followers {
     font-size: 14px;
     font-weight: 400;
   }
+
   .profile-age {
     font-size: 14px;
     font-weight: 400;
   }
+
   .profile-country {
     font-size: 14px;
     font-weight: 400;
   }
+
   .profile-img {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 34px;
   }
+
   .profiles-picture {
     width: 50%;
     border-radius: 50%;
   }
+
   .profile-edits-btn {
     font-size: 15px;
     line-height: 1.8;
@@ -928,6 +1007,7 @@ body {
     float: left;
     border: 0px;
   }
+
   .profile-edit-btn2 {
     font-size: 15px;
     line-height: 1.8;
@@ -939,6 +1019,7 @@ body {
     float: right;
     border: 0px;
   }
+
   .profile-camera1 {
     float: right;
     display: flex;
@@ -947,21 +1028,25 @@ body {
     width: 100%;
     position: absolute;
   }
+
   .line1 {
     color: #000;
     width: 80%;
     margin-right: 23px;
   }
+
   .profile-stat {
     font-weight: 400;
     display: flex;
     justify-content: center;
     margin-right: 0px;
   }
+
   .image {
     width: 100%;
     height: 100%;
   }
+
   .images {
     position: relative;
     width: 100%;
@@ -971,33 +1056,41 @@ body {
     margin-top: 10px;
     row-gap: 17px;
   }
+
   .line {
     color: #000;
     width: 500px;
   }
+
   .profile-stat-counts {
     font-weight: 500;
     font-size: 15px;
   }
+
   .profiles-stat-count {
     font-weight: 400;
     font-size: 15px;
     margin-top: -13px;
   }
+
   .profile-status-count {
     font-weight: 500;
     font-size: 16px;
   }
+
   .mobile-nav {
     display: block;
   }
+
   .web-nav {
     display: none;
   }
+
   .mobile-logo {
     width: 100px;
     height: 37px;
   }
+
   .profile-users-name {
     display: flex;
     font-size: 20px;
@@ -1006,6 +1099,7 @@ body {
     justify-content: center;
     margin-bottom: -23px;
   }
+
   .profile-users-names {
     display: block;
     font-size: 15px;
@@ -1014,6 +1108,7 @@ body {
     color: #000;
     justify-content: center;
   }
+
   .create-btns {
     display: block;
     text-align: end;
@@ -1025,10 +1120,12 @@ body {
     height: 44px;
     border-radius: 50px;
   }
+
   .profile-stat-counts {
     font-weight: 500;
     font-size: 15px;
   }
+
   .profiles-stat-count {
     font-weight: 400;
     font-size: 15px;
@@ -1036,12 +1133,14 @@ body {
     justify-content: center;
     margin-top: -13px;
   }
+
   .profile-status-count {
     font-weight: 500;
     font-size: 16px;
     display: flex;
     margin-top: -12px;
   }
+
   .side-menu__suggestion-buttons {
     cursor: pointer;
     font-size: 14px;
@@ -1057,6 +1156,7 @@ body {
     cursor: pointer;
     height: 30px;
   }
+
   .side-menu__suggestion-button3 {
     cursor: pointer;
     font-size: 15px;
@@ -1075,68 +1175,82 @@ body {
     height: 30px;
   }
 }
+
 @media (max-width: 689px) {
   .sidebar {
     display: none;
   }
+
   .mobile-nav {
     display: block;
   }
+
   .web-nav {
     display: none;
   }
+
   .mobile-logo {
     width: 100px;
     height: 37px;
   }
+
   .container2 {
     padding: 0 20px;
     margin-left: 0px;
   }
+
   .container2 {
     width: auto;
     margin-top: 23px;
     height: 100%;
     margin-left: 23px;
   }
+
   .tab-container {
     width: 100%;
     margin-top: 23px;
     height: 100%;
     margin-left: 3px;
   }
+
   .profile-users-name {
     font-size: 23px;
     font-weight: 600;
     color: #000;
     align-items: center;
   }
+
   .profile-users-names {
     font-size: 15px;
     font-weight: 600;
     color: #000;
     align-items: center;
   }
+
   .create-btns {
     display: block;
     text-align: end;
     position: absolute;
   }
+
   .profile-stat-counts {
     font-weight: 500;
     font-size: 15px;
   }
+
   .profiles-stat-count {
     font-weight: 400;
     font-size: 15px;
     text-align: center;
     margin-top: -13px;
   }
+
   .profile-status-count {
     font-weight: 500;
     font-size: 16px;
     margin-top: -12px;
   }
+
   .profile-edits-btn {
     font-size: 15px;
     line-height: 1.8;
@@ -1147,6 +1261,7 @@ body {
     font-weight: 600;
     float: left;
   }
+
   .profile-edit-btn2 {
     font-size: 15px;
     line-height: 1.8;
@@ -1157,6 +1272,7 @@ body {
     font-weight: 600;
     float: right;
   }
+
   .profile-camera1 {
     float: right;
     display: flex;
@@ -1165,20 +1281,24 @@ body {
     width: 100%;
     position: absolute;
   }
+
   .card-tab {
     width: 100%;
     height: 100%;
   }
+
   .profile-stat {
     margin-top: 1px;
     font-weight: 400;
     display: flex;
     justify-content: center;
   }
+
   .image {
     width: 100%;
     height: 100%;
   }
+
   .images {
     position: relative;
     width: 100%;
@@ -1188,20 +1308,24 @@ body {
     margin-top: 10px;
     row-gap: 17px;
   }
+
   .line {
     color: #000;
     width: 95%;
   }
+
   .profile-stat-counts {
     font-weight: 500;
     font-size: 15px;
   }
+
   .profiles-stat-count {
     font-weight: 400;
     font-size: 15px;
     text-align: center;
     margin-top: -13px;
   }
+
   .profile-status-count {
     font-weight: 500;
     font-size: 16px;
@@ -1209,64 +1333,77 @@ body {
     justify-content: center;
   }
 }
+
 @media (max-width: 567px) {
   .sidebar {
     display: none;
   }
+
   .mobile-nav {
     display: block;
   }
+
   .web-nav {
     display: none;
   }
+
   .mobile-logo {
     width: 100px;
     height: 37px;
   }
+
   .container2 {
     width: auto;
     margin-top: 23px;
     height: 100%;
     margin-left: 23px;
   }
+
   .tab-container {
     width: 100%;
     margin-top: 23px;
     height: 100%;
     margin-left: 3px;
   }
+
   .profile-users-name {
     font-size: 23px;
     font-weight: 600;
     color: #000;
     align-items: center;
   }
+
   .profile-users-names {
     font-size: 15px;
     font-weight: 600;
     color: #000;
     align-items: center;
   }
+
   .create-btns {
     display: block;
     text-align: end;
     position: absolute;
   }
+
   .profile-stat-counts {
     font-weight: 500;
     font-size: 15px;
   }
+
   .profiles-stat-count {
     font-weight: 400;
     font-size: 15px;
     text-align: center;
     margin-top: -13px;
   }
+
   .profile-status-count {
     font-weight: 500;
     font-size: 16px;
     margin-top: -12px;
   }
+
   .profile-edits-btn {
     font-size: 15px;
     line-height: 1.8;
@@ -1277,6 +1414,7 @@ body {
     font-weight: 600;
     float: left;
   }
+
   .profile-edit-btn2 {
     font-size: 15px;
     line-height: 1.8;
@@ -1287,6 +1425,7 @@ body {
     font-weight: 600;
     float: right;
   }
+
   .profile-camera1 {
     float: right;
     display: flex;
@@ -1296,16 +1435,19 @@ body {
     width: 100%;
     position: absolute;
   }
+
   .profile-stat {
     margin-top: 1px;
     font-weight: 400;
     display: flex;
     justify-content: center;
   }
+
   .image {
     width: 100%;
     height: 100%;
   }
+
   .images {
     position: relative;
     width: 100%;
@@ -1315,20 +1457,24 @@ body {
     margin-top: 10px;
     row-gap: 17px;
   }
+
   .line {
     color: #000;
     width: 95%;
   }
+
   .profile-stat-counts {
     font-weight: 500;
     font-size: 15px;
   }
+
   .profiles-stat-count {
     font-weight: 400;
     font-size: 15px;
     text-align: center;
     margin-top: -13px;
   }
+
   .profile-status-count {
     font-weight: 500;
     font-size: 16px;
@@ -1336,46 +1482,56 @@ body {
     justify-content: center;
   }
 }
+
 @media (max-width: 535px) {
   .image-cam {
     position: relative;
   }
+
   .sidebar {
     display: none;
   }
+
   .mobile-nav {
     display: block;
   }
+
   .web-nav {
     display: none;
   }
+
   .mobile-logo {
     width: 100px;
     height: 37px;
   }
+
   .container2 {
     margin-left: 4px;
     width: auto;
     margin-top: 23px;
     height: 100%;
   }
+
   .profile-users-name {
     font-size: 23px;
     font-weight: 600;
     color: #000;
     align-items: center;
   }
+
   .profile-users-names {
     font-size: 15px;
     font-weight: 600;
     color: #000;
     align-items: center;
   }
+
   .create-btns {
     display: block;
     text-align: end;
     position: absolute;
   }
+
   .profile-img {
     float: right;
     display: flex;
@@ -1386,6 +1542,7 @@ body {
     position: relative;
     margin-top: 36px;
   }
+
   .profile-edits-btn {
     font-size: 15px;
     line-height: 1.8;
@@ -1396,6 +1553,7 @@ body {
     font-weight: 600;
     float: left;
   }
+
   .profile-edit-btn2 {
     font-size: 15px;
     line-height: 1.8;
@@ -1406,6 +1564,7 @@ body {
     font-weight: 600;
     float: right;
   }
+
   .profile-camera1 {
     float: right;
     display: flex;
@@ -1415,20 +1574,24 @@ body {
     width: 100%;
     position: absolute;
   }
+
   .card-tab {
     width: 95%;
     height: 100%;
   }
+
   .profile-stat {
     margin-top: 1px;
     font-weight: 400;
     display: flex;
     justify-content: center;
   }
+
   .image {
     width: 100%;
     height: 100%;
   }
+
   .images {
     position: relative;
     width: 100%;
@@ -1438,14 +1601,17 @@ body {
     margin-top: 10px;
     row-gap: 17px;
   }
+
   .line {
     color: #000;
     width: 95%;
   }
+
   .profile-stat-counts {
     font-weight: 500;
     font-size: 15px;
   }
+
   .profiles-stat-count {
     font-weight: 400;
     font-size: 15px;
@@ -1453,12 +1619,14 @@ body {
     margin-top: -13px;
     text-align: center;
   }
+
   .profile-status-count {
     font-weight: 500;
     font-size: 16px;
     margin-top: -12px;
     justify-content: center;
   }
+
   .Book {
     font-weight: 500;
     color: #000;
@@ -1466,6 +1634,7 @@ body {
     margin-top: 4px;
     width: 220px;
   }
+
   .small-time {
     color: #000;
     font-weight: 500;
@@ -1474,62 +1643,75 @@ body {
     text-align: left;
   }
 }
+
 @media (max-width: 450px) {
   .sidebar {
     display: none;
   }
+
   .mobile-nav {
     display: block;
   }
+
   .web-nav {
     display: none;
   }
+
   .mobile-logo {
     width: 100px;
     height: 37px;
   }
+
   .profile-users-name {
     font-size: 23px;
     font-weight: 600;
     color: #000;
     align-items: center;
   }
+
   .profile-users-names {
     font-size: 15px;
     font-weight: 600;
     color: #000;
     align-items: center;
   }
+
   .avatar .user-avatar {
     width: 100%;
     height: 100%;
   }
+
   .create-btns {
     display: block;
     text-align: end;
     position: absolute;
   }
+
   .profile-stat-counts {
     font-weight: 500;
     font-size: 15px;
   }
+
   .profiles-stat-count {
     font-weight: 400;
     font-size: 15px;
     text-align: center;
     margin-top: -13px;
   }
+
   .profile-status-count {
     font-weight: 500;
     font-size: 16px;
     margin-top: -12px;
   }
+
   .profile-img {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 39px;
   }
+
   .profile-edits-btn {
     font-size: 15px;
     line-height: 1.8;
@@ -1540,6 +1722,7 @@ body {
     font-weight: 600;
     float: left;
   }
+
   .profile-edit-btn2 {
     font-size: 15px;
     line-height: 1.8;
@@ -1550,16 +1733,19 @@ body {
     font-weight: 600;
     float: right;
   }
+
   .profile-camera1 {
     margin-left: 49px;
     margin-bottom: 9px;
   }
+
   .user-online-indicator {
     width: 28px;
     height: 28px;
     bottom: 5px;
     right: 8px;
   }
+
   .Book {
     font-weight: 500;
     color: #000;
@@ -1573,6 +1759,7 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
   .small-time {
     color: #000;
     font-weight: 500;
@@ -1580,6 +1767,7 @@ body {
     margin-top: 33px;
     text-align: left;
   }
+
   .booked {
     font-weight: 600;
     font-size: 15px;
@@ -1587,16 +1775,19 @@ body {
     word-break: break-all;
     width: 20px;
   }
+
   .profile-stat {
     margin-top: 1px;
     font-weight: 400;
     display: flex;
     justify-content: center;
   }
+
   .image {
     width: 100%;
     height: 100%;
   }
+
   .images {
     position: relative;
     width: 100%;
@@ -1606,20 +1797,24 @@ body {
     margin-top: 10px;
     row-gap: 17px;
   }
+
   .line1 {
     color: #000;
     width: 80%;
   }
+
   .profile-stat-counts {
     font-weight: 500;
     font-size: 15px;
   }
+
   .profiles-stat-count {
     font-weight: 400;
     font-size: 15px;
     align-items: center;
     margin-top: -13px;
   }
+
   .profile-status-count {
     font-weight: 500;
     font-size: 16px;
@@ -1627,6 +1822,7 @@ body {
     justify-content: center;
   }
 }
+
 @media (max-width: 375px) {
   .Book {
     font-weight: 500;
@@ -1635,6 +1831,7 @@ body {
     margin-bottom: -8px;
     width: auto;
   }
+
   .small-time {
     color: #000;
     font-weight: 500;
@@ -1643,3 +1840,4 @@ body {
     text-align: left;
   }
 }
+

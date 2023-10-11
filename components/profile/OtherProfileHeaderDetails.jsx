@@ -343,7 +343,8 @@ function OtherProfileHeaderDetails({
                     <StarInfo />
                   )}
                   <br></br>
-                  <h1 className="profile-user-names">@{data.username}</h1>
+                  <h1 className="profile-user-names">@{data.username}</h1><br />
+                  <h7 className="bio-name" style={{ color: "#959595" }}>{t("Bio")}{data.bio}</h7>
                   {!data.hide_followers_count && (
                     <>
                       <br></br>
